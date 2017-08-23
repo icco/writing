@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from "react-helmet";
 
 class Post extends Component {
   constructor(props) {
@@ -29,6 +30,10 @@ class Post extends Component {
 
       return (
         <div>
+          <Helmet>
+          <title>Nat? Nat. Nat! #{post.id} - "{post.title}"</title>
+          </Helmet>
+
           <h1>{post.title}</h1>
           <div dangerouslySetInnerHTML={{__html: post.body}} />
         </div>
