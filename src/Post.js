@@ -35,7 +35,7 @@ class Post extends Component {
           </Helmet>
 
           <h1>{post.title}</h1>
-          <div dangerouslySetInnerHTML={{__html: post.text}} />
+          <div dangerouslySetInnerHTML={{__html: post.html}} />
         </div>
       );
     } else {
