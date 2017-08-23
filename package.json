@@ -15,5 +15,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "Static frontend for Nat Welch's blog.",
+  "main": "index.js",
+  "repository": "git@github.com:icco/writing-fe.git",
+  "author": "Nat Welch <nat@natwelch.com>",
+  "license": "MIT"
 }
