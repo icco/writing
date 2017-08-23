@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import styled from 'tachyons-components'
+//import styled from 'tachyons-components'
 
 class App extends Component {
   render() {
-    const Button = styled('button')`
-  f6 f5-ns fw6 dib ba
-  b--black-20 bg-blue white
-  ph3 ph4-ns pv2 pv3-ns br2
-  grow no-underline
-`
     return (
-      <Button mr2>
-      Hello
-      </Button>
+      <div className="App">
+      <div className="App-header">
+      <h2>My blog</h2>
+      </div>
+      <div>
+      {this.props.children}
+      </div>
+      </div>
     );
   }
 }
