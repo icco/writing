@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
+import styled from 'tachyons-components'
+
+const PostHolder = styled('div')`ma4`
+const PostHeader = styled('h2')`pb2`
+const PostSummary = styled('div')``
+const PostMeta = styled('div')``
+const PostDate = styled('div')``
 
 class Home extends Component {
 
@@ -44,9 +51,13 @@ class Home extends Component {
         <div>
         {this.state.resp.map((post) => {
           return (
-            <div key={post.id}>
-            <Link to={`/post/${post.id}`}>{post.title}</Link>
-            </div>
+            <PostHolder key={post.id}>
+            <Link to={`/post/${post.id}`}><PostHeader>{post.title}</PostHeader></Link>
+            <PostMeta>
+              <PostDate>{post.date}</PostDate>
+            </PostMeta>
+            <PostSummary dangerouslySetInnerHTML={{__html: post.html}}></PostSummary>
+            </PostHolder>
           )
         })}
         </div>
