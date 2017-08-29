@@ -56,7 +56,7 @@ class Home extends Component {
             <PostHolder key={post.id}>
             <Link to={`/post/${post.id}`}><PostHeader>{post.title}</PostHeader></Link>
             <PostMeta>
-              <PostDate><Moment interval={0} format="dddd, MMMM Do YYYY, H:mm a z">{post.date}</Moment></PostDate>
+              <PostDate><Moment interval={0}>{post.date}</Moment></PostDate>
             </PostMeta>
             <PostSummary dangerouslySetInnerHTML={{__html: post.html}}></PostSummary>
             </PostHolder>
