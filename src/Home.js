@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
 import styled from 'tachyons-components'
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 const PostHolder = styled('div')`ma4`
 const PostHeader = styled('h2')`pb2`
@@ -54,7 +56,7 @@ class Home extends Component {
             <PostHolder key={post.id}>
             <Link to={`/post/${post.id}`}><PostHeader>{post.title}</PostHeader></Link>
             <PostMeta>
-              <PostDate>{post.date}</PostDate>
+              <PostDate><Moment>{post.date}</Moment></PostDate>
             </PostMeta>
             <PostSummary dangerouslySetInnerHTML={{__html: post.html}}></PostSummary>
             </PostHolder>
