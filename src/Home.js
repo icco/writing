@@ -1,14 +1,10 @@
+'strict';
+
 import React, { Component } from 'react';
 import { Link } from 'react-router'
-import styled from 'tachyons-components'
 import Moment from 'react-moment';
 import 'moment-timezone';
-
-const PostHolder = styled('div')`ma4`
-const PostHeader = styled('h2')`pb2`
-const PostSummary = styled('div')``
-const PostMeta = styled('div')``
-const PostDate = styled('div')``
+import 'tachyons';
 
 class Home extends Component {
 
@@ -53,13 +49,13 @@ class Home extends Component {
         <div>
         {this.state.resp.map((post) => {
           return (
-            <PostHolder key={post.id}>
-            <Link to={`/post/${post.id}`}><PostHeader>{post.title}</PostHeader></Link>
-            <PostMeta>
-              <PostDate><Moment interval={0}>{post.date}</Moment></PostDate>
-            </PostMeta>
-            <PostSummary dangerouslySetInnerHTML={{__html: post.html}}></PostSummary>
-            </PostHolder>
+            <div className="ma4" key={post.id}>
+            <Link to={`/post/${post.id}`}><h2 className="pb2">{post.title}</h2></Link>
+            <div>
+              <Moment interval={0}>{post.date}</Moment>
+            </div>
+            <div dangerouslySetInnerHTML={{__html: post.html}}></div>
+            </div>
           )
         })}
         </div>
