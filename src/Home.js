@@ -1,6 +1,7 @@
 'strict';
 
 import React, { Component } from 'react';
+import { Helmet } from "react-helmet";
 import { Link } from 'react-router'
 import Moment from 'react-moment';
 import 'moment-timezone';
@@ -47,6 +48,9 @@ class Home extends Component {
     if (this.state.loaded) {
       return (
         <div className="w6">
+          <Helmet>
+            <title>Nat? Nat. Nat!</title>
+          </Helmet>
         {this.state.resp.map((post) => {
           return (
             <Link className="no-underline black dim" to={`/post/${post.id}`}>
