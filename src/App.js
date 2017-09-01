@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div class="w-100 bg-near-white">
+      <div className="w-100">
         <header className="pv1 ph3 pa4-m pa5-l oh pos-rel mt0-ns mt4">
           <div className="dt w-100">
             <div className="dtc w-50 v-mid">
