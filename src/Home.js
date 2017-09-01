@@ -46,16 +46,20 @@ class Home extends Component {
   render() {
     if (this.state.loaded) {
       return (
-        <div>
+        <div className="w6">
         {this.state.resp.map((post) => {
           return (
-            <div className="ma4" key={post.id}>
-            <Link to={`/post/${post.id}`}><h2 className="pb2">{post.title}</h2></Link>
-            <div>
-              <Moment interval={0}>{post.date}</Moment>
-            </div>
-            <div dangerouslySetInnerHTML={{__html: post.html}}></div>
-            </div>
+            <Link className="no-underline black dim" to={`/post/${post.id}`}>
+              <div className="vat mt0 mb0 dib w-50-ns w-100 mh0" key={post.id}>
+                <h2 className="lh-title georgia fw1 ph0 mb1">{post.title}</h2>
+                <div>
+                  <p className="mv0 f6"><Moment className="dib" interval={0} format="MMM. Do YYYY, h a z">{post.date}</Moment>. {Math.ceil(post.readtime / 60)} minute read.</p>
+                </div>
+                <div className="f5 db lh-copy measure">
+                  <div className="dib" dangerouslySetInnerHTML={{__html: post.html}}></div>
+                </div>
+              </div>
+            </Link>
           )
         })}
         </div>
