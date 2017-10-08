@@ -19,7 +19,7 @@ class Home extends Component {
 
   fetchPosts(page) {
     // TODO: Add page support
-    fetch("https://writing.natwelch.com/summary.json")
+    fetch("https://natwelch-writing.appspot.com/summary.json")
       .then((response) => response.json())
       .then((resp) => {
         console.debug(resp);

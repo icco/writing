@@ -15,7 +15,7 @@ class Post extends Component {
   componentWillMount() {
     let slug = this.props.params.slug;
 
-    fetch(`https://writing.natwelch.com/post/${slug}/json`)
+    fetch(`https://natwelch-writing.appspot.com/post/${slug}/json`)
       .then((response) => response.json())
       .then((resp) => {
         console.log(resp);
