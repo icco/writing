@@ -7,9 +7,8 @@ import { unregister } from './registerServiceWorker';
 
 import Routes from './routes';
 
-unregister();
-
 ReactDOM.render(
  <Routes history={browserHistory} />,
  document.getElementById('root')
 );
+unregister();
