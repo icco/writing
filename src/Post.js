@@ -18,7 +18,6 @@ class Post extends Component {
     fetch(`https://natwelch-writing.appspot.com/post/${slug}/json`)
       .then((response) => response.json())
       .then((resp) => {
-        console.log(resp);
         this.setState({
           loaded: true,
           post: resp
