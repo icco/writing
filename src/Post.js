@@ -37,7 +37,7 @@ class Post extends Component {
 
           <div className="vat mt0 mb0 dib w-100 mh0" key={post.id}>
             <Link className="no-underline black dim" to={`/post/${post.id}`}>
-              <h2 className="lh-title georgia fw1 ph0 mb1">{post.title}</h2>
+              <h2 className="f1 lh-title georgia fw1 ph0 mb1 mt0">{post.title}</h2>
             </Link>
             <div>
               <p className="mv0 f6"><Moment className="dib" interval={0} format="MMM. Do YYYY, h a z">{post.date}</Moment>. {Math.ceil(post.readtime / 60)} minute read.</p>
