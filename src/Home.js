@@ -53,17 +53,19 @@ class Home extends Component {
           </Helmet>
         {this.state.resp.map((post) => {
           return (
-            <Link className="no-underline black dim" to={`/post/${post.id}`} key={post.id}>
-              <div className="vat mt0 mb0 dib w-50-ns w-100 mh0">
-                <h2 className="lh-title georgia fw1 ph0 mb1">{post.title}</h2>
-                <div>
-                  <p className="mv0 f6">#{post.id} <Moment className="dib" interval={0} format="MMM. Do YYYY, h a z">{post.date}</Moment>. {Math.ceil(post.readtime / 60)} minute read.</p>
-                </div>
-                <div className="f5 db lh-copy measure">
-                  <div className="dib" dangerouslySetInnerHTML={{__html: post.html}}></div>
-                </div>
+            <div className="vat mt0 mb0 dib w-50-ns w-100 mh0">
+              <h2 className="lh-title georgia fw1 ph0 mb1 mt2">
+                <Link className="no-underline black dim" to={`/post/${post.id}`} key={post.id}>{post.title}</Link>
+              </h2>
+              <div>
+                <p className="mv0 f6">#{post.id} <Moment className="dib" interval={0} format="MMM. Do YYYY, h a z">{post.date}</Moment>. {Math.ceil(post.readtime / 60)} minute read.</p>
               </div>
-            </Link>
+              <div className="f5 db lh-copy measure">
+                <div className="dib" dangerouslySetInnerHTML={{__html: post.html}}></div>
+
+                <Link className="no-underline black dim" to={`/post/${post.id}`} key={post.id}>Continue Reading...</Link>
+              </div>
+            </div>
           )
         })}
         </div>
