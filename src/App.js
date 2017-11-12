@@ -23,6 +23,14 @@ class App extends Component {
         <div className="pv0 ph3 ph4-m ph5-l mt0-ns mt4">
           {this.props.children}
         </div>
+
+        <footer className="pv0 ph3 ph4-m ph5-l mt0-ns mt4 bt b--black-10">
+          <p className="db tc center"><a href="http://natwelch.com/">Nat Welch</a> is a Software Reconnaissance Engineer who likes writing software to help humans deal with the chaos. He writes his thoughts on this blog. He thanks you for reading.</p>
+          <ul className="list ph3 ph5-ns pv0 tc">
+          <li className="dib mr2"><a href="/about" className="f6 f5-ns b db pa2 link dim mid-gray">About</a></li>
+          <li className="dib mr2"><a href="https://twitter.com/icco" className="f6 f5-ns b db pa2 link dim mid-gray">Twitter</a></li>
+          </ul>
+        </footer>
       </div>
     );
   }
