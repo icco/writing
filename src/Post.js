@@ -35,14 +35,12 @@ class Post extends Component {
           <title>{`Nat? Nat. Nat! #${post.id} - "${post.title}"`}</title>
           </Helmet>
 
-          <div className="vat mt0 mb0 dib w-100 mh0" key={post.id}>
-            <Link className="no-underline black dim" to={`/post/${post.id}`}>
-              <h2 className="f1 lh-title georgia fw1 ph0 mb1 mt0">{post.title}</h2>
+          <div className="vat mt3 mb0 dib w-100 mh0" key={post.id}>
+            <Link className="no-underline dim" to={`/post/${post.id}`}>
+              <h2 className="avenir f2-ns f3 measure lh-title fw1 mt0 mb1">{post.title}</h2>
             </Link>
-            <div>
-              <p className="mv0 f6"><Moment className="dib" interval={0} format="MMM. Do YYYY, h a z">{post.date}</Moment>. {Math.ceil(post.readtime / 60)} minute read.</p>
-            </div>
-            <div className="f5 db lh-copy measure-wide">
+            <p className="avenir mt0 f5-ns f6 db mb3"><Moment className="dib" interval={0} format="MMM. Do YYYY, h a z">{post.date}</Moment>. {Math.ceil(post.readtime / 60)} minute read.</p>
+            <div className="db lh-copy">
               <div className="dib" dangerouslySetInnerHTML={{__html: post.html}}></div>
             </div>
           </div>
