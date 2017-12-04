@@ -1,9 +1,12 @@
 @import url('https://rsms.me/interface/interface.css');
 
 body {
-  font-family: Interface, sans-serif;
   color: #2d2d2c;
   background-color: #ffffff;
+}
+
+h1, h2, h3, h4 {
+  font-family: Interface, sans-serif;
 }
 
 a, a:link, a:visited {

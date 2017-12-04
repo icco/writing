@@ -7,15 +7,15 @@ class App extends Component {
   render() {
     return (
       <div className="w-100">
-        <header className="pv1 ph3 pa4-m pa5-l oh pos-rel mt0-ns mt4">
-          <div className="dt w-100">
-            <div className="dtc w-50 v-mid">
-              <Link to="/" className="no-underline black dim"><img className="v-mid mh0-ns dib-ns db center ph0 w4" src="/img/dots.png" alt="Nat? Nat. Nat!" /></Link>
-              <div className="dib v-mid pa0 w-100 w-auto-ns">
+        <header className="mw6 center br3 pa3 pa4-ns mv3">
+          <div className="tc">
+            <div className="">
+              <Link to="/" className=""><img className="h4 w4 dib pa2" src="/img/dots.png" alt="Nat? Nat. Nat!" /></Link>
+              <div className="">
                 <Link to="/" className="no-underline black dim">
-                  <h1 className="lh-title mb2 mt0 tracked tl-ns tc w-100">Nat? Nat. Nat!</h1>
+                  <h1 className="lh-title f3 mb2 mt0">Nat? Nat. Nat!</h1>
                 </Link>
-                <h2 className="lh-title normal pa0 ma0 f4 tc tl-ns">A blog about random stuff.</h2>
+                <h2 className="f5 fw4 gray mv0">A blog about random stuff.</h2>
               </div>
             </div>
           </div>
