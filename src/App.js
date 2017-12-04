@@ -21,8 +21,10 @@ class App extends Component {
           </div>
         </header>
 
-        <div className="pv0 ph3 ph4-m ph5-l mt0-ns mt4">
-          {this.props.children}
+        <div className="mw7 center">
+          <div className="pb0 pt2 ph0 mh3 mh4-m mh5-l mt0-ns mt4 bt b--light-gray ">
+            {this.props.children}
+          </div>
         </div>
 
         <footer className="pv0 ph3 ph4-m ph5-l mt0-ns mt4 bt b--black-10">
