@@ -1,9 +1,9 @@
-@import url('https://rsms.me/interface/interface.css');
+@import url('https://rsms.me/inter/inter-ui.css');
 
 body {
   color: #2d2d2c;
   background-color: #ffffff;
-  font-family: Interface, sans-serif;
+  font-family: 'Inter UI', sans-serif;
 }
 
 a, a:link, a:visited {
