@@ -54,7 +54,7 @@ class Home extends Component {
         {this.state.resp.map((post) => {
           return (
             <div className="vat pa2 mv2 dib w-100 mh0">
-              <h2 className="lh-title georgia fw1 ph0 mb1 mt2">
+              <h2 className="lh-title fw1 ph0 mb1 mt2">
                 <Link className="no-underline" to={`/post/${post.id}`} key={post.id}>{post.title}</Link>
               </h2>
               <div>
