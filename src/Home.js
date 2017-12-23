@@ -1,5 +1,7 @@
 'strict';
 
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import React, { Component } from 'react';
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router'
@@ -80,4 +82,12 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default graphql(gql`
+  query HomeQuery {
+    posts {
+      id
+      title
+      date
+    }
+  }
+`)(Home);
