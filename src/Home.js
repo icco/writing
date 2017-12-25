@@ -43,6 +43,8 @@ export default graphql(gql`
       Id
       Title
       Datetime
+      Readtime
+      SummaryHtml
     }
   }
 `)(Home);
