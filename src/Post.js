@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
-import { Link } from 'react-router'
+import { Link, withRouter } from 'react-router'
 import Moment from 'react-moment';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -34,11 +34,17 @@ function PostComponent({ data: {Post, error, loading}}) {
 }
 
 export default graphql(gql`
-  query PostQuery {
-    Post(Id: 677) {
+  query PostQuery($postId: ID!) {
+    Post(Id: $postId) {
       Id
       Title
       Datetime
     }
   }
-`)(PostComponent);
+`, {
+  options: (ownProps) => ({
+    variables: {
+      postId: ownProps.params.slug
+    }
+  })
+})(withRouter(PostComponent));
