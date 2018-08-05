@@ -1,8 +1,5 @@
-// This example uses React Router v4, although it should work
-// equally well with other routers that support SSR
-
 import { ApolloProvider, renderToStringWithData } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
+import { ApolloClient } from 'apollo-boost';
 import { createHttpLink } from 'apollo-link-http';
 import Express from 'express';
 import { StaticRouter } from 'react-router';
@@ -19,10 +16,7 @@ const app = new Express();
 app.use((req, res) => {
   const client = new ApolloClient({
     ssrMode: true,
-    // Remember that this is the interface the SSR server will use to connect to the
-    // API server, so we need to ensure it isn't firewalled, etc
-    link: new HttpLink({uri: "https://writing-be.natwelch.com/graphql"}),
-    cache: new InMemoryCache()
+    link: new HttpLink({uri: "https://blog.natwelch.com/graphql"}),
   });
 
   const context = {};
@@ -51,3 +45,5 @@ app.use((req, res) => {
 app.listen(PORT, () => console.log( // eslint-disable-line no-console
   `App Server is now running on http://localhost:${PORT}`
 ));
+
+
