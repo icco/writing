@@ -1,8 +1,7 @@
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import ErrorMessage from './ErrorMessage'
-
-const POSTS_PER_PAGE = 10
+import Link from 'next/link'
 
 function PostList ({
   data: { loading, error, allPosts, _allPostsMeta },
@@ -17,7 +16,7 @@ function PostList ({
             <li key={post.id}>
               <div>
                 <span>#{post.id} </span>
-                <a href={`/post/${post.id}`}>{post.title}</a>
+                <Link href={`/post/${post.id}`}>{post.title}</Link>
               </div>
             </li>
           ))}
