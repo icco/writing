@@ -1,7 +1,6 @@
 {
-  "name": "githunt",
+  "name": "writing",
   "version": "2.0.0",
-  "description": "Example app for Apollo",
   "main": "index.js",
   "scripts": {
     "start": "node build/server/bundle.js",
@@ -20,16 +19,8 @@
       "git add"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/apollographql/GitHunt.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/apollographql/GitHunt/issues"
-  },
-  "homepage": "https://github.com/apollographql/GitHunt#readme",
+  "private": true,
+  "homepage": "https://writing.natwelch.com",
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
     "babel-cli": "^6.26.0",
