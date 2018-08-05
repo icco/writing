@@ -12,7 +12,7 @@ const Post = ({ router: { pathname } }) => (
 
 export const getPost = gql`
   query getPost($id: ID!) {
-    allPosts {
+    post(id: $id) {
       id
       title
       content
