@@ -5,6 +5,7 @@ import { withRouter } from 'next/router'
 import marked from 'marked'
 import Moment from 'react-moment'
 import 'moment-timezone'
+import Head from 'next/head'
 
 const Post = (props) => {
   const { id, router: { asPath }, data, error, loading } = props;
@@ -14,6 +15,10 @@ const Post = (props) => {
 
     return (
       <div>
+        <Head>
+          <title>Nat? Nat. Nat! | #{data.post.id} {data.post.title}</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+        </Head>
         <div>#{data.post.id}</div>
         <Moment format="YYYY-MM-DD">{data.post.datetime}</Moment>
 

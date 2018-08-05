@@ -1,8 +1,13 @@
 import App from '../components/App'
 import Header from '../components/Header'
+import Head from 'next/head'
 
 export default () => (
   <App>
+    <Head>
+      <title>Nat? Nat. Nat! | About</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+    </Head>
     <Header />
     <article>
       <h1>The Idea Behind This Example</h1>
