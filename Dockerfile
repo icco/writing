@@ -6,4 +6,4 @@ EXPOSE 8080
 COPY . .
 RUN yarn install
 RUN yarn run build
-RUN yarn run serve
+RUN yarn run start
