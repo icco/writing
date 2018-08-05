@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start -p 8080"
+    "start": "next start -p 8080",
+    "lint": "./lint.sh"
   },
   "dependencies": {
     "@mdx-js/mdx": "^0.15.0-2",
