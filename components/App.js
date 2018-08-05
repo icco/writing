@@ -1,5 +1,1 @@
-export default ({ children }) => (
-  <main>
-    {children}
-  </main>
-)
+export default ({ children }) => <main>{children}</main>;
