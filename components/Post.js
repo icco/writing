@@ -2,18 +2,19 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import ErrorMessage from './ErrorMessage'
 import { withRouter } from 'next/router'
+import marked from 'marked'
 
 const Post = (props) => {
   const { id, router: { asPath }, data } = props;
+  let html = { __html: marked(data.post.content) }
 
   return (
     <div>
-      #{data.post.id}
+      <div>#{data.post.id}</div>
+      <div>{data.post.datetime}</div>
 
       <h1>{data.post.title}</h1>
-      <div>
-        {data.post.content}
-      </div>
+      <div dangerouslySetInnerHTML={html}></div>
     </div>
   )
 }
