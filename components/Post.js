@@ -7,19 +7,32 @@ import Moment from 'react-moment'
 import 'moment-timezone'
 
 const Post = (props) => {
-  const { id, router: { asPath }, data } = props;
-  let html = { __html: marked(data.post.content) }
+  const { id, router: { asPath }, data, error, loading } = props;
 
-  return (
-    <div>
-      <div>#{data.post.id}</div>
-      <Moment format="YYYY-MM-DD">{data.post.datetime}</Moment>
+  if (data.post) {
+    let html = { __html: marked(data.post.content) }
 
-      <h1>{data.post.title}</h1>
-      <div dangerouslySetInnerHTML={html}></div>
-    </div>
-  )
+    return (
+      <div>
+        <div>#{data.post.id}</div>
+        <Moment format="YYYY-MM-DD">{data.post.datetime}</Moment>
+
+        <h1>{data.post.title}</h1>
+        <div dangerouslySetInnerHTML={html}></div>
+      </div>
+    )
+  } else {
+    throw notFoundError()
+  }
 }
+
+function notFoundError () {
+  const err = new Error(`this will not show up anywhere`)
+  err.code = 'ENOENT'
+  return err
+}
+
+// call this in render if something is missing
 
 export const getPost = gql`
   query getPost($id: ID!) {
