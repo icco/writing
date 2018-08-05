@@ -1,23 +1,34 @@
-import Home from './Home';
-import About from './About';
-import PostComponent from './Post';
+import FeedPage from './FeedPage';
+import NewEntryPage from './NewEntryPage';
+import CommentsPage from './CommentsPage';
+import NotFoundPage from './NotFoundPage';
 
 const routes = [
   {
     path: '/',
     name: 'home',
     exact: true,
-    component: Home,
+    component: FeedPage,
   },
   {
-    path: '/post/:slug',
-    name: 'post',
-    component: PostComponent,
+    path: '/feed/:type',
+    name: 'feed',
+    component: FeedPage,
   },
   {
-    path: '/about',
-    component: About,
-    name: 'about',
+    path: '/submit',
+    name: 'submit',
+    component: NewEntryPage,
+  },
+  {
+    path: '/:org/:repoName',
+    name: 'submit',
+    component: CommentsPage,
+  },
+  {
+    path: '*',
+    name: 'notfound',
+    component: NotFoundPage,
   },
 ];
 
