@@ -3,10 +3,7 @@ import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import Link from "next/link";
 
-function PostList({
-  data: { loading, error, allPosts, _allPostsMeta },
-  loadMorePosts
-}) {
+function PostList({ data: { loading, error, allPosts } }) {
   if (error) return <ErrorMessage message="Error loading posts." />;
   if (allPosts && allPosts.length) {
     return (
@@ -26,6 +23,7 @@ function PostList({
       </section>
     );
   }
+
   return <div>Loading</div>;
 }
 
@@ -41,29 +39,5 @@ export const allPosts = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (PostList)
 export default graphql(allPosts, {
-  options: {},
-  props: ({ data }) => {
-    return {
-      data,
-      loadMorePosts: () => {
-        return data.fetchMore({
-          variables: {
-            skip: data.allPosts.length
-          },
-          updateQuery: (previousResult, { fetchMoreResult }) => {
-            if (!fetchMoreResult) {
-              return previousResult;
-            }
-            return Object.assign({}, previousResult, {
-              // Append the new posts results to the old one
-              allPosts: [
-                ...previousResult.allPosts,
-                ...fetchMoreResult.allPosts
-              ]
-            });
-          }
-        });
-      }
-    };
-  }
+  options: {}
 })(PostList);
