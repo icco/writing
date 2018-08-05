@@ -3,6 +3,8 @@ import gql from 'graphql-tag'
 import ErrorMessage from './ErrorMessage'
 import { withRouter } from 'next/router'
 import marked from 'marked'
+import Moment from 'react-moment'
+import 'moment-timezone'
 
 const Post = (props) => {
   const { id, router: { asPath }, data } = props;
@@ -11,7 +13,7 @@ const Post = (props) => {
   return (
     <div>
       <div>#{data.post.id}</div>
-      <div>{data.post.datetime}</div>
+      <Moment format="YYYY-MM-DD">{data.post.datetime}</Moment>
 
       <h1>{data.post.title}</h1>
       <div dangerouslySetInnerHTML={html}></div>

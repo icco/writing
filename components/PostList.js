@@ -16,7 +16,7 @@ function PostList ({
             <li key={post.id}>
               <div>
                 <span>#{post.id} </span>
-                <Link href={`/post/${post.id}`}>{post.title}</Link>
+                <Link href={`/post/${post.id}`}><a>{post.title}</a></Link>
               </div>
             </li>
           ))}
