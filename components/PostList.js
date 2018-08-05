@@ -21,8 +21,6 @@ function PostList ({
             </li>
           ))}
         </ul>
-        <style jsx>{`
-        `}</style>
       </section>
     )
   }

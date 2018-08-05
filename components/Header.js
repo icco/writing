@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { withRouter } from 'next/router'
-import '../css/style.css'
 
 const Header = ({ router: { pathname } }) => (
   <header className='mb3'>
