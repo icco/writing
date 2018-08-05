@@ -1,10 +1,13 @@
 import App from '../components/App'
 import Header from '../components/Header'
 import Post from '../components/Post'
+import {withRouter} from 'next/router'
 
-export default (props) => (
+const Page = withRouter((props) => (
   <App>
     <Header />
-    <Post />
+    <Post id={props.router.query.id} />
   </App>
-)
+))
+
+export default Page

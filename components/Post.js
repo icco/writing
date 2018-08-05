@@ -3,12 +3,20 @@ import gql from 'graphql-tag'
 import ErrorMessage from './ErrorMessage'
 import { withRouter } from 'next/router'
 
-const Post = ({ router: { pathname } }) => (
-  <div>
-    <style jsx>{`
-    `}</style>
-  </div>
-)
+const Post = (props) => {
+  const { id, router: { asPath }, data } = props;
+
+  return (
+    <div>
+      #{data.post.id}
+
+      <h1>{data.post.title}</h1>
+      <div>
+        {data.post.content}
+      </div>
+    </div>
+  )
+}
 
 export const getPost = gql`
   query getPost($id: ID!) {
