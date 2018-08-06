@@ -12,7 +12,6 @@ function sketch(p) {
 
   p.setup = function() {
     var cnv = p.createCanvas(200, 200);
-    cnv.parent(".logo");
 
     p.noStroke();
     p.fill(51);
@@ -38,8 +37,8 @@ function sketch(p) {
         let r = rand[i];
 
         // each particle moves in a circle
-        let myX = x + 30 * cos(2 * p.PI * t + r);
-        let myY = y + 30 * sin(2 * p.PI * t + r);
+        let myX = x + 30 * p.cos(2 * p.PI * t + r);
+        let myY = y + 30 * p.sin(2 * p.PI * t + r);
 
         p.ellipse(myX, myY, 8); // draw particle
       }
