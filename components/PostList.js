@@ -17,7 +17,7 @@ function PostList({ data: { loading, error, allPosts } }) {
                 as={`/post/${post.id}`}
                 href={`/post?id=${post.id}`}
               >
-                <a className="db f3 f1-ns link dark-gray dim">{post.title}</a>
+                <a className="header db f3 f1-ns link dark-gray dim">{post.title}</a>
               </Link>
             </li>
           ))}

@@ -6,6 +6,7 @@ import Document, { Head, Main, NextScript } from "next/document";
 
 // CSS is compiled into the style.css below
 import "../css/tachyons.min.css";
+import "../css/base.css";
 
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
