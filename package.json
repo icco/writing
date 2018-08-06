@@ -8,10 +8,7 @@
     "lint": "./lint.sh"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^0.15.0-2",
     "@zeit/next-css": "^0.2.0",
-    "@zeit/next-mdx": "^1.1.0",
-    "@zeit/next-source-maps": "^0.0.2",
     "apollo-boost": "^0.1.3",
     "apollo-client": "^2.3.7",
     "express": "^4.16.3",
