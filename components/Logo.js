@@ -52,6 +52,10 @@ function round(x) {
   return Number.parseFloat(x).toFixed(4);
 }
 
-const Link = params => <P5Wrapper sketch={sketch} />;
+const Link = params => (
+  <div style={{width: "200px", height: "200px"}} className="center">
+    <P5Wrapper sketch={sketch} />
+  </div>
+)
 
 export default Link;
