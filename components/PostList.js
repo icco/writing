@@ -13,7 +13,11 @@ function PostList({ data: { loading, error, allPosts } }) {
             <li key={post.id}>
               <div>
                 <span>#{post.id} </span>
-                <Link prefetch as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
+                <Link
+                  prefetch
+                  as={`/post/${post.id}`}
+                  href={`/post?id=${post.id}`}
+                >
                   <a>{post.title}</a>
                 </Link>
               </div>

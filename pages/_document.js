@@ -2,15 +2,15 @@
 // Event handlers like onClick can't be added to this file
 
 // ./pages/_document.js
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Head, Main, NextScript } from "next/document";
 
 // CSS is compiled into the style.css below
-import "../css/tachyons.min.css"
+import "../css/tachyons.min.css";
 
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
@@ -24,6 +24,6 @@ export default class WritingDocument extends Document {
           <NextScript />
         </body>
       </html>
-    )
+    );
   }
 }
