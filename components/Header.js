@@ -3,13 +3,12 @@ import { withRouter } from "next/router";
 import Logo from "./Logo";
 
 const Header = ({ router: { pathname } }) => (
-  <header className="mb3">
-    <Logo />
-    <Link prefetch href="/">
-      <a className={pathname === "/" ? "is-active" : ""}>Home</a>
-    </Link>
-    <Link prefetch href="/about">
-      <a className={pathname === "/about" ? "is-active" : ""}>About</a>
+  <header className="mv5 center mw6">
+    <Link href="/">
+      <a className="link dark-gray dim">
+        <Logo />
+        <h1 className="tc">Nat? Nat. Nat!</h1>
+      </a>
     </Link>
   </header>
 );

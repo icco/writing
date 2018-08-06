@@ -7,20 +7,18 @@ function PostList({ data: { loading, error, allPosts } }) {
   if (error) return <ErrorMessage message="Error loading posts." />;
   if (allPosts && allPosts.length) {
     return (
-      <section>
-        <ul>
+      <section className="mw8 center">
+        <ul className="list pl0">
           {allPosts.map(post => (
-            <li key={post.id}>
-              <div>
-                <span>#{post.id} </span>
-                <Link
-                  prefetch
-                  as={`/post/${post.id}`}
-                  href={`/post?id=${post.id}`}
-                >
-                  <a>{post.title}</a>
-                </Link>
-              </div>
+            <li className="mb5 ml4 mr3" key={post.id}>
+              <div className="f6 db pb1 light-gray">#{post.id} {post.datetime}</div>
+              <Link
+                prefetch
+                as={`/post/${post.id}`}
+                href={`/post?id=${post.id}`}
+              >
+                <a className="db f3 f1-ns link dark-gray dim">{post.title}</a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -36,6 +34,7 @@ export const allPosts = gql`
     allPosts {
       id
       title
+      datetime
     }
   }
 `;

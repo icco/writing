@@ -19,7 +19,7 @@ export default class WritingDocument extends Document {
         <Head>
           <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
-        <body className="ma2">
+        <body>
           <Main />
           <NextScript />
         </body>
