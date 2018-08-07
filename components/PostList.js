@@ -33,7 +33,7 @@ function PostList({ data: { loading, error, allPosts } }) {
     );
   }
 
-  return <div></div>;
+  return <div />;
 }
 
 export const allPosts = gql`
