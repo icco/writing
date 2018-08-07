@@ -6,6 +6,7 @@ import marked from "marked";
 import Moment from "react-moment";
 import "moment-timezone";
 import Head from "next/head";
+import Link from "next/link";
 
 const Post = props => {
   const {
@@ -19,27 +20,32 @@ const Post = props => {
     let html = { __html: marked(post.content) };
 
     return (
-      <div>
+      <section className="mw8 center">
         <Head>
           <title>
             Nat? Nat. Nat! | #{post.id} {post.title}
           </title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-            key="viewport"
-          />
         </Head>
-        <div>#{post.id}</div>
-        <Moment format="YYYY-MM-DD">{post.datetime}</Moment>
 
-        <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={html} />
-      </div>
+
+        <div className="mb5 mr3 ml4">
+          <div className="f6 db pb1 gray">
+            <span className="mr3">#{post.id}</span>
+            <Moment format="YYYY-MM-DD">{post.datetime}</Moment>
+          </div>
+          <Link prefetch as={`/post/${post.id}`} href={`/post?id=${post.id}`} >
+            <a className="header db f3 f1-ns link dark-gray dim">{post.title}</a>
+          </Link>
+        </div>
+
+        <article className="mr3 ml4">
+          <div dangerouslySetInnerHTML={html} />
+        </article>
+      </section>
     );
   }
 
-  return <div>Loading</div>;
+  return <div></div>;
 };
 
 function notFoundError() {
@@ -47,8 +53,6 @@ function notFoundError() {
   err.code = "ENOENT";
   return err;
 }
-
-// call this in render if something is missing
 
 export const getPost = gql`
   query getPost($id: ID!) {

@@ -19,6 +19,11 @@ export default class WritingDocument extends Document {
       <html lang="en">
         <Head>
           <link rel="stylesheet" href="/_next/static/style.css" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+            key="viewport"
+          />
         </Head>
         <body>
           <Main />

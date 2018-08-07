@@ -6,11 +6,6 @@ export default () => (
   <App>
     <Head>
       <title>Nat? Nat. Nat! | About</title>
-      <meta
-        name="viewport"
-        content="initial-scale=1.0, width=device-width"
-        key="viewport"
-      />
     </Head>
     <Header />
     <article>

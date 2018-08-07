@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 const P5Wrapper = dynamic(import("react-p5-wrapper"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => (''),
   ssr: false
 });
 
