@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
+@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab");
 
-body, p, .normal {
-  font-family: 'Roboto', sans-serif;
+body,
+p,
+.normal {
+  font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3, h4, .header {
-  font-family: 'Roboto Slab', serif;
+h1,
+h2,
+h3,
+h4,
+.header {
+  font-family: "Roboto Slab", serif;
 }
 
 article p {
@@ -15,7 +21,20 @@ article p {
 article img {
 }
 
-article a { -webkit-transition: color .4s; transition: color .4s; color: #265C83; }
-article a:link, article a:visited { color: #265C83; }
-article a:hover { color: #7FDBFF; }
-article a:active { -webkit-transition: color .3s; transition: color .3s; color: #007BE6; }
+article a {
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+  color: #265c83;
+}
+article a:link,
+article a:visited {
+  color: #265c83;
+}
+article a:hover {
+  color: #7fdbff;
+}
+article a:active {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  color: #007be6;
+}

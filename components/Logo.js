@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 const P5Wrapper = dynamic(import("react-p5-wrapper"), {
-  loading: () => (''),
+  loading: () => "",
   ssr: false
 });
 
@@ -53,9 +53,9 @@ function round(x) {
 }
 
 const Link = params => (
-  <div style={{width: "200px", height: "200px"}} className="center">
+  <div style={{ width: "200px", height: "200px" }} className="center">
     <P5Wrapper sketch={sketch} />
   </div>
-)
+);
 
 export default Link;

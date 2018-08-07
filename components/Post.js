@@ -27,14 +27,15 @@ const Post = props => {
           </title>
         </Head>
 
-
         <div className="mb5 mr3 ml4">
           <div className="f6 db pb1 gray">
             <span className="mr3">#{post.id}</span>
             <Moment format="YYYY-MM-DD">{post.datetime}</Moment>
           </div>
-          <Link prefetch as={`/post/${post.id}`} href={`/post?id=${post.id}`} >
-            <a className="header db f3 f1-ns link dark-gray dim">{post.title}</a>
+          <Link prefetch as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
+            <a className="header db f3 f1-ns link dark-gray dim">
+              {post.title}
+            </a>
           </Link>
         </div>
 
@@ -45,7 +46,7 @@ const Post = props => {
     );
   }
 
-  return <div></div>;
+  return <div />;
 };
 
 function notFoundError() {
