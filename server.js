@@ -13,19 +13,19 @@ async function recentPosts() {
     const client = apollo.create();
     let data = await client.query({
       query: gql`
-      query recentPosts {
-        posts(limit: 20, offset: 0) {
-          id
-          title
-          datetime
+        query recentPosts {
+          posts(limit: 20, offset: 0) {
+            id
+            title
+            datetime
+          }
         }
-      }
-    `
+      `
     });
 
-    return data.data.posts
+    return data.data.posts;
   } catch (err) {
-    console.error(err)
+    console.error(err);
     return [];
   }
 }
@@ -45,8 +45,8 @@ app
       let feed = new rss({
         title: "Nat? Nat. Nat!"
       });
-      let data = await recentPosts()
-      console.log(data)
+      let data = await recentPosts();
+      console.log(data);
 
       data.forEach(p => {
         feed.item({
@@ -57,7 +57,7 @@ app
       });
 
       var xml = feed.xml();
-      res.set('Content-Type', 'text/xml');
+      res.set("Content-Type", "text/xml");
       res.send(xml);
     });
 
