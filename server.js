@@ -8,6 +8,28 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+async function recentPosts() {
+  try {
+    const client = apollo.create();
+    let data = await client.query({
+      query: gql`
+      query recentPosts {
+        Posts(limit: 20, offset: 0) {
+          id
+          title
+          datetime
+        }
+      }
+    `
+    });
+
+    return data.data.recentPosts
+  } catch (err) {
+    console.error(err)
+    return [];
+  }
+}
+
 app
   .prepare()
   .then(() => {
@@ -19,25 +41,24 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.get("/feed.rss", (req, res) => {
-      const client = apollo.create();
-      client
-        .query({
-          query: gql`
-            query allPosts {
-              allPosts {
-                id
-                title
-                datetime
-              }
-            }
-          `
-        })
-        .then(data => {
-         console.log( data.data.allPosts)
-        });
+    server.get("/feed.rss", async (req, res) => {
+      let feed = new rss({
+        title: "Nat? Nat. Nat!"
+      });
+      let data = await recentPosts()
+      console.log(data)
 
-      res.send("hello");
+      data.forEach(p => {
+        feed.item({
+          title: p.title,
+          url: `https://writing.natwelch.com/post/${p.id}`,
+          date: p.datetime
+        });
+      });
+
+      var xml = feed.xml();
+      res.set('Content-Type', 'text/xml');
+      res.send(xml);
     });
 
     server.get("*", (req, res) => {
