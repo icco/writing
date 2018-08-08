@@ -14,7 +14,7 @@ async function recentPosts() {
     let data = await client.query({
       query: gql`
       query recentPosts {
-        Posts(limit: 20, offset: 0) {
+        posts(limit: 20, offset: 0) {
           id
           title
           datetime
@@ -23,7 +23,7 @@ async function recentPosts() {
     `
     });
 
-    return data.data.recentPosts
+    return data.data.posts
   } catch (err) {
     console.error(err)
     return [];
