@@ -2,11 +2,25 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import { withRouter } from "next/router";
-import marked from "marked";
+import MarkdownIt from 'markdown-it';
 import Moment from "react-moment";
 import "moment-timezone";
 import Head from "next/head";
 import Link from "next/link";
+
+let md = new MarkdownIt({
+  // Enable HTML tags in source
+  html: true,
+
+  // Use '/' to close single tags (<br />).
+  xhtmlOut: true,
+
+  // Convert '\n' in paragraphs into <br>
+  breaks: true,
+
+  // Autoconvert URL-like text to links
+  linkify: true,
+});
 
 const Post = props => {
   const {
@@ -17,7 +31,7 @@ const Post = props => {
 
   if (error) return <ErrorMessage message="Page not found." />;
   if (post) {
-    let html = { __html: marked(post.content) };
+    let html = { __html: md.render(post.content) };
 
     return (
       <section className="mw8 center">

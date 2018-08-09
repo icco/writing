@@ -18,7 +18,6 @@ function PostList({ data: { loading, error, allPosts } }) {
                 <Moment format="YYYY-MM-DD">{post.datetime}</Moment>
               </div>
               <Link
-                prefetch
                 as={`/post/${post.id}`}
                 href={`/post?id=${post.id}`}
               >
