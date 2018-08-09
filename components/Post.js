@@ -20,7 +20,9 @@ let md = new MarkdownIt({
 
   // Autoconvert URL-like text to links
   linkify: true,
-});
+})
+.use(require('markdown-it-footnote'))
+;
 
 const Post = props => {
   const {
