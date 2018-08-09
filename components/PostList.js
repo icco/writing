@@ -17,10 +17,7 @@ function PostList({ data: { loading, error, allPosts } }) {
                 <span className="mr3">#{post.id}</span>
                 <Moment format="YYYY-MM-DD">{post.datetime}</Moment>
               </div>
-              <Link
-                as={`/post/${post.id}`}
-                href={`/post?id=${post.id}`}
-              >
+              <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
                 <a className="header db f3 f1-ns link dark-gray dim">
                   {post.title}
                 </a>
