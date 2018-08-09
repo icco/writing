@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { withRouter } from "next/router";
 import Twitter from "../svgs/twitter.svg";
 import Instagram from "../svgs/instagram.svg";
 import Github from "../svgs/github.svg";
 
 // SVG Icons are from https://simpleicons.org
-const Header = ({ router: { pathname } }) => (
+const Header = (params) => (
   <footer className="lh-title mv5 pv5 pl4 pr3 ph5-ns bt b--black-10">
     <h3 className="f6 tracked">
       Nat? Nat. Nat! is the blog of <a href="https://natwelch.com">Nat Welch</a>
@@ -65,4 +64,4 @@ const Header = ({ router: { pathname } }) => (
   </footer>
 );
 
-export default withRouter(Header);
+export default Header;
