@@ -3,6 +3,8 @@ const next = require("next");
 const rss = require("rss");
 const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
+const { parse } = require('url')
+const { join } = require('path')
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -62,7 +64,16 @@ app
     });
 
     server.get("*", (req, res) => {
-      return handle(req, res);
+      const parsedUrl = parse(req.url, true);
+      const rootStaticFiles = ["/robots.txt", "/sitemap.xml", "/favicon.ico"];
+
+      if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
+        const path = join(__dirname, "static", parsedUrl.pathname);
+        app.serveStatic(req, res, path);
+      } else {
+        handle(req, res, parsedUrl);
+      }
+      return;
     });
 
     server.listen(8080, "0.0.0.0", err => {
