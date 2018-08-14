@@ -2,8 +2,8 @@
   "name": "writing",
   "version": "7.0.0",
   "scripts": {
-    "dev": "node server.js",
-    "start": "NODE_ENV=production next build && NODE_ENV=production node server.js",
+    "build": "next build",
+    "start": "node server.js",
     "lint": "./lint.sh"
   },
   "dependencies": {

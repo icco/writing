@@ -4,10 +4,6 @@
 // ./pages/_document.js
 import Document, { Head, Main, NextScript } from "next/document";
 
-// CSS is compiled into the style.css below
-import "../css/tachyons.css";
-import "../css/base.css";
-
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
