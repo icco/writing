@@ -1,8 +1,9 @@
 import auth0 from 'auth0-js';
-import * as settings from '../settings';
 
-const clientID = settings.clientID;
-const domain = settings.domain;
+const settings = {
+  clientID: 'MwFD0COlI4F4AWvOZThe1psOIletecnL',
+  domain: 'icco.auth0.com',
+}
 
 function webAuth(clientID, domain) {
   return new auth0.WebAuth({
@@ -14,19 +15,19 @@ function webAuth(clientID, domain) {
 function login() {
   const options = {
     responseType: 'id_token',
-    redirectUri: 'http://localhost:3000/redirect',
+    redirectUri: 'http://localhost:8080/redirect',
     scope: 'openid profile email'
   };
   
-  return webAuth(clientID, domain).authorize(options);
+  return webAuth(settings.clientID, settings.domain).authorize(options);
 }
 
 function parseHash(cb) {
-  return webAuth(clientID, domain).parseHash(cb);
+  return webAuth(settings.clientID, settings.domain).parseHash(cb);
 }
 
 function logout() {
-  return webAuth(clientID, domain).logout();
+  return webAuth(settings.clientID, settings.domain).logout();
 }
 
 export {

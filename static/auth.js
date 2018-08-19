@@ -1,7 +1,11 @@
 import Cookie from 'js-cookie';
 import jwt from 'jsonwebtoken';
 import fetch from 'isomorphic-unfetch';
-import * as settings from '../settings';
+
+const settings = {
+  clientID: 'MwFD0COlI4F4AWvOZThe1psOIletecnL',
+  domain: 'icco.auth0.com',
+}
 
 async function getJWK() {
   const res = await fetch(`https://${settings.domain}/.well-known/jwks.json`);
