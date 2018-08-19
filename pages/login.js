@@ -1,7 +1,7 @@
 import App from "../components/App";
-import Auth from "../components/Auth";
 import Head from "next/head";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default () => (
   <App>
@@ -9,6 +9,9 @@ export default () => (
       <title>Nat? Nat. Nat! | Login</title>
     </Head>
     <Header />
-    <Auth />
+    <div>
+      ...
+    </div>
+    <Footer />
   </App>
 );
