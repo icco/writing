@@ -1,17 +1,14 @@
-import App from "../components/App";
-import Head from "next/head";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import React from 'react';
+import { login } from '../static/auth0';
+import template from '../static/template';
 
-export default () => (
-  <App>
-    <Head>
-      <title>Nat? Nat. Nat! | Login</title>
-    </Head>
-    <Header />
-    <div>
-      ...
-    </div>
-    <Footer />
-  </App>
-);
+class Login extends React.Component {
+  componentDidMount () {
+    login();
+  }
+  render() {
+    return null;
+  }
+}
+
+export default template(Login);
