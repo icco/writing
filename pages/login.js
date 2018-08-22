@@ -1,9 +1,9 @@
-import React from 'react';
-import { login } from '../static/auth0';
-import template from '../static/template';
+import React from "react";
+import { login } from "../static/auth0";
+import template from "../static/template";
 
 class Login extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     login();
   }
   render() {

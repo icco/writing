@@ -1,13 +1,13 @@
-import React from 'react';
-import { logout } from '../static/auth0';
-import { deleteToken } from '../static/auth';
-import Router from 'next/router';
+import React from "react";
+import { logout } from "../static/auth0";
+import { deleteToken } from "../static/auth";
+import Router from "next/router";
 
 export default class extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     deleteToken();
     logout();
-    Router.push('/');
+    Router.push("/");
   }
   render() {
     return null;

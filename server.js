@@ -3,8 +3,8 @@ const next = require("next");
 const rss = require("rss");
 const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
-const { parse } = require('url')
-const { join } = require('path')
+const { parse } = require("url");
+const { join } = require("path");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });

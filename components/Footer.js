@@ -36,8 +36,28 @@ const Header = params => (
     </div>
     <nav>
       <ul>
-        { params.isLoggedIn ? ( <li><Link href="/admin"><a>Admin</a></Link></li> ) : ( <li><Link href="/login"><a>Login</a></Link></li> ) }
-        { params.isLoggedIn ? ( <li><Link href="/logout"><a>Logout</a></Link></li> ) : ( '' ) }
+        {params.isLoggedIn ? (
+          <li>
+            <Link href="/admin">
+              <a>Admin</a>
+            </Link>
+          </li>
+        ) : (
+          <li>
+            <Link href="/login">
+              <a>Login</a>
+            </Link>
+          </li>
+        )}
+        {params.isLoggedIn ? (
+          <li>
+            <Link href="/logout">
+              <a>Logout</a>
+            </Link>
+          </li>
+        ) : (
+          ""
+        )}
       </ul>
     </nav>
   </footer>
