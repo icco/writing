@@ -2,25 +2,11 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import { withRouter } from "next/router";
-import MarkdownIt from "markdown-it";
+import md from "../lib/markdown.js";
 import Moment from "react-moment";
 import "moment-timezone";
 import Head from "next/head";
 import Link from "next/link";
-
-let md = new MarkdownIt({
-  // Enable HTML tags in source
-  html: true,
-
-  // Use '/' to close single tags (<br />).
-  xhtmlOut: true,
-
-  // Convert '\n' in paragraphs into <br>
-  breaks: true,
-
-  // Autoconvert URL-like text to links
-  linkify: true
-}).use(require("markdown-it-footnote"));
 
 const Post = props => {
   const {
