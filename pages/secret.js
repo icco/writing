@@ -1,26 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
-import styled from 'styled-components'
-
-import securePage from '../hocs/securePage'
-
-const Content = styled.p`
-  font-size: 20px;
-  font-weight: 200;
-  line-height: 30px;
-`
+import securePage from '../lib/securePage'
 
 const Secret = ({ loggedUser }) => (
   <div>
-    <Content>
-      Hi <strong>{loggedUser.email}</strong>. This is a super secure page! Try loading this page again using the incognito/private mode of your browser.
-    </Content>
+    Hi <strong>{loggedUser.email}</strong>. This is a super secure page! Try loading this page again using the incognito/private mode of your browser.
   </div>
 )
-
-Secret.propTypes = {
-  loggedUser: PropTypes.object.isRequired
-}
 
 export default securePage(Secret)
