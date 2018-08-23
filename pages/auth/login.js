@@ -17,7 +17,7 @@ export default class PostPage extends React.Component {
         <Head>
           <title>Nat? Nat. Nat! | Login</title>
         </Head>
-        <div id={CONTAINER_ID} />
+        <div className="mv5" id={CONTAINER_ID} />
       </App>
     );
   }
