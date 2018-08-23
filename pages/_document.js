@@ -1,21 +1,15 @@
 import Document, { Head, Main, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
 import { getUserFromServerCookie, getUserFromLocalCookie } from "../lib/auth";
 import Router from "next/router";
 
-export default class RootDocument extends Document {
-  static getInitialProps(ctx) {
+export default class WritingDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx);
     const loggedUser = process.browser
       ? getUserFromLocalCookie()
       : getUserFromServerCookie(ctx.req);
-    const sheet = new ServerStyleSheet();
-    const page = ctx.renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />)
-    );
-    const styleTags = sheet.getStyleElement();
     return {
-      ...page,
-      styleTags,
+      ...initialProps,
       loggedUser,
       currentUrl: ctx.pathname,
       isAuthenticated: !!loggedUser
@@ -38,8 +32,15 @@ export default class RootDocument extends Document {
 
   render() {
     return (
-      <html>
-        <Head>{this.props.styleTags}</Head>
+      <html lang="en">
+        <Head>
+          <link rel="stylesheet" href="/_next/static/style.css" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+            key="viewport"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
