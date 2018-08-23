@@ -1,10 +1,11 @@
-import React from 'react'
-import securePage from '../lib/securePage'
+import React from "react";
+import securePage from "../lib/securePage";
 
 const Secret = ({ loggedUser }) => (
   <div>
-    Hi <strong>{loggedUser.email}</strong>. This is a super secure page! Try loading this page again using the incognito/private mode of your browser.
+    Hi <strong>{loggedUser.email}</strong>. This is a super secure page! Try
+    loading this page again using the incognito/private mode of your browser.
   </div>
-)
+);
 
-export default securePage(Secret)
+export default securePage(Secret);
