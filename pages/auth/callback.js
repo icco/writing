@@ -4,7 +4,7 @@ import Router from "next/router";
 import { setToken, checkSecret, extractInfoFromHash } from "../../lib/auth";
 import { finishAuthFlow } from "../../lib/lock";
 
-export default class SignedIn extends React.Component {
+export default class Callback extends React.Component {
   componentDidMount() {
     finishAuthFlow();
   }

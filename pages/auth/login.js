@@ -1,12 +1,12 @@
-import App from "../components/App";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import App from "../../components/App";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Head from "next/head";
 import { show } from '../../lib/lock'
 
 const CONTAINER_ID = 'put-lock-here'
 
-export default class Login extends Document {
+export default class PostPage extends React.Component {
   componentDidMount () {
     show(CONTAINER_ID)
   }
@@ -15,9 +15,8 @@ export default class Login extends Document {
     return (
   <App>
     <Head>
-      <title>Nat? Nat. Nat! | About</title>
+      <title>Nat? Nat. Nat! | Login</title>
     </Head>
-    <Header />
       <div id={CONTAINER_ID} />
       </App>
     )
