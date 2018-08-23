@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import { getUserFromServerCookie, getUserFromLocalCookie } from '../utils/auth'
+import { getUserFromServerCookie, getUserFromLocalCookie } from '../lib/auth'
 import Router from 'next/router'
 
 export default class RootDocument extends Document {
@@ -11,7 +11,7 @@ export default class RootDocument extends Document {
     const styleTags = sheet.getStyleElement()
     return {
       ...page,
-      styleTags
+      styleTags,
       loggedUser,
       currentUrl: ctx.pathname,
       isAuthenticated: !!loggedUser
