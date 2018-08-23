@@ -1,7 +1,7 @@
 import React from 'react'
 
-import defaultPage from '../../hocs/defaultPage'
-import { show } from '../../utils/lock'
+import defaultPage from '../../lib/defaultPage'
+import { show } from '../../lib/lock'
 
 const CONTAINER_ID = 'put-lock-here'
 

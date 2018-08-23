@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { unsetToken } from '../../utils/auth'
-import { logout } from '../../utils/lock'
+import { unsetToken } from '../../lib/auth'
+import { logout } from '../../lib/lock'
 
 export default class SignOff extends React.Component {
   componentDidMount () {
