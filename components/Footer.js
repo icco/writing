@@ -14,7 +14,7 @@ const Footer = params => {
     stats = (
       <div className="cf">
         {params.data.stats.map(({ key, value }) => (
-          <dl className="fl fn-l w-50 dib-l w-auto-l lh-title">
+          <dl key={key} className="fl fn-l w-50 dib-l w-auto-l lh-title">
             <dd className="f6 fw4 ml0">{key}</dd>
             <dd className="f3 fw6 ml0">{value}</dd>
           </dl>
