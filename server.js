@@ -36,7 +36,7 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    server.set("x-powered-by", false);
+    server.disable("x-powered-by");
 
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
