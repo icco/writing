@@ -10,13 +10,13 @@ import gql from "graphql-tag";
 const Footer = params => {
   if (params.data.error) return <ErrorMessage message="Error loading stats." />;
   let stats = "";
-  if (params.data.allStats && params.data.allStats.length) {
+  if (params.data.stats && params.data.stats.length) {
     stats = (
       <div className="cf">
-        {params.data.allStats.map(({ key, value }) => (
+        {params.data.stats.map(({ key, value }) => (
           <dl className="fl fn-l w-50 dib-l w-auto-l lh-title">
-            <dd className="f6 fw4 ml0">{{ key }}</dd>
-            <dd className="f3 fw6 ml0">{{ value }}</dd>
+            <dd className="f6 fw4 ml0">{key}</dd>
+            <dd className="f3 fw6 ml0">{value}</dd>
           </dl>
         ))}
       </div>
@@ -56,32 +56,28 @@ const Footer = params => {
 
       {stats}
 
-      <nav>
-        <ul>
-          {console.log("Page params: ", params)}
-          {params.isLoggedIn ? (
-            <li>
-              <Link href="/auth/admin">
-                <a>Admin</a>
-              </Link>
-            </li>
-          ) : (
-            <li>
-              <Link href="/auth/login">
-                <a>Login</a>
-              </Link>
-            </li>
-          )}
-          {params.isLoggedIn ? (
-            <li>
-              <Link href="/auth/logout">
-                <a>Logout</a>
-              </Link>
-            </li>
-          ) : (
-            ""
-          )}
-        </ul>
+      <nav className="cf">
+          <a
+            className="link dim dark-gray f6 dib mr3 mr4-ns"
+            href="/auth/admin"
+            title="Admin"
+          >
+            Admin
+          </a>
+          <a
+            className="link dim dark-gray f6 dib mr3 mr4-ns"
+            href="/auth/login"
+            title="Login"
+          >
+            Login
+          </a>
+          <a
+            className="link dim dark-gray f6 dib"
+            href="/auth/logout"
+            title="Logout"
+          >
+            Logout
+          </a>
       </nav>
     </footer>
   );
