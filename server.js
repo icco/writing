@@ -1,4 +1,6 @@
 const express = require("express");
+const session = require('cookie-session')
+const helmet = require('helmet')
 const next = require("next");
 const rss = require("rss");
 const gql = require("graphql-tag");
@@ -36,7 +38,17 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    server.disable("x-powered-by");
+    server.use(helmet())
+    let expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
+    server.use(session({
+      name: 'session',
+      cookie: {
+        secure: true,
+        httpOnly: true,
+        domain: 'writing.natwelch.com',
+        expires: expiryDate
+      }
+    }))
 
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
