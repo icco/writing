@@ -1,5 +1,5 @@
 const express = require("express");
-const helmet = require('helmet')
+const helmet = require("helmet");
 const next = require("next");
 const rss = require("rss");
 const gql = require("graphql-tag");
@@ -37,7 +37,7 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    server.use(helmet())
+    server.use(helmet());
 
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";

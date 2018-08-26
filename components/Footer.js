@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Twitter from "../svgs/twitter.svg";
 import Instagram from "../svgs/instagram.svg";
 import Github from "../svgs/github.svg";
@@ -57,27 +56,27 @@ const Footer = params => {
       {stats}
 
       <nav className="cf">
-          <a
-            className="link dim dark-gray f6 dib mr3 mr4-ns"
-            href="/auth/admin"
-            title="Admin"
-          >
-            Admin
-          </a>
-          <a
-            className="link dim dark-gray f6 dib mr3 mr4-ns"
-            href="/auth/login"
-            title="Login"
-          >
-            Login
-          </a>
-          <a
-            className="link dim dark-gray f6 dib"
-            href="/auth/logout"
-            title="Logout"
-          >
-            Logout
-          </a>
+        <a
+          className="link dim dark-gray f6 dib mr3 mr4-ns"
+          href="/auth/admin"
+          title="Admin"
+        >
+          Admin
+        </a>
+        <a
+          className="link dim dark-gray f6 dib mr3 mr4-ns"
+          href="/auth/login"
+          title="Login"
+        >
+          Login
+        </a>
+        <a
+          className="link dim dark-gray f6 dib"
+          href="/auth/logout"
+          title="Logout"
+        >
+          Logout
+        </a>
       </nav>
     </footer>
   );
