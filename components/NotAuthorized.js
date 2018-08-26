@@ -1,5 +1,3 @@
-import Error from 'next/error'
+import Error from "next/error";
 
-export default ({ message }) => (
-  <Error statusCode=403 />
-);
+export default () => <Error statusCode="403" />;
