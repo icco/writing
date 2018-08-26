@@ -1,5 +1,4 @@
 const express = require("express");
-const session = require('cookie-session')
 const helmet = require('helmet')
 const next = require("next");
 const rss = require("rss");
@@ -39,16 +38,6 @@ app
   .then(() => {
     const server = express();
     server.use(helmet())
-    let expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
-    server.use(session({
-      name: 'session',
-      cookie: {
-        secure: true,
-        httpOnly: true,
-        domain: 'writing.natwelch.com',
-        expires: expiryDate
-      }
-    }))
 
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
@@ -61,7 +50,6 @@ app
         title: "Nat? Nat. Nat!"
       });
       let data = await recentPosts();
-      console.log(data);
 
       data.forEach(p => {
         feed.item({
