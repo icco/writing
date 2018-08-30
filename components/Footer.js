@@ -26,7 +26,7 @@ const Footer = params => {
     <footer className="lh-title mv5 pv5 pl4 pr3 ph5-ns bt b--black-10">
       <h3 className="f6 tracked">
         Nat? Nat. Nat! is the blog of{" "}
-        <a href="https://natwelch.com">Nat Welch</a>.
+        <a className="link" href="https://natwelch.com">Nat Welch</a>.
       </h3>
 
       <div className="">
@@ -55,9 +55,11 @@ const Footer = params => {
 
       {stats}
 
-      <div>
-        Try out the <a href="https://brave.com/nat432">Brave Browser</a>.
+      <div className="mv2">
+        Try out the <a className="link" href="https://brave.com/nat432">Brave Browser</a>.
       </div>
+
+      <div className="mv2 rc-scout"></div>
 
       <script async defer src="https://www.recurse-scout.com/loader.js?t=1a20cf01214e4c5923ab6ebd6c0f8f18"></script>
     </footer>
