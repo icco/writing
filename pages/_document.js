@@ -6,7 +6,7 @@ export default class WritingDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      currentUrl: ctx.pathname,
+      currentUrl: ctx.pathname
     };
   }
 
