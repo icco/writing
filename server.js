@@ -6,6 +6,8 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
+const nextAuth = require("next-auth");
+const nextAuthConfig = require("./next-auth.config");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -35,6 +37,14 @@ async function recentPosts() {
 
 app
   .prepare()
+  .then(() => {
+    // Load configuration and return config object
+    return nextAuthConfig();
+  })
+  .then(nextAuthOptions => {
+    // Pass Next.js App instance and NextAuth options to NextAuth
+    return nextAuth(nextApp, nextAuthOptions);
+  })
   .then(() => {
     const server = express();
     server.use(helmet());
