@@ -7,14 +7,14 @@ import Footer from "../components/Footer";
 import { withRouter } from "next/router";
 
 const Secret = withRouter(props => {
-  console.log(Cookie.get())
+  console.log(Cookie.get());
 
   if (!props.isAuthenticated) {
     return (
-          <NoSSR>
-            <NotAuthorized />
-          </NoSSR>
-      );
+      <NoSSR>
+        <NotAuthorized />
+      </NoSSR>
+    );
   }
 
   return (
