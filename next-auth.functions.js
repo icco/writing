@@ -89,5 +89,6 @@ module.exports = () => {
           return resolve(null)
         })
       },
+    })
   })
 }
