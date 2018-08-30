@@ -66,7 +66,12 @@ app
 
     server.get("*", (req, res) => {
       const parsedUrl = parse(req.url, true);
-      const rootStaticFiles = ["/robots.txt", "/sitemap.xml", "/favicon.ico"];
+      const rootStaticFiles = [
+        "/robots.txt",
+        "/sitemap.xml",
+        "/favicon.ico",
+        "/.well-known/brave-payments-verification.txt"
+      ];
 
       if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
         const path = join(__dirname, "static", parsedUrl.pathname);
