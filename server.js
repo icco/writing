@@ -13,7 +13,6 @@ const nextAuthConfig = require("./next-auth.config");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
-const handle = app.getRequestHandler();
 
 async function recentPosts() {
   try {
@@ -48,7 +47,7 @@ app
     // Pass your own Express instance to NextAuth - and don't pass a port!
     if (nextAuthOptions.port) delete nextAuthOptions.port;
     nextAuthOptions.expressApp = expressApp;
-    nextAuth(nextApp, nextAuthOptions);
+    nextAuth(app, nextAuthOptions);
 
     server.use(helmet());
 
@@ -77,7 +76,8 @@ app
       res.send(xml);
     });
 
-    server.get("*", (req, res) => {
+    server.all("*", (req, res) => {
+      const handle = app.getRequestHandler();
       const parsedUrl = parse(req.url, true);
       const rootStaticFiles = [
         "/robots.txt",
