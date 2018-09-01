@@ -9,6 +9,7 @@ const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const nextAuth = require("next-auth");
+const pino = require('express-pino-logger')()
 const nextAuthConfig = require("./next-auth.config");
 
 const app = next({
@@ -47,6 +48,7 @@ app
   })
   .then(nextAuthOptions => {
     const server = express();
+    server.use(pino)
 
     // Pass your own Express instance to NextAuth - and don't pass a port!
     if (nextAuthOptions.port) delete nextAuthOptions.port;
