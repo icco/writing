@@ -11,8 +11,10 @@ const { join } = require("path");
 const nextAuth = require("next-auth");
 const nextAuthConfig = require("./next-auth.config");
 
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
+const app = next({
+  dir: ".",
+  dev: process.env.NODE_ENV !== "production"
+});
 
 async function recentPosts() {
   try {
@@ -39,14 +41,15 @@ async function recentPosts() {
 app
   .prepare()
   .then(() => {
-    return nextAuthConfig();
-  })
-  .then(nextAuthOptions => {
+    let opts = nextAuthConfig();
+    // If this hangs, it's because one of the next auth configs is hanging.
+    return opts
+  }).then(nextAuthOptions => {
     const server = express();
 
     // Pass your own Express instance to NextAuth - and don't pass a port!
     if (nextAuthOptions.port) delete nextAuthOptions.port;
-    nextAuthOptions.expressApp = expressApp;
+    nextAuthOptions.expressApp = server;
     nextAuth(app, nextAuthOptions);
 
     server.use(helmet());
@@ -103,4 +106,4 @@ app
   .catch(ex => {
     console.error(ex.stack);
     process.exit(1);
-  });
+  })

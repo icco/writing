@@ -27,10 +27,12 @@
  **/
 
 module.exports = () => {
-  return new Promise((resolve, reject) => {}).then(usersCollection => {
+  return new Promise((resolve, reject) => {
+    return resolve([])
+  }).then(usersCollection => {
     return Promise.resolve({
       // If a user is not found find() should return null (with no error).
-      find: ({ id, email, emailToken, provider } = {}) => {
+      find: ({ id, email, emailToken, provider, providerToken } = {}) => {
         return null;
       },
       // The user parameter contains a basic user object to be added to the DB.
@@ -52,7 +54,7 @@ module.exports = () => {
       // with the users account on the oAuth service they are signing in with.
       //
       // You can use this to capture profile.avatar, profile.location, etc.
-      update: (user, profile) => {
+      update: (user) => {
         return new Promise((resolve, reject) => {
           return resolve(user);
         });

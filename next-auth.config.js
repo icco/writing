@@ -35,7 +35,6 @@ module.exports = () => {
         serverUrl: process.env.SERVER_URL || null,
         // Add an Express Session store.
         expressSession: expressSession,
-        sessionStore: sessionStore,
         // Define oAuth Providers
         providers: nextAuthProviders(),
         // Define functions for manging users and sending email.
