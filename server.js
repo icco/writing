@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require("express");
 const helmet = require("helmet");
 const next = require("next");
@@ -38,15 +40,18 @@ async function recentPosts() {
 app
   .prepare()
   .then(() => {
-    // Load configuration and return config object
     return nextAuthConfig();
   })
   .then(nextAuthOptions => {
-    // Pass Next.js App instance and NextAuth options to NextAuth
+    // Don't pass a port to NextAuth!
+    if (nextAuthOptions.port) delete nextAuthOptions.port;
+
     return nextAuth(nextApp, nextAuthOptions);
   })
-  .then(() => {
-    const server = express();
+  .then(nextAuthApp => {
+    // Get instance of Express from NextAuth instance
+    const server = nextAuthApp.express;
+
     server.use(helmet());
 
     server.get("/post/:id", (req, res) => {
