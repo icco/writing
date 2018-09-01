@@ -25,15 +25,41 @@
  * This specific example supports both MongoDB and NeDB, but can be refactored
  * to work with any database.
  **/
+const NeDB = require('nedb')
 
 module.exports = () => {
   return new Promise((resolve, reject) => {
-    return resolve([])
+    // If no MongoDB URI string specified, use NeDB, an in-memory work-a-like.
+    // NeDB is not persistant and is intended for testing only.
+    let collection = new NeDB({ autoload: true });
+    collection.loadDatabase(err => {
+      if (err) return reject(err);
+      return resolve(collection);
+    });
   }).then(usersCollection => {
     return Promise.resolve({
       // If a user is not found find() should return null (with no error).
       find: ({ id, email, emailToken, provider, providerToken } = {}) => {
-        return null;
+        let query = {};
+
+        // Find needs to support looking up a user by ID, Email, Email Token,
+        // and Provider Name + Users ID for that Provider
+        if (id) {
+          query = { _id: id };
+        } else if (email) {
+          query = { email: email };
+        } else if (emailToken) {
+          query = { emailToken: emailToken };
+        } else if (provider) {
+          query = { [`${provider.name}.id`]: provider.id };
+        }
+
+        return new Promise((resolve, reject) => {
+          usersCollection.findOne(query, (err, user) => {
+            if (err) return reject(err);
+            return resolve(user);
+          });
+        });
       },
       // The user parameter contains a basic user object to be added to the DB.
       // The oAuthProfile parameter is passed when signing in via oAuth.
@@ -44,7 +70,15 @@ module.exports = () => {
       // You can use this to capture profile.avatar, profile.location, etc.
       insert: (user, oAuthProfile) => {
         return new Promise((resolve, reject) => {
-          return resolve(user);
+          usersCollection.insert(user, (err, response) => {
+            if (err) return reject(err);
+
+            // Mongo Client automatically adds an id to an inserted object, but
+            // if using a work-a-like we may need to add it from the response.
+            if (!user._id && response._id) user._id = response._id;
+
+            return resolve(user);
+          });
         });
       },
       // The user parameter contains a basic user object to be added to the DB.
@@ -54,9 +88,17 @@ module.exports = () => {
       // with the users account on the oAuth service they are signing in with.
       //
       // You can use this to capture profile.avatar, profile.location, etc.
-      update: (user) => {
+      update: user => {
         return new Promise((resolve, reject) => {
-          return resolve(user);
+          usersCollection.update(
+            { _id: user._id },
+            user,
+            {},
+            err => {
+              if (err) return reject(err);
+              return resolve(user);
+            }
+          );
         });
       },
       // The remove parameter is passed the ID of a user account to delete.
@@ -65,7 +107,10 @@ module.exports = () => {
       // be in a future release, to provide an endpoint for account deletion.
       remove: id => {
         return new Promise((resolve, reject) => {
-          return resolve(true);
+          usersCollection.remove({ _id: id }, err => {
+            if (err) return reject(err);
+            return resolve(true);
+          });
         });
       },
       // Seralize turns the value of the ID key from a User object
@@ -86,7 +131,20 @@ module.exports = () => {
       // only fields you want to expose via the user interface.
       deserialize: id => {
         return new Promise((resolve, reject) => {
-          return resolve(null);
+          usersCollection.findOne({ _id: id }, (err, user) => {
+            if (err) return reject(err);
+
+            // If user not found (e.g. account deleted) return null object
+            if (!user) return resolve(null);
+
+            return resolve({
+              id: user._id,
+              name: user.name,
+              email: user.email,
+              emailVerified: user.emailVerified,
+              admin: user.admin || false
+            });
+          });
         });
       }
     });

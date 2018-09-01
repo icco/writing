@@ -43,8 +43,9 @@ app
   .then(() => {
     let opts = nextAuthConfig();
     // If this hangs, it's because one of the next auth configs is hanging.
-    return opts
-  }).then(nextAuthOptions => {
+    return opts;
+  })
+  .then(nextAuthOptions => {
     const server = express();
 
     // Pass your own Express instance to NextAuth - and don't pass a port!
@@ -89,6 +90,15 @@ app
         "/.well-known/brave-payments-verification.txt"
       ];
 
+      const redirects = {
+        "/login": "/auth/oauth/auth0",
+        "/callback": "/auth/oauth/auth0/callback"
+      };
+
+      if (parsedUrl.pathname in redirects) {
+        return res.redirect(redirects[parsedUrl.pathname]);
+      }
+
       if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
         const path = join(__dirname, "static", parsedUrl.pathname);
         app.serveStatic(req, res, path);
@@ -106,4 +116,4 @@ app
   .catch(ex => {
     console.error(ex.stack);
     process.exit(1);
-  })
+  });
