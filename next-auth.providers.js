@@ -8,8 +8,8 @@ module.exports = () => {
     Strategy: require("passport-auth0").Strategy,
     strategyOptions: {
       domain: "icco.auth0.com",
-      clientID: "your-client-id",
-      clientSecret: "your-client-secret",
+      clientID: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
       callbackURL: "/callback"
     },
     getProfile(accessToken, refreshToken, extraParams, profile, done) {
