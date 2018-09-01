@@ -43,14 +43,12 @@ app
     return nextAuthConfig();
   })
   .then(nextAuthOptions => {
-    // Don't pass a port to NextAuth!
-    if (nextAuthOptions.port) delete nextAuthOptions.port;
+    const server = express();
 
-    return nextAuth(nextApp, nextAuthOptions);
-  })
-  .then(nextAuthApp => {
-    // Get instance of Express from NextAuth instance
-    const server = nextAuthApp.express;
+    // Pass your own Express instance to NextAuth - and don't pass a port!
+    if (nextAuthOptions.port) delete nextAuthOptions.port;
+    nextAuthOptions.expressApp = expressApp;
+    nextAuth(nextApp, nextAuthOptions);
 
     server.use(helmet());
 
