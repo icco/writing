@@ -25,7 +25,7 @@
  * This specific example supports both MongoDB and NeDB, but can be refactored
  * to work with any database.
  **/
-const NeDB = require('nedb')
+const NeDB = require("nedb");
 
 module.exports = () => {
   return new Promise((resolve, reject) => {
@@ -90,15 +90,10 @@ module.exports = () => {
       // You can use this to capture profile.avatar, profile.location, etc.
       update: user => {
         return new Promise((resolve, reject) => {
-          usersCollection.update(
-            { _id: user._id },
-            user,
-            {},
-            err => {
-              if (err) return reject(err);
-              return resolve(user);
-            }
-          );
+          usersCollection.update({ _id: user._id }, user, {}, err => {
+            if (err) return reject(err);
+            return resolve(user);
+          });
         });
       },
       // The remove parameter is passed the ID of a user account to delete.

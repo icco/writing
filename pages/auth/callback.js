@@ -19,6 +19,6 @@ export default class extends React.Component {
 
   render() {
     // Provide a link for clients without JavaScript as a fallback.
-    return (<React.Fragment></React.Fragment>);
+    return <React.Fragment />;
   }
 }
