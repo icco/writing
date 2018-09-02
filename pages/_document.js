@@ -9,7 +9,7 @@ export default class WritingDocument extends Document {
     return {
       ...initialProps,
       currentUrl: ctx.pathname,
-      session: sessData,
+      session: sessData
     };
   }
 

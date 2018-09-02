@@ -8,8 +8,7 @@ import { NextAuth } from "next-auth/client";
 
 // SVG Icons are from https://simpleicons.org
 const Footer = params => {
-  if (params.data.error)
-    return <ErrorMessage message="Error loading stats." />;
+  if (params.data.error) return <ErrorMessage message="Error loading stats." />;
   let stats = "";
   if (params.data.stats && params.data.stats.length) {
     stats = (
@@ -79,9 +78,9 @@ const Footer = params => {
   );
 };
 
-Footer.getInitialProps = async function ({ req, data }) {
+Footer.getInitialProps = async function({ req, data }) {
   return {
-    data: data,
+    data: data
   };
 };
 
