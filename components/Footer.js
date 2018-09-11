@@ -4,7 +4,6 @@ import Github from "../svgs/github.svg";
 import ErrorMessage from "./ErrorMessage";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import { NextAuth } from "next-auth/client";
 
 // SVG Icons are from https://simpleicons.org
 const Footer = params => {

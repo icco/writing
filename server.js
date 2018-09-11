@@ -8,9 +8,7 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
-const nextAuth = require("next-auth");
 const pino = require("express-pino-logger")();
-const nextAuthConfig = require("./next-auth.config");
 
 const app = next({
   dir: ".",
@@ -42,19 +40,9 @@ async function recentPosts() {
 app
   .prepare()
   .then(() => {
-    let opts = nextAuthConfig();
-    // If this hangs, it's because one of the next auth configs is hanging.
-    return opts;
-  })
-  .then(nextAuthOptions => {
     const server = express();
+
     server.use(pino);
-
-    // Pass your own Express instance to NextAuth - and don't pass a port!
-    if (nextAuthOptions.port) delete nextAuthOptions.port;
-    nextAuthOptions.expressApp = server;
-    nextAuth(app, nextAuthOptions);
-
     server.use(helmet());
 
     server.get("/post/:id", (req, res) => {
@@ -92,10 +80,7 @@ app
         "/.well-known/brave-payments-verification.txt"
       ];
 
-      const redirects = {
-        "/login": "/auth/oauth/auth0",
-        "/callback": "/auth/oauth/auth0/callback"
-      };
+      const redirects = {};
 
       if (parsedUrl.pathname in redirects) {
         return res.redirect(redirects[parsedUrl.pathname]);
