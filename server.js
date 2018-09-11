@@ -1,14 +1,19 @@
+"use strict";
+
 const express = require("express");
+const helmet = require("helmet");
 const next = require("next");
 const rss = require("rss");
 const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
+const pino = require("express-pino-logger")();
 
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
-const handle = app.getRequestHandler();
+const app = next({
+  dir: ".",
+  dev: process.env.NODE_ENV !== "production"
+});
 
 async function recentPosts() {
   try {
@@ -37,6 +42,9 @@ app
   .then(() => {
     const server = express();
 
+    server.use(pino);
+    server.use(helmet());
+
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
       const queryParams = { id: req.params.id };
@@ -48,7 +56,6 @@ app
         title: "Nat? Nat. Nat!"
       });
       let data = await recentPosts();
-      console.log(data);
 
       data.forEach(p => {
         feed.item({
@@ -63,9 +70,21 @@ app
       res.send(xml);
     });
 
-    server.get("*", (req, res) => {
+    server.all("*", (req, res) => {
+      const handle = app.getRequestHandler();
       const parsedUrl = parse(req.url, true);
-      const rootStaticFiles = ["/robots.txt", "/sitemap.xml", "/favicon.ico"];
+      const rootStaticFiles = [
+        "/robots.txt",
+        "/sitemap.xml",
+        "/favicon.ico",
+        "/.well-known/brave-payments-verification.txt"
+      ];
+
+      const redirects = {};
+
+      if (parsedUrl.pathname in redirects) {
+        return res.redirect(redirects[parsedUrl.pathname]);
+      }
 
       if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
         const path = join(__dirname, "static", parsedUrl.pathname);
