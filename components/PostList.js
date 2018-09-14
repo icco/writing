@@ -2,8 +2,7 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import Link from "next/link";
-import Moment from "react-moment";
-import "moment-timezone";
+import Datetime from "./Datetime";
 
 function PostList({ data: { loading, error, allPosts } }) {
   if (error) return <ErrorMessage message="Error loading posts." />;
@@ -15,7 +14,7 @@ function PostList({ data: { loading, error, allPosts } }) {
             <li className="mb5 ml4 mr3" key={post.id}>
               <div className="f6 db pb1 gray">
                 <span className="mr3">#{post.id}</span>
-                <Moment format="YYYY-MM-DD">{post.datetime}</Moment>
+                <Datetime>{post.datetime}</Datetime>
               </div>
               <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
                 <a className="header db f3 f1-ns link dark-gray dim">

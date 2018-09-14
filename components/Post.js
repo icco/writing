@@ -3,10 +3,9 @@ import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import { withRouter } from "next/router";
 import md from "../lib/markdown.js";
-import Moment from "react-moment";
-import "moment-timezone";
 import Head from "next/head";
 import Link from "next/link";
+import Datetime from "./Datetime";
 
 const Post = props => {
   const {
@@ -30,7 +29,7 @@ const Post = props => {
         <div className="mb5 mr3 ml4">
           <div className="f6 db pb1 gray">
             <span className="mr3">#{post.id}</span>
-            <Moment format="YYYY-MM-DD">{post.datetime}</Moment>
+            <Datetime>{post.datetime}</Datetime>
           </div>
           <Link prefetch as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
             <a className="header db f3 f1-ns link dark-gray dim">
