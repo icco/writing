@@ -9,6 +9,19 @@ const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const pino = require("express-pino-logger")();
+const {
+  AggregationType,
+  Measure,
+  MeasureUnit,
+  Stats
+} = require("@opencensus/core");
+const prometheus = require("@opencensus/exporter-prometheus");
+
+const stats = new Stats();
+var exporter = new prometheus.PrometheusStatsExporter({
+  prefix: "writing"
+});
+stats.registerExporter(exporter);
 
 const app = next({
   dir: ".",
@@ -44,6 +57,14 @@ app
 
     server.use(pino);
     server.use(helmet());
+
+    server.get("/metrics", (req, res) => {
+      res.set(
+        "Content-Type",
+        prometheus.PrometheusStatsExporter.DEFAULT_OPTIONS.contentType
+      );
+      res.end(exporter.registry.metrics());
+    });
 
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
