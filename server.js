@@ -13,15 +13,23 @@ const {
   AggregationType,
   Measure,
   MeasureUnit,
-  Stats
+  Stats,
 } = require("@opencensus/core");
+const stackdriver = require('@opencensus/exporter-stackdriver');
 const prometheus = require("@opencensus/exporter-prometheus");
 
 const stats = new Stats();
-var exporter = new prometheus.PrometheusStatsExporter({
+
+var pe = new prometheus.PrometheusStatsExporter({
   prefix: "writing"
 });
-stats.registerExporter(exporter);
+var se = new stackdriver.StackdriverTraceExporter({
+  projectId: "icco-cloud",
+  prefix: "writing"
+});
+
+stats.registerExporter(pe);
+stats.registerExporter(se);
 
 const app = next({
   dir: ".",
@@ -63,7 +71,7 @@ app
         "Content-Type",
         prometheus.PrometheusStatsExporter.DEFAULT_OPTIONS.contentType
       );
-      res.end(exporter.registry.metrics());
+      res.end(pe.registry.metrics());
     });
 
     server.get("/post/:id", (req, res) => {
