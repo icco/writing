@@ -16,21 +16,17 @@ const {
   Stats
 } = require("@opencensus/core");
 const prometheus = require("@opencensus/exporter-prometheus");
-const tracing = require("@opencensus/nodejs");
+let tracing = require("@opencensus/nodejs");
 const propagation = require("@opencensus/propagation-tracecontext");
 
 const traceContext = new propagation.TraceContextFormat();
-
-tracing.start({ propagation: traceContext });
-
-const stats = new Stats();
+let stats = new Stats();
 
 var pe = new prometheus.PrometheusStatsExporter({
   prefix: "writing"
 });
 stats.registerExporter(pe);
 
-console.log(process.env.ENABLE_STACKDRIVER)
 if (process.env.ENABLE_STACKDRIVER) {
   const stackdriver = require("@opencensus/exporter-stackdriver");
   var ste = new stackdriver.StackdriverTraceExporter({
@@ -45,6 +41,8 @@ if (process.env.ENABLE_STACKDRIVER) {
   stats.registerExporter(sse);
   tracing.registerExporter(ste);
 }
+
+tracing.start({ propagation: traceContext });
 
 const app = next({
   dir: ".",
