@@ -1,6 +1,6 @@
-import Twitter from "../svgs/twitter.svg";
-import Instagram from "../svgs/instagram.svg";
-import Github from "../svgs/github.svg";
+import Twitter from "react-svg-loader!../svgs/twitter.svg";
+import Instagram from "react-svg-loader!../svgs/instagram.svg";
+import Github from "react-svg-loader!../svgs/github.svg";
 import ErrorMessage from "./ErrorMessage";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
