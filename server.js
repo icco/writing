@@ -13,23 +13,38 @@ const {
   AggregationType,
   Measure,
   MeasureUnit,
-  Stats,
+  Stats
 } = require("@opencensus/core");
-const stackdriver = require('@opencensus/exporter-stackdriver');
 const prometheus = require("@opencensus/exporter-prometheus");
+const tracing = require("@opencensus/nodejs");
+const propagation = require("@opencensus/propagation-tracecontext");
+
+const traceContext = new propagation.TraceContextFormat();
+
+tracing.start({ propagation: traceContext });
 
 const stats = new Stats();
 
 var pe = new prometheus.PrometheusStatsExporter({
   prefix: "writing"
 });
-var se = new stackdriver.StackdriverTraceExporter({
-  projectId: "icco-cloud",
-  prefix: "writing"
-});
-
 stats.registerExporter(pe);
-stats.registerExporter(se);
+
+console.log(process.env.ENABLE_STACKDRIVER)
+if (process.env.ENABLE_STACKDRIVER) {
+  const stackdriver = require("@opencensus/exporter-stackdriver");
+  var ste = new stackdriver.StackdriverTraceExporter({
+    projectId: "icco-cloud",
+    prefix: "writing"
+  });
+  var sse = new stackdriver.StackdriverStatsExporter({
+    projectId: "icco-cloud",
+    prefix: "writing"
+  });
+
+  stats.registerExporter(sse);
+  tracing.registerExporter(ste);
+}
 
 const app = next({
   dir: ".",
