@@ -16,31 +16,26 @@ const {
   Stats
 } = require("@opencensus/core");
 const prometheus = require("@opencensus/exporter-prometheus");
-let tracing = require("@opencensus/nodejs");
-const propagation = require("@opencensus/propagation-tracecontext");
 
 let stats = new Stats();
-
 var pe = new prometheus.PrometheusStatsExporter({
   prefix: "writing"
 });
 stats.registerExporter(pe);
 
 if (process.env.ENABLE_STACKDRIVER) {
+  const tracing = require("@opencensus/nodejs");
   const stackdriver = require("@opencensus/exporter-stackdriver");
-  const ste = new stackdriver.StackdriverTraceExporter({
-    projectId: "icco-cloud",
-    prefix: "writing"
-  });
   const sse = new stackdriver.StackdriverStatsExporter({
     projectId: "icco-cloud",
     prefix: "writing"
   });
-
   stats.registerExporter(sse);
-  const traceContext = new propagation.TraceContextFormat();
-  const tracer = tracing.start({ propagation: traceContext }).tracer;
-  tracer.registerSpanEventListener(ste);
+  const ste = new stackdriver.StackdriverTraceExporter({
+    projectId: "icco-cloud",
+    prefix: "writing"
+  });
+  tracing.registerExporter(ste).start();
 }
 
 const app = next({
