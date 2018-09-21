@@ -19,7 +19,6 @@ const prometheus = require("@opencensus/exporter-prometheus");
 let tracing = require("@opencensus/nodejs");
 const propagation = require("@opencensus/propagation-tracecontext");
 
-const traceContext = new propagation.TraceContextFormat();
 let stats = new Stats();
 
 var pe = new prometheus.PrometheusStatsExporter({
@@ -39,15 +38,14 @@ if (process.env.ENABLE_STACKDRIVER) {
   });
 
   if (sse) {
-    stats.registerExporter(sse);
-  } else {
-    console.log("sse", sse);
+    console.log(stats.registerExporter(sse));
   }
 
   if (ste) {
-    tracing.registerExporter(ste).start({ propagation: traceContext });
-  } else {
-    console.log("ste", ste);
+    const traceContext = new propagation.TraceContextFormat();
+    console.log(
+      tracing.registerExporter(ste).start({ propagation: traceContext })
+    );
   }
 }
 
