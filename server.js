@@ -37,16 +37,11 @@ if (process.env.ENABLE_STACKDRIVER) {
     prefix: "writing"
   });
 
-  if (sse) {
-    console.log(stats.registerExporter(sse));
-  }
+  console.log(sse, ste);
 
-  if (ste) {
-    const traceContext = new propagation.TraceContextFormat();
-    console.log(
-      tracing.registerExporter(ste).start({ propagation: traceContext })
-    );
-  }
+  stats.registerExporter(sse);
+  const traceContext = new propagation.TraceContextFormat();
+  tracing.registerExporter(ste).start({ propagation: traceContext });
 }
 
 const app = next({
