@@ -27,7 +27,7 @@ if (process.env.ENABLE_STACKDRIVER) {
   tracing.start({
     samplingRate: 1,
     plugins: {
-      http: "@opencensus/opencensus-instrumentation-http"
+      http: "@opencensus/instrumentation-http"
     },
     exporter: exporter
   });
