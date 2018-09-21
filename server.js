@@ -29,20 +29,27 @@ stats.registerExporter(pe);
 
 if (process.env.ENABLE_STACKDRIVER) {
   const stackdriver = require("@opencensus/exporter-stackdriver");
-  var ste = new stackdriver.StackdriverTraceExporter({
+  const ste = new stackdriver.StackdriverTraceExporter({
     projectId: "icco-cloud",
     prefix: "writing"
   });
-  var sse = new stackdriver.StackdriverStatsExporter({
+  const sse = new stackdriver.StackdriverStatsExporter({
     projectId: "icco-cloud",
     prefix: "writing"
   });
 
-  stats.registerExporter(sse);
-  tracing.registerExporter(ste);
+  if (sse) {
+    stats.registerExporter(sse);
+  } else {
+    console.log("sse", sse);
+  }
+
+  if (ste) {
+    tracing.registerExporter(ste).start({ propagation: traceContext });
+  } else {
+    console.log("ste", ste);
+  }
 }
-
-tracing.start({ propagation: traceContext });
 
 const app = next({
   dir: ".",
