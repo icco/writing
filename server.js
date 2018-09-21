@@ -35,7 +35,9 @@ if (process.env.ENABLE_STACKDRIVER) {
     projectId: "icco-cloud",
     prefix: "writing"
   });
-  tracing.registerExporter(exporter).start();
+  tracing.start({
+    exporter: exporter
+  });
 }
 
 const app = next({
