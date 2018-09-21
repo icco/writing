@@ -31,11 +31,11 @@ if (process.env.ENABLE_STACKDRIVER) {
     prefix: "writing"
   });
   stats.registerExporter(sse);
-  const ste = new stackdriver.StackdriverTraceExporter({
+  const exporter = new stackdriver.StackdriverTraceExporter({
     projectId: "icco-cloud",
     prefix: "writing"
   });
-  tracing.registerExporter(ste).start();
+  tracing.registerExporter(exporter).start();
 }
 
 const app = next({
