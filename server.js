@@ -25,6 +25,10 @@ if (process.env.ENABLE_STACKDRIVER) {
     prefix: "writing"
   });
   tracing.start({
+    samplingRate: 1,
+    plugins: {
+      http: "@opencensus/opencensus-instrumentation-http"
+    },
     exporter: exporter
   });
 }
