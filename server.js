@@ -9,21 +9,10 @@ const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const pino = require("express-pino-logger")();
-const {
-  AggregationType,
-  Measure,
-  MeasureUnit,
-  Stats
-} = require("@opencensus/core");
-const prometheus = require("@opencensus/exporter-prometheus");
-
-let stats = new Stats();
-var pe = new prometheus.PrometheusStatsExporter({
-  prefix: "writing"
-});
-stats.registerExporter(pe);
+const opencensus = require("@opencensus/core");
 
 if (process.env.ENABLE_STACKDRIVER) {
+  const stats = new opencensus.Stats();
   const tracing = require("@opencensus/nodejs");
   const stackdriver = require("@opencensus/exporter-stackdriver");
   const sse = new stackdriver.StackdriverStatsExporter({
@@ -74,14 +63,6 @@ app
 
     server.use(pino);
     server.use(helmet());
-
-    server.get("/metrics", (req, res) => {
-      res.set(
-        "Content-Type",
-        prometheus.PrometheusStatsExporter.DEFAULT_OPTIONS.contentType
-      );
-      res.end(pe.registry.metrics());
-    });
 
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
