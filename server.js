@@ -37,11 +37,10 @@ if (process.env.ENABLE_STACKDRIVER) {
     prefix: "writing"
   });
 
-  console.log(sse, ste);
-
   stats.registerExporter(sse);
   const traceContext = new propagation.TraceContextFormat();
-  tracing.registerExporter(ste).start({ propagation: traceContext });
+  const tracer = tracing.start({ propagation: traceContext }).tracer;
+  tracer.registerSpanEventListener(ste);
 }
 
 const app = next({
