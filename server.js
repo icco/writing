@@ -3,7 +3,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const next = require("next");
-const rss = require("rss");
+const rss = require("feed");
 const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
@@ -60,6 +60,34 @@ async function recentPosts() {
   }
 }
 
+async function generateFeed() {
+  let feed = new rss.Feed({
+    title: "Nat? Nat. Nat!"
+  });
+  try {
+    let data = await recentPosts();
+
+    data.forEach(p => {
+      feed.addItem({
+        title: p.title,
+        link: `https://writing.natwelch.com/post/${p.id}`,
+        date: new Date(p.datetime),
+        author: [
+          {
+            name: "Nat Welch",
+            email: "nat@natwelch.com",
+            link: "https://natwelch.com"
+          }
+        ]
+      });
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  return feed;
+}
+
 app
   .prepare()
   .then(() => {
@@ -75,22 +103,15 @@ app
     });
 
     server.get("/feed.rss", async (req, res) => {
-      let feed = new rss({
-        title: "Nat? Nat. Nat!"
-      });
-      let data = await recentPosts();
+      let feed = await generateFeed();
+      res.set("Content-Type", "application/rss+xml");
+      res.send(feed.rss2());
+    });
 
-      data.forEach(p => {
-        feed.item({
-          title: p.title,
-          url: `https://writing.natwelch.com/post/${p.id}`,
-          date: p.datetime
-        });
-      });
-
-      var xml = feed.xml();
-      res.set("Content-Type", "text/xml");
-      res.send(xml);
+    server.get("/feed.atom", async (req, res) => {
+      let feed = await generateFeed();
+      res.set("Content-Type", "application/atom+xml");
+      res.send(feed.atom1());
     });
 
     server.all("*", (req, res) => {
