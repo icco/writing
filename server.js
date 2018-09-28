@@ -10,6 +10,7 @@ const { parse } = require("url");
 const { join } = require("path");
 const pino = require("express-pino-logger")();
 const opencensus = require("@opencensus/core");
+const proxy = require("http-proxy-middleware");
 
 if (process.env.ENABLE_STACKDRIVER) {
   const stats = new opencensus.Stats();
@@ -113,6 +114,15 @@ app
       res.set("Content-Type", "application/atom+xml");
       res.send(feed.atom1());
     });
+
+    const graphqlProxy = proxy({
+      target: "https://graphql.natwelch.com",
+      changeOrigin: true
+    });
+    server.use(
+      ["/login", "/logout", "/callback", "/admin/?*", "/graphql"],
+      graphqlProxy
+    );
 
     server.all("*", (req, res) => {
       const handle = app.getRequestHandler();
