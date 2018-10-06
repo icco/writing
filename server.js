@@ -49,6 +49,7 @@ async function recentPosts() {
             id
             title
             datetime
+            summary
           }
         }
       `
@@ -63,7 +64,9 @@ async function recentPosts() {
 
 async function generateFeed() {
   let feed = new rss.Feed({
-    title: "Nat? Nat. Nat!"
+    title: "Nat? Nat. Nat!",
+    favicon: "https://writing.natwelch.com/favicon.ico",
+    description: "Nat Welch's Blog about random stuff."
   });
   try {
     let data = await recentPosts();
@@ -73,6 +76,7 @@ async function generateFeed() {
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
+        content: p.summary,
         author: [
           {
             name: "Nat Welch",
