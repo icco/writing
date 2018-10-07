@@ -62,6 +62,33 @@ async function recentPosts() {
   }
 }
 
+async function getPost(id) {
+  try {
+    const client = apollo.create();
+    let data = await client.query({
+      query: gql`
+        query getPost($id: Int!) {
+          post(id: $id) {
+            id
+            title
+            datetime
+            summary
+          }
+        }
+      `,
+      variables: {
+      id: id
+      }
+    });
+    console.log(data)
+
+    return data;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
+
 async function generateFeed() {
   let feed = new rss.Feed({
     title: "Nat? Nat. Nat!",
@@ -98,8 +125,14 @@ app
   .then(() => {
     const server = express();
 
-    server.use(pino);
+    //server.use(pino);
     server.use(helmet());
+
+    server.get("/post/:id.:exn", async (req, res) => {
+      console.log(req.params);
+      getPost(req.params.id)
+      res.send('blah')
+    });
 
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
