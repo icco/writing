@@ -77,10 +77,10 @@ async function getPost(id) {
         }
       `,
       variables: {
-      id: id
+        id: id
       }
     });
-    console.log(data)
+    console.log(data);
 
     return data;
   } catch (err) {
@@ -130,8 +130,8 @@ app
 
     server.get("/post/:id.:exn", async (req, res) => {
       console.log(req.params);
-      getPost(req.params.id)
-      res.send('blah')
+      getPost(req.params.id);
+      res.send("blah");
     });
 
     server.get("/post/:id", (req, res) => {
@@ -153,7 +153,7 @@ app
     });
 
     const graphqlProxy = proxy({
-      target: "https://graphql.natwelch.com",
+      target: apollo.GRAPHQL_ORIGIN,
       changeOrigin: true
     });
     server.use(
