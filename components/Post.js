@@ -11,7 +11,7 @@ const Post = props => {
   const {
     id,
     router: { asPath },
-    data: { loading, error, post }
+    data: { loading, error, post },
   } = props;
 
   if (error) return <ErrorMessage message="Page not found." />;
@@ -68,7 +68,7 @@ export const getPost = gql`
 export default graphql(getPost, {
   options: props => ({
     variables: {
-      id: props.id
-    }
-  })
+      id: props.id,
+    },
+  }),
 })(withRouter(Post));

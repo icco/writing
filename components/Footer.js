@@ -79,7 +79,7 @@ const Footer = params => {
 
 Footer.getInitialProps = async function({ req, data }) {
   return {
-    data: data
+    data: data,
   };
 };
 
@@ -93,5 +93,5 @@ export const allStats = gql`
 `;
 
 export default graphql(allStats, {
-  options: {}
+  options: {},
 })(Footer);

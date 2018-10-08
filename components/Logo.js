@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 const P5Wrapper = dynamic(import("react-p5-wrapper"), {
   loading: () => "",
-  ssr: false
+  ssr: false,
 });
 
 // spinning logo
@@ -19,7 +19,7 @@ function sketch(p) {
       p.random(-180, 180),
       p.random(-180, 180),
       p.random(-180, 180),
-      p.random(-180, 180)
+      p.random(-180, 180),
     ];
   };
 

@@ -18,25 +18,25 @@ if (process.env.ENABLE_STACKDRIVER) {
   const stackdriver = require("@opencensus/exporter-stackdriver");
   const sse = new stackdriver.StackdriverStatsExporter({
     projectId: "icco-cloud",
-    prefix: "writing"
+    prefix: "writing",
   });
   stats.registerExporter(sse);
   const exporter = new stackdriver.StackdriverTraceExporter({
     projectId: "icco-cloud",
-    prefix: "writing"
+    prefix: "writing",
   });
   tracing.start({
     samplingRate: 1,
     plugins: {
-      http: "@opencensus/instrumentation-http"
+      http: "@opencensus/instrumentation-http",
     },
-    exporter: exporter
+    exporter: exporter,
   });
 }
 
 const app = next({
   dir: ".",
-  dev: process.env.NODE_ENV !== "production"
+  dev: process.env.NODE_ENV !== "production",
 });
 
 async function recentPosts() {
@@ -52,7 +52,7 @@ async function recentPosts() {
             summary
           }
         }
-      `
+      `,
     });
 
     return data.data.posts;
@@ -66,7 +66,7 @@ async function generateFeed() {
   let feed = new rss.Feed({
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
-    description: "Nat Welch's Blog about random stuff."
+    description: "Nat Welch's Blog about random stuff.",
   });
   try {
     let data = await recentPosts();
@@ -81,9 +81,9 @@ async function generateFeed() {
           {
             name: "Nat Welch",
             email: "nat@natwelch.com",
-            link: "https://natwelch.com"
-          }
-        ]
+            link: "https://natwelch.com",
+          },
+        ],
       });
     });
   } catch (err) {
@@ -121,7 +121,7 @@ app
 
     const graphqlProxy = proxy({
       target: "https://graphql.natwelch.com",
-      changeOrigin: true
+      changeOrigin: true,
     });
     server.use(
       ["/login", "/logout", "/callback", "/admin/?*", "/graphql"],
@@ -135,7 +135,7 @@ app
         "/robots.txt",
         "/sitemap.xml",
         "/favicon.ico",
-        "/.well-known/brave-payments-verification.txt"
+        "/.well-known/brave-payments-verification.txt",
       ];
 
       const redirects = {};
