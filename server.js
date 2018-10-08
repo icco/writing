@@ -67,7 +67,7 @@ async function getPost(id) {
     const client = apollo.create();
     let data = await client.query({
       query: gql`
-        query getPost($id: Int!) {
+        query getPost($id: ID!) {
           post(id: $id) {
             id
             title
