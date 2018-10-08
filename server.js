@@ -78,7 +78,8 @@ async function getPost(id) {
       `,
       variables: {
         id: id
-      }
+      },
+      errorPolicy: "all"
     });
     console.log(data);
 
