@@ -13,7 +13,7 @@ const PostNav = props => {
   console.log(props.data)
 
   let prevText = ""
-  if (parseInt(prevPost.id) > 0) {
+  if (prevPost && parseInt(prevPost.id) > 0) {
     prevText = (
       <Link as={`/post/${prevPost.id}`} href={`/post?id=${prevPost.id}`}>
       <a className="link dark-gray dim">&larr; Prev</a>
@@ -22,7 +22,7 @@ const PostNav = props => {
   }
 
   let nextText = ""
-  if (parseInt(nextPost.id) > 0) {
+  if (nextPost && parseInt(nextPost.id) > 0) {
     nextText = (
       <Link as={`/post/${nextPost.id}`} href={`/post?id=${nextPost.id}`}>
       <a className="link dark-gray dim">Next &rarr;</a>
