@@ -6,6 +6,7 @@ import md from "../lib/markdown.js";
 import Head from "next/head";
 import Link from "next/link";
 import Datetime from "./Datetime";
+import PostNav from "./PostNav";
 
 const Post = props => {
   const {
@@ -41,6 +42,8 @@ const Post = props => {
         <article className="mr3 ml4">
           <div dangerouslySetInnerHTML={html} />
         </article>
+
+        <PostNav id={post.id} />
       </section>
     );
   }
