@@ -55,12 +55,10 @@ export default graphql(allPosts, {
   props: ({ data }) => ({
     data: {
       ...data,
-      loadMore: () => {
-        var offset = data.variables.offset + 10;
+      loadMore: page => {
+        var offset = page * 10;
         return data.fetchMore({
-          options: {
-            variables: { offset },
-          },
+          variables: { offset },
           updateQuery: (previousResult = {}, { fetchMoreResult = {} }) => {
             var previousPosts = previousResult.posts;
             var currentPosts = fetchMoreResult.posts;
