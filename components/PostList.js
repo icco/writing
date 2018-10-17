@@ -52,6 +52,7 @@ export default graphql(allPosts, {
   options: {
     variables: {
       offset: 0,
+      perpage: PER_PAGE,
     },
   },
   props: ({ data }) => ({
