@@ -12,7 +12,7 @@ function PostList({ data: { loading, error, posts, loadMore } }) {
       <section className="mw8 center">
         <InfiniteScroll loadMore={loadMore} loader={<p>Loading...</p>}>
           <ul className="list pl0">
-            {allPosts.map(post => (
+            {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
                 <div className="f6 db pb1 gray">
                   <span className="mr3">#{post.id}</span>
@@ -36,7 +36,7 @@ function PostList({ data: { loading, error, posts, loadMore } }) {
 
 export const allPosts = gql`
   query posts($offset: Int!) {
-    posts(limit: 10, offset: $offset {
+    posts(limit: 10, offset: $offset) {
       id
       title
       datetime
@@ -50,10 +50,6 @@ export default graphql(allPosts, {
   variables: {
     offset: 0,
   },
-  options: {},
-})(PostList);
-
-const withQuery = graphql(QUERY_REPOS, {
   props: ({ data }) => ({
     data: {
       ...data,
@@ -64,6 +60,7 @@ const withQuery = graphql(QUERY_REPOS, {
             console.log(previousResult, fetchMoreResult);
             return {
               data: {
+                offset: 10,
                 posts: [...previousPosts, ...currentPosts],
               },
             };
@@ -71,4 +68,4 @@ const withQuery = graphql(QUERY_REPOS, {
         }),
     },
   }),
-});
+})(PostList);
