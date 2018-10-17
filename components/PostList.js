@@ -14,11 +14,11 @@ function PostList({ data: { error, posts, loadMore } }) {
     return (
       <section className="mw8 center">
         <InfiniteScroll
-      threshold={500}
-      loadMore={loadMore}
-      hasMore={true}
-              loader={<Loading />}
-      >
+          threshold={500}
+          loadMore={loadMore}
+          hasMore={true}
+          loader={<Loading />}
+        >
           <ul className="list pl0">
             {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
