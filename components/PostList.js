@@ -5,12 +5,14 @@ import Link from "next/link";
 import Datetime from "./Datetime";
 import InfiniteScroll from "react-infinite-scroller";
 
+const PER_PAGE = 20;
+
 function PostList({ data: { loading, error, posts, loadMore } }) {
   if (error) return <ErrorMessage message="Error loading posts." />;
   if (posts && posts.length) {
     return (
       <section className="mw8 center">
-        <InfiniteScroll loadMore={loadMore} hasMore={true}>
+        <InfiniteScroll threshold={500} loadMore={loadMore} hasMore={true}>
           <ul className="list pl0">
             {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
@@ -35,8 +37,8 @@ function PostList({ data: { loading, error, posts, loadMore } }) {
 }
 
 export const allPosts = gql`
-  query posts($offset: Int!) {
-    posts(limit: 10, offset: $offset) {
+  query posts($offset: Int!, $perpage: Int!) {
+    posts(limit: $perpage, offset: $offset) {
       id
       title
       datetime
@@ -56,9 +58,9 @@ export default graphql(allPosts, {
     data: {
       ...data,
       loadMore: page => {
-        var offset = page * 10;
+        var offset = page * PER_PAGE;
         return data.fetchMore({
-          variables: { offset },
+          variables: { offset, perpage: PER_PAGE },
           updateQuery: (previousResult = {}, { fetchMoreResult = {} }) => {
             var previousPosts = previousResult.posts;
             var currentPosts = fetchMoreResult.posts;
