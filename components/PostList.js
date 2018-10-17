@@ -10,7 +10,7 @@ function PostList({ data: { loading, error, posts, loadMore } }) {
   if (posts && posts.length) {
     return (
       <section className="mw8 center">
-        <InfiniteScroll loadMore={loadMore} loader={<p>Loading...</p>}>
+        <InfiniteScroll loadMore={loadMore} hasMore={true}>
           <ul className="list pl0">
             {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
@@ -56,17 +56,16 @@ export default graphql(allPosts, {
     data: {
       ...data,
       loadMore: () => {
-        console.log(data);
+        var offset = data.variables.offset + 10;
         return data.fetchMore({
           options: {
-            variables: { offset: 10 },
+            variables: { offset },
           },
           updateQuery: (previousResult = {}, { fetchMoreResult = {} }) => {
-            console.log(previousResult, fetchMoreResult);
+            var previousPosts = previousResult.posts;
+            var currentPosts = fetchMoreResult.posts;
             return {
-              data: {
-                posts: [...previousPosts, ...currentPosts],
-              },
+              posts: [...previousPosts, ...currentPosts],
             };
           },
         });
