@@ -10,9 +10,7 @@ import PostNav from "./PostNav";
 
 const Post = props => {
   const {
-    id,
-    router: { asPath },
-    data: { loading, error, post },
+    data: { error, post },
   } = props;
 
   if (error) return <ErrorMessage message="Page not found." />;
@@ -50,12 +48,6 @@ const Post = props => {
 
   return <div />;
 };
-
-function notFoundError() {
-  const err = new Error(`this will not show up anywhere`);
-  err.code = "ENOENT";
-  return err;
-}
 
 export const getPost = gql`
   query getPost($id: ID!) {

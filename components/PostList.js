@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroller";
 
 const PER_PAGE = 20;
 
-function PostList({ data: { loading, error, posts, loadMore } }) {
+function PostList({ data: { error, posts, loadMore } }) {
   if (error) return <ErrorMessage message="Error loading posts." />;
   if (posts && posts.length) {
     return (

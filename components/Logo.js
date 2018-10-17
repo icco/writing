@@ -11,7 +11,7 @@ function sketch(p) {
   let rand = [];
 
   p.setup = function() {
-    var cnv = p.createCanvas(200, 200);
+    p.createCanvas(200, 200);
 
     p.noStroke();
     p.fill(51);

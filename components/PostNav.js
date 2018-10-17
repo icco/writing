@@ -4,8 +4,7 @@ import gql from "graphql-tag";
 
 const PostNav = props => {
   const {
-    id,
-    data: { loading, error, prevPost, nextPost },
+    data: { error, prevPost, nextPost },
   } = props;
 
   if (error) return <div />;
