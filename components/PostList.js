@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import Link from "next/link";
 import Datetime from "./Datetime";
+import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroller";
 
 const PER_PAGE = 20;
@@ -12,7 +13,12 @@ function PostList({ data: { error, posts, loadMore } }) {
   if (posts && posts.length) {
     return (
       <section className="mw8 center">
-        <InfiniteScroll threshold={500} loadMore={loadMore} hasMore={true}>
+        <InfiniteScroll
+      threshold={500}
+      loadMore={loadMore}
+      hasMore={true}
+              loader={<Loading />}
+      >
           <ul className="list pl0">
             {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
