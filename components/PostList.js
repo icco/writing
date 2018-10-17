@@ -47,25 +47,30 @@ export const allPosts = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (PostList)
 export default graphql(allPosts, {
-  variables: {
-    offset: 0,
+  options: {
+    variables: {
+      offset: 0,
+    },
   },
   props: ({ data }) => ({
     data: {
       ...data,
-      loadMore: () =>
-        data.fetchMore({
-          variables: { offset: 10 },
+      loadMore: () => {
+        console.log(data);
+        return data.fetchMore({
+          options: {
+            variables: { offset: 10 },
+          },
           updateQuery: (previousResult = {}, { fetchMoreResult = {} }) => {
             console.log(previousResult, fetchMoreResult);
             return {
               data: {
-                offset: 10,
                 posts: [...previousPosts, ...currentPosts],
               },
             };
           },
-        }),
+        });
+      },
     },
   }),
 })(PostList);
