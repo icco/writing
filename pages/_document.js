@@ -46,6 +46,7 @@ export default class WritingDocument extends Document {
               m.parentNode.insertBefore(o,m)
             })(document, window, '//a.natwelch.com/tracker.js', 'fathom');
             fathom('set', 'siteId', '${TRACKING_ID}');
+            fathom('trackPageview');
           `,
             }}
           />
