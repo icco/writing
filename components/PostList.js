@@ -17,13 +17,13 @@ function PostList({ data: { error, posts, loadMore } }) {
           threshold={500}
           loadMore={loadMore}
           hasMore={true}
-          loader={<Loading />}
+          loader={<Loading key={0} />}
         >
-          <ul className="list pl0">
+          <ul className="list pl0" key="ul">
             {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
                 <div className="f6 db pb1 gray">
-                  <span className="mr3">#{post.id}</span>
+                  <span className="dbi mr3">#{post.id}</span>
                   <Datetime>{post.datetime}</Datetime>
                 </div>
                 <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
