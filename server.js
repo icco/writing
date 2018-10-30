@@ -107,6 +107,12 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
+    server.get("/tag/:id", (req, res) => {
+      const actualPage = "/tag";
+      const queryParams = { id: req.params.id };
+      app.render(req, res, actualPage, queryParams);
+    });
+
     server.get("/feed.rss", async (req, res) => {
       let feed = await generateFeed();
       res.set("Content-Type", "application/rss+xml");
