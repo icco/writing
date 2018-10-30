@@ -22,9 +22,7 @@ const Tag = props => {
     return (
       <section className="mw8 center">
         <Head>
-          <title>
-            Nat? Nat. Nat! | tag "{id}"
-          </title>
+          <title>Nat? Nat. Nat! | tag "{id}"</title>
         </Head>
 
         <ul className="list pl0">
