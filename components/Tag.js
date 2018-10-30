@@ -1,9 +1,7 @@
 import Datetime from "./Datetime";
 import ErrorMessage from "./ErrorMessage";
 import Head from "next/head";
-import InfiniteScroll from "react-infinite-scroller";
 import Link from "next/link";
-import Loading from "./Loading";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { withRouter } from "next/router";
@@ -15,7 +13,6 @@ const Tag = props => {
     id,
     data: { error, postsByTag },
   } = props;
-  console.log(id, postsByTag);
 
   if (error) return <ErrorMessage message="Tag not found." />;
   if (postsByTag) {
