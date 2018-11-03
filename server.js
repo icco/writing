@@ -11,8 +11,10 @@ const { join } = require("path");
 const pino = require("express-pino-logger")();
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
+const propagation = require("@opencensus/propagation-tracecontext");
 
 if (process.env.ENABLE_STACKDRIVER) {
+  const traceContext = new propagation.TraceContextFormat();
   const stats = new opencensus.Stats();
   const tracing = require("@opencensus/nodejs");
   const stackdriver = require("@opencensus/exporter-stackdriver");
@@ -31,6 +33,7 @@ if (process.env.ENABLE_STACKDRIVER) {
       http: "@opencensus/instrumentation-http",
     },
     exporter: exporter,
+    propagation: traceContext,
   });
 }
 
