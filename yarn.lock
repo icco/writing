@@ -668,6 +668,17 @@
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
+"@opencensus/core@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.6.tgz#3d1186800e89f6f50e47466bf4ce4f161f3fcf0d"
+  integrity sha512-wp9Nh8kpUjLmdmdjxXfg4O7fJGzTnHUU1QPduGuLoU4GjFTE/CxQ8w4GX52Er0acqnWaCRN/j20DK+oLteTHhA==
+  dependencies:
+    continuation-local-storage "^3.2.1"
+    log-driver "^1.2.7"
+    semver "^5.5.0"
+    shimmer "^1.2.0"
+    uuid "^3.2.1"
+
 "@opencensus/exporter-stackdriver@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@opencensus/exporter-stackdriver/-/exporter-stackdriver-0.0.4.tgz#840f8109beff154f2aebe475b464280cdea0c272"
@@ -751,12 +762,12 @@
     extend "^3.0.1"
     require-in-the-middle "^3.0.0"
 
-"@opencensus/propagation-stackdriver@^0.0.6":
+"@opencensus/propagation-b3@^0.0.6":
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.6.tgz#0802ea190f13ca99db399c6e3f64755f82196be3"
-  integrity sha512-GwUgnav+SR4bUPV9ogtEnE6JrF3gKpbjQTiyZmLT2WaCvA8PFTgO1fZo6s1phcw1bbSdzTAlqjx60La7zN7cKQ==
+  resolved "https://registry.yarnpkg.com/@opencensus/propagation-b3/-/propagation-b3-0.0.6.tgz#e2fb7c094e07814d15c503ae525bab0b101a776e"
+  integrity sha512-rbpP6S6TrTvoVr40GhGkri+jJouusLcqg0emfDKyZnhWi/iv+VdTmvdoIQHcMs31xlLIBAerULgUyqaQQTN25w==
   dependencies:
-    hex2dec "^1.0.1"
+    "@opencensus/core" "^0.0.6"
     uuid "^3.2.1"
 
 "@types/async@2.0.50":
@@ -3239,11 +3250,6 @@ helmet@^3.13.0:
     nocache "2.0.0"
     referrer-policy "1.1.0"
     x-xss-protection "1.1.0"
-
-hex2dec@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/hex2dec/-/hex2dec-1.1.0.tgz#ac98767d3b834f30e8c0cc7b7566f6bb8447922e"
-  integrity sha512-FFhdNnoJcwBtPOijbP5+Mlt2QekjaCTzFU6gwOwnroOtjSIXSuz8wdg8OmzmXeI/UwtQHig/jxrjmNW21C7i0g==
 
 hide-powered-by@1.0.0:
   version "1.0.0"
