@@ -8,7 +8,7 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
-const logger = require('pino')()
+const logger = require("pino")({ level: "debug" });
 const pino = require("express-pino-logger")();
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
@@ -33,7 +33,7 @@ if (process.env.ENABLE_STACKDRIVER) {
     plugins: {
       http: "@opencensus/instrumentation-http",
     },
-    logLevel: 3,
+    logLevel: 4,
     logger: logger,
     exporter: exporter,
     propagation: b3,
