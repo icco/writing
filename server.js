@@ -25,7 +25,7 @@ if (process.env.ENABLE_STACKDRIVER) {
   });
   stats.registerExporter(sse);
 
-  const sp = new propagation.v1();
+  const sp = propagation.v1;
   const ste = new stackdriver.StackdriverTraceExporter({
     projectId: GOOGLE_PROJECT,
   });
