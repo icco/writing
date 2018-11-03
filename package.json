@@ -7,10 +7,11 @@
     "lint": "./lint.sh"
   },
   "dependencies": {
-    "@opencensus/core": "^0.0.4",
-    "@opencensus/exporter-stackdriver": "^0.0.4",
+    "@opencensus/core": "^0.0.6",
+    "@opencensus/exporter-stackdriver": "^0.0.6",
     "@opencensus/instrumentation-http": "^0.0.6",
-    "@opencensus/nodejs": "^0.0.4",
+    "@opencensus/instrumentation-http2": "^0.0.6",
+    "@opencensus/nodejs": "^0.0.6",
     "@opencensus/propagation-stackdriver": "^0.0.6",
     "@zeit/next-css": "^0.2.0",
     "apollo-cache-inmemory": "^1.3.8",

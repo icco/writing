@@ -32,6 +32,7 @@ if (process.env.ENABLE_STACKDRIVER) {
     samplingRate: 1,
     plugins: {
       http: "@opencensus/instrumentation-http",
+      http2: "@opencensus/instrumentation-http2",
     },
     logLevel: 4,
     logger: logger,
