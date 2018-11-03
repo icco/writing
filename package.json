@@ -9,7 +9,7 @@
   "dependencies": {
     "@opencensus/core": "^0.0.4",
     "@opencensus/exporter-stackdriver": "^0.0.4",
-    "@opencensus/instrumentation-http": "^0.0.4",
+    "@opencensus/instrumentation-http": "^0.0.6",
     "@opencensus/nodejs": "^0.0.4",
     "@opencensus/propagation-b3": "^0.0.6",
     "@zeit/next-css": "^0.2.0",

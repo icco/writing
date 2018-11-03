@@ -731,6 +731,17 @@
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
+"@opencensus/instrumentation-http@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-http/-/instrumentation-http-0.0.6.tgz#e9c918fff63bea8319a84f954ee18eddaa75cb1d"
+  integrity sha512-6KdyIynUvw4YADCdljZNGwUS1D4qxCIBtH7a5WzUGi4sXQeJvlG4F5J57LQbrngUzLb1o1c5tUpe7+XhmtYdsQ==
+  dependencies:
+    "@opencensus/core" "^0.0.6"
+    end-of-stream "^1.4.1"
+    semver "^5.5.0"
+    shimmer "^1.2.0"
+    uuid "^3.2.1"
+
 "@opencensus/instrumentation-https@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-https/-/instrumentation-https-0.0.4.tgz#a211d3bb0d33730bfddec922cfdfc91b1f74466d"
