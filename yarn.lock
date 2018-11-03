@@ -4918,7 +4918,7 @@ pino-std-serializers@^2.1.0, pino-std-serializers@^2.3.0:
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.3.0.tgz#34eeaab97c055c28e22c0542ae55978e7e427786"
   integrity sha512-klfGoOsP6sJH7ON796G4xoUSx2fkpFgKHO4YVVO2zmz31jR+etzc/QzGJILaOIiCD6HTCFgkPx+XN8nk+ruqPw==
 
-pino@^5.0.0:
+pino@^5.0.0, pino@^5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/pino/-/pino-5.8.0.tgz#b566f78617c53c2bae91d30ad62d52cd1074df4a"
   integrity sha512-L+nysfU1DMoMku+/4DTsBNFl/ajFzPWMGFQ7Gs3Cuo60Iya4ixPzHSxBUT6po2lQRexW9iEj8oCAIGpEXBeIZQ==

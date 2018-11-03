@@ -8,16 +8,17 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
+const logger = require('pino')()
 const pino = require("express-pino-logger")();
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
 const propagation = require("@opencensus/propagation-b3");
+const tracing = require("@opencensus/nodejs");
+const stackdriver = require("@opencensus/exporter-stackdriver");
 
 if (process.env.ENABLE_STACKDRIVER) {
   const b3 = new propagation.B3Format();
   const stats = new opencensus.Stats();
-  const tracing = require("@opencensus/nodejs");
-  const stackdriver = require("@opencensus/exporter-stackdriver");
   const sse = new stackdriver.StackdriverStatsExporter({
     projectId: "icco-cloud",
     prefix: "writing",
@@ -32,6 +33,8 @@ if (process.env.ENABLE_STACKDRIVER) {
     plugins: {
       http: "@opencensus/instrumentation-http",
     },
+    logLevel: 3,
+    logger: logger,
     exporter: exporter,
     propagation: b3,
   });
