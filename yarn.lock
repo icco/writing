@@ -751,6 +751,14 @@
     extend "^3.0.1"
     require-in-the-middle "^3.0.0"
 
+"@opencensus/propagation-b3@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@opencensus/propagation-b3/-/propagation-b3-0.0.4.tgz#4956d6abd76b9d8a5d71d6cfc09108e435544366"
+  integrity sha512-K3KZHaqZAHKXlRioqsA6hO2mYWWe6Zl3T3DoXZujGgXxXuO+CGCr3g36LamcsG+NNZKYKMETvJVpay++csn4ew==
+  dependencies:
+    "@opencensus/core" "^0.0.4"
+    uuid "^3.2.1"
+
 "@types/async@2.0.50":
   version "2.0.50"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.50.tgz#117540e026d64e1846093abbd5adc7e27fda7bcb"

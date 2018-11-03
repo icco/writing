@@ -14,8 +14,10 @@ const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
+const propagation = require("@opencensus/propagation-b3");
 
 if (process.env.ENABLE_STACKDRIVER) {
+  const b3 = new propagation.B3Format();
   const stats = new opencensus.Stats();
   const sse = new stackdriver.StackdriverStatsExporter({
     projectId: "icco-cloud",
@@ -35,6 +37,7 @@ if (process.env.ENABLE_STACKDRIVER) {
     },
     logger: logger,
     exporter: exporter,
+    propagation: b3,
   });
 }
 
