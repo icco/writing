@@ -9,31 +9,31 @@ const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const logger = require("pino")({ level: "warn" });
-const pino = require("express-pino-logger")();
+const pino = require("express-pino-logger")({ logger });
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
-const propagation = require("@opencensus/propagation-b3");
+const propagation = require("@opencensus/propagation-stackdriver");
 
-const GOOGLE_PROJECT = "icco-cloud"
+const GOOGLE_PROJECT = "icco-cloud";
 
 if (process.env.ENABLE_STACKDRIVER) {
-  const b3 = new propagation.B3Format();
   const stats = new opencensus.Stats();
   const sse = new stackdriver.StackdriverStatsExporter({
     projectId: GOOGLE_PROJECT,
   });
   stats.registerExporter(sse);
-  const exporter = new stackdriver.StackdriverTraceExporter({
+
+  const sp = new propagation.v1();
+  const ste = new stackdriver.StackdriverTraceExporter({
     projectId: GOOGLE_PROJECT,
   });
-
   tracing.start({
     samplingRate: 1,
     logger: logger,
-    exporter: exporter,
-    propagation: b3,
+    exporter: ste,
+    propagation: sp,
   });
 }
 

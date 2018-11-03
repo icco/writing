@@ -677,7 +677,7 @@
     google-auth-library "^1.5.0"
     googleapis "27.0.0"
 
-"@opencensus/instrumentation-all@^0.0.6":
+"@opencensus/instrumentation-all@0.0.6", "@opencensus/instrumentation-all@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-all/-/instrumentation-all-0.0.6.tgz#7765f9362baa0a975b93a60c4a63331aed8e7d8e"
   integrity sha512-yDEL+fZOoT2usMefXDLGQ8r3gRscnF+f6QdO8mATnWFVXgy5YaH/Tw4E64KJo9Yk5KJt8nlvPrtNt8FrKYvHMw==
@@ -699,7 +699,7 @@
     semver "^5.5.0"
     shimmer "^1.2.0"
 
-"@opencensus/instrumentation-http2@0.0.6", "@opencensus/instrumentation-http2@^0.0.6":
+"@opencensus/instrumentation-http2@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-http2/-/instrumentation-http2-0.0.6.tgz#35d1824e504a950e072e08ca28de4f666616f99b"
   integrity sha512-gYUmiI+yRafB4t/ARVM2qF0+DNLV160/+MbCYsK+NlrUAM6vW+2U71DyBinZTNh/2iyEM3f00Volr3nFzKTOYw==
@@ -709,7 +709,7 @@
     semver "^5.5.0"
     shimmer "^1.2.0"
 
-"@opencensus/instrumentation-http@0.0.6", "@opencensus/instrumentation-http@^0.0.6":
+"@opencensus/instrumentation-http@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-http/-/instrumentation-http-0.0.6.tgz#e9c918fff63bea8319a84f954ee18eddaa75cb1d"
   integrity sha512-6KdyIynUvw4YADCdljZNGwUS1D4qxCIBtH7a5WzUGi4sXQeJvlG4F5J57LQbrngUzLb1o1c5tUpe7+XhmtYdsQ==
@@ -720,7 +720,7 @@
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
-"@opencensus/instrumentation-https@0.0.6", "@opencensus/instrumentation-https@^0.0.6":
+"@opencensus/instrumentation-https@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-https/-/instrumentation-https-0.0.6.tgz#408c20d3b7b39b6c42f3974b15c8ca331a017d77"
   integrity sha512-9SQ8tDoE5AKEyQaT7sCtdqem84U8MIbjymIrXvfDysGCv6tmBpRal8j13aGBJqagz2ydsF585ewoSXKuWPoO8A==
@@ -751,12 +751,12 @@
     extend "^3.0.1"
     require-in-the-middle "^3.0.0"
 
-"@opencensus/propagation-b3@0.0.6":
+"@opencensus/propagation-stackdriver@0.0.6":
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/propagation-b3/-/propagation-b3-0.0.6.tgz#e2fb7c094e07814d15c503ae525bab0b101a776e"
-  integrity sha512-rbpP6S6TrTvoVr40GhGkri+jJouusLcqg0emfDKyZnhWi/iv+VdTmvdoIQHcMs31xlLIBAerULgUyqaQQTN25w==
+  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.6.tgz#0802ea190f13ca99db399c6e3f64755f82196be3"
+  integrity sha512-GwUgnav+SR4bUPV9ogtEnE6JrF3gKpbjQTiyZmLT2WaCvA8PFTgO1fZo6s1phcw1bbSdzTAlqjx60La7zN7cKQ==
   dependencies:
-    "@opencensus/core" "^0.0.6"
+    hex2dec "^1.0.1"
     uuid "^3.2.1"
 
 "@types/async@2.0.50":
@@ -3239,6 +3239,11 @@ helmet@^3.13.0:
     nocache "2.0.0"
     referrer-policy "1.1.0"
     x-xss-protection "1.1.0"
+
+hex2dec@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/hex2dec/-/hex2dec-1.1.0.tgz#ac98767d3b834f30e8c0cc7b7566f6bb8447922e"
+  integrity sha512-FFhdNnoJcwBtPOijbP5+Mlt2QekjaCTzFU6gwOwnroOtjSIXSuz8wdg8OmzmXeI/UwtQHig/jxrjmNW21C7i0g==
 
 hide-powered-by@1.0.0:
   version "1.0.0"
