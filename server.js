@@ -16,25 +16,21 @@ const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-b3");
 
+const GOOGLE_PROJECT = "icco-cloud"
+
 if (process.env.ENABLE_STACKDRIVER) {
   const b3 = new propagation.B3Format();
   const stats = new opencensus.Stats();
   const sse = new stackdriver.StackdriverStatsExporter({
-    projectId: "icco-cloud",
-    prefix: "writing",
+    projectId: GOOGLE_PROJECT,
   });
   stats.registerExporter(sse);
   const exporter = new stackdriver.StackdriverTraceExporter({
-    projectId: "icco-cloud",
-    prefix: "writing",
+    projectId: GOOGLE_PROJECT,
   });
+
   tracing.start({
     samplingRate: 1,
-    plugins: {
-      http: "@opencensus/instrumentation-http",
-      http2: "@opencensus/instrumentation-http2",
-      https: "@opencensus/instrumentation-https",
-    },
     logger: logger,
     exporter: exporter,
     propagation: b3,
