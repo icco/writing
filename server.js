@@ -33,6 +33,7 @@ if (process.env.ENABLE_STACKDRIVER) {
     plugins: {
       http: "@opencensus/instrumentation-http",
       http2: "@opencensus/instrumentation-http2",
+      https: "@opencensus/instrumentation-https",
     },
     logLevel: 4,
     logger: logger,
