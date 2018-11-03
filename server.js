@@ -38,7 +38,6 @@ if (process.env.ENABLE_STACKDRIVER) {
     logLevel: 4,
     logger: logger,
     exporter: exporter,
-    propagation: sdp,
   });
 }
 
