@@ -751,13 +751,6 @@
     extend "^3.0.1"
     require-in-the-middle "^3.0.0"
 
-"@opencensus/propagation-stackdriver@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.4.tgz#217fc65b3a49dedf3e7ff847a5dec796f29e59d0"
-  integrity sha512-RbpzN9yMQ0VlUxjrCtROs3AOYQtJI+LC0tpjn/+XL2hIz5W3/q+yCmooixjcExeY8OcTNlfIzhmGUQBp3ySGoA==
-  dependencies:
-    uuid "^3.2.1"
-
 "@types/async@2.0.50":
   version "2.0.50"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.50.tgz#117540e026d64e1846093abbd5adc7e27fda7bcb"
