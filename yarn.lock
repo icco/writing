@@ -751,14 +751,6 @@
     extend "^3.0.1"
     require-in-the-middle "^3.0.0"
 
-"@opencensus/propagation-stackdriver@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.6.tgz#0802ea190f13ca99db399c6e3f64755f82196be3"
-  integrity sha512-GwUgnav+SR4bUPV9ogtEnE6JrF3gKpbjQTiyZmLT2WaCvA8PFTgO1fZo6s1phcw1bbSdzTAlqjx60La7zN7cKQ==
-  dependencies:
-    hex2dec "^1.0.1"
-    uuid "^3.2.1"
-
 "@types/async@2.0.50":
   version "2.0.50"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.50.tgz#117540e026d64e1846093abbd5adc7e27fda7bcb"
@@ -3239,11 +3231,6 @@ helmet@^3.13.0:
     nocache "2.0.0"
     referrer-policy "1.1.0"
     x-xss-protection "1.1.0"
-
-hex2dec@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/hex2dec/-/hex2dec-1.1.0.tgz#ac98767d3b834f30e8c0cc7b7566f6bb8447922e"
-  integrity sha512-FFhdNnoJcwBtPOijbP5+Mlt2QekjaCTzFU6gwOwnroOtjSIXSuz8wdg8OmzmXeI/UwtQHig/jxrjmNW21C7i0g==
 
 hide-powered-by@1.0.0:
   version "1.0.0"
