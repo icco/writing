@@ -17,14 +17,21 @@ function PostList({ data: { error, posts, loadMore } }) {
           threshold={500}
           loadMore={loadMore}
           hasMore={true}
-          loader={<Loading />}
+          loader={<Loading key={0} />}
         >
-          <ul className="list pl0">
+          <ul className="list pl0" key="ul">
             {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
                 <div className="f6 db pb1 gray">
-                  <span className="mr3">#{post.id}</span>
+                  <span className="dbi mr3">#{post.id}</span>
                   <Datetime>{post.datetime}</Datetime>
+                  <span className="dbi ml3">
+                    {post.tags.map((tag, i) => (
+                      <Link key={i} as={`/tag/${tag}`} href={`/tag?id=${tag}`}>
+                        <a className="mh1 link gray dim">#{tag}</a>
+                      </Link>
+                    ))}
+                  </span>
                 </div>
                 <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
                   <a className="header db f3 f1-ns link dark-gray dim">
@@ -48,6 +55,7 @@ export const allPosts = gql`
       id
       title
       datetime
+      tags
     }
   }
 `;
