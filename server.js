@@ -17,6 +17,7 @@ const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 
 const GOOGLE_PROJECT = "icco-cloud";
+const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
 if (process.env.ENABLE_STACKDRIVER) {
   const stats = new opencensus.Stats();
@@ -129,7 +130,7 @@ app
     });
 
     const graphqlProxy = proxy({
-      target: "https://graphql.natwelch.com",
+      target: GRAPHQL_ORIGIN,
       changeOrigin: true,
     });
     server.use(
