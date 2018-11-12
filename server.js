@@ -8,29 +8,33 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
-const pino = require("express-pino-logger")();
+const logger = require("pino")({ level: "info" });
+const pino = require("express-pino-logger")({ logger });
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
+const tracing = require("@opencensus/nodejs");
+const stackdriver = require("@opencensus/exporter-stackdriver");
+const propagation = require("@opencensus/propagation-stackdriver");
+
+const GOOGLE_PROJECT = "icco-cloud";
+const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
 if (process.env.ENABLE_STACKDRIVER) {
   const stats = new opencensus.Stats();
-  const tracing = require("@opencensus/nodejs");
-  const stackdriver = require("@opencensus/exporter-stackdriver");
   const sse = new stackdriver.StackdriverStatsExporter({
-    projectId: "icco-cloud",
-    prefix: "writing",
+    projectId: GOOGLE_PROJECT,
   });
   stats.registerExporter(sse);
-  const exporter = new stackdriver.StackdriverTraceExporter({
-    projectId: "icco-cloud",
-    prefix: "writing",
+
+  const sp = propagation.v1;
+  const ste = new stackdriver.StackdriverTraceExporter({
+    projectId: GOOGLE_PROJECT,
   });
   tracing.start({
     samplingRate: 1,
-    plugins: {
-      http: "@opencensus/instrumentation-http",
-    },
-    exporter: exporter,
+    logger: logger,
+    exporter: ste,
+    propagation: sp,
   });
 }
 
@@ -126,7 +130,7 @@ app
     });
 
     const graphqlProxy = proxy({
-      target: "https://graphql.natwelch.com",
+      target: GRAPHQL_ORIGIN,
       changeOrigin: true,
     });
     server.use(
