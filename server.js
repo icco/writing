@@ -5,7 +5,6 @@ const helmet = require("helmet");
 const next = require("next");
 const rss = require("feed");
 const gql = require("graphql-tag");
-const config  = require("next/config");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
@@ -18,10 +17,7 @@ const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 
 const GOOGLE_PROJECT = "icco-cloud";
-
-console.log(config)
-const { publicRuntimeConfig } = config.default();
-const GRAPHQL_ORIGIN = publicRuntimeConfig.graphql_origin;
+const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
 if (process.env.ENABLE_STACKDRIVER) {
   const stats = new opencensus.Stats();
