@@ -657,10 +657,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@opencensus/core@0.0.6", "@opencensus/core@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.6.tgz#3d1186800e89f6f50e47466bf4ce4f161f3fcf0d"
-  integrity sha512-wp9Nh8kpUjLmdmdjxXfg4O7fJGzTnHUU1QPduGuLoU4GjFTE/CxQ8w4GX52Er0acqnWaCRN/j20DK+oLteTHhA==
+"@opencensus/core@0.0.7", "@opencensus/core@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.7.tgz#d7525db45f25fa9d6b54d8b15463ec3f8f892bf1"
+  integrity sha512-oZcCdFAId3bbdJaSAxeDqq0qdTbAQVcHMx0q4AvMU+vOrw/MEF+nyzCS2vN+B/8R9+CG1s0UBH6QzRx45RC61g==
   dependencies:
     continuation-local-storage "^3.2.1"
     log-driver "^1.2.7"
@@ -668,93 +668,94 @@
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
-"@opencensus/exporter-stackdriver@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/exporter-stackdriver/-/exporter-stackdriver-0.0.6.tgz#a843c14b5933cf3873b97ae96d3226e1293c3e93"
-  integrity sha512-Igd51Lbiwpl2hG8UMij54bMORzyo7RWfV4lqmzDx12pSZTtv6DCKmiom1iaqCfQQZZR4X/ca5xCJ8XyYtVGczg==
+"@opencensus/exporter-stackdriver@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/exporter-stackdriver/-/exporter-stackdriver-0.0.7.tgz#cdf5802f24c7aa21f1124fd75bb18d9fd06464e4"
+  integrity sha512-IYf65WDsJB2HyZ/XVSRmuOOx6ATTfI+BBnln/B4UJn4ZktPcK1WxZoj9U+8tZsBFm0zU0Zi/T+HYOoXqm2PjrQ==
   dependencies:
-    "@opencensus/core" "^0.0.6"
+    "@opencensus/core" "^0.0.7"
     google-auth-library "^1.5.0"
     googleapis "27.0.0"
+    hex2dec "^1.1.0"
 
-"@opencensus/instrumentation-all@0.0.6", "@opencensus/instrumentation-all@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-all/-/instrumentation-all-0.0.6.tgz#7765f9362baa0a975b93a60c4a63331aed8e7d8e"
-  integrity sha512-yDEL+fZOoT2usMefXDLGQ8r3gRscnF+f6QdO8mATnWFVXgy5YaH/Tw4E64KJo9Yk5KJt8nlvPrtNt8FrKYvHMw==
+"@opencensus/instrumentation-all@0.0.7", "@opencensus/instrumentation-all@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-all/-/instrumentation-all-0.0.7.tgz#8fa2225b77d9935b6894763dad632ebb7355f59c"
+  integrity sha512-xRnjyRsLdY30DwcY+QB9KUWombDJmvUe5X27xe21TH7+N4TSSVQdQdEy/2N+2DN/gZDaCsiiZ2vW6NYOLAypZA==
   dependencies:
-    "@opencensus/instrumentation-grpc" "^0.0.6"
-    "@opencensus/instrumentation-http" "^0.0.6"
-    "@opencensus/instrumentation-http2" "^0.0.6"
-    "@opencensus/instrumentation-https" "^0.0.6"
-    "@opencensus/instrumentation-mongodb" "^0.0.6"
+    "@opencensus/instrumentation-grpc" "^0.0.7"
+    "@opencensus/instrumentation-http" "^0.0.7"
+    "@opencensus/instrumentation-http2" "^0.0.7"
+    "@opencensus/instrumentation-https" "^0.0.7"
+    "@opencensus/instrumentation-mongodb" "^0.0.7"
 
-"@opencensus/instrumentation-grpc@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-grpc/-/instrumentation-grpc-0.0.6.tgz#44c0e0404e577703728a7b1a357156d8c463b5fe"
-  integrity sha512-ZO6j8dc3hPWdTz3fvPPLUqn2nzFCEKbbMsk1CRB5yvWw6tgLxzo6UHsfOjFuUrhxYvlduy0lz89gbN+OU2EBLQ==
+"@opencensus/instrumentation-grpc@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-grpc/-/instrumentation-grpc-0.0.7.tgz#f38cc65451c98278b8ef0bef88dd5a7b72661e90"
+  integrity sha512-HnF/4CcC9RVH+q9Dev6BFDLeTwZRwfYBbJPJ1sjKXMoBlQ/F05XoDkEWgaXLhXoYJfY6Rj36TnLRG4HmdCcrrA==
   dependencies:
-    "@opencensus/core" "^0.0.6"
+    "@opencensus/core" "^0.0.7"
     grpc "~1.12.2"
     lodash "^4.17.10"
     semver "^5.5.0"
     shimmer "^1.2.0"
 
-"@opencensus/instrumentation-http2@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-http2/-/instrumentation-http2-0.0.6.tgz#35d1824e504a950e072e08ca28de4f666616f99b"
-  integrity sha512-gYUmiI+yRafB4t/ARVM2qF0+DNLV160/+MbCYsK+NlrUAM6vW+2U71DyBinZTNh/2iyEM3f00Volr3nFzKTOYw==
+"@opencensus/instrumentation-http2@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-http2/-/instrumentation-http2-0.0.7.tgz#d1015e18c75aa97f7445a0689e1d7322e0145e3a"
+  integrity sha512-hJlnRYwzF8W6SUwUWoDt3S6T5nXUBSkZ+upsO8JVcSbOBe2Z1nMaJPfdmDFjy6scD6ilSnGMsZqz9PmZh6nNJQ==
   dependencies:
-    "@opencensus/core" "^0.0.6"
-    "@opencensus/instrumentation-http" "^0.0.6"
+    "@opencensus/core" "^0.0.7"
+    "@opencensus/instrumentation-http" "^0.0.7"
     semver "^5.5.0"
     shimmer "^1.2.0"
 
-"@opencensus/instrumentation-http@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-http/-/instrumentation-http-0.0.6.tgz#e9c918fff63bea8319a84f954ee18eddaa75cb1d"
-  integrity sha512-6KdyIynUvw4YADCdljZNGwUS1D4qxCIBtH7a5WzUGi4sXQeJvlG4F5J57LQbrngUzLb1o1c5tUpe7+XhmtYdsQ==
+"@opencensus/instrumentation-http@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-http/-/instrumentation-http-0.0.7.tgz#f5ca432913553b5bace3c7b050d862fd76f8a74c"
+  integrity sha512-mi2x0SFcUQIGCYErif9QaspOO0oZe5uT9FBlHMmnxcmu8cdSIUQLMpDDYfRVW2qmKnOB0ZSY6QcOLIAa2mexmQ==
   dependencies:
-    "@opencensus/core" "^0.0.6"
+    "@opencensus/core" "^0.0.7"
     end-of-stream "^1.4.1"
     semver "^5.5.0"
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
-"@opencensus/instrumentation-https@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-https/-/instrumentation-https-0.0.6.tgz#408c20d3b7b39b6c42f3974b15c8ca331a017d77"
-  integrity sha512-9SQ8tDoE5AKEyQaT7sCtdqem84U8MIbjymIrXvfDysGCv6tmBpRal8j13aGBJqagz2ydsF585ewoSXKuWPoO8A==
+"@opencensus/instrumentation-https@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-https/-/instrumentation-https-0.0.7.tgz#25bfe0636a4e3de97dfbeb38f533de03332d58da"
+  integrity sha512-1yZZN1DqTCUFP/um3TXmBWsJtJkYVo4+IeZ6kKtsVj6OUBlW4XSwmteEBMzWT2JvRHOKge+UoGvfnnfS/LdmeA==
   dependencies:
-    "@opencensus/core" "^0.0.6"
-    "@opencensus/instrumentation-http" "^0.0.6"
+    "@opencensus/core" "^0.0.7"
+    "@opencensus/instrumentation-http" "^0.0.7"
     semver "^5.5.0"
     shimmer "^1.2.0"
 
-"@opencensus/instrumentation-mongodb@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-mongodb/-/instrumentation-mongodb-0.0.6.tgz#f0744b37123467972ac569d987b17db01554db06"
-  integrity sha512-apXvUUbQypivYfrEVIIerrnMjKbjQBzYXORp/L7FZm+J1VoY8I31iMPkmA11biOcqU/s3HrwsWW2AJ9+wPAZIQ==
+"@opencensus/instrumentation-mongodb@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/instrumentation-mongodb/-/instrumentation-mongodb-0.0.7.tgz#23a8442b1bb88919cc0e2d02c132d822a758417e"
+  integrity sha512-v/DU1X3IKq09C4SHP2FN8hUf3LXNEdJX7QK9uROUyZCsjBlbecwCKnMIC9LJcUQcFdagTrmz+KA7tFXwAYUjsA==
   dependencies:
-    "@opencensus/core" "^0.0.6"
+    "@opencensus/core" "^0.0.7"
     end-of-stream "^1.4.1"
     semver "^5.5.0"
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
-"@opencensus/nodejs@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/nodejs/-/nodejs-0.0.6.tgz#24b1dacbfe359bcf2cde6cdf02d638f50c64f66c"
-  integrity sha512-WMnjsDvDknd2DZ/qV6AoGa9jVXZFO3vBCQEQBPNnNg4HrNfb4DQMZlRY6xiwZ5yMF85k+euxoJyUoGa2zh4tXw==
+"@opencensus/nodejs@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/nodejs/-/nodejs-0.0.7.tgz#25bf51db6b3071a3a7fdfd86b92e08f734128409"
+  integrity sha512-/yVKaASAmCq0TLj6OhjV22fcFl+DiE/j8CWj42jxBsn9pDVNDWI3Sue2ufRkzHXhYJ4wBogYbiy81sifkBslig==
   dependencies:
-    "@opencensus/core" "^0.0.6"
-    "@opencensus/instrumentation-all" "^0.0.6"
+    "@opencensus/core" "^0.0.7"
+    "@opencensus/instrumentation-all" "^0.0.7"
     extend "^3.0.1"
     require-in-the-middle "^3.0.0"
 
-"@opencensus/propagation-stackdriver@0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.6.tgz#0802ea190f13ca99db399c6e3f64755f82196be3"
-  integrity sha512-GwUgnav+SR4bUPV9ogtEnE6JrF3gKpbjQTiyZmLT2WaCvA8PFTgO1fZo6s1phcw1bbSdzTAlqjx60La7zN7cKQ==
+"@opencensus/propagation-stackdriver@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.7.tgz#a78aa1e96549ebf406855d35577402c1ac123f97"
+  integrity sha512-HOls9OZ7kGv7agcnSs2Rw2jlPUyRxuYbXEHqr1CAL08HM0kOhocbV2vZKBOzXcmqFbvpZNVsq9tdd7EbK83/TQ==
   dependencies:
     hex2dec "^1.0.1"
     uuid "^3.2.1"
@@ -3240,7 +3241,7 @@ helmet@^3.13.0:
     referrer-policy "1.1.0"
     x-xss-protection "1.1.0"
 
-hex2dec@^1.0.1:
+hex2dec@^1.0.1, hex2dec@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex2dec/-/hex2dec-1.1.0.tgz#ac98767d3b834f30e8c0cc7b7566f6bb8447922e"
   integrity sha512-FFhdNnoJcwBtPOijbP5+Mlt2QekjaCTzFU6gwOwnroOtjSIXSuz8wdg8OmzmXeI/UwtQHig/jxrjmNW21C7i0g==
