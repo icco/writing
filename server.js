@@ -34,7 +34,6 @@ if (process.env.ENABLE_STACKDRIVER) {
     samplingRate: 1,
     logger: logger,
     exporter: ste,
-    propagation: sp,
   });
 }
 
