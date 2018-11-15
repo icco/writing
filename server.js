@@ -30,11 +30,17 @@ if (process.env.ENABLE_STACKDRIVER) {
   const ste = new stackdriver.StackdriverTraceExporter({
     projectId: GOOGLE_PROJECT,
   });
-  tracing.start({
+  const tracer = tracing.start({
     samplingRate: 1,
     logger: logger,
     exporter: ste,
     propagation: sp,
+  }).tracer;
+
+  tracer.startRootSpan({ name: "init" }, rootSpan => {
+    for (let i = 0; i < 1000000; i++) {}
+
+    rootSpan.end();
   });
 }
 
