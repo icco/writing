@@ -14,7 +14,6 @@ const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
-const propagation = require("@opencensus/propagation-stackdriver");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
@@ -26,7 +25,6 @@ if (process.env.ENABLE_STACKDRIVER) {
   });
   stats.registerExporter(sse);
 
-  const sp = propagation.v1;
   const ste = new stackdriver.StackdriverTraceExporter({
     projectId: GOOGLE_PROJECT,
   });
@@ -34,7 +32,6 @@ if (process.env.ENABLE_STACKDRIVER) {
     samplingRate: 1,
     logger: logger,
     exporter: ste,
-    propagation: sp,
   }).tracer;
 
   tracer.startRootSpan({ name: "init" }, rootSpan => {
