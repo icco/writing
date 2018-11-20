@@ -111,6 +111,10 @@ app
     server.use(pino);
     server.use(helmet());
 
+    server.get("/healthz", (req, res) => {
+      res.json({ status: "ok" });
+    });
+
     server.get("/post/:id", (req, res) => {
       const actualPage = "/post";
       const queryParams = { id: req.params.id };
