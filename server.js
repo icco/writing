@@ -8,7 +8,8 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
-const logger = require("pino")({ level: "info" });
+const serializers = require("pino-stackdriver-serializers")
+const pinoLogger = require("pino");
 const pino = require("pino-http");
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
@@ -18,6 +19,16 @@ const propagation = require("@opencensus/propagation-stackdriver");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
+
+// TODO: Get better logging for stackdriver
+const logger = pinoLogger({
+  useLevelLabels: true,
+  messageKey: "message",
+  level: "info",
+  levels: serializers.levels,
+  serializers,
+  base: null,
+})
 
 if (process.env.ENABLE_STACKDRIVER) {
   const stats = new opencensus.Stats();
@@ -108,7 +119,10 @@ app
   .then(() => {
     const server = express();
 
-    server.use(pino({ logger }));
+    server.use(pino({
+      logger,
+      serializers,
+    }));
     server.use(helmet());
 
     server.get("/healthz", (req, res) => {

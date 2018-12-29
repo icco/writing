@@ -4911,6 +4911,12 @@ pino-http@^4.1.0:
     pino "^5.0.0"
     pino-std-serializers "^2.1.0"
 
+"pino-stackdriver-serializers@https://github.com/icco/pino-stackdriver-serializers":
+  version "1.0.0"
+  resolved "https://github.com/icco/pino-stackdriver-serializers#4169f8a54ffc833bfa9fff71e7b8c6a2b766720c"
+  dependencies:
+    pino-std-serializers "^2.3.0"
+
 pino-std-serializers@^2.1.0, pino-std-serializers@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.3.0.tgz#34eeaab97c055c28e22c0542ae55978e7e427786"
