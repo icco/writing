@@ -9,7 +9,7 @@ const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const logger = require("pino")({ level: "info" });
-const pino = require("express-pino-logger")({ logger });
+const pino = require("pino-http");
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
@@ -108,7 +108,7 @@ app
   .then(() => {
     const server = express();
 
-    server.use(pino);
+    server.use(pino({ logger }));
     server.use(helmet());
 
     server.get("/healthz", (req, res) => {
@@ -175,10 +175,10 @@ app
 
     server.listen(8080, "0.0.0.0", err => {
       if (err) throw err;
-      console.log("> Ready on http://localhost:8080");
+      logger.info("> Ready on http://localhost:8080");
     });
   })
   .catch(ex => {
-    console.error(ex.stack);
+    logger.error(ex.stack);
     process.exit(1);
   });
