@@ -13,56 +13,142 @@ const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
-const winston = require("winston");
-const expressWinston = require("express-winston");
-const { LoggingWinston } = require("@google-cloud/logging-winston");
+const bunyan = require("bunyan");
+const lb = require("@google-cloud/logging-bunyan");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
-const loggingWinston = new LoggingWinston({
-  serviceContext: {
-    service: "writing",
-  },
-});
-const logger = winston.createLogger({
-  level: "info",
-  transports: [
-    new winston.transports.Console(),
-    // Add Stackdriver Logging
-    loggingWinston,
+async function startServer() {
+  const logger = bunyan.createLogger({
+  // The JSON payload of the log as it appears in Stackdriver Logging
+  // will contain "name": "my-service"
+  name: 'writing',
+  // log at 'info' and above
+  level: 'info',
+  streams: [
+    // Log to the console
+    {stream: process.stdout},
   ],
 });
+  const { logger, mw } = await lb.express.middleware();
+  logger
 
-if (process.env.ENABLE_STACKDRIVER) {
-  const stats = new opencensus.Stats();
-  const sse = new stackdriver.StackdriverStatsExporter({
-    projectId: GOOGLE_PROJECT,
+
+  if (process.env.ENABLE_STACKDRIVER) {
+    const stats = new opencensus.Stats();
+    const sse = new stackdriver.StackdriverStatsExporter({
+      projectId: GOOGLE_PROJECT,
+    });
+    stats.registerExporter(sse);
+
+    const sp = propagation.v1;
+    const ste = new stackdriver.StackdriverTraceExporter({
+      projectId: GOOGLE_PROJECT,
+    });
+    const tracer = tracing.start({
+      samplingRate: 1,
+      logger: logger,
+      exporter: ste,
+      propagation: sp,
+    }).tracer;
+
+    tracer.startRootSpan({ name: "init" }, rootSpan => {
+      for (let i = 0; i < 1000000; i++) {}
+
+      rootSpan.end();
+    });
+  }
+
+  const app = next({
+    dir: ".",
+    dev: process.env.NODE_ENV !== "production",
   });
-  stats.registerExporter(sse);
 
-  const sp = propagation.v1;
-  const ste = new stackdriver.StackdriverTraceExporter({
-    projectId: GOOGLE_PROJECT,
-  });
-  const tracer = tracing.start({
-    samplingRate: 1,
-    logger: logger,
-    exporter: ste,
-    propagation: sp,
-  }).tracer;
+  app
+    .prepare()
+    .then(() => {
+      const server = express();
 
-  tracer.startRootSpan({ name: "init" }, rootSpan => {
-    for (let i = 0; i < 1000000; i++) {}
+      server.use(mw);
+      server.use(helmet());
 
-    rootSpan.end();
-  });
+      server.get("/healthz", (req, res) => {
+        res.json({ status: "ok" });
+      });
+
+      server.get("/post/:id", (req, res) => {
+        const actualPage = "/post";
+        const queryParams = { id: req.params.id };
+        app.render(req, res, actualPage, queryParams);
+      });
+
+      server.get("/tags/:id", (req, res) => {
+        res.redirect(`/tag/${req.params.id}`);
+      });
+
+      server.get("/tag/:id", (req, res) => {
+        const actualPage = "/tag";
+        const queryParams = { id: req.params.id };
+        app.render(req, res, actualPage, queryParams);
+      });
+
+      server.get("/feed.rss", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/rss+xml");
+        res.send(feed.rss2());
+      });
+
+      server.get("/feed.atom", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/atom+xml");
+        res.send(feed.atom1());
+      });
+
+      const graphqlProxy = proxy({
+        target: GRAPHQL_ORIGIN,
+        changeOrigin: true,
+      });
+      server.use(
+        ["/login", "/logout", "/callback", "/admin/?*", "/graphql"],
+        graphqlProxy
+      );
+
+      server.all("*", (req, res) => {
+        const handle = app.getRequestHandler();
+        const parsedUrl = parse(req.url, true);
+        const rootStaticFiles = [
+          "/robots.txt",
+          "/sitemap.xml",
+          "/favicon.ico",
+          "/.well-known/brave-payments-verification.txt",
+        ];
+
+        const redirects = {};
+
+        if (parsedUrl.pathname in redirects) {
+          return res.redirect(redirects[parsedUrl.pathname]);
+        }
+
+        if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
+          const path = join(__dirname, "static", parsedUrl.pathname);
+          app.serveStatic(req, res, path);
+        } else {
+          handle(req, res, parsedUrl);
+        }
+        return;
+      });
+
+      server.listen(8080, "0.0.0.0", err => {
+        if (err) throw err;
+        logger.info("> Ready on http://localhost:8080");
+      });
+    })
+    .catch(ex => {
+      logger.error(ex.stack);
+      process.exit(1);
+    });
 }
-
-const app = next({
-  dir: ".",
-  dev: process.env.NODE_ENV !== "production",
-});
 
 async function recentPosts() {
   try {
@@ -118,91 +204,4 @@ async function generateFeed() {
   return feed;
 }
 
-app
-  .prepare()
-  .then(() => {
-    const server = express();
-
-    server.use(
-      expressWinston.logger({
-        winstonInstance: logger,
-        expressFormat: true,
-      })
-    );
-    server.use(helmet());
-
-    server.get("/healthz", (req, res) => {
-      res.json({ status: "ok" });
-    });
-
-    server.get("/post/:id", (req, res) => {
-      const actualPage = "/post";
-      const queryParams = { id: req.params.id };
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    server.get("/tags/:id", (req, res) => {
-      res.redirect(`/tag/${req.params.id}`);
-    });
-
-    server.get("/tag/:id", (req, res) => {
-      const actualPage = "/tag";
-      const queryParams = { id: req.params.id };
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    server.get("/feed.rss", async (req, res) => {
-      let feed = await generateFeed();
-      res.set("Content-Type", "application/rss+xml");
-      res.send(feed.rss2());
-    });
-
-    server.get("/feed.atom", async (req, res) => {
-      let feed = await generateFeed();
-      res.set("Content-Type", "application/atom+xml");
-      res.send(feed.atom1());
-    });
-
-    const graphqlProxy = proxy({
-      target: GRAPHQL_ORIGIN,
-      changeOrigin: true,
-    });
-    server.use(
-      ["/login", "/logout", "/callback", "/admin/?*", "/graphql"],
-      graphqlProxy
-    );
-
-    server.all("*", (req, res) => {
-      const handle = app.getRequestHandler();
-      const parsedUrl = parse(req.url, true);
-      const rootStaticFiles = [
-        "/robots.txt",
-        "/sitemap.xml",
-        "/favicon.ico",
-        "/.well-known/brave-payments-verification.txt",
-      ];
-
-      const redirects = {};
-
-      if (parsedUrl.pathname in redirects) {
-        return res.redirect(redirects[parsedUrl.pathname]);
-      }
-
-      if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
-        const path = join(__dirname, "static", parsedUrl.pathname);
-        app.serveStatic(req, res, path);
-      } else {
-        handle(req, res, parsedUrl);
-      }
-      return;
-    });
-
-    server.listen(8080, "0.0.0.0", err => {
-      if (err) throw err;
-      logger.info("> Ready on http://localhost:8080");
-    });
-  })
-  .catch(ex => {
-    logger.error(ex.stack);
-    process.exit(1);
-  });
+startServer();

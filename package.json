@@ -7,7 +7,7 @@
     "lint": "./lint.sh"
   },
   "dependencies": {
-    "@google-cloud/logging-winston": "^0.10.2",
+    "@google-cloud/logging-bunyan": "^0.9.5",
     "@opencensus/core": "0.0.7",
     "@opencensus/exporter-stackdriver": "0.0.7",
     "@opencensus/instrumentation-all": "0.0.7",
@@ -18,8 +18,8 @@
     "apollo-client": "^2.3.7",
     "apollo-link-http": "^1.5.5",
     "babel-plugin-inline-react-svg": "^0.5.4",
+    "bunyan": "^1.8.12",
     "express": "^4.16.3",
-    "express-winston": "^3.0.1",
     "feed": "^2.0.1",
     "graphql": "^0.13.0 || ^14.0.0",
     "graphql-tag": "^2.10.0",
@@ -36,8 +36,7 @@
     "react-dom": "^16.2.1",
     "react-infinite-scroller": "^1.2.2",
     "react-loading": "^2.0.3",
-    "react-p5-wrapper": "^0.0.4",
-    "winston": "^3.1.0"
+    "react-p5-wrapper": "^0.0.4"
   },
   "private": true,
   "devDependencies": {
