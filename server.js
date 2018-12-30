@@ -237,7 +237,7 @@ async function stackdriverMiddleware(logger, extract) {
     onFinished(res, () => {
       const latencyMs = Date.now() - requestStartMs;
       const httpRequest = makeHttpRequestData(req, res, latencyMs);
-      logger.info(httpRequest, trace);
+      logger.info({httpRequest, trace});
     });
 
     next();
