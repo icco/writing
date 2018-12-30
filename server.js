@@ -123,7 +123,7 @@ app
   .then(() => {
     const server = express();
 
-    server.use(expressWinston(logger));
+    server.use(expressWinston.logger({ winstonInstance: logger }));
     server.use(helmet());
 
     server.get("/healthz", (req, res) => {
