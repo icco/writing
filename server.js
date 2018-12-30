@@ -97,7 +97,7 @@ async function stackdriverMiddleware(logger, extract) {
     const requestStartMs = Date.now();
 
     let trace = "";
-    if (extract != undefined) {
+    if (extract !== undefined) {
       const spanContext = extract(function(name) {
         return req.headers[name];
       });
