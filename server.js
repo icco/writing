@@ -8,7 +8,7 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
-const serializers = require("pino-stackdriver-serializers")
+const serializers = require("pino-stackdriver-serializers");
 const pinoLogger = require("pino");
 const pino = require("pino-http");
 const opencensus = require("@opencensus/core");
@@ -28,7 +28,7 @@ const logger = pinoLogger({
   levels: serializers.levels,
   serializers,
   base: null,
-})
+});
 
 if (process.env.ENABLE_STACKDRIVER) {
   const stats = new opencensus.Stats();
@@ -119,10 +119,12 @@ app
   .then(() => {
     const server = express();
 
-    server.use(pino({
-      logger,
-      serializers,
-    }));
+    server.use(
+      pino({
+        logger,
+        serializers,
+      })
+    );
     server.use(helmet());
 
     server.get("/healthz", (req, res) => {
@@ -135,7 +137,7 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.get("/tags/:id",, (req, res) => {
+    server.get("/tags/:id", (req, res) => {
       res.redirect(`/tag/${req.params.id}`);
     });
 
