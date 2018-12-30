@@ -23,6 +23,7 @@ async function startServer() {
   const logger = bunyan.createLogger({
     name: "writing",
     level: "info",
+    // TODO: change to a function that formats like stackdriver likes
     streams: [{ stream: process.stdout }],
   });
 
