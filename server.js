@@ -14,10 +14,109 @@ const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const bunyan = require("bunyan");
-const onFinished = require('on-finished');
+const onFinished = require("on-finished");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
+
+async function recentPosts() {
+  try {
+    const client = apollo.create();
+    let data = await client.query({
+      query: gql`
+        query recentPosts {
+          posts(limit: 20, offset: 0) {
+            id
+            title
+            datetime
+            summary
+          }
+        }
+      `,
+    });
+
+    return data.data.posts;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
+async function generateFeed() {
+  let feed = new rss.Feed({
+    title: "Nat? Nat. Nat!",
+    favicon: "https://writing.natwelch.com/favicon.ico",
+    description: "Nat Welch's Blog about random stuff.",
+  });
+  try {
+    let data = await recentPosts();
+
+    data.forEach(p => {
+      feed.addItem({
+        title: p.title,
+        link: `https://writing.natwelch.com/post/${p.id}`,
+        date: new Date(p.datetime),
+        content: p.summary,
+        author: [
+          {
+            name: "Nat Welch",
+            email: "nat@natwelch.com",
+            link: "https://natwelch.com",
+          },
+        ],
+      });
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  return feed;
+}
+
+async function stackdriverMiddleware(logger, extract) {
+  function makeChildLogger(trace) {
+    return logger.child({ "logging.googleapis.com/trace": trace }, true);
+  }
+
+  function makeHttpRequestData(req, res, latencyMilliseconds) {
+    return {
+      status: res.statusCode,
+      requestUrl: req.url,
+      requestMethod: req.method,
+      userAgent: req.headers["user-agent"],
+      responseSize:
+        (res.getHeader && Number(res.getHeader("Content-Length"))) || 0,
+      latency: {
+        seconds: Math.floor(latencyMilliseconds / 1e3),
+        nanos: Math.floor((latencyMilliseconds % 1e3) * 1e6),
+      },
+    };
+  }
+
+  return (req, res, next) => {
+    const requestStartMs = Date.now();
+
+    let trace = "";
+    if (extract != undefined) {
+      const spanContext = extract(function(name) {
+        return req.headers[name];
+      });
+      trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
+    }
+
+    // Install a child logger on the request object.
+    req.log = makeChildLogger(trace);
+
+    // Emit a 'Request Log' on the parent logger.
+    onFinished(res, () => {
+      const latencyMs = Date.now() - requestStartMs;
+      const httpRequest = makeHttpRequestData(req, res, latencyMs);
+      logger.info({ httpRequest, trace });
+    });
+
+    next();
+  };
+}
 
 async function startServer() {
   const logger = bunyan.createLogger({
@@ -27,7 +126,7 @@ async function startServer() {
     streams: [{ stream: process.stdout }],
   });
 
-  const mw = await stackdriverMiddleware(logger);
+  let mw = await stackdriverMiddleware(logger);
 
   if (process.env.ENABLE_STACKDRIVER) {
     const stats = new opencensus.Stats();
@@ -144,105 +243,6 @@ async function startServer() {
       logger.error(ex.stack);
       process.exit(1);
     });
-}
-
-async function recentPosts() {
-  try {
-    const client = apollo.create();
-    let data = await client.query({
-      query: gql`
-        query recentPosts {
-          posts(limit: 20, offset: 0) {
-            id
-            title
-            datetime
-            summary
-          }
-        }
-      `,
-    });
-
-    return data.data.posts;
-  } catch (err) {
-    console.error(err);
-    return [];
-  }
-}
-
-async function generateFeed() {
-  let feed = new rss.Feed({
-    title: "Nat? Nat. Nat!",
-    favicon: "https://writing.natwelch.com/favicon.ico",
-    description: "Nat Welch's Blog about random stuff.",
-  });
-  try {
-    let data = await recentPosts();
-
-    data.forEach(p => {
-      feed.addItem({
-        title: p.title,
-        link: `https://writing.natwelch.com/post/${p.id}`,
-        date: new Date(p.datetime),
-        content: p.summary,
-        author: [
-          {
-            name: "Nat Welch",
-            email: "nat@natwelch.com",
-            link: "https://natwelch.com",
-          },
-        ],
-      });
-    });
-  } catch (err) {
-    console.error(err);
-  }
-
-  return feed;
-}
-
-async function stackdriverMiddleware(logger, extract) {
-  function makeChildLogger(trace) {
-    return logger.child({ "logging.googleapis.com/trace": trace }, true);
-  }
-
-  function makeHttpRequestData(req, res, latencyMilliseconds) {
-    return {
-      status: res.statusCode,
-      requestUrl: req.url,
-      requestMethod: req.method,
-      userAgent: req.headers["user-agent"],
-      responseSize:
-        (res.getHeader && Number(res.getHeader("Content-Length"))) || 0,
-      latency: {
-        seconds: Math.floor(latencyMilliseconds / 1e3),
-        nanos: Math.floor((latencyMilliseconds % 1e3) * 1e6),
-      },
-    };
-  }
-
-  return (req, res, next) => {
-    const requestStartMs = Date.now();
-
-    const trace = "";
-    if (extract != undefined) {
-      const spanContext = extract(function(name) {
-        return req.headers[name];
-      });
-      trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
-    }
-
-    // Install a child logger on the request object.
-    req.log = makeChildLogger(trace);
-
-    // Emit a 'Request Log' on the parent logger.
-    onFinished(res, () => {
-      const latencyMs = Date.now() - requestStartMs;
-      const httpRequest = makeHttpRequestData(req, res, latencyMs);
-      logger.info({httpRequest, trace});
-    });
-
-    next();
-  };
 }
 
 startServer();
