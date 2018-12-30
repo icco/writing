@@ -97,13 +97,16 @@ async function stackdriverMiddleware(logger, extract) {
     const requestStartMs = Date.now();
 
     let trace = "";
-    if (extract !== undefined) {
+    if (extract !== null) {
       const spanContext = extract({
         getHeader: function(name) {
           return req.headers[name];
         },
       });
-      trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
+
+      if (spanContext !== null) {
+        trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
+      }
     }
 
     // Install a child logger on the request object.
