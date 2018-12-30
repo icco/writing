@@ -14,7 +14,7 @@ const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const bunyan = require("bunyan");
-const { middleware } = require("@google-cloud/logging");
+const onFinished = require('on-finished');
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
@@ -22,11 +22,11 @@ const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 async function startServer() {
   const logger = bunyan.createLogger({
     name: "writing",
-    level: "debug",
+    level: "info",
     streams: [{ stream: process.stdout }],
   });
 
-  const mw = await stackdriverMiddleware(logger)
+  const mw = await stackdriverMiddleware(logger);
 
   if (process.env.ENABLE_STACKDRIVER) {
     const stats = new opencensus.Stats();
@@ -51,6 +51,8 @@ async function startServer() {
 
       rootSpan.end();
     });
+
+    mw = await stackdriverMiddleware(logger, sp.extract);
   }
 
   const app = next({
@@ -197,12 +199,49 @@ async function generateFeed() {
   return feed;
 }
 
-async function stackdriverMiddleware(logger) {
-  return middleware.express.makeMiddleware(GOOGLE_PROJECT, makeChildLogger);
-
+async function stackdriverMiddleware(logger, extract) {
   function makeChildLogger(trace) {
     return logger.child({ "logging.googleapis.com/trace": trace }, true);
   }
+
+  function makeHttpRequestData(req, res, latencyMilliseconds) {
+    return {
+      status: res.statusCode,
+      requestUrl: req.url,
+      requestMethod: req.method,
+      userAgent: req.headers["user-agent"],
+      responseSize:
+        (res.getHeader && Number(res.getHeader("Content-Length"))) || 0,
+      latency: {
+        seconds: Math.floor(latencyMilliseconds / 1e3),
+        nanos: Math.floor((latencyMilliseconds % 1e3) * 1e6),
+      },
+    };
+  }
+
+  return (req, res, next) => {
+    const requestStartMs = Date.now();
+
+    const trace = "";
+    if (extract != undefined) {
+      const spanContext = extract(function(name) {
+        return req.headers[name];
+      });
+      trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
+    }
+
+    // Install a child logger on the request object.
+    req.log = makeChildLogger(trace);
+
+    // Emit a 'Request Log' on the parent logger.
+    onFinished(res, () => {
+      const latencyMs = Date.now() - requestStartMs;
+      const httpRequest = makeHttpRequestData(req, res, latencyMs);
+      logger.info(httpRequest, trace);
+    });
+
+    next();
+  };
 }
 
 startServer();
