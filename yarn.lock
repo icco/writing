@@ -692,14 +692,7 @@
     retry-request "^4.0.0"
     through2 "^3.0.0"
 
-"@google-cloud/logging-bunyan@^0.9.5":
-  version "0.9.5"
-  resolved "https://registry.yarnpkg.com/@google-cloud/logging-bunyan/-/logging-bunyan-0.9.5.tgz#462f41a6266d307e08e656a6d97a914ab13cdc6b"
-  integrity sha512-zhXbSkyJlnuH3Fgc7Q4tN1J75KR14OkzTAT9hFNthJz1dvfFsXfgwXdhMvCydK46UAxwk35nNsDg8MrxqLMQlw==
-  dependencies:
-    "@google-cloud/logging" "^4.1.0"
-
-"@google-cloud/logging@^4.1.0":
+"@google-cloud/logging@^4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@google-cloud/logging/-/logging-4.1.1.tgz#cca41c2dcb5e52c1b60c72c23abe6336ee9bcd8e"
   integrity sha512-54eOGvIyfhEmjqEyTAvWGk6BosEjwF7jwnda47fy2rSBQa4XXUrCQclNloe7J2Ivuxsek6SIObrhxtXVv75n2w==

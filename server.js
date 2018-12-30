@@ -14,26 +14,19 @@ const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const bunyan = require("bunyan");
-const lb = require("@google-cloud/logging-bunyan");
+const { middleware } = require("@google-cloud/logging");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
 async function startServer() {
   const logger = bunyan.createLogger({
-  // The JSON payload of the log as it appears in Stackdriver Logging
-  // will contain "name": "my-service"
-  name: 'writing',
-  // log at 'info' and above
-  level: 'info',
-  streams: [
-    // Log to the console
-    {stream: process.stdout},
-  ],
-});
-  const { logger, mw } = await lb.express.middleware();
-  logger
+    name: "writing",
+    level: "debug",
+    streams: [{ stream: process.stdout }],
+  });
 
+  const mw = await stackdriverMiddleware(logger)
 
   if (process.env.ENABLE_STACKDRIVER) {
     const stats = new opencensus.Stats();
@@ -202,6 +195,14 @@ async function generateFeed() {
   }
 
   return feed;
+}
+
+async function stackdriverMiddleware(logger) {
+  return middleware.express.makeMiddleware(GOOGLE_PROJECT, makeChildLogger);
+
+  function makeChildLogger(trace) {
+    return logger.child({ "logging.googleapis.com/trace": trace }, true);
+  }
 }
 
 startServer();
