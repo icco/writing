@@ -135,6 +135,10 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
+    server.get("/tags/:id",, (req, res) => {
+      res.redirect(`/tag/${req.params.id}`);
+    });
+
     server.get("/tag/:id", (req, res) => {
       const actualPage = "/tag";
       const queryParams = { id: req.params.id };
