@@ -8,26 +8,30 @@ const gql = require("graphql-tag");
 const apollo = require("./lib/apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
-const serializers = require("pino-stackdriver-serializers");
-const pinoLogger = require("pino");
-const pino = require("pino-http");
 const opencensus = require("@opencensus/core");
 const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
+const winston = require("winston");
+const expressWinston = require("express-winston");
+const { LoggingWinston } = require("@google-cloud/logging-winston");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
-// TODO: Get better logging for stackdriver
-const logger = pinoLogger({
-  useLevelLabels: true,
-  messageKey: "message",
+const loggingWinston = new LoggingWinston({
+  serviceContext: {
+    service: "writing",
+  },
+});
+const logger = winston.createLogger({
   level: "info",
-  levels: serializers.levels,
-  serializers,
-  base: null,
+  transports: [
+    new winston.transports.Console(),
+    // Add Stackdriver Logging
+    loggingWinston,
+  ],
 });
 
 if (process.env.ENABLE_STACKDRIVER) {
@@ -119,12 +123,7 @@ app
   .then(() => {
     const server = express();
 
-    server.use(
-      pino({
-        logger,
-        serializers,
-      })
-    );
+    server.use(expressWinston(logger));
     server.use(helmet());
 
     server.get("/healthz", (req, res) => {

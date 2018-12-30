@@ -19,6 +19,7 @@
     "apollo-link-http": "^1.5.5",
     "babel-plugin-inline-react-svg": "^0.5.4",
     "express": "^4.16.3",
+    "express-winston": "^3.0.1",
     "feed": "^2.0.1",
     "graphql": "^0.13.0 || ^14.0.0",
     "graphql-tag": "^2.10.0",
