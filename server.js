@@ -98,8 +98,10 @@ async function stackdriverMiddleware(logger, extract) {
 
     let trace = "";
     if (extract !== undefined) {
-      const spanContext = extract(function(name) {
-        return req.headers[name];
+      const spanContext = extract({
+        getHeader: function(name) {
+          return req.headers[name];
+        },
       });
       trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
     }
