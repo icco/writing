@@ -7,7 +7,6 @@ import gql from "graphql-tag";
 
 // SVG Icons are from https://simpleicons.org
 const Footer = params => {
-  if (params.data.error) return <ErrorMessage message="Error loading stats." />;
   let stats = "";
   if (params.data.stats && params.data.stats.length) {
     stats = (
