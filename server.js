@@ -15,6 +15,7 @@ const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const bunyan = require("bunyan");
 const onFinished = require("on-finished");
+const sitemap = require("sitemap");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
@@ -30,6 +31,26 @@ async function recentPosts() {
             title
             datetime
             summary
+          }
+        }
+      `,
+    });
+
+    return data.data.posts;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
+async function mostPosts() {
+  try {
+    const client = apollo.create();
+    let data = await client.query({
+      query: gql`
+        query mostPosts {
+          posts(limit: 1000, offset: 0) {
+            id
           }
         }
       `,
@@ -71,6 +92,20 @@ async function generateFeed() {
   }
 
   return feed;
+}
+
+async function generateSitemap() {
+  let postIds = await mostPosts();
+  let urls = postIds.map(function(x) {
+    console.log(x);
+    return { url: `/post/${x.id}` };
+  });
+  urls.push({ url: "/" });
+  return sitemap.createSitemap({
+    hostname: "https://writing.natwelch.com",
+    cacheTime: 6000000, // 600 sec - cache purge period
+    urls,
+  });
 }
 
 async function stackdriverMiddleware(logger, extract) {
@@ -203,6 +238,18 @@ async function startServer() {
         let feed = await generateFeed();
         res.set("Content-Type", "application/atom+xml");
         res.send(feed.atom1());
+      });
+
+      server.get("/sitemap.xml", async (req, res) => {
+        let sm = await generateSitemap();
+        sm.toXML(function(err, xml) {
+          if (err) {
+            logger.error(err);
+            return res.status(500).end();
+          }
+          res.header("Content-Type", "application/xml");
+          res.send(xml);
+        });
       });
 
       const graphqlProxy = proxy({
