@@ -4898,7 +4898,7 @@ pino-http@^4.1.0:
 
 "pino-stackdriver-serializers@https://github.com/icco/pino-stackdriver-serializers":
   version "1.0.0"
-  resolved "https://github.com/icco/pino-stackdriver-serializers#b593de067f9c9e577dd63aad1d81a5e8b4c63fdf"
+  resolved "https://github.com/icco/pino-stackdriver-serializers#c52900b231af1f5258753310d43aa3809fc632bc"
   dependencies:
     pino-std-serializers "^2.3.0"
 
