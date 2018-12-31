@@ -57,15 +57,7 @@ const Footer = params => {
 
       {stats}
 
-      <div className="mv2">
-        Try out the{" "}
-        <a className="link" href="https://brave.com/nat432">
-          Brave Browser
-        </a>
-        .
-      </div>
-
-      <div className="mv2 rc-scout" />
+      <div class="mv2 rc-scout" data-scout-rendered="true"><p class="rc-scout__text"><i class="rc-scout__logo"></i> Want to become a better programmer? <a class="rc-scout__link" href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18">Join the Recurse Center!</a></p></div>
     </footer>
   );
 };
