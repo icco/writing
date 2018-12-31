@@ -208,6 +208,9 @@ async function startServer() {
       const graphqlProxy = proxy({
         target: GRAPHQL_ORIGIN,
         changeOrigin: true,
+        logProvider: function(provider) {
+          return logger;
+        },
       });
       server.use(
         ["/login", "/logout", "/callback", "/admin/?*", "/graphql"],
