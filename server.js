@@ -108,61 +108,6 @@ async function generateSitemap(logger) {
     urls,
   });
 }
-
-async function stackdriverMiddleware(logger, extract) {
-  function makeChildLogger(trace) {
-    return logger.child({ "logging.googleapis.com/trace": trace }, true);
-  }
-
-  return (req, res, next) => {
-    const requestStartMs = Date.now();
-
-    let trace = null;
-    if (extract !== null) {
-      const spanContext = extract({
-        getHeader: function(name) {
-          return req.headers[name];
-        },
-      });
-
-      if (spanContext !== null) {
-        trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
-      }
-    }
-
-    // Install a child logger on the request object.
-    req.log = makeChildLogger(trace);
-
-    // Emit a 'Request Log' on the parent logger.
-    onFinished(res, () => {
-      const latencyMs = Date.now() - requestStartMs;
-      let httpRequest = {
-        status: res.statusCode,
-        requestUrl: req.url,
-        requestMethod: req.method,
-        userAgent: req.headers["user-agent"],
-        responseSize:
-          (res.getHeader && Number(res.getHeader("Content-Length"))) || 0,
-        latency: `${Math.floor(latencyMilliseconds / 1e3)}s`,
-      };
-
-      req.log.info({
-        message: req.url,
-        timestamp: Date.now(),
-        context: {
-          data: {
-            httpRequest,
-          },
-        },
-        trace,
-      });
-    });
-
-    next();
-  };
-}
-
-console.log(pinoStackdriver);
 async function startServer() {
   const logger = pinoLogger({
     messageKey: "message",
