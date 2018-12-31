@@ -31,6 +31,7 @@
     "on-finished": "^2.3.0",
     "pino": "^5.10.5",
     "pino-http": "^4.1.0",
+    "pino-stackdriver-serializers": "https://github.com/icco/pino-stackdriver-serializers",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-apollo": "^2.1.0",

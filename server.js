@@ -16,7 +16,8 @@ const propagation = require("@opencensus/propagation-stackdriver");
 const onFinished = require("on-finished");
 const sitemap = require("sitemap");
 const pinoLogger = require("pino");
-const pino = require("pino-http");
+const pinoMiddleware = require("pino-http");
+const pinoStackdriver = require("pino-stackdriver-serializers");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
@@ -161,15 +162,17 @@ async function stackdriverMiddleware(logger, extract) {
   };
 }
 
+console.log(pinoStackdriver);
 async function startServer() {
   const logger = pinoLogger({
-    useLevelLabels: true,
     messageKey: "message",
     level: "info",
     base: null,
+    prettyPrint: {
+      doSomething: true,
+    },
+    prettifier: pinoStackdriver.sdPrettifier,
   });
-
-  let mw = await stackdriverMiddleware(logger);
 
   if (process.env.ENABLE_STACKDRIVER) {
     const stats = new opencensus.Stats();
@@ -194,8 +197,6 @@ async function startServer() {
 
       rootSpan.end();
     });
-
-    mw = await stackdriverMiddleware(logger, sp.extract);
   }
 
   const app = next({
@@ -208,7 +209,11 @@ async function startServer() {
     .then(() => {
       const server = express();
 
-      server.use(mw);
+      server.use(
+        pinoMiddleware({
+          logger,
+        })
+      );
       server.use(helmet());
 
       server.get("/healthz", (req, res) => {
