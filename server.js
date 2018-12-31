@@ -16,7 +16,8 @@ const propagation = require("@opencensus/propagation-stackdriver");
 const onFinished = require("on-finished");
 const sitemap = require("sitemap");
 const pinoLogger = require("pino");
-const pino = require("pino-http");
+const pinoMiddleware = require("pino-http");
+const pinoStackdriver = require("pino-stackdriver-serializers");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
@@ -107,71 +108,16 @@ async function generateSitemap(logger) {
     urls,
   });
 }
-
-async function stackdriverMiddleware(logger, extract) {
-  function makeChildLogger(trace) {
-    return logger.child({ "logging.googleapis.com/trace": trace }, true);
-  }
-
-  function makeHttpRequestData(req, res, latencyMilliseconds) {
-    return {
-      status: res.statusCode,
-      requestUrl: req.url,
-      requestMethod: req.method,
-      userAgent: req.headers["user-agent"],
-      responseSize:
-        (res.getHeader && Number(res.getHeader("Content-Length"))) || 0,
-      latency: {
-        seconds: Math.floor(latencyMilliseconds / 1e3),
-        nanos: Math.floor((latencyMilliseconds % 1e3) * 1e6),
-      },
-    };
-  }
-
-  return (req, res, next) => {
-    const requestStartMs = Date.now();
-
-    let trace = "";
-    if (extract !== null) {
-      const spanContext = extract({
-        getHeader: function(name) {
-          return req.headers[name];
-        },
-      });
-
-      if (spanContext !== null) {
-        trace = `projects/${GOOGLE_PROJECT}/traces/${spanContext.traceId}`;
-      }
-    }
-
-    // Install a child logger on the request object.
-    req.log = makeChildLogger(trace);
-
-    // Emit a 'Request Log' on the parent logger.
-    onFinished(res, () => {
-      const latencyMs = Date.now() - requestStartMs;
-      const httpRequest = makeHttpRequestData(req, res, latencyMs);
-      logger.info({
-        message: req.url,
-        timestamp: Date.now(),
-        httpRequest,
-        trace,
-      });
-    });
-
-    next();
-  };
-}
-
 async function startServer() {
   const logger = pinoLogger({
-    useLevelLabels: true,
     messageKey: "message",
     level: "info",
     base: null,
+    prettyPrint: {
+      doSomething: true,
+    },
+    prettifier: pinoStackdriver.sdPrettifier,
   });
-
-  let mw = await stackdriverMiddleware(logger);
 
   if (process.env.ENABLE_STACKDRIVER) {
     const stats = new opencensus.Stats();
@@ -196,8 +142,6 @@ async function startServer() {
 
       rootSpan.end();
     });
-
-    mw = await stackdriverMiddleware(logger, sp.extract);
   }
 
   const app = next({
@@ -210,7 +154,11 @@ async function startServer() {
     .then(() => {
       const server = express();
 
-      server.use(mw);
+      server.use(
+        pinoMiddleware({
+          logger,
+        })
+      );
       server.use(helmet());
 
       server.get("/healthz", (req, res) => {
