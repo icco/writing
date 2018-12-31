@@ -13,14 +13,15 @@ const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
-const bunyan = require("bunyan");
 const onFinished = require("on-finished");
 const sitemap = require("sitemap");
+const pinoLogger = require("pino");
+const pino = require("pino-http");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
-async function recentPosts() {
+async function recentPosts(logger) {
   try {
     const client = apollo.create();
     let data = await client.query({
@@ -38,12 +39,12 @@ async function recentPosts() {
 
     return data.data.posts;
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     return [];
   }
 }
 
-async function mostPosts() {
+async function mostPosts(logger) {
   try {
     const client = apollo.create();
     let data = await client.query({
@@ -58,19 +59,19 @@ async function mostPosts() {
 
     return data.data.posts;
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     return [];
   }
 }
 
-async function generateFeed() {
+async function generateFeed(logger) {
   let feed = new rss.Feed({
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
     description: "Nat Welch's Blog about random stuff.",
   });
   try {
-    let data = await recentPosts();
+    let data = await recentPosts(logger);
 
     data.forEach(p => {
       feed.addItem({
@@ -88,16 +89,15 @@ async function generateFeed() {
       });
     });
   } catch (err) {
-    console.error(err);
+    logger.error(err);
   }
 
   return feed;
 }
 
-async function generateSitemap() {
-  let postIds = await mostPosts();
+async function generateSitemap(logger) {
+  let postIds = await mostPosts(logger);
   let urls = postIds.map(function(x) {
-    console.log(x);
     return { url: `/post/${x.id}` };
   });
   urls.push({ url: "/" });
@@ -151,7 +151,12 @@ async function stackdriverMiddleware(logger, extract) {
     onFinished(res, () => {
       const latencyMs = Date.now() - requestStartMs;
       const httpRequest = makeHttpRequestData(req, res, latencyMs);
-      logger.info({ httpRequest, trace });
+      logger.info({
+        message: req.url,
+        timestamp: Date.now(),
+        httpRequest,
+        trace,
+      });
     });
 
     next();
@@ -159,11 +164,11 @@ async function stackdriverMiddleware(logger, extract) {
 }
 
 async function startServer() {
-  const logger = bunyan.createLogger({
-    name: "writing",
+  const logger = pinoLogger({
+    useLevelLabels: true,
+    messageKey: "message",
     level: "info",
-    // TODO: change to a function that formats like stackdriver likes
-    streams: [{ stream: process.stdout }],
+    base: null,
   });
 
   let mw = await stackdriverMiddleware(logger);
@@ -229,19 +234,19 @@ async function startServer() {
       });
 
       server.get("/feed.rss", async (req, res) => {
-        let feed = await generateFeed();
+        let feed = await generateFeed(logger);
         res.set("Content-Type", "application/rss+xml");
         res.send(feed.rss2());
       });
 
       server.get("/feed.atom", async (req, res) => {
-        let feed = await generateFeed();
+        let feed = await generateFeed(logger);
         res.set("Content-Type", "application/atom+xml");
         res.send(feed.atom1());
       });
 
       server.get("/sitemap.xml", async (req, res) => {
-        let sm = await generateSitemap();
+        let sm = await generateSitemap(logger);
         sm.toXML(function(err, xml) {
           if (err) {
             logger.error(err);
