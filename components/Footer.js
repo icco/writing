@@ -57,7 +57,17 @@ const Footer = params => {
 
       {stats}
 
-      <div className="mv2 rc-scout" data-scout-rendered="true"><p className="rc-scout__text"><i className="rc-scout__logo"></i> Want to become a better programmer? <a className="rc-scout__link" href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18">Join the Recurse Center!</a></p></div>
+      <div className="mv2 rc-scout" data-scout-rendered="true">
+        <p className="rc-scout__text">
+          <i className="rc-scout__logo" /> Want to become a better programmer?{" "}
+          <a
+            className="rc-scout__link"
+            href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
+          >
+            Join the Recurse Center!
+          </a>
+        </p>
+      </div>
     </footer>
   );
 };
