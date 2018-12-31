@@ -113,25 +113,10 @@ async function stackdriverMiddleware(logger, extract) {
     return logger.child({ "logging.googleapis.com/trace": trace }, true);
   }
 
-  function makeHttpRequestData(req, res, latencyMilliseconds) {
-    return {
-      status: res.statusCode,
-      requestUrl: req.url,
-      requestMethod: req.method,
-      userAgent: req.headers["user-agent"],
-      responseSize:
-        (res.getHeader && Number(res.getHeader("Content-Length"))) || 0,
-      latency: {
-        seconds: Math.floor(latencyMilliseconds / 1e3),
-        nanos: Math.floor((latencyMilliseconds % 1e3) * 1e6),
-      },
-    };
-  }
-
   return (req, res, next) => {
     const requestStartMs = Date.now();
 
-    let trace = "";
+    let trace = null;
     if (extract !== null) {
       const spanContext = extract({
         getHeader: function(name) {
@@ -150,11 +135,24 @@ async function stackdriverMiddleware(logger, extract) {
     // Emit a 'Request Log' on the parent logger.
     onFinished(res, () => {
       const latencyMs = Date.now() - requestStartMs;
-      const httpRequest = makeHttpRequestData(req, res, latencyMs);
-      logger.info({
+      let httpRequest = {
+        status: res.statusCode,
+        requestUrl: req.url,
+        requestMethod: req.method,
+        userAgent: req.headers["user-agent"],
+        responseSize:
+          (res.getHeader && Number(res.getHeader("Content-Length"))) || 0,
+        latency: `${Math.floor(latencyMilliseconds / 1e3)}s`,
+      };
+
+      req.log.info({
         message: req.url,
         timestamp: Date.now(),
-        httpRequest,
+        context: {
+          data: {
+            httpRequest,
+          },
+        },
         trace,
       });
     });
