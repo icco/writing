@@ -35,21 +35,21 @@ const Footer = params => {
           href="https://github.com/icco"
           title="Nat Welch GitHub"
         >
-          <ReactSVG src="../svgs/github.svg" />
+          <ReactSVG src="/svgs/github.svg" />
         </a>
         <a
           className="link hover-silver near-black dib h1 w1 mr3"
           href="https://instagram.com/probablynatwelch"
           title="Nat Welch Instagram"
         >
-          <ReactSVG src="../svgs/instagram.svg" />
+          <ReactSVG src="/svgs/instagram.svg" />
         </a>
         <a
           className="link hover-silver near-black dib h1 w1 mr3"
           href="https://twitter.com/icco"
           title="Nat Welch Twitter"
         >
-          <ReactSVG src="../svgs/twitter.svg" />
+          <ReactSVG src="/svgs/twitter.svg" />
         </a>
       </div>
 
