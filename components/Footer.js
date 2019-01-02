@@ -1,9 +1,7 @@
-import Twitter from "../svgs/twitter.svg";
-import Instagram from "../svgs/instagram.svg";
-import Github from "../svgs/github.svg";
 import ErrorMessage from "./ErrorMessage";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
+import ReactSVG from "react-svg";
 
 // SVG Icons are from https://simpleicons.org
 const Footer = params => {
@@ -37,21 +35,21 @@ const Footer = params => {
           href="https://github.com/icco"
           title="Nat Welch GitHub"
         >
-          <Github />
+          <ReactSVG src="../svgs/github.svg" />
         </a>
         <a
           className="link hover-silver near-black dib h1 w1 mr3"
           href="https://instagram.com/probablynatwelch"
           title="Nat Welch Instagram"
         >
-          <Instagram />
+          <ReactSVG src="../svgs/instagram.svg" />
         </a>
         <a
           className="link hover-silver near-black dib h1 w1 mr3"
           href="https://twitter.com/icco"
           title="Nat Welch Twitter"
         >
-          <Twitter />
+          <ReactSVG src="../svgs/twitter.svg" />
         </a>
       </div>
 

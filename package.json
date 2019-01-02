@@ -12,11 +12,10 @@
     "@opencensus/instrumentation-all": "0.0.7",
     "@opencensus/nodejs": "0.0.7",
     "@opencensus/propagation-stackdriver": "0.0.7",
-    "@zeit/next-css": "^0.2.0",
-    "apollo-cache-inmemory": "^1.3.8",
-    "apollo-client": "^2.3.7",
-    "apollo-link-http": "^1.5.5",
-    "babel-plugin-inline-react-svg": "^0.5.4",
+    "@zeit/next-css": "^1.0.1",
+    "apollo-cache-inmemory": "^1.3.12",
+    "apollo-client": "^2.4.8",
+    "apollo-link-http": "^1.5.9",
     "express": "^4.16.3",
     "feed": "^2.0.1",
     "graphql": "^0.13.0 || ^14.0.0",
@@ -27,7 +26,7 @@
     "luxon": "^1.3.3",
     "markdown-it": "^8.4.2",
     "markdown-it-footnote": "^3.0.1",
-    "next": "^6.1.2",
+    "next": "^7.0.2",
     "on-finished": "^2.3.0",
     "pino": "^5.10.5",
     "pino-http": "^4.1.0",
@@ -39,12 +38,13 @@
     "react-infinite-scroller": "^1.2.2",
     "react-loading": "^2.0.3",
     "react-p5-wrapper": "^0.0.4",
+    "react-svg": "^7.2.2",
     "sitemap": "^2.1.0"
   },
   "private": true,
   "devDependencies": {
     "prettier": "^1.14.0",
-    "webpack": "^3.1.0"
+    "webpack": "^4.3.0"
   },
   "prettier": {
     "trailingComma": "es5"
