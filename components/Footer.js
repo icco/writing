@@ -29,7 +29,7 @@ const Footer = params => {
         .
       </h3>
 
-      <div className="">
+      <div className="mb2">
         <a
           className="link near-black hover-silver dib h1 w1 mr3"
           href="https://github.com/icco"
