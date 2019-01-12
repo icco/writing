@@ -212,10 +212,7 @@ async function startServer() {
           return logger;
         },
       });
-      server.use(
-        ["/login", "/logout", "/callback", "/graphql"],
-        graphqlProxy
-      );
+      server.use(["/login", "/logout", "/callback", "/graphql"], graphqlProxy);
 
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
@@ -233,7 +230,10 @@ async function startServer() {
           return res.redirect(redirects[parsedUrl.pathname]);
         }
 
-        if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1 || parsedUrl.pathname.match(/^\/.*\.svg/)) {
+        if (
+          rootStaticFiles.indexOf(parsedUrl.pathname) > -1 ||
+          parsedUrl.pathname.match(/^\/.*\.svg/)
+        ) {
           const path = join(__dirname, "static", parsedUrl.pathname);
           app.serveStatic(req, res, path);
         } else {
