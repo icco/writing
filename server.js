@@ -213,7 +213,7 @@ async function startServer() {
         },
       });
       server.use(
-        ["/login", "/logout", "/callback", "/admin/?*", "/graphql"],
+        ["/login", "/logout", "/callback", "/graphql"],
         graphqlProxy
       );
 
