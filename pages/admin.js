@@ -11,8 +11,8 @@ export default class Page extends React.Component {
   }
 
   render() {
-    if (!this.props.session.user || this.props.session.user.admin !== true) {
-      return <Error statusCode={this.props.statusCode} />;
+    if (!this.props.session || !this.props.session.user || this.props.session.user.admin !== true) {
+      return <Error statusCode={403} />;
     }
 
     return (
