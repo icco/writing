@@ -87,4 +87,4 @@ export default graphql(allPosts, {
       },
     },
   }),
-})(PostList);
+})(AdminPostList);
