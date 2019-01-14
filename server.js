@@ -206,6 +206,12 @@ async function startServer() {
       });
 
       const graphqlProxy = proxy({
+        autoRewrite: false,
+        followRedirects: false,
+        cookieDomainRewrite: {
+          "localhost:9393": "localhost:8080",
+          "graphql.natwelch.com": "writing.natwelch.com",
+        },
         target: GRAPHQL_ORIGIN,
         changeOrigin: true,
         logProvider: function(provider) {
