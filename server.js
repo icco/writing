@@ -233,7 +233,10 @@ async function startServer() {
           return res.redirect(redirects[parsedUrl.pathname]);
         }
 
-        if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1 || parsedUrl.pathname.match(/^\/.*\.svg/)) {
+        if (
+          rootStaticFiles.indexOf(parsedUrl.pathname) > -1 ||
+          parsedUrl.pathname.match(/^\/.*\.svg/)
+        ) {
           const path = join(__dirname, "static", parsedUrl.pathname);
           app.serveStatic(req, res, path);
         } else {
