@@ -13,7 +13,6 @@ const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
-const instru = require("@opencensus/instrumentation-all");
 const onFinished = require("on-finished");
 const sitemap = require("sitemap");
 const pinoLogger = require("pino");
