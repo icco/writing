@@ -7,7 +7,6 @@ import Error from "next/error";
 export default class Admin extends React.Component {
   static async getInitialProps(context) {
     // Put session in props
-    console.log(context.session);
     return {};
   }
 
