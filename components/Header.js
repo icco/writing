@@ -5,7 +5,7 @@ import Logo from "./Logo";
 const Header = ({ isAuthenticated, loggedInUser, router: { pathname } }) => {
   let nav = (
     <Link key="/auth/sign-in" href="/auth/sign-in">
-      <a classname="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
+      <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
         sign in
       </a>
     </Link>
@@ -14,8 +14,8 @@ const Header = ({ isAuthenticated, loggedInUser, router: { pathname } }) => {
   if (isAuthenticated) {
     nav = (
       <Link key="/auth/sign-in" href="/auth/sign-in">
-        <a classname="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
-          {loggedInUser.name}
+        <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
+          {loggedInUser.role}
         </a>
       </Link>
     );
