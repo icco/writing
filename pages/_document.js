@@ -1,11 +1,21 @@
 import Document, { Head, Main, NextScript } from "next/document";
 import { GA_TRACKING_ID } from "../lib/gtag";
 import { TRACKING_ID } from "../lib/fathom";
+import { getUserFromServerCookie, getUserFromLocalCookie } from "../utils/auth";
 
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const loggedUser = process.browser
+      ? getUserFromLocalCookie()
+      : getUserFromServerCookie(ctx.req);
+
+    return {
+      ...initialProps,
+      loggedUser,
+      currentUrl: ctx.pathname,
+      isAuthenticated: !!loggedUser,
+    };
   }
 
   render() {
