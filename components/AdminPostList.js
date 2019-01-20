@@ -23,7 +23,7 @@ function AdminPostList({ data: { error, posts, loadMore } }) {
           loader={<Loading key={0} />}
         >
           <ul className="list pl0" key="ul">
-            {posts.map((post) => (
+            {posts.map(post => (
               <li className="mb5 ml4 mr3" key={post.id}>
                 <div className="f6 db pb1 gray">
                   <span className="dbi mr3">#{post.id}</span>
@@ -75,7 +75,7 @@ export default graphql(allPosts, {
   props: ({ data }) => ({
     data: {
       ...data,
-      loadMore: (page) => {
+      loadMore: page => {
         var offset = page * PER_PAGE;
         return data.fetchMore({
           variables: { offset, perpage: PER_PAGE },
