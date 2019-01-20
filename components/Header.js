@@ -14,11 +14,19 @@ class Header extends React.Component {
 
     if (!!this.props.loggedInUser) {
       nav = (
-        <Link key="/auth/sign-in" href="/auth/sign-in">
-          <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
+        <>
+        <Link key="/admin" href="/admin">
+          <a className="f6 link dib dim mr3 black mr4-ns" href="/admin">
             {this.props.loggedInUser.role}
           </a>
         </Link>
+
+        <Link key="/auth/sign-out" href="/auth/sign-out">
+          <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-out">
+            Sign Out
+          </a>
+        </Link>
+        </>
       );
     }
 
