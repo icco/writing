@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import { authorize } from '../../lib/auth0'
+import { authorize } from "../../lib/auth0";
 
 class SignIn extends React.Component {
-  componentDidMount () {
-    authorize()
+  componentDidMount() {
+    authorize();
   }
-  render () {
-    return null
+  render() {
+    return null;
   }
 }
 
-export default SignIn
+export default SignIn;
