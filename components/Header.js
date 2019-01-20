@@ -4,10 +4,10 @@ import Logo from "./Logo";
 
 const Header = ({ router: { pathname } }) => (
   <div>
-    <nav class="flex justify-between">
-      <div class="flex-grow pa3 flex items-center">
+    <nav className="flex justify-between">
+      <div className="flex-grow pa3 flex items-center">
         <Link key="/auth/sign-in" href="/auth/sign-in">
-          <a class="f6 link dib dim mr3 mr4-ns" href="/auth/sign-in">
+          <a className="f6 link dib dim mr3 mr4-ns" href="/auth/sign-in">
             Sign In
           </a>
         </Link>
