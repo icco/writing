@@ -23,7 +23,7 @@ const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 
 async function recentPosts(logger) {
   try {
-    const client = apollo.create();
+    const client = apollo.create({}, {});
     let data = await client.query({
       query: gql`
         query recentPosts {
