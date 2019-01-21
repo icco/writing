@@ -3,24 +3,24 @@ import ReactMde from "../src";
 import * as Showdown from "showdown";
 
 export class EditPost extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
-      value: "**Hello world!!!**"
+      value: "**Hello world!!!**",
     };
     this.converter = new Showdown.Converter({
       tables: true,
       simplifiedAutoLink: true,
       strikethrough: true,
-      tasklists: true
+      tasklists: true,
     });
   }
 
-  handleValueChange = (value) => {
+  handleValueChange = value => {
     this.setState({ value });
   };
 
-  render () {
+  render() {
     return (
       <div className="container">
         <ReactMde
