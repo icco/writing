@@ -35,7 +35,7 @@ class Header extends React.Component {
 
     return (
       <div>
-        <nav className="flex justify-between">
+        <nav className="flex justify-between ttc">
           <div className="flex items-center pa3" />
           <div className="flex-grow pa3 flex items-center">{nav}</div>
         </nav>
