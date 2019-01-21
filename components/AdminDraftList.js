@@ -11,9 +11,9 @@ function AdminDraftList({ data: { error, drafts } }) {
   if (drafts && drafts.length) {
     return (
       <section className="mw8 center">
-        <ul className="list pl0" key="ul">
+        <ul className="list pl0" key="draft-ul">
           {drafts.map(post => (
-            <li className="" key={post.id}>
+            <li className="" key={"draft-" + post.id}>
               <span className="dbi mr3">#{post.id}</span>
               <Link as={`/edit/${post.id}`} href={`/admin/post?id=${post.id}`}>
                 <a className="link dark-gray dim">{post.title}</a>

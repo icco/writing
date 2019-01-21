@@ -22,9 +22,9 @@ function AdminPostList({ data: { error, posts, loadMore } }) {
           hasMore={true}
           loader={<Loading key={0} />}
         >
-          <ul className="list pl0" key="ul">
+          <ul className="list pl0" key="admin-post-ul">
             {posts.map(post => (
-              <li className="" key={post.id}>
+              <li className="" key={"admin-post-" + post.id}>
                 <span className="dbi mr3">#{post.id}</span>
                 <Link
                   as={`/edit/${post.id}`}
