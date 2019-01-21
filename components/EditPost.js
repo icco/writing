@@ -1,6 +1,6 @@
-import * as React from "react";
-import ReactMde from "../src";
-import * as Showdown from "showdown";
+import React from "react";
+import ReactMde from "react-mde";
+import md from "../lib/markdown.js";
 
 export class EditPost extends React.Component {
   constructor(props) {
@@ -8,12 +8,7 @@ export class EditPost extends React.Component {
     this.state = {
       value: "**Hello world!!!**",
     };
-    this.converter = new Showdown.Converter({
-      tables: true,
-      simplifiedAutoLink: true,
-      strikethrough: true,
-      tasklists: true,
-    });
+    this.converter = md;
   }
 
   handleValueChange = value => {
@@ -27,7 +22,7 @@ export class EditPost extends React.Component {
           onChange={this.handleValueChange}
           value={this.state.value}
           generateMarkdownPreview={markdown =>
-            Promise.resolve(this.converter.makeHtml(markdown))
+            Promise.resolve(this.converter.render(markdown))
           }
         />
       </div>

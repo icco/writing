@@ -170,6 +170,12 @@ async function startServer() {
         app.render(req, res, actualPage, queryParams);
       });
 
+      server.get("/edit/:id", (req, res) => {
+        const actualPage = "/admin/post";
+        const queryParams = { id: req.params.id };
+        app.render(req, res, actualPage, queryParams);
+      });
+
       server.get("/tags/:id", (req, res) => {
         res.redirect(`/tag/${req.params.id}`);
       });

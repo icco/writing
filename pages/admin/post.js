@@ -1,13 +1,13 @@
-import App from "../components/App";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import EditPost from "../components/EditPost";
+import App from "../../components/App";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import EditPost from "../../components/EditPost";
 import { withRouter } from "next/router";
 
-import { checkLoggedIn } from "../lib/auth";
-import { initApollo } from "../lib/init-apollo";
+import { checkLoggedIn } from "../../lib/auth";
+import { initApollo } from "../../lib/init-apollo";
 
-class Page extends React.Component {
+class AdminPost extends React.Component {
   async componentDidMount() {
     const { loggedInUser } = await checkLoggedIn(initApollo());
     this.setState({ loggedInUser });
@@ -32,4 +32,4 @@ class Page extends React.Component {
   }
 }
 
-export default withRouter(Page);
+export default AdminPost;
