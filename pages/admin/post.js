@@ -6,8 +6,6 @@ import { withRouter } from "next/router";
 import Error from "next/error";
 import Head from "next/head";
 
-import 'react-mde/lib/styles/css/react-mde-all.css';
-
 import { checkLoggedIn } from "../../lib/auth";
 import { initApollo } from "../../lib/init-apollo";
 

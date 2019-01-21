@@ -26,15 +26,22 @@ article a {
   transition: color 0.4s;
   color: #265c83;
 }
+
 article a:link,
 article a:visited {
   color: #265c83;
 }
+
 article a:hover {
   color: #7fdbff;
 }
+
 article a:active {
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
   color: #007be6;
+}
+
+div .react-mde .grip {
+  height: 1em;
 }

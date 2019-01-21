@@ -2,6 +2,9 @@ import React from "react";
 import ReactMde from "react-mde";
 import md from "../lib/markdown.js";
 
+import "react-mde/lib/styles/css/react-mde-all.css";
+import "@fortawesome/fontawesome-free/js/all.js";
+
 export default class EditPost extends React.Component {
   constructor(props) {
     super(props);
