@@ -2,7 +2,7 @@ import React from "react";
 import ReactMde from "react-mde";
 import md from "../lib/markdown.js";
 
-export class EditPost extends React.Component {
+export default class EditPost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,15 +17,17 @@ export class EditPost extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <ReactMde
-          onChange={this.handleValueChange}
-          value={this.state.value}
-          generateMarkdownPreview={markdown =>
-            Promise.resolve(this.converter.render(markdown))
-          }
-        />
-      </div>
+      <>
+        <div className="ma3 mw8 center">
+          <ReactMde
+            onChange={this.handleValueChange}
+            value={this.state.value}
+            generateMarkdownPreview={markdown =>
+              Promise.resolve(this.converter.render(markdown))
+            }
+          />
+        </div>
+      </>
     );
   }
 }

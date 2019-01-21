@@ -19,7 +19,6 @@ const Index = props => (
 
 Index.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  console.log(loggedInUser);
 
   return {
     loggedInUser,
