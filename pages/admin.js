@@ -12,7 +12,7 @@ import { initApollo } from "../lib/init-apollo";
 export default class Admin extends React.Component {
   async componentDidMount() {
     const { loggedInUser } = await checkLoggedIn(initApollo());
-    this.setState({loggedInUser})
+    this.setState({ loggedInUser });
   }
 
   render() {

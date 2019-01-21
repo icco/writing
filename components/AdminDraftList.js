@@ -16,9 +16,7 @@ function AdminDraftList({ data: { error, drafts } }) {
             <li className="" key={post.id}>
               <span className="dbi mr3">#{post.id}</span>
               <Link as={`/edit/${post.id}`} href={`/admin/post?id=${post.id}`}>
-                <a className="link dark-gray dim">
-                  {post.title}
-                </a>
+                <a className="link dark-gray dim">{post.title}</a>
               </Link>
             </li>
           ))}
@@ -31,7 +29,7 @@ function AdminDraftList({ data: { error, drafts } }) {
 }
 
 export const allDrafts = gql`
-  query drafts  {
+  query drafts {
     drafts {
       id
       title
