@@ -31,6 +31,7 @@ export default class Admin extends React.Component {
           <title>Nat? Nat. Nat! Admin</title>
         </Head>
         <Header loggedInUser={this.state.loggedInUser} />
+        <Header noLogo={true} loggedInUser={this.state.loggedInUser} />
         <div className="ma3">
           <h1>Admin</h1>
           <h2>Drafts</h2>

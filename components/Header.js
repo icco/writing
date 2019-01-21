@@ -33,13 +33,9 @@ class Header extends React.Component {
       );
     }
 
-    return (
-      <div>
-        <nav className="flex justify-between ttc">
-          <div className="flex items-center pa3" />
-          <div className="flex-grow pa3 flex items-center">{nav}</div>
-        </nav>
-
+    let prefix = <></>;
+    let head = (
+      <>
         <header className="mv5 center mw6">
           <Link href="/">
             <a className="link dark-gray dim">
@@ -48,6 +44,25 @@ class Header extends React.Component {
             </a>
           </Link>
         </header>
+      </>
+    );
+
+    if (this.props.noLogo) {
+      head = <></>;
+      prefix = (
+        <Link href="/">
+          <a className="link dark-gray dim">Nat? Nat. Nat!</a>
+        </Link>
+      );
+    }
+
+    return (
+      <div>
+        <nav className="flex justify-between ttc">
+          <div className="flex items-center pa3">{prefix}</div>
+          <div className="flex-grow pa3 flex items-center">{nav}</div>
+        </nav>
+        {head}
       </div>
     );
   }

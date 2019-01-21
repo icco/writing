@@ -93,8 +93,8 @@ class EditPost extends React.Component {
                 id="datetime"
                 type="datetime-local"
                 name="datetime"
-                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z"
-                value={post.datetime}
+                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+                value={post.datetime.slice(0, 16)}
               />
             </div>
           </div>
