@@ -7,7 +7,7 @@ import { withRouter } from "next/router";
 import { checkLoggedIn } from "../lib/auth";
 import { initApollo } from "../lib/init-apollo";
 
-export default class Page extends React.Component {
+class Page extends React.Component {
   async componentDidMount() {
     const { loggedInUser } = await checkLoggedIn(initApollo());
     this.setState({ loggedInUser });
@@ -24,12 +24,12 @@ export default class Page extends React.Component {
     }
 
     return (
-  <App>
-    <Header />
-    <EditPost id={props.router.query.id} />
-  </App>
-);
-}
+      <App>
+        <Header />
+        <EditPost id={props.router.query.id} />
+      </App>
+    );
+  }
 }
 
 export default withRouter(Page);
