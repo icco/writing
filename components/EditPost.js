@@ -1,12 +1,10 @@
 import React from "react";
-import ReactMde from "react-mde";
 import md from "../lib/markdown.js";
 import { graphql, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import { withRouter } from "next/router";
 
-import "react-mde/lib/styles/css/react-mde-all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
 
 const SavePost = gql`
@@ -36,19 +34,6 @@ const SavePost = gql`
 `;
 
 class EditPost extends React.Component {
-  constructor(props) {
-    super(props);
-
-    let value = props.error ? props.post.content : "";
-
-    this.state = { value };
-    this.converter = md;
-  }
-
-  handleValueChange = value => {
-    this.setState({ value });
-  };
-
   handleBasicChange = event => {
     let tmp = {};
     tmp[event.target.name] = event.target.value;
@@ -62,12 +47,8 @@ class EditPost extends React.Component {
 
     if (error) return <ErrorMessage message="Page not found." />;
     if (post) {
-      if (this.state.value == "" && post.content != "") {
-        this.state.value = post.content;
-      }
-
       return (
-        <section className="ma3 mw8 center">
+        <section className="pa3 mw8 center">
           <h2>Edit Post #{post.id}</h2>
 
           <Mutation mutation={SavePost}>
@@ -78,7 +59,7 @@ class EditPost extends React.Component {
                   savePost({
                     variables: {
                       title: this.state.title,
-                      content: this.state.value,
+                      content: this.state.content,
                       draft: this.state.draft,
                       datetime: this.state.datetime,
                       id: post.id,
@@ -87,7 +68,7 @@ class EditPost extends React.Component {
                 }}
               >
                 <div>
-                  <label for="title" className="f6 b db mb2">
+                  <label htmlFor="title" className="f6 b db mb2">
                     Title
                   </label>
                   <input
@@ -101,16 +82,19 @@ class EditPost extends React.Component {
                   />
                 </div>
 
-                <label for="text" className="f6 b db mb2">
+                <label htmlFor="content" className="f6 b db mb2">
                   Post Text
                 </label>
-                <ReactMde
-                  onChange={this.handleValueChange("value")}
-                  value={this.state.value}
-                  generateMarkdownPreview={markdown =>
-                    Promise.resolve(this.converter.render(markdown))
-                  }
-                />
+                <textarea
+                  id="content"
+                  name="content"
+                  className="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2"
+                  aria-describedby="text-desc"
+                  style={{height: "20rem", resize: "vertical"}}
+                  onChange={this.handleBasicChange}
+              value={post.content}
+                >
+                </textarea>
                 <small id="text-desc" className="f6 black-60">
                   This should be in{" "}
                   <a
@@ -124,7 +108,7 @@ class EditPost extends React.Component {
 
                 <div className="mt3 cf">
                   <div className="fr">
-                    <label for="draft" className="lh-copy">
+                    <label htmlFor="draft" className="lh-copy">
                       Draft?
                     </label>
                     <input
@@ -138,7 +122,7 @@ class EditPost extends React.Component {
                   </div>
 
                   <div className="fl">
-                    <label for="datetime" className="f6 b db mb2">
+                    <label htmlFor="datetime" className="f6 b db mb2">
                       Post Time
                     </label>
                     <input

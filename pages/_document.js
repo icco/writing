@@ -25,7 +25,7 @@ export default class WritingDocument extends Document {
             content="initial-scale=1.0, width=device-width"
             key="viewport"
           />
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
