@@ -2,7 +2,6 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
 import Link from "next/link";
-import Datetime from "./Datetime";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroller";
 

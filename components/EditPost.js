@@ -1,5 +1,4 @@
 import React from "react";
-import md from "../lib/markdown.js";
 import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";

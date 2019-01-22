@@ -1,6 +1,5 @@
 import App from "../../components/App";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import EditPost from "../../components/EditPost";
 import { withRouter } from "next/router";
 import Error from "next/error";
