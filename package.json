@@ -7,6 +7,7 @@
     "lint": "./lint.sh"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3",
     "@opencensus/core": "^0.0.8",
     "@opencensus/exporter-stackdriver": "^0.0.8",
     "@opencensus/instrumentation-all": "^0.0.8",
@@ -45,7 +46,6 @@
   },
   "private": true,
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3",
     "prettier": "^1.14.0",
     "webpack": "^4.3.0"
   },
