@@ -12,7 +12,7 @@ function AdminLinkList({ data: { error, links } }) {
     return (
       <section className="pa3 mw8 center">
         <ul className="list pl0" key="link-ul">
-          {links.map(l=> (
+          {links.map(l => (
             <li className="" key={"link-" + l.id}>
               <span className="mr3">{l.created}</span>
               <Link href={l.url}>
