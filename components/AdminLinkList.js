@@ -13,11 +13,13 @@ function AdminLinkList({ data: { error, links } }) {
       <section className="pa3 mw8 center">
         <ul className="list pl0" key="link-ul">
           {links.map(l => (
-            <li className="" key={"link-" + l.id}>
+            <li className="mv3" key={"link-" + l.id}>
               <span className="mr3">{l.created}</span>
-              <Link href={l.url}>
+              <Link href={l.uri}>
                 <a className="link dark-blue dim">{l.title}</a>
-              </Link>
+              </Link>{" "}
+              - <span className="gray">{l.uri}</span>
+              <blockquote>{l.description}</blockquote>
             </li>
           ))}
         </ul>
@@ -35,6 +37,7 @@ export const SomeLinks = gql`
       uri
       title
       created
+      description
     }
   }
 `;
