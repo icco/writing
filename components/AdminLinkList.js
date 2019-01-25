@@ -18,10 +18,16 @@ function AdminLinkList({ data: { error, links } }) {
               <Link href={l.uri}>
                 <a className="link dark-blue dim">{l.title}</a>
               </Link>{" "}
-              - <span className="gray link pointer dim" onClick={() => {
-                let text = `[${l.title} - ${l.description}](${l.uri})`
-                navigator.clipboard.writeText(text)
-              }}>{l.uri}</span>
+              -{" "}
+              <span
+                className="gray link pointer dim"
+                onClick={() => {
+                  let text = `[${l.title} - ${l.description}](${l.uri})`;
+                  navigator.clipboard.writeText(text);
+                }}
+              >
+                {l.uri}
+              </span>
               <blockquote>{l.description}</blockquote>
             </li>
           ))}
