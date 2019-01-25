@@ -91,7 +91,7 @@ class EditPost extends React.Component {
                           datetime: this.state.datetime || post.datetime,
                           id: post.id,
                         },
-                        refetchQueries: [{ GetPost }],
+                        refetchQueries: [{ query: GetPost, variables: { id: post.id }}],
                         awaitRefetchQueries: true,
                       });
                     }}
