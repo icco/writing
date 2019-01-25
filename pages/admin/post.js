@@ -1,10 +1,11 @@
-import App from "../../components/App";
-import Header from "../../components/Header";
-import EditPost from "../../components/EditPost";
-import { withRouter } from "next/router";
 import Error from "next/error";
 import Head from "next/head";
+import { withRouter } from "next/router";
 
+import AdminLinkList from "../../components/AdminLinkList";
+import App from "../../components/App";
+import EditPost from "../../components/EditPost";
+import Header from "../../components/Header";
 import { checkLoggedIn } from "../../lib/auth";
 import { initApollo } from "../../lib/init-apollo";
 
@@ -31,6 +32,7 @@ class AdminPost extends React.Component {
         </Head>
         <Header noLogo={true} loggedInUser={this.state.loggedInUser} />
         <EditPost id={this.props.router.query.id} />
+        <AdminLinkList />
       </App>
     );
   }
