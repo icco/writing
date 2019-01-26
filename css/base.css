@@ -45,3 +45,45 @@ article a:active {
 section .react-mde .grip {
   height: 1em;
 }
+
+/* athelas ml0 mt0 pl4 black-90 bl bw2 b--blue */
+blockquote {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-color: #408bc9;
+  border-width: 0.25rem;
+  font-family: athelas, georgia, serif;
+  padding-left: 2rem;
+  margin-left: 0;
+  margin-top: 0;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* f5 f4-m f3-l lh-copy measure mt0 */
+blockquote p {
+  font-size: 1rem;
+  max-width: 30em;
+  line-height: 1.5;
+  max-width: 30em;
+  margin-top: 0;
+}
+
+/* f6 ttu tracked fs-normal */
+blockquote cite {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-style: normal;
+}
+
+@media screen and (min-width: 30em) and (max-width: 60em) {
+  blockquote p {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  blockquote p {
+    font-size: 1.5rem;
+  }
+}
