@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Error from "next/error";
+import Link from "next/link";
 
 import AdminDraftList from "../components/AdminDraftList";
 import AdminPostList from "../components/AdminPostList";
@@ -33,6 +34,14 @@ export default class extends React.Component {
         <Header noLogo={true} loggedInUser={this.state.loggedInUser} />
         <div className="ma3">
           <h1>Admin</h1>
+          <ul className="list pl0" key="new-ul">
+            <li className="" key={"new-post"}>
+              <Link as={`/admin/new`} href={`/admin/new`}>
+                <a className="link dark-gray dim">New Post</a>
+              </Link>
+            </li>
+          </ul>
+
           <h2>Drafts</h2>
           <AdminDraftList />
 
