@@ -1,15 +1,15 @@
-import App from "../components/App";
-import AdminPostList from "../components/AdminPostList";
-import AdminDraftList from "../components/AdminDraftList";
-import Header from "../components/Header";
 import Head from "next/head";
 import React from "react";
 import Error from "next/error";
 
+import AdminDraftList from "../components/AdminDraftList";
+import AdminPostList from "../components/AdminPostList";
+import App from "../components/App";
+import Header from "../components/Header";
 import { checkLoggedIn } from "../lib/auth";
 import { initApollo } from "../lib/init-apollo";
 
-export default class Admin extends React.Component {
+export default class extends React.Component {
   async componentDidMount() {
     const { loggedInUser } = await checkLoggedIn(initApollo());
     this.setState({ loggedInUser });
