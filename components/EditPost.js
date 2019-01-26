@@ -52,7 +52,6 @@ class EditPost extends React.Component {
       content: "",
       title: "",
       datetime: "",
-      draft: false,
     };
   }
 
@@ -65,6 +64,15 @@ class EditPost extends React.Component {
       [name]: value,
     });
   };
+
+  draft = (postDraft) => {
+    console.log(this.state.draft, postDraft);
+    if (this.state.draft === undefined) {
+      return postDraft
+    }
+
+    return this.state.draft
+  }
 
   render() {
     return (
@@ -87,7 +95,7 @@ class EditPost extends React.Component {
                         variables: {
                           title: this.state.title || post.title,
                           content: this.state.content || post.content,
-                          draft: this.state.draft || post.draft,
+                          draft: draft(post.draft),
                           datetime: this.state.datetime || post.datetime,
                           id: post.id,
                         },
@@ -146,7 +154,7 @@ class EditPost extends React.Component {
                           type="checkbox"
                           id="draft"
                           name="draft"
-                          checked={this.state.draft || post.draft}
+                          checked={this.draft(post.draft)}
                           onChange={this.handleBasicChange}
                         />
                       </div>
