@@ -46,7 +46,8 @@
   },
   "private": true,
   "devDependencies": {
-    "prettier": "^1.14.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.1",
     "webpack": "^4.3.0"
   },
   "prettier": {
