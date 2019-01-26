@@ -1,11 +1,11 @@
 import React from "react";
-import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
+import { Query, Mutation } from "react-apollo";
 import { withRouter } from "next/router";
-import Loading from "./Loading";
-
 import "@fortawesome/fontawesome-free/js/all.js";
+
+import ErrorMessage from "./ErrorMessage";
+import Loading from "./Loading";
 
 const SavePost = gql`
   mutation SavePost(
