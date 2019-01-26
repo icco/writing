@@ -36,7 +36,7 @@ export default class extends React.Component {
           <h1>Admin</h1>
           <ul className="list pl0" key="new-ul">
             <li className="" key={"new-post"}>
-              <Link as={`/admin/new`} href={`/admin/new`}>
+              <Link as={"/admin/new"} href={"/admin/new"}>
                 <a className="link dark-gray dim">New Post</a>
               </Link>
             </li>
