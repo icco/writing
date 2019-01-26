@@ -65,20 +65,25 @@ class EditPost extends React.Component {
     });
   };
 
-  draft = (postDraft) => {
+  draft = postDraft => {
     if (this.state.draft === undefined) {
-      return postDraft
+      return postDraft;
     }
 
-    return this.state.draft
-  }
+    return this.state.draft;
+  };
 
   render() {
     return (
       <Query query={GetPost} variables={{ id: this.props.id }}>
         {({ loading, error, data }) => {
-          if (loading) return <Loading key={0} />;
-          if (error) return <ErrorMessage message="Page not found." />;
+          if (loading) {
+            return <Loading key={0} />;
+          }
+
+          if (error) {
+            return <ErrorMessage message="Page not found." />;
+          }
 
           let post = data.post;
           return (
@@ -94,7 +99,7 @@ class EditPost extends React.Component {
                         variables: {
                           title: this.state.title || post.title,
                           content: this.state.content || post.content,
-                          draft: draft(post.draft),
+                          draft: this.draft(post.draft),
                           datetime: this.state.datetime || post.datetime,
                           id: post.id,
                         },
