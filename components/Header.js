@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
+import React from "react";
+
 import Logo from "./Logo";
 
 class Header extends React.Component {
@@ -12,7 +14,7 @@ class Header extends React.Component {
       </Link>
     );
 
-    if (!!this.props.loggedInUser) {
+    if (this.props.loggedInUser) {
       nav = (
         <>
           <Link key="/admin" href="/admin">

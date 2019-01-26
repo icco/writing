@@ -1,5 +1,6 @@
 import Error from "next/error";
 import Head from "next/head";
+import React from "react";
 import { withRouter } from "next/router";
 
 import AdminLinkList from "../../components/AdminLinkList";

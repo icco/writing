@@ -37,8 +37,12 @@ export default class extends React.Component {
     return (
       <Mutation mutation={NewPost}>
         {(newPost, { loading, error, data }) => {
-          if (loading) return <Loading key={0} />;
-          if (error) return <ErrorMessage message="Page not found." />;
+          if (loading) {
+            return <Loading key={0} />;
+          }
+          if (error) {
+            return <ErrorMessage message="Page not found." />;
+          }
 
           if (data) {
             Router.push(`/edit/${data.createPost.id}`);
