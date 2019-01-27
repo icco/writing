@@ -1,21 +1,23 @@
 "use strict";
 
+const compression = require('compression')
 const express = require("express");
+const gql = require("graphql-tag");
 const helmet = require("helmet");
 const next = require("next");
-const rss = require("feed");
-const gql = require("graphql-tag");
-const apollo = require("./lib/init-apollo.js");
-const { parse } = require("url");
-const { join } = require("path");
 const opencensus = require("@opencensus/core");
-const tracing = require("@opencensus/nodejs");
-const stackdriver = require("@opencensus/exporter-stackdriver");
-const propagation = require("@opencensus/propagation-stackdriver");
-const sitemap = require("sitemap");
 const pinoLogger = require("pino");
 const pinoMiddleware = require("pino-http");
 const pinoStackdriver = require("pino-stackdriver-serializers");
+const propagation = require("@opencensus/propagation-stackdriver");
+const rss = require("feed");
+const sitemap = require("sitemap");
+const stackdriver = require("@opencensus/exporter-stackdriver");
+const tracing = require("@opencensus/nodejs");
+const { join } = require("path");
+const { parse } = require("url");
+
+const apollo = require("./lib/init-apollo.js");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
