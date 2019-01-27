@@ -9,7 +9,6 @@ const apollo = require("./lib/init-apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const opencensus = require("@opencensus/core");
-const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
