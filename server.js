@@ -19,7 +19,7 @@ const pinoMiddleware = require("pino-http");
 const pinoStackdriver = require("pino-stackdriver-serializers");
 
 const GOOGLE_PROJECT = "icco-cloud";
-const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
+const port = parseInt(process.env.PORT, 10) || 8080;
 
 async function recentPosts(logger) {
   try {
@@ -236,17 +236,6 @@ async function startServer() {
         });
       });
 
-      const graphqlProxy = proxy({
-        autoRewrite: false,
-        followRedirects: false,
-        target: GRAPHQL_ORIGIN,
-        changeOrigin: true,
-        logProvider: function(provider) {
-          return logger;
-        },
-      });
-      server.use(["/graphql"], graphqlProxy);
-
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
         const parsedUrl = parse(req.url, true);
@@ -275,9 +264,9 @@ async function startServer() {
         return;
       });
 
-      server.listen(8080, "0.0.0.0", err => {
+      server.listen(port, "0.0.0.0", err => {
         if (err) throw err;
-        logger.info("> Ready on http://localhost:8080");
+        logger.info(`> Ready on http://localhost:${port}`);
       });
     })
     .catch(ex => {
