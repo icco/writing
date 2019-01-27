@@ -24,7 +24,7 @@ const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
 async function recentPosts(logger) {
   try {
     const client = apollo.create({}, {});
-    let data = await client.query({
+    let res = await client.query({
       query: gql`
         query recentPosts {
           posts(limit: 20, offset: 0) {
@@ -37,7 +37,7 @@ async function recentPosts(logger) {
       `,
     });
 
-    return data.data.posts;
+    return res.data.posts;
   } catch (err) {
     logger.error(err);
     return [];
@@ -47,7 +47,7 @@ async function recentPosts(logger) {
 async function mostPosts(logger) {
   try {
     const client = apollo.create();
-    let data = await client.query({
+    let res = await client.query({
       query: gql`
         query mostPosts {
           posts(limit: 1000, offset: 0) {
@@ -57,7 +57,25 @@ async function mostPosts(logger) {
       `,
     });
 
-    return data.data.posts;
+    return res.data.tags;
+  } catch (err) {
+    logger.error(err);
+    return [];
+  }
+}
+
+async function allTags(logger) {
+  try {
+    const client = apollo.create();
+    let res = await client.query({
+      query: gql`
+        query tags {
+          tags
+        }
+      `,
+    });
+
+    return res.data.tags;
   } catch (err) {
     logger.error(err);
     return [];
@@ -101,12 +119,19 @@ async function generateSitemap(logger) {
     return { url: `/post/${x.id}` };
   });
   urls.push({ url: "/" });
+
+  let tags = await allTags(logger);
+  tags.each(function(t) {
+    urls.push({ url: `/tag/${tag}` });
+  });
+
   return sitemap.createSitemap({
     hostname: "https://writing.natwelch.com",
     cacheTime: 6000000, // 600 sec - cache purge period
     urls,
   });
 }
+
 async function startServer() {
   const logger = pinoLogger({
     messageKey: "message",
