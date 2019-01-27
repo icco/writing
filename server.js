@@ -46,7 +46,7 @@ async function recentPosts(logger) {
 
 async function mostPosts(logger) {
   try {
-    const client = apollo.create();
+    const client = apollo.create({}, {});
     let res = await client.query({
       query: gql`
         query mostPosts {
@@ -57,7 +57,7 @@ async function mostPosts(logger) {
       `,
     });
 
-    return res.data.tags;
+    return res.data.posts;
   } catch (err) {
     logger.error(err);
     return [];
@@ -66,7 +66,7 @@ async function mostPosts(logger) {
 
 async function allTags(logger) {
   try {
-    const client = apollo.create();
+    const client = apollo.create({}, {});
     let res = await client.query({
       query: gql`
         query tags {
@@ -114,17 +114,18 @@ async function generateFeed(logger) {
 }
 
 async function generateSitemap(logger) {
+  let urls = [];
   let postIds = await mostPosts(logger);
-  let urls = postIds.map(function(x) {
-    return { url: `/post/${x.id}` };
+  postIds.forEach(function(x) {
+    urls.push({ url: `/post/${x.id}` });
   });
-  urls.push({ url: "/" });
 
   let tags = await allTags(logger);
-  tags.each(function(t) {
-    urls.push({ url: `/tag/${tag}` });
+  tags.forEach(function(t) {
+    urls.push({ url: `/tag/${t}` });
   });
 
+  urls.push({ url: "/" });
   return sitemap.createSitemap({
     hostname: "https://writing.natwelch.com",
     cacheTime: 6000000, // 600 sec - cache purge period
