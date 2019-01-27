@@ -47,7 +47,7 @@ section .react-mde .grip {
 }
 
 /* athelas ml0 mt0 pl4 black-90 bl bw2 b--blue */
-blockquote {
+article blockquote {
   border-left-style: solid;
   border-left-width: 1px;
   border-color: #408bc9;
@@ -60,7 +60,7 @@ blockquote {
 }
 
 /* f5 f4-m f3-l lh-copy measure mt0 */
-blockquote p {
+article blockquote p {
   font-size: 1rem;
   max-width: 30em;
   line-height: 1.5;
@@ -69,7 +69,7 @@ blockquote p {
 }
 
 /* f6 ttu tracked fs-normal */
-blockquote cite {
+article blockquote cite {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -77,13 +77,13 @@ blockquote cite {
 }
 
 @media screen and (min-width: 30em) and (max-width: 60em) {
-  blockquote p {
+  article blockquote p {
     font-size: 1.25rem;
   }
 }
 
 @media screen and (min-width: 60em) {
-  blockquote p {
+  article blockquote p {
     font-size: 1.5rem;
   }
 }
