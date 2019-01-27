@@ -185,6 +185,8 @@ async function startServer() {
       );
       server.use(helmet());
 
+      server.use(compression());
+
       server.get("/healthz", (req, res) => {
         res.json({ status: "ok" });
       });
