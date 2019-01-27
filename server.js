@@ -1,6 +1,6 @@
 "use strict";
 
-const compression = require('compression')
+const compression = require("compression");
 const express = require("express");
 const gql = require("graphql-tag");
 const helmet = require("helmet");
