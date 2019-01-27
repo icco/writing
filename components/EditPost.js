@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { Query, Mutation } from "react-apollo";
 import { withRouter } from "next/router";
 import "@fortawesome/fontawesome-free/js/all.js";
+import Link from "next/link";
 
 import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
@@ -186,6 +187,11 @@ class EditPost extends React.Component {
                         value="Save"
                         className="fr pointer dim br3 ph3 pv2 mb2 dib white bg-navy"
                       />
+                      <Link href={`/post/${post.id}`}>
+                        <a className="mh3 dib mv2 link pointer dim gray fr ttu">
+                          View Live Post
+                        </a>
+                      </Link>
                     </div>
                   </form>
                 )}
