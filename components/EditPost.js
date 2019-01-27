@@ -66,7 +66,7 @@ class EditPost extends React.Component {
   };
 
   draft = postDraft => {
-    if (!(draft in this.state)) {
+    if (!("draft" in this.state)) {
       return postDraft;
     }
 
