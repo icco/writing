@@ -76,7 +76,11 @@ class EditPost extends React.Component {
 
   render() {
     return (
-      <Query query={GetPost} variables={{ id: this.props.id }}>
+      <Query
+        query={GetPost}
+        variables={{ id: this.props.id }}
+        fetchPolicy={"network-only"}
+      >
         {({ loading, error, data }) => {
           if (loading) {
             return <Loading key={0} />;

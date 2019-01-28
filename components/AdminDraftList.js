@@ -37,4 +37,6 @@ export const allDrafts = gql`
   }
 `;
 
-export default graphql(allDrafts, {})(AdminDraftList);
+export default graphql(allDrafts, {
+  fetchPolicy: "network-only",
+})(AdminDraftList);
