@@ -4,12 +4,22 @@ import Footer from "../components/Footer";
 import Post from "../components/Post";
 import { withRouter } from "next/router";
 
+import { checkLoggedIn } from "../lib/auth";
+
 const Page = withRouter(props => (
   <App>
-    <Header />
+    <Header loggedInUser={props.loggedInUser} />
     <Post id={props.router.query.id} />
     <Footer />
   </App>
 ));
+
+Page.getInitialProps = async ctx => {
+  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
+
+  return {
+    loggedInUser,
+  };
+};
 
 export default Page;

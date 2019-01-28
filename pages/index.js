@@ -4,13 +4,25 @@ import Footer from "../components/Footer";
 import PostList from "../components/PostList";
 import Head from "next/head";
 
-export default () => (
+import { checkLoggedIn } from "../lib/auth";
+
+const Index = props => (
   <App>
     <Head>
       <title>Nat? Nat. Nat!</title>
     </Head>
-    <Header />
+    <Header loggedInUser={props.loggedInUser} />
     <PostList />
     <Footer />
   </App>
 );
+
+Index.getInitialProps = async ctx => {
+  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
+
+  return {
+    loggedInUser,
+  };
+};
+
+export default Index;

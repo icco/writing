@@ -1,13 +1,9 @@
-import Twitter from "../svgs/twitter.svg";
-import Instagram from "../svgs/instagram.svg";
-import Github from "../svgs/github.svg";
-import ErrorMessage from "./ErrorMessage";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
+import ReactSVG from "react-svg";
 
 // SVG Icons are from https://simpleicons.org
 const Footer = params => {
-  if (params.data.error) return <ErrorMessage message="Error loading stats." />;
   let stats = "";
   if (params.data.stats && params.data.stats.length) {
     stats = (
@@ -32,47 +28,43 @@ const Footer = params => {
         .
       </h3>
 
-      <div className="">
+      <div className="mb2">
         <a
           className="link near-black hover-silver dib h1 w1 mr3"
           href="https://github.com/icco"
           title="Nat Welch GitHub"
         >
-          <Github />
+          <ReactSVG src="/svgs/github.svg" />
         </a>
         <a
           className="link hover-silver near-black dib h1 w1 mr3"
           href="https://instagram.com/probablynatwelch"
           title="Nat Welch Instagram"
         >
-          <Instagram />
+          <ReactSVG src="/svgs/instagram.svg" />
         </a>
         <a
           className="link hover-silver near-black dib h1 w1 mr3"
           href="https://twitter.com/icco"
           title="Nat Welch Twitter"
         >
-          <Twitter />
+          <ReactSVG src="/svgs/twitter.svg" />
         </a>
       </div>
 
       {stats}
 
-      <div className="mv2">
-        Try out the{" "}
-        <a className="link" href="https://brave.com/nat432">
-          Brave Browser
-        </a>
-        .
+      <div className="mv2 rc-scout" data-scout-rendered="true">
+        <p className="rc-scout__text">
+          <i className="rc-scout__logo" /> Want to become a better programmer?{" "}
+          <a
+            className="rc-scout__link"
+            href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
+          >
+            Join the Recurse Center!
+          </a>
+        </p>
       </div>
-
-      <div className="mv2 rc-scout" />
-
-      <script
-        async
-        defer
-        src="https://www.recurse-scout.com/loader.js?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
-      />
     </footer>
   );
 };
