@@ -25,10 +25,10 @@
 }
 .rc-scout__link:link,
 .rc-scout__link:visited {
-  color: #3dc06c;
+  color: #265c83;
   text-decoration: underline;
 }
 .rc-scout__link:hover,
 .rc-scout__link:active {
-  color: #4e8b1d;
+  color: #7fdbff;
 }
