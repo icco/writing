@@ -14,7 +14,7 @@ function AdminPostList({ data: { error, posts, loadMore } }) {
 
   if (posts && posts.length) {
     return (
-      <section className="mw8 center">
+      <section className="mw8">
         <InfiniteScroll
           threshold={500}
           loadMore={loadMore}

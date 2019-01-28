@@ -10,7 +10,7 @@ function AdminDraftList({ data: { error, drafts } }) {
 
   if (drafts && drafts.length) {
     return (
-      <section className="mw8 center">
+      <section className="mw8">
         <ul className="list pl0" key="draft-ul">
           {drafts.map(post => (
             <li className="" key={"draft-" + post.id}>
