@@ -1,5 +1,6 @@
 "use strict";
 
+const compression = require("compression");
 const express = require("express");
 const helmet = require("helmet");
 const next = require("next");
@@ -9,23 +10,21 @@ const apollo = require("./lib/init-apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const opencensus = require("@opencensus/core");
-const proxy = require("http-proxy-middleware");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
-const onFinished = require("on-finished");
 const sitemap = require("sitemap");
 const pinoLogger = require("pino");
 const pinoMiddleware = require("pino-http");
 const pinoStackdriver = require("pino-stackdriver-serializers");
 
 const GOOGLE_PROJECT = "icco-cloud";
-const { GRAPHQL_ORIGIN = "https://graphql.natwelch.com" } = process.env;
+const port = parseInt(process.env.PORT, 10) || 8080;
 
 async function recentPosts(logger) {
   try {
-    const client = apollo.create();
-    let data = await client.query({
+    const client = apollo.create({}, {});
+    let res = await client.query({
       query: gql`
         query recentPosts {
           posts(limit: 20, offset: 0) {
@@ -38,7 +37,7 @@ async function recentPosts(logger) {
       `,
     });
 
-    return data.data.posts;
+    return res.data.posts;
   } catch (err) {
     logger.error(err);
     return [];
@@ -47,8 +46,8 @@ async function recentPosts(logger) {
 
 async function mostPosts(logger) {
   try {
-    const client = apollo.create();
-    let data = await client.query({
+    const client = apollo.create({}, {});
+    let res = await client.query({
       query: gql`
         query mostPosts {
           posts(limit: 1000, offset: 0) {
@@ -58,7 +57,25 @@ async function mostPosts(logger) {
       `,
     });
 
-    return data.data.posts;
+    return res.data.posts;
+  } catch (err) {
+    logger.error(err);
+    return [];
+  }
+}
+
+async function allTags(logger) {
+  try {
+    const client = apollo.create({}, {});
+    let res = await client.query({
+      query: gql`
+        query tags {
+          tags
+        }
+      `,
+    });
+
+    return res.data.tags;
   } catch (err) {
     logger.error(err);
     return [];
@@ -97,10 +114,17 @@ async function generateFeed(logger) {
 }
 
 async function generateSitemap(logger) {
+  let urls = [];
   let postIds = await mostPosts(logger);
-  let urls = postIds.map(function(x) {
-    return { url: `/post/${x.id}` };
+  postIds.forEach(function(x) {
+    urls.push({ url: `/post/${x.id}` });
   });
+
+  let tags = await allTags(logger);
+  tags.forEach(function(t) {
+    urls.push({ url: `/tag/${t}` });
+  });
+
   urls.push({ url: "/" });
   return sitemap.createSitemap({
     hostname: "https://writing.natwelch.com",
@@ -108,6 +132,7 @@ async function generateSitemap(logger) {
     urls,
   });
 }
+
 async function startServer() {
   const logger = pinoLogger({
     messageKey: "message",
@@ -161,12 +186,20 @@ async function startServer() {
       );
       server.use(helmet());
 
+      server.use(compression());
+
       server.get("/healthz", (req, res) => {
         res.json({ status: "ok" });
       });
 
       server.get("/post/:id", (req, res) => {
         const actualPage = "/post";
+        const queryParams = { id: req.params.id };
+        app.render(req, res, actualPage, queryParams);
+      });
+
+      server.get("/edit/:id", (req, res) => {
+        const actualPage = "/admin/post";
         const queryParams = { id: req.params.id };
         app.render(req, res, actualPage, queryParams);
       });
@@ -205,18 +238,6 @@ async function startServer() {
         });
       });
 
-      const graphqlProxy = proxy({
-        target: GRAPHQL_ORIGIN,
-        changeOrigin: true,
-        logProvider: function(provider) {
-          return logger;
-        },
-      });
-      server.use(
-        ["/login", "/logout", "/callback", "/admin/?*", "/graphql"],
-        graphqlProxy
-      );
-
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
         const parsedUrl = parse(req.url, true);
@@ -245,9 +266,9 @@ async function startServer() {
         return;
       });
 
-      server.listen(8080, "0.0.0.0", err => {
+      server.listen(port, "0.0.0.0", err => {
         if (err) throw err;
-        logger.info("> Ready on http://localhost:8080");
+        logger.info(`> Ready on http://localhost:${port}`);
       });
     })
     .catch(ex => {

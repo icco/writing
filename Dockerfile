@@ -1,7 +1,10 @@
 FROM node:10
-ENV NODE_ENV=production
 WORKDIR /opt
 EXPOSE 8080
+
+ENV NODE_ENV=production
+ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
+ENV PORT=8080
 
 COPY . .
 RUN yarn install --non-interactive --frozen-lockfile

@@ -1,11 +1,19 @@
 import Document, { Head, Main, NextScript } from "next/document";
 import { GA_TRACKING_ID } from "../lib/gtag";
 import { TRACKING_ID } from "../lib/fathom";
+import { checkLoggedIn } from "../lib/auth";
 
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
+
+    return {
+      ...initialProps,
+      loggedInUser,
+      currentUrl: ctx.pathname,
+      isAuthenticated: !!loggedInUser,
+    };
   }
 
   render() {
@@ -17,6 +25,8 @@ export default class WritingDocument extends Document {
             content="initial-scale=1.0, width=device-width"
             key="viewport"
           />
+          <meta charSet="utf-8" />
+
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async

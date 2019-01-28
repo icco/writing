@@ -1,6 +1,6 @@
 import App, { Container } from "next/app";
 import React from "react";
-import withApolloClient from "../lib/with-apollo-client";
+import withApollo from "../lib/with-apollo-client";
 import { ApolloProvider } from "react-apollo";
 
 // CSS is compiled into the style.css below
@@ -19,4 +19,4 @@ class Writing extends App {
   }
 }
 
-export default withApolloClient(Writing);
+export default withApollo(Writing);

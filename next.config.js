@@ -6,6 +6,5 @@ module.exports = withCSS({
   },
   publicRuntimeConfig: {
     // Will be available on both server and client
-    graphql_origin: "https://graphql.natwelch.com",
   },
 });
