@@ -148,6 +148,12 @@ class EditPost extends React.Component {
                       aria-describedby="text-desc"
                       onChange={this.handleEditorChange}
                       defaultValue={this.state.content || post.content}
+                      uploadImage={async file => {
+                        console.log("File upload triggered: ", file);
+
+                        // Delay to simulate time taken to upload
+                        return "http://lorempixel.com/400/200/";
+                      }}
                     />
 
                     <small id="text-desc" className="f6 black-60">
