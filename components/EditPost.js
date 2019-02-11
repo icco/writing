@@ -4,6 +4,7 @@ import { Query, Mutation } from "react-apollo";
 import { withRouter } from "next/router";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
+import Editor from "rich-markdown-editor";
 
 import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
@@ -133,15 +134,11 @@ class EditPost extends React.Component {
                     <label htmlFor="content" className="f6 b db mb2">
                       Post Text
                     </label>
-                    <textarea
+
+                    <Editor
                       id="content"
-                      name="content"
-                      className="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2"
-                      aria-describedby="text-desc"
-                      style={{ height: "20rem", resize: "vertical" }}
-                      onChange={this.handleBasicChange}
-                      value={this.state.content || post.content}
                     />
+
                     <small id="text-desc" className="f6 black-60">
                       This should be in{" "}
                       <a
