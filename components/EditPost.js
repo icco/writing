@@ -6,8 +6,11 @@ import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
 
+import { getToken } from "../lib/auth.js";
 import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
+
+const baseUrl = process.env.GRAPHQL_ORIGIN.substring(0, process.env.GRAPHQL_ORIGIN.lastIndexOf('/'));
 
 const SavePost = gql`
   mutation SavePost(
@@ -149,10 +152,20 @@ class EditPost extends React.Component {
                       onChange={this.handleEditorChange}
                       defaultValue={this.state.content || post.content}
                       uploadImage={async file => {
-                        console.log("File upload triggered: ", file);
+                        let token = getToken()
 
-                        // Delay to simulate time taken to upload
-                        return "http://lorempixel.com/400/200/";
+                        let formData = new FormData();
+                        formData.append("file", file);
+                        let response = await fetch(`${baseUrl}/photo/new`, {
+                          method: "POST",
+                          body: formData,
+                          headers:{
+                            authorization: token ? `Bearer ${token}` : "",
+                          }
+                        });
+
+                        let data = await response.json()
+                        return data.file;
                       }}
                     />
 
