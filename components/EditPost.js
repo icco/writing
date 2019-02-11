@@ -67,6 +67,12 @@ class EditPost extends React.Component {
     });
   };
 
+  handleEditorChange = value => {
+    this.setState({
+      "content": value(),
+    });
+  };
+
   draft = postDraft => {
     if (!("draft" in this.state)) {
       return postDraft;
@@ -137,6 +143,11 @@ class EditPost extends React.Component {
 
                     <Editor
                       id="content"
+                      name="content"
+                      className="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2"
+                      aria-describedby="text-desc"
+                      onChange={this.handleEditorChange}
+                      defaultValue={this.state.content || post.content}
                     />
 
                     <small id="text-desc" className="f6 black-60">
