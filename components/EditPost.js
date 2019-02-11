@@ -10,7 +10,10 @@ import { getToken } from "../lib/auth.js";
 import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
 
-const baseUrl = process.env.GRAPHQL_ORIGIN.substring(0, process.env.GRAPHQL_ORIGIN.lastIndexOf('/'));
+const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
+  0,
+  process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
+);
 
 const SavePost = gql`
   mutation SavePost(
@@ -72,7 +75,7 @@ class EditPost extends React.Component {
 
   handleEditorChange = value => {
     this.setState({
-      "content": value(),
+      content: value(),
     });
   };
 
@@ -152,19 +155,19 @@ class EditPost extends React.Component {
                       onChange={this.handleEditorChange}
                       defaultValue={this.state.content || post.content}
                       uploadImage={async file => {
-                        let token = getToken()
+                        let token = getToken();
 
                         let formData = new FormData();
                         formData.append("file", file);
                         let response = await fetch(`${baseUrl}/photo/new`, {
                           method: "POST",
                           body: formData,
-                          headers:{
+                          headers: {
                             authorization: token ? `Bearer ${token}` : "",
-                          }
+                          },
                         });
 
-                        let data = await response.json()
+                        let data = await response.json();
                         return data.file;
                       }}
                     />
