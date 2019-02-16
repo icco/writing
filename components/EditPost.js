@@ -4,9 +4,16 @@ import { Query, Mutation } from "react-apollo";
 import { withRouter } from "next/router";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
+import Editor from "rich-markdown-editor";
 
+import { getToken } from "../lib/auth.js";
 import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
+
+const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
+  0,
+  process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
+);
 
 const SavePost = gql`
   mutation SavePost(
@@ -63,6 +70,12 @@ class EditPost extends React.Component {
 
     this.setState({
       [name]: value,
+    });
+  };
+
+  handleEditorChange = value => {
+    this.setState({
+      content: value(),
     });
   };
 
@@ -133,15 +146,32 @@ class EditPost extends React.Component {
                     <label htmlFor="content" className="f6 b db mb2">
                       Post Text
                     </label>
-                    <textarea
+
+                    <Editor
                       id="content"
                       name="content"
                       className="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2"
                       aria-describedby="text-desc"
-                      style={{ height: "20rem", resize: "vertical" }}
-                      onChange={this.handleBasicChange}
-                      value={this.state.content || post.content}
+                      onChange={this.handleEditorChange}
+                      defaultValue={this.state.content || post.content}
+                      uploadImage={async file => {
+                        let token = getToken();
+
+                        let formData = new FormData();
+                        formData.append("file", file);
+                        let response = await fetch(`${baseUrl}/photo/new`, {
+                          method: "POST",
+                          body: formData,
+                          headers: {
+                            authorization: token ? `Bearer ${token}` : "",
+                          },
+                        });
+
+                        let data = await response.json();
+                        return data.file;
+                      }}
                     />
+
                     <small id="text-desc" className="f6 black-60">
                       This should be in{" "}
                       <a
