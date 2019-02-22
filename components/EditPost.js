@@ -24,8 +24,8 @@ const SavePost = gql`
     $draft: Boolean!
   ) {
     editPost(
-      Id: $id
       input: {
+        id: $id
         content: $content
         title: $title
         datetime: $datetime
