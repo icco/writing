@@ -16,7 +16,7 @@ const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
 
 const apollo = require("./lib/init-apollo.js");
-const logger = require("./lib/logger.js");
+const { logger } = require("./lib/logger.js");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
