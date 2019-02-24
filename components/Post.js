@@ -20,6 +20,10 @@ const Post = props => {
 
   if (post) {
     let html = { __html: md.render(post.content) };
+    let draft = ""
+    if (post.draft) {
+      draft = "DRAFT"
+    }
 
     return (
       <section className="mw8 center">
@@ -33,6 +37,7 @@ const Post = props => {
           <div className="f6 db pb1 gray">
             <span className="mr3">#{post.id}</span>
             <Datetime>{post.datetime}</Datetime>
+            <span className="ml3 red strong">{draft}</span>
           </div>
           <Link prefetch as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
             <a className="header db f3 f1-ns link dark-gray dim">
@@ -60,6 +65,7 @@ export const getPost = gql`
       title
       content
       datetime
+      draft
       next {
         id
       }
