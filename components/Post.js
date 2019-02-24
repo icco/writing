@@ -56,8 +56,12 @@ export const getPost = gql`
       title
       content
       datetime
-      next
-      prev
+      next {
+        id
+      }
+      prev {
+        id
+      }
     }
   }
 `;
