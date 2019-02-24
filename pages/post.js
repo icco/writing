@@ -8,21 +8,23 @@ import Post from "../components/Post";
 import withError from "../lib/withError";
 import { checkLoggedIn } from "../lib/auth";
 
-const Page = withError(withRouter(props => (
-  <App>
-    <Header loggedInUser={props.loggedInUser} />
-    <Post id={props.router.query.id} />
-    <Footer />
-  </App>
-)));
+const Page = withError(
+  withRouter(props => (
+    <App>
+      <Header loggedInUser={props.loggedInUser} />
+      <Post id={props.router.query.id} />
+      <Footer />
+    </App>
+  ))
+);
 
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
   const { post } = await getPostID(ctx.apolloClient, ctx.query.id);
-  let ret = { loggedInUser }
+  let ret = { loggedInUser };
 
   if (!post) {
-    ret["statusCode"] = 404
+    ret["statusCode"] = 404;
   }
 
   return ret;
@@ -32,15 +34,15 @@ function getPostID(apollo, postID) {
   return apollo
     .query({
       query: gql`
-  query getPost($id: ID!) {
-    post(id: $id) {
-      id
-    }
-  }
+        query getPost($id: ID!) {
+          post(id: $id) {
+            id
+          }
+        }
       `,
-    variables: {
-      id: postID,
-    },
+      variables: {
+        id: postID,
+      },
     })
     .then(({ data }) => {
       return { post: data.post };
