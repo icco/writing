@@ -1,5 +1,5 @@
-import React from 'react'
-import ErrorPage from 'next/error'
+import React from "react";
+import ErrorPage from "next/error";
 
 export default Component => {
   return class WithError extends React.Component {
@@ -7,22 +7,21 @@ export default Component => {
       const props =
         (Component.getInitialProps
           ? await Component.getInitialProps(ctx)
-          : null) || {}
+          : null) || {};
 
       if (props.statusCode && ctx.res) {
-        ctx.res.statusCode = props.statusCode
+        ctx.res.statusCode = props.statusCode;
       }
 
-      return props
+      return props;
     }
 
     render() {
       if (this.props.statusCode) {
-        return <ErrorPage statusCode={this.props.statusCode} />
+        return <ErrorPage statusCode={this.props.statusCode} />;
       }
 
-      return <Component {...this.props} />
+      return <Component {...this.props} />;
     }
-  }
-}
-
+  };
+};

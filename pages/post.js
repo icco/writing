@@ -20,20 +20,19 @@ const Page = withRouter(props => (
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
   console.log(ctx.data);
-  
+
   if (ctx.data.error) {
     return {
-      statusCode: 404
-    }
+      statusCode: 404,
+    };
   }
 
   return {
     loggedInUser,
     id: ctx.query.id,
-    data: ctx.data
+    data: ctx.data,
   };
 };
-
 
 export const getPost = gql`
   query getPost($id: ID!) {
@@ -52,10 +51,12 @@ export const getPost = gql`
   }
 `;
 
-export default WithError(graphql(getPost, {
-  options: props => ({
-    variables: {
-      id: props.id,
-    },
-  }),
-})(Page));
+export default WithError(
+  graphql(getPost, {
+    options: props => ({
+      variables: {
+        id: props.id,
+      },
+    }),
+  })(Page)
+);
