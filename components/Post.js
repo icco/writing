@@ -1,19 +1,25 @@
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
 import { withRouter } from "next/router";
-import md from "../lib/markdown.js";
 import Head from "next/head";
 import Link from "next/link";
+
 import Datetime from "./Datetime";
+import ErrorMessage from "./ErrorMessage";
 import PostNav from "./PostNav";
+import WithError from "./WithError";
+import md from "../lib/markdown";
+import { logger } from "../lib/logger";
 
 const Post = props => {
   const {
     data: { error, post },
   } = props;
 
-  if (error) return <ErrorMessage message="Page not found." />;
+  if (error) {
+    return <ErrorMessage message="Error retrieving post" />;
+  }
+
   if (post) {
     let html = { __html: md.render(post.content) };
 
@@ -49,6 +55,11 @@ const Post = props => {
   return <div />;
 };
 
+Post.getInitialProps = async function(props) {
+  console.log(props)
+  return {statusCode: 404}
+};
+
 export const getPost = gql`
   query getPost($id: ID!) {
     post(id: $id) {
@@ -66,10 +77,10 @@ export const getPost = gql`
   }
 `;
 
-export default graphql(getPost, {
+export default WithError(graphql(getPost, {
   options: props => ({
     variables: {
       id: props.id,
     },
   }),
-})(withRouter(Post));
+})(withRouter(Post)));
