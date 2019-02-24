@@ -1,21 +1,13 @@
 import Link from "next/link";
-import { graphql } from "react-apollo";
-import gql from "graphql-tag";
 
-const PostNav = props => {
-  const {
-    data: { error, prevPost, nextPost },
-  } = props;
-
-  if (error) return <div />;
-
+const PostNav = ({post}) => {
   let prevText = "";
-  if (prevPost && parseInt(prevPost.id) > 0) {
+  if (post.prev && parseInt(post.prev.id) > 0) {
     prevText = (
       <Link
         prefetch
-        as={`/post/${prevPost.id}`}
-        href={`/post?id=${prevPost.id}`}
+        as={`/post/${post.prev.id}`}
+        href={`/post?id=${post.prev.id}`}
       >
         <a className="link dark-gray dim">&larr; Prev</a>
       </Link>
@@ -23,12 +15,12 @@ const PostNav = props => {
   }
 
   let nextText = "";
-  if (nextPost && parseInt(nextPost.id) > 0) {
+  if (post.next && parseInt(post.next.id) > 0) {
     nextText = (
       <Link
         prefetch
-        as={`/post/${nextPost.id}`}
-        href={`/post?id=${nextPost.id}`}
+        as={`/post/${post.next.id}`}
+        href={`/post?id=${post.next.id}`}
       >
         <a className="link dark-gray dim">Next &rarr;</a>
       </Link>
@@ -44,22 +36,4 @@ const PostNav = props => {
   );
 };
 
-export const postNav = gql`
-  query navPost($id: ID!) {
-    nextPost(id: $id) {
-      id
-    }
-
-    prevPost(id: $id) {
-      id
-    }
-  }
-`;
-
-export default graphql(postNav, {
-  options: props => ({
-    variables: {
-      id: props.id,
-    },
-  }),
-})(PostNav);
+export default PostNav;
