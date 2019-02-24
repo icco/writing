@@ -204,13 +204,8 @@ class EditPost extends React.Component {
                         </label>
                         <input
                           id="datetime"
-                          type="datetime-local"
-                          name="datetime"
-                          pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
-                          value={(this.state.datetime || post.datetime).slice(
-                            0,
-                            16
-                          )}
+                          type="text"
+                          value={(this.state.datetime || post.datetime)}
                           onChange={this.handleBasicChange}
                         />
                       </div>
