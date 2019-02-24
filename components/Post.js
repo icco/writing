@@ -1,19 +1,23 @@
-import { graphql } from "react-apollo";
-import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
-import { withRouter } from "next/router";
-import md from "../lib/markdown.js";
 import Head from "next/head";
 import Link from "next/link";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
+import { withRouter } from "next/router";
+
 import Datetime from "./Datetime";
+import ErrorMessage from "./ErrorMessage";
 import PostNav from "./PostNav";
+import md from "../lib/markdown.js";
 
 const Post = props => {
   const {
     data: { error, post },
   } = props;
 
-  if (error) return <ErrorMessage message="Page not found." />;
+  if (error) {
+    return <ErrorMessage message="Unable to get page." />;
+  }
+
   if (post) {
     let html = { __html: md.render(post.content) };
 

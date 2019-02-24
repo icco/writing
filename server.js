@@ -6,7 +6,6 @@ const helmet = require("helmet");
 const next = require("next");
 const rss = require("feed");
 const gql = require("graphql-tag");
-const apollo = require("./lib/init-apollo.js");
 const { parse } = require("url");
 const { join } = require("path");
 const opencensus = require("@opencensus/core");
@@ -14,14 +13,15 @@ const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const sitemap = require("sitemap");
-const pinoLogger = require("pino");
 const pinoMiddleware = require("pino-http");
-const pinoStackdriver = require("pino-stackdriver-serializers");
+
+const apollo = require("./lib/init-apollo.js");
+const { logger } = require("./lib/logger.js");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
 
-async function recentPosts(logger) {
+async function recentPosts() {
   try {
     const client = apollo.create({}, {});
     let res = await client.query({
@@ -44,7 +44,7 @@ async function recentPosts(logger) {
   }
 }
 
-async function mostPosts(logger) {
+async function mostPosts() {
   try {
     const client = apollo.create({}, {});
     let res = await client.query({
@@ -64,7 +64,7 @@ async function mostPosts(logger) {
   }
 }
 
-async function allTags(logger) {
+async function allTags() {
   try {
     const client = apollo.create({}, {});
     let res = await client.query({
@@ -82,14 +82,14 @@ async function allTags(logger) {
   }
 }
 
-async function generateFeed(logger) {
+async function generateFeed() {
   let feed = new rss.Feed({
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
     description: "Nat Welch's Blog about random stuff.",
   });
   try {
-    let data = await recentPosts(logger);
+    let data = await recentPosts();
 
     data.forEach(p => {
       feed.addItem({
@@ -113,14 +113,14 @@ async function generateFeed(logger) {
   return feed;
 }
 
-async function generateSitemap(logger) {
+async function generateSitemap() {
   let urls = [];
-  let postIds = await mostPosts(logger);
+  let postIds = await mostPosts();
   postIds.forEach(function(x) {
     urls.push({ url: `/post/${x.id}` });
   });
 
-  let tags = await allTags(logger);
+  let tags = await allTags();
   tags.forEach(function(t) {
     urls.push({ url: `/tag/${t}` });
   });
@@ -134,16 +134,6 @@ async function generateSitemap(logger) {
 }
 
 async function startServer() {
-  const logger = pinoLogger({
-    messageKey: "message",
-    level: "info",
-    base: null,
-    prettyPrint: {
-      doSomething: true,
-    },
-    prettifier: pinoStackdriver.sdPrettifier,
-  });
-
   if (process.env.ENABLE_STACKDRIVER) {
     const sse = new stackdriver.StackdriverStatsExporter({
       projectId: GOOGLE_PROJECT,
@@ -214,19 +204,19 @@ async function startServer() {
       });
 
       server.get("/feed.rss", async (req, res) => {
-        let feed = await generateFeed(logger);
+        let feed = await generateFeed();
         res.set("Content-Type", "application/rss+xml");
         res.send(feed.rss2());
       });
 
       server.get("/feed.atom", async (req, res) => {
-        let feed = await generateFeed(logger);
+        let feed = await generateFeed();
         res.set("Content-Type", "application/atom+xml");
         res.send(feed.atom1());
       });
 
       server.get("/sitemap.xml", async (req, res) => {
-        let sm = await generateSitemap(logger);
+        let sm = await generateSitemap();
         sm.toXML(function(err, xml) {
           if (err) {
             logger.error(err);
