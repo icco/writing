@@ -205,6 +205,7 @@ class EditPost extends React.Component {
                         <input
                           id="datetime"
                           type="text"
+                          className="input-reset ba b--black-20 pa2 mb2 db w-100"
                           value={(this.state.datetime || post.datetime)}
                           onChange={this.handleBasicChange}
                         />
