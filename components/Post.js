@@ -41,7 +41,7 @@ const Post = props => {
           <div dangerouslySetInnerHTML={html} />
         </article>
 
-        <PostNav id={post.id} />
+        <PostNav post={post} />
       </section>
     );
   }
@@ -56,6 +56,8 @@ export const getPost = gql`
       title
       content
       datetime
+      next
+      prev
     }
   }
 `;

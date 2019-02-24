@@ -145,11 +145,10 @@ async function startServer() {
   });
 
   if (process.env.ENABLE_STACKDRIVER) {
-    const stats = new opencensus.Stats();
     const sse = new stackdriver.StackdriverStatsExporter({
       projectId: GOOGLE_PROJECT,
     });
-    stats.registerExporter(sse);
+    opencensus.globalStats.registerExporter(sse);
 
     const sp = propagation.v1;
     const ste = new stackdriver.StackdriverTraceExporter({
