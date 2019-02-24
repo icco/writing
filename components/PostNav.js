@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const PostNav = ({post}) => {
+const PostNav = ({ post }) => {
   let prevText = "";
   if (post.prev && parseInt(post.prev.id) > 0) {
     prevText = (
