@@ -41,7 +41,7 @@ function AdminLinkList({ data: { error, links } }) {
 
 export const SomeLinks = gql`
   query someLinks {
-    links(limit: 50, offset: 0) {
+    links(input: {limit: 50, offset: 0}) {
       id
       uri
       title
