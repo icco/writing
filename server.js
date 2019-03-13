@@ -27,7 +27,7 @@ async function recentPosts() {
     let res = await client.query({
       query: gql`
         query recentPosts {
-          posts(limit: 20, offset: 0) {
+          posts(input: {limit: 20, offset: 0}) {
             id
             title
             datetime
@@ -50,7 +50,7 @@ async function mostPosts() {
     let res = await client.query({
       query: gql`
         query mostPosts {
-          posts(limit: 1000, offset: 0) {
+          posts(input: {limit: 1000, offset: 0}) {
             id
           }
         }
