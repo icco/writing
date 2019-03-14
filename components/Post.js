@@ -1,21 +1,29 @@
-import { graphql } from "react-apollo";
-import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
-import { withRouter } from "next/router";
-import md from "../lib/markdown.js";
 import Head from "next/head";
 import Link from "next/link";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
+import { withRouter } from "next/router";
+
 import Datetime from "./Datetime";
+import ErrorMessage from "./ErrorMessage";
 import PostNav from "./PostNav";
+import md from "../lib/markdown.js";
 
 const Post = props => {
   const {
     data: { error, post },
   } = props;
 
-  if (error) return <ErrorMessage message="Page not found." />;
+  if (error) {
+    return <ErrorMessage message="Unable to get page." />;
+  }
+
   if (post) {
     let html = { __html: md.render(post.content) };
+    let draft = ""
+    if (post.draft) {
+      draft = "DRAFT"
+    }
 
     return (
       <section className="mw8 center">
@@ -29,6 +37,7 @@ const Post = props => {
           <div className="f6 db pb1 gray">
             <span className="mr3">#{post.id}</span>
             <Datetime>{post.datetime}</Datetime>
+            <span className="ml3 red strong">{draft}</span>
           </div>
           <Link prefetch as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
             <a className="header db f3 f1-ns link dark-gray dim">
@@ -41,7 +50,7 @@ const Post = props => {
           <div dangerouslySetInnerHTML={html} />
         </article>
 
-        <PostNav id={post.id} />
+        <PostNav post={post} />
       </section>
     );
   }
@@ -56,6 +65,13 @@ export const getPost = gql`
       title
       content
       datetime
+      draft
+      next {
+        id
+      }
+      prev {
+        id
+      }
     }
   }
 `;

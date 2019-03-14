@@ -44,7 +44,7 @@ function AdminPostList({ data: { error, posts, loadMore } }) {
 
 export const allPosts = gql`
   query posts($offset: Int!, $perpage: Int!) {
-    posts(limit: $perpage, offset: $offset) {
+    posts(input: {limit: $perpage, offset: $offset}) {
       id
       title
       datetime
