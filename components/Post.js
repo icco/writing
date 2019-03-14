@@ -20,9 +20,9 @@ const Post = props => {
 
   if (post) {
     let html = { __html: md.render(post.content) };
-    let draft = ""
+    let draft = "";
     if (post.draft) {
-      draft = "DRAFT"
+      draft = "DRAFT";
     }
 
     return (
