@@ -24,7 +24,7 @@ Page.getInitialProps = async ctx => {
   let ret = { loggedInUser };
 
   if (!post) {
-    ctx.res.statusCode = 404
+    ctx.res.statusCode = 404;
     ret["statusCode"] = 404;
   }
 
