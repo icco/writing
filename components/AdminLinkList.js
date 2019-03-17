@@ -21,27 +21,29 @@ function AdminLinkList({ data: { error, links } }) {
           hasMore={true}
           loader={<Loading key="link-loader" />}
         >
-        <ul className="list pl0" key="link-ul">
-          {links.map(l => (
-            <li className="mv3" key={"link-" + l.id}>
-              <span className="mr3"><Datetime>{l.created}</Datetime></span>
-              <Link href={l.uri}>
-                <a className="link dark-blue dim">{l.title}</a>
-              </Link>
-              {" - "}
-              <span
-                className="gray link pointer dim"
-                onClick={() => {
-                  let text = `[${l.title} - ${l.description}](${l.uri})`;
-                  navigator.clipboard.writeText(text);
-                }}
-              >
-                {l.uri}
-              </span>
-              <blockquote>{l.description}</blockquote>
-            </li>
-          ))}
-        </ul>
+          <ul className="list pl0" key="link-ul">
+            {links.map(l => (
+              <li className="mv3" key={"link-" + l.id}>
+                <span className="mr3">
+                  <Datetime>{l.created}</Datetime>
+                </span>
+                <Link href={l.uri}>
+                  <a className="link dark-blue dim">{l.title}</a>
+                </Link>
+                {" - "}
+                <span
+                  className="gray link pointer dim"
+                  onClick={() => {
+                    let text = `[${l.title} - ${l.description}](${l.uri})`;
+                    navigator.clipboard.writeText(text);
+                  }}
+                >
+                  {l.uri}
+                </span>
+                <blockquote>{l.description}</blockquote>
+              </li>
+            ))}
+          </ul>
         </InfiniteScroll>
       </section>
     );
