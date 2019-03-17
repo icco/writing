@@ -27,7 +27,6 @@
     "graphql": "^0.13.0 || ^14.0.0",
     "graphql-tag": "^2.10.0",
     "helmet": "^3.13.0",
-    "immutable": "^3.8.1",
     "isomorphic-unfetch": "^2.0.0",
     "jwt-decode": "^2.2.0",
     "luxon": "^1.3.3",
@@ -37,7 +36,6 @@
     "pino": "^5.10.5",
     "pino-http": "^4.1.0",
     "pino-stackdriver-serializers": "https://github.com/icco/pino-stackdriver-serializers",
-    "preact": "^8.4.2",
     "prop-types": "^15.6.1",
     "react": "^16.8.2",
     "react-apollo": "^2.1.0",
@@ -46,10 +44,8 @@
     "react-loading": "^2.0.3",
     "react-p5-wrapper": "^0.0.4",
     "react-svg": "^7.2.2",
-    "rich-markdown-editor": "^9.0.6",
-    "sitemap": "^2.1.0",
-    "slate": "~0.34.0",
-    "slate-md-serializer": "^5.2.3"
+    "rich-markdown-editor": "^8.1.9",
+    "sitemap": "^2.1.0"
   },
   "private": true,
   "devDependencies": {
