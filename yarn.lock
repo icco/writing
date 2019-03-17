@@ -864,6 +864,11 @@
   resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-2.1.4.tgz#b804f1c78b5179365ae21061f119263acccbeb13"
   integrity sha512-//NIrFl8G59OCHWEeMUcI/UI05/xtkHOu0kVrfJe3Zh13gtKKSkkSdlr2kZSJthFal2JvdMm3T3XBm8grbbRbw==
 
+"@tommoor/slate-edit-list@0.19.0-0":
+  version "0.19.0-0"
+  resolved "https://registry.yarnpkg.com/@tommoor/slate-edit-list/-/slate-edit-list-0.19.0-0.tgz#972a714e9ea4cdf47a530d5702a904f5547be2dd"
+  integrity sha512-jknTytLU2bicfxfSeYD7fN8BlBbn+hcyK7u1+IXafo4ObuND71dtZuwPm3oU3YAAiTWZe0VBQVzrCDoBZkxMaA==
+
 "@types/zen-observable@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
@@ -3546,11 +3551,6 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-golery-slate-edit-list@^0.18.0-golery.4:
-  version "0.18.0-golery.4"
-  resolved "https://registry.yarnpkg.com/golery-slate-edit-list/-/golery-slate-edit-list-0.18.0-golery.4.tgz#4452588b0571ece63bcf62e5d0dbd0018cbc2a12"
-  integrity sha512-6ox2PWa1Z6VcbAhbOvd/tn+Ag3TU0r2iMNG/IDog4EDlz6SB0fxMoCdUnObLlxtzZ4Me+8qoPF8YAmVbDrc/TQ==
-
 golery-slate-prism@0.6.0-golery.2:
   version "0.6.0-golery.2"
   resolved "https://registry.yarnpkg.com/golery-slate-prism/-/golery-slate-prism-0.6.0-golery.2.tgz#d56ae8f2dc8056c752da18cb06298dbf84a3d1b4"
@@ -3928,7 +3928,7 @@ immutable-tuple@^0.4.9:
   resolved "https://registry.yarnpkg.com/immutable-tuple/-/immutable-tuple-0.4.10.tgz#e0b1625384f514084a7a84b749a3bb26e9179929"
   integrity sha512-45jheDbc3Kr5Cw8EtDD+4woGRUV0utIrJBZT8XH0TPZRfm8tzT0/sLGGzyyCCFqFMG5Pv5Igf3WY/arn6+8V9Q==
 
-immutable@^3.8.2:
+immutable@^3.8.1, immutable@^3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
   integrity sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
@@ -5592,6 +5592,11 @@ postcss@^7.0.0:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
+preact@^8.4.2:
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-8.4.2.tgz#1263b974a17d1ea80b66590e41ef786ced5d6a23"
+  integrity sha512-TsINETWiisfB6RTk0wh3/mvxbGRvx+ljeBccZ4Z6MPFKgu/KFGyf2Bmw3Z/jlXhL5JlNKY6QAbA9PVyzIy9//A==
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -6158,11 +6163,12 @@ ret@~0.1.10:
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
-rich-markdown-editor@^8.1.9:
-  version "8.1.9"
-  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-8.1.9.tgz#67b057ecf9905bbacbda5268c956126b84234a7f"
-  integrity sha512-QdAGa1RlSdlGE7TVmJ9VnibjqP21IqSEUlbOw/yRIdIZ/W2qGom6tlGRavNpLLtj0K79UHCzBVTv85jq1Sbf3w==
+rich-markdown-editor@^9.0.6:
+  version "9.0.6"
+  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-9.0.6.tgz#9d963e099cac15bf729a32448ab6a19bf10ca8ca"
+  integrity sha512-hm1v9yCJnOmCzErLU+D1sCHfLHS6qnwi0kBDMkSA5B1HBR9GfmIsSAjHb/JNAL34QJK6oXQDFHawsg+ufn6VAg==
   dependencies:
+    "@tommoor/slate-edit-list" "0.19.0-0"
     "@wikifactory/slate-edit-blockquote" "^0.7.1"
     "@wikifactory/slate-edit-code" "^0.16.0"
     "@wikifactory/slate-trailing-block" "^0.6.0"
@@ -6172,7 +6178,6 @@ rich-markdown-editor@^8.1.9:
     copy-to-clipboard "^3.0.8"
     eslint-plugin-flowtype "^2.46.1"
     eslint-plugin-prettier "^2.6.0"
-    golery-slate-edit-list "^0.18.0-golery.4"
     golery-slate-prism "0.6.0-golery.2"
     immutable "^3.8.2"
     lodash "^4.17.11"
@@ -6184,7 +6189,7 @@ rich-markdown-editor@^8.1.9:
     react-keydown "^1.9.7"
     react-medium-image-zoom "^3.0.10"
     react-portal "^4.1.4"
-    slate "^0.44.0"
+    slate "^0.44.10"
     slate-collapse-on-escape "^0.8.1"
     slate-drop-or-paste-images "^0.9.1"
     slate-md-serializer "^5.2.3"
@@ -6471,6 +6476,11 @@ slate-dev-logger@^0.1.0:
   resolved "https://registry.yarnpkg.com/slate-dev-logger/-/slate-dev-logger-0.1.43.tgz#77f6ca7207fcbf453a5516f3aa8b19794d1d26dc"
   integrity sha512-GkcPMGzmPVm85AL+jaKnzhIA0UH9ktQDEIDM+FuQtz+TAPcpPCQiRAaZ6I2p2uD0Hq9bImhKSCtHIa0qRxiVGw==
 
+slate-dev-warning@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/slate-dev-warning/-/slate-dev-warning-0.0.1.tgz#f6c36731babea5e301b5bd504fe64911dd24200a"
+  integrity sha512-QdXa+qmOG46VrTfnzn2gUVzs1WiO3Q+zCv3XomzMNGdgAJjCgHBs3jaeQD845h15loS3OJ181gCNAkB3dby6Hw==
+
 slate-drop-or-paste-images@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/slate-drop-or-paste-images/-/slate-drop-or-paste-images-0.9.1.tgz#bc3b171ff63e85af91972d79f0751616a00e6ad4"
@@ -6552,7 +6562,7 @@ slate-schema-violations@^0.1.39:
   resolved "https://registry.yarnpkg.com/slate-schema-violations/-/slate-schema-violations-0.1.39.tgz#854ab5624136419cef4c803b1823acabe11f1c15"
   integrity sha512-SNRoV9Ii5UqjNqAKcIw7aAOMwgI45zsn86ue2n8NVLNOCe3fUI35cjq6l3fdvmRYw4X/GcZqzhpQsizHD3ts6A==
 
-slate@^0.44.0:
+slate@^0.44.10:
   version "0.44.12"
   resolved "https://registry.yarnpkg.com/slate/-/slate-0.44.12.tgz#06dbf98a7583d1a3b56636e762f494e4b0a13ffa"
   integrity sha512-j8S2tt9nanhq6+N0yk/mSjswuHx2yhPfmCVtpSRx4xcUQNGKZZ3JN/0zJ/WNz7/qk0GHWPzdNfeuPpHk8BsXrg==
@@ -6564,6 +6574,19 @@ slate@^0.44.0:
     lodash "^4.17.4"
     tiny-invariant "^1.0.1"
     tiny-warning "^0.0.3"
+    type-of "^2.0.1"
+
+slate@~0.40.0:
+  version "0.40.4"
+  resolved "https://registry.yarnpkg.com/slate/-/slate-0.40.4.tgz#7e04eabf973c2bdb6df18e8d6cb5516756a8d11c"
+  integrity sha512-8TvIe4POpZk7BBts6iMg2X6ecy2ux/TLakaMR0XvCQQ2bByMACKn8DTZmpBZPuNvZGDaD/JNxpRa7cbZs61h+A==
+  dependencies:
+    debug "^3.1.0"
+    direction "^0.1.5"
+    esrever "^0.2.0"
+    is-plain-object "^2.0.4"
+    lodash "^4.17.4"
+    slate-dev-warning "^0.0.1"
     type-of "^2.0.1"
 
 slice-ansi@^2.1.0:
