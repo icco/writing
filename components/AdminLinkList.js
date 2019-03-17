@@ -7,7 +7,7 @@ import ErrorMessage from "./ErrorMessage";
 import Datetime from "./Datetime";
 import Loading from "./Loading";
 
-function AdminLinkList({ data: { error, links } }) {
+function AdminLinkList({ data: { error, links, loadMore } }) {
   if (error) {
     return <ErrorMessage message="Error loading links." />;
   }
