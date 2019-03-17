@@ -864,6 +864,11 @@
   resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-2.1.4.tgz#b804f1c78b5179365ae21061f119263acccbeb13"
   integrity sha512-//NIrFl8G59OCHWEeMUcI/UI05/xtkHOu0kVrfJe3Zh13gtKKSkkSdlr2kZSJthFal2JvdMm3T3XBm8grbbRbw==
 
+"@tommoor/slate-edit-list@0.19.0-0":
+  version "0.19.0-0"
+  resolved "https://registry.yarnpkg.com/@tommoor/slate-edit-list/-/slate-edit-list-0.19.0-0.tgz#972a714e9ea4cdf47a530d5702a904f5547be2dd"
+  integrity sha512-jknTytLU2bicfxfSeYD7fN8BlBbn+hcyK7u1+IXafo4ObuND71dtZuwPm3oU3YAAiTWZe0VBQVzrCDoBZkxMaA==
+
 "@types/zen-observable@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
@@ -3546,11 +3551,6 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-golery-slate-edit-list@^0.18.0-golery.4:
-  version "0.18.0-golery.4"
-  resolved "https://registry.yarnpkg.com/golery-slate-edit-list/-/golery-slate-edit-list-0.18.0-golery.4.tgz#4452588b0571ece63bcf62e5d0dbd0018cbc2a12"
-  integrity sha512-6ox2PWa1Z6VcbAhbOvd/tn+Ag3TU0r2iMNG/IDog4EDlz6SB0fxMoCdUnObLlxtzZ4Me+8qoPF8YAmVbDrc/TQ==
-
 golery-slate-prism@0.6.0-golery.2:
   version "0.6.0-golery.2"
   resolved "https://registry.yarnpkg.com/golery-slate-prism/-/golery-slate-prism-0.6.0-golery.2.tgz#d56ae8f2dc8056c752da18cb06298dbf84a3d1b4"
@@ -6158,11 +6158,12 @@ ret@~0.1.10:
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
-rich-markdown-editor@^8.1.9:
-  version "8.1.9"
-  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-8.1.9.tgz#67b057ecf9905bbacbda5268c956126b84234a7f"
-  integrity sha512-QdAGa1RlSdlGE7TVmJ9VnibjqP21IqSEUlbOw/yRIdIZ/W2qGom6tlGRavNpLLtj0K79UHCzBVTv85jq1Sbf3w==
+rich-markdown-editor@^9.0.0:
+  version "9.0.6"
+  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-9.0.6.tgz#9d963e099cac15bf729a32448ab6a19bf10ca8ca"
+  integrity sha512-hm1v9yCJnOmCzErLU+D1sCHfLHS6qnwi0kBDMkSA5B1HBR9GfmIsSAjHb/JNAL34QJK6oXQDFHawsg+ufn6VAg==
   dependencies:
+    "@tommoor/slate-edit-list" "0.19.0-0"
     "@wikifactory/slate-edit-blockquote" "^0.7.1"
     "@wikifactory/slate-edit-code" "^0.16.0"
     "@wikifactory/slate-trailing-block" "^0.6.0"
@@ -6172,7 +6173,6 @@ rich-markdown-editor@^8.1.9:
     copy-to-clipboard "^3.0.8"
     eslint-plugin-flowtype "^2.46.1"
     eslint-plugin-prettier "^2.6.0"
-    golery-slate-edit-list "^0.18.0-golery.4"
     golery-slate-prism "0.6.0-golery.2"
     immutable "^3.8.2"
     lodash "^4.17.11"
@@ -6184,7 +6184,7 @@ rich-markdown-editor@^8.1.9:
     react-keydown "^1.9.7"
     react-medium-image-zoom "^3.0.10"
     react-portal "^4.1.4"
-    slate "^0.44.0"
+    slate "^0.44.10"
     slate-collapse-on-escape "^0.8.1"
     slate-drop-or-paste-images "^0.9.1"
     slate-md-serializer "^5.2.3"
@@ -6552,7 +6552,7 @@ slate-schema-violations@^0.1.39:
   resolved "https://registry.yarnpkg.com/slate-schema-violations/-/slate-schema-violations-0.1.39.tgz#854ab5624136419cef4c803b1823acabe11f1c15"
   integrity sha512-SNRoV9Ii5UqjNqAKcIw7aAOMwgI45zsn86ue2n8NVLNOCe3fUI35cjq6l3fdvmRYw4X/GcZqzhpQsizHD3ts6A==
 
-slate@^0.44.0:
+slate@^0.44.10:
   version "0.44.12"
   resolved "https://registry.yarnpkg.com/slate/-/slate-0.44.12.tgz#06dbf98a7583d1a3b56636e762f494e4b0a13ffa"
   integrity sha512-j8S2tt9nanhq6+N0yk/mSjswuHx2yhPfmCVtpSRx4xcUQNGKZZ3JN/0zJ/WNz7/qk0GHWPzdNfeuPpHk8BsXrg==
