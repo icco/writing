@@ -5,6 +5,7 @@ import { withRouter } from "next/router";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
+import TurndownService from "turndown";
 
 import { getToken } from "../lib/auth.js";
 import ErrorMessage from "./ErrorMessage";
@@ -52,6 +53,12 @@ const GetPost = gql`
     }
   }
 `;
+
+const stripHTML = content => {
+  const turndownService = new TurndownService();
+  let markdown = turndownService.turndown(content);
+  return markdown;
+};
 
 class EditPost extends React.Component {
   constructor(props) {
@@ -153,7 +160,9 @@ class EditPost extends React.Component {
                       className="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2"
                       aria-describedby="text-desc"
                       onChange={this.handleEditorChange}
-                      defaultValue={this.state.content || post.content}
+                      defaultValue={stripHTML(
+                        this.state.content || post.content
+                      )}
                       uploadImage={async file => {
                         let token = getToken();
 
