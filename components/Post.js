@@ -6,6 +6,7 @@ import { withRouter } from "next/router";
 
 import Datetime from "./Datetime";
 import ErrorMessage from "./ErrorMessage";
+import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";
 
@@ -51,6 +52,15 @@ const Post = props => {
         </article>
 
         <PostNav post={post} />
+
+        <article className="mr3 ml4 dn db-ns">
+          <h2>Related Posts</h2>
+          <div class="flex items-start">
+          <PostCard className="mh3" post={post.related[0]} />
+          <PostCard className="mh3" post={post.related[1]} />
+          <PostCard className="mh3" post={post.related[2]} />
+      </div>
+        </article>
       </section>
     );
   }
@@ -71,6 +81,11 @@ export const getPost = gql`
       }
       prev {
         id
+      }
+      related {
+        id
+        title
+        summary
       }
     }
   }
