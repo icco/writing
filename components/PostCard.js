@@ -8,7 +8,7 @@ export default ({ className, post }) => {
   return (
     <article
       className={
-        className + " br2 ba dark-gray b--black-10 w-100 w-50-m w-25-l mw5"
+        className + " br2 ba dark-gray b--black-10 w5"
       }
     >
       <div className="pa2 ph3-ns pb3-ns">

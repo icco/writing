@@ -55,10 +55,11 @@ const Post = props => {
 
         <article className="mr3 ml4 dn db-ns">
           <h2>Related Posts</h2>
-          <div class="flex items-start">
-            <PostCard className="mh3" post={post.related[0]} />
-            <PostCard className="mh3" post={post.related[1]} />
-            <PostCard className="mh3" post={post.related[2]} />
+          <div className="flex items-start justify-between">
+            <PostCard className="" post={post.related[0]} />
+            <PostCard className="" post={post.related[1]} />
+            <PostCard className="" post={post.related[2]} />
+            <PostCard className="" post={post.related[3]} />
           </div>
         </article>
       </section>
@@ -82,7 +83,7 @@ export const getPost = gql`
       prev {
         id
       }
-      related {
+      related(input: { limit: 4 }) {
         id
         title
         summary
