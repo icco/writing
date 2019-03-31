@@ -14,9 +14,11 @@ const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
+const TurndownService = require('turndown')
 
 const apollo = require("./lib/init-apollo.js");
 const { logger } = require("./lib/logger.js");
+const md = require("./lib/markdown.js");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
@@ -191,6 +193,32 @@ async function startServer() {
         const actualPage = "/admin/post";
         const queryParams = { id: req.params.id };
         app.render(req, res, actualPage, queryParams);
+      });
+
+      server.get("/clean/:id", async (req, res) => {
+        const turndownService = new TurndownService()
+        let id = req.params.id;
+
+        try {
+          const client = apollo.create({}, {});
+          let gql_res = await client.query({
+            query: gql`
+              query getPostContent($id: ID!) {
+                post(id: $id) {
+                  content
+                }
+            }`,
+            variables: { id },
+          });
+
+          let html = md.render(gql_res.data.post.content);
+          let markdown = turndownService.turndown(html)
+
+          res.send(markdown);
+        } catch (err) {
+          logger.error(err);
+          res.status(500)
+        }
       });
 
       server.get("/tags/:id", (req, res) => {
