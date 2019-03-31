@@ -1,6 +1,10 @@
 import Link from "next/link";
 
+import md from "../lib/markdown.js";
+
 export default ({ className, post }) => {
+  let html = { __html: md.render(post.summary) };
+
   return (
     <article
       className={
@@ -21,7 +25,10 @@ export default ({ className, post }) => {
             </h1>
           </div>
         </div>
-        <p className="f6 lh-copy measure mt2 mid-gray">{post.summary}</p>
+        <div
+          className="f6 lh-copy measure mt2 mid-gray"
+          dangerouslySetInnerHTML={html}
+        />
       </div>
     </article>
   );
