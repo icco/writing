@@ -6,7 +6,7 @@ export default ({ className, post }) => {
   let html = { __html: md.render(post.summary) };
 
   return (
-    <article className={className + " br2 ba dark-gray b--black-10 w5"}>
+    <article className={className + " dark-gray w5"}>
       <div className="pa2 ph3-ns pb3-ns">
         <div className="dt w-100 mt1">
           <div className="dtc">
