@@ -56,10 +56,10 @@ const Post = props => {
         <article className="mr3 ml4 dn db-ns">
           <h2>Related Posts</h2>
           <div class="flex items-start">
-          <PostCard className="mh3" post={post.related[0]} />
-          <PostCard className="mh3" post={post.related[1]} />
-          <PostCard className="mh3" post={post.related[2]} />
-      </div>
+            <PostCard className="mh3" post={post.related[0]} />
+            <PostCard className="mh3" post={post.related[1]} />
+            <PostCard className="mh3" post={post.related[2]} />
+          </div>
         </article>
       </section>
     );
