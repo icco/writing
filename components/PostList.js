@@ -1,10 +1,11 @@
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
 import Link from "next/link";
+import InfiniteScroll from "react-infinite-scroller";
+
 import Datetime from "./Datetime";
 import Loading from "./Loading";
-import InfiniteScroll from "react-infinite-scroller";
+import ErrorMessage from "./ErrorMessage";
 
 const PER_PAGE = 20;
 
@@ -60,8 +61,6 @@ export const allPosts = gql`
   }
 `;
 
-// The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (PostList)
 export default graphql(allPosts, {
   options: {
     variables: {
