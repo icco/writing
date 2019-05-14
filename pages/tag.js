@@ -1,9 +1,9 @@
+import { withRouter } from "next/router";
+
 import App from "../components/App";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Tag from "../components/Tag";
-import { withRouter } from "next/router";
-
 import { checkLoggedIn } from "../lib/auth";
 
 const Page = withRouter(props => (
