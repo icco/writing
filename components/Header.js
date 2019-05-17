@@ -6,54 +6,52 @@ import Logo from "./Logo";
 
 class Header extends React.Component {
   render() {
-    let nav = (
-      <Link key="/auth/sign-in" href="/auth/sign-in">
-        <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
-          sign in
-        </a>
-      </Link>
-    );
-
-    if (this.props.loggedInUser) {
-      nav = (
-        <>
-          <Link key="/admin" href="/admin">
-            <a className="f6 link dib dim mr3 black mr4-ns" href="/admin">
-              {this.props.loggedInUser.role}
-            </a>
-          </Link>
-
-          <Link key="/auth/sign-out" href="/auth/sign-out">
-            <a
-              className="f6 link dib dim mr3 black mr4-ns"
-              href="/auth/sign-out"
-            >
-              Sign Out
-            </a>
-          </Link>
-        </>
-      );
-    }
-
     let prefix = <></>;
+    let nav = <></>;
     let head = (
       <>
-        <header className="mv5 center mw6">
-          <Link href="/">
-            <a className="link dark-gray dim">
-              <Logo />
-              <h1 className="tc">Nat? Nat. Nat!</h1>
-            </a>
-          </Link>
+        <header className="pv0 ph3 ph4-m ph5-l oh pos-rel mt5">
+          <div className="dt wi-100">
+            <div className="dtc wi-50 v-mid">
+              <Logo className="v-mid mh0-ns dib-ns center ph0 logo" />
+              <div className="dib v-mid pa0 pa3-ns">
+                <h1 className="mb2 tracked tl-ns tc w-100">Nat Welch</h1>
+                <h2 className="fw2 mt0 tracked tl-ns tc w-100">
+                  Software Reconnaissance Engineer
+                </h2>
+              </div>
+            </div>
+          </div>
         </header>
       </>
     );
 
     if (this.props.noLogo) {
       head = <></>;
+      nav = (
+        <>
+          <Link href="/about">
+            <a className="f6 dib mr3 mr4-ns">About</a>
+          </Link>
+
+          <Link href="/projects">
+            <a className="f6 dib mr3 mr4-ns">Projects</a>
+          </Link>
+
+          <Link href="/writing">
+            <a className="f6 dib mr3 mr4-ns">Writing</a>
+          </Link>
+
+          <Link href="/talks">
+            <a className="f6 dib mr3 mr4-ns">Talks</a>
+          </Link>
+        </>
+      );
       prefix = (
         <Link href="/">
-          <a className="link dark-gray dim">Nat? Nat. Nat!</a>
+          <a className="link dark-gray dim">
+            <Logo size={50} className="v-mid mh0-ns dib-ns center ph0 logo" />
+          </a>
         </Link>
       );
     }
