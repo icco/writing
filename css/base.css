@@ -27,11 +27,14 @@ article a {
   color: #265c83;
 }
 
+a.link:link,
+a.link:visited,
 article a:link,
 article a:visited {
   color: #265c83;
 }
 
+a.link:hover,
 article a:hover {
   color: #7fdbff;
 }

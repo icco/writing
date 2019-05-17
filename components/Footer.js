@@ -22,7 +22,7 @@ const Footer = params => {
     <footer className="lh-title mv5 pv5 pl4 pr3 ph5-ns bt b--black-10">
       <h3 className="f6 tracked">
         Nat? Nat. Nat! is the blog of{" "}
-        <a className="link" href="https://natwelch.com">
+        <a className="link dim" href="https://natwelch.com">
           Nat Welch
         </a>
         .
