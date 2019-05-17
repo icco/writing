@@ -27,15 +27,19 @@ article a {
   color: #265c83;
 }
 
+a.blue:link,
+a.blue:visited,
 article a:link,
 article a:visited {
   color: #265c83;
 }
 
+a.blue:hover,
 article a:hover {
   color: #7fdbff;
 }
 
+a.blue:active,
 article a:active {
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
