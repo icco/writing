@@ -19,7 +19,7 @@ class Header extends React.Component {
         <header className="mv5 center mw6">
           <Link href="/">
             <a className="link dark-gray dim">
-              <Logo />
+              <Logo className="center" />
               <h1 className="tc">Nat? Nat. Nat!</h1>
             </a>
           </Link>
