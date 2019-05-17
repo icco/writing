@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - 'node'
+env:
+  GRAPHQL_ORIGIN: "https://graphql.natwelch.com/graphql"
 cache:
   - yarn
 script:
