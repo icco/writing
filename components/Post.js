@@ -34,7 +34,7 @@ const Post = props => {
           </title>
         </Head>
 
-        <div className="mb5 mr3 ml3">
+        <div className="mv4 mh3">
           <div className="f6 db pb1 gray">
             <span className="mr3">#{post.id}</span>
             <Datetime>{post.datetime}</Datetime>
@@ -47,13 +47,13 @@ const Post = props => {
           </Link>
         </div>
 
-        <article className="mr3 ml3">
+        <article className="mh3">
           <div dangerouslySetInnerHTML={html} />
         </article>
 
         <PostNav post={post} />
 
-        <article className="mr3 ml3 dn db-ns">
+        <article className="mh3 dn db-ns">
           <h2>Related Posts</h2>
           <div className="flex items-start justify-between">
             <PostCard className="" post={post.related[0]} />
