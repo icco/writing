@@ -7,7 +7,7 @@ import AdminDraftList from "../components/AdminDraftList";
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
-import NotAuthorized from "../../components/NotAuthorized";
+import NotAuthorized from "../components/NotAuthorized";
 import { checkLoggedIn } from "../lib/auth";
 import { initApollo } from "../lib/init-apollo";
 
