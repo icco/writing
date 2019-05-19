@@ -7,6 +7,7 @@ import AdminLinkList from "../../components/AdminLinkList";
 import App from "../../components/App";
 import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
+import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
 import { initApollo } from "../../lib/init-apollo";
 
@@ -23,7 +24,7 @@ class AdminPost extends React.Component {
       !this.state.loggedInUser.role ||
       this.state.loggedInUser.role !== "admin"
     ) {
-      return <Error statusCode={403} />;
+      return <NotAuthorized />;
     }
 
     return (

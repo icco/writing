@@ -4,10 +4,11 @@ import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import Error from "next/error";
 
-import { checkLoggedIn } from "../../lib/auth";
-import { initApollo } from "../../lib/init-apollo";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
+import NotAuthorized from "../../components/NotAuthorized";
+import { checkLoggedIn } from "../../lib/auth";
+import { initApollo } from "../../lib/init-apollo";
 
 const NewPost = gql`
   mutation {
@@ -31,7 +32,7 @@ export default class extends React.Component {
       !this.state.loggedInUser.role ||
       this.state.loggedInUser.role !== "admin"
     ) {
-      return <Error statusCode={403} />;
+      return <NotAuthorized />;
     }
 
     return (
