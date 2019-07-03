@@ -1,0 +1,84 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - '@opencensus/nodejs > @opencensus/instrumentation-all > @opencensus/instrumentation-grpc > grpc > lodash':
+        patched: '2019-07-03T23:54:41.602Z'
+    - sitemap > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - '@opencensus/instrumentation-all > @opencensus/instrumentation-grpc > lodash':
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > slate-react > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > slate > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > eslint-plugin-flowtype > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > autodll-webpack-plugin > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/core > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > styled-components > babel-plugin-styled-components > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > styled-jsx > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - '@opencensus/instrumentation-all > @opencensus/instrumentation-grpc > grpc > lodash':
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > autodll-webpack-plugin > webpack-merge > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/core > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - '@opencensus/nodejs > @opencensus/instrumentation-all > @opencensus/instrumentation-grpc > lodash':
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-traverse > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-template > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - babel-plugin-transform-define > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > styled-components > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-traverse > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-traverse > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-template > babel-traverse > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-template > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-template > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > styled-components > babel-plugin-styled-components > @babel/helper-annotate-as-pure > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-traverse > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-helper-get-function-arity > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-template > babel-traverse > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-template > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > babel-plugin-transform-async-to-generator > babel-helper-remap-async-to-generator > babel-helper-function-name > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
+    - next > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-03T23:54:41.602Z'
