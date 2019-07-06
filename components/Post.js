@@ -3,9 +3,9 @@ import Link from "next/link";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { withRouter } from "next/router";
+import { ErrorMessage } from "@icco/react-common";
 
 import Datetime from "./Datetime";
-import ErrorMessage from "./ErrorMessage";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";

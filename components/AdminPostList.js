@@ -1,9 +1,8 @@
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
 import Link from "next/link";
-import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroller";
+import { ErrorMessage, Loading } from "@icco/react-common";
 
 const PER_PAGE = 20;
 
