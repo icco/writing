@@ -3785,11 +3785,6 @@ helmet@^3.13.0:
     referrer-policy "1.2.0"
     x-xss-protection "1.1.0"
 
-heroku-ssl-redirect@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/heroku-ssl-redirect/-/heroku-ssl-redirect-0.0.4.tgz#21ba0707aa503b50a412a0946abfaa88ef7d082c"
-  integrity sha1-IboHB6pQO1CkEqCUar+qiO99CCw=
-
 hex2dec@^1.0.1, hex2dec@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/hex2dec/-/hex2dec-1.1.2.tgz#8e1ce4bef36a74f7d5723c3fb3090c2860077338"
