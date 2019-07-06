@@ -1,7 +1,7 @@
 import { withRouter } from "next/router";
-import { Header } from "@icco/react-common";
 
 import App from "../components/App";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Tag from "../components/Tag";
 import { checkLoggedIn } from "../lib/auth";
