@@ -1,9 +1,9 @@
 import { withRouter } from "next/router";
 import gql from "graphql-tag";
+import { Header } from "@icco/react-common";
 
 import App from "../components/App";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Post from "../components/Post";
 import withError from "../lib/withError";
 import { checkLoggedIn } from "../lib/auth";

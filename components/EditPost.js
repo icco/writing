@@ -5,10 +5,9 @@ import { withRouter } from "next/router";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
+import { ErrorMessage, Loading } from "@icco/react-common";
 
 import { getToken } from "../lib/auth.js";
-import ErrorMessage from "./ErrorMessage";
-import Loading from "./Loading";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,

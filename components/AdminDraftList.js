@@ -1,7 +1,7 @@
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
 import Link from "next/link";
+import { ErrorMessage } from "@icco/react-common";
 
 function AdminDraftList({ data: { error, drafts } }) {
   if (error) {

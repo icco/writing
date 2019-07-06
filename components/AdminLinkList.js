@@ -2,10 +2,9 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroller";
+import { ErrorMessage, Loading } from "@icco/react-common";
 
-import ErrorMessage from "./ErrorMessage";
 import Datetime from "./Datetime";
-import Loading from "./Loading";
 
 function AdminLinkList({ data: { error, links, loadMore } }) {
   if (error) {

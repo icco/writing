@@ -1,9 +1,9 @@
+import Head from "next/head";
+import { Header } from "@icco/react-common";
+
 import App from "../components/App";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostList from "../components/PostList";
-import Head from "next/head";
-
 import { checkLoggedIn } from "../lib/auth";
 
 const Index = props => (

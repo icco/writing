@@ -1,10 +1,11 @@
-import Datetime from "./Datetime";
-import ErrorMessage from "./ErrorMessage";
 import Head from "next/head";
 import Link from "next/link";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { withRouter } from "next/router";
+import { ErrorMessage } from "@icco/react-common";
+
+import Datetime from "./Datetime";
 
 const Tag = props => {
   const {
