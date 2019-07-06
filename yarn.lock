@@ -738,6 +738,20 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.8.2.tgz#fae4112c4fb47086f6ae167e32524b280000abd5"
   integrity sha512-E4fDUF4fbu9AxKpaQQqCN3XBnNzb/5e0Gvd9OaQsYkK574LVI57v/EqqPfIm/mC7jYbxaPNrhvT5AF+Yzwyizg==
 
+"@icco/react-common@^2019.7.5-2":
+  version "2019.7.5-2"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.5-2.tgz#011a89bbc66822d7cc3729491075a588dde4a33c"
+  integrity sha512-otjvFj4PqCGDQxDxuxJeF069xr52A1g8svtJGQDqNyWYBmjAHgQ2yN6jWXTIab8RhEaUe6BRcEXAI/HF0GEfzA==
+  dependencies:
+    "@svgdotjs/svg.js" "^3.0.1"
+    "@svgdotjs/svg.topath.js" "^2.0.3"
+    prop-types "^15.7"
+    react "^16.8"
+    react-dom "^16.8"
+    react-loading "^2.0"
+    vivus "^0.4.4"
+    webpack "^4.35.0"
+
 "@opencensus/core@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.9.tgz#b16f775435ee309433e4126af194d37313fc93b3"
@@ -849,6 +863,18 @@
   dependencies:
     "@opencensus/core" "^0.0.9"
     gcp-metadata "^0.9.3"
+
+"@svgdotjs/svg.js@^3.0.1", "@svgdotjs/svg.js@^3.0.10":
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/@svgdotjs/svg.js/-/svg.js-3.0.13.tgz#0afb2213fe98c0d951e0f0a9f6053e1f32056843"
+  integrity sha512-Ix3dobG2DvdK5f2SHtZdiiLwi+G0RDuDfwA4tZ1eqTGoiopia8JIfeWGeA0h2frFHcLDXnYvNiVGtW4y6cSDig==
+
+"@svgdotjs/svg.topath.js@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@svgdotjs/svg.topath.js/-/svg.topath.js-2.0.3.tgz#c03e2a939acb8ef083befa9dd74dadd26f97e5c5"
+  integrity sha512-vZG+4DpzjhkjCT9LJqg+cMCekJIGSUTpOEfbQN/wueSaiP7N04JFXYW4X3lj1MlZDNU9IcE1GsWEuwdhLJJGuA==
+  dependencies:
+    "@svgdotjs/svg.js" "^3.0.10"
 
 "@tanem/svg-injector@^2.1.4":
   version "2.1.4"
@@ -3777,6 +3803,11 @@ helmet@^3.13.0:
     referrer-policy "1.2.0"
     x-xss-protection "1.1.0"
 
+heroku-ssl-redirect@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/heroku-ssl-redirect/-/heroku-ssl-redirect-0.0.4.tgz#21ba0707aa503b50a412a0946abfaa88ef7d082c"
+  integrity sha1-IboHB6pQO1CkEqCUar+qiO99CCw=
+
 hex2dec@^1.0.1, hex2dec@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/hex2dec/-/hex2dec-1.1.2.tgz#8e1ce4bef36a74f7d5723c3fb3090c2860077338"
@@ -5705,7 +5736,7 @@ prop-types@15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5884,7 +5915,7 @@ react-autosize-textarea@^6.0.0:
     line-height "^0.3.1"
     prop-types "^15.5.6"
 
-react-dom@^16.8.2:
+react-dom@^16.8, react-dom@^16.8.2:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
   integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
@@ -5923,7 +5954,7 @@ react-keydown@^1.9.7:
   dependencies:
     core-js "^2.5.0"
 
-react-loading@^2.0.3:
+react-loading@^2.0, react-loading@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/react-loading/-/react-loading-2.0.3.tgz#e8138fb0c3e4674e481b320802ac7048ae14ffb9"
   integrity sha512-Vdqy79zq+bpeWJqC+xjltUjuGApyoItPgL0vgVfcJHhqwU7bAMKzysfGW/ADu6i0z0JiOCRJjo+IkFNkRNbA3A==
@@ -5964,7 +5995,7 @@ react-svg@^7.2.2:
     "@tanem/svg-injector" "^2.1.4"
     prop-types "^15.7.2"
 
-react@^16.8.2:
+react@^16.8, react@^16.8.2:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
@@ -7391,6 +7422,11 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+vivus@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.4.4.tgz#34363eb833d5f6fe0b63a92cfccff14ad099ba44"
+  integrity sha1-NDY+uDPV9v4LY6ks/M/xStCZukQ=
+
 vlq@^0.2.2:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
@@ -7489,6 +7525,36 @@ webpack@^4.3.0:
   version "4.31.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.31.0.tgz#ae201d45f0571336e42d1c2b5c8ab56c4d3b0c63"
   integrity sha512-n6RVO3X0LbbipoE62akME9K/JI7qYrwwufs20VvgNNpqUoH4860KkaxJTbGq5bgkVZF9FqyyTG/0WPLH3PVNJA==
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/helper-module-context" "1.8.5"
+    "@webassemblyjs/wasm-edit" "1.8.5"
+    "@webassemblyjs/wasm-parser" "1.8.5"
+    acorn "^6.0.5"
+    acorn-dynamic-import "^4.0.0"
+    ajv "^6.1.0"
+    ajv-keywords "^3.1.0"
+    chrome-trace-event "^1.0.0"
+    enhanced-resolve "^4.1.0"
+    eslint-scope "^4.0.0"
+    json-parse-better-errors "^1.0.2"
+    loader-runner "^2.3.0"
+    loader-utils "^1.1.0"
+    memory-fs "~0.4.1"
+    micromatch "^3.1.8"
+    mkdirp "~0.5.0"
+    neo-async "^2.5.0"
+    node-libs-browser "^2.0.0"
+    schema-utils "^1.0.0"
+    tapable "^1.1.0"
+    terser-webpack-plugin "^1.1.0"
+    watchpack "^1.5.0"
+    webpack-sources "^1.3.0"
+
+webpack@^4.35.0:
+  version "4.35.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.35.2.tgz#5c8b8a66602cbbd6ec65c6e6747914a61c1449b1"
+  integrity sha512-TZAmorNymV4q66gAM/h90cEjG+N3627Q2MnkSgKlX/z3DlNVKUtqy57lz1WmZU2+FUZwzM+qm7cGaO95PyrX5A==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
