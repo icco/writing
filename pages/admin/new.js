@@ -3,9 +3,8 @@ import Router from "next/router";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import Error from "next/error";
+import { Loading, ErrorMessage } from "@icco/react-common";
 
-import ErrorMessage from "../../components/ErrorMessage";
-import Loading from "../../components/Loading";
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
 import { initApollo } from "../../lib/init-apollo";
