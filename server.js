@@ -14,6 +14,7 @@ const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
+const sslRedirect = require('heroku-ssl-redirect');
 
 const apollo = require("./lib/init-apollo.js");
 const { logger } = require("./lib/logger.js");
