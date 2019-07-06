@@ -175,6 +175,12 @@ async function startServer() {
       );
       server.use(helmet());
 
+      server.use(function(req, res, next) {
+        if (req.path != "/healthz") {
+          sslRedirect(req, res, next);
+        }
+      });
+
       server.use(compression());
 
       server.get("/healthz", (req, res) => {
