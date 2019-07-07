@@ -10,3 +10,25 @@ patch:
         patched: '2019-07-06T23:54:40.311Z'
     - rich-markdown-editor > styled-components > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
         patched: '2019-07-06T23:54:40.311Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-07T04:06:18.593Z'
