@@ -7,7 +7,8 @@
     "dev": "node server.js",
     "lint": "./lint.sh",
     "snyk-protect": "snyk protect",
-    "prepublish": "yarn run snyk-protect"
+    "prepublish": "yarn run snyk-protect",
+    "test": "snyk test"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
