@@ -82,3 +82,9 @@ patch:
         patched: '2019-07-03T23:54:41.602Z'
     - next > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
         patched: '2019-07-03T23:54:41.602Z'
+    - rich-markdown-editor > styled-components > @babel/traverse > lodash:
+        patched: '2019-07-06T23:54:40.311Z'
+    - rich-markdown-editor > styled-components > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-06T23:54:40.311Z'
+    - rich-markdown-editor > styled-components > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-06T23:54:40.311Z'

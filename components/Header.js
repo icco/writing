@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
 import React from "react";
-
-import Logo from "./Logo";
+import { Logo } from "@icco/react-common";
 
 class Header extends React.Component {
   render() {
@@ -19,7 +18,7 @@ class Header extends React.Component {
         <header className="mv5 center mw6">
           <Link href="/">
             <a className="link dark-gray dim">
-              <Logo className="center" />
+              <Logo size={200} className="center" />
               <h1 className="tc">Nat? Nat. Nat!</h1>
             </a>
           </Link>
