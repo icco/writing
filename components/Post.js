@@ -38,9 +38,7 @@ const Post = props => {
       commentDiv = (
         <article className="mh3 db">
           <h2>Comments</h2>
-          <div className="">
-            {inner}
-          </div>
+          <div className="">{inner}</div>
         </article>
       );
     }
