@@ -30,15 +30,14 @@ const Post = props => {
 
     let commentDiv = <></>;
     if (comments) {
-      let inner = "";
-      for (c in post.comments) {
-        inner += <Comment data={{ comment: c }} />;
-      }
-
       commentDiv = (
         <article className="mh3 db">
           <h2>Comments</h2>
-          <div className="">{inner}</div>
+          <div className="">
+            {post.comments.map(item => (
+              <Comment data={{ comment: item }} />
+            ))}
+          </div>
         </article>
       );
     }
@@ -70,6 +69,8 @@ const Post = props => {
 
         <PostNav post={post} />
 
+        {commentDiv}
+
         <article className="mh3 dn db-ns">
           <h2>Related Posts</h2>
           <div className="flex items-start justify-between">
@@ -79,8 +80,6 @@ const Post = props => {
             <PostCard className="" post={post.related[3]} />
           </div>
         </article>
-
-        {commentDiv}
       </section>
     );
   }
