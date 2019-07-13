@@ -7,6 +7,7 @@ import AdminLinkList from "../../components/AdminLinkList";
 import App from "../../components/App";
 import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
+import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
 import { initApollo } from "../../lib/init-apollo";
 
@@ -23,7 +24,7 @@ class AdminPost extends React.Component {
       !this.state.loggedInUser.role ||
       this.state.loggedInUser.role !== "admin"
     ) {
-      return <Error statusCode={403} />;
+      return <NotAuthorized />;
     }
 
     return (
@@ -31,7 +32,7 @@ class AdminPost extends React.Component {
         <Head>
           <title>Nat? Nat. Nat! Edit Post #{this.props.router.query.id}</title>
         </Head>
-        <Header noLogo={true} loggedInUser={this.state.loggedInUser} />
+        <Header noLogo loggedInUser={this.state.loggedInUser} />
         <EditPost id={this.props.router.query.id} />
         <AdminLinkList />
       </App>

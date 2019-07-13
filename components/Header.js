@@ -1,17 +1,29 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
 import React from "react";
-
-import Logo from "./Logo";
+import { Logo } from "@icco/react-common";
 
 class Header extends React.Component {
   render() {
+    let prefix = <></>;
     let nav = (
       <Link key="/auth/sign-in" href="/auth/sign-in">
         <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
           sign in
         </a>
       </Link>
+    );
+    let head = (
+      <>
+        <header className="mv5 center mw6">
+          <Link href="/">
+            <a className="link dark-gray dim">
+              <Logo size={200} className="center" />
+              <h1 className="tc">Nat? Nat. Nat!</h1>
+            </a>
+          </Link>
+        </header>
+      </>
     );
 
     if (this.props.loggedInUser) {
@@ -35,25 +47,13 @@ class Header extends React.Component {
       );
     }
 
-    let prefix = <></>;
-    let head = (
-      <>
-        <header className="mv5 center mw6">
-          <Link href="/">
-            <a className="link dark-gray dim">
-              <Logo />
-              <h1 className="tc">Nat? Nat. Nat!</h1>
-            </a>
-          </Link>
-        </header>
-      </>
-    );
-
     if (this.props.noLogo) {
       head = <></>;
       prefix = (
         <Link href="/">
-          <a className="link dark-gray dim">Nat? Nat. Nat!</a>
+          <a className="link dark-gray dim">
+            <Logo size={50} className="v-mid mh0-ns dib-ns center ph0 logo" />
+          </a>
         </Link>
       );
     }

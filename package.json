@@ -4,10 +4,15 @@
   "scripts": {
     "build": "next build",
     "start": "node server.js",
-    "lint": "./lint.sh"
+    "dev": "node server.js",
+    "lint": "./lint.sh",
+    "snyk-protect": "snyk protect",
+    "prepublish": "yarn run snyk-protect",
+    "test": "snyk test"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
+    "@icco/react-common": "^2019.7.5-2",
     "@opencensus/core": "^0.0.9",
     "@opencensus/exporter-stackdriver": "^0.0.9",
     "@opencensus/instrumentation-all": "^0.0.9",
@@ -45,11 +50,10 @@
     "react-apollo": "^2.1.0",
     "react-dom": "^16.8.2",
     "react-infinite-scroller": "^1.2.2",
-    "react-loading": "^2.0.3",
-    "react-p5-wrapper": "^0.0.4",
     "react-svg": "^7.2.2",
-    "rich-markdown-editor": "^9.0.0",
-    "sitemap": "^2.1.0"
+    "rich-markdown-editor": "^9.8.1",
+    "sitemap": "^2.1.0",
+    "snyk": "^1.192.3"
   },
   "private": true,
   "devDependencies": {
@@ -60,5 +64,6 @@
   },
   "prettier": {
     "trailingComma": "es5"
-  }
+  },
+  "snyk": true
 }

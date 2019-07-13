@@ -5,10 +5,9 @@ import { withRouter } from "next/router";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
+import { ErrorMessage, Loading } from "@icco/react-common";
 
 import { getToken } from "../lib/auth.js";
-import ErrorMessage from "./ErrorMessage";
-import Loading from "./Loading";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,
@@ -205,6 +204,7 @@ class EditPost extends React.Component {
                         <input
                           id="datetime"
                           type="text"
+                          name="datetime"
                           className="input-reset ba b--black-20 pa2 mb2 db w-100"
                           value={this.state.datetime || post.datetime}
                           onChange={this.handleBasicChange}

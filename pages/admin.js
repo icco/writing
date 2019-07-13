@@ -7,6 +7,7 @@ import AdminDraftList from "../components/AdminDraftList";
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
+import NotAuthorized from "../components/NotAuthorized";
 import { checkLoggedIn } from "../lib/auth";
 import { initApollo } from "../lib/init-apollo";
 
@@ -23,7 +24,7 @@ export default class extends React.Component {
       !this.state.loggedInUser.role ||
       this.state.loggedInUser.role !== "admin"
     ) {
-      return <Error statusCode={403} />;
+      return <NotAuthorized />;
     }
 
     return (
@@ -31,7 +32,7 @@ export default class extends React.Component {
         <Head>
           <title>Nat? Nat. Nat! Admin</title>
         </Head>
-        <Header noLogo={true} loggedInUser={this.state.loggedInUser} />
+        <Header noLogo loggedInUser={this.state.loggedInUser} />
         <div className="ma3">
           <h1>Admin</h1>
           <ul className="list pl0" key="new-ul">

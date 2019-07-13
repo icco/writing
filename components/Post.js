@@ -3,9 +3,9 @@ import Link from "next/link";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { withRouter } from "next/router";
+import { ErrorMessage } from "@icco/react-common";
 
 import Datetime from "./Datetime";
-import ErrorMessage from "./ErrorMessage";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";
@@ -34,7 +34,7 @@ const Post = props => {
           </title>
         </Head>
 
-        <div className="mb5 mr3 ml4">
+        <div className="mv4 mh3">
           <div className="f6 db pb1 gray">
             <span className="mr3">#{post.id}</span>
             <Datetime>{post.datetime}</Datetime>
@@ -47,13 +47,13 @@ const Post = props => {
           </Link>
         </div>
 
-        <article className="mr3 ml4">
+        <article className="mh3">
           <div dangerouslySetInnerHTML={html} />
         </article>
 
         <PostNav post={post} />
 
-        <article className="mr3 ml4 dn db-ns">
+        <article className="mh3 dn db-ns">
           <h2>Related Posts</h2>
           <div className="flex items-start justify-between">
             <PostCard className="" post={post.related[0]} />
