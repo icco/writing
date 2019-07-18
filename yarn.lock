@@ -760,6 +760,17 @@
     vivus "^0.4.4"
     webpack "^4.35.0"
 
+"@opencensus/core@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.11.tgz#484f1486a4babb91428531e4e852ff50b5a68673"
+  integrity sha512-UuRmn7TbaIEkT4jhIjjlnvI7U1B3xjUbLqPr7fRrOYiTfCdaGFRmVYC4Jj7Fj5K/JQ66lR35KiRCOThWaBQ2pA==
+  dependencies:
+    continuation-local-storage "^3.2.1"
+    log-driver "^1.2.7"
+    semver "^6.0.0"
+    shimmer "^1.2.0"
+    uuid "^3.2.1"
+
 "@opencensus/core@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.9.tgz#b16f775435ee309433e4126af194d37313fc93b3"
@@ -771,16 +782,15 @@
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
-"@opencensus/exporter-stackdriver@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@opencensus/exporter-stackdriver/-/exporter-stackdriver-0.0.9.tgz#154c1a11df593b56ac3fc05de1dcdc8dea46cf06"
-  integrity sha512-Qvxz2JpkSaym+Jz0VdWhbHd1jizJMCdrFsU+hdjDpLKl9aSNEossun/yuBGj4cDWPbN+yqOibbyBgXTAkrSm0A==
+"@opencensus/exporter-stackdriver@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@opencensus/exporter-stackdriver/-/exporter-stackdriver-0.0.11.tgz#12f562df9f9e038a9899d44a7f587a5c239d053d"
+  integrity sha512-YRj781sMDaBy3MMfOgwi2EoHp+If0ogUrY/DdgKM5LrvFh6/E9eCzXDfkWAsNE4wu22IgND+jq+5zuHrnAJVTw==
   dependencies:
-    "@opencensus/core" "^0.0.9"
-    "@opencensus/resource-util" "^0.0.9"
+    "@opencensus/core" "^0.0.11"
+    "@opencensus/resource-util" "^0.0.11"
     google-auth-library "^3.0.0"
-    googleapis "37.2.0"
-    hex2dec "^1.1.0"
+    googleapis "39.2.0"
 
 "@opencensus/instrumentation-all@^0.0.9":
   version "0.0.9"
@@ -864,13 +874,13 @@
     hex2dec "^1.0.1"
     uuid "^3.2.1"
 
-"@opencensus/resource-util@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@opencensus/resource-util/-/resource-util-0.0.9.tgz#47b2ddbe05bb28861fba5c13cc7f6b198df9d825"
-  integrity sha512-7y+n2TFOAbc3X9UmwGxOFeGzzUFWfo5Q77Aftk5FuYjqB1wHEiuNNTr62QEyo8Ciqo0h7foNzbDP7qH+xzA5Tg==
+"@opencensus/resource-util@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@opencensus/resource-util/-/resource-util-0.0.11.tgz#130e06ae1f5d1f4bbc0824862f2d9bb071884020"
+  integrity sha512-py2LokoqAkdffi+pQI48oWzXksmweK3WhQ/MwpQS4WthPzXsFi8MQrNhkTAJgkR6M1hUXdjHa5+1taLI/jMtFQ==
   dependencies:
-    "@opencensus/core" "^0.0.9"
-    gcp-metadata "^0.9.3"
+    "@opencensus/core" "^0.0.11"
+    gcp-metadata "^1.0.0"
 
 "@snyk/composer-lockfile-parser@1.0.3":
   version "1.0.3"
@@ -3784,14 +3794,6 @@ gaxios@^1.0.2, gaxios@^1.0.4, gaxios@^1.2.1, gaxios@^1.2.2:
     https-proxy-agent "^2.2.1"
     node-fetch "^2.3.0"
 
-gcp-metadata@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/gcp-metadata/-/gcp-metadata-0.9.3.tgz#1f9d7495f7460a14526481f29e11596dd563dd26"
-  integrity sha512-caV4S84xAjENtpezLCT/GILEAF5h/bC4cNqZFmt/tjTn8t+JBtTkQrgBrJu3857YdsnlM8rxX/PMcKGtE8hUlw==
-  dependencies:
-    gaxios "^1.0.2"
-    json-bigint "^0.3.0"
-
 gcp-metadata@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gcp-metadata/-/gcp-metadata-1.0.0.tgz#5212440229fa099fc2f7c2a5cdcb95575e9b2ca6"
@@ -3963,10 +3965,10 @@ googleapis-common@^0.7.0:
     url-template "^2.0.8"
     uuid "^3.2.1"
 
-googleapis@37.2.0:
-  version "37.2.0"
-  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-37.2.0.tgz#63bfcadaccc7cb8c1d8dff90573c48ca18132409"
-  integrity sha512-UenlZ0c4eaVAylIPvvsIlL/q5/3Xg8DuKug5aqdmRMk+tTVfJUmEKgp3s4ZSUOI5oKqO/+arIW5UnY2S62B13w==
+googleapis@39.2.0:
+  version "39.2.0"
+  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-39.2.0.tgz#5c81f721e9da2e80cb0b25821ed60d3bc200c3da"
+  integrity sha512-66X8TG1B33zAt177sG1CoKoYHPP/B66tEpnnSANGCqotMuY5gqSQO8G/0gqHZR2jRgc5CHSSNOJCnpI0SuDxMQ==
   dependencies:
     google-auth-library "^3.0.0"
     googleapis-common "^0.7.0"
@@ -4155,7 +4157,7 @@ helmet@^3.13.0:
     referrer-policy "1.2.0"
     x-xss-protection "1.1.0"
 
-hex2dec@^1.0.1, hex2dec@^1.1.0:
+hex2dec@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/hex2dec/-/hex2dec-1.1.2.tgz#8e1ce4bef36a74f7d5723c3fb3090c2860077338"
   integrity sha512-Yu+q/XWr2fFQ11tHxPq4p4EiNkb2y+lAacJNhAdRXVfRIcDH6gi7htWFnnlIzvqHMHoWeIsfXlNAjZInpAOJDA==
