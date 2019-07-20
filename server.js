@@ -174,6 +174,24 @@ async function startServer() {
         })
       );
       server.use(helmet());
+      server.use(
+        helmet.contentSecurityPolicy({
+          directives: {
+            //  default-src 'none'
+            defaultSrc: ["'none'"],
+            // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
+            styleSrc: [],
+            // connect-src 'self' https://graphql.natwelch.com/graphql
+            contentSrc: [],
+            // font-src https://fonts.gstatic.com
+            fontSrc: [],
+            // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
+            imgSrc: [],
+            // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
+            scriptSrc: [],
+          },
+        })
+      );
 
       server.use(compression());
 
