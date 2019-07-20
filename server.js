@@ -1,5 +1,6 @@
 "use strict";
 
+const sslRedirect = require('heroku-ssl-redirect');
 const compression = require("compression");
 const express = require("express");
 const helmet = require("helmet");
@@ -176,6 +177,8 @@ async function startServer() {
       server.use(helmet());
 
       server.use(compression());
+
+      server.use(sslRedirect());
 
       server.get("/healthz", (req, res) => {
         res.json({ status: "ok" });
