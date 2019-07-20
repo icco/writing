@@ -746,10 +746,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.9.0.tgz#1aa5c59efb1b8c6eb6277d1e3e8c8f31998b8c8e"
   integrity sha512-g795BBEzM/Hq2SYNPm/NQTIp3IWd4eXSH0ds87Na2jnrAUFX3wkyZAI4Gwj9DOaWMuz2/01i8oWI7P7T/XLkhg==
 
-"@icco/react-common@^2019.7.5-2":
-  version "2019.7.5-2"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.5-2.tgz#011a89bbc66822d7cc3729491075a588dde4a33c"
-  integrity sha512-otjvFj4PqCGDQxDxuxJeF069xr52A1g8svtJGQDqNyWYBmjAHgQ2yN6jWXTIab8RhEaUe6BRcEXAI/HF0GEfzA==
+"@icco/react-common@^2019.7.20-1":
+  version "2019.7.20-1"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.20-1.tgz#f41400b19c2066929297c1cd6a5f95c81e929e63"
+  integrity sha512-0fQuouQKsmWvxasPY2lL/EPUrZ45SXmGhpJq/JQUjx8T6QbPHI1BRDTdILjz9IjzxikLpi0/A5voHTvyPvUH5Q==
   dependencies:
     "@svgdotjs/svg.js" "^3.0.1"
     "@svgdotjs/svg.topath.js" "^2.0.3"
@@ -4178,11 +4178,6 @@ helmet@^3.13.0:
     nocache "2.1.0"
     referrer-policy "1.2.0"
     x-xss-protection "1.2.0"
-
-heroku-ssl-redirect@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/heroku-ssl-redirect/-/heroku-ssl-redirect-0.0.4.tgz#21ba0707aa503b50a412a0946abfaa88ef7d082c"
-  integrity sha1-IboHB6pQO1CkEqCUar+qiO99CCw=
 
 hex2dec@^1.0.1:
   version "1.1.2"
