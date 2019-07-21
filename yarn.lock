@@ -746,10 +746,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.9.0.tgz#1aa5c59efb1b8c6eb6277d1e3e8c8f31998b8c8e"
   integrity sha512-g795BBEzM/Hq2SYNPm/NQTIp3IWd4eXSH0ds87Na2jnrAUFX3wkyZAI4Gwj9DOaWMuz2/01i8oWI7P7T/XLkhg==
 
-"@icco/react-common@^2019.7.20-1":
-  version "2019.7.20-1"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.20-1.tgz#f41400b19c2066929297c1cd6a5f95c81e929e63"
-  integrity sha512-0fQuouQKsmWvxasPY2lL/EPUrZ45SXmGhpJq/JQUjx8T6QbPHI1BRDTdILjz9IjzxikLpi0/A5voHTvyPvUH5Q==
+"@icco/react-common@^2019.7.21-1":
+  version "2019.7.21-1"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.21-1.tgz#ce46a478fe7f8b5995b2348c941ff2aa00785eb4"
+  integrity sha512-0zD3m0qrZnljRkKYPy7W80uiH3wceBf+pMEHGlS2S0J44LxkRhkZJL85COmzc5GE1+Yf2Kwa8/05WiuXQTs9fg==
   dependencies:
     "@svgdotjs/svg.js" "^3.0.1"
     "@svgdotjs/svg.topath.js" "^2.0.3"
