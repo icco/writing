@@ -1,6 +1,6 @@
 "use strict";
 
-const { SSLMiddleware } = require('@icco/react-common');
+const { SSLMiddleware } = require("@icco/react-common");
 const compression = require("compression");
 const express = require("express");
 const helmet = require("helmet");
@@ -168,7 +168,7 @@ async function startServer() {
     .prepare()
     .then(() => {
       const server = express();
-      server.set('trust proxy', true)
+      server.set("trust proxy", true);
 
       server.use(
         pinoMiddleware({
