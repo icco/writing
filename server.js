@@ -175,7 +175,14 @@ async function startServer() {
           logger,
         })
       );
-      server.use(helmet());
+
+      server.use(
+        helmet({
+          referrerPolicy: {
+            policy: "strict-origin-when-cross-origin",
+          },
+        })
+      );
 
       server.use(compression());
 
