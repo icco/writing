@@ -1,9 +1,12 @@
+/* https://fonts.google.com/featured/Superfamilies */
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab");
 
 body,
 p,
 .normal {
+  background-color: #eeeceb;
   font-family: "Roboto", sans-serif;
+  color: #443e3c;
 }
 
 h1,
