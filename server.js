@@ -175,6 +175,7 @@ async function startServer() {
           logger,
         })
       );
+
       server.use(
         helmet({
           contentSecurityPolicy: {
