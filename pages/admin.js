@@ -4,6 +4,7 @@ import Error from "next/error";
 import Link from "next/link";
 
 import AdminDraftList from "../components/AdminDraftList";
+import AdminFuturePostList from "../components/AdminFuturePostList";
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
@@ -45,6 +46,9 @@ export default class extends React.Component {
 
           <h2>Drafts</h2>
           <AdminDraftList />
+
+          <h2>Future</h2>
+          <AdminFuturePostList />
 
           <h2>Published</h2>
           <AdminPostList />
