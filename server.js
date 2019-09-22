@@ -186,22 +186,19 @@ async function startServer() {
         helmet.contentSecurityPolicy({
           directives: {
             //  default-src 'none'
-            defaultSrc: ["'none'"],
+            defaultSrc: ["'self'", "https://graphql.natwelch.com/graphql"],
             // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
             styleSrc: [
               "'self'",
               "'unsafe-inline'",
               "https://fonts.googleapis.com/",
             ],
-            // connect-src 'self' https://graphql.natwelch.com/graphql
-            contentSrc: ["'self'", "https://graphql.natwelch.com/graphql"],
             // font-src https://fonts.gstatic.com
             fontSrc: ["https://fonts.gstatic.com"],
             // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
             imgSrc: [
               "'self'",
               "data:",
-              "http://a.natwelch.com",
               "https://a.natwelch.com",
               "https://icco.imgix.net",
             ],
@@ -304,7 +301,7 @@ async function startServer() {
       });
     })
     .catch(ex => {
-      logger.error(ex.stack);
+      logger.error(ex);
       process.exit(1);
     });
 }
