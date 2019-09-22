@@ -176,41 +176,42 @@ async function startServer() {
         })
       );
 
+      server.use(helmet());
+
       server.use(
-        helmet({
-          contentSecurityPolicy: {
-            directives: {
-              //  default-src 'none'
-              defaultSrc: ["'none'"],
-              // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
-              styleSrc: [
-                "'self'",
-                "'unsafe-inline'",
-                "https://fonts.googleapis.com/",
-              ],
-              // connect-src 'self' https://graphql.natwelch.com/graphql
-              contentSrc: ["'self'", "https://graphql.natwelch.com/graphql"],
-              // font-src https://fonts.gstatic.com
-              fontSrc: ["https://fonts.gstatic.com"],
-              // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
-              imgSrc: [
-                "'self'",
-                "data:",
-                "http://a.natwelch.com",
-                "https://a.natwelch.com",
-                "https://icco.imgix.net",
-              ],
-              // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
-              scriptSrc: [
-                "'self'",
-                "'unsafe-eval'",
-                "'unsafe-inline'",
-                "https://a.natwelch.com/tracker.js",
-              ],
-            },
-          },
-          referrerPolicy: {
-            policy: "strict-origin-when-cross-origin",
+        helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
+      );
+
+      server.use(
+        helmet.contentSecurityPolicy({
+          directives: {
+            //  default-src 'none'
+            defaultSrc: ["'none'"],
+            // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
+            styleSrc: [
+              "'self'",
+              "'unsafe-inline'",
+              "https://fonts.googleapis.com/",
+            ],
+            // connect-src 'self' https://graphql.natwelch.com/graphql
+            contentSrc: ["'self'", "https://graphql.natwelch.com/graphql"],
+            // font-src https://fonts.gstatic.com
+            fontSrc: ["https://fonts.gstatic.com"],
+            // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
+            imgSrc: [
+              "'self'",
+              "data:",
+              "http://a.natwelch.com",
+              "https://a.natwelch.com",
+              "https://icco.imgix.net",
+            ],
+            // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
+            scriptSrc: [
+              "'self'",
+              "'unsafe-eval'",
+              "'unsafe-inline'",
+              "https://a.natwelch.com/tracker.js",
+            ],
           },
         })
       );
