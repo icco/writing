@@ -38,7 +38,7 @@ export default class WritingDocument extends Document {
               m=f.getElementsByTagName('script')[0];
               o.async=1; o.src=t; o.id='fathom-script';
               m.parentNode.insertBefore(o,m)
-            })(document, window, '//a.natwelch.com/tracker.js', 'fathom');
+            })(document, window, 'https://a.natwelch.com/tracker.js', 'fathom');
             fathom('set', 'siteId', '${TRACKING_ID}');
             fathom('trackPageview');
           `,

@@ -176,10 +176,39 @@ async function startServer() {
         })
       );
 
+      server.use(helmet());
+
       server.use(
-        helmet({
-          referrerPolicy: {
-            policy: "strict-origin-when-cross-origin",
+        helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
+      );
+
+      server.use(
+        helmet.contentSecurityPolicy({
+          directives: {
+            //  default-src 'none'
+            defaultSrc: ["'self'", "https://graphql.natwelch.com/graphql"],
+            // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
+            styleSrc: [
+              "'self'",
+              "'unsafe-inline'",
+              "https://fonts.googleapis.com/",
+            ],
+            // font-src https://fonts.gstatic.com
+            fontSrc: ["https://fonts.gstatic.com"],
+            // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
+            imgSrc: [
+              "'self'",
+              "data:",
+              "https://a.natwelch.com",
+              "https://icco.imgix.net",
+            ],
+            // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
+            scriptSrc: [
+              "'self'",
+              "'unsafe-eval'",
+              "'unsafe-inline'",
+              "https://a.natwelch.com/tracker.js",
+            ],
           },
         })
       );
@@ -272,7 +301,7 @@ async function startServer() {
       });
     })
     .catch(ex => {
-      logger.error(ex.stack);
+      logger.error(ex);
       process.exit(1);
     });
 }
