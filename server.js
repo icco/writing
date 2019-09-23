@@ -203,7 +203,11 @@ async function startServer() {
               "https://icco.imgix.net",
             ],
             // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
-            scriptSrc: ["'self'", "https://a.natwelch.com/tracker.js"],
+            scriptSrc: [
+              "'self'",
+              "'unsafe-inline'",
+              "https://a.natwelch.com/tracker.js",
+            ],
             // object-src 'none';
             objectSrc: ["'none'"],
           },
