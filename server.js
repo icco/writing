@@ -4,6 +4,7 @@ const { SSLMiddleware } = require("@icco/react-common");
 const compression = require("compression");
 const express = require("express");
 const helmet = require("helmet");
+const expectCt = require("expect-ct");
 const next = require("next");
 const rss = require("feed");
 const gql = require("graphql-tag");
@@ -182,6 +183,7 @@ async function startServer() {
         helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
       );
 
+      // https://developers.google.com/web/updates/2018/09/reportingapi
       server.use(function(req, res, next) {
         res.setHeader(
           "Report-To",
@@ -228,19 +230,12 @@ async function startServer() {
             ],
             // object-src 'none';
             objectSrc: ["'none'"],
-            // https://developers.google.com/web/updates/2018/09/reportingapi
-            //reportTo: JSON.stringify({
-            //  max_age: 10886400,
-            //  endpoints: [
-            //    {
-            //      url: "https://reportd.natwelch.com/report/writing",
-            //    },
-            //  ],
-            //}),
             reportUri: "https://reportd.natwelch.com/report/writing",
           },
         })
       );
+
+      server.use(expectCt({ maxAge: 123 }));
 
       server.use(compression());
 
