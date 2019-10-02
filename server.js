@@ -203,7 +203,12 @@ async function startServer() {
               "https://icco.imgix.net",
             ],
             // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
-            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://a.natwelch.com/tracker.js"],
+            scriptSrc: [
+              "'self'",
+              "'unsafe-inline'",
+              "'unsafe-eval'",
+              "https://a.natwelch.com/tracker.js",
+            ],
             // object-src 'none';
             objectSrc: ["'none'"],
             // https://developers.google.com/web/updates/2018/09/reportingapi
@@ -215,7 +220,7 @@ async function startServer() {
             //    },
             //  ],
             //}),
-            reportUri: 'https://reportd.natwelch.com/report/writing',
+            reportUri: "https://reportd.natwelch.com/report/writing",
           },
         })
       );
