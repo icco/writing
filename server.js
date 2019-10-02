@@ -203,18 +203,19 @@ async function startServer() {
               "https://icco.imgix.net",
             ],
             // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
-            scriptSrc: ["'self'", "https://a.natwelch.com/tracker.js"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://a.natwelch.com/tracker.js"],
             // object-src 'none';
             objectSrc: ["'none'"],
             // https://developers.google.com/web/updates/2018/09/reportingapi
-            reportTo: JSON.stringify({
-              max_age: 10886400,
-              endpoints: [
-                {
-                  url: "https://reportd.natwelch.com/report/writing",
-                },
-              ],
-            }),
+            //reportTo: JSON.stringify({
+            //  max_age: 10886400,
+            //  endpoints: [
+            //    {
+            //      url: "https://reportd.natwelch.com/report/writing",
+            //    },
+            //  ],
+            //}),
+            reportUri: 'https://reportd.natwelch.com/report/writing',
           },
         })
       );
