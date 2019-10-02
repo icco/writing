@@ -185,6 +185,8 @@ async function startServer() {
       server.use(
         helmet.contentSecurityPolicy({
           directives: {
+            upgradeInsecureRequests: true,
+
             //  default-src 'none'
             defaultSrc: ["'self'", "https://graphql.natwelch.com/graphql"],
             // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
