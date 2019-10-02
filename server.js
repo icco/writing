@@ -186,6 +186,11 @@ async function startServer() {
       // https://developers.google.com/web/updates/2018/09/reportingapi
       server.use(function(req, res, next) {
         res.setHeader(
+          "NEL",
+          JSON.stringify({ report_to: "default", max_age: 2592000 })
+        );
+
+        res.setHeader(
           "Report-To",
           JSON.stringify({
             max_age: 10886400,
