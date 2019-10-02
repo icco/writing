@@ -182,6 +182,21 @@ async function startServer() {
         helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
       );
 
+      server.use(function(req, res, next) {
+        res.setHeader(
+          "Report-To",
+          JSON.stringify({
+            max_age: 10886400,
+            endpoints: [
+              {
+                url: "https://reportd.natwelch.com/report/writing",
+              },
+            ],
+          })
+        );
+        next();
+      });
+
       server.use(
         helmet.contentSecurityPolicy({
           directives: {
