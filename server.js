@@ -206,6 +206,15 @@ async function startServer() {
             scriptSrc: ["'self'", "https://a.natwelch.com/tracker.js"],
             // object-src 'none';
             objectSrc: ["'none'"],
+            // https://developers.google.com/web/updates/2018/09/reportingapi
+            reportTo: JSON.stringify({
+              max_age: 10886400,
+              endpoints: [
+                {
+                  url: "https://reportd.natwelch.com/report/writing",
+                },
+              ],
+            }),
           },
         })
       );
