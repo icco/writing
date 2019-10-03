@@ -7,7 +7,7 @@
     "dev": "node server.js",
     "lint": "./lint.sh",
     "snyk-protect": "snyk protect",
-    "prepublish": "yarn run snyk-protect",
+    "prepublish": "npm run snyk-protect && yarn run snyk-protect",
     "test": "snyk test"
   },
   "dependencies": {
@@ -55,7 +55,7 @@
     "react-svg": "^7.2.2",
     "rich-markdown-editor": "^9.8.1",
     "sitemap": "^2.1.0",
-    "snyk": "^1.192.3"
+    "snyk": "^1.230.5"
   },
   "private": true,
   "devDependencies": {

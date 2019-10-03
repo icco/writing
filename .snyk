@@ -2,3 +2,37 @@
 version: v1.13.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - '@opencensus/exporter-stackdriver > googleapis > googleapis-common > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-03T22:34:56.109Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > google-auth-library > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > google-auth-library > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > google-auth-library > gcp-metadata > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > google-auth-library > gtoken > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > googleapis-common > google-auth-library > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > google-auth-library > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > @opencensus/resource-util > gcp-metadata > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > google-auth-library > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > googleapis-common > google-auth-library > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > google-auth-library > gtoken > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > google-auth-library > gcp-metadata > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > googleapis-common > google-auth-library > gcp-metadata > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
+    - '@opencensus/exporter-stackdriver > googleapis > googleapis-common > google-auth-library > gtoken > gaxios > https-proxy-agent':
+        patched: '2019-10-03T22:34:56.109Z'
