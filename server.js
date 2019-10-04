@@ -1,6 +1,6 @@
 "use strict";
 
-const { SSLMiddleware } = require("@icco/react-common");
+const { SSLMiddleware, NELMiddleware, ReportToMiddleware } = require("@icco/react-common");
 const compression = require("compression");
 const express = require("express");
 const helmet = require("helmet");
@@ -177,33 +177,14 @@ async function startServer() {
         })
       );
 
+      server.use(NELMiddleware());
+      server.use(ReportToMiddleware("writing"));
+
       server.use(helmet());
 
       server.use(
         helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
       );
-
-      // https://developers.google.com/web/updates/2018/09/reportingapi
-      server.use(function(req, res, next) {
-        res.setHeader(
-          "NEL",
-          JSON.stringify({ report_to: "default", max_age: 2592000 })
-        );
-
-        res.setHeader(
-          "Report-To",
-          JSON.stringify({
-            group: "default",
-            max_age: 10886400,
-            endpoints: [
-              {
-                url: "https://reportd.natwelch.com/report/writing",
-              },
-            ],
-          })
-        );
-        next();
-      });
 
       server.use(
         helmet.contentSecurityPolicy({
