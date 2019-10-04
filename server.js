@@ -193,6 +193,7 @@ async function startServer() {
         res.setHeader(
           "Report-To",
           JSON.stringify({
+            group: "default",
             max_age: 10886400,
             endpoints: [
               {
