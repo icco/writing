@@ -1,6 +1,10 @@
 "use strict";
 
-const { SSLMiddleware, NELMiddleware, ReportToMiddleware } = require("@icco/react-common");
+const {
+  SSLMiddleware,
+  NELMiddleware,
+  ReportToMiddleware,
+} = require("@icco/react-common");
 const compression = require("compression");
 const express = require("express");
 const helmet = require("helmet");
@@ -192,7 +196,11 @@ async function startServer() {
             upgradeInsecureRequests: true,
 
             //  default-src 'none'
-            defaultSrc: ["'self'", "https://graphql.natwelch.com/graphql"],
+            defaultSrc: [
+              "'self'",
+              "https://graphql.natwelch.com/graphql",
+              "https://icco.auth0.com/.well-known/jwks.json",
+            ],
             // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
             styleSrc: [
               "'self'",
