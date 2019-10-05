@@ -199,6 +199,7 @@ async function startServer() {
             defaultSrc: [
               "'self'",
               "https://graphql.natwelch.com/graphql",
+              "https://graphql.natwelch.com/photo/new",
               "https://icco.auth0.com/.well-known/jwks.json",
             ],
             // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
