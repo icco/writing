@@ -94,7 +94,17 @@ async function generateFeed() {
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
     description: "Nat Welch's Blog about random stuff.",
+    feedLinks: {
+      atom: "https://writing.natwelch.com/feed.atom",
+    },
+    author: {
+      name: "Nat Welch",
+      email: "nat@natwelch.com",
+      link: "https://natwelch.com",
+    },
+    language: "en",
   });
+
   try {
     let data = await recentPosts();
 
