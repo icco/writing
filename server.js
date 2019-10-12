@@ -227,6 +227,7 @@ async function startServer() {
               "data:",
               "https://a.natwelch.com",
               "https://icco.imgix.net",
+              "https://storage.googleapis.com",
               "https://writing.natwelch.com",
             ],
             // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
