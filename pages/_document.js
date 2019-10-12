@@ -27,8 +27,18 @@ export default class WritingDocument extends Document {
           />
           <meta charSet="utf-8" />
 
-          <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.rss" />
-          <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.atom" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="/feed.rss"
+          />
+          <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="/feed.atom"
+          />
 
           <script
             dangerouslySetInnerHTML={{
