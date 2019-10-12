@@ -20,8 +20,8 @@ const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
-const md = require("../lib/markdown.js");
 
+const md = require("./lib/markdown.js");
 const apollo = require("./lib/init-apollo.js");
 const { logger } = require("./lib/logger.js");
 
