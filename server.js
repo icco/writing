@@ -20,6 +20,7 @@ const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
 const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
+const md = require("../lib/markdown.js");
 
 const apollo = require("./lib/init-apollo.js");
 const { logger } = require("./lib/logger.js");
@@ -102,7 +103,7 @@ async function generateFeed() {
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
-        content: p.summary,
+        content: md.render(p.summary),
         author: [
           {
             name: "Nat Welch",
