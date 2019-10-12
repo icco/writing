@@ -21,6 +21,7 @@ const propagation = require("@opencensus/propagation-stackdriver");
 const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
 
+const md = require("./lib/markdown.js");
 const apollo = require("./lib/init-apollo.js");
 const { logger } = require("./lib/logger.js");
 
@@ -93,7 +94,17 @@ async function generateFeed() {
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
     description: "Nat Welch's Blog about random stuff.",
+    feedLinks: {
+      atom: "https://writing.natwelch.com/feed.atom",
+    },
+    author: {
+      name: "Nat Welch",
+      email: "nat@natwelch.com",
+      link: "https://natwelch.com",
+    },
+    language: "en",
   });
+
   try {
     let data = await recentPosts();
 
@@ -102,7 +113,7 @@ async function generateFeed() {
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
-        content: p.summary,
+        content: md.render(p.summary),
         author: [
           {
             name: "Nat Welch",
@@ -216,6 +227,7 @@ async function startServer() {
               "data:",
               "https://a.natwelch.com",
               "https://icco.imgix.net",
+              "https://storage.googleapis.com",
               "https://writing.natwelch.com",
             ],
             // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
