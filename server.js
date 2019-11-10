@@ -224,6 +224,7 @@ async function startServer() {
             // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
             imgSrc: [
               "'self'",
+              "blob:",
               "data:",
               "https://a.natwelch.com",
               "https://icco.imgix.net",
