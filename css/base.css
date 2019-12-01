@@ -102,6 +102,11 @@ article blockquote cite {
   font-style: normal;
 }
 
+article li {
+  line-height: 1.2;
+  padding: 0.5rem;
+}
+
 @media screen and (min-width: 30em) and (max-width: 60em) {
   article blockquote p {
     font-size: 1.15rem;
