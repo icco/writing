@@ -257,6 +257,10 @@ async function startServer() {
         res.json({ status: "ok" });
       });
 
+      server.get("/about",  (req, res) => {
+        res.redirect("https://natwelch.com");
+      });
+
       server.get("/post/:id", (req, res) => {
         const actualPage = "/post";
         const queryParams = { id: req.params.id };
