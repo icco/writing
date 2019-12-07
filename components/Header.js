@@ -7,6 +7,7 @@ class Header extends React.Component {
   render() {
     let prefix = <></>;
     let nav = (
+      <>
       <Link key="/about" href="/about">
         <a className="f6 link dib dim mr3 black mr4-ns" href="/about">
           about
@@ -18,6 +19,7 @@ class Header extends React.Component {
           sign in
         </a>
       </Link>
+      </>
     );
     let head = (
       <>
