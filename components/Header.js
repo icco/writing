@@ -8,17 +8,17 @@ class Header extends React.Component {
     let prefix = <></>;
     let nav = (
       <>
-      <Link key="/about" href="/about">
-        <a className="f6 link dib dim mr3 black mr4-ns" href="/about">
-          about
-        </a>
-      </Link>
+        <Link key="/about" href="/about">
+          <a className="f6 link dib dim mr3 black mr4-ns" href="/about">
+            about
+          </a>
+        </Link>
 
-      <Link key="/auth/sign-in" href="/auth/sign-in">
-        <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
-          sign in
-        </a>
-      </Link>
+        <Link key="/auth/sign-in" href="/auth/sign-in">
+          <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
+            sign in
+          </a>
+        </Link>
       </>
     );
     let head = (

@@ -257,7 +257,7 @@ async function startServer() {
         res.json({ status: "ok" });
       });
 
-      server.get("/about",  (req, res) => {
+      server.get("/about", (req, res) => {
         res.redirect("https://natwelch.com");
       });
 
