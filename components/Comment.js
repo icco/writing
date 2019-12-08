@@ -19,7 +19,8 @@ export default params => {
             href={`/comment?id=${comment.id}`}
           >
             <a className="link dark-gray dim">{comment.created}</a>
-          </Link> - {comment.user.name}
+          </Link>{" "}
+          - {comment.user.name}
         </div>
         <div className="f6 lh-copy measure mt2 mid-gray">
           <div dangerouslySetInnerHTML={html} />
