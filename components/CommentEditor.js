@@ -7,6 +7,7 @@ import { Query, Mutation } from "react-apollo";
 import { withRouter } from "next/router";
 
 import { getToken } from "../lib/auth.js";
+import theme from "./editorTheme";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,
@@ -71,10 +72,11 @@ class CommentEditor extends React.Component {
               <Editor
                 id="content"
                 name="content"
-                className="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2 bg-white"
+                className="db border-box w-100 pa2 br2 mb2"
                 aria-describedby="text-desc"
                 onChange={this.handleEditorChange}
                 defaultValue={this.state.content}
+                theme={theme}
               />
 
               <div className="pv3 cf">
