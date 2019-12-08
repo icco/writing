@@ -6,6 +6,7 @@ import { withRouter } from "next/router";
 import { ErrorMessage } from "@icco/react-common";
 
 import Comment from "./Comment";
+import CommentEditor from "./CommentEditor";
 import Datetime from "./Datetime";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
@@ -33,6 +34,7 @@ const Post = props => {
       commentDiv = (
         <article className="mh3 db">
           <h2>Comments</h2>
+          <CommentEditor postID={post.id} loggedInUser={props.loggedInUser} />
           <div className="">
             {post.comments.map(item => (
               <Comment data={{ comment: item }} />
