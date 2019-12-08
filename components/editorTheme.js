@@ -13,23 +13,29 @@ const colors = {
   greyDark: "#DAE1E9",
 };
 
-export const light = {
+export const base = {
   ...colors,
   fontFamily: "Roboto",
   fontFamilyMono: "Courier,monospace",
+};
+
+export const light = {
+  ...base,
   text: colors.almostBlack,
   code: colors.lightBlack,
 
   toolbarBackground: colors.lightBlack,
   toolbarInput: colors.white10,
+  toolbarItem: colors.white,
 
   blockToolbarBackground: colors.greyLight,
   blockToolbarTrigger: colors.greyMid,
-  blockToolbarTriggerIcon: colors.greyLight,
+  blockToolbarTriggerIcon: colors.white,
   blockToolbarItem: colors.almostBlack,
 
   tableDivider: colors.grey,
   tableSelected: colors.primary,
+  tableSelectedBackground: "#E5F7FF",
 
   quote: colors.greyDark,
   codeBorder: colors.grey,
