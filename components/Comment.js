@@ -12,7 +12,7 @@ export default params => {
 
   return (
     <article className={className}>
-      <div className="pa2 ph3-ns pb3-ns">
+      <div className="pv2 ph0-ns pb3-ns">
         <div className="f6 f5-ns mv1">
           <Link
             as={`/comment/${comment.id}`}
