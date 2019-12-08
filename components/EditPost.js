@@ -7,6 +7,7 @@ import Link from "next/link";
 import Editor from "rich-markdown-editor";
 import { ErrorMessage, Loading } from "@icco/react-common";
 
+import theme from "./editorTheme";
 import { getToken } from "../lib/auth.js";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
@@ -149,7 +150,8 @@ class EditPost extends React.Component {
                     <Editor
                       id="content"
                       name="content"
-                      className="db border-box hover-black w-100 ba b--black-20 pa2 br2 mb2 bg-white"
+                      className="db border-box w-100 pa2 br2 mb2"
+                      theme={theme}
                       aria-describedby="text-desc"
                       onChange={this.handleEditorChange}
                       defaultValue={this.state.content || post.content}

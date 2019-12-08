@@ -93,7 +93,7 @@ async function generateFeed() {
   let feed = new rss.Feed({
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
-    description: "Nat Welch's Blog about random stuff.",
+    description: "Nat Welch's blog about random stuff.",
     feedLinks: {
       atom: "https://writing.natwelch.com/feed.atom",
     },
@@ -185,6 +185,7 @@ async function startServer() {
     .then(() => {
       const server = express();
       server.set("trust proxy", true);
+      server.set("x-powered-by", false);
 
       server.use(
         pinoMiddleware({
@@ -310,12 +311,6 @@ async function startServer() {
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
         const parsedUrl = parse(req.url, true);
-        const rootStaticFiles = [
-          "/robots.txt",
-          "/sitemap.xml",
-          "/favicon.ico",
-          "/.well-known/brave-payments-verification.txt",
-        ];
 
         const redirects = {};
 
@@ -323,21 +318,11 @@ async function startServer() {
           return res.redirect(redirects[parsedUrl.pathname]);
         }
 
-        if (
-          rootStaticFiles.indexOf(parsedUrl.pathname) > -1 ||
-          parsedUrl.pathname.match(/^\/.*\.svg/)
-        ) {
-          const path = join(__dirname, "static", parsedUrl.pathname);
-          app.serveStatic(req, res, path);
-        } else {
-          handle(req, res, parsedUrl);
-        }
-        return;
+        return handle(req, res, parsedUrl);
       });
 
-      server.listen(port, "0.0.0.0", err => {
+      server.listen(port, err => {
         if (err) throw err;
-        logger.info(`> Ready on http://localhost:${port}`);
       });
     })
     .catch(ex => {
@@ -346,4 +331,5 @@ async function startServer() {
     });
 }
 
+logger.info(`> Ready on http://localhost:${port}`);
 startServer();

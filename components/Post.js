@@ -5,6 +5,8 @@ import { graphql } from "react-apollo";
 import { withRouter } from "next/router";
 import { ErrorMessage } from "@icco/react-common";
 
+import Comment from "./Comment";
+import CommentEditor from "./CommentEditor";
 import Datetime from "./Datetime";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
@@ -13,6 +15,7 @@ import md from "../lib/markdown.js";
 const Post = props => {
   const {
     data: { error, post },
+    comments,
   } = props;
 
   if (error) {
@@ -24,6 +27,21 @@ const Post = props => {
     let draft = "";
     if (post.draft) {
       draft = "DRAFT";
+    }
+
+    let commentDiv = <></>;
+    if (comments) {
+      commentDiv = (
+        <article className="mh3 db">
+          <h2>Comments</h2>
+          <CommentEditor postID={post.id} loggedInUser={props.loggedInUser} />
+          <div className="">
+            {post.comments.map(item => (
+              <Comment key={item.id} data={{ comment: item }} />
+            ))}
+          </div>
+        </article>
+      );
     }
 
     return (
@@ -52,6 +70,8 @@ const Post = props => {
         </article>
 
         <PostNav post={post} />
+
+        {commentDiv}
 
         <article className="mh3 dn db-ns">
           <h2>Related Posts</h2>
@@ -87,6 +107,14 @@ export const getPost = gql`
         id
         title
         summary
+      }
+      comments(input: { limit: 10 }) {
+        content
+        created
+        id
+        user {
+          name
+        }
       }
     }
   }
