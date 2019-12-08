@@ -37,7 +37,7 @@ const Post = props => {
           <CommentEditor postID={post.id} loggedInUser={props.loggedInUser} />
           <div className="">
             {post.comments.map(item => (
-              <Comment data={{ comment: item }} />
+              <Comment key={item.id} data={{ comment: item }} />
             ))}
           </div>
         </article>
@@ -112,6 +112,9 @@ export const getPost = gql`
         content
         created
         id
+        user {
+          name
+        }
       }
     }
   }
