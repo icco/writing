@@ -1,9 +1,28 @@
+/* https://fonts.google.com/featured/Superfamilies */
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab");
 
 body,
 p,
 .normal {
+  background-color: #eeeceb;
   font-family: "Roboto", sans-serif;
+  color: #443e3c;
+}
+
+.gray {
+  color: #8e8785;
+}
+
+pre {
+  background-color: #f9f9f9;
+  padding: 1em;
+  overflow: scroll;
+}
+
+p code {
+  overflow-wrap: break-word;
+  background-color: #f9f9f9;
+  padding: 0.2em;
 }
 
 h1,
@@ -58,9 +77,8 @@ section .react-mde .grip {
 article blockquote {
   border-left-style: solid;
   border-left-width: 1px;
-  border-color: #408bc9;
+  border-color: #d5d2d1;
   border-width: 0.25rem;
-  font-family: athelas, georgia, serif;
   padding-left: 2rem;
   margin-left: 0;
   margin-top: 0;
@@ -84,9 +102,14 @@ article blockquote cite {
   font-style: normal;
 }
 
+article li {
+  line-height: 1.2;
+  padding: 0.5rem;
+}
+
 @media screen and (min-width: 30em) and (max-width: 60em) {
   article blockquote p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }
 

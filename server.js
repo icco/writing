@@ -1,8 +1,14 @@
 "use strict";
 
+const {
+  SSLMiddleware,
+  NELMiddleware,
+  ReportToMiddleware,
+} = require("@icco/react-common");
 const compression = require("compression");
 const express = require("express");
 const helmet = require("helmet");
+const expectCt = require("expect-ct");
 const next = require("next");
 const rss = require("feed");
 const gql = require("graphql-tag");
@@ -15,6 +21,7 @@ const propagation = require("@opencensus/propagation-stackdriver");
 const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
 
+const md = require("./lib/markdown.js");
 const apollo = require("./lib/init-apollo.js");
 const { logger } = require("./lib/logger.js");
 
@@ -87,7 +94,17 @@ async function generateFeed() {
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
     description: "Nat Welch's Blog about random stuff.",
+    feedLinks: {
+      atom: "https://writing.natwelch.com/feed.atom",
+    },
+    author: {
+      name: "Nat Welch",
+      email: "nat@natwelch.com",
+      link: "https://natwelch.com",
+    },
+    language: "en",
   });
+
   try {
     let data = await recentPosts();
 
@@ -96,7 +113,7 @@ async function generateFeed() {
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
-        content: p.summary,
+        content: md.render(p.summary),
         author: [
           {
             name: "Nat Welch",
@@ -167,18 +184,81 @@ async function startServer() {
     .prepare()
     .then(() => {
       const server = express();
+      server.set("trust proxy", true);
 
       server.use(
         pinoMiddleware({
           logger,
         })
       );
+
+      server.use(NELMiddleware());
+      server.use(ReportToMiddleware("writing"));
+
       server.use(helmet());
+
+      server.use(
+        helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
+      );
+
+      server.use(
+        helmet.contentSecurityPolicy({
+          directives: {
+            upgradeInsecureRequests: true,
+
+            //  default-src 'none'
+            defaultSrc: [
+              "'self'",
+              "https://graphql.natwelch.com/graphql",
+              "https://graphql.natwelch.com/photo/new",
+              "https://icco.auth0.com/.well-known/jwks.json",
+            ],
+            // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
+            styleSrc: [
+              "'self'",
+              "'unsafe-inline'",
+              "https://fonts.googleapis.com/",
+            ],
+            // font-src https://fonts.gstatic.com
+            fontSrc: ["https://fonts.gstatic.com"],
+            // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
+            imgSrc: [
+              "'self'",
+              "blob:",
+              "data:",
+              "https://a.natwelch.com",
+              "https://icco.imgix.net",
+              "https://storage.googleapis.com",
+              "https://writing.natwelch.com",
+            ],
+            // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
+            scriptSrc: [
+              "'self'",
+              "'unsafe-inline'",
+              "'unsafe-eval'",
+              "https://a.natwelch.com/tracker.js",
+            ],
+            // object-src 'none';
+            objectSrc: ["'none'"],
+            // https://developers.google.com/web/updates/2018/09/reportingapi#csp
+            reportUri: "https://reportd.natwelch.com/report/writing",
+            reportTo: "default",
+          },
+        })
+      );
+
+      server.use(expectCt({ maxAge: 123 }));
 
       server.use(compression());
 
+      server.use(SSLMiddleware());
+
       server.get("/healthz", (req, res) => {
         res.json({ status: "ok" });
+      });
+
+      server.get("/about", (req, res) => {
+        res.redirect("https://natwelch.com");
       });
 
       server.get("/post/:id", (req, res) => {
@@ -261,7 +341,7 @@ async function startServer() {
       });
     })
     .catch(ex => {
-      logger.error(ex.stack);
+      logger.error(ex);
       process.exit(1);
     });
 }
