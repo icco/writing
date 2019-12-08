@@ -12,7 +12,7 @@ const Page = withError(
   withRouter(props => (
     <App>
       <Header loggedInUser={props.loggedInUser} noLogo />
-      <Post id={props.router.query.id} comments />
+      <Post id={props.router.query.id} loggedInUser={props.loggedInUser} comments />
       <Footer />
     </App>
   ))
