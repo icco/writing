@@ -310,12 +310,6 @@ async function startServer() {
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
         const parsedUrl = parse(req.url, true);
-        const rootStaticFiles = [
-          "/robots.txt",
-          "/sitemap.xml",
-          "/favicon.ico",
-          "/.well-known/brave-payments-verification.txt",
-        ];
 
         const redirects = {};
 
@@ -323,15 +317,7 @@ async function startServer() {
           return res.redirect(redirects[parsedUrl.pathname]);
         }
 
-        if (
-          rootStaticFiles.indexOf(parsedUrl.pathname) > -1 ||
-          parsedUrl.pathname.match(/^\/.*\.svg/)
-        ) {
-          const path = join(__dirname, "static", parsedUrl.pathname);
-          app.serveStatic(req, res, path);
-        } else {
-          handle(req, res, parsedUrl);
-        }
+        handle(req, res, parsedUrl);
         return;
       });
 
