@@ -985,18 +985,16 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
   integrity sha512-XiUPoS79r1G7PcpnNtq85TJ7inJWe0v+b5oZJZKb0pGHNIV6+UiNeQWiFGmuQ0aj7GEhnD/v9iqxIsjuRKtEnQ==
 
-"@icco/react-common@^2019.12.8-2":
-  version "2019.12.8-2"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.12.8-2.tgz#1b2c10615a5e6e1bffc043c32130921706ee2b30"
-  integrity sha512-HSFRV8JNhTnwH5fCZiZ8SpAYn3FWdJyn4ft1iCv97oxTDUiO0MFqU1Cjl0ViYdZS6ngirDBhKYGTArg/QTElTQ==
+"@icco/react-common@^2019.12.8-3":
+  version "2019.12.8-3"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.12.8-3.tgz#73cf07348825ce153518b2537e34fba5b789df22"
+  integrity sha512-HrAizti0ppiREV3HXUbhx2TNFzpANQoOJ8nARdy6JiLV12m2hB85p1eFSRpBx7GEW06n455D9SXxNUeVFe/8Rw==
   dependencies:
-    "@svgdotjs/svg.js" "^3.0.1"
-    "@svgdotjs/svg.topath.js" "^2.0.3"
     prop-types "^15.7"
     react "^16.12.0"
     react-dom "^16.12.0"
     react-loading "^2.0"
-    vivus "^0.4.4"
+    vivus "^0.4.5"
     webpack "^4.35.0"
 
 "@opencensus/core@^0.0.15":
@@ -1210,18 +1208,6 @@
     "@snyk/dep-graph" "^1.13.1"
     source-map-support "^0.5.7"
     tslib "^1.9.3"
-
-"@svgdotjs/svg.js@^3.0.1", "@svgdotjs/svg.js@^3.0.10":
-  version "3.0.15"
-  resolved "https://registry.yarnpkg.com/@svgdotjs/svg.js/-/svg.js-3.0.15.tgz#7e3bd6aa822dff74831f665c2dc9c6647ebeb25e"
-  integrity sha512-le1WrKVAESNPpIWH1Enu/Qn+BQOayY14wq/0qxOOl5+SeDalppdPA3hK52W+h+k1YE6TXQ9Hie+ZB3yl5PEzIQ==
-
-"@svgdotjs/svg.topath.js@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@svgdotjs/svg.topath.js/-/svg.topath.js-2.0.3.tgz#c03e2a939acb8ef083befa9dd74dadd26f97e5c5"
-  integrity sha512-vZG+4DpzjhkjCT9LJqg+cMCekJIGSUTpOEfbQN/wueSaiP7N04JFXYW4X3lj1MlZDNU9IcE1GsWEuwdhLJJGuA==
-  dependencies:
-    "@svgdotjs/svg.js" "^3.0.10"
 
 "@tanem/svg-injector@^2.1.4":
   version "2.1.4"
@@ -9314,7 +9300,7 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vivus@^0.4.4:
+vivus@^0.4.5:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.4.5.tgz#61d18c2ac8f48cab5d250fc3df1badfcb32d669a"
   integrity sha512-dBM5QDcO0JUnoeGUROhMYVBW4Qry637iQ1o6vLDaEVzu0TAQ3tVlzeQlLGYPjegCxcY1nC8FtyTjsZ8rqXVL4Q==
