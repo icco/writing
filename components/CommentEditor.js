@@ -14,16 +14,8 @@ const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
 );
 
 const SaveComment = gql`
-  mutation SaveComment(
-    $postid: ID!
-    $content: String!
-  ) {
-    addComment(
-      input: {
-        content: $content
-        post_id: $postid
-      }
-    ) {
+  mutation SaveComment($postid: ID!, $content: String!) {
+    addComment(input: { content: $content, post_id: $postid }) {
       content
       modified
     }
@@ -49,13 +41,14 @@ class CommentEditor extends React.Component {
     if (!this.props.loggedInUser) {
       return (
         <p>
-        <Link key="/auth/sign-in" href="/auth/sign-in">
-          <a className="link dim" href="/auth/sign-in">
-            Sign in or create an account
-          </a>
-        </Link> to post a comment.
+          <Link key="/auth/sign-in" href="/auth/sign-in">
+            <a className="link dim" href="/auth/sign-in">
+              Sign in or create an account
+            </a>
+          </Link>{" "}
+          to post a comment.
         </p>
-      )
+      );
     }
 
     return (
