@@ -985,10 +985,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
   integrity sha512-XiUPoS79r1G7PcpnNtq85TJ7inJWe0v+b5oZJZKb0pGHNIV6+UiNeQWiFGmuQ0aj7GEhnD/v9iqxIsjuRKtEnQ==
 
-"@icco/react-common@^2019.12.8-3":
-  version "2019.12.8-3"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.12.8-3.tgz#73cf07348825ce153518b2537e34fba5b789df22"
-  integrity sha512-HrAizti0ppiREV3HXUbhx2TNFzpANQoOJ8nARdy6JiLV12m2hB85p1eFSRpBx7GEW06n455D9SXxNUeVFe/8Rw==
+"@icco/react-common@^2019.12.8-4":
+  version "2019.12.8-4"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.12.8-4.tgz#408740ad89bcc9d4fa619eebd24371273afdedb7"
+  integrity sha512-S2AzgN4j/mdxTJrtEY501NyZbF/MCeCl+PWI10a86folm9/kIhHVvOQZK//ZbdTXo63wGutjdnvhXsWpcw7EyA==
   dependencies:
     prop-types "^15.7"
     react "^16.12.0"
