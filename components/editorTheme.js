@@ -1,16 +1,17 @@
 const colors = {
-  almostBlack: "#181A1B",
+  almostBlack: "#443e3c",
+  tan: "#eeeceb",
   lightBlack: "#2F3336",
   almostWhite: "#E6E6E6",
   white: "#FFF",
   white10: "rgba(255, 255, 255, 0.1)",
   black: "#000",
   black10: "rgba(0, 0, 0, 0.1)",
-  primary: "#1AB6FF",
   greyLight: "#F4F7FA",
-  grey: "#E8EBED",
+  grey: "#8e8785",
   greyMid: "#9BA6B2",
   greyDark: "#DAE1E9",
+  blue: "#265c83",
 };
 
 export const base = {
@@ -23,6 +24,7 @@ export const light = {
   ...base,
   text: colors.almostBlack,
   code: colors.lightBlack,
+  link: colors.blue,
 
   toolbarBackground: colors.lightBlack,
   toolbarInput: colors.white10,
@@ -40,6 +42,7 @@ export const light = {
   quote: colors.greyDark,
   codeBorder: colors.grey,
   horizontalRule: colors.grey,
+  imageErrorBackground: colors.greyLight,
 };
 
 export default light;
