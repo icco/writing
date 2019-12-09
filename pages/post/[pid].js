@@ -22,11 +22,15 @@ const Page = withError(props => {
 
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  const { post } = await getPostID(ctx.apolloClient, ctx.query.pid);
   let ret = { loggedInUser };
 
-  if (!post) {
-    //ctx.res.statusCode = 404;
+  if (ctx && ctx.query) {
+    const { post } = await getPostID(ctx.apolloClient, ctx.query.pid);
+
+    if (!post) {
+      ret["statusCode"] = 404;
+    }
+  } else {
     ret["statusCode"] = 404;
   }
 
