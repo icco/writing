@@ -1,7 +1,12 @@
-#! /bin/bash
+#! /bin/zsh
 #
 # Inspired by https://prettier.io/docs/en/precommit.html
 
 yarn
 
-git ls-tree --name-only -r HEAD | grep -e js -e css | tr '\n' '\0' | xargs -0 $(yarn bin)/prettier --write -v {}
+jsfiles=$(git ls-tree --name-only -r HEAD | grep -e js -e css -e md)
+[ -z "$jsfiles" ] && exit 0
+
+for f in $(echo $jsfiles | xargs printf "%s\n"); do
+  $(yarn bin)/prettier --write ${(q)f}
+done
