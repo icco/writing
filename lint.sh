@@ -4,7 +4,4 @@
 
 yarn
 
-jsfiles=$(git ls-tree --name-only -r HEAD | grep -e js -e css)
-[ -z "$jsfiles" ] && exit 0
-
-echo "$jsfiles" | xargs $(yarn bin)/prettier --write
+git ls-tree --name-only -r HEAD | grep -e js -e css | tr '\n' '\0' | xargs -0 $(yarn bin)/prettier --write -v {}
