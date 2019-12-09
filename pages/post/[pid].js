@@ -1,30 +1,28 @@
-import { withRouter } from "next/router";
+import { useRouter } from "next/router";
 import gql from "graphql-tag";
 
-import App from "../components/App";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Post from "../components/Post";
-import withError from "../lib/withError";
-import { checkLoggedIn } from "../lib/auth";
+import App from "../../components/App";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Post from "../../components/Post";
+import withError from "../../lib/withError";
+import { checkLoggedIn } from "../../lib/auth";
 
-const Page = withError(
-  withRouter(props => (
+const Page = withError(props => {
+  const router = useRouter();
+  const { pid } = router.query;
+  return (
     <App>
       <Header loggedInUser={props.loggedInUser} noLogo />
-      <Post
-        id={props.router.query.id}
-        loggedInUser={props.loggedInUser}
-        comments
-      />
+      <Post id={pid} loggedInUser={props.loggedInUser} comments />
       <Footer />
     </App>
-  ))
-);
+  );
+});
 
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  const { post } = await getPostID(ctx.apolloClient, ctx.query.id);
+  const { post } = await getPostID(ctx.apolloClient, ctx.query.pid);
   let ret = { loggedInUser };
 
   if (!post) {

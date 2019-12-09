@@ -262,12 +262,6 @@ async function startServer() {
         res.redirect("https://natwelch.com");
       });
 
-      server.get("/post/:id", (req, res) => {
-        const actualPage = "/post";
-        const queryParams = { id: req.params.id };
-        app.render(req, res, actualPage, queryParams);
-      });
-
       server.get("/edit/:id", (req, res) => {
         const actualPage = "/admin/post";
         const queryParams = { id: req.params.id };
@@ -276,12 +270,6 @@ async function startServer() {
 
       server.get("/tags/:id", (req, res) => {
         res.redirect(`/tag/${req.params.id}`);
-      });
-
-      server.get("/tag/:id", (req, res) => {
-        const actualPage = "/tag";
-        const queryParams = { id: req.params.id };
-        app.render(req, res, actualPage, queryParams);
       });
 
       server.get("/feed.rss", async (req, res) => {

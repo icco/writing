@@ -4,11 +4,7 @@ const PostNav = ({ post }) => {
   let prevText = "";
   if (post.prev && parseInt(post.prev.id) > 0) {
     prevText = (
-      <Link
-        prefetch
-        as={`/post/${post.prev.id}`}
-        href={`/post?id=${post.prev.id}`}
-      >
+      <Link as={`/post/${post.prev.id}`} href={`/post?id=${post.prev.id}`}>
         <a className="link dark-gray dim">&larr; Prev</a>
       </Link>
     );
@@ -17,11 +13,7 @@ const PostNav = ({ post }) => {
   let nextText = "";
   if (post.next && parseInt(post.next.id) > 0) {
     nextText = (
-      <Link
-        prefetch
-        as={`/post/${post.next.id}`}
-        href={`/post?id=${post.next.id}`}
-      >
+      <Link as={`/post/${post.next.id}`} href={`/post?id=${post.next.id}`}>
         <a className="link dark-gray dim">Next &rarr;</a>
       </Link>
     );
