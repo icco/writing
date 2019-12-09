@@ -4,6 +4,7 @@ import App from "../../components/App";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Tag from "../../components/Tag";
+import withError from "../../lib/withError";
 
 const Page = withError(props => {
   const router = useRouter();
