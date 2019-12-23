@@ -26,7 +26,7 @@ function AdminFuturePostList({ data: { error, posts, loadMore } }) {
                 <span className="dbi mr3">#{post.id}</span>
                 <Link
                   as={`/edit/${post.id}`}
-                  href={`/admin/post/[pid]`}
+                  href={`/edit/[pid]`}
                 >
                   <a className="link dark-gray dim">{post.title}</a>
                 </Link>

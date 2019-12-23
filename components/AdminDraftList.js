@@ -15,7 +15,7 @@ function AdminDraftList({ data: { error, drafts } }) {
           {drafts.map(post => (
             <li className="" key={"draft-" + post.id}>
               <span className="dbi mr3">#{post.id}</span>
-              <Link as={`/edit/${post.id}`} href={`/admin/post/[pid]`}>
+              <Link as={`/edit/${post.id}`} href={`/edit/[pid]`}>
                 <a className="link dark-gray dim">{post.title}</a>
               </Link>
             </li>
