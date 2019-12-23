@@ -58,7 +58,7 @@ const Post = props => {
             <Datetime>{post.datetime}</Datetime>
             <span className="ml3 red strong">{draft}</span>
           </div>
-          <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
+          <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
             <a className="header db f3 f1-ns link dark-gray dim">
               {post.title}
             </a>

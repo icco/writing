@@ -14,7 +14,7 @@ export default ({ className, post }) => {
               <Link
                 prefetch
                 as={`/post/${post.id}`}
-                href={`/post?id=${post.id}`}
+                href={`/post/[pid]`}
               >
                 <a className="link dark-gray dim">{post.title}</a>
               </Link>
