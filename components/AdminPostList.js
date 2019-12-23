@@ -26,7 +26,7 @@ function AdminPostList({ data: { error, posts, loadMore } }) {
                 <span className="dbi mr3">#{post.id}</span>
                 <Link
                   as={`/edit/${post.id}`}
-                  href={`/admin/post?id=${post.id}`}
+                  href={`/admin/post/[pid]`}
                 >
                   <a className="link dark-gray dim">{post.title}</a>
                 </Link>
