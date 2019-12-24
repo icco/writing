@@ -29,6 +29,15 @@ const Post = props => {
       draft = "DRAFT";
     }
 
+    let edit = <></>
+    if (props.loggedInUser) {
+      edit = (
+        <Link as={`/edit/${post.id}`} href="/edit/[pid]">
+        <a className="mh1 link gray dim">edit</a>
+        </Link>
+      )
+    }
+
     let commentDiv = <></>;
     if (comments) {
       commentDiv = (
@@ -56,6 +65,7 @@ const Post = props => {
           <div className="f6 db pb1 gray">
             <span className="mr3">#{post.id}</span>
             <Datetime>{post.datetime}</Datetime>
+            <span className="ml3">{edit}</span>
             <span className="ml3 red strong">{draft}</span>
           </div>
           <Link as={`/post/${post.id}`} href={`/post/[pid]`}>

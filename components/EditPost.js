@@ -219,7 +219,7 @@ class EditPost extends React.Component {
                         value="Save"
                         className="fr pointer dim br3 ph3 pv2 mb2 dib white bg-navy"
                       />
-                      <Link href={`/post/${post.id}`}>
+                      <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
                         <a className="mh3 dib mv2 link pointer dim gray fr ttu">
                           View Live Post
                         </a>
