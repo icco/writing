@@ -29,13 +29,13 @@ const Post = props => {
       draft = "DRAFT";
     }
 
-    let edit = <></>
+    let edit = <></>;
     if (props.loggedInUser) {
       edit = (
         <Link as={`/edit/${post.id}`} href="/edit/[pid]">
-        <a className="mh1 link gray dim">edit</a>
+          <a className="mh1 link gray dim">edit</a>
         </Link>
-      )
+      );
     }
 
     let commentDiv = <></>;
