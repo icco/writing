@@ -14,10 +14,7 @@ export default params => {
     <article className={className}>
       <div className="pv2 ph0-ns pb3-ns">
         <div className="f6 f5-ns mv1">
-          <Link
-            as={`/comments/${comment.id}`}
-            href={`/comments/[id]`}
-          >
+          <Link as={`/comments/${comment.id}`} href={`/comments/[id]`}>
             <a className="link dark-gray dim">{comment.created}</a>
           </Link>{" "}
           - {comment.user.name}
