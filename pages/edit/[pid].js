@@ -33,7 +33,7 @@ class AdminPost extends React.Component {
           <title>Nat? Nat. Nat! Edit Post #{this.props.router.query.id}</title>
         </Head>
         <Header noLogo loggedInUser={this.state.loggedInUser} />
-        <EditPost id={this.props.router.query.id} />
+        <EditPost id={this.props.router.query.pid} />
         <AdminLinkList />
       </App>
     );
