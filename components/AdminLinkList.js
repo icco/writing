@@ -26,7 +26,9 @@ function AdminLinkList({ data: { error, links, loadMore } }) {
                 <span className="mr3">
                   <Datetime>{l.created}</Datetime>
                 </span>
-                  <a href={l.uri} className="link dark-blue dim">{l.title}</a>
+                <a href={l.uri} className="link dark-blue dim">
+                  {l.title}
+                </a>
                 {" - "}
                 <span
                   className="gray link pointer dim"

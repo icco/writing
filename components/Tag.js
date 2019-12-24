@@ -21,7 +21,7 @@ const Tag = props => {
           <title>Nat? Nat. Nat! | tag "{id}"</title>
         </Head>
 
-      <h1 className="ma4">Posts with tag "{id}"</h1>
+        <h1 className="ma4">Posts with tag "{id}"</h1>
 
         <ul className="list pl0">
           {postsByTag.map(post => (
