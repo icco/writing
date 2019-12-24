@@ -262,16 +262,6 @@ async function startServer() {
         res.redirect("https://natwelch.com");
       });
 
-      server.get("/edit/:id", (req, res) => {
-        const actualPage = "/admin/post";
-        const queryParams = { id: req.params.id };
-        app.render(req, res, actualPage, queryParams);
-      });
-
-      server.get("/tags/:id", (req, res) => {
-        res.redirect(`/tag/${req.params.id}`);
-      });
-
       server.get("/feed.rss", async (req, res) => {
         let feed = await generateFeed();
         res.set("Content-Type", "application/rss+xml");

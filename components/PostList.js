@@ -27,13 +27,13 @@ function PostList({ data: { error, posts, loadMore } }) {
                   <Datetime>{post.datetime}</Datetime>
                   <span className="dbi ml3">
                     {post.tags.map((tag, i) => (
-                      <Link key={i} as={`/tag/${tag}`} href={`/tag?id=${tag}`}>
+                      <Link key={i} as={`/tag/${tag}`} href={`/tag/[id]`}>
                         <a className="mh1 link gray dim">#{tag}</a>
                       </Link>
                     ))}
                   </span>
                 </div>
-                <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
+                <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
                   <a className="header db f3 f1-ns link dark-gray dim">
                     {post.title}
                   </a>

@@ -24,10 +24,7 @@ function AdminFuturePostList({ data: { error, posts, loadMore } }) {
             {posts.map(post => (
               <li className="" key={"admin-post-" + post.id}>
                 <span className="dbi mr3">#{post.id}</span>
-                <Link
-                  as={`/edit/${post.id}`}
-                  href={`/admin/post?id=${post.id}`}
-                >
+                <Link as={`/edit/${post.id}`} href={`/edit/[pid]`}>
                   <a className="link dark-gray dim">{post.title}</a>
                 </Link>
               </li>

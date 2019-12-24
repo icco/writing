@@ -21,6 +21,8 @@ const Tag = props => {
           <title>Nat? Nat. Nat! | tag "{id}"</title>
         </Head>
 
+        <h1 className="ma4">Posts with tag "{id}"</h1>
+
         <ul className="list pl0">
           {postsByTag.map(post => (
             <li className="mb5 ml4 mr3" key={post.id}>
@@ -28,7 +30,7 @@ const Tag = props => {
                 <span className="mr3">#{post.id}</span>
                 <Datetime>{post.datetime}</Datetime>
               </div>
-              <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
+              <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
                 <a className="header db f3 f1-ns link dark-gray dim">
                   {post.title}
                 </a>

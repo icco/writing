@@ -8,16 +8,12 @@ class Header extends React.Component {
     let prefix = <></>;
     let nav = (
       <>
-        <Link key="/about" href="/about">
-          <a className="f6 link dib dim mr3 black mr4-ns" href="/about">
-            about
-          </a>
+        <Link key="/about" href="/about" prefetch={false}>
+          <a className="f6 link dib dim mr3 black mr4-ns">about</a>
         </Link>
 
         <Link key="/auth/sign-in" href="/auth/sign-in">
-          <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
-            sign in
-          </a>
+          <a className="f6 link dib dim mr3 black mr4-ns">sign in</a>
         </Link>
       </>
     );
@@ -38,18 +34,13 @@ class Header extends React.Component {
       nav = (
         <>
           <Link key="/admin" href="/admin">
-            <a className="f6 link dib dim mr3 black mr4-ns" href="/admin">
+            <a className="f6 link dib dim mr3 black mr4-ns">
               {this.props.loggedInUser.role}
             </a>
           </Link>
 
           <Link key="/auth/sign-out" href="/auth/sign-out">
-            <a
-              className="f6 link dib dim mr3 black mr4-ns"
-              href="/auth/sign-out"
-            >
-              Sign Out
-            </a>
+            <a className="f6 link dib dim mr3 black mr4-ns">Sign Out</a>
           </Link>
         </>
       );
