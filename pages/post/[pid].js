@@ -24,7 +24,7 @@ Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
   let ret = { loggedInUser };
 
-  if (ctx && ctx.query) {
+  if (ctx != null && ctx.query != null) {
     const { post } = await getPostID(ctx.apolloClient, ctx.query.pid);
 
     if (!post) {
@@ -38,6 +38,10 @@ Page.getInitialProps = async ctx => {
 };
 
 function getPostID(apollo, postID) {
+  if (apollo == null) {
+    return { post: null };
+  }
+
   return apollo
     .query({
       query: gql`
