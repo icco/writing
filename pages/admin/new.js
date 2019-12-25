@@ -18,35 +18,33 @@ const NewPost = gql`
 `;
 
 const Page = withError(props => {
-    if (
-      !props.loggedInUser ||
-      !props.loggedInUser.role ||
-      props.loggedInUser.role !== "admin"
-    ) {
-      return <NotAuthorized />;
-    }
+  if (
+    !props.loggedInUser ||
+    !props.loggedInUser.role ||
+    props.loggedInUser.role !== "admin"
+  ) {
+    return <NotAuthorized />;
+  }
 
-    return (
-      <Mutation mutation={NewPost}>
-        {(newPost, { loading, error, data }) => {
-          if (loading) {
-            return <Loading key={0} />;
-          }
-          if (error) {
-            return <ErrorMessage message="Page not found." />;
-          }
+  return (
+    <Mutation mutation={NewPost}>
+      {(newPost, { loading, error, data }) => {
+        if (loading) {
+          return <Loading key={0} />;
+        }
+        if (error) {
+          return <ErrorMessage message="Page not found." />;
+        }
 
-          if (data) {
-            Router.push(`/edit/${data.createPost.id}`);
-          } else {
-            newPost();
-          }
-          return null;
-        }}
-      </Mutation>
-    );
-
-
+        if (data) {
+          Router.push(`/edit/${data.createPost.id}`);
+        } else {
+          newPost();
+        }
+        return null;
+      }}
+    </Mutation>
+  );
 });
 
 Page.getInitialProps = async ctx => {

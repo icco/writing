@@ -58,7 +58,7 @@ class Admin extends React.Component {
   }
 }
 
-export default withApollo(Admin , {
+export default withApollo(Admin, {
   // Disable apollo ssr fetching in favour of automatic static optimization
   ssr: false,
-})
+});
