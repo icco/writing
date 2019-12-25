@@ -9,24 +9,16 @@ import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
-import { initApollo } from "../../lib/apollo";
 
-class AdminPost extends React.Component {
-  async componentDidMount() {
-    const { loggedInUser } = await checkLoggedIn(initApollo());
-    this.setState({ loggedInUser });
-  }
 
-  render() {
+const Page = withError(props => {
     if (
-      !this.state ||
-      !this.state.loggedInUser ||
-      !this.state.loggedInUser.role ||
-      this.state.loggedInUser.role !== "admin"
+      !props.loggedInUser ||
+      !props.loggedInUser.role ||
+      props.loggedInUser.role !== "admin"
     ) {
       return <NotAuthorized />;
     }
-
     return (
       <App>
         <Head>
@@ -37,7 +29,14 @@ class AdminPost extends React.Component {
         <AdminLinkList />
       </App>
     );
-  }
-}
 
-export default withRouter(AdminPost);
+});
+
+Page.getInitialProps = async ctx => {
+  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
+  let ret = { loggedInUser };
+
+  return ret;
+};
+
+export default Page;
