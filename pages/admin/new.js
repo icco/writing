@@ -7,7 +7,7 @@ import { Loading, ErrorMessage } from "@icco/react-common";
 
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
-import { initApollo } from "../../lib/init-apollo";
+import { initApollo } from "../../lib/apollo";
 
 const NewPost = gql`
   mutation {

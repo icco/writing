@@ -10,11 +10,11 @@ import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
 import { checkLoggedIn } from "../lib/auth";
-import { initApollo } from "../lib/init-apollo";
+import { initApollo } from "../lib/apollo";
 
-export default class extends React.Component {
+class Admin extends React.Component {
   async componentDidMount() {
-    const { loggedInUser } = await checkLoggedIn(initApollo());
+    const { loggedInUser } = await checkLoggedIn();
     this.setState({ loggedInUser });
   }
 
@@ -57,3 +57,8 @@ export default class extends React.Component {
     );
   }
 }
+
+export default withApollo(Admin , {
+  // Disable apollo ssr fetching in favour of automatic static optimization
+  ssr: false,
+})

@@ -9,7 +9,7 @@ import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
-import { initApollo } from "../../lib/init-apollo";
+import { initApollo } from "../../lib/apollo";
 
 class AdminPost extends React.Component {
   async componentDidMount() {
