@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import PostList from "../components/PostList";
 
 import { checkLoggedIn } from "../lib/auth";
-import { withApollo } from '../lib/apollo'
+import { withApollo } from "../lib/apollo";
 
 const Index = props => (
   <App>
