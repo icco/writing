@@ -10,6 +10,9 @@ import { checkLoggedIn } from "../../lib/auth";
 
 const Page = withError(props => {
   const router = useRouter();
+  if (router == null) {
+    return <></>;
+  }
   const { pid } = router.query;
   return (
     <App>
