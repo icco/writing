@@ -3,6 +3,7 @@ import React from "react";
 import Error from "next/error";
 import Link from "next/link";
 
+import { withApollo } from "../lib/apollo";
 import AdminDraftList from "../components/AdminDraftList";
 import AdminFuturePostList from "../components/AdminFuturePostList";
 import AdminPostList from "../components/AdminPostList";
@@ -10,7 +11,6 @@ import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
 import { checkLoggedIn } from "../lib/auth";
-import { initApollo } from "../lib/apollo";
 
 class Admin extends React.Component {
   async componentDidMount() {

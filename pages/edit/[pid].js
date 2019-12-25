@@ -9,6 +9,7 @@ import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
+import withError from "../../lib/withError";
 
 const Page = withError(props => {
   if (
