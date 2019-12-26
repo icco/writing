@@ -18,6 +18,7 @@ const opencensus = require("@opencensus/core");
 const tracing = require("@opencensus/nodejs");
 const stackdriver = require("@opencensus/exporter-stackdriver");
 const propagation = require("@opencensus/propagation-stackdriver");
+const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
 
 const md = require("./lib/markdown.js");
@@ -44,6 +45,44 @@ async function recentPosts() {
     });
 
     return res.data.posts;
+  } catch (err) {
+    logger.error(err);
+    return [];
+  }
+}
+
+async function mostPosts() {
+  try {
+    const client = apollo.create({}, {});
+    let res = await client.query({
+      query: gql`
+        query mostPosts {
+          posts(input: { limit: 1000, offset: 0 }) {
+            id
+          }
+        }
+      `,
+    });
+
+    return res.data.posts;
+  } catch (err) {
+    logger.error(err);
+    return [];
+  }
+}
+
+async function allTags() {
+  try {
+    const client = apollo.create({}, {});
+    let res = await client.query({
+      query: gql`
+        query tags {
+          tags
+        }
+      `,
+    });
+
+    return res.data.tags;
   } catch (err) {
     logger.error(err);
     return [];
@@ -89,6 +128,26 @@ async function generateFeed() {
   }
 
   return feed;
+}
+
+async function generateSitemap() {
+  let urls = [];
+  let postIds = await mostPosts();
+  postIds.forEach(function(x) {
+    urls.push({ url: `/post/${x.id}` });
+  });
+
+  let tags = await allTags();
+  tags.forEach(function(t) {
+    urls.push({ url: `/tag/${t}` });
+  });
+
+  urls.push({ url: "/" });
+  return sitemap.createSitemap({
+    hostname: "https://writing.natwelch.com",
+    cacheTime: 6000000, // 600 sec - cache purge period
+    urls,
+  });
 }
 
 async function startServer() {
