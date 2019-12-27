@@ -3,21 +3,22 @@ import React from "react";
 import Error from "next/error";
 import Link from "next/link";
 
-import { withApollo } from "../lib/apollo";
 import AdminDraftList from "../components/AdminDraftList";
 import AdminFuturePostList from "../components/AdminFuturePostList";
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
+import withError from "../lib/withError";
 import { checkLoggedIn } from "../lib/auth";
+import { withApollo } from "../lib/apollo";
 
 const Page = withError(props => {
   if (
-    !this.state ||
-    !this.state.loggedInUser ||
-    !this.state.loggedInUser.role ||
-    this.state.loggedInUser.role !== "admin"
+    !props ||
+    !props.loggedInUser ||
+    !props.loggedInUser.role ||
+    props.loggedInUser.role !== "admin"
   ) {
     return <NotAuthorized />;
   }
@@ -27,7 +28,7 @@ const Page = withError(props => {
       <Head>
         <title>Nat? Nat. Nat! Admin</title>
       </Head>
-      <Header noLogo loggedInUser={this.state.loggedInUser} />
+      <Header noLogo loggedInUser={props.loggedInUser} />
       <div className="ma3">
         <h1>Admin</h1>
         <ul className="list pl0" key="new-ul">
@@ -51,11 +52,4 @@ const Page = withError(props => {
   );
 });
 
-Page.getInitialProps = async ctx => {
-  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  let ret = { loggedInUser };
-
-  return ret;
-};
-
-export default Page;
+export default withApollo(Page);
