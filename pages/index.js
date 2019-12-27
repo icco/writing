@@ -4,8 +4,6 @@ import App from "../components/App";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostList from "../components/PostList";
-
-//import { } from "../lib/auth";
 import { withApollo } from "../lib/apollo";
 
 const Index = props => (
