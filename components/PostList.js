@@ -1,21 +1,71 @@
-import { graphql } from "react-apollo";
-import gql from "graphql-tag";
-import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroller";
+import Link from "next/link";
+import gql from 'graphql-tag'
 import { ErrorMessage, Loading } from "@icco/react-common";
+import { NetworkStatus } from 'apollo-client'
+import { useQuery } from '@apollo/react-hooks'
 
 import Datetime from "./Datetime";
 
 const PER_PAGE = 20;
 
-function PostList({ data: { error, posts, loadMore } }) {
-  if (error) return <ErrorMessage message="Error loading posts." />;
-  if (posts && posts.length) {
+export const allPosts = gql`
+  query posts($offset: Int!, $perpage: Int!) {
+    posts(input: { limit: $perpage, offset: $offset }) {
+      id
+      title
+      datetime
+      tags
+    }
+  }
+`;
+
+export const allPostsQueryVars = {
+      offset: 0,
+      perpage: PER_PAGE,
+}
+
+export default function PostList() {
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+    allPosts,
+    {
+      variables: allPostsQueryVars,
+      // Setting this value to true will make the component rerender when
+      // the "networkStatus" changes, so we are able to know if it is fetching
+      // more data
+      notifyOnNetworkStatusChange: true,
+    }
+  )
+
+  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore
+
+  const loadMorePosts = () => {
+    fetchMore({
+      variables: {
+        offset: posts.length,
+      },
+      updateQuery: (previousResult, { fetchMoreResult }) => {
+        if (!fetchMoreResult) {
+          return previousResult
+        }
+        return Object.assign({}, previousResult, {
+          // Append the new posts results to the old one
+          posts: [...previousResult.posts, ...fetchMoreResult.posts],
+        })
+      },
+    })
+  }
+
+  if (error) return <ErrorMessage message="Error loading posts." />
+  if (loading && !loadingMorePosts) return <Loading key={0} />
+
+  const { posts } = data
+
     return (
       <section className="mw8 center">
         <InfiniteScroll
           threshold={500}
-          loadMore={loadMore}
+          loadMore={loadMorePosts}
           hasMore={true}
           loader={<Loading key={0} />}
         >
@@ -45,44 +95,3 @@ function PostList({ data: { error, posts, loadMore } }) {
       </section>
     );
   }
-
-  return <div />;
-}
-
-export const allPosts = gql`
-  query posts($offset: Int!, $perpage: Int!) {
-    posts(input: { limit: $perpage, offset: $offset }) {
-      id
-      title
-      datetime
-      tags
-    }
-  }
-`;
-
-export default graphql(allPosts, {
-  options: {
-    variables: {
-      offset: 0,
-      perpage: PER_PAGE,
-    },
-  },
-  props: ({ data }) => ({
-    data: {
-      ...data,
-      loadMore: page => {
-        var offset = page * PER_PAGE;
-        return data.fetchMore({
-          variables: { offset, perpage: PER_PAGE },
-          updateQuery: (previousResult = {}, { fetchMoreResult = {} }) => {
-            var previousPosts = previousResult.posts;
-            var currentPosts = fetchMoreResult.posts;
-            return {
-              posts: [...previousPosts, ...currentPosts],
-            };
-          },
-        });
-      },
-    },
-  }),
-})(PostList);
