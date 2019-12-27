@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 import { TRACKING_ID } from "../lib/fathom";
 
@@ -8,16 +8,12 @@ import "../style.css";
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-
-    return {
-      ...initialProps,
-      currentUrl: ctx.pathname,
-    };
+    return { ...initialProps };
   }
 
   render() {
     return (
-      <html lang="en">
+      <Html>
         <Head>
           <meta
             name="viewport"
@@ -61,7 +57,7 @@ export default class WritingDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
