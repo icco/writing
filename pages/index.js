@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import PostList from "../components/PostList";
 
 import { checkLoggedIn } from "../lib/auth";
-import { withApollo } from "../lib/apollo";
 
 const Index = props => (
   <App>
@@ -27,4 +26,4 @@ Index.getInitialProps = async ctx => {
   };
 };
 
-export default withApollo(Index);
+export default Index;

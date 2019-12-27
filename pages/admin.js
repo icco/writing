@@ -12,13 +12,7 @@ import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
 import { checkLoggedIn } from "../lib/auth";
 
-class Admin extends React.Component {
-  async componentDidMount() {
-    const { loggedInUser } = await checkLoggedIn();
-    this.setState({ loggedInUser });
-  }
-
-  render() {
+const Page = withError(props => {
     if (
       !this.state ||
       !this.state.loggedInUser ||
@@ -55,10 +49,13 @@ class Admin extends React.Component {
         </div>
       </App>
     );
-  }
-}
-
-export default withApollo(Admin, {
-  // Disable apollo ssr fetching in favour of automatic static optimization
-  ssr: false,
 });
+
+Page.getInitialProps = async ctx => {
+  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
+  let ret = { loggedInUser };
+
+  return ret;
+};
+
+export default Page;
