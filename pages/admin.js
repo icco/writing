@@ -13,42 +13,42 @@ import NotAuthorized from "../components/NotAuthorized";
 import { checkLoggedIn } from "../lib/auth";
 
 const Page = withError(props => {
-    if (
-      !this.state ||
-      !this.state.loggedInUser ||
-      !this.state.loggedInUser.role ||
-      this.state.loggedInUser.role !== "admin"
-    ) {
-      return <NotAuthorized />;
-    }
+  if (
+    !this.state ||
+    !this.state.loggedInUser ||
+    !this.state.loggedInUser.role ||
+    this.state.loggedInUser.role !== "admin"
+  ) {
+    return <NotAuthorized />;
+  }
 
-    return (
-      <App>
-        <Head>
-          <title>Nat? Nat. Nat! Admin</title>
-        </Head>
-        <Header noLogo loggedInUser={this.state.loggedInUser} />
-        <div className="ma3">
-          <h1>Admin</h1>
-          <ul className="list pl0" key="new-ul">
-            <li className="" key={"new-post"}>
-              <Link as={"/admin/new"} href={"/admin/new"}>
-                <a className="link dark-gray dim">New Post</a>
-              </Link>
-            </li>
-          </ul>
+  return (
+    <App>
+      <Head>
+        <title>Nat? Nat. Nat! Admin</title>
+      </Head>
+      <Header noLogo loggedInUser={this.state.loggedInUser} />
+      <div className="ma3">
+        <h1>Admin</h1>
+        <ul className="list pl0" key="new-ul">
+          <li className="" key={"new-post"}>
+            <Link as={"/admin/new"} href={"/admin/new"}>
+              <a className="link dark-gray dim">New Post</a>
+            </Link>
+          </li>
+        </ul>
 
-          <h2>Drafts</h2>
-          <AdminDraftList />
+        <h2>Drafts</h2>
+        <AdminDraftList />
 
-          <h2>Future</h2>
-          <AdminFuturePostList />
+        <h2>Future</h2>
+        <AdminFuturePostList />
 
-          <h2>Published</h2>
-          <AdminPostList />
-        </div>
-      </App>
-    );
+        <h2>Published</h2>
+        <AdminPostList />
+      </div>
+    </App>
+  );
 });
 
 Page.getInitialProps = async ctx => {
