@@ -1,7 +1,6 @@
 import Document, { Head, Main, NextScript } from "next/document";
 
 import { TRACKING_ID } from "../lib/fathom";
-import { checkLoggedIn } from "../lib/auth";
 
 // CSS is compiled into the style.css below
 import "../style.css";
@@ -9,13 +8,10 @@ import "../style.css";
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
 
     return {
       ...initialProps,
-      loggedInUser,
       currentUrl: ctx.pathname,
-      isAuthenticated: !!loggedInUser,
     };
   }
 

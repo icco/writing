@@ -22,133 +22,10 @@ const sitemap = require("sitemap");
 const pinoMiddleware = require("pino-http");
 
 const md = require("./lib/markdown.js");
-const apollo = require("./lib/init-apollo.js");
 const { logger } = require("./lib/logger.js");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
-
-async function recentPosts() {
-  try {
-    const client = apollo.create({}, {});
-    let res = await client.query({
-      query: gql`
-        query recentPosts {
-          posts(input: { limit: 20, offset: 0 }) {
-            id
-            title
-            datetime
-            summary
-          }
-        }
-      `,
-    });
-
-    return res.data.posts;
-  } catch (err) {
-    logger.error(err);
-    return [];
-  }
-}
-
-async function mostPosts() {
-  try {
-    const client = apollo.create({}, {});
-    let res = await client.query({
-      query: gql`
-        query mostPosts {
-          posts(input: { limit: 1000, offset: 0 }) {
-            id
-          }
-        }
-      `,
-    });
-
-    return res.data.posts;
-  } catch (err) {
-    logger.error(err);
-    return [];
-  }
-}
-
-async function allTags() {
-  try {
-    const client = apollo.create({}, {});
-    let res = await client.query({
-      query: gql`
-        query tags {
-          tags
-        }
-      `,
-    });
-
-    return res.data.tags;
-  } catch (err) {
-    logger.error(err);
-    return [];
-  }
-}
-
-async function generateFeed() {
-  let feed = new rss.Feed({
-    title: "Nat? Nat. Nat!",
-    favicon: "https://writing.natwelch.com/favicon.ico",
-    description: "Nat Welch's blog about random stuff.",
-    feedLinks: {
-      atom: "https://writing.natwelch.com/feed.atom",
-    },
-    author: {
-      name: "Nat Welch",
-      email: "nat@natwelch.com",
-      link: "https://natwelch.com",
-    },
-    language: "en",
-  });
-
-  try {
-    let data = await recentPosts();
-
-    data.forEach(p => {
-      feed.addItem({
-        title: p.title,
-        link: `https://writing.natwelch.com/post/${p.id}`,
-        date: new Date(p.datetime),
-        content: md.render(p.summary),
-        author: [
-          {
-            name: "Nat Welch",
-            email: "nat@natwelch.com",
-            link: "https://natwelch.com",
-          },
-        ],
-      });
-    });
-  } catch (err) {
-    logger.error(err);
-  }
-
-  return feed;
-}
-
-async function generateSitemap() {
-  let urls = [];
-  let postIds = await mostPosts();
-  postIds.forEach(function(x) {
-    urls.push({ url: `/post/${x.id}` });
-  });
-
-  let tags = await allTags();
-  tags.forEach(function(t) {
-    urls.push({ url: `/tag/${t}` });
-  });
-
-  urls.push({ url: "/" });
-  return sitemap.createSitemap({
-    hostname: "https://writing.natwelch.com",
-    cacheTime: 6000000, // 600 sec - cache purge period
-    urls,
-  });
-}
 
 async function startServer() {
   if (process.env.ENABLE_STACKDRIVER) {
@@ -260,30 +137,6 @@ async function startServer() {
 
       server.get("/about", (req, res) => {
         res.redirect("https://natwelch.com");
-      });
-
-      server.get("/feed.rss", async (req, res) => {
-        let feed = await generateFeed();
-        res.set("Content-Type", "application/rss+xml");
-        res.send(feed.rss2());
-      });
-
-      server.get("/feed.atom", async (req, res) => {
-        let feed = await generateFeed();
-        res.set("Content-Type", "application/atom+xml");
-        res.send(feed.atom1());
-      });
-
-      server.get("/sitemap.xml", async (req, res) => {
-        let sm = await generateSitemap();
-        sm.toXML(function(err, xml) {
-          if (err) {
-            logger.error(err);
-            return res.status(500).end();
-          }
-          res.header("Content-Type", "application/xml");
-          res.send(xml);
-        });
       });
 
       server.all("*", (req, res) => {
