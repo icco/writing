@@ -7,7 +7,7 @@ import { Loading, ErrorMessage } from "@icco/react-common";
 
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
-import { initApollo } from "../../lib/init-apollo";
+import withError from "../../lib/withError";
 
 const NewPost = gql`
   mutation {
@@ -17,41 +17,41 @@ const NewPost = gql`
   }
 `;
 
-export default class extends React.Component {
-  async componentDidMount() {
-    this.state = this.state ? this.state : {};
-    const { loggedInUser } = await checkLoggedIn(initApollo());
-    this.setState({ loggedInUser });
+const Page = withError(props => {
+  if (
+    !props.loggedInUser ||
+    !props.loggedInUser.role ||
+    props.loggedInUser.role !== "admin"
+  ) {
+    return <NotAuthorized />;
   }
 
-  render() {
-    if (
-      !this.state ||
-      !this.state.loggedInUser ||
-      !this.state.loggedInUser.role ||
-      this.state.loggedInUser.role !== "admin"
-    ) {
-      return <NotAuthorized />;
-    }
+  return (
+    <Mutation mutation={NewPost}>
+      {(newPost, { loading, error, data }) => {
+        if (loading) {
+          return <Loading key={0} />;
+        }
+        if (error) {
+          return <ErrorMessage message="Page not found." />;
+        }
 
-    return (
-      <Mutation mutation={NewPost}>
-        {(newPost, { loading, error, data }) => {
-          if (loading) {
-            return <Loading key={0} />;
-          }
-          if (error) {
-            return <ErrorMessage message="Page not found." />;
-          }
+        if (data) {
+          Router.push(`/edit/${data.createPost.id}`);
+        } else {
+          newPost();
+        }
+        return null;
+      }}
+    </Mutation>
+  );
+});
 
-          if (data) {
-            Router.push(`/edit/${data.createPost.id}`);
-          } else {
-            newPost();
-          }
-          return null;
-        }}
-      </Mutation>
-    );
-  }
-}
+Page.getInitialProps = async ctx => {
+  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
+  let ret = { loggedInUser };
+
+  return ret;
+};
+
+export default Page;
