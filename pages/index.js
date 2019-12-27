@@ -6,15 +6,17 @@ import Footer from "../components/Footer";
 import PostList from "../components/PostList";
 import { withApollo } from "../lib/apollo";
 
-const Index = props => (
-  <App>
-    <Head>
-      <title>Nat? Nat. Nat!</title>
-    </Head>
-    <Header loggedInUser={props.loggedInUser} />
-    <PostList />
-    <Footer />
-  </App>
-);
+const Index = props => {
+  return (
+    <App>
+      <Head>
+        <title>Nat? Nat. Nat!</title>
+      </Head>
+      <Header loggedInUser={props.loggedInUser} />
+      <PostList />
+      <Footer />
+    </App>
+  );
+};
 
 export default withApollo(Index);
