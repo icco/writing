@@ -1,6 +1,5 @@
 import Editor from "rich-markdown-editor";
 import Link from "next/link";
-import React from "react";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { useMutation } from "@apollo/react-hooks";

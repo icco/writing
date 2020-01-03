@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { Logo } from "@icco/react-common";
 import { withRouter } from "next/router";
 
