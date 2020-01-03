@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import Post from "../../components/Post";
 import withError from "../../lib/withError";
 import { checkLoggedIn } from "../../lib/auth";
+import { withApollo } from "../../lib/apollo";
 
 const Page = withError(props => {
   const router = useRouter();
@@ -67,4 +68,4 @@ function getPostID(apollo, postID) {
     });
 }
 
-export default Page;
+export default withApollo(Page);

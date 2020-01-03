@@ -1,9 +1,10 @@
 import Head from "next/head";
+import InfiniteScroll from "react-infinite-scroller";
 import Link from "next/link";
 import gql from "graphql-tag";
-import { graphql } from "react-apollo";
-import { withRouter } from "next/router";
-import { ErrorMessage } from "@icco/react-common";
+import { ErrorMessage, Loading } from "@icco/react-common";
+import { NetworkStatus } from "apollo-client";
+import { useQuery } from "@apollo/react-hooks";
 
 import Comment from "./Comment";
 import CommentEditor from "./CommentEditor";
@@ -12,17 +13,55 @@ import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";
 
-const Post = props => {
-  const {
-    data: { error, post },
-    comments,
-  } = props;
+export const getPost = gql`
+  query getPost($id: ID!) {
+    post(id: $id) {
+      id
+      title
+      content
+      datetime
+      draft
+      next {
+        id
+      }
+      prev {
+        id
+      }
+      related(input: { limit: 4 }) {
+        id
+        title
+        summary
+      }
+      comments(input: { limit: 10 }) {
+        content
+        created
+        id
+        user {
+          name
+        }
+      }
+    }
+  }
+`;
+
+export default function Post({ id, loggedInUser, comments }) {
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+    getPost,
+    {
+      variables: { id },
+      notifyOnNetworkStatusChange: true,
+    }
+  );
 
   if (error) {
     return <ErrorMessage message="Unable to get page." />;
   }
+  if (loading) {
+    return <Loading key={0} />;
+  }
 
-  if (post) {
+  const { post } = data;
+
     let html = { __html: md.render(post.content) };
     let draft = "";
     if (post.draft) {
@@ -30,7 +69,7 @@ const Post = props => {
     }
 
     let edit = <></>;
-    if (props.loggedInUser) {
+    if (loggedInUser) {
       edit = (
         <Link as={`/edit/${post.id}`} href="/edit/[pid]">
           <a className="mh1 link gray dim">edit</a>
@@ -43,7 +82,7 @@ const Post = props => {
       commentDiv = (
         <article className="mh3 db">
           <h2>Comments</h2>
-          <CommentEditor postID={post.id} loggedInUser={props.loggedInUser} />
+          <CommentEditor postID={post.id} loggedInUser={loggedInUser} />
           <div className="">
             {post.comments.map(item => (
               <Comment key={item.id} data={{ comment: item }} />
@@ -94,46 +133,4 @@ const Post = props => {
         </article>
       </section>
     );
-  }
-
-  return <div />;
 };
-
-export const getPost = gql`
-  query getPost($id: ID!) {
-    post(id: $id) {
-      id
-      title
-      content
-      datetime
-      draft
-      next {
-        id
-      }
-      prev {
-        id
-      }
-      related(input: { limit: 4 }) {
-        id
-        title
-        summary
-      }
-      comments(input: { limit: 10 }) {
-        content
-        created
-        id
-        user {
-          name
-        }
-      }
-    }
-  }
-`;
-
-export default graphql(getPost, {
-  options: props => ({
-    variables: {
-      id: props.id,
-    },
-  }),
-})(withRouter(Post));
