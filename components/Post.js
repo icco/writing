@@ -58,6 +58,10 @@ export default function Post({ id, loggedInUser, comments }) {
 
   const { post } = data;
 
+  if (!post) {
+    throw "Page not found."
+  }
+
   let html = { __html: md.render(post.content) };
   let draft = "";
   if (post.draft) {

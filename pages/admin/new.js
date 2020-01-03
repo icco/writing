@@ -1,4 +1,3 @@
-import React from "react";
 import Router from "next/router";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
@@ -6,6 +5,7 @@ import { Loading, ErrorMessage } from "@icco/react-common";
 
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
+import { withApollo } from "../../lib/apollo";
 
 const NewPost = gql`
   mutation {
