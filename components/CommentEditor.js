@@ -3,8 +3,7 @@ import Link from "next/link";
 import React from "react";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { Query, Mutation } from "react-apollo";
-import { withRouter } from "next/router";
+import { useMutation } from '@apollo/react-hooks'
 
 import { getToken } from "../lib/auth.js";
 import theme from "./editorTheme";
@@ -14,8 +13,8 @@ const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
 );
 
-const SaveComment = gql`
-  mutation SaveComment($postid: ID!, $content: String!) {
+export const saveCommentMutation = gql`
+  mutation saveComment($postid: ID!, $content: String!) {
     addComment(input: { content: $content, post_id: $postid }) {
       content
       modified
@@ -23,23 +22,25 @@ const SaveComment = gql`
   }
 `;
 
-class CommentEditor extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: "",
-      postID: props.postID,
-    };
-  }
-
-  handleEditorChange = value => {
-    this.setState({
-      content: value(),
-    });
+export default function CommentEditor ({ postID, loggedInUser }) {
+  let content = "";
+  const handleEditorChange = value => {
+    content = value()
   };
 
-  render() {
-    if (!this.props.loggedInUser) {
+  const [saveComment] = useMutation(saveCommentMutation)
+  console
+
+  const addComment = (content) => {
+    saveComment({
+      variables: {
+        postid: postID,
+        content,
+      },
+    })
+  }
+
+    if (!loggedInUser) {
       return (
         <p>
           <Link key="/auth/sign-in" href="/auth/sign-in">
@@ -56,17 +57,10 @@ class CommentEditor extends React.Component {
       <section className="pa3 mw8 center">
         <h2>Add a comment</h2>
 
-        <Mutation mutation={SaveComment}>
-          {(saveComment, { data }) => (
             <form
               onSubmit={e => {
                 e.preventDefault();
-                saveComment({
-                  variables: {
-                    content: this.state.content,
-                    postid: this.state.postID,
-                  },
-                });
+                addComment(content);
               }}
             >
               <Editor
@@ -74,8 +68,8 @@ class CommentEditor extends React.Component {
                 name="content"
                 className="db border-box w-100 pa2 br2 mb2"
                 aria-describedby="text-desc"
-                onChange={this.handleEditorChange}
-                defaultValue={this.state.content}
+                onChange={handleEditorChange}
+                defaultValue={content}
                 theme={theme}
               />
 
@@ -87,11 +81,6 @@ class CommentEditor extends React.Component {
                 />
               </div>
             </form>
-          )}
-        </Mutation>
       </section>
     );
   }
-}
-
-export default withRouter(CommentEditor);

@@ -78,7 +78,7 @@ export default function Post({ id, loggedInUser, comments }) {
     commentDiv = (
       <article className="mh3 db">
         <h2>Comments</h2>
-        <CommentEditor postID={post.id} loggedInUser={loggedInUser} />
+        <CommentEditor postID={id} loggedInUser={loggedInUser} />
         <div className="">
           {post.comments.map(item => (
             <Comment key={item.id} data={{ comment: item }} />
