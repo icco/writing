@@ -54,4 +54,4 @@ Page.getInitialProps = async ctx => {
   return ret;
 };
 
-export default Page;
+export default withApollo(Page);
