@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import Tag from "../../components/Tag";
 import withError from "../../lib/withError";
 import { checkLoggedIn } from "../../lib/auth";
+import { withApollo } from "../../lib/apollo";
 
 const Page = withError(props => {
   const router = useRouter();
@@ -30,4 +31,4 @@ Page.getInitialProps = async ctx => {
   return ret;
 };
 
-export default Page;
+export default withApollo(Page);

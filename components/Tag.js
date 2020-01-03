@@ -1,20 +1,38 @@
+
 import Head from "next/head";
+import InfiniteScroll from "react-infinite-scroller";
 import Link from "next/link";
 import gql from "graphql-tag";
-import { graphql } from "react-apollo";
-import { withRouter } from "next/router";
-import { ErrorMessage } from "@icco/react-common";
+import { ErrorMessage, Loading } from "@icco/react-common";
+import { useQuery } from "@apollo/react-hooks";
 
 import Datetime from "./Datetime";
 
-const Tag = props => {
-  const {
-    id,
-    data: { error, postsByTag },
-  } = props;
+export const getTag = gql`
+  query postsByTag($id: String!) {
+    postsByTag(id: $id) {
+      id
+      title
+      datetime
+    }
+  }
+`;
 
-  if (error) return <ErrorMessage message="Tag not found." />;
-  if (postsByTag) {
+export default function Tag({ id }) {
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(getTag, {
+    variables: { id },
+    notifyOnNetworkStatusChange: true,
+  });
+
+  if (error) {
+    return <ErrorMessage message="Tag not found." />;
+  }
+  if (loading) {
+    return <Loading key={0} />;
+  }
+
+  const { postsByTag } = data;
+
     return (
       <section className="mw8 center">
         <Head>
@@ -40,25 +58,4 @@ const Tag = props => {
         </ul>
       </section>
     );
-  }
-
-  return <div />;
 };
-
-export const getTag = gql`
-  query postsByTag($id: String!) {
-    postsByTag(id: $id) {
-      id
-      title
-      datetime
-    }
-  }
-`;
-
-export default graphql(getTag, {
-  options: props => ({
-    variables: {
-      id: props.id,
-    },
-  }),
-})(withRouter(Tag));
