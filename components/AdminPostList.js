@@ -25,14 +25,17 @@ export const allDraftPosts = gql`
   }
 `;
 
-export default function AdminPostList(type) {
-  let query = allPosts;
+export default function AdminPostList({ type }) {
+  let query = null;
   switch (type) {
     case "drafts":
       query = allDraftPosts;
       break;
     case "future":
       query = allFuturePosts;
+      break;
+    default:
+      query = allPosts;
       break;
   }
 
