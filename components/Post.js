@@ -59,7 +59,10 @@ export default function Post({ id, loggedInUser, comments }) {
   const { post } = data;
 
   if (!post) {
-    throw "Page not found."
+    const e = new Error();
+    e.code = "ENOENT";
+    e.message = "Post not found";
+    throw e;
   }
 
   let html = { __html: md.render(post.content) };
