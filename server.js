@@ -26,6 +26,7 @@ const { logger } = require("./lib/logger.js");
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
+const dev = process.env.NODE_ENV !== 'production'
 
 async function startServer() {
   if (process.env.ENABLE_STACKDRIVER) {
@@ -54,7 +55,7 @@ async function startServer() {
 
   const app = next({
     dir: ".",
-    dev: process.env.NODE_ENV !== "production",
+    dev,
   });
 
   app
@@ -120,7 +121,7 @@ async function startServer() {
         reportTo: "default",
       };
 
-      if (app.dev) {
+      if (dev) {
         directives.defaultSrc.push("http://localhost:9393");
       }
 

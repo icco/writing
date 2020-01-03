@@ -1,23 +1,70 @@
-import { graphql } from "react-apollo";
-import gql from "graphql-tag";
-import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroller";
+import Link from "next/link";
+import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
+import { NetworkStatus } from "apollo-client";
+import { useQuery } from "@apollo/react-hooks";
 
 import Datetime from "./Datetime";
 
-function AdminLinkList({ data: { error, links, loadMore } }) {
+export const linksQuery = gql`
+  query links($offset: Int!, $perpage: Int!) {
+    links(input: { limit: $perpage, offset: $offset }) {
+      id
+      uri
+      title
+      created
+      description
+    }
+  }
+`;
+
+export const PER_PAGE = 50;
+
+export default function AdminLinkList() {
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+    linksQuery,
+    {
+      variables: {
+  offset: 0,
+  perpage: PER_PAGE,
+},
+      notifyOnNetworkStatusChange: true,
+    }
+  );
+
+  const loadingMorelinks = networkStatus === NetworkStatus.fetchMore;
+
+  const loadMorelinks = () => {
+    fetchMore({
+      variables: {
+        offset: links.length,
+      },
+      updateQuery: (previousResult, { fetchMoreResult }) => {
+        if (!fetchMoreResult) {
+          return previousResult;
+        }
+        return Object.assign({}, previousResult, {
+          // Append the new links results to the old one
+          links: [...previousResult.links, ...fetchMoreResult.links],
+        });
+      },
+    });
+  };
+
   if (error) {
     return <ErrorMessage message="Error loading links." />;
   }
+  if (loading && !loadingMorelinks) return <Loading key={0} />;
 
-  if (links && links.length) {
+  const { links } = data;
+
     return (
       <section className="pa3 mw8 center">
         <InfiniteScroll
           threshold={500}
           loadMore={loadMore}
-          hasMore={true}
+          hasMore={links.length > 0}
           loader={<Loading key="link-loader" />}
         >
           <ul className="list pl0" key="link-ul">
@@ -46,48 +93,4 @@ function AdminLinkList({ data: { error, links, loadMore } }) {
         </InfiniteScroll>
       </section>
     );
-  }
-
-  return <div />;
 }
-
-export const SomeLinks = gql`
-  query links($offset: Int!, $perpage: Int!) {
-    links(input: { limit: $perpage, offset: $offset }) {
-      id
-      uri
-      title
-      created
-      description
-    }
-  }
-`;
-
-const PER_PAGE = 50;
-
-export default graphql(SomeLinks, {
-  options: {
-    variables: {
-      offset: 0,
-      perpage: PER_PAGE,
-    },
-  },
-  props: ({ data }) => ({
-    data: {
-      ...data,
-      loadMore: page => {
-        var offset = page * PER_PAGE;
-        return data.fetchMore({
-          variables: { offset, perpage: PER_PAGE },
-          updateQuery: (previousResult = {}, { fetchMoreResult = {} }) => {
-            var previouslinks = previousResult.links;
-            var currentlinks = fetchMoreResult.links;
-            return {
-              links: [...previouslinks, ...currentlinks],
-            };
-          },
-        });
-      },
-    },
-  }),
-})(AdminLinkList);

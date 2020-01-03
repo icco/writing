@@ -7,7 +7,7 @@ import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
-import { withApollo } from "../lib/apollo";
+import { withApollo } from "../../lib/apollo";
 
 const Page = props => {
   if (
@@ -27,7 +27,7 @@ const Page = props => {
   return (
     <App>
       <Head>
-        <title>Nat? Nat. Nat! Edit Post #{this.props.router.query.pid}</title>
+        <title>Nat? Nat. Nat! Edit Post #{pid}</title>
       </Head>
       <Header noLogo loggedInUser={props.loggedInUser} />
       <EditPost id={pid} loggedInUser={props.loggedInUser} />
