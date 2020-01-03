@@ -2,7 +2,7 @@
 import "../style.css";
 
 function Writing({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default Writing
+export default Writing;
