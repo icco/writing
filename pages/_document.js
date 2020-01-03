@@ -2,9 +2,6 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 import { TRACKING_ID } from "../lib/fathom";
 
-// CSS is compiled into the style.css below
-import "../style.css";
-
 export default class WritingDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);

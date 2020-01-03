@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostList from "../components/PostList";
 import withError from "../lib/withError";
+import { withApollo } from "../lib/apollo";
 
 const Index = withError(props => {
   return (
@@ -19,4 +20,4 @@ const Index = withError(props => {
   );
 });
 
-export default Index;
+export default withApollo(Index);
