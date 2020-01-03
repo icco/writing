@@ -26,9 +26,9 @@ export default function AdminLinkList() {
     linksQuery,
     {
       variables: {
-  offset: 0,
-  perpage: PER_PAGE,
-},
+        offset: 0,
+        perpage: PER_PAGE,
+      },
       notifyOnNetworkStatusChange: true,
     }
   );
@@ -59,38 +59,38 @@ export default function AdminLinkList() {
 
   const { links } = data;
 
-    return (
-      <section className="pa3 mw8 center">
-        <InfiniteScroll
-          threshold={500}
-          loadMore={loadMore}
-          hasMore={links.length > 0}
-          loader={<Loading key="link-loader" />}
-        >
-          <ul className="list pl0" key="link-ul">
-            {links.map(l => (
-              <li className="mv3" key={"link-" + l.id}>
-                <span className="mr3">
-                  <Datetime>{l.created}</Datetime>
-                </span>
-                <a href={l.uri} className="link dark-blue dim">
-                  {l.title}
-                </a>
-                {" - "}
-                <span
-                  className="gray link pointer dim"
-                  onClick={() => {
-                    let text = `[${l.title} - ${l.description}](${l.uri})`;
-                    navigator.clipboard.writeText(text);
-                  }}
-                >
-                  {l.uri}
-                </span>
-                <blockquote>{l.description}</blockquote>
-              </li>
-            ))}
-          </ul>
-        </InfiniteScroll>
-      </section>
-    );
+  return (
+    <section className="pa3 mw8 center">
+      <InfiniteScroll
+        threshold={500}
+        loadMore={loadMore}
+        hasMore={links.length > 0}
+        loader={<Loading key="link-loader" />}
+      >
+        <ul className="list pl0" key="link-ul">
+          {links.map(l => (
+            <li className="mv3" key={"link-" + l.id}>
+              <span className="mr3">
+                <Datetime>{l.created}</Datetime>
+              </span>
+              <a href={l.uri} className="link dark-blue dim">
+                {l.title}
+              </a>
+              {" - "}
+              <span
+                className="gray link pointer dim"
+                onClick={() => {
+                  let text = `[${l.title} - ${l.description}](${l.uri})`;
+                  navigator.clipboard.writeText(text);
+                }}
+              >
+                {l.uri}
+              </span>
+              <blockquote>{l.description}</blockquote>
+            </li>
+          ))}
+        </ul>
+      </InfiniteScroll>
+    </section>
+  );
 }
