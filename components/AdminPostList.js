@@ -25,33 +25,29 @@ export const allDraftPosts = gql`
   }
 `;
 
-
 export default function AdminPostList(type) {
-  let query = allPosts
-  switch(type) {
+  let query = allPosts;
+  switch (type) {
     case "drafts":
-    query = allDraftPosts
-      break
+      query = allDraftPosts;
+      break;
     case "future":
-    query = allFuturePosts
-      break
+      query = allFuturePosts;
+      break;
   }
 
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(
-    query,
-    {
-      variables: {
-  offset: 0,
-  perpage: PER_PAGE,
-},
-      notifyOnNetworkStatusChange: true,
-      fetchPolicy: "network-only",
-    }
-  );
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(query, {
+    variables: {
+      offset: 0,
+      perpage: PER_PAGE,
+    },
+    notifyOnNetworkStatusChange: true,
+    fetchPolicy: "network-only",
+  });
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
-  let adminPosts = []
+  let adminPosts = [];
 
   const loadMorePosts = () => {
     fetchMore({
@@ -63,25 +59,28 @@ export default function AdminPostList(type) {
           return previousResult;
         }
 
-  if (previousResult.posts) {
-        return Object.assign({}, previousResult, {
-          posts: [...previousResult.posts, ...fetchMoreResult.posts],
-        });
-  }
+        if (previousResult.posts) {
+          return Object.assign({}, previousResult, {
+            posts: [...previousResult.posts, ...fetchMoreResult.posts],
+          });
+        }
 
-  if (previousResult.drafts) {
-        return Object.assign({}, previousResult, {
-          drafts: [...previousResult.drafts, ...fetchMoreResult.drafts],
-        });
-  }
+        if (previousResult.drafts) {
+          return Object.assign({}, previousResult, {
+            drafts: [...previousResult.drafts, ...fetchMoreResult.drafts],
+          });
+        }
 
-  if (previousResult.futurePosts) {
-        return Object.assign({}, previousResult, {
-          futurePosts: [...previousResult.futurePosts, ...fetchMoreResult.futurePosts],
-        });
-  }
+        if (previousResult.futurePosts) {
+          return Object.assign({}, previousResult, {
+            futurePosts: [
+              ...previousResult.futurePosts,
+              ...fetchMoreResult.futurePosts,
+            ],
+          });
+        }
 
-        return fetchMoreResult
+        return fetchMoreResult;
       },
     });
   };
@@ -92,36 +91,36 @@ export default function AdminPostList(type) {
   const { posts, futurePosts, drafts } = data;
 
   if (posts) {
-    adminPosts = [...posts, ...adminPosts]
+    adminPosts = [...posts, ...adminPosts];
   }
 
   if (drafts) {
-    adminPosts = [...drafts, ...adminPosts]
+    adminPosts = [...drafts, ...adminPosts];
   }
 
   if (futurePosts) {
-    adminPosts = [...futurePosts, ...adminPosts]
+    adminPosts = [...futurePosts, ...adminPosts];
   }
 
-    return (
-      <section className="mw8">
+  return (
+    <section className="mw8">
       <InfiniteScroll
         threshold={500}
         loadMore={loadMorePosts}
         hasMore={adminPosts.length > 0}
         loader={<Loading key={0} />}
       >
-          <ul className="list pl0" key="admin-post-ul">
-            {adminPosts.map(post => (
-              <li className="" key={"admin-post-" + post.id}>
-                <span className="dbi mr3">#{post.id}</span>
-                <Link as={`/edit/${post.id}`} href={`/edit/[pid]`}>
-                  <a className="link dark-gray dim">{post.title}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </InfiniteScroll>
-      </section>
-    );
+        <ul className="list pl0" key="admin-post-ul">
+          {adminPosts.map(post => (
+            <li className="" key={"admin-post-" + post.id}>
+              <span className="dbi mr3">#{post.id}</span>
+              <Link as={`/edit/${post.id}`} href={`/edit/[pid]`}>
+                <a className="link dark-gray dim">{post.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </InfiniteScroll>
+    </section>
+  );
 }

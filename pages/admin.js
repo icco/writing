@@ -38,7 +38,7 @@ const Page = withError(props => {
         </ul>
 
         <h2>Drafts</h2>
-        <AdminPostList type="drafts"/>
+        <AdminPostList type="drafts" />
 
         <h2>Future</h2>
         <AdminPostList type="future" />
