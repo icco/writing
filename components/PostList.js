@@ -66,7 +66,7 @@ export default function PostList() {
       <InfiniteScroll
         threshold={500}
         loadMore={loadMorePosts}
-        hasMore={true}
+        hasMore={posts.length > 0}
         loader={<Loading key={0} />}
       >
         <ul className="list pl0" key="ul">
