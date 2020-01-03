@@ -1,17 +1,14 @@
 import Head from "next/head";
-import React from "react";
-import Error from "next/error";
 import Link from "next/link";
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
-import withError from "../lib/withError";
 import { checkLoggedIn } from "../lib/auth";
 import { withApollo } from "../lib/apollo";
 
-const Page = withError(props => {
+const Page = props => {
   if (
     !props ||
     !props.loggedInUser ||
@@ -48,7 +45,7 @@ const Page = withError(props => {
       </div>
     </App>
   );
-});
+};
 
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);

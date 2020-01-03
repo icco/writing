@@ -1,7 +1,4 @@
-import Error from "next/error";
 import Head from "next/head";
-import React from "react";
-import { withRouter } from "next/router";
 
 import AdminLinkList from "../../components/AdminLinkList";
 import App from "../../components/App";
@@ -9,9 +6,8 @@ import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
-import withError from "../../lib/withError";
 
-const Page = withError(props => {
+const Page = props => {
   if (
     !props.loggedInUser ||
     !props.loggedInUser.role ||
@@ -19,6 +15,7 @@ const Page = withError(props => {
   ) {
     return <NotAuthorized />;
   }
+
   return (
     <App>
       <Head>
@@ -29,7 +26,7 @@ const Page = withError(props => {
       <AdminLinkList />
     </App>
   );
-});
+};
 
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);

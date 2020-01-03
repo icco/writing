@@ -5,11 +5,10 @@ import App from "../../components/App";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Post from "../../components/Post";
-import withError from "../../lib/withError";
 import { checkLoggedIn } from "../../lib/auth";
 import { withApollo } from "../../lib/apollo";
 
-const Page = withError(props => {
+const Page = props => {
   const router = useRouter();
   if (router == null) {
     return <></>;
@@ -22,7 +21,7 @@ const Page = withError(props => {
       <Footer />
     </App>
   );
-});
+};
 
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);

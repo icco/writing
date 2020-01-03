@@ -2,12 +2,10 @@ import React from "react";
 import Router from "next/router";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
-import Error from "next/error";
 import { Loading, ErrorMessage } from "@icco/react-common";
 
 import NotAuthorized from "../../components/NotAuthorized";
 import { checkLoggedIn } from "../../lib/auth";
-import withError from "../../lib/withError";
 
 const NewPost = gql`
   mutation {
@@ -17,7 +15,7 @@ const NewPost = gql`
   }
 `;
 
-const Page = withError(props => {
+const Page = props => {
   if (
     !props.loggedInUser ||
     !props.loggedInUser.role ||
@@ -45,7 +43,7 @@ const Page = withError(props => {
       }}
     </Mutation>
   );
-});
+};
 
 Page.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);

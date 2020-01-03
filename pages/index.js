@@ -4,11 +4,10 @@ import App from "../components/App";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostList from "../components/PostList";
-import withError from "../lib/withError";
 import { checkLoggedIn } from "../lib/auth";
 import { withApollo } from "../lib/apollo";
 
-const Index = withError(props => {
+const Index = props => {
   return (
     <App>
       <Head>
@@ -19,7 +18,7 @@ const Index = withError(props => {
       <Footer />
     </App>
   );
-});
+};
 
 Index.getInitialProps = async ctx => {
   const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
