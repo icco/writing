@@ -92,17 +92,21 @@ export default function AdminPostList({ type }) {
   if (loading && !loadingMorePosts) return <Loading key={0} />;
 
   const { posts, futurePosts, drafts } = data;
+  let newPosts = false
 
   if (posts) {
     adminPosts = [...posts, ...adminPosts];
+    newPosts = posts.length > 0
   }
 
   if (drafts) {
     adminPosts = [...drafts, ...adminPosts];
+    newPosts = false
   }
 
   if (futurePosts) {
     adminPosts = [...futurePosts, ...adminPosts];
+    newPosts = futurePosts.length > 0
   }
 
   return (
@@ -110,7 +114,7 @@ export default function AdminPostList({ type }) {
       <InfiniteScroll
         threshold={500}
         loadMore={loadMorePosts}
-        hasMore={adminPosts.length > 0}
+        hasMore={newPosts}
         loader={<Loading key={0} />}
       >
         <ul className="list pl0" key="admin-post-ul">
