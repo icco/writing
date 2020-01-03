@@ -3,8 +3,6 @@ import React from "react";
 import Error from "next/error";
 import Link from "next/link";
 
-import AdminDraftList from "../components/AdminDraftList";
-import AdminFuturePostList from "../components/AdminFuturePostList";
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
@@ -40,16 +38,22 @@ const Page = withError(props => {
         </ul>
 
         <h2>Drafts</h2>
-        <AdminDraftList />
+        <AdminPostList type="drafts"/>
 
         <h2>Future</h2>
-        <AdminFuturePostList />
+        <AdminPostList type="future" />
 
         <h2>Published</h2>
-        <AdminPostList />
+        <AdminPostList type="published" />
       </div>
     </App>
   );
 });
+
+Page.getInitialProps = async ctx => {
+  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
+  let ret = { loggedInUser };
+  return ret;
+};
 
 export default withApollo(Page);

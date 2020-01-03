@@ -7,7 +7,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 import Datetime from "./Datetime";
 
-const PER_PAGE = 20;
+export const PER_PAGE = 20;
 
 export const allPosts = gql`
   query posts($offset: Int!, $perpage: Int!) {
