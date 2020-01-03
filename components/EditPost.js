@@ -1,11 +1,9 @@
-import React from "react";
 import gql from "graphql-tag";
-import { Query, Mutation } from "react-apollo";
-import { withRouter } from "next/router";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
 import { ErrorMessage, Loading } from "@icco/react-common";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
 import theme from "./editorTheme";
 import { getToken } from "../lib/auth.js";
@@ -15,7 +13,7 @@ const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
 );
 
-const SavePost = gql`
+const savePostMutation = gql`
   mutation SavePost(
     $id: ID!
     $content: String!
@@ -41,7 +39,7 @@ const SavePost = gql`
   }
 `;
 
-const GetPost = gql`
+const getPostQuery = gql`
   query getEditPost($id: ID!) {
     post(id: $id) {
       id
@@ -53,48 +51,42 @@ const GetPost = gql`
   }
 `;
 
-class EditPost extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: "",
-      title: "",
-      datetime: "",
-    };
+export default function EditPost({ id, loggedInUser }) {
+  let state = {}
+  const setState = (src) => {
+    state = Object.assign(state, src)
   }
 
-  handleBasicChange = event => {
+  const handleBasicChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
-    this.setState({
+    setState({
       [name]: value,
     });
   };
 
-  handleEditorChange = value => {
-    this.setState({
+  const handleEditorChange = value => {
+    setState({
       content: value(),
     });
   };
 
-  draft = postDraft => {
-    if (!("draft" in this.state)) {
+  const draft = postDraft => {
+    if (!("draft" in state)) {
       return postDraft;
     }
 
-    return this.state.draft;
+    return state.draft;
   };
 
-  render() {
-    return (
-      <Query
-        query={GetPost}
-        variables={{ id: this.props.id }}
-        fetchPolicy={"network-only"}
-      >
-        {({ loading, error, data }) => {
+  const [savePost] = useMutation(savePostMutation);
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(getPostQuery, {
+    variables: { id },
+        fetchPolicy: "network-only",
+  });
+
           if (loading) {
             return <Loading key={0} />;
           }
@@ -103,26 +95,31 @@ class EditPost extends React.Component {
             return <ErrorMessage message="Page not found." />;
           }
 
-          let post = data.post;
+  const { post } = data;
+
+  if (!post) {
+    const e = new Error();
+    e.code = "ENOENT";
+    e.message = "Post not found";
+    throw e;
+  }
+
           return (
             <section className="pa3 mw8 center">
               <h2>Edit Post #{post.id}</h2>
-
-              <Mutation mutation={SavePost}>
-                {(savePost, { data }) => (
                   <form
                     onSubmit={e => {
                       e.preventDefault();
                       savePost({
                         variables: {
-                          title: this.state.title || post.title,
-                          content: this.state.content || post.content,
-                          draft: this.draft(post.draft),
-                          datetime: this.state.datetime || post.datetime,
+                          title: state.title || post.title,
+                          content: state.content || post.content,
+                          draft: draft(post.draft),
+                          datetime: state.datetime || post.datetime,
                           id: post.id,
                         },
                         refetchQueries: [
-                          { query: GetPost, variables: { id: post.id } },
+                          { query: getPostQuery, variables: { id: post.id } },
                         ],
                         awaitRefetchQueries: true,
                       });
@@ -138,8 +135,8 @@ class EditPost extends React.Component {
                         className="input-reset ba b--black-20 pa2 mb2 db w-100"
                         type="text"
                         aria-describedby="title-desc"
-                        value={this.state.title || post.title}
-                        onChange={this.handleBasicChange}
+                        value={state.title || post.title}
+                        onChange={handleBasicChange}
                       />
                     </div>
 
@@ -153,8 +150,8 @@ class EditPost extends React.Component {
                       className="db border-box w-100 pa2 br2 mb2"
                       theme={theme}
                       aria-describedby="text-desc"
-                      onChange={this.handleEditorChange}
-                      defaultValue={this.state.content || post.content}
+                      onChange={handleEditorChange}
+                      defaultValue={state.content || post.content}
                       uploadImage={async file => {
                         let token = getToken();
 
@@ -194,8 +191,8 @@ class EditPost extends React.Component {
                           type="checkbox"
                           id="draft"
                           name="draft"
-                          checked={this.draft(post.draft)}
-                          onChange={this.handleBasicChange}
+                          checked={draft(post.draft)}
+                          onChange={handleBasicChange}
                         />
                       </div>
 
@@ -208,8 +205,8 @@ class EditPost extends React.Component {
                           type="text"
                           name="datetime"
                           className="input-reset ba b--black-20 pa2 mb2 db w-100"
-                          value={this.state.datetime || post.datetime}
-                          onChange={this.handleBasicChange}
+                          value={state.datetime || post.datetime}
+                          onChange={handleBasicChange}
                         />
                       </div>
                     </div>
@@ -226,14 +223,6 @@ class EditPost extends React.Component {
                       </Link>
                     </div>
                   </form>
-                )}
-              </Mutation>
             </section>
-          );
-        }}
-      </Query>
     );
   }
-}
-
-export default withRouter(EditPost);

@@ -29,7 +29,6 @@ export default function CommentEditor({ postID, loggedInUser }) {
   };
 
   const [saveComment] = useMutation(saveCommentMutation);
-  console;
 
   const addComment = content => {
     saveComment({
