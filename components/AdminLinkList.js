@@ -30,18 +30,21 @@ export default function AdminLinkList() {
         perpage: PER_PAGE,
       },
       notifyOnNetworkStatusChange: true,
+      fetchPolicy: "cache-and-network",
     }
   );
 
-  const loadingMorelinks = networkStatus === NetworkStatus.fetchMore;
+  const loadingMoreLinks = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMorelinks = () => {
+  let hasMoreLinks = true;
+  const loadMoreLinks = () => {
     fetchMore({
       variables: {
         offset: links.length,
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
+          hasMoreLinks = false;
           return previousResult;
         }
         return Object.assign({}, previousResult, {
@@ -55,7 +58,7 @@ export default function AdminLinkList() {
   if (error) {
     return <ErrorMessage message="Error loading links." />;
   }
-  if (loading && !loadingMorelinks) return <Loading key={0} />;
+  if (loading && !loadingMoreLinks) return <Loading key={0} />;
 
   const { links } = data;
 
@@ -63,8 +66,8 @@ export default function AdminLinkList() {
     <section className="pa3 mw8 center">
       <InfiniteScroll
         threshold={500}
-        loadMore={loadMore}
-        hasMore={links.length > 0}
+        loadMore={loadMoreLinks}
+        hasMore={hasMoreLinks}
         loader={<Loading key="link-loader" />}
       >
         <ul className="list pl0" key="link-ul">
