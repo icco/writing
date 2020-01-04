@@ -4,7 +4,7 @@ import Link from "next/link";
 import Editor from "rich-markdown-editor";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useState } from 'react';
+import { useState } from "react";
 
 import theme from "./editorTheme";
 import { getToken } from "../lib/auth.js";
@@ -53,28 +53,28 @@ const getPostQuery = gql`
 `;
 
 export default function EditPost({ id, loggedInUser }) {
-              const [title, setTitle      ] = useState("")
-              const [content, setContent  ] = useState()
-              const [draft, setDraft      ] = useState()
-              const [datetime, setDatetime] = useState()
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState();
+  const [draft, setDraft] = useState();
+  const [datetime, setDatetime] = useState();
 
   const setters = {
-    "title": setTitle,
-    "content": setContent,
-    "draft": setDraft,
-    "datetime": setDatetime,
-  }
+    title: setTitle,
+    content: setContent,
+    draft: setDraft,
+    datetime: setDatetime,
+  };
 
   const handleBasicChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
-    setters[name](value)
+    setters[name](value);
   };
 
   const handleEditorChange = value => {
-    setContent(value())
+    setContent(value());
   };
 
   const [savePost] = useMutation(savePostMutation);
@@ -103,10 +103,10 @@ export default function EditPost({ id, loggedInUser }) {
     throw e;
   }
 
-  setDraft(post.draft)
-  setContent(post.content)
-  setDatetime(post.datetime)
-  setTitle(post.title)
+  setDraft(post.draft);
+  setContent(post.content);
+  setDatetime(post.datetime);
+  setTitle(post.title);
 
   return (
     <section className="pa3 mw8 center">
@@ -122,9 +122,7 @@ export default function EditPost({ id, loggedInUser }) {
               datetime,
               id,
             },
-            refetchQueries: [
-              { query: getPostQuery, variables: { id } },
-            ],
+            refetchQueries: [{ query: getPostQuery, variables: { id } }],
             awaitRefetchQueries: true,
           });
         }}
