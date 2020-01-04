@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Logo } from "@icco/react-common";
 
-import { useLoggedIn } from '../lib/auth';
+import { useLoggedIn } from "../lib/auth";
 
-export default function Header ({ noLogo }) => {
-  { loading, login, logout, loggedInUser } = useLoggedIn()
+export default function Header({ noLogo }) {
+  const { loading, login, logout, loggedInUser } = useLoggedIn();
+
   if (loading) {
     return <Loading key={0} />;
   }
@@ -20,7 +21,12 @@ export default function Header ({ noLogo }) => {
     <>
       {about}
 
-      <a className="f6 link dib dim mr3 black mr4-ns"  onClick={() => login({ appState: { returnTo: { pathname, query } } })}>sign in</a>
+      <a
+        className="f6 link dib dim mr3 black mr4-ns"
+        onClick={() => login({ appState: { returnTo: { pathname, query } } })}
+      >
+        sign in
+      </a>
     </>
   );
 
@@ -48,7 +54,14 @@ export default function Header ({ noLogo }) => {
           </a>
         </Link>
 
-          <a className="f6 link dib dim mr3 black mr4-ns"   onClick={() => logout({ appState: { returnTo: { pathname, query } } })}>Sign Out</a>
+        <a
+          className="f6 link dib dim mr3 black mr4-ns"
+          onClick={() =>
+            logout({ appState: { returnTo: { pathname, query } } })
+          }
+        >
+          Sign Out
+        </a>
       </>
     );
   }
@@ -73,4 +86,4 @@ export default function Header ({ noLogo }) => {
       {head}
     </div>
   );
-};
+}

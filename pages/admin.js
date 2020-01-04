@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { withAuth, withLoginRequired } from 'use-auth0-hooks';
+import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
@@ -10,7 +10,7 @@ import { getUser } from "../lib/auth";
 import { withApollo } from "../lib/apollo";
 
 const Page = ({ auth, loggedInUser }) => {
-  console.log(auth)
+  console.log(auth);
   if (loggedInUser.role !== "admin") {
     return <NotAuthorized />;
   }
