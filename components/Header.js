@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Logo } from "@icco/react-common";
-import { useAuth } from 'use-auth0-hooks';
+
+import { useLoggedIn } from '../lib/auth';
 
 export default function Header ({ noLogo }) => {
-  const { isAuthenticated, isLoading, login, logout } = useAuth();
-
-  !isLoading && 
-            isAuthenticated
+  { loading, login, logout, loggedInUser } = useLoggedIn()
+  if (loading) {
+    return <Loading key={0} />;
+  }
 
   let prefix = <></>;
   let about = (
@@ -19,11 +20,10 @@ export default function Header ({ noLogo }) => {
     <>
       {about}
 
-      <Link key="/auth/sign-in" href="/auth/sign-in">
-        <a className="f6 link dib dim mr3 black mr4-ns">sign in</a>
-      </Link>
+      <a className="f6 link dib dim mr3 black mr4-ns"  onClick={() => login({ appState: { returnTo: { pathname, query } } })}>sign in</a>
     </>
   );
+
   let head = (
     <>
       <header className="mv5 center mw6">
@@ -48,9 +48,7 @@ export default function Header ({ noLogo }) => {
           </a>
         </Link>
 
-        <Link key="/auth/sign-out" href="/auth/sign-out">
-          <a className="f6 link dib dim mr3 black mr4-ns">Sign Out</a>
-        </Link>
+          <a className="f6 link dib dim mr3 black mr4-ns"   onClick={() => logout({ appState: { returnTo: { pathname, query } } })}>Sign Out</a>
       </>
     );
   }
