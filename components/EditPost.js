@@ -4,6 +4,7 @@ import Link from "next/link";
 import Editor from "rich-markdown-editor";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useState } from 'react';
 
 import theme from "./editorTheme";
 import { getToken } from "../lib/auth.js";
@@ -52,33 +53,28 @@ const getPostQuery = gql`
 `;
 
 export default function EditPost({ id, loggedInUser }) {
-  let state = {};
-  const setState = src => {
-    state = Object.assign(state, src);
-  };
+              const [title, setTitle      ] = useState("")
+              const [content, setContent  ] = useState()
+              const [draft, setDraft      ] = useState()
+              const [datetime, setDatetime] = useState()
+
+  const setters = {
+    "title": setTitle,
+    "content": setContent,
+    "draft": setDraft,
+    "datetime": setDatetime,
+  }
 
   const handleBasicChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
-    setState({
-      [name]: value,
-    });
+    setters[name](value)
   };
 
   const handleEditorChange = value => {
-    setState({
-      content: value(),
-    });
-  };
-
-  const draft = postDraft => {
-    if (!("draft" in state)) {
-      return postDraft;
-    }
-
-    return state.draft;
+    setContent(value())
   };
 
   const [savePost] = useMutation(savePostMutation);
@@ -107,6 +103,11 @@ export default function EditPost({ id, loggedInUser }) {
     throw e;
   }
 
+  setDraft(post.draft)
+  setContent(post.content)
+  setDatetime(post.datetime)
+  setTitle(post.title)
+
   return (
     <section className="pa3 mw8 center">
       <h2>Edit Post #{post.id}</h2>
@@ -115,14 +116,14 @@ export default function EditPost({ id, loggedInUser }) {
           e.preventDefault();
           savePost({
             variables: {
-              title: state.title || post.title,
-              content: state.content || post.content,
-              draft: draft(post.draft),
-              datetime: state.datetime || post.datetime,
-              id: post.id,
+              title,
+              content,
+              draft,
+              datetime,
+              id,
             },
             refetchQueries: [
-              { query: getPostQuery, variables: { id: post.id } },
+              { query: getPostQuery, variables: { id } },
             ],
             awaitRefetchQueries: true,
           });
@@ -138,7 +139,7 @@ export default function EditPost({ id, loggedInUser }) {
             className="input-reset ba b--black-20 pa2 mb2 db w-100"
             type="text"
             aria-describedby="title-desc"
-            value={state.title || post.title}
+            value={title}
             onChange={handleBasicChange}
           />
         </div>
@@ -154,7 +155,7 @@ export default function EditPost({ id, loggedInUser }) {
           theme={theme}
           aria-describedby="text-desc"
           onChange={handleEditorChange}
-          defaultValue={state.content || post.content}
+          defaultValue={content}
           uploadImage={async file => {
             let token = getToken();
 
@@ -194,7 +195,7 @@ export default function EditPost({ id, loggedInUser }) {
               type="checkbox"
               id="draft"
               name="draft"
-              checked={draft(post.draft)}
+              checked={draft}
               onChange={handleBasicChange}
             />
           </div>
@@ -208,7 +209,7 @@ export default function EditPost({ id, loggedInUser }) {
               type="text"
               name="datetime"
               className="input-reset ba b--black-20 pa2 mb2 db w-100"
-              value={state.datetime || post.datetime}
+              value={datetime}
               onChange={handleBasicChange}
             />
           </div>
