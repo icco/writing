@@ -54,27 +54,38 @@ const getPostQuery = gql`
 
 export default function EditPost({ id, loggedInUser }) {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState();
-  const [draft, setDraft] = useState();
-  const [datetime, setDatetime] = useState();
+  const [content, setContent] = useState("");
+  const [draft, setDraft] = useState("");
+  const [datetime, setDatetime] = useState("");
 
-  const setters = {
-    title: setTitle,
-    content: setContent,
-    draft: setDraft,
-    datetime: setDatetime,
-  };
-
-  const handleBasicChange = event => {
+  const handleTitleChange = event => {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-
-    setters[name](value);
+    const value = target.value;
+    setTitle(value);
   };
 
   const handleEditorChange = value => {
     setContent(value());
+  };
+
+  const handleDraftChange = event => {
+    const target = event.target;
+    const value = target.checked;
+    setDraft(value);
+  };
+
+  const draftState = postDraft => {
+    if (draft === "") {
+      return postDraft;
+    }
+
+    return draft;
+  };
+
+  const handleDatetimeChange = event => {
+    const target = event.target;
+    const value = target.value;
+    setDatetime(value);
   };
 
   const [savePost] = useMutation(savePostMutation);
@@ -103,11 +114,6 @@ export default function EditPost({ id, loggedInUser }) {
     throw e;
   }
 
-  setDraft(post.draft);
-  setContent(post.content);
-  setDatetime(post.datetime);
-  setTitle(post.title);
-
   return (
     <section className="pa3 mw8 center">
       <h2>Edit Post #{post.id}</h2>
@@ -116,11 +122,11 @@ export default function EditPost({ id, loggedInUser }) {
           e.preventDefault();
           savePost({
             variables: {
-              title,
-              content,
-              draft,
-              datetime,
               id,
+              title: title || post.title,
+              content: content || post.content,
+              draft: draftState(post.draft),
+              datetime: datetime || post.datetime,
             },
             refetchQueries: [{ query: getPostQuery, variables: { id } }],
             awaitRefetchQueries: true,
@@ -137,8 +143,8 @@ export default function EditPost({ id, loggedInUser }) {
             className="input-reset ba b--black-20 pa2 mb2 db w-100"
             type="text"
             aria-describedby="title-desc"
-            value={title}
-            onChange={handleBasicChange}
+            value={title || post.title}
+            onChange={handleTitleChange}
           />
         </div>
 
@@ -153,7 +159,7 @@ export default function EditPost({ id, loggedInUser }) {
           theme={theme}
           aria-describedby="text-desc"
           onChange={handleEditorChange}
-          defaultValue={content}
+          defaultValue={content || post.content}
           uploadImage={async file => {
             let token = getToken();
 
@@ -172,16 +178,7 @@ export default function EditPost({ id, loggedInUser }) {
           }}
         />
 
-        <small id="text-desc" className="f6 black-60">
-          This should be in{" "}
-          <a
-            href="https://spec.commonmark.org/0.28/"
-            className="link underline black-80 hover-blue"
-          >
-            Markdown
-          </a>
-          .
-        </small>
+        <hr />
 
         <div className="mt3 cf">
           <div className="fr">
@@ -193,8 +190,8 @@ export default function EditPost({ id, loggedInUser }) {
               type="checkbox"
               id="draft"
               name="draft"
-              checked={draft}
-              onChange={handleBasicChange}
+              checked={draftState(post.draft)}
+              onChange={handleDraftChange}
             />
           </div>
 
@@ -206,9 +203,9 @@ export default function EditPost({ id, loggedInUser }) {
               id="datetime"
               type="text"
               name="datetime"
-              className="input-reset ba b--black-20 pa2 mb2 db w-100"
-              value={datetime}
-              onChange={handleBasicChange}
+              className="input-reset ba b--black-20 pa2 mb2 db w5"
+              value={datetime || post.datetime}
+              onChange={handleDatetimeChange}
             />
           </div>
         </div>
