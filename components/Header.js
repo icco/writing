@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { Logo } from "@icco/react-common";
-import { withRouter } from "next/router";
+import { useAuth } from 'use-auth0-hooks';
 
-const Header = ({ router: { pathname }, loggedInUser, noLogo }) => {
+export default function Header ({ noLogo }) => {
+  const { isAuthenticated, isLoading, login, logout } = useAuth();
+
+  !isLoading && 
+            isAuthenticated
+
   let prefix = <></>;
   let about = (
     <Link key="/about" href="/about" prefetch={false}>
@@ -71,5 +76,3 @@ const Header = ({ router: { pathname }, loggedInUser, noLogo }) => {
     </div>
   );
 };
-
-export default withRouter(Header);

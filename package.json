@@ -55,7 +55,8 @@
     "react-svg": "^11.0.0",
     "rich-markdown-editor": "^9.11.0",
     "sitemap": "^5.1.0",
-    "snyk": "^1.258.2"
+    "snyk": "^1.258.2",
+    "use-auth0-hooks": "^0.7.0"
   },
   "private": true,
   "devDependencies": {

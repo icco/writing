@@ -1,20 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
+import { withAuth, withLoginRequired } from 'use-auth0-hooks';
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
-import { checkLoggedIn } from "../lib/auth";
+import { getUser } from "../lib/auth";
 import { withApollo } from "../lib/apollo";
 
-const Page = props => {
-  if (
-    !props ||
-    !props.loggedInUser ||
-    !props.loggedInUser.role ||
-    props.loggedInUser.role !== "admin"
-  ) {
+const Page = ({ auth, loggedInUser }) => {
+  console.log(auth)
+  if (loggedInUser.role !== "admin") {
     return <NotAuthorized />;
   }
 
@@ -23,7 +20,7 @@ const Page = props => {
       <Head>
         <title>Nat? Nat. Nat! Admin</title>
       </Head>
-      <Header noLogo loggedInUser={props.loggedInUser} />
+      <Header noLogo loggedInUser={loggedInUser} />
       <div className="ma3">
         <h1>Admin</h1>
         <ul className="list pl0" key="new-ul">
@@ -47,10 +44,4 @@ const Page = props => {
   );
 };
 
-Page.getInitialProps = async ctx => {
-  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  let ret = { loggedInUser };
-  return ret;
-};
-
-export default withApollo(Page);
+export default withLoginRequired(withAuth(withApollo(Page)));
