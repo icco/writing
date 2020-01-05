@@ -52,16 +52,10 @@ export default function Header({ noLogo }) {
         </a>
       </Link>
     ),
-    adminlink: (
-      <></>
-    ),
+    adminlink: <></>,
   };
 
-  let nav = (
-    <>
-      {elements.singin}
-    </>
-  );
+  let nav = <>{elements.singin}</>;
 
   if (loading) {
     nav = (
@@ -75,18 +69,16 @@ export default function Header({ noLogo }) {
 
   if (loggedInUser) {
     elements.adminlink = (
-        <Link key="/admin" href="/admin">
-          <a className="f6 link dib dim mr3 black mr4-ns">
-            {loggedInUser.role}
-          </a>
-        </Link>
+      <Link key="/admin" href="/admin">
+        <a className="f6 link dib dim mr3 black mr4-ns">{loggedInUser.role}</a>
+      </Link>
     );
     nav = (
       <>
-          {elements.adminlink}
-          {elements.signout}
+        {elements.adminlink}
+        {elements.signout}
       </>
-    )
+    );
   }
 
   return (
