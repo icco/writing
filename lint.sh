@@ -12,3 +12,5 @@ done
 $(yarn bin)/eslint ./components ./lib
 
 $(yarn bin)/depcheck .
+
+yarn run build
