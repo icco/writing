@@ -13,54 +13,21 @@ export default function Header({ noLogo }) {
     throw error;
   }
 
-  if (loading) {
-    return <Loading key={0} />;
-  }
-
-  let prefix = <></>;
-  let about = (
+  const elements = {
+    about:  (
     <Link key="/about" href="/about" prefetch={false}>
       <a className="f6 link dib dim mr3 black mr4-ns">about</a>
     </Link>
-  );
-
-  let nav = (
-    <>
-      {about}
-
+  ),
+    signin: (
       <a
         className="f6 link dib dim mr3 black mr4-ns"
         onClick={() => login({ appState: { returnTo: { pathname, query } } })}
       >
         sign in
       </a>
-    </>
-  );
-
-  let head = (
-    <>
-      <header className="mv5 center mw6">
-        <Link href="/">
-          <a className="link dark-gray dim">
-            <Logo size={200} className="center" />
-            <h1 className="tc">Nat? Nat. Nat!</h1>
-          </a>
-        </Link>
-      </header>
-    </>
-  );
-
-  if (loggedInUser) {
-    nav = (
-      <>
-        {about}
-
-        <Link key="/admin" href="/admin">
-          <a className="f6 link dib dim mr3 black mr4-ns">
-            {loggedInUser.role}
-          </a>
-        </Link>
-
+    ),
+    signout: (
         <a
           className="f6 link dib dim mr3 black mr4-ns"
           onClick={() =>
@@ -69,19 +36,63 @@ export default function Header({ noLogo }) {
         >
           Sign Out
         </a>
-      </>
-    );
-  }
-
-  if (noLogo) {
-    head = <></>;
-    prefix = (
+    ),
+    largelogo: (
+      <header className="mv5 center mw6">
+        <Link href="/">
+          <a className="link dark-gray dim">
+            <Logo size={200} className="center" />
+            <h1 className="tc">Nat? Nat. Nat!</h1>
+          </a>
+        </Link>
+      </header>
+    ),
+    smalllogo: (
       <Link href="/">
         <a className="link dark-gray dim">
           <Logo size={50} className="v-mid mh0-ns dib-ns center ph0 logo" />
         </a>
       </Link>
+    ),
+  }
+
+  let nav = (
+    <>
+      {elements.about}
+
+      {elements.singin}
+    </>
+  );
+
+  if (loading) {
+    nav = (
+      <>
+      {elements.about}
+
+      <div className="dib h1"><Loading key={0} /></div>;
+      </>
+    )
+  }
+
+  if (loggedInUser) {
+    nav = (
+      <>
+        {elements.about}
+
+        <Link key="/admin" href="/admin">
+          <a className="f6 link dib dim mr3 black mr4-ns">
+            {loggedInUser.role}
+          </a>
+        </Link>
+      </>
     );
+  }
+
+  let prefix = <></>;
+  let head = <>{elements.largelogo}</>
+  if (noLogo) {
+    head = <></>;
+    prefix = <>{elements.smalllogo}</>
   }
 
   return (
