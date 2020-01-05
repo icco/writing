@@ -87,7 +87,7 @@ async function startServer() {
           "'self'",
           "https://graphql.natwelch.com/graphql",
           "https://graphql.natwelch.com/photo/new",
-          "https://icco.auth0.com/.well-known/jwks.json",
+          "https://icco.auth0.com/",
         ],
         // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
         styleSrc: [
