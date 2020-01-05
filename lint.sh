@@ -12,3 +12,5 @@ for f in $(echo $jsfiles | xargs printf "%s\n"); do
 done
 
 $(yarn bin)/depcheck .
+
+$(yarn bin)/eslint ./components ./lib
