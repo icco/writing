@@ -14,11 +14,11 @@ export default function Header({ noLogo }) {
   }
 
   const elements = {
-    about:  (
-    <Link key="/about" href="/about" prefetch={false}>
-      <a className="f6 link dib dim mr3 black mr4-ns">about</a>
-    </Link>
-  ),
+    about: (
+      <Link key="/about" href="/about" prefetch={false}>
+        <a className="f6 link dib dim mr3 black mr4-ns">about</a>
+      </Link>
+    ),
     signin: (
       <a
         className="f6 link dib dim mr3 black mr4-ns"
@@ -28,14 +28,12 @@ export default function Header({ noLogo }) {
       </a>
     ),
     signout: (
-        <a
-          className="f6 link dib dim mr3 black mr4-ns"
-          onClick={() =>
-            logout({ appState: { returnTo: { pathname, query } } })
-          }
-        >
-          Sign Out
-        </a>
+      <a
+        className="f6 link dib dim mr3 black mr4-ns"
+        onClick={() => logout({ appState: { returnTo: { pathname, query } } })}
+      >
+        Sign Out
+      </a>
     ),
     largelogo: (
       <header className="mv5 center mw6">
@@ -54,7 +52,7 @@ export default function Header({ noLogo }) {
         </a>
       </Link>
     ),
-  }
+  };
 
   let nav = (
     <>
@@ -67,11 +65,12 @@ export default function Header({ noLogo }) {
   if (loading) {
     nav = (
       <>
-      {elements.about}
-
-      <div className="dib h1"><Loading key={0} /></div>;
+        {elements.about}
+        <div className="dib h1">
+          <Loading key={0} />
+        </div>
       </>
-    )
+    );
   }
 
   if (loggedInUser) {
@@ -89,10 +88,10 @@ export default function Header({ noLogo }) {
   }
 
   let prefix = <></>;
-  let head = <>{elements.largelogo}</>
+  let head = <>{elements.largelogo}</>;
   if (noLogo) {
     head = <></>;
-    prefix = <>{elements.smalllogo}</>
+    prefix = <>{elements.smalllogo}</>;
   }
 
   return (
