@@ -3,11 +3,6 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import { TRACKING_ID } from "../lib/fathom";
 
 export default class WritingDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
   render() {
     return (
       <Html>
