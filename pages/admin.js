@@ -12,7 +12,7 @@ const Page = ({ auth }) => {
   // if (loggedInUser.role !== "admin") {
   //   return <NotAuthorized />;
   // }
-  console.log(auth)
+  console.log(auth);
 
   return (
     <App>

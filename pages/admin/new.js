@@ -18,7 +18,7 @@ const Page = props => {
   // if (loggedInUser.role !== "admin") {
   //   return <NotAuthorized />;
   // }
-  console.log(auth)
+  console.log(auth);
 
   return (
     <Mutation mutation={NewPost}>
