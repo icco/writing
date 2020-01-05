@@ -55,7 +55,7 @@ export default function Header({ noLogo }) {
     adminlink: <></>,
   };
 
-  let nav = <>{elements.singin}</>;
+  let nav = <>{elements.signin}</>;
 
   if (loading) {
     nav = (
