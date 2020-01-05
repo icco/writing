@@ -6,14 +6,13 @@ import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
-import { getUser } from "../lib/auth";
 import { withApollo } from "../lib/apollo";
 
-const Page = ({ auth, loggedInUser }) => {
-  console.log(auth);
-  if (loggedInUser.role !== "admin") {
-    return <NotAuthorized />;
-  }
+const Page = ({ auth }) => {
+  // if (loggedInUser.role !== "admin") {
+  //   return <NotAuthorized />;
+  // }
+  console.log(auth)
 
   return (
     <App>

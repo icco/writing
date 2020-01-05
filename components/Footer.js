@@ -1,8 +1,4 @@
-import { graphql } from "react-apollo";
-import gql from "graphql-tag";
-import ReactSVG from "react-svg";
-
-const Footer = params => {
+const Footer = () => {
   return (
     <footer className="lh-title mv5 pv5 pl3 pr3 ph5-ns bt b--black-10">
       <h3 className="f6 tracked">
@@ -12,30 +8,6 @@ const Footer = params => {
         </a>
         .
       </h3>
-
-      <div className="mb2">
-        <a
-          className="link near-black hover-silver dib h1 w1 mr3"
-          href="https://github.com/icco"
-          title="Nat Welch GitHub"
-        >
-          <ReactSVG src="/svgs/github.svg" />
-        </a>
-        <a
-          className="link hover-silver near-black dib h1 w1 mr3"
-          href="https://instagram.com/probablynatwelch"
-          title="Nat Welch Instagram"
-        >
-          <ReactSVG src="/svgs/instagram.svg" />
-        </a>
-        <a
-          className="link hover-silver near-black dib h1 w1 mr3"
-          href="https://twitter.com/icco"
-          title="Nat Welch Twitter"
-        >
-          <ReactSVG src="/svgs/twitter.svg" />
-        </a>
-      </div>
 
       <div className="mv2 rc-scout" data-scout-rendered="true">
         <p className="rc-scout__text">

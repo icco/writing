@@ -4,7 +4,6 @@ import { Mutation } from "react-apollo";
 import { Loading, ErrorMessage } from "@icco/react-common";
 
 import NotAuthorized from "../../components/NotAuthorized";
-import { checkLoggedIn } from "../../lib/auth";
 import { withApollo } from "../../lib/apollo";
 
 const NewPost = gql`
@@ -16,13 +15,10 @@ const NewPost = gql`
 `;
 
 const Page = props => {
-  if (
-    !props.loggedInUser ||
-    !props.loggedInUser.role ||
-    props.loggedInUser.role !== "admin"
-  ) {
-    return <NotAuthorized />;
-  }
+  // if (loggedInUser.role !== "admin") {
+  //   return <NotAuthorized />;
+  // }
+  console.log(auth)
 
   return (
     <Mutation mutation={NewPost}>
@@ -45,11 +41,4 @@ const Page = props => {
   );
 };
 
-Page.getInitialProps = async ctx => {
-  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  let ret = { loggedInUser };
-
-  return ret;
-};
-
-export default withApollo(Page);
+export default withLoginRequired(withAuth(withApollo(Page)));

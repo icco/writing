@@ -4,7 +4,6 @@ import App from "../../components/App";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Tag from "../../components/Tag";
-import { checkLoggedIn } from "../../lib/auth";
 import { withApollo } from "../../lib/apollo";
 
 const Page = props => {
@@ -16,18 +15,11 @@ const Page = props => {
   const { id } = router.query;
   return (
     <App>
-      <Header loggedInUser={props.loggedInUser} noLogo />
+      <Header noLogo />
       <Tag id={id} />
       <Footer />
     </App>
   );
-};
-
-Page.getInitialProps = async ctx => {
-  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  let ret = { loggedInUser };
-
-  return ret;
 };
 
 export default withApollo(Page);

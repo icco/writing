@@ -4,26 +4,19 @@ import App from "../components/App";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostList from "../components/PostList";
-import { checkLoggedIn } from "../lib/auth";
 import { withApollo } from "../lib/apollo";
 
-const Index = props => {
+const Index = () => {
   return (
     <App>
       <Head>
         <title>Nat? Nat. Nat!</title>
       </Head>
-      <Header loggedInUser={props.loggedInUser} />
+      <Header />
       <PostList />
       <Footer />
     </App>
   );
-};
-
-Index.getInitialProps = async ctx => {
-  const { loggedInUser } = await checkLoggedIn(ctx.apolloClient);
-  let ret = { loggedInUser };
-  return ret;
 };
 
 export default withApollo(Index);
