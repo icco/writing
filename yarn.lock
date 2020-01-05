@@ -902,13 +902,6 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.7.7":
-  version "7.7.7"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
-  integrity sha512-uCnC2JEVAu8AKB5do1WRIsvrdJ0flYx/A/9f/6chdacnEZ7LmavjdsDXr5ksYBegxtuTPR5Va9/+13QF/kFkCA==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
 "@babel/template@^7.7.0", "@babel/template@^7.7.4":
   version "7.7.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.7.4.tgz#428a7d9eecffe27deac0a98e23bf8e3675d2a77b"
@@ -1216,13 +1209,6 @@
     "@snyk/dep-graph" "^1.13.1"
     source-map-support "^0.5.7"
     tslib "^1.9.3"
-
-"@tanem/svg-injector@^8.0.37":
-  version "8.0.38"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.38.tgz#b3459cbc15d0c52c82d9041d32a29d0774dde2dc"
-  integrity sha512-fDWVX0pk4b83W8pcf4E58iSsvIUpGVLOqaYszh9YfNQyq8u5mPSaNF4KSTOxgeK8TdSN1Z7wn9kyUGJaZA9OMg==
-  dependencies:
-    "@babel/runtime" "^7.7.7"
 
 "@tommoor/slate-edit-list@0.19.0-0":
   version "0.19.0-0"
@@ -7700,15 +7686,6 @@ react-portal@^4.1.4:
   integrity sha512-Zf+vGQ/VEAb5XAy+muKEn48yhdCNYPZaB1BWg1xc8sAZWD8pXTgPtQT4ihBdmWzsfCq8p8/kqf0GWydSBqc+Eg==
   dependencies:
     prop-types "^15.5.8"
-
-react-svg@^11.0.0:
-  version "11.0.6"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.6.tgz#767182903f6db913b8fcbaece6ad6e7ab7819603"
-  integrity sha512-vfjOdFBI+PczyPQP4//c+f+ZV35QyvzSPh3f322Jiecf82WoZLCofsg9JbMeMIy5WXQusOMUxIV4EZ4+xXfYnA==
-  dependencies:
-    "@babel/runtime" "^7.7.7"
-    "@tanem/svg-injector" "^8.0.37"
-    prop-types "^15.7.2"
 
 react@^16.12.0:
   version "16.12.0"
