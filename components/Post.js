@@ -52,6 +52,7 @@ export default function Post({ id, loggedInUser, comments }) {
   if (error) {
     return <ErrorMessage message="Unable to get page." />;
   }
+
   if (loading) {
     return <Loading key={0} />;
   }
