@@ -1,5 +1,4 @@
 import Head from "next/head";
-import InfiniteScroll from "react-infinite-scroller";
 import Link from "next/link";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
@@ -44,9 +43,8 @@ export const getPost = gql`
 `;
 
 export default function Post({ id, loggedInUser, comments }) {
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(getPost, {
+  const { loading, error, data } = useQuery(getPost, {
     variables: { id },
-    notifyOnNetworkStatusChange: true,
   });
 
   if (error) {

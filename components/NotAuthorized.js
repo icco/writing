@@ -1,3 +1,5 @@
 import Error from "next/error";
 
-export default () => <Error statusCode={403} />;
+export default function NotAuthorized() {
+  return <Error statusCode={403} title="Forbidden" />;
+}

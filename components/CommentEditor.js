@@ -1,16 +1,9 @@
 import Editor from "rich-markdown-editor";
 import Link from "next/link";
 import gql from "graphql-tag";
-import { ErrorMessage, Loading } from "@icco/react-common";
 import { useMutation } from "@apollo/react-hooks";
 
-import { getToken } from "../lib/auth.js";
 import theme from "./editorTheme";
-
-const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
-  0,
-  process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
-);
 
 export const saveCommentMutation = gql`
   mutation saveComment($postid: ID!, $content: String!) {

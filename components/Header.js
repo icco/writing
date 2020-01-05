@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ErrorMessage, Logo, Loading } from "@icco/react-common";
+import { Logo, Loading } from "@icco/react-common";
 import { useRouter } from "next/router";
 
 import { useLoggedIn } from "../lib/auth";

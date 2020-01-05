@@ -7,6 +7,7 @@ module.exports = {
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
+    React: "writable",
   },
   parserOptions: {
     ecmaFeatures: {
@@ -17,6 +18,8 @@ module.exports = {
   },
   plugins: ["react", "prettier", "react-hooks"],
   rules: {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",

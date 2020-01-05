@@ -1,5 +1,4 @@
 import Head from "next/head";
-import InfiniteScroll from "react-infinite-scroller";
 import Link from "next/link";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
@@ -18,9 +17,8 @@ export const getTag = gql`
 `;
 
 export default function Tag({ id }) {
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(getTag, {
+  const { loading, error, data } = useQuery(getTag, {
     variables: { id },
-    notifyOnNetworkStatusChange: true,
   });
 
   if (error) {

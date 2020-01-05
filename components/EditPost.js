@@ -52,7 +52,7 @@ const getPostQuery = gql`
   }
 `;
 
-export default function EditPost({ id, loggedInUser }) {
+export default function EditPost({ id }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [draft, setDraft] = useState("");
@@ -89,13 +89,10 @@ export default function EditPost({ id, loggedInUser }) {
   };
 
   const [savePost] = useMutation(savePostMutation);
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(
-    getPostQuery,
-    {
-      variables: { id },
-      fetchPolicy: "network-only",
-    }
-  );
+  const { loading, error, data } = useQuery(getPostQuery, {
+    variables: { id },
+    fetchPolicy: "network-only",
+  });
 
   if (loading) {
     return <Loading key={0} />;

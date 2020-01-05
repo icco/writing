@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import md from "../lib/markdown.js";
 
-export default params => {
+export default function Comment(params) {
   const {
     className,
     data: { comment },
@@ -25,4 +25,4 @@ export default params => {
       </div>
     </article>
   );
-};
+}
