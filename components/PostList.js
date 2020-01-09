@@ -25,6 +25,8 @@ export const allPostsQueryVars = {
   perpage: PER_PAGE,
 };
 
+let hasMore = true
+
 export default function PostList() {
   const { loading, error, data, fetchMore, networkStatus } = useQuery(
     allPosts,
@@ -39,13 +41,17 @@ export default function PostList() {
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMorePosts = () => {
+  const loadMorePosts = (page) => {
     fetchMore({
       variables: {
-        offset: posts.length,
+        offset: page * PER_PAGE,
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
+          return previousResult;
+        }
+        if (fetchMoreResult.posts.length <= 0) {
+          hasMore = false;
           return previousResult;
         }
         return Object.assign({}, previousResult, {
@@ -66,7 +72,7 @@ export default function PostList() {
       <InfiniteScroll
         threshold={500}
         loadMore={loadMorePosts}
-        hasMore={posts.length > 0}
+        hasMore={hasMore}
         loader={<Loading key={0} />}
       >
         <ul className="list pl0" key="ul">

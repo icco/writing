@@ -25,6 +25,8 @@ export const allDraftPosts = gql`
   }
 `;
 
+let hasMore = true
+
 export default function AdminPostList({ type }) {
   let query = null;
   switch (type) {
@@ -52,10 +54,10 @@ export default function AdminPostList({ type }) {
 
   let adminPosts = [];
 
-  const loadMorePosts = () => {
+  const loadMorePosts = (page) => {
     fetchMore({
       variables: {
-        offset: adminPosts.length,
+        offset: page * PER_PAGE,
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
@@ -63,18 +65,27 @@ export default function AdminPostList({ type }) {
         }
 
         if (previousResult.posts) {
+        if (fetchMoreResult.posts.length <= 0) {
+          hasMore = false;
+        }
           return Object.assign({}, previousResult, {
             posts: [...previousResult.posts, ...fetchMoreResult.posts],
           });
         }
 
         if (previousResult.drafts) {
+        if (fetchMoreResult.drafts.length <= 0) {
+          hasMore = false;
+        }
           return Object.assign({}, previousResult, {
             drafts: [...previousResult.drafts, ...fetchMoreResult.drafts],
           });
         }
 
         if (previousResult.futurePosts) {
+        if (fetchMoreResult.futurePosts.length <= 0) {
+          hasMore = false;
+        }
           return Object.assign({}, previousResult, {
             futurePosts: [
               ...previousResult.futurePosts,
@@ -96,17 +107,14 @@ export default function AdminPostList({ type }) {
 
   if (posts) {
     adminPosts = [...posts, ...adminPosts];
-    newPosts = posts.length > 0;
   }
 
   if (drafts) {
     adminPosts = [...drafts, ...adminPosts];
-    newPosts = false;
   }
 
   if (futurePosts) {
     adminPosts = [...futurePosts, ...adminPosts];
-    newPosts = futurePosts.length > 0;
   }
 
   return (
@@ -114,7 +122,7 @@ export default function AdminPostList({ type }) {
       <InfiniteScroll
         threshold={500}
         loadMore={loadMorePosts}
-        hasMore={newPosts}
+        hasMore={hasMore}
         loader={<Loading key={0} />}
       >
         <ul className="list pl0" key="admin-post-ul">

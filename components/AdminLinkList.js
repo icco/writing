@@ -20,6 +20,7 @@ export const linksQuery = gql`
 
 export const PER_PAGE = 50;
 
+let hasMoreLinks = true;
 export default function AdminLinkList() {
   const { loading, error, data, fetchMore, networkStatus } = useQuery(
     linksQuery,
@@ -35,14 +36,16 @@ export default function AdminLinkList() {
 
   const loadingMoreLinks = networkStatus === NetworkStatus.fetchMore;
 
-  let hasMoreLinks = true;
-  const loadMoreLinks = () => {
+  const loadMoreLinks = (page) => {
     fetchMore({
       variables: {
-        offset: links.length,
+        offset: page * PER_PAGE,
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
+          return previousResult;
+        }
+        if (fetchMoreResult.links.length <= 0) {
           hasMoreLinks = false;
           return previousResult;
         }
