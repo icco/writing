@@ -10,7 +10,9 @@ export default function Header({ noLogo }) {
   const { loading, login, logout, loggedInUser, error } = useLoggedIn();
 
   if (error) {
-    throw error;
+    if (error.error != "consent_required") {
+      throw error;
+    }
   }
 
   const elements = {
