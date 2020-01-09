@@ -10,6 +10,7 @@ import Datetime from "./Datetime";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";
+import { useLoggedIn } from "../lib/auth";
 
 export const getPost = gql`
   query getPost($id: ID!) {
@@ -42,10 +43,11 @@ export const getPost = gql`
   }
 `;
 
-export default function Post({ id, loggedInUser, comments }) {
+export default function Post({ id, comments }) {
   const { loading, error, data } = useQuery(getPost, {
     variables: { id },
   });
+  const { loggedInUser } = useLoggedIn();
 
   if (error) {
     return <ErrorMessage message="Unable to get page." />;
