@@ -25,7 +25,7 @@ export const allPostsQueryVars = {
   perpage: PER_PAGE,
 };
 
-let hasMore = true
+let hasMore = true;
 
 export default function PostList() {
   const { loading, error, data, fetchMore, networkStatus } = useQuery(
@@ -41,7 +41,7 @@ export default function PostList() {
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMorePosts = (page) => {
+  const loadMorePosts = page => {
     fetchMore({
       variables: {
         offset: page * PER_PAGE,

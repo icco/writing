@@ -20,7 +20,7 @@ const Page = ({ auth }) => {
       <Head>
         <title>Nat? Nat. Nat! Admin</title>
       </Head>
-      <Header noLogo/>
+      <Header noLogo />
       <div className="ma3">
         <h1>Admin</h1>
         <ul className="list pl0" key="new-ul">

@@ -44,7 +44,8 @@ export default function CommentEditor({ postID }) {
   };
 
   if (loading) {
-      return ( <>
+    return (
+      <>
         <div className="">
           <Loading key={0} />
         </div>
@@ -55,12 +56,13 @@ export default function CommentEditor({ postID }) {
   if (!loggedInUser) {
     return (
       <p>
-      <a
-        className="link dim pointer"
-        onClick={() => login({ appState: { returnTo: { asPath } } })}
-      >
-            Sign in or create an account
-          </a> to post a comment.
+        <a
+          className="link dim pointer"
+          onClick={() => login({ appState: { returnTo: { asPath } } })}
+        >
+          Sign in or create an account
+        </a>{" "}
+        to post a comment.
       </p>
     );
   }

@@ -36,7 +36,7 @@ export default function AdminLinkList() {
 
   const loadingMoreLinks = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMoreLinks = (page) => {
+  const loadMoreLinks = page => {
     fetchMore({
       variables: {
         offset: page * PER_PAGE,

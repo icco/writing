@@ -25,7 +25,7 @@ export const allDraftPosts = gql`
   }
 `;
 
-let hasMore = true
+let hasMore = true;
 
 export default function AdminPostList({ type }) {
   let query = null;
@@ -54,7 +54,7 @@ export default function AdminPostList({ type }) {
 
   let adminPosts = [];
 
-  const loadMorePosts = (page) => {
+  const loadMorePosts = page => {
     fetchMore({
       variables: {
         offset: page * PER_PAGE,
@@ -65,27 +65,27 @@ export default function AdminPostList({ type }) {
         }
 
         if (previousResult.posts) {
-        if (fetchMoreResult.posts.length <= 0) {
-          hasMore = false;
-        }
+          if (fetchMoreResult.posts.length <= 0) {
+            hasMore = false;
+          }
           return Object.assign({}, previousResult, {
             posts: [...previousResult.posts, ...fetchMoreResult.posts],
           });
         }
 
         if (previousResult.drafts) {
-        if (fetchMoreResult.drafts.length <= 0) {
-          hasMore = false;
-        }
+          if (fetchMoreResult.drafts.length <= 0) {
+            hasMore = false;
+          }
           return Object.assign({}, previousResult, {
             drafts: [...previousResult.drafts, ...fetchMoreResult.drafts],
           });
         }
 
         if (previousResult.futurePosts) {
-        if (fetchMoreResult.futurePosts.length <= 0) {
-          hasMore = false;
-        }
+          if (fetchMoreResult.futurePosts.length <= 0) {
+            hasMore = false;
+          }
           return Object.assign({}, previousResult, {
             futurePosts: [
               ...previousResult.futurePosts,
