@@ -2,8 +2,11 @@ import Editor from "rich-markdown-editor";
 import Link from "next/link";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
+import { useRouter } from "next/router";
+import { Loading } from "@icco/react-common";
 
 import theme from "./editorTheme";
+import { useLoggedIn } from "../lib/auth";
 
 export const saveCommentMutation = gql`
   mutation saveComment($postid: ID!, $content: String!) {
@@ -14,7 +17,16 @@ export const saveCommentMutation = gql`
   }
 `;
 
-export default function CommentEditor({ postID, loggedInUser }) {
+export default function CommentEditor({ postID }) {
+  const { loading, login, error, loggedInUser } = useLoggedIn();
+  const { asPath } = useRouter();
+
+  if (error) {
+    if (error.error != "consent_required") {
+      throw error;
+    }
+  }
+
   let content = "";
   const handleEditorChange = value => {
     content = value();
@@ -31,15 +43,24 @@ export default function CommentEditor({ postID, loggedInUser }) {
     });
   };
 
+  if (loading) {
+      return ( <>
+        <div className="">
+          <Loading key={0} />
+        </div>
+      </>
+    );
+  }
+
   if (!loggedInUser) {
     return (
       <p>
-        <Link key="/auth/sign-in" href="/auth/sign-in">
-          <a className="link dim" href="/auth/sign-in">
+      <a
+        className="link dim pointer"
+        onClick={() => login({ appState: { returnTo: { asPath } } })}
+      >
             Sign in or create an account
-          </a>
-        </Link>{" "}
-        to post a comment.
+          </a> to post a comment.
       </p>
     );
   }
