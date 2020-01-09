@@ -6,6 +6,7 @@ import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import NotAuthorized from "../../components/NotAuthorized";
 import { withApollo } from "../../lib/apollo";
+import { useLoggedIn } from "../lib/auth";
 
 const NewPost = gql`
   mutation {
@@ -16,10 +17,10 @@ const NewPost = gql`
 `;
 
 const Page = props => {
-  // if (loggedInUser.role !== "admin") {
-  //   return <NotAuthorized />;
-  // }
-  console.log(auth);
+  const { loggedInUser } = useLoggedIn();
+  if (!loggedInUser || loggedInUser.role !== "admin") {
+    return <NotAuthorized />;
+  }
 
   return (
     <Mutation mutation={NewPost}>

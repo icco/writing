@@ -7,12 +7,13 @@ import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
 import { withApollo } from "../lib/apollo";
+import { useLoggedIn } from "../lib/auth";
 
 const Page = ({ auth }) => {
-  // TODO make admin only
-  // if (loggedInUser.role !== "admin") {
-  //   return <NotAuthorized />;
-  // }
+  const { loggedInUser } = useLoggedIn();
+  if (!loggedInUser || loggedInUser.role !== "admin") {
+    return <NotAuthorized />;
+  }
 
   return (
     <App>

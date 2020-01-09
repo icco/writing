@@ -11,6 +11,11 @@ import { withApollo } from "../../lib/apollo";
 
 const Page = () => {
   const router = useRouter();
+  const { loggedInUser } = useLoggedIn();
+  if (!loggedInUser || loggedInUser.role !== "admin") {
+    return <NotAuthorized />;
+  }
+
   if (router == null) {
     return <></>;
   }
