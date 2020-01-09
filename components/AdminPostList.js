@@ -103,7 +103,6 @@ export default function AdminPostList({ type }) {
   if (loading && !loadingMorePosts) return <Loading key={0} />;
 
   const { posts, futurePosts, drafts } = data;
-  let newPosts = false;
 
   if (posts) {
     adminPosts = [...posts, ...adminPosts];

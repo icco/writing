@@ -1,5 +1,4 @@
 import Editor from "rich-markdown-editor";
-import Link from "next/link";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
