@@ -9,17 +9,17 @@ import NotAuthorized from "../components/NotAuthorized";
 import { withApollo } from "../lib/apollo";
 
 const Page = ({ auth }) => {
+  // TODO make admin only
   // if (loggedInUser.role !== "admin") {
   //   return <NotAuthorized />;
   // }
-  console.log(auth);
 
   return (
     <App>
       <Head>
         <title>Nat? Nat. Nat! Admin</title>
       </Head>
-      <Header noLogo loggedInUser={loggedInUser} />
+      <Header noLogo/>
       <div className="ma3">
         <h1>Admin</h1>
         <ul className="list pl0" key="new-ul">

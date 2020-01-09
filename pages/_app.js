@@ -46,11 +46,12 @@ const onLoginError = err => {
  */
 const onRedirecting = () => {
   return (
-    <div>
+    <div className="center mv4 w5">
       <h1>Signing you in</h1>
       <p>
         In order to access this page you will need to sign in.
-        <br />
+    </p>
+    <p>
         Please wait while we redirect you to the login page...
       </p>
     </div>
