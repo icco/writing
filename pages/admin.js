@@ -1,59 +1,47 @@
 import Head from "next/head";
-import React from "react";
-import Error from "next/error";
 import Link from "next/link";
+import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
-import AdminDraftList from "../components/AdminDraftList";
-import AdminFuturePostList from "../components/AdminFuturePostList";
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
-import { checkLoggedIn } from "../lib/auth";
-import { initApollo } from "../lib/init-apollo";
+import { withApollo } from "../lib/apollo";
+import { useLoggedIn } from "../lib/auth";
 
-export default class extends React.Component {
-  async componentDidMount() {
-    const { loggedInUser } = await checkLoggedIn(initApollo());
-    this.setState({ loggedInUser });
+const Page = ({ auth }) => {
+  const { loggedInUser } = useLoggedIn();
+  if (!loggedInUser || loggedInUser.role !== "admin") {
+    return <NotAuthorized />;
   }
 
-  render() {
-    if (
-      !this.state ||
-      !this.state.loggedInUser ||
-      !this.state.loggedInUser.role ||
-      this.state.loggedInUser.role !== "admin"
-    ) {
-      return <NotAuthorized />;
-    }
+  return (
+    <App>
+      <Head>
+        <title>Nat? Nat. Nat! Admin</title>
+      </Head>
+      <Header noLogo />
+      <div className="ma3">
+        <h1>Admin</h1>
+        <ul className="list pl0" key="new-ul">
+          <li className="" key={"new-post"}>
+            <Link as={"/admin/new"} href={"/admin/new"}>
+              <a className="link dark-gray dim">New Post</a>
+            </Link>
+          </li>
+        </ul>
 
-    return (
-      <App>
-        <Head>
-          <title>Nat? Nat. Nat! Admin</title>
-        </Head>
-        <Header noLogo loggedInUser={this.state.loggedInUser} />
-        <div className="ma3">
-          <h1>Admin</h1>
-          <ul className="list pl0" key="new-ul">
-            <li className="" key={"new-post"}>
-              <Link as={"/admin/new"} href={"/admin/new"}>
-                <a className="link dark-gray dim">New Post</a>
-              </Link>
-            </li>
-          </ul>
+        <h2>Drafts</h2>
+        <AdminPostList type="drafts" />
 
-          <h2>Drafts</h2>
-          <AdminDraftList />
+        <h2>Future</h2>
+        <AdminPostList type="future" />
 
-          <h2>Future</h2>
-          <AdminFuturePostList />
+        <h2>Published</h2>
+        <AdminPostList type="published" />
+      </div>
+    </App>
+  );
+};
 
-          <h2>Published</h2>
-          <AdminPostList />
-        </div>
-      </App>
-    );
-  }
-}
+export default withLoginRequired(withAuth(withApollo(Page)));

@@ -1,43 +1,37 @@
-import Error from "next/error";
 import Head from "next/head";
-import React from "react";
-import { withRouter } from "next/router";
+import { useRouter } from "next/router";
+import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import AdminLinkList from "../../components/AdminLinkList";
 import App from "../../components/App";
 import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
-import { checkLoggedIn } from "../../lib/auth";
-import { initApollo } from "../../lib/init-apollo";
+import { withApollo } from "../../lib/apollo";
+import { useLoggedIn } from "../../lib/auth";
 
-class AdminPost extends React.Component {
-  async componentDidMount() {
-    const { loggedInUser } = await checkLoggedIn(initApollo());
-    this.setState({ loggedInUser });
+const Page = () => {
+  const router = useRouter();
+  const { loggedInUser } = useLoggedIn();
+  if (!loggedInUser || loggedInUser.role !== "admin") {
+    return <NotAuthorized />;
   }
 
-  render() {
-    if (
-      !this.state ||
-      !this.state.loggedInUser ||
-      !this.state.loggedInUser.role ||
-      this.state.loggedInUser.role !== "admin"
-    ) {
-      return <NotAuthorized />;
-    }
-
-    return (
-      <App>
-        <Head>
-          <title>Nat? Nat. Nat! Edit Post #{this.props.router.query.pid}</title>
-        </Head>
-        <Header noLogo loggedInUser={this.state.loggedInUser} />
-        <EditPost id={this.props.router.query.pid} />
-        <AdminLinkList />
-      </App>
-    );
+  if (router == null) {
+    return <></>;
   }
-}
+  const { pid } = router.query;
 
-export default withRouter(AdminPost);
+  return (
+    <App>
+      <Head>
+        <title>Nat? Nat. Nat! Edit Post #{pid}</title>
+      </Head>
+      <Header noLogo />
+      <EditPost id={pid} />
+      <AdminLinkList />
+    </App>
+  );
+};
+
+export default withLoginRequired(withAuth(withApollo(Page)));

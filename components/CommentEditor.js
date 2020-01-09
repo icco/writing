@@ -1,21 +1,14 @@
 import Editor from "rich-markdown-editor";
-import Link from "next/link";
-import React from "react";
 import gql from "graphql-tag";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import { Query, Mutation } from "react-apollo";
-import { withRouter } from "next/router";
+import { useMutation } from "@apollo/react-hooks";
+import { useRouter } from "next/router";
+import { Loading } from "@icco/react-common";
 
-import { getToken } from "../lib/auth.js";
 import theme from "./editorTheme";
+import { useLoggedIn } from "../lib/auth";
 
-const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
-  0,
-  process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
-);
-
-const SaveComment = gql`
-  mutation SaveComment($postid: ID!, $content: String!) {
+export const saveCommentMutation = gql`
+  mutation saveComment($postid: ID!, $content: String!) {
     addComment(input: { content: $content, post_id: $postid }) {
       content
       modified
@@ -23,75 +16,84 @@ const SaveComment = gql`
   }
 `;
 
-class CommentEditor extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: "",
-      postID: props.postID,
-    };
+export default function CommentEditor({ postID }) {
+  const { loading, login, error, loggedInUser } = useLoggedIn();
+  const { asPath } = useRouter();
+
+  if (error) {
+    if (error.error != "consent_required") {
+      throw error;
+    }
   }
 
-  handleEditorChange = value => {
-    this.setState({
-      content: value(),
+  let content = "";
+  const handleEditorChange = value => {
+    content = value();
+  };
+
+  const [saveComment] = useMutation(saveCommentMutation);
+
+  const addComment = content => {
+    saveComment({
+      variables: {
+        postid: postID,
+        content,
+      },
     });
   };
 
-  render() {
-    if (!this.props.loggedInUser) {
-      return (
-        <p>
-          <Link key="/auth/sign-in" href="/auth/sign-in">
-            <a className="link dim" href="/auth/sign-in">
-              Sign in or create an account
-            </a>
-          </Link>{" "}
-          to post a comment.
-        </p>
-      );
-    }
-
+  if (loading) {
     return (
-      <section className="pa3 mw8 center">
-        <h2>Add a comment</h2>
-
-        <Mutation mutation={SaveComment}>
-          {(saveComment, { data }) => (
-            <form
-              onSubmit={e => {
-                e.preventDefault();
-                saveComment({
-                  variables: {
-                    content: this.state.content,
-                    postid: this.state.postID,
-                  },
-                });
-              }}
-            >
-              <Editor
-                id="content"
-                name="content"
-                className="db border-box w-100 pa2 br2 mb2"
-                aria-describedby="text-desc"
-                onChange={this.handleEditorChange}
-                defaultValue={this.state.content}
-                theme={theme}
-              />
-
-              <div className="pv3 cf">
-                <input
-                  type="submit"
-                  value="Save"
-                  className="fr pointer dim br3 ph3 pv2 mb2 dib white bg-navy"
-                />
-              </div>
-            </form>
-          )}
-        </Mutation>
-      </section>
+      <>
+        <div className="">
+          <Loading key={0} />
+        </div>
+      </>
     );
   }
-}
 
-export default withRouter(CommentEditor);
+  if (!loggedInUser) {
+    return (
+      <p>
+        <a
+          className="link dim pointer"
+          onClick={() => login({ appState: { returnTo: { asPath } } })}
+        >
+          Sign in or create an account
+        </a>{" "}
+        to post a comment.
+      </p>
+    );
+  }
+
+  return (
+    <section className="pa3 mw8 center">
+      <h2>Add a comment</h2>
+
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          addComment(content);
+        }}
+      >
+        <Editor
+          id="content"
+          name="content"
+          className="db border-box w-100 pa2 br2 mb2"
+          aria-describedby="text-desc"
+          onChange={handleEditorChange}
+          defaultValue={content}
+          theme={theme}
+        />
+
+        <div className="pv3 cf">
+          <input
+            type="submit"
+            value="Save"
+            className="fr pointer dim br3 ph3 pv2 mb2 dib white bg-navy"
+          />
+        </div>
+      </form>
+    </section>
+  );
+}

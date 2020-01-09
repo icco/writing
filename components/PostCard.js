@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import md from "../lib/markdown.js";
 
-export default ({ className, post }) => {
+export default function PostCard({ className, post }) {
   let html = { __html: md.render(post.summary) };
 
   return (
@@ -24,4 +24,4 @@ export default ({ className, post }) => {
       </div>
     </article>
   );
-};
+}

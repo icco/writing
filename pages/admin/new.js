@@ -1,13 +1,12 @@
-import React from "react";
 import Router from "next/router";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
-import Error from "next/error";
 import { Loading, ErrorMessage } from "@icco/react-common";
+import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import NotAuthorized from "../../components/NotAuthorized";
-import { checkLoggedIn } from "../../lib/auth";
-import { initApollo } from "../../lib/init-apollo";
+import { withApollo } from "../../lib/apollo";
+import { useLoggedIn } from "../../lib/auth";
 
 const NewPost = gql`
   mutation {
@@ -17,41 +16,31 @@ const NewPost = gql`
   }
 `;
 
-export default class extends React.Component {
-  async componentDidMount() {
-    this.state = this.state ? this.state : {};
-    const { loggedInUser } = await checkLoggedIn(initApollo());
-    this.setState({ loggedInUser });
+const Page = props => {
+  const { loggedInUser } = useLoggedIn();
+  if (!loggedInUser || loggedInUser.role !== "admin") {
+    return <NotAuthorized />;
   }
 
-  render() {
-    if (
-      !this.state ||
-      !this.state.loggedInUser ||
-      !this.state.loggedInUser.role ||
-      this.state.loggedInUser.role !== "admin"
-    ) {
-      return <NotAuthorized />;
-    }
+  return (
+    <Mutation mutation={NewPost}>
+      {(newPost, { loading, error, data }) => {
+        if (loading) {
+          return <Loading key={0} />;
+        }
+        if (error) {
+          return <ErrorMessage message="Page not found." />;
+        }
 
-    return (
-      <Mutation mutation={NewPost}>
-        {(newPost, { loading, error, data }) => {
-          if (loading) {
-            return <Loading key={0} />;
-          }
-          if (error) {
-            return <ErrorMessage message="Page not found." />;
-          }
+        if (data) {
+          Router.push(`/edit/${data.createPost.id}`);
+        } else {
+          newPost();
+        }
+        return null;
+      }}
+    </Mutation>
+  );
+};
 
-          if (data) {
-            Router.push(`/edit/${data.createPost.id}`);
-          } else {
-            newPost();
-          }
-          return null;
-        }}
-      </Mutation>
-    );
-  }
-}
+export default withLoginRequired(withAuth(withApollo(Page)));
