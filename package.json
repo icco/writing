@@ -3,8 +3,8 @@
   "version": "7.0.0",
   "scripts": {
     "build": "next build",
-    "start": "node server.js",
-    "dev": "PORT=8080 node server.js",
+    "start": "node -r esm server.js",
+    "dev": "PORT=8080 node -r esm server.js",
     "lint": "./lint.sh",
     "snyk-protect": "snyk protect",
     "prepublish": "yarn run snyk-protect",

@@ -1,28 +1,24 @@
 "use strict";
 
-const {
-  SSLMiddleware,
-  NELMiddleware,
-  ReportToMiddleware,
-} = require("@icco/react-common");
-const compression = require("compression");
-const express = require("express");
-const helmet = require("helmet");
-const expectCt = require("expect-ct");
-const next = require("next");
-const rss = require("feed");
-const gql = require("graphql-tag");
-const { parse } = require("url");
-const { join } = require("path");
-const opencensus = require("@opencensus/core");
-const tracing = require("@opencensus/nodejs");
-const stackdriver = require("@opencensus/exporter-stackdriver");
-const propagation = require("@opencensus/propagation-stackdriver");
-const sitemap = require("sitemap");
-const pinoMiddleware = require("pino-http");
+import { SSLMiddleware, NELMiddleware, ReportToMiddleware, }  from "@icco/react-common";
+import compression  from "compression";
+import express  from "express";
+import helmet  from "helmet";
+import expectCt  from "expect-ct";
+import next  from "next";
+import rss  from "feed";
+import gql  from "graphql-tag";
+import { parse }  from "url";
+import { join }  from "path";
+import opencensus  from "@opencensus/core";
+import tracing  from "@opencensus/nodejs";
+import stackdriver  from "@opencensus/exporter-stackdriver";
+import propagation  from "@opencensus/propagation-stackdriver";
+import sitemap  from "sitemap";
+import pinoMiddleware  from "pino-http";
 
-const md = require("./lib/markdown.js");
-const { logger } = require("./lib/logger.js");
+import md  from "./lib/markdown.js";
+import { logger }  from "./lib/logger.js";
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
