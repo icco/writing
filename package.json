@@ -30,6 +30,7 @@
     "apollo-link-retry": "^2.2.14",
     "babel-plugin-graphql-tag": "^2.5.0",
     "compression": "^1.7.3",
+    "esm": "^3.2.25",
     "expect-ct": "^0.3.0",
     "express": "^4.16.3",
     "feed": "^4.0.0",
