@@ -85,8 +85,6 @@ async function startServer() {
         //  default-src 'none'
         defaultSrc: [
           "'self'",
-          "https://a.natwelch.com/tracker.js",
-          "https://fonts.googleapis.com/css",
           "https://graphql.natwelch.com/graphql",
           "https://graphql.natwelch.com/photo/new",
           "https://icco.auth0.com/",
@@ -145,12 +143,6 @@ async function startServer() {
 
       server.get("/about", (req, res) => {
         res.redirect("https://natwelch.com");
-      });
-
-      server.get("/service-worker.js", (req, res) => {
-        const parsedUrl = parse(req.url, true);
-        const filePath = join(__dirname, ".next", parsedUrl.pathname);
-        app.serveStatic(req, res, filePath);
       });
 
       server.all("*", (req, res) => {
