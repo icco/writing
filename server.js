@@ -1,28 +1,24 @@
-"use strict";
-
-const {
+import {
   SSLMiddleware,
   NELMiddleware,
   ReportToMiddleware,
-} = require("@icco/react-common");
-const compression = require("compression");
-const express = require("express");
-const helmet = require("helmet");
-const expectCt = require("expect-ct");
-const next = require("next");
-const rss = require("feed");
-const gql = require("graphql-tag");
-const { parse } = require("url");
-const { join } = require("path");
-const opencensus = require("@opencensus/core");
-const tracing = require("@opencensus/nodejs");
-const stackdriver = require("@opencensus/exporter-stackdriver");
-const propagation = require("@opencensus/propagation-stackdriver");
-const sitemap = require("sitemap");
-const pinoMiddleware = require("pino-http");
+} from "@icco/react-common";
+import compression from "compression";
+import express from "express";
+import helmet from "helmet";
+import expectCt from "expect-ct";
+import next from "next";
+import { parse } from "url";
+import { join } from "path";
+import opencensus from "@opencensus/core";
+import tracing from "@opencensus/nodejs";
+import stackdriver from "@opencensus/exporter-stackdriver";
+import propagation from "@opencensus/propagation-stackdriver";
+import pinoMiddleware from "pino-http";
 
-const md = require("./lib/markdown.js");
-const { logger } = require("./lib/logger.js");
+import { logger } from "./lib/logger.js";
+import generateFeed from "./lib/feed";
+import generateSitemap from "./lib/sitemap";
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
@@ -143,6 +139,31 @@ async function startServer() {
 
       server.get("/about", (req, res) => {
         res.redirect("https://natwelch.com");
+      });
+      server.get("/feed.rss", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/rss+xml");
+        res.send(feed.rss2());
+      });
+
+      server.get("/feed.atom", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/atom+xml");
+        res.send(feed.atom1());
+      });
+
+      server.get("/sitemap.xml", async (req, res) => {
+        res.header("Content-Type", "application/xml");
+        res.header("Content-Encoding", "gzip");
+        try {
+          let sm = await generateSitemap();
+          sm.pipe(res).on("error", e => {
+            throw e;
+          });
+        } catch (e) {
+          console.error(e);
+          res.status(500).end();
+        }
       });
 
       server.all("*", (req, res) => {
