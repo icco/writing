@@ -1,7 +1,8 @@
 // https://github.com/zeit/next-plugins/tree/master/packages/next-css
 const withCSS = require("@zeit/next-css");
 const port = process.env.PORT || 8080;
-module.exports = withCSS({
+const withOffline = require('next-offline')
+module.exports = withOffline(withCSS({
   env: {
     GRAPHQL_ORIGIN:
       process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql",
@@ -10,4 +11,4 @@ module.exports = withCSS({
     DOMAIN: process.env.DOMAIN || `http://localhost:${port}`,
     PORT: port,
   },
-});
+}));
