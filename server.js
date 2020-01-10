@@ -10,13 +10,13 @@ import expectCt from "expect-ct";
 import next from "next";
 import { parse } from "url";
 import { join } from "path";
-import opencensus from "@opencensus/core";
+import { globalStats } from "@opencensus/core";
 import tracing from "@opencensus/nodejs";
 import {
   StackdriverStatsExporter,
   StackdriverTraceExporter,
 } from "@opencensus/exporter-stackdriver";
-import propagation from "@opencensus/propagation-stackdriver";
+import { v1 } from "@opencensus/propagation-stackdriver";
 import pinoMiddleware from "pino-http";
 
 import { logger } from "./lib/logger.js";
@@ -32,9 +32,8 @@ async function startServer() {
     const sse = new StackdriverStatsExporter({
       projectId: GOOGLE_PROJECT,
     });
-    opencensus.globalStats.registerExporter(sse);
+    globalStats.registerExporter(sse);
 
-    const sp = propagation.v1;
     const ste = new StackdriverTraceExporter({
       projectId: GOOGLE_PROJECT,
     });
@@ -42,7 +41,7 @@ async function startServer() {
       samplingRate: 1,
       logger: logger,
       exporter: ste,
-      propagation: sp,
+      propagation: v1,
     }).tracer;
 
     tracer.startRootSpan({ name: "init" }, rootSpan => {
