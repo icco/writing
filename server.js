@@ -1,5 +1,3 @@
-"use strict";
-
 import { SSLMiddleware, NELMiddleware, ReportToMiddleware, }  from "@icco/react-common";
 import compression  from "compression";
 import express  from "express";
