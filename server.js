@@ -12,7 +12,10 @@ import { parse } from "url";
 import { join } from "path";
 import opencensus from "@opencensus/core";
 import tracing from "@opencensus/nodejs";
-import stackdriver from "@opencensus/exporter-stackdriver";
+import {
+  StackdriverStatsExporter,
+  StackdriverTraceExporter,
+} from "@opencensus/exporter-stackdriver";
 import propagation from "@opencensus/propagation-stackdriver";
 import pinoMiddleware from "pino-http";
 
@@ -26,13 +29,13 @@ const dev = process.env.NODE_ENV !== "production";
 
 async function startServer() {
   if (process.env.ENABLE_STACKDRIVER) {
-    const sse = new stackdriver.StackdriverStatsExporter({
+    const sse = new StackdriverStatsExporter({
       projectId: GOOGLE_PROJECT,
     });
     opencensus.globalStats.registerExporter(sse);
 
     const sp = propagation.v1;
-    const ste = new stackdriver.StackdriverTraceExporter({
+    const ste = new StackdriverTraceExporter({
       projectId: GOOGLE_PROJECT,
     });
     const tracer = tracing.start({
