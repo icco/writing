@@ -85,10 +85,11 @@ async function startServer() {
         //  default-src 'none'
         defaultSrc: [
           "'self'",
+          "https://a.natwelch.com/tracker.js",
+          "https://fonts.googleapis.com/css",
           "https://graphql.natwelch.com/graphql",
           "https://graphql.natwelch.com/photo/new",
           "https://icco.auth0.com/",
-          "https://fonts.googleapis.com/css",
         ],
         // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
         styleSrc: [
