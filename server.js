@@ -1,19 +1,22 @@
-import { SSLMiddleware, NELMiddleware, ReportToMiddleware, }  from "@icco/react-common";
-import compression  from "compression";
-import express  from "express";
-import helmet  from "helmet";
-import expectCt  from "expect-ct";
-import next  from "next";
-import { parse }  from "url";
-import { join }  from "path";
-import opencensus  from "@opencensus/core";
-import tracing  from "@opencensus/nodejs";
-import stackdriver  from "@opencensus/exporter-stackdriver";
-import propagation  from "@opencensus/propagation-stackdriver";
-import pinoMiddleware  from "pino-http";
+import {
+  SSLMiddleware,
+  NELMiddleware,
+  ReportToMiddleware,
+} from "@icco/react-common";
+import compression from "compression";
+import express from "express";
+import helmet from "helmet";
+import expectCt from "expect-ct";
+import next from "next";
+import { parse } from "url";
+import { join } from "path";
+import opencensus from "@opencensus/core";
+import tracing from "@opencensus/nodejs";
+import stackdriver from "@opencensus/exporter-stackdriver";
+import propagation from "@opencensus/propagation-stackdriver";
+import pinoMiddleware from "pino-http";
 
-import md  from "./lib/markdown.js";
-import { logger }  from "./lib/logger.js";
+import { logger } from "./lib/logger.js";
 import generateFeed from "./lib/feed";
 import generateSitemap from "./lib/sitemap";
 
@@ -137,7 +140,7 @@ async function startServer() {
       server.get("/about", (req, res) => {
         res.redirect("https://natwelch.com");
       });
-            server.get("/feed.rss", async (req, res) => {
+      server.get("/feed.rss", async (req, res) => {
         let feed = await generateFeed();
         res.set("Content-Type", "application/rss+xml");
         res.send(feed.rss2());
