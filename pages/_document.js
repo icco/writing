@@ -13,6 +13,7 @@ export default class WritingDocument extends Document {
             key="viewport"
           />
           <meta charSet="utf-8" />
+          <meta name="theme-color" content="#000000" />
 
           <link
             rel="alternate"
