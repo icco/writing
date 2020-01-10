@@ -5,7 +5,7 @@ import { TRACKING_ID } from "../lib/fathom";
 export default class WritingDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <meta
             name="viewport"

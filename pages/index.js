@@ -11,6 +11,7 @@ const Index = () => {
     <App>
       <Head>
         <title>Nat? Nat. Nat!</title>
+        <meta name="Description" content="Nat Welch's blog about life and software.">
       </Head>
       <Header />
       <PostList />
