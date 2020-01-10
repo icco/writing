@@ -12,45 +12,47 @@ module.exports = withOffline(
       DOMAIN: process.env.DOMAIN || `http://localhost:${port}`,
       PORT: port,
     },
-  runtimeCaching: [
-    {
-      urlPattern: /^https?.*/,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: 'offlineCache',
-        expiration: {
-          maxEntries: 200
-        }
-      },
-
-    plugins: [
-    // Other plugins...
-
-    new WorkboxPlugin.GenerateSW({
-      // Do not precache images
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-
-      // Define runtime caching rules.
-      runtimeCaching: [{
-        // Match any request that ends with .png, .jpg, .jpeg or .svg.
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
-        // Apply a cache-first strategy.
-        handler: 'CacheFirst',
-
+    runtimeCaching: [
+      {
+        urlPattern: /^https?.*/,
+        handler: "NetworkFirst",
         options: {
-          // Use a custom cache name.
-          cacheName: 'images',
-
-          // Only cache 10 images.
+          cacheName: "offlineCache",
           expiration: {
-            maxEntries: 10,
+            maxEntries: 200,
           },
         },
-      }],
-    }),
-  ],
-    },
-  ],
+
+        plugins: [
+          // Other plugins...
+
+          new WorkboxPlugin.GenerateSW({
+            // Do not precache images
+            exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+
+            // Define runtime caching rules.
+            runtimeCaching: [
+              {
+                // Match any request that ends with .png, .jpg, .jpeg or .svg.
+                urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+                // Apply a cache-first strategy.
+                handler: "CacheFirst",
+
+                options: {
+                  // Use a custom cache name.
+                  cacheName: "images",
+
+                  // Only cache 10 images.
+                  expiration: {
+                    maxEntries: 10,
+                  },
+                },
+              },
+            ],
+          }),
+        ],
+      },
+    ],
   })
 );
