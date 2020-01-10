@@ -4,7 +4,6 @@ import express  from "express";
 import helmet  from "helmet";
 import expectCt  from "expect-ct";
 import next  from "next";
-import gql  from "graphql-tag";
 import { parse }  from "url";
 import { join }  from "path";
 import opencensus  from "@opencensus/core";
