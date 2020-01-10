@@ -145,6 +145,12 @@ async function startServer() {
         res.redirect("https://natwelch.com");
       });
 
+      server.get("/service-worker.js", (req, res) => {
+        const parsedUrl = parse(req.url, true);
+        const filePath = join(__dirname, ".next", parsedUrl.pathname);
+        app.serveStatic(req, res, filePath);
+      });
+
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
         const parsedUrl = parse(req.url, true);
