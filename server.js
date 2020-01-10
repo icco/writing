@@ -4,7 +4,6 @@ import express  from "express";
 import helmet  from "helmet";
 import expectCt  from "expect-ct";
 import next  from "next";
-import rss  from "feed";
 import gql  from "graphql-tag";
 import { parse }  from "url";
 import { join }  from "path";
@@ -12,11 +11,12 @@ import opencensus  from "@opencensus/core";
 import tracing  from "@opencensus/nodejs";
 import stackdriver  from "@opencensus/exporter-stackdriver";
 import propagation  from "@opencensus/propagation-stackdriver";
-import sitemap  from "sitemap";
 import pinoMiddleware  from "pino-http";
 
 import md  from "./lib/markdown.js";
 import { logger }  from "./lib/logger.js";
+import generateFeed from "./lib/feed";
+import generateSitemap from "./lib/sitemap";
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
@@ -137,6 +137,29 @@ async function startServer() {
 
       server.get("/about", (req, res) => {
         res.redirect("https://natwelch.com");
+      });
+            server.get("/feed.rss", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/rss+xml");
+        res.send(feed.rss2());
+      });
+
+      server.get("/feed.atom", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/atom+xml");
+        res.send(feed.atom1());
+      });
+
+      server.get("/sitemap.xml", async (req, res) => {
+        let sm = await generateSitemap();
+        sm.toXML(function(err, xml) {
+          if (err) {
+            logger.error(err);
+            return res.status(500).end();
+          }
+          res.header("Content-Type", "application/xml");
+          res.send(xml);
+        });
       });
 
       server.all("*", (req, res) => {
