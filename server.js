@@ -153,17 +153,17 @@ async function startServer() {
       });
 
       server.get("/sitemap.xml", async (req, res) => {
-          res.header("Content-Type", "application/xml");
-          res.header('Content-Encoding', 'gzip');
+        res.header("Content-Type", "application/xml");
+        res.header("Content-Encoding", "gzip");
         try {
-        let sm = await generateSitemap();
-            sm.pipe(res).on('error', (e) => {throw e})
-
-         } catch (e) {
-    console.error(e)
-    res.status(500).end()
-  }
-
+          let sm = await generateSitemap();
+          sm.pipe(res).on("error", e => {
+            throw e;
+          });
+        } catch (e) {
+          console.error(e);
+          res.status(500).end();
+        }
       });
 
       server.all("*", (req, res) => {
