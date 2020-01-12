@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
-import { ErrorMessage, Loading, getToken  } from "@icco/react-common";
+import { ErrorMessage, Loading, getToken } from "@icco/react-common";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useState } from "react";
 

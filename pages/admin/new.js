@@ -1,7 +1,12 @@
 import Router from "next/router";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
-import { Loading, ErrorMessage, withApollo, useLoggedIn  } from "@icco/react-common";
+import {
+  Loading,
+  ErrorMessage,
+  withApollo,
+  useLoggedIn,
+} from "@icco/react-common";
 import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import NotAuthorized from "../../components/NotAuthorized";

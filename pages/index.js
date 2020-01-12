@@ -1,5 +1,5 @@
 import Head from "next/head";
-import {  withApollo, } from "@icco/react-common";
+import { withApollo } from "@icco/react-common";
 
 import App from "../components/App";
 import Header from "../components/Header";

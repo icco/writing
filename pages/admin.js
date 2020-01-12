@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { withAuth, withLoginRequired } from "use-auth0-hooks";
-import {  withApollo, useLoggedIn  } from "@icco/react-common";
+import { withApollo, useLoggedIn } from "@icco/react-common";
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";

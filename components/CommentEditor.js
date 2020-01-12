@@ -2,7 +2,7 @@ import Editor from "rich-markdown-editor";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "next/router";
-import { Loading, useLoggedIn  } from "@icco/react-common";
+import { Loading, useLoggedIn } from "@icco/react-common";
 
 import theme from "./editorTheme";
 

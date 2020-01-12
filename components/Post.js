@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import gql from "graphql-tag";
-import {useLoggedIn , ErrorMessage, Loading } from "@icco/react-common";
+import { useLoggedIn, ErrorMessage, Loading } from "@icco/react-common";
 import { useQuery } from "@apollo/react-hooks";
 
 import Comment from "./Comment";
