@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import gql from "graphql-tag";
-import { ErrorMessage, Loading } from "@icco/react-common";
+import {useLoggedIn , ErrorMessage, Loading } from "@icco/react-common";
 import { useQuery } from "@apollo/react-hooks";
 
 import Comment from "./Comment";
@@ -10,7 +10,6 @@ import Datetime from "./Datetime";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";
-import { useLoggedIn } from "../lib/auth";
 
 export const getPost = gql`
   query getPost($id: ID!) {

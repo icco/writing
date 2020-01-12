@@ -1,9 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { Logo, Loading } from "@icco/react-common";
+import { Logo, Loading, useLoggedIn  } from "@icco/react-common";
 import { useRouter } from "next/router";
-
-import { useLoggedIn } from "../lib/auth";
 
 export default function Header({ noLogo }) {
   const { pathname, query } = useRouter();

@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
+import { withApollo } from "@icco/react-common";
 
 import App from "../../components/App";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Tag from "../../components/Tag";
-import { withApollo } from "../../lib/apollo";
 
 const Page = props => {
   const router = useRouter();
