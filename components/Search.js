@@ -10,7 +10,7 @@ export const PER_PAGE = 20;
 
 export const searchQuery = gql`
   query search($query: String!, $offset: Int!, $perpage: Int!) {
-    search(input: { limit: $perpage, offset: $offset }) {
+    search(query: $query, input: { limit: $perpage, offset: $offset }) {
       id
       title
       datetime
