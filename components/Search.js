@@ -1,5 +1,4 @@
 import InfiniteScroll from "react-infinite-scroller";
-import Link from "next/link";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { NetworkStatus } from "apollo-client";
@@ -9,9 +8,9 @@ import PostResult from "./PostResult";
 
 export const PER_PAGE = 20;
 
-export const allPosts = gql`
-  query posts($offset: Int!, $perpage: Int!) {
-    posts(input: { limit: $perpage, offset: $offset }) {
+export const searchQuery = gql`
+  query search($query: String!, $offset: Int!, $perpage: Int!) {
+    search(input: { limit: $perpage, offset: $offset }) {
       id
       title
       datetime
@@ -20,21 +19,17 @@ export const allPosts = gql`
   }
 `;
 
-export const allPostsQueryVars = {
-  offset: 0,
-  perpage: PER_PAGE,
-};
-
 let hasMore = true;
 
-export default function PostList() {
+export default function Search({ query }) {
   const { loading, error, data, fetchMore, networkStatus } = useQuery(
-    allPosts,
+    searchQuery,
     {
-      variables: allPostsQueryVars,
-      // Setting this value to true will make the component rerender when
-      // the "networkStatus" changes, so we are able to know if it is fetching
-      // more data
+      variables: {
+  query,
+  offset: 0,
+  perpage: PER_PAGE,
+},
       notifyOnNetworkStatusChange: true,
     }
   );
@@ -50,13 +45,13 @@ export default function PostList() {
         if (!fetchMoreResult) {
           return previousResult;
         }
-        if (fetchMoreResult.posts.length <= 0) {
+        if (fetchMoreResult.search.length <= 0) {
           hasMore = false;
           return previousResult;
         }
         return Object.assign({}, previousResult, {
           // Append the new posts results to the old one
-          posts: [...previousResult.posts, ...fetchMoreResult.posts],
+          search: [...previousResult.search, ...fetchMoreResult.search],
         });
       },
     });
@@ -65,7 +60,7 @@ export default function PostList() {
   if (error) return <ErrorMessage message="Error loading posts." />;
   if (loading && !loadingMorePosts) return <Loading key={0} />;
 
-  const { posts } = data;
+  const { search } = data;
 
   return (
     <section className="mw8 center">
@@ -76,7 +71,7 @@ export default function PostList() {
         loader={<Loading key={0} />}
       >
         <ul className="list pl0" key="ul">
-          {posts.map(post => (
+          {search.map(post => (
             <PostResult post={post} />
           ))}
         </ul>

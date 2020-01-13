@@ -11,11 +11,10 @@ const Page = props => {
   if (router == null) {
     return <></>;
   }
-  const { pid } = router.query;
   return (
     <App>
       <Header noLogo />
-      <Post id={pid} comments />
+      <Search query={router.query} />
       <Footer />
     </App>
   );
