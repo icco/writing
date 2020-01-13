@@ -26,10 +26,10 @@ export default function Search({ query }) {
     searchQuery,
     {
       variables: {
-  query,
-  offset: 0,
-  perpage: PER_PAGE,
-},
+        query,
+        offset: 0,
+        perpage: PER_PAGE,
+      },
       notifyOnNetworkStatusChange: true,
     }
   );
