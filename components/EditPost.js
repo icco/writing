@@ -8,11 +8,9 @@ import { useState } from "react";
 
 import theme from "./editorTheme";
 import { getToken } from "../lib/auth.js";
+import { GRAPHQL_ORIGIN } from "../lib/apollo-create.js";
 
-const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
-  0,
-  process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
-);
+const baseUrl = GRAPHQL_ORIGIN.substring(0, GRAPHQL_ORIGIN.lastIndexOf("/"));
 
 const savePostMutation = gql`
   mutation SavePost(
