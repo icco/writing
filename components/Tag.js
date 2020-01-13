@@ -1,10 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { useQuery } from "@apollo/react-hooks";
 
-import Datetime from "./Datetime";
+import PostResult from "./PostResult";
 
 export const getTag = gql`
   query postsByTag($id: String!) {
@@ -40,17 +39,7 @@ export default function Tag({ id }) {
 
       <ul className="list pl0">
         {postsByTag.map(post => (
-          <li className="mb5 ml4 mr3" key={post.id}>
-            <div className="f6 db pb1 gray">
-              <span className="mr3">#{post.id}</span>
-              <Datetime>{post.datetime}</Datetime>
-            </div>
-            <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
-              <a className="header db f3 f1-ns link dark-gray dim">
-                {post.title}
-              </a>
-            </Link>
-          </li>
+          <PostResult post={post} key={post.id} />
         ))}
       </ul>
     </section>

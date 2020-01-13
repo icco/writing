@@ -72,7 +72,7 @@ export default function Search({ query }) {
       >
         <ul className="list pl0" key="ul">
           {search.map(post => (
-            <PostResult post={post} />
+            <PostResult post={post} key={post.id} />
           ))}
         </ul>
       </InfiniteScroll>

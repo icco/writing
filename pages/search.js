@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 
-import App from "../../components/App";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Post from "../../components/Post";
-import { withApollo } from "../../lib/apollo";
+import App from "../components/App";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Post from "../components/Post";
+import { withApollo } from "../lib/apollo";
 
 const Page = props => {
   const router = useRouter();
