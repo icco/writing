@@ -1009,6 +1009,17 @@
     shimmer "^1.2.0"
     uuid "^3.2.1"
 
+"@opencensus/core@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.20.tgz#34d8332fd609edd877b1148fab049a62ae2d1a99"
+  integrity sha512-vqOuTd2yuMpKohp8TNNGUAPjWEGjlnGfB9Rh5e3DKqeyR94YgierNs4LbMqxKtsnwB8Dm2yoEtRuUgoe5vD9DA==
+  dependencies:
+    continuation-local-storage "^3.2.1"
+    log-driver "^1.2.7"
+    semver "^6.0.0"
+    shimmer "^1.2.0"
+    uuid "^3.2.1"
+
 "@opencensus/exporter-stackdriver@^0.0.19":
   version "0.0.19"
   resolved "https://registry.yarnpkg.com/@opencensus/exporter-stackdriver/-/exporter-stackdriver-0.0.19.tgz#99c9d98afa51e37f2500a3c40c2b2c8f44dea8f3"
@@ -1124,12 +1135,12 @@
   dependencies:
     "@opencensus/core" "^0.0.19"
 
-"@opencensus/propagation-stackdriver@^0.0.19":
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.19.tgz#7940b7546c0d2379cb653668377aea0e850aebce"
-  integrity sha512-TTL9KIOkvTpd+DT2gj3R3JP7XqOAf69ab/wzxIwpBlFqfRiIFBkOALyC/Gy4pKooAe5DemDhXZuRtIa0PgfoZQ==
+"@opencensus/propagation-stackdriver@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@opencensus/propagation-stackdriver/-/propagation-stackdriver-0.0.20.tgz#4dfe108825f7a1f5328ae54049186a6746d792a3"
+  integrity sha512-P8yuHSLtce+yb+2EZjtTVqG7DQ48laC+IuOWi3X9q78s1Gni5F9+hmbmyP6Nb61jb5BEvXQX1s2rtRI6bayUWA==
   dependencies:
-    "@opencensus/core" "^0.0.19"
+    "@opencensus/core" "^0.0.20"
     hex2dec "^1.0.1"
     uuid "^3.2.1"
 
