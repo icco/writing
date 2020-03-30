@@ -19,7 +19,7 @@
     "@opencensus/core": "^0.0.20",
     "@opencensus/exporter-stackdriver": "^0.0.20",
     "@opencensus/nodejs": "^0.0.20",
-    "@opencensus/propagation-stackdriver": "^0.0.20",
+    "@opencensus/propagation-stackdriver": "^0.0.21",
     "@zeit/next-css": "^1.0.1",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",
