@@ -1044,9 +1044,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
   integrity sha512-xKOeQEl5O47GPZYIMToj6uuA2syyFlq9EMSl2ui0uytjY9xbe8XS0pexNWmxrdcCyNGyDmLyYw5FtKsalBUeOg==
 
-"@icco/pino-stackdriver-serializers@https://github.com/icco/pino-stackdriver-serializers#upgrade-6.0":
-  version "1.0.0"
-  resolved "https://github.com/icco/pino-stackdriver-serializers#10e8dff72211018ed933fce0a92f903de859cd2d"
+"@icco/pino-stackdriver-serializers@^2020.3.31-1":
+  version "2020.3.31-1"
+  resolved "https://registry.yarnpkg.com/@icco/pino-stackdriver-serializers/-/pino-stackdriver-serializers-2020.3.31-1.tgz#4874f77f32ada15b0058bc9b41eebf40fef222a6"
+  integrity sha512-BfFBwAtbhfW3PMIZ8jfBGrKGbAjc6O4fohZ21CxO3jAql3htbVfn5qu+iyL+PbASKXOJ+jJ4vDUZiDga5fYpeQ==
   dependencies:
     pino-std-serializers "^2.3.0"
     webpack "^4.35.0"
@@ -6953,7 +6954,7 @@ node-modules-regexp@^1.0.0:
   resolved "https://registry.yarnpkg.com/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
 
-node-pre-gyp@*, node-pre-gyp@^0.14.0:
+node-pre-gyp@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
   integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
