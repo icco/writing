@@ -1046,7 +1046,7 @@
 
 "@icco/pino-stackdriver-serializers@https://github.com/icco/pino-stackdriver-serializers#upgrade-6.0":
   version "1.0.0"
-  resolved "https://github.com/icco/pino-stackdriver-serializers#71017b6d6e0b126e384d839f216ad456658d53cc"
+  resolved "https://github.com/icco/pino-stackdriver-serializers#10e8dff72211018ed933fce0a92f903de859cd2d"
   dependencies:
     pino-std-serializers "^2.3.0"
     webpack "^4.35.0"
