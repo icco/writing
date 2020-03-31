@@ -41,7 +41,7 @@ export default function PostList() {
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMorePosts = page => {
+  const loadMorePosts = (page) => {
     fetchMore({
       variables: {
         offset: page * PER_PAGE,
@@ -76,7 +76,7 @@ export default function PostList() {
         loader={<Loading key={0} />}
       >
         <ul className="list pl0" key="ul">
-          {posts.map(post => (
+          {posts.map((post) => (
             <li className="mb5 ml4 mr3" key={"post-list-" + post.id}>
               <div className="f6 db pb1 gray">
                 <span className="dbi mr3">#{post.id}</span>

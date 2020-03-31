@@ -39,7 +39,7 @@ export default function Tag({ id }) {
       <h1 className="ma4">Posts with tag "{id}"</h1>
 
       <ul className="list pl0">
-        {postsByTag.map(post => (
+        {postsByTag.map((post) => (
           <li className="mb5 ml4 mr3" key={post.id}>
             <div className="f6 db pb1 gray">
               <span className="mr3">#{post.id}</span>

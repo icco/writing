@@ -16,7 +16,7 @@ const NewPost = gql`
   }
 `;
 
-const Page = props => {
+const Page = (props) => {
   const { loggedInUser } = useLoggedIn();
   if (!loggedInUser || loggedInUser.role !== "admin") {
     return <NotAuthorized />;

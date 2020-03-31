@@ -44,7 +44,7 @@ async function startServer() {
       propagation: v1,
     }).tracer;
 
-    tracer.startRootSpan({ name: "init" }, rootSpan => {
+    tracer.startRootSpan({ name: "init" }, (rootSpan) => {
       for (let i = 0; i < 1000000; i++) {}
 
       rootSpan.end();
@@ -159,7 +159,7 @@ async function startServer() {
         res.header("Content-Encoding", "gzip");
         try {
           let sm = await generateSitemap();
-          sm.pipe(res).on("error", e => {
+          sm.pipe(res).on("error", (e) => {
             throw e;
           });
         } catch (e) {
@@ -181,11 +181,11 @@ async function startServer() {
         return handle(req, res, parsedUrl);
       });
 
-      server.listen(port, err => {
+      server.listen(port, (err) => {
         if (err) throw err;
       });
     })
-    .catch(ex => {
+    .catch((ex) => {
       logger.error(ex);
       process.exit(1);
     });

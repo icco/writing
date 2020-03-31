@@ -54,7 +54,7 @@ export default function AdminPostList({ type }) {
 
   let adminPosts = [];
 
-  const loadMorePosts = page => {
+  const loadMorePosts = (page) => {
     fetchMore({
       variables: {
         offset: page * PER_PAGE,
@@ -125,7 +125,7 @@ export default function AdminPostList({ type }) {
         loader={<Loading key={0} />}
       >
         <ul className="list pl0" key="admin-post-ul">
-          {adminPosts.map(post => (
+          {adminPosts.map((post) => (
             <li className="" key={"admin-post-" + post.id}>
               <span className="dbi mr3">#{post.id}</span>
               <Link as={`/edit/${post.id}`} href={`/edit/[pid]`}>
