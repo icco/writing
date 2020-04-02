@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import Post from "../../components/Post";
 import { withApollo } from "../../lib/apollo";
 
-const Page = props => {
+const Page = (props) => {
   const router = useRouter();
   if (router == null) {
     return <></>;

@@ -36,7 +36,7 @@ export default function AdminLinkList() {
 
   const loadingMoreLinks = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMoreLinks = page => {
+  const loadMoreLinks = (page) => {
     fetchMore({
       variables: {
         offset: page * PER_PAGE,
@@ -73,7 +73,7 @@ export default function AdminLinkList() {
         loader={<Loading key="link-loader" />}
       >
         <ul className="list pl0" key="link-ul">
-          {links.map(l => (
+          {links.map((l) => (
             <li className="mv3" key={"link-" + l.id}>
               <span className="mr3">
                 <Datetime>{l.created}</Datetime>
