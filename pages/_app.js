@@ -65,12 +65,12 @@ function Writing({ Component, pageProps }) {
       onAccessTokenError={onAccessTokenError}
       onRedirecting={onRedirecting}
       onRedirectCallback={onRedirectCallback}
-    session={{
-      cookieLifetime: 60 * 60 * 8,
-      cookieDomain: 'natwelch.com',
-      cookieSameSite: 'none',
-      storeAccessToken: true,
-    }}
+      session={{
+        cookieLifetime: 60 * 60 * 8,
+        cookieDomain: "natwelch.com",
+        cookieSameSite: "none",
+        storeAccessToken: true,
+      }}
     >
       <Component {...pageProps} />
     </Auth0Provider>
