@@ -88,7 +88,7 @@ export default function Post({ id, comments }) {
         <h2>Comments</h2>
         <CommentEditor postID={id} loggedInUser={loggedInUser} />
         <div className="">
-          {post.comments.map(item => (
+          {post.comments.map((item) => (
             <Comment key={item.id} data={{ comment: item }} />
           ))}
         </div>

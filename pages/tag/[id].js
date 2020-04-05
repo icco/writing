@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import Tag from "../../components/Tag";
 import { withApollo } from "../../lib/apollo";
 
-const Page = props => {
+const Page = (props) => {
   const router = useRouter();
   if (router == null) {
     return <></>;

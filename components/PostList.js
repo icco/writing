@@ -40,7 +40,7 @@ export default function PostList() {
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMorePosts = page => {
+  const loadMorePosts = (page) => {
     fetchMore({
       variables: {
         offset: page * PER_PAGE,

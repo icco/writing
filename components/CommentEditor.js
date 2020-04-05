@@ -27,13 +27,13 @@ export default function CommentEditor({ postID }) {
   }
 
   let content = "";
-  const handleEditorChange = value => {
+  const handleEditorChange = (value) => {
     content = value();
   };
 
   const [saveComment] = useMutation(saveCommentMutation);
 
-  const addComment = content => {
+  const addComment = (content) => {
     saveComment({
       variables: {
         postid: postID,
@@ -71,7 +71,7 @@ export default function CommentEditor({ postID }) {
       <h2>Add a comment</h2>
 
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           addComment(content);
         }}
