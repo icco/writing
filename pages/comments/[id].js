@@ -4,7 +4,7 @@ import App from "../../components/App";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-const Page = props => {
+const Page = (props) => {
   const router = useRouter();
   const { pid } = router.query;
   return (

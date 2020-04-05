@@ -58,23 +58,23 @@ export default function EditPost({ id }) {
   const [draft, setDraft] = useState("");
   const [datetime, setDatetime] = useState("");
 
-  const handleTitleChange = event => {
+  const handleTitleChange = (event) => {
     const target = event.target;
     const value = target.value;
     setTitle(value);
   };
 
-  const handleEditorChange = value => {
+  const handleEditorChange = (value) => {
     setContent(value());
   };
 
-  const handleDraftChange = event => {
+  const handleDraftChange = (event) => {
     const target = event.target;
     const value = target.checked;
     setDraft(value);
   };
 
-  const draftState = postDraft => {
+  const draftState = (postDraft) => {
     if (draft === "") {
       return postDraft;
     }
@@ -82,7 +82,7 @@ export default function EditPost({ id }) {
     return draft;
   };
 
-  const handleDatetimeChange = event => {
+  const handleDatetimeChange = (event) => {
     const target = event.target;
     const value = target.value;
     setDatetime(value);
@@ -115,7 +115,7 @@ export default function EditPost({ id }) {
     <section className="pa3 mw8 center">
       <h2>Edit Post #{post.id}</h2>
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           savePost({
             variables: {
@@ -157,7 +157,7 @@ export default function EditPost({ id }) {
           aria-describedby="text-desc"
           onChange={handleEditorChange}
           defaultValue={content || post.content}
-          uploadImage={async file => {
+          uploadImage={async (file) => {
             let token = getToken();
 
             let formData = new FormData();
