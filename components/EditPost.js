@@ -7,8 +7,8 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useState } from "react";
 
 import theme from "./editorTheme";
-import { getToken } from "../lib/auth.js";
 import { GRAPHQL_ORIGIN } from "../lib/apollo-create.js";
+import { getAuth } from "../lib/apollo-create.js";
 
 const baseUrl = GRAPHQL_ORIGIN.substring(0, GRAPHQL_ORIGIN.lastIndexOf("/"));
 
@@ -156,16 +156,14 @@ export default function EditPost({ id }) {
           onChange={handleEditorChange}
           defaultValue={content || post.content}
           uploadImage={async (file) => {
-            let token = getToken();
-
+            const authorization = getAuth();
             let formData = new FormData();
             formData.append("file", file);
+
             let response = await fetch(`${baseUrl}/photo/new`, {
               method: "POST",
               body: formData,
-              headers: {
-                authorization: token ? `Bearer ${token}` : "",
-              },
+              headers: { authorization },
             });
 
             let data = await response.json();
