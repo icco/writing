@@ -1,8 +1,25 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.0
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-TREEKILL-536781:
     - snyk > snyk-sbt-plugin > tree-kill:
         patched: '2019-12-11T22:30:18.981Z'
+  SNYK-JS-LODASH-567746:
+    - depcheck > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
+    - eslint > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
+    - depcheck > @babel/traverse > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
+    - eslint > inquirer > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
+    - eslint > table > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
+    - depcheck > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
+    - depcheck > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
+    - depcheck > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-09T22:31:02.300Z'
