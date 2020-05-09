@@ -7,6 +7,7 @@ import App from "../../components/App";
 import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
+
 import { withApollo } from "../../lib/apollo";
 import { useLoggedIn } from "../../lib/auth";
 
