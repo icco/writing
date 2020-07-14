@@ -29,7 +29,7 @@
     "apollo-link-http": "^1.5.16",
     "apollo-link-persisted-queries": "^0.2.2",
     "apollo-link-retry": "^2.2.14",
-    "apollo-link-token-refresh": "^0.2.7",
+    "apollo-link-token-refresh": "^0.3.1",
     "babel-plugin-graphql-tag": "^2.5.0",
     "compression": "^1.7.3",
     "expect-ct": "^0.3.0",
