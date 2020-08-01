@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import gql from "@apollo/client";
+import { gql } from "@apollo/client";
 
 import App from "../../components/App";
 import Footer from "../../components/Footer";

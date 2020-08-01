@@ -1,4 +1,4 @@
-import gql from "@apollo/client";
+import { gql } from "@apollo/client";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";

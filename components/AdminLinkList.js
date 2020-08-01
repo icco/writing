@@ -1,5 +1,5 @@
 import InfiniteScroll from "react-infinite-scroller";
-import gql from "@apollo/client";
+import { gql } from "@apollo/client";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { NetworkStatus } from "@apollo/client";
 import { useQuery } from "@apollo/client";
