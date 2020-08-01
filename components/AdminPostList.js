@@ -3,7 +3,7 @@ import Link from "next/link";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { NetworkStatus } from "@apollo/client";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 
 import { allPosts, PER_PAGE } from "./PostList";
 

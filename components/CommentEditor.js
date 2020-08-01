@@ -1,6 +1,6 @@
 import Editor from "rich-markdown-editor";
 import gql from "graphql-tag";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { Loading } from "@icco/react-common";
 
