@@ -2,7 +2,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import Link from "next/link";
 import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { NetworkStatus } from "apollo-client";
+import { NetworkStatus } from "@apollo/client";
 import { useQuery } from "@apollo/react-hooks";
 
 import Datetime from "./Datetime";
