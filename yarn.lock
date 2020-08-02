@@ -1204,17 +1204,17 @@
     pino-std-serializers "^2.3.0"
     webpack "^4.35.0"
 
-"@icco/react-common@^2020.8.1-26":
-  version "2020.8.1-1"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2020.8.1-1.tgz#c6c9bdc3ba6740744831490e4921ac4802d789db"
-  integrity sha512-5JGl4VWSuq1wa4U69yqxs/b7LiyVNVAv/lI2L2PrKIEV0O0RB7qcKX2Af+ALyf4IdtITcQkUfkl0PTXYr3lOsQ==
+"@icco/react-common@^2020.8.1-3":
+  version "2020.8.1-4"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2020.8.1-4.tgz#cbd3767551474c7e54c40cb8126ed71dd2d99b48"
+  integrity sha512-QMNRFMBeb60vASgmQsRcptc5MofX9rGQQeMNVefxstQBuYWboT9a2KyoO5stmRfT8ozlkFqQSz2slbcLqnKbEA==
   dependencies:
     prop-types "^15.7"
-    react "^16.12.0"
-    react-dom "^16.12.0"
+    react "^16.13.1"
+    react-dom "^16.13.1"
     react-loading "^2.0"
     vivus "^0.4.5"
-    webpack "^4.35.0"
+    webpack "^4.42.1"
 
 "@next/react-dev-overlay@9.5.1":
   version "9.5.1"
@@ -5290,10 +5290,12 @@ graphql-tag@^2.11.0:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.11.0.tgz#1deb53a01c46a7eb401d6cb59dec86fa1cccbffd"
   integrity sha512-VmsD5pJqWJnQZMUeRwrDhfgoyqcfwEkvtpANqcoUG8/tOLkwNgU9mzub/Mc78OJMhHjx7gfAMTxzdG43VGg3bA==
 
-graphql@^15.0.0:
-  version "15.3.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
-  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
+graphql@^14.0.0:
+  version "14.7.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.7.0.tgz#7fa79a80a69be4a31c27dda824dc04dac2035a72"
+  integrity sha512-l0xWZpoPKpppFzMfvVyFmp9vLN7w/ZZJPefUicMCepfJeQ8sMcztloGYY9DfjVPo6tIUDzU5Hw3MUbIjj9AVVA==
+  dependencies:
+    iterall "^1.2.2"
 
 grpc@^1.24.2:
   version "1.24.3"
@@ -6136,7 +6138,7 @@ isomorphic-unfetch@^3.0.0:
     node-fetch "^2.2.0"
     unfetch "^4.0.0"
 
-iterall@^1.2.1:
+iterall@^1.2.1, iterall@^1.2.2:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.3.0.tgz#afcb08492e2915cbd8a0884eb93a8c94d0d72fea"
   integrity sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==
@@ -8763,7 +8765,7 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.12.0:
+react-dom@^16.12.0, react-dom@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -8832,7 +8834,7 @@ react-use@^15.0.0:
     ts-easing "^0.2.0"
     tslib "^2.0.0"
 
-react@^16.12.0:
+react@^16.12.0, react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -11122,7 +11124,7 @@ webpack@4.44.0:
     watchpack "^1.7.4"
     webpack-sources "^1.4.1"
 
-webpack@^4.3.0, webpack@^4.35.0:
+webpack@^4.3.0, webpack@^4.35.0, webpack@^4.42.1:
   version "4.44.1"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.44.1.tgz#17e69fff9f321b8f117d1fda714edfc0b939cc21"
   integrity sha512-4UOGAohv/VGUNQJstzEywwNxqX417FnjZgZJpJQegddzPmTvph37eBIRbRTfdySXzVtJXLJfbMN3mMYhM6GdmQ==
