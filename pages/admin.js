@@ -7,7 +7,6 @@ import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
 
-import { withApollo } from "../lib/apollo";
 import { useLoggedIn } from "../lib/auth";
 
 const Page = ({ auth }) => {
@@ -45,4 +44,4 @@ const Page = ({ auth }) => {
   );
 };
 
-export default withLoginRequired(withAuth(withApollo(Page)));
+export default withLoginRequired(withAuth(Page));

@@ -4,15 +4,9 @@ import App from "../../components/App";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Tag from "../../components/Tag";
-import { withApollo } from "../../lib/apollo";
 
 const Page = (props) => {
-  const router = useRouter();
-  if (router == null) {
-    return <></>;
-  }
-
-  const { id } = router.query;
+  const { id } = props
   return (
     <App>
       <Header noLogo />
@@ -22,4 +16,41 @@ const Page = (props) => {
   );
 };
 
-export default withApollo(Page);
+export async function getStaticProps(context) {
+  const { id } = context.params;
+
+  const apolloClient = initializeApollo();
+  await apolloClient.query({
+    query: getPost,
+    variables: { id },
+  });
+
+  return {
+    props: {
+      initialApolloState: apolloClient.cache.extract(),
+      id,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const apolloClient = initializeApollo();
+
+  const result = await apolloClient.query({
+    query: gql`
+      query tags {
+        tags
+      }
+    `,
+  });
+
+  return {
+    paths: result["data"]["tags"].map(function (d) {
+      return { params: { id: d } };
+    }),
+    // TODO: Write a fallback function.
+    fallback: false,
+  };
+}
+
+export default Page;
