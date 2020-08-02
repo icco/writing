@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 
 import App from "../../components/App";
@@ -8,15 +7,10 @@ import Post, { getPost } from "../../components/Post";
 import { initializeApollo } from "../../lib/apollo";
 
 const Page = (props) => {
-  const router = useRouter();
-  if (router == null) {
-    return <></>;
-  }
-  const { pid } = router.query;
   return (
     <App>
       <Header noLogo />
-      <Post id={pid} comments />
+      <Post id={props.pid} comments />
       <Footer />
     </App>
   );
@@ -34,6 +28,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       initialApolloState: apolloClient.cache.extract(),
+      pid,
     },
   };
 }
