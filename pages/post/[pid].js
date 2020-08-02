@@ -46,7 +46,7 @@ export async function getStaticPaths() {
     `,
     variables: {
       offset: 0,
-      perpage: 500,
+      perpage: 2000,
     },
   });
 
