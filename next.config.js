@@ -8,4 +8,13 @@ module.exports = {
     DOMAIN: process.env.DOMAIN || `http://localhost:${port}`,
     PORT: port,
   },
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: 'https://natwelch.com/',
+        permanent: true
+      }
+    ]
+  },
 };

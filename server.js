@@ -139,9 +139,6 @@ async function startServer() {
         res.json({ status: "ok" });
       });
 
-      server.get("/about", (req, res) => {
-        res.redirect("https://natwelch.com");
-      });
       server.get("/feed.rss", async (req, res) => {
         let feed = await generateFeed();
         res.set("Content-Type", "application/rss+xml");
@@ -171,12 +168,6 @@ async function startServer() {
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
         const parsedUrl = parse(req.url, true);
-
-        const redirects = {};
-
-        if (parsedUrl.pathname in redirects) {
-          return res.redirect(redirects[parsedUrl.pathname]);
-        }
 
         return handle(req, res, parsedUrl);
       });
