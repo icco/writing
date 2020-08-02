@@ -6,7 +6,7 @@ import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import NotAuthorized from "../../components/NotAuthorized";
 import { useLoggedIn } from "../../lib/auth";
-import { initializeApollo } from "../lib/apollo";
+import { initializeApollo } from "../../lib/apollo";
 
 const NewPost = gql`
   mutation {

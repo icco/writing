@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { gql } from "@apollo/client";
 
 import App from "../../components/App";
 import Header from "../../components/Header";
@@ -7,7 +8,7 @@ import Tag, { getTag } from "../../components/Tag";
 import { initializeApollo } from "../../lib/apollo";
 
 const Page = (props) => {
-  const { id } = props
+  const { id } = props;
   return (
     <App>
       <Header noLogo />

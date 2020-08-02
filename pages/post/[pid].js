@@ -1,4 +1,4 @@
-import { useQuery, gql } from "@apollo/client";
+import { gql } from "@apollo/client";
 
 import App from "../../components/App";
 import Footer from "../../components/Footer";
