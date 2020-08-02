@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import App from "../../components/App";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Tag from "../../components/Tag";
+import Tag, { getTag } from "../../components/Tag";
+import { initializeApollo } from "../../lib/apollo";
 
 const Page = (props) => {
   const { id } = props
@@ -21,7 +22,7 @@ export async function getStaticProps(context) {
 
   const apolloClient = initializeApollo();
   await apolloClient.query({
-    query: getPost,
+    query: getTag,
     variables: { id },
   });
 
