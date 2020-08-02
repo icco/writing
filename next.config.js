@@ -11,7 +11,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/about',
+        source: '/about/',
         destination: 'https://natwelch.com/',
         permanent: true
       }
