@@ -1,8 +1,8 @@
 import Router from "next/router";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
-import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '../lib/apollo'
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "../lib/apollo";
 
 // Related code from https://github.com/sandrinodimattia/use-auth0-hooks/blob/master/examples/nextjs-spa/pages/_app.js
 import { Auth0Provider } from "use-auth0-hooks";
@@ -59,7 +59,7 @@ const onRedirecting = () => {
 };
 
 function Writing({ Component, pageProps }) {
-  const apolloClient = useApollo(pageProps.initialApolloState)
+  const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
     <Auth0Provider
