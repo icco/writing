@@ -1,5 +1,9 @@
 import Router from "next/router";
 
+// https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
+import { ApolloProvider } from '@apollo/client'
+import { useApollo } from '../lib/apollo'
+
 // Related code from https://github.com/sandrinodimattia/use-auth0-hooks/blob/master/examples/nextjs-spa/pages/_app.js
 import { Auth0Provider } from "use-auth0-hooks";
 
@@ -55,6 +59,8 @@ const onRedirecting = () => {
 };
 
 function Writing({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps.initialApolloState)
+
   return (
     <Auth0Provider
       domain={process.env.AUTH0_DOMAIN}
@@ -66,7 +72,9 @@ function Writing({ Component, pageProps }) {
       onRedirecting={onRedirecting}
       onRedirectCallback={onRedirectCallback}
     >
-      <Component {...pageProps} />
+      <ApolloProvider client={apolloClient}>
+        <Component {...pageProps} />
+      </ApolloProvider>
     </Auth0Provider>
   );
 }
