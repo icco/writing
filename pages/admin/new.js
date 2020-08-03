@@ -2,10 +2,9 @@ import Router from "next/router";
 import { gql } from "@apollo/client";
 import { Mutation } from "@apollo/client";
 import { Loading, ErrorMessage } from "@icco/react-common";
-import { withAuth, withLoginRequired } from "use-auth0-hooks";
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 import NotAuthorized from "../../components/NotAuthorized";
-import { useLoggedIn } from "../../lib/auth";
 import { initializeApollo } from "../../lib/apollo";
 
 const NewPost = gql`
@@ -17,10 +16,6 @@ const NewPost = gql`
 `;
 
 const Page = (props) => {
-  const { loggedInUser } = useLoggedIn();
-  if (!loggedInUser || loggedInUser.role !== "admin") {
-    return <NotAuthorized />;
-  }
   const apolloClient = initializeApollo();
 
   return (
@@ -44,4 +39,4 @@ const Page = (props) => {
   );
 };
 
-export default withLoginRequired(withAuth(Page));
+export default withAuthenticationRequired(Page);
