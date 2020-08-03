@@ -33,10 +33,10 @@ export default function Tag({ id }) {
   return (
     <section className="mw8 center">
       <Head>
-        <title>Nat? Nat. Nat! | tag "{id}"</title>
+        <title>Nat? Nat. Nat! | tag &quot;{id}&quot;</title>
       </Head>
 
-      <h1 className="ma4">Posts with tag "{id}"</h1>
+      <h1 className="ma4">Posts with tag &quot;{id}&quot;</h1>
 
       <ul className="list pl0">
         {postsByTag.map((post) => (
