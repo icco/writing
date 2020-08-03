@@ -10,12 +10,7 @@ import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 
 const Page = (params) => {
-  const {
-    isLoading,
-    error,
-    isAuthenticated,
-    user,
-  } = useAuth0();
+  const { isLoading, error, isAuthenticated, user } = useAuth0();
   const router = useRouter();
 
   console.log(params);
