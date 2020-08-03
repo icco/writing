@@ -1,6 +1,5 @@
 import Router from "next/router";
-import Head from 'next/head'
-
+import Head from "next/head";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
 import { ApolloProvider } from "@apollo/client";
@@ -65,28 +64,28 @@ function Writing({ Component, pageProps }) {
 
   return (
     <>
-          <Head>
+      <Head>
         <meta name="viewport" content="viewport-fit=cover" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-            key="viewport"
-          />
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+          key="viewport"
+        />
       </Head>
-    <Auth0Provider
-      domain={process.env.AUTH0_DOMAIN}
-      audience={"https://natwelch.com"}
-      clientId={process.env.AUTH0_CLIENT_ID}
-      redirectUri={process.env.DOMAIN}
-      onLoginError={onLoginError}
-      onAccessTokenError={onAccessTokenError}
-      onRedirecting={onRedirecting}
-      onRedirectCallback={onRedirectCallback}
-    >
-      <ApolloProvider client={apolloClient}>
-        <Component {...pageProps} />
-      </ApolloProvider>
-    </Auth0Provider>
+      <Auth0Provider
+        domain={process.env.AUTH0_DOMAIN}
+        audience={"https://natwelch.com"}
+        clientId={process.env.AUTH0_CLIENT_ID}
+        redirectUri={process.env.DOMAIN}
+        onLoginError={onLoginError}
+        onAccessTokenError={onAccessTokenError}
+        onRedirecting={onRedirecting}
+        onRedirectCallback={onRedirectCallback}
+      >
+        <ApolloProvider client={apolloClient}>
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </Auth0Provider>
     </>
   );
 }

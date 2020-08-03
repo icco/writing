@@ -2,7 +2,7 @@ import Router from "next/router";
 import { gql } from "@apollo/client";
 import { Mutation } from "@apollo/client";
 import { Loading, ErrorMessage } from "@icco/react-common";
-import { withAuthenticationRequired } from '@auth0/auth0-react';
+import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 import NotAuthorized from "../../components/NotAuthorized";
 import { initializeApollo } from "../../lib/apollo";
