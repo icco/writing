@@ -1,7 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-import { TRACKING_ID } from "../lib/fathom";
-
 export default class WritingDocument extends Document {
   render() {
     return (
@@ -21,24 +19,6 @@ export default class WritingDocument extends Document {
             type="application/atom+xml"
             title="Atom Feed"
             href="/feed.atom"
-          />
-
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function(f, a, t, h, o, m){
-              a[h]=a[h]||function(){
-                (a[h].q=a[h].q||[]).push(arguments)
-              };
-              o=f.createElement('script'),
-              m=f.getElementsByTagName('script')[0];
-              o.async=1; o.src=t; o.id='fathom-script';
-              m.parentNode.insertBefore(o,m)
-            })(document, window, 'https://a.natwelch.com/tracker.js', 'fathom');
-            fathom('set', 'siteId', '${TRACKING_ID}');
-            fathom('trackPageview');
-          `,
-            }}
           />
         </Head>
         <body>
