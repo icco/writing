@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
@@ -46,4 +47,4 @@ const Page = (params) => {
   );
 };
 
-export default Page;
+export default withAuthenticationRequired(Page);

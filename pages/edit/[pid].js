@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useAuth0 } from "@auth0/auth0-react";
+import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 import { Loading } from "@icco/react-common";
 
 import AdminLinkList from "../../components/AdminLinkList";
@@ -36,4 +36,4 @@ const Page = (params) => {
   );
 };
 
-export default Page;
+export default withAuthenticationRequired(Page);
