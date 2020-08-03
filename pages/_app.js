@@ -1,4 +1,5 @@
 import Router from "next/router";
+import {  Head  } from "next/document";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
 import { ApolloProvider } from "@apollo/client";
@@ -62,6 +63,15 @@ function Writing({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
+    <>
+          <Head>
+        <meta name="viewport" content="viewport-fit=cover" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+            key="viewport"
+          />
+      </Head>
     <Auth0Provider
       domain={process.env.AUTH0_DOMAIN}
       audience={"https://natwelch.com"}
@@ -76,6 +86,7 @@ function Writing({ Component, pageProps }) {
         <Component {...pageProps} />
       </ApolloProvider>
     </Auth0Provider>
+    </>
   );
 }
 

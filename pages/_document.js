@@ -7,11 +7,6 @@ export default class WritingDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-            key="viewport"
-          />
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#000000" />
 
