@@ -2,7 +2,7 @@ import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { gql , useQuery, useMutation } from "@apollo/client";
+import { gql, useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
