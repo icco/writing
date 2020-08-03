@@ -1,17 +1,24 @@
 import Head from "next/head";
 import Link from "next/link";
-import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
 
-import { useLoggedIn } from "../lib/auth";
+const Page = (params) => {
+  const {
+    isLoading,
+    error,
+    isAuthenticated,
+    user,
+  } = useAuth0();
 
-const Page = ({ auth }) => {
-  const { loggedInUser } = useLoggedIn();
-  if (!loggedInUser || loggedInUser.role !== "admin") {
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (!isAuthenticated || user.role !== "admin") {
     return <NotAuthorized />;
   }
 
@@ -44,4 +51,4 @@ const Page = ({ auth }) => {
   );
 };
 
-export default withLoginRequired(withAuth(Page));
+export default Page;

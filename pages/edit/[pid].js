@@ -14,7 +14,6 @@ const Page = (params) => {
     isLoading,
     error,
     isAuthenticated,
-    loginWithRedirect,
     user,
   } = useAuth0();
   const router = useRouter();
