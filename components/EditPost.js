@@ -159,7 +159,9 @@ export default function EditPost({ id }) {
           onChange={handleEditorChange}
           defaultValue={content || post.content}
           uploadImage={async (file) => {
-            const authorization = isAuthenticated ? await getTokenSilently() : "";
+            const authorization = isAuthenticated
+              ? await getTokenSilently()
+              : "";
             let formData = new FormData();
             formData.append("file", file);
 
