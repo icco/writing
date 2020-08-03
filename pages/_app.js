@@ -4,8 +4,8 @@ import Router from "next/router";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "../lib/apollo";
 
-// Related code from https://github.com/sandrinodimattia/use-auth0-hooks/blob/master/examples/nextjs-spa/pages/_app.js
-import { Auth0Provider } from "use-auth0-hooks";
+// https://auth0.com/docs/libraries/auth0-react
+import { Auth0Provider } from '@auth0/auth0-react';
 
 // Can not be done in _document.js
 import "../style.css";

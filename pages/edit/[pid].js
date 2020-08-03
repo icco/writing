@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { withAuth, withLoginRequired } from "use-auth0-hooks";
+import { useAuth0 } from '@auth0/auth0-react';
+import { Loading } from "@icco/react-common";
 
 import AdminLinkList from "../../components/AdminLinkList";
 import App from "../../components/App";
@@ -8,19 +9,26 @@ import EditPost from "../../components/EditPost";
 import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 
-import { useLoggedIn } from "../../lib/auth";
-
-const Page = () => {
+const Page = (params) => {
+    const {
+    isLoading,
+    error,
+      isAuthenticated,
+      loginWithRedirect,
+      user,
+  } = useAuth0();
   const router = useRouter();
-  const { loggedInUser } = useLoggedIn();
-  if (!loggedInUser || loggedInUser.role !== "admin") {
+
+  console.log(params);
+  const { pid } = params
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  if (!isAuthenticated || user.role !== "admin") {
     return <NotAuthorized />;
   }
-
-  if (router == null) {
-    return <></>;
-  }
-  const { pid } = router.query;
 
   return (
     <App>
@@ -34,4 +42,4 @@ const Page = () => {
   );
 };
 
-export default withLoginRequired(withAuth(Page));
+export default Page;
