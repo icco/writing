@@ -1,5 +1,6 @@
 import Router from "next/router";
-import {  Head  } from "next/document";
+import Head from 'next/head'
+
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
 import { ApolloProvider } from "@apollo/client";
