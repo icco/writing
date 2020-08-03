@@ -3,6 +3,7 @@ import Link from "next/link";
 import { gql } from "@apollo/client";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { useQuery } from "@apollo/client";
+import { useAuth0 } from '@auth0/auth0-react';
 
 import Comment from "./Comment";
 import CommentEditor from "./CommentEditor";
@@ -10,7 +11,6 @@ import Datetime from "./Datetime";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";
-import { useLoggedIn } from "../lib/auth";
 
 export const getPost = gql`
   query getPost($id: ID!) {
@@ -47,13 +47,17 @@ export default function Post({ id, comments }) {
   const { loading, error, data } = useQuery(getPost, {
     variables: { id },
   });
-  const { loggedInUser } = useLoggedIn();
+    const {
+      isLoading: authLoading,
+    error: authError,
+      isAuthenticated,
+  } = useAuth0();
 
-  if (error) {
+  if (error || authError) {
     return <ErrorMessage message="Unable to get page." />;
   }
 
-  if (loading) {
+  if (loading || authLoading) {
     return <Loading key={0} />;
   }
 
@@ -73,7 +77,7 @@ export default function Post({ id, comments }) {
   }
 
   let edit = <></>;
-  if (loggedInUser) {
+  if (isAuthenticated) {
     edit = (
       <Link as={`/edit/${post.id}`} href="/edit/[pid]">
         <a className="mh1 link gray dim">edit</a>
