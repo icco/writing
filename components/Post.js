@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import { gql } from "@apollo/client";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { useQuery } from "@apollo/client";
+import { gql , useQuery } from "@apollo/client";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import Comment from "./Comment";

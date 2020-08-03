@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import { gql } from "@apollo/client";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
 import Datetime from "./Datetime";
 

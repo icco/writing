@@ -1,6 +1,5 @@
 import Router from "next/router";
-import { gql } from "@apollo/client";
-import { Mutation } from "@apollo/client";
+import { gql, Mutation } from "@apollo/client";
 import { Loading, ErrorMessage } from "@icco/react-common";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
