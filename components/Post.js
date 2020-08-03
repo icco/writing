@@ -3,7 +3,7 @@ import Link from "next/link";
 import { gql } from "@apollo/client";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { useQuery } from "@apollo/client";
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Comment from "./Comment";
 import CommentEditor from "./CommentEditor";
@@ -47,10 +47,10 @@ export default function Post({ id, comments }) {
   const { loading, error, data } = useQuery(getPost, {
     variables: { id },
   });
-    const {
-      isLoading: authLoading,
+  const {
+    isLoading: authLoading,
     error: authError,
-      isAuthenticated,
+    isAuthenticated,
   } = useAuth0();
 
   if (error || authError) {
