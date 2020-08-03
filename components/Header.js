@@ -67,7 +67,7 @@ export default function Header({ noLogo }) {
 
   let nav = <>{elements.signin}</>;
 
-  if (loading) {
+  if (isLoading) {
     nav = (
       <>
         <div className="dib h1">

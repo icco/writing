@@ -51,6 +51,7 @@ export default function Post({ id, comments }) {
     isLoading: authLoading,
     error: authError,
     isAuthenticated,
+    user,
   } = useAuth0();
 
   if (error || authError) {
@@ -90,7 +91,7 @@ export default function Post({ id, comments }) {
     commentDiv = (
       <article className="mh3 db">
         <h2>Comments</h2>
-        <CommentEditor postID={id} loggedInUser={loggedInUser} />
+        <CommentEditor postID={id} loggedInUser={user} />
         <div className="">
           {post.comments.map((item) => (
             <Comment key={item.id} data={{ comment: item }} />

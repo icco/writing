@@ -42,7 +42,7 @@ export default function CommentEditor({ postID }) {
     });
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
       <>
         <div className="">
