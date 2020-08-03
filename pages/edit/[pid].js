@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
 import { Loading } from "@icco/react-common";
 
 import AdminLinkList from "../../components/AdminLinkList";
@@ -10,20 +10,20 @@ import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 
 const Page = (params) => {
-    const {
+  const {
     isLoading,
     error,
-      isAuthenticated,
-      loginWithRedirect,
-      user,
+    isAuthenticated,
+    loginWithRedirect,
+    user,
   } = useAuth0();
   const router = useRouter();
 
   console.log(params);
-  const { pid } = params
+  const { pid } = params;
 
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
   if (!isAuthenticated || user.role !== "admin") {

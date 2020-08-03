@@ -2,17 +2,17 @@ import React from "react";
 import Link from "next/link";
 import { Logo, Loading } from "@icco/react-common";
 import { useRouter } from "next/router";
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Header({ noLogo }) {
   const { pathname, query } = useRouter();
-    const {
+  const {
     isAuthenticated,
     logout,
-          loginWithRedirect,
+    loginWithRedirect,
     isLoading,
     error,
-      user,
+    user,
   } = useAuth0();
 
   if (error) {
@@ -30,7 +30,9 @@ export default function Header({ noLogo }) {
     signin: (
       <a
         className="f6 link dib dim mr3 black mr4-ns pointer"
-        onClick={() => loginWithRedirect({ appState: { returnTo: { pathname, query } } })}
+        onClick={() =>
+          loginWithRedirect({ appState: { returnTo: { pathname, query } } })
+        }
       >
         Sign In
       </a>
