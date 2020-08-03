@@ -6,7 +6,6 @@ import {
 import compression from "compression";
 import express from "express";
 import helmet from "helmet";
-import expectCt from "expect-ct";
 import next from "next";
 import { parse } from "url";
 import { join } from "path";
@@ -72,13 +71,22 @@ async function startServer() {
       server.use(NELMiddleware());
       server.use(ReportToMiddleware("writing"));
 
-      server.use(helmet());
+      server.use(helmet.dnsPrefetchControl());
+      server.use(helmet.expectCt());
+      server.use(helmet.frameguard());
+      server.use(helmet.hidePoweredBy());
+      server.use(helmet.hsts());
+      server.use(helmet.ieNoOpen());
+      server.use(helmet.noSniff());
+      server.use(helmet.permittedCrossDomainPolicies());
+      server.use(helmet.xssFilter());
 
       server.use(
         helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
       );
+
       let directives = {
-        upgradeInsecureRequests: true,
+        upgradeInsecureRequests: [],
 
         //  default-src 'none'
         defaultSrc: [
@@ -128,8 +136,6 @@ async function startServer() {
           directives,
         })
       );
-
-      server.use(expectCt({ maxAge: 123 }));
 
       server.use(compression());
 
