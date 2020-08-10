@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostList, { allPosts, allPostsQueryVars } from "../components/PostList";
 
-import { useApollo } from "../lib/apollo";
+import { initializeApollo } from "../lib/apollo";
 
 const Index = () => {
   return (
@@ -24,8 +24,8 @@ const Index = () => {
   );
 };
 
-export async function getStaticProps(context) {
-  const apolloClient = useApollo();
+export async function getStaticProps() {
+  const apolloClient = initializeApollo();
 
   await apolloClient.query({
     query: allPosts,
