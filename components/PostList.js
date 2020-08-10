@@ -26,18 +26,12 @@ export const allPostsQueryVars = {
 let hasMore = true;
 
 export default function PostList() {
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+  const { loading, error, data, fetchMore } = useQuery(
     allPosts,
     {
       variables: allPostsQueryVars,
-      // Setting this value to true will make the component rerender when
-      // the "networkStatus" changes, so we are able to know if it is fetching
-      // more data
-      notifyOnNetworkStatusChange: true,
     }
   );
-
-  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
   const loadMorePosts = (page) => {
     fetchMore({
@@ -61,7 +55,7 @@ export default function PostList() {
   };
 
   if (error) return <ErrorMessage message="Error loading posts." />;
-  if (loading && !loadingMorePosts) return <Loading key={0} />;
+  if (loading) return <Loading key={0} />;
 
   const { posts } = data;
 
