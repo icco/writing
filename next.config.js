@@ -1,7 +1,7 @@
 const port = process.env.PORT || 8080;
 module.exports = {
   poweredByHeader: false,
-  reactStrictMode: true,
+  reactStrictMode: false,
   trailingSlash: true,
   env: {
     GRAPHQL_ORIGIN: process.env.GRAPHQL_ORIGIN,
