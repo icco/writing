@@ -51,7 +51,6 @@ export default function Post(params) {
   if (pid) {
     id = pid
   }
-  console.log(id, pid, params)
 
   const { loading, error, data } = useQuery(getPost, {
     variables: { id },
