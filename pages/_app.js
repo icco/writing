@@ -2,7 +2,8 @@ import Router from "next/router";
 import Head from "next/head";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
-import ApolloWrapper from "../lib/apollo";
+import { ApolloProvider } from '@apollo/client'
+import { useApollo } from "../lib/apollo";
 
 // https://auth0.com/docs/libraries/auth0-react
 import { Auth0Provider } from "@auth0/auth0-react";
@@ -11,6 +12,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import "../style.css";
 
 function Writing({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps.initialApolloState)
   return (
     <>
       <Head>
@@ -27,9 +29,9 @@ function Writing({ Component, pageProps }) {
         clientId={process.env.AUTH0_CLIENT_ID}
         redirectUri={process.env.DOMAIN}
       >
-         <ApolloWrapper>
-          <Component {...pageProps} />
-        </ApolloWrapper>
+    <ApolloProvider client={apolloClient}>
+      <Component {...pageProps} />
+    </ApolloProvider>
       </Auth0Provider>
     </>
   );

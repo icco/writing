@@ -4,7 +4,7 @@ import App from "../../components/App";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Post, { getPost } from "../../components/Post";
-import { initializeApollo } from "../../lib/apollo";
+import { useApollo } from "../../lib/apollo";
 
 const Page = (props) => {
   return (
@@ -17,9 +17,9 @@ const Page = (props) => {
 };
 
 export async function getStaticProps(context) {
-  const { pid } = context.params;
+  const apolloClient = useApollo();
 
-  const apolloClient = initializeApollo();
+  const { pid } = context.params;
   await apolloClient.query({
     query: getPost,
     variables: { id: pid },
@@ -34,7 +34,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const apolloClient = initializeApollo();
+  const apolloClient = useApollo();
 
   const result = await apolloClient.query({
     query: gql`

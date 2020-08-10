@@ -4,7 +4,7 @@ import { Loading, ErrorMessage } from "@icco/react-common";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 import NotAuthorized from "../../components/NotAuthorized";
-import { initializeApollo } from "../../lib/apollo";
+import { useApollo } from "../../lib/apollo";
 
 const NewPost = gql`
   mutation {
@@ -15,7 +15,7 @@ const NewPost = gql`
 `;
 
 const Page = (props) => {
-  const apolloClient = initializeApollo();
+  const apolloClient = useApollo();
 
   return (
     <Mutation mutation={NewPost}>
