@@ -30,6 +30,7 @@ export async function getStaticProps(context) {
       initialApolloState: apolloClient.cache.extract(),
       pid,
     },
+    revalidate: 1,
   };
 }
 
@@ -54,7 +55,8 @@ export async function getStaticPaths() {
     paths: result["data"]["posts"].map(function (d) {
       return { params: { pid: d.id } };
     }),
-    fallback: false,
+    fallback: true,
+    revalidate: 1,
   };
 }
 
