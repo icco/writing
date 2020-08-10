@@ -20,13 +20,13 @@ const Page = (props) => {
 
 // export async function getStaticProps(context) {
 //   const { id } = context.params;
-// 
+//
 //   const apolloClient = initializeApollo();
 //   await apolloClient.query({
 //     query: getTag,
 //     variables: { id },
 //   });
-// 
+//
 //   return {
 //     props: {
 //       initialApolloState: apolloClient.cache.extract(),
@@ -34,10 +34,10 @@ const Page = (props) => {
 //     },
 //   };
 // }
-// 
+//
 // export async function getStaticPaths() {
 //   const apolloClient = initializeApollo();
-// 
+//
 //   const result = await apolloClient.query({
 //     query: gql`
 //       query tags {
@@ -45,7 +45,7 @@ const Page = (props) => {
 //       }
 //     `,
 //   });
-// 
+//
 //   return {
 //     paths: result["data"]["tags"].map(function (d) {
 //       return { params: { id: d } };

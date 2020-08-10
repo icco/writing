@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import App from "../../components/App";
 import Footer from "../../components/Footer";
@@ -8,11 +8,11 @@ import Post, { getPost } from "../../components/Post";
 import { initializeApollo } from "../../lib/apollo";
 
 const Page = (props) => {
-  const router = useRouter()
-  const { pid } = router.query
+  const router = useRouter();
+  const { pid } = router.query;
 
   if (props.pid) {
-    pid = props.pid
+    pid = props.pid;
   }
 
   return (
@@ -26,13 +26,13 @@ const Page = (props) => {
 
 // export async function getStaticProps(context) {
 //   const { pid } = context.params;
-// 
+//
 //   const apolloClient = initializeApollo();
 //   await apolloClient.query({
 //     query: getPost,
 //     variables: { id: pid },
 //   });
-// 
+//
 //   return {
 //     props: {
 //       initialApolloState: apolloClient.cache.extract(),
@@ -41,10 +41,10 @@ const Page = (props) => {
 //     revalidate: 1,
 //   };
 // }
-// 
+//
 // export async function getStaticPaths() {
 //   const apolloClient = initializeApollo();
-// 
+//
 //   const result = await apolloClient.query({
 //     query: gql`
 //       query postIDs($offset: Int!, $perpage: Int!) {
@@ -58,7 +58,7 @@ const Page = (props) => {
 //       perpage: 2000,
 //     },
 //   });
-// 
+//
 //   return {
 //     paths: result["data"]["posts"].map(function (d) {
 //       return { params: { pid: d.id } };

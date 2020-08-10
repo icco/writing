@@ -26,12 +26,9 @@ export const allPostsQueryVars = {
 let hasMore = true;
 
 export default function PostList() {
-  const { loading, error, data, fetchMore } = useQuery(
-    allPosts,
-    {
-      variables: allPostsQueryVars,
-    }
-  );
+  const { loading, error, data, fetchMore } = useQuery(allPosts, {
+    variables: allPostsQueryVars,
+  });
 
   const loadMorePosts = (page) => {
     fetchMore({
