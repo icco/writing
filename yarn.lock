@@ -1360,10 +1360,10 @@
     pino-std-serializers "^2.3.0"
     webpack "^4.35.0"
 
-"@icco/react-common@^2020.8.10-2":
-  version "2020.8.10-2"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2020.8.10-2.tgz#c47a4f28e4cb60c2cc63189d025987593de31399"
-  integrity sha512-6g7DWjyOkjh110yqfMpj7b4PR0+5CMJhjNuCTo/FqplbFkV9M2ytO4jShWMV1WLCiaoBSv41Z9uZ4pIr+1P8kA==
+"@icco/react-common@^2020.8.10-3":
+  version "2020.8.10-3"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2020.8.10-3.tgz#f87b1f8a4a24b19d6d14fa9c5ea1f0064a977991"
+  integrity sha512-Ox9lsI1STwefWrD0qiIu8j4heudLcUgAT24FJ1KeJ8sflOFshUDKc3V1AsfvjgxFCcpyt+zB7HDV3r8pkm3YBA==
   dependencies:
     prop-types "^15.7"
     react "^16.13.1"
