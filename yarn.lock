@@ -5216,11 +5216,9 @@ markdown-it-imgix@^0.1.0:
   resolved "https://registry.yarnpkg.com/markdown-it-imgix/-/markdown-it-imgix-0.1.0.tgz#7081d1b10adcbfb3ca6965a45c7a0bb348502d2d"
   integrity sha1-cIHRsQrcv7PKaWWkXHoLs0hQLS0=
 
-markdown-it-linkify-images@crookedneighbor/markdown-it-linkify-images#greenkeeper/markdown-it-11.0.0:
+markdown-it-linkify-images@crookedneighbor/markdown-it-linkify-images:
   version "1.1.1"
-  resolved "https://codeload.github.com/crookedneighbor/markdown-it-linkify-images/tar.gz/5e6346f93f97739ad26dd054053304a13d1f78a7"
-  dependencies:
-    markdown-it "^11.0.0"
+  resolved "https://codeload.github.com/crookedneighbor/markdown-it-linkify-images/tar.gz/dc7854a864d049d5e4ade7c90fa74a57ca117e47"
 
 markdown-it-mark@^3.0.0:
   version "3.0.0"
