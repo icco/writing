@@ -2,7 +2,7 @@ const port = process.env.PORT || 8080;
 module.exports = {
   poweredByHeader: false,
   reactStrictMode: true,
-  trailingSlash: true,
+  trailingSlash: false,
   env: {
     GRAPHQL_ORIGIN: process.env.GRAPHQL_ORIGIN,
     AUTH0_CLIENT_ID: "MwFD0COlI4F4AWvOZThe1psOIletecnL",
@@ -13,7 +13,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "/about/",
+        source: "/about",
         destination: "https://natwelch.com/",
         permanent: true,
       },

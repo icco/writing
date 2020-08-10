@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, useQuery } from "@apollo/client";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useRouter } from 'next/router'
 
 import Comment from "./Comment";
 import CommentEditor from "./CommentEditor";
@@ -42,7 +43,16 @@ export const getPost = gql`
   }
 `;
 
-export default function Post({ id, comments }) {
+export default function Post(params) {
+  const router = useRouter()
+  const { pid } = router.query
+
+  let { id, comments } = params
+  if (pid) {
+    id = pid
+  }
+  console.log(id, pid, params)
+
   const { loading, error, data } = useQuery(getPost, {
     variables: { id },
   });
