@@ -2,7 +2,7 @@ import Router from "next/router";
 import Head from "next/head";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
-import ApolloWrapper from "../components/ApolloWrapper";
+import ApolloWrapper from "../lib/apollo";
 
 // https://auth0.com/docs/libraries/auth0-react
 import { Auth0Provider } from "@auth0/auth0-react";
