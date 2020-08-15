@@ -79,7 +79,7 @@ export default function Header({ noLogo }) {
   if (isAuthenticated) {
     elements.adminlink = (
       <Link key="/admin" href="/admin">
-        <a className="f6 link dib dim mr3 black mr4-ns">{user.role}</a>
+        <a className="f6 link dib dim mr3 black mr4-ns">{user.name}</a>
       </Link>
     );
     nav = (

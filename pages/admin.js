@@ -1,22 +1,34 @@
 import Head from "next/head";
 import Link from "next/link";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
+import { useLazyQuery } from "@apollo/client";
+import { ErrorMessage, Loading } from "@icco/react-common";
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
+import { getUser } from "../components/User";
 
 const Page = (params) => {
-  const { isLoading, error, isAuthenticated, user } = useAuth0();
+  const { isLoading, error, isAuthenticated } = useAuth0();
+  const [user, { loading: queryLoading, error: queryError, data: userData }] = useLazyQuery(getUser);
 
-  if (isLoading) {
+  if (isLoading || queryLoading) {
     return <Loading />;
   }
 
-  if (!isAuthenticated || user.role !== "admin") {
-    return <NotAuthorized />;
+  if (error || queryError) {
+    return <ErrorMessage message="Unable to get page." />;
   }
+
+  if (!isAuthenticated) {
+    return <NotAuthorized />;
+  } else {
+    //user()
+  }
+
+  console.log(userData)
 
   return (
     <App>

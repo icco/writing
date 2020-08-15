@@ -29,6 +29,8 @@ function Writing({ Component, pageProps }) {
         audience={"https://natwelch.com"}
         clientId={process.env.AUTH0_CLIENT_ID}
         redirectUri={process.env.DOMAIN}
+        useRefreshTokens={true}
+        scope={"role,profile"}
       >
         <ApolloProvider client={apolloClient}>
           <Component {...pageProps} />
