@@ -6,7 +6,6 @@ import {
 import compression from "compression";
 import express from "express";
 import helmet from "helmet";
-import expectCt from "expect-ct";
 import next from "next";
 import { parse } from "url";
 import { join } from "path";
@@ -20,8 +19,8 @@ import { v1 } from "@opencensus/propagation-stackdriver";
 import pinoMiddleware from "pino-http";
 
 import { logger } from "./lib/logger.js";
-import generateFeed from "./lib/feed";
-import generateSitemap from "./lib/sitemap";
+//import generateFeed from "./lib/feed";
+//import generateSitemap from "./lib/sitemap";
 
 const GOOGLE_PROJECT = "icco-cloud";
 const port = parseInt(process.env.PORT, 10) || 8080;
@@ -72,13 +71,22 @@ async function startServer() {
       server.use(NELMiddleware());
       server.use(ReportToMiddleware("writing"));
 
-      server.use(helmet());
+      server.use(helmet.dnsPrefetchControl());
+      server.use(helmet.expectCt());
+      server.use(helmet.frameguard());
+      server.use(helmet.hidePoweredBy());
+      server.use(helmet.hsts());
+      server.use(helmet.ieNoOpen());
+      server.use(helmet.noSniff());
+      server.use(helmet.permittedCrossDomainPolicies());
+      server.use(helmet.xssFilter());
 
       server.use(
         helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" })
       );
+
       let directives = {
-        upgradeInsecureRequests: true,
+        upgradeInsecureRequests: [],
 
         //  default-src 'none'
         defaultSrc: [
@@ -129,8 +137,6 @@ async function startServer() {
         })
       );
 
-      server.use(expectCt({ maxAge: 123 }));
-
       server.use(compression());
 
       server.use(SSLMiddleware());
@@ -139,44 +145,35 @@ async function startServer() {
         res.json({ status: "ok" });
       });
 
-      server.get("/about", (req, res) => {
-        res.redirect("https://natwelch.com");
-      });
-      server.get("/feed.rss", async (req, res) => {
-        let feed = await generateFeed();
-        res.set("Content-Type", "application/rss+xml");
-        res.send(feed.rss2());
-      });
+      // server.get("/feed.rss", async (req, res) => {
+      //   let feed = await generateFeed();
+      //   res.set("Content-Type", "application/rss+xml");
+      //   res.send(feed.rss2());
+      // });
 
-      server.get("/feed.atom", async (req, res) => {
-        let feed = await generateFeed();
-        res.set("Content-Type", "application/atom+xml");
-        res.send(feed.atom1());
-      });
+      // server.get("/feed.atom", async (req, res) => {
+      //   let feed = await generateFeed();
+      //   res.set("Content-Type", "application/atom+xml");
+      //   res.send(feed.atom1());
+      // });
 
-      server.get("/sitemap.xml", async (req, res) => {
-        res.header("Content-Type", "application/xml");
-        res.header("Content-Encoding", "gzip");
-        try {
-          let sm = await generateSitemap();
-          sm.pipe(res).on("error", (e) => {
-            throw e;
-          });
-        } catch (e) {
-          console.error(e);
-          res.status(500).end();
-        }
-      });
+      // server.get("/sitemap.xml", async (req, res) => {
+      //   res.header("Content-Type", "application/xml");
+      //   res.header("Content-Encoding", "gzip");
+      //   try {
+      //     let sm = await generateSitemap();
+      //     sm.pipe(res).on("error", (e) => {
+      //       throw e;
+      //     });
+      //   } catch (e) {
+      //     console.error(e);
+      //     res.status(500).end();
+      //   }
+      // });
 
       server.all("*", (req, res) => {
         const handle = app.getRequestHandler();
         const parsedUrl = parse(req.url, true);
-
-        const redirects = {};
-
-        if (parsedUrl.pathname in redirects) {
-          return res.redirect(redirects[parsedUrl.pathname]);
-        }
 
         return handle(req, res, parsedUrl);
       });

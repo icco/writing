@@ -1,20 +1,34 @@
 import Head from "next/head";
 import Link from "next/link";
-import { withAuth, withLoginRequired } from "use-auth0-hooks";
+import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
+import { useLazyQuery } from "@apollo/client";
+import { ErrorMessage, Loading } from "@icco/react-common";
 
 import AdminPostList from "../components/AdminPostList";
 import App from "../components/App";
 import Header from "../components/Header";
 import NotAuthorized from "../components/NotAuthorized";
+import { getUser } from "../components/User";
 
-import { withApollo } from "../lib/apollo";
-import { useLoggedIn } from "../lib/auth";
+const Page = (params) => {
+  const { isLoading, error, isAuthenticated } = useAuth0();
+  const [user, { loading: queryLoading, error: queryError, data: userData }] = useLazyQuery(getUser);
 
-const Page = ({ auth }) => {
-  const { loggedInUser } = useLoggedIn();
-  if (!loggedInUser || loggedInUser.role !== "admin") {
-    return <NotAuthorized />;
+  if (isLoading || queryLoading) {
+    return <Loading />;
   }
+
+  if (error || queryError) {
+    return <ErrorMessage message="Unable to get page." />;
+  }
+
+  if (!isAuthenticated) {
+    return <NotAuthorized />;
+  } else {
+    //user()
+  }
+
+  console.log(userData)
 
   return (
     <App>
@@ -45,4 +59,4 @@ const Page = ({ auth }) => {
   );
 };
 
-export default withLoginRequired(withAuth(withApollo(Page)));
+export default withAuthenticationRequired(Page);

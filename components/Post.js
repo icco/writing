@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import gql from "graphql-tag";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { useQuery } from "@apollo/react-hooks";
+import { gql, useQuery } from "@apollo/client";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useRouter } from "next/router";
 
 import Comment from "./Comment";
 import CommentEditor from "./CommentEditor";
@@ -10,7 +11,6 @@ import Datetime from "./Datetime";
 import PostCard from "./PostCard";
 import PostNav from "./PostNav";
 import md from "../lib/markdown.js";
-import { useLoggedIn } from "../lib/auth";
 
 export const getPost = gql`
   query getPost($id: ID!) {
@@ -43,17 +43,30 @@ export const getPost = gql`
   }
 `;
 
-export default function Post({ id, comments }) {
+export default function Post(params) {
+  const router = useRouter();
+  const { pid } = router.query;
+
+  let { id, comments } = params;
+  if (pid) {
+    id = pid;
+  }
+
   const { loading, error, data } = useQuery(getPost, {
     variables: { id },
   });
-  const { loggedInUser } = useLoggedIn();
+  const {
+    isLoading: authLoading,
+    error: authError,
+    isAuthenticated,
+    user,
+  } = useAuth0();
 
-  if (error) {
+  if (error || authError) {
     return <ErrorMessage message="Unable to get page." />;
   }
 
-  if (loading) {
+  if (loading || authLoading) {
     return <Loading key={0} />;
   }
 
@@ -73,7 +86,7 @@ export default function Post({ id, comments }) {
   }
 
   let edit = <></>;
-  if (loggedInUser) {
+  if (isAuthenticated) {
     edit = (
       <Link as={`/edit/${post.id}`} href="/edit/[pid]">
         <a className="mh1 link gray dim">edit</a>
@@ -86,7 +99,7 @@ export default function Post({ id, comments }) {
     commentDiv = (
       <article className="mh3 db">
         <h2>Comments</h2>
-        <CommentEditor postID={id} loggedInUser={loggedInUser} />
+        <CommentEditor postID={id} loggedInUser={user} />
         <div className="">
           {post.comments.map((item) => (
             <Comment key={item.id} data={{ comment: item }} />

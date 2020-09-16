@@ -1,13 +1,12 @@
-import gql from "graphql-tag";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Link from "next/link";
 import Editor from "rich-markdown-editor";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { gql, useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import theme from "./editorTheme";
-import { getAuth } from "../lib/apollo-create.js";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,
@@ -57,6 +56,7 @@ export default function EditPost({ id }) {
   const [content, setContent] = useState("");
   const [draft, setDraft] = useState("");
   const [datetime, setDatetime] = useState("");
+  const { isAuthenticated, getTokenSilently } = useAuth0();
 
   const handleTitleChange = (event) => {
     const target = event.target;
@@ -158,7 +158,9 @@ export default function EditPost({ id }) {
           onChange={handleEditorChange}
           defaultValue={content || post.content}
           uploadImage={async (file) => {
-            const authorization = getAuth();
+            const authorization = isAuthenticated
+              ? await getTokenSilently()
+              : "";
             let formData = new FormData();
             formData.append("file", file);
 

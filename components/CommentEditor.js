@@ -1,11 +1,10 @@
 import Editor from "rich-markdown-editor";
-import gql from "graphql-tag";
-import { useMutation } from "@apollo/react-hooks";
+import { gql, useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { Loading } from "@icco/react-common";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import theme from "./editorTheme";
-import { useLoggedIn } from "../lib/auth";
 
 export const saveCommentMutation = gql`
   mutation saveComment($postid: ID!, $content: String!) {
@@ -17,8 +16,8 @@ export const saveCommentMutation = gql`
 `;
 
 export default function CommentEditor({ postID }) {
-  const { loading, login, error, loggedInUser } = useLoggedIn();
   const { asPath } = useRouter();
+  const { isAuthenticated, isLoading, error, loginWithRedirect } = useAuth0();
 
   if (error) {
     if (error.error != "consent_required") {
@@ -42,7 +41,7 @@ export default function CommentEditor({ postID }) {
     });
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
       <>
         <div className="">
@@ -52,12 +51,14 @@ export default function CommentEditor({ postID }) {
     );
   }
 
-  if (!loggedInUser) {
+  if (!isAuthenticated) {
     return (
       <p>
         <a
           className="link dim pointer"
-          onClick={() => login({ appState: { returnTo: { asPath } } })}
+          onClick={() =>
+            loginWithRedirect({ appState: { returnTo: { asPath } } })
+          }
         >
           Sign in or create an account
         </a>{" "}
