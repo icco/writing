@@ -13,4 +13,4 @@ $(yarn bin)/eslint ./components ./lib
 
 $(yarn bin)/depcheck .
 
-yarn run build
+GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql" yarn run build
