@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
