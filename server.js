@@ -116,6 +116,7 @@ async function startServer() {
         // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
         scriptSrc: [
           "'self'",
+          "'blob'",
           "'unsafe-inline'",
           "'unsafe-eval'",
           "https://a.natwelch.com/tracker.js",
