@@ -19,17 +19,27 @@ const Page = (params) => {
   ] = useLazyQuery(getUser);
 
   if (isLoading || queryLoading) {
-    return <Loading />;
+    return (
+      <App>
+        <Loading />
+      </App>
+    );
   }
 
   if (error || queryError) {
-    return <ErrorMessage message="Unable to get page." />;
+    return (
+      <App>
+        <ErrorMessage message="Unable to get page." />;
+      </App>
+    );
   }
 
   if (!isAuthenticated) {
-    return <NotAuthorized />;
-  } else {
-    //user()
+    return (
+      <App>
+        <NotAuthorized />;
+      </App>
+    );
   }
 
   console.log(userData);
