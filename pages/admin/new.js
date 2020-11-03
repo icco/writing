@@ -15,10 +15,12 @@ const newPostMutation = gql`
 
 const Page = (props) => {
   const router = useRouter();
-  const [newPost, { loading, error, data, called }] = useMutation(newPostMutation);
+  const [newPost, { loading, error, data, called }] = useMutation(
+    newPostMutation
+  );
 
   if (!called) {
-  newPost()
+    newPost();
   }
 
   if (loading) {
@@ -37,7 +39,7 @@ const Page = (props) => {
     <>
       <p>Creating new post...</p>
     </>
-);
+  );
 };
 
 export default withAuthenticationRequired(Page);

@@ -43,7 +43,7 @@ const Page = (props) => {
   }
 
   if (userData.whoami == null || userData.whoami.role != "admin") {
-    console.log(userData)
+    console.log(userData);
     return <NotAuthorized />;
   }
 
