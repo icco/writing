@@ -24,20 +24,10 @@ const Index = () => {
   );
 };
 
-// export async function getStaticProps() {
-//   const apolloClient = initializeApollo();
-//
-//   await apolloClient.query({
-//     query: allPosts,
-//     variables: allPostsQueryVars,
-//   });
-//
-//   return {
-//     props: {
-//       initialApolloState: apolloClient.cache.extract(),
-//     },
-//     revalidate: 1,
-//   };
-// }
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
 
 export default Index;
