@@ -124,7 +124,7 @@ export default function Post(params) {
           <span className="ml3">{edit}</span>
           <span className="ml3 red strong">{draft}</span>
         </div>
-        <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
+        <Link href={`/post/${post.id}`}>
           <a className="header db f3 f1-ns link dark-gray dim">{post.title}</a>
         </Link>
       </div>
