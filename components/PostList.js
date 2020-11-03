@@ -51,7 +51,7 @@ export default function PostList() {
     });
   };
 
-  if (error) return <ErrorMessage message="Error loading posts." />;
+  if (error) return <ErrorMessage error={error} message="Error loading posts." />;
   if (loading) return <Loading key={0} />;
 
   const { posts } = data;

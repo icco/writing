@@ -21,7 +21,7 @@ const Page = (props) => {
           return <Loading key={0} />;
         }
         if (error) {
-          return <ErrorMessage message="Page not found." />;
+          return <ErrorMessage error={error} message="Page not found." />;
         }
 
         if (data) {

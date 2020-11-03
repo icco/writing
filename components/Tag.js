@@ -21,7 +21,7 @@ export default function Tag({ id }) {
   });
 
   if (error) {
-    return <ErrorMessage message="Tag not found." />;
+    return <ErrorMessage error={error} message="Tag not found." />;
   }
   if (loading) {
     return <Loading key={0} />;

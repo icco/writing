@@ -63,7 +63,7 @@ export default function Post(params) {
   } = useAuth0();
 
   if (error || authError) {
-    return <ErrorMessage message="Unable to get page." />;
+    return <ErrorMessage error={error} message="Unable to get page." />;
   }
 
   if (loading || authLoading) {

@@ -99,7 +99,7 @@ export default function EditPost({ id }) {
   }
 
   if (error) {
-    return <ErrorMessage message="Page not found." />;
+    return <ErrorMessage error={error} message="Page not found." />;
   }
 
   const { post } = data;

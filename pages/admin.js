@@ -23,8 +23,7 @@ const Page = (params) => {
   }
 
   if (error || queryError) {
-    console.log(error, queryError);
-    return <ErrorMessage message="Unable to get page." />;
+    return <ErrorMessage error={error} message="Unable to get page." />;
   }
 
   if (!isAuthenticated) {
