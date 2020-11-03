@@ -32,7 +32,7 @@ const Page = (params) => {
   }
 
   if (!userData) {
-    user()
+    user();
     return <Loading />;
   }
 
