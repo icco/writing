@@ -2,8 +2,8 @@ import Router from "next/router";
 import Head from "next/head";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-apollo/pages/_app.js
-import { ApolloProvider } from "@apollo/client";
-import { useApollo } from "../lib/apollo";
+// https://dev.to/martinrojas/apollo-client-graphql-and-auth0-a-complete-implementation-19oc
+import { AuthorizedApolloProvider } from "../lib/apollo";
 
 // https://auth0.com/docs/libraries/auth0-react
 import { Auth0Provider } from "@auth0/auth0-react";
@@ -32,9 +32,9 @@ function Writing({ Component, pageProps }) {
         useRefreshTokens={true}
         scope={"role,profile"}
       >
-        <ApolloProvider client={apolloClient}>
+    <AuthorizedApolloProvider>
           <Component {...pageProps} />
-        </ApolloProvider>
+        </AuthorizedApolloProvider>
       </Auth0Provider>
     </>
   );
