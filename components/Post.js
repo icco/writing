@@ -88,7 +88,7 @@ export default function Post(params) {
   let edit = <></>;
   if (isAuthenticated) {
     edit = (
-      <Link as={`/edit/${post.id}`} href="/edit/[pid]">
+      <Link href={`/edit/${post.id}`}>
         <a className="mh1 link gray dim">edit</a>
       </Link>
     );

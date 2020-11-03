@@ -11,7 +11,7 @@ export default function PostCard({ className, post }) {
         <div className="dt w-100 mt1">
           <div className="dtc">
             <h1 className="f5 f4-ns mv0">
-              <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
+              <Link href={`/post/${post.id}`}>
                 <a className="link dark-gray dim">{post.title}</a>
               </Link>
             </h1>
