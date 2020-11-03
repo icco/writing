@@ -1,7 +1,7 @@
 import InfiniteScroll from "react-infinite-scroller";
 import Link from "next/link";
 import { ErrorMessage, Loading } from "@icco/react-common";
-import { gql, useQuery } from "@apollo/client";
+import { gql, NetworkStatus, useQuery } from "@apollo/client";
 
 import { allPosts, PER_PAGE } from "./PostList";
 
@@ -39,12 +39,18 @@ export default function AdminPostList({ type }) {
       break;
   }
 
-  const { loading, error, data, fetchMore } = useQuery(query, {
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(query, {
     variables: {
       offset: 0,
       perpage: PER_PAGE,
     },
+    notifyOnNetworkStatusChange: true,
+    fetchPolicy: "network-only",
   });
+
+  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
+
+  let adminPosts = [];
 
   const loadMorePosts = (page) => {
     fetchMore({
@@ -59,9 +65,7 @@ export default function AdminPostList({ type }) {
         if (previousResult.posts) {
           if (fetchMoreResult.posts.length <= 0) {
             hasMore = false;
-            return previousResult;
           }
-
           return Object.assign({}, previousResult, {
             posts: [...previousResult.posts, ...fetchMoreResult.posts],
           });
@@ -70,7 +74,6 @@ export default function AdminPostList({ type }) {
         if (previousResult.drafts) {
           if (fetchMoreResult.drafts.length <= 0) {
             hasMore = false;
-            return previousResult;
           }
           return Object.assign({}, previousResult, {
             drafts: [...previousResult.drafts, ...fetchMoreResult.drafts],
@@ -80,7 +83,6 @@ export default function AdminPostList({ type }) {
         if (previousResult.futurePosts) {
           if (fetchMoreResult.futurePosts.length <= 0) {
             hasMore = false;
-            return previousResult;
           }
           return Object.assign({}, previousResult, {
             futurePosts: [
@@ -95,10 +97,9 @@ export default function AdminPostList({ type }) {
     });
   };
 
-  if (error) return <ErrorMessage error={error} message="Error loading posts." />;
-  if (loading) return <Loading key={0} />;
+  if (error) return <ErrorMessage message="Error loading posts." />;
+  if (loading && !loadingMorePosts) return <Loading key={0} />;
 
-  let adminPosts = [];
   const { posts, futurePosts, drafts } = data;
 
   if (posts) {
