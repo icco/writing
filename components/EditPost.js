@@ -51,12 +51,13 @@ const getPostQuery = gql`
   }
 `;
 
-export default function EditPost({ id }) {
+export default function EditPost({ pid }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [draft, setDraft] = useState("");
   const [datetime, setDatetime] = useState("");
   const { isAuthenticated, getTokenSilently } = useAuth0();
+  console.log(pid);
 
   const handleTitleChange = (event) => {
     const target = event.target;
@@ -90,7 +91,7 @@ export default function EditPost({ id }) {
 
   const [savePost] = useMutation(savePostMutation);
   const { loading, error, data } = useQuery(getPostQuery, {
-    variables: { id },
+    variables: { id: pid },
     fetchPolicy: "network-only",
   });
 

@@ -35,8 +35,6 @@ const Page = (params) => {
     return <Loading />;
   }
 
-  console.log(userData);
-
   if (userData.whoami == null) {
     return <NotAuthorized />;
   }
