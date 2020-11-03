@@ -32,7 +32,7 @@ function Writing({ Component, pageProps }) {
         useRefreshTokens={true}
         scope={"role,profile"}
       >
-    <AuthorizedApolloProvider>
+        <AuthorizedApolloProvider>
           <Component {...pageProps} />
         </AuthorizedApolloProvider>
       </Auth0Provider>
