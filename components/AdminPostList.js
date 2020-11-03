@@ -59,7 +59,7 @@ export default function AdminPostList({ type }) {
         if (previousResult.posts) {
           if (fetchMoreResult.posts.length <= 0) {
             hasMore = false;
-          return previousResult;
+            return previousResult;
           }
 
           return Object.assign({}, previousResult, {
@@ -70,7 +70,7 @@ export default function AdminPostList({ type }) {
         if (previousResult.drafts) {
           if (fetchMoreResult.drafts.length <= 0) {
             hasMore = false;
-          return previousResult;
+            return previousResult;
           }
           return Object.assign({}, previousResult, {
             drafts: [...previousResult.drafts, ...fetchMoreResult.drafts],
@@ -80,7 +80,7 @@ export default function AdminPostList({ type }) {
         if (previousResult.futurePosts) {
           if (fetchMoreResult.futurePosts.length <= 0) {
             hasMore = false;
-          return previousResult;
+            return previousResult;
           }
           return Object.assign({}, previousResult, {
             futurePosts: [
@@ -96,7 +96,7 @@ export default function AdminPostList({ type }) {
   };
 
   if (error) {
-    console.log(error)
+    console.log(error);
     return <ErrorMessage message="Error loading posts." />;
   }
   if (loading) return <Loading key={0} />;
