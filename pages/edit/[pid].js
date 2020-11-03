@@ -11,9 +11,13 @@ import Header from "../../components/Header";
 import NotAuthorized from "../../components/NotAuthorized";
 import { getUser } from "../../components/User";
 
-const Page = (params) => {
+const Page = (props) => {
   const router = useRouter();
-  const { pid } = params;
+  const { pid } = router.query;
+
+  if (props.pid) {
+    pid = props.pid;
+  }
 
   const { isLoading, error, isAuthenticated } = useAuth0();
   const [
@@ -49,7 +53,7 @@ const Page = (params) => {
         <title>Nat? Nat. Nat! Edit Post #{pid}</title>
       </Head>
       <Header noLogo />
-      <EditPost pid={pid} />
+      <EditPost id={pid} />
       <AdminLinkList />
     </App>
   );
