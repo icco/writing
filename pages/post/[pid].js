@@ -5,7 +5,6 @@ import App from "../../components/App";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Post, { getPost } from "../../components/Post";
-import { initializeApollo } from "../../lib/apollo";
 
 const Page = (props) => {
   const router = useRouter();
