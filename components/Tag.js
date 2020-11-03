@@ -21,7 +21,7 @@ export default function Tag({ id }) {
   });
 
   if (error) {
-    return <ErrorMessage message="Tag not found." />;
+    return <ErrorMessage error={error} message="Tag not found." />;
   }
   if (loading) {
     return <Loading key={0} />;
@@ -44,7 +44,7 @@ export default function Tag({ id }) {
               <span className="mr3">#{post.id}</span>
               <Datetime>{post.datetime}</Datetime>
             </div>
-            <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
+            <Link href={`/post/${post.id}`}>
               <a className="header db f3 f1-ns link dark-gray dim">
                 {post.title}
               </a>

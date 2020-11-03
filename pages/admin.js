@@ -23,16 +23,21 @@ const Page = (params) => {
   }
 
   if (error || queryError) {
-    return <ErrorMessage message="Unable to get page." />;
+    return <ErrorMessage error={error} message="Unable to get page." />;
   }
 
   if (!isAuthenticated) {
     return <NotAuthorized />;
-  } else {
-    //user()
   }
 
-  console.log(userData);
+  if (!userData) {
+    user();
+    return <Loading />;
+  }
+
+  if (userData.whoami == null) {
+    return <NotAuthorized />;
+  }
 
   return (
     <App>
@@ -44,7 +49,7 @@ const Page = (params) => {
         <h1>Admin</h1>
         <ul className="list pl0" key="new-ul">
           <li className="" key={"new-post"}>
-            <Link as={"/admin/new"} href={"/admin/new"}>
+            <Link href={"/admin/new"}>
               <a className="link dark-gray dim">New Post</a>
             </Link>
           </li>

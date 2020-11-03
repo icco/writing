@@ -51,7 +51,8 @@ export default function PostList() {
     });
   };
 
-  if (error) return <ErrorMessage message="Error loading posts." />;
+  if (error)
+    return <ErrorMessage error={error} message="Error loading posts." />;
   if (loading) return <Loading key={0} />;
 
   const { posts } = data;
@@ -72,13 +73,13 @@ export default function PostList() {
                 <Datetime>{post.datetime}</Datetime>
                 <span className="dbi ml3">
                   {post.tags.map((tag, i) => (
-                    <Link key={i} as={`/tag/${tag}`} href={`/tag/[id]`}>
+                    <Link key={i} href={`/tag/${tag}`}>
                       <a className="mh1 link gray dim">#{tag}</a>
                     </Link>
                   ))}
                 </span>
               </div>
-              <Link as={`/post/${post.id}`} href={`/post/[pid]`}>
+              <Link href={`/post/${post.id}`}>
                 <a className="header db f3 f1-ns link dark-gray dim">
                   {post.title}
                 </a>

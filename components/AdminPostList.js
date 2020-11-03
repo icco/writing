@@ -126,7 +126,7 @@ export default function AdminPostList({ type }) {
           {adminPosts.map((post) => (
             <li className="" key={"admin-post-" + post.id}>
               <span className="dbi mr3">#{post.id}</span>
-              <Link as={`/edit/${post.id}`} href={`/edit/[pid]`}>
+              <Link href={`/edit/${post.id}`}>
                 <a className="link dark-gray dim">{post.title}</a>
               </Link>
             </li>

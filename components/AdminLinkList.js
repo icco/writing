@@ -56,7 +56,7 @@ export default function AdminLinkList() {
   };
 
   if (error) {
-    return <ErrorMessage message="Error loading links." />;
+    return <ErrorMessage error={error} message="Error loading links." />;
   }
   if (loading && !loadingMoreLinks) return <Loading key={0} />;
 

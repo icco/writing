@@ -1,4 +1,4 @@
-/*! TACHYONS v4.11.1 | http://tachyons.io */
+/*! TACHYONS v4.12.0 | http://tachyons.io */
 /*
  *
  *      ________            ______
@@ -751,6 +751,12 @@ img {
 .b--inherit {
   border-color: inherit;
 }
+.b--initial {
+  border-color: initial;
+}
+.b--unset {
+  border-color: unset;
+}
 /*
 
    BORDER RADIUS
@@ -812,6 +818,15 @@ img {
 .br--left {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+.br-inherit {
+  border-radius: inherit;
+}
+.br-initial {
+  border-radius: initial;
+}
+.br-unset {
+  border-radius: unset;
 }
 /*
 
@@ -2120,6 +2135,7 @@ code,
 .color-inherit {
   color: inherit;
 }
+/* Background colors */
 .bg-black-90 {
   background-color: rgba(0, 0, 0, 0.9);
 }
@@ -2177,7 +2193,6 @@ code,
 .bg-white-10 {
   background-color: rgba(255, 255, 255, 0.1);
 }
-/* Background colors */
 .bg-black {
   background-color: #000;
 }
@@ -4312,6 +4327,15 @@ code,
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
+  .br-inherit-ns {
+    border-radius: inherit;
+  }
+  .br-initial-ns {
+    border-radius: initial;
+  }
+  .br-unset-ns {
+    border-radius: unset;
+  }
   .b--dotted-ns {
     border-style: dotted;
   }
@@ -5657,6 +5681,15 @@ code,
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
+  .br-inherit-m {
+    border-radius: inherit;
+  }
+  .br-initial-m {
+    border-radius: initial;
+  }
+  .br-unset-m {
+    border-radius: unset;
+  }
   .b--dotted-m {
     border-style: dotted;
   }
@@ -7001,6 +7034,15 @@ code,
   .br--left-l {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+  }
+  .br-inherit-l {
+    border-radius: inherit;
+  }
+  .br-initial-l {
+    border-radius: initial;
+  }
+  .br-unset-l {
+    border-radius: unset;
   }
   .b--dotted-l {
     border-style: dotted;
