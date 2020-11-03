@@ -11,7 +11,7 @@ import NotAuthorized from "../components/NotAuthorized";
 
 const Page = (params) => {
   const { isLoading, error, isAuthenticated, user } = useAuth0();
-  console.log(user)
+  console.log(user);
 
   if (isLoading) {
     return <Loading />;
