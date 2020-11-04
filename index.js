@@ -1,13 +1,13 @@
 require("@babel/register")({
-  "presets": [
+  presets: [
     [
       "@babel/preset-env",
       {
-        "targets": {
+        targets: {
           node: true,
-        }
-      }
-    ]
+        },
+      },
+    ],
   ],
   ignore: ["node_modules", ".next"],
 });
