@@ -49,7 +49,6 @@
   "private": true,
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "depcheck": "^1.0.0",
     "eslint": "^7.10.0",
     "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
