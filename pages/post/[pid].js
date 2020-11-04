@@ -1,6 +1,7 @@
-import { gql, getApolloContext } from "@apollo/client";
+import { gql } from "@apollo/client";
 import { useRouter } from "next/router";
 
+import { client } from "../../lib/simple.js";
 import App from "../../components/App";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -23,38 +24,37 @@ const Page = (props) => {
   );
 };
 
-//export async function getStaticProps(context) {
-//  return {
-//    props: {
-//      pid,
-//    },
-//  };
-//}
-//
-//export async function getStaticPaths() {
-//  // ???
-//  useContext(getApolloContexdt())
-//  const result = await uery({
-//    query: gql`
-//      query postIDs($offset: Int!, $perpage: Int!) {
-//        posts(input: { limit: $perpage, offset: $offset }) {
-//          id
-//        }
-//      }
-//    `,
-//    variables: {
-//      offset: 0,
-//      perpage: 2000,
-//    },
-//  });
-//
-//  return {
-//    paths: result["data"]["posts"].map(function (d) {
-//      return { params: { pid: d.id } };
-//    }),
-//    fallback: true,
-//    revalidate: 1,
-//  };
-//}
+export async function getStaticProps(context) {
+  const { pid } = context.params;
+  return {
+    props: {
+      pid,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const result = await client().query({
+    query: gql`
+      query postIDs($offset: Int!, $perpage: Int!) {
+        posts(input: { limit: $perpage, offset: $offset }) {
+          id
+        }
+      }
+    `,
+    variables: {
+      offset: 0,
+      perpage: 2000,
+    },
+  });
+
+  return {
+    paths: result["data"]["posts"].map(function (d) {
+      return { params: { pid: d.id } };
+    }),
+    fallback: true,
+    revalidate: 1,
+  };
+}
 
 export default Page;
