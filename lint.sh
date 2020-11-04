@@ -9,8 +9,6 @@ for f in $(echo $jsfiles | xargs printf "%s\n"); do
   $(yarn bin)/prettier --write ${(q)f}
 done
 
-$(yarn bin)/eslint ./components ./lib
-
-$(yarn bin)/depcheck .
+$(yarn bin)/eslint ./components ./lib *.js
 
 GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql" yarn run build

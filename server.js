@@ -19,7 +19,7 @@ import { v1 } from "@opencensus/propagation-stackdriver";
 import pinoMiddleware from "pino-http";
 
 import { logger } from "./lib/logger.js";
-//import generateFeed from "./lib/feed";
+import generateFeed from "./lib/feed";
 //import generateSitemap from "./lib/sitemap";
 
 const GOOGLE_PROJECT = "icco-cloud";
@@ -147,17 +147,17 @@ async function startServer() {
         res.json({ status: "ok" });
       });
 
-      // server.get("/feed.rss", async (req, res) => {
-      //   let feed = await generateFeed();
-      //   res.set("Content-Type", "application/rss+xml");
-      //   res.send(feed.rss2());
-      // });
+      server.get("/feed.rss", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/rss+xml");
+        res.send(feed.rss2());
+      });
 
-      // server.get("/feed.atom", async (req, res) => {
-      //   let feed = await generateFeed();
-      //   res.set("Content-Type", "application/atom+xml");
-      //   res.send(feed.atom1());
-      // });
+      server.get("/feed.atom", async (req, res) => {
+        let feed = await generateFeed();
+        res.set("Content-Type", "application/atom+xml");
+        res.send(feed.atom1());
+      });
 
       // server.get("/sitemap.xml", async (req, res) => {
       //   res.header("Content-Type", "application/xml");
