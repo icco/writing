@@ -19,11 +19,10 @@ const Inspiration = ({ images }) => {
     <Masonry
                 className={'cf pa2'}
                 options={{ transitionDuration: 0 }}
-                disableImagesLoaded={false} // default false
-                updateOnEachImageLoad={true} // default false and works only if disableImagesLoaded is false
+                disableImagesLoaded={true}
             >
       {images.map((i) => (
-        <div className="fl w-50 w-25-l pa2">
+        <div className="w-30-ns w-100 pa2" key={i}>
         <img
           src={`/imgs/inspiration/${i}`}
           className="db w-100"
