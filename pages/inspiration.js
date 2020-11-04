@@ -1,11 +1,13 @@
-import Image from 'next/image'
+import Image from "next/image";
 import Head from "next/head";
-import fs from 'fs';
-
+import fs from "fs";
+import { join } from "path";
 
 import App from "../components/App";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
+const imgdir = join(process.cwd(), "public/imgs/inspiration/");
 
 const Inspiration = ({ images }) => {
   return (
@@ -15,19 +17,19 @@ const Inspiration = ({ images }) => {
       </Head>
       <Header />
 
-    {images.map((i) => (
-      <Image src={`/imgs/${i}.png`} />
-    ))}
+      {images.map((i) => (
+        <Image src={`/imgs/${i}.png`} />
+      ))}
       <Footer />
     </App>
   );
 };
 
 export async function getStaticProps() {
- let  images = []
-  fs.readdirSync("../public/imgs/inspiration/").forEach(file => {
-    images += file
-});
+  let images = [];
+  fs.readdirSync(imgdir).forEach((file) => {
+    images += file;
+  });
 
   return {
     props: { images },
