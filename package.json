@@ -10,7 +10,7 @@
     "schema": "get-graphql-schema https://graphql.natwelch.com/graphql --json > ./schema.json"
   },
   "dependencies": {
-    "@apollo/client": "^3.2.1",
+    "@apollo/client": "^3.2.7",
     "@auth0/auth0-react": "^1.1.0",
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
