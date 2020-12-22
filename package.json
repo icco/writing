@@ -12,8 +12,8 @@
   "dependencies": {
     "@apollo/client": "^3.2.1",
     "@auth0/auth0-react": "^1.1.0",
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
     "@babel/register": "^7.8.3",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@icco/pino-stackdriver-serializers": "^2020.4.4-1",
