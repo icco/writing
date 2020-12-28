@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, useQuery } from "@apollo/client";
 
-import Datetime from "./Datetime";
+import Datetime from "components/Datetime";
 
 export const PER_PAGE = 20;
 

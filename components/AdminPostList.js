@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, NetworkStatus, useQuery } from "@apollo/client";
 
-import { allPosts, PER_PAGE } from "./PostList";
+import { allPosts, PER_PAGE } from "components/PostList";
 
 export const allFuturePosts = gql`
   query future($offset: Int!, $perpage: Int!) {
