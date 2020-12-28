@@ -13,11 +13,7 @@ export default function PostCard({ className, post }) {
             </h1>
           </div>
         </div>
-        <div
-          className="f6 lh-copy measure mt2 mid-gray"
-        >
-    {post.summary}
-    </div>
+        <div className="f6 lh-copy measure mt2 mid-gray">{post.summary}</div>
       </div>
     </article>
   );

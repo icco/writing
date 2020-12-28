@@ -129,15 +129,15 @@ export default function Post(params) {
         </Link>
       </div>
 
-        <Editor
-          id="content"
-          name="content"
-          className="db border-box w-100 pa2 br2 mb2"
-          theme={theme}
-          aria-describedby="text-desc"
-          defaultValue={content || post.content}
-          readonly={true}
-        />
+      <Editor
+        id="content"
+        name="content"
+        className="db border-box w-100 pa2 br2 mb2"
+        theme={theme}
+        aria-describedby="text-desc"
+        defaultValue={content || post.content}
+        readonly={true}
+      />
 
       <PostNav post={post} />
 
