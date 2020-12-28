@@ -1,14 +1,13 @@
 import Link from "next/link";
+import Editor from "rich-markdown-editor";
 
-import md from "lib/markdown.js";
+import theme from "components/editorTheme";
 
 export default function Comment(params) {
   const {
     className,
     data: { comment },
   } = params;
-
-  let html = { __html: md.render(comment.content) };
 
   return (
     <article className={className}>
@@ -19,9 +18,15 @@ export default function Comment(params) {
           </Link>{" "}
           - {comment.user.name}
         </div>
-        <div className="f6 lh-copy measure mt2 mid-gray">
-          <div dangerouslySetInnerHTML={html} />
-        </div>
+        <Editor
+          id="content"
+          name="content"
+          className="db border-box w-100 pa2 br2 mb2"
+          aria-describedby="text-desc"
+          defaultValue={comment.content}
+          theme={theme}
+          readonly={true}
+        />
       </div>
     </article>
   );

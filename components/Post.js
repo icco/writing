@@ -4,13 +4,14 @@ import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, useQuery } from "@apollo/client";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useRouter } from "next/router";
+import Editor from "rich-markdown-editor";
 
+import theme from "components/editorTheme";
 import Comment from "components/Comment";
 import CommentEditor from "components/CommentEditor";
 import Datetime from "components/Datetime";
 import PostCard from "components/PostCard";
 import PostNav from "components/PostNav";
-import md from "lib/markdown.js";
 
 export const getPost = gql`
   query getPost($id: ID!) {
@@ -79,7 +80,6 @@ export default function Post(params) {
     throw e;
   }
 
-  let html = { __html: md.render(post.content) };
   let draft = "";
   if (post.draft) {
     draft = "DRAFT";
@@ -129,9 +129,15 @@ export default function Post(params) {
         </Link>
       </div>
 
-      <article className="mh3">
-        <div dangerouslySetInnerHTML={html} />
-      </article>
+        <Editor
+          id="content"
+          name="content"
+          className="db border-box w-100 pa2 br2 mb2"
+          theme={theme}
+          aria-describedby="text-desc"
+          defaultValue={content || post.content}
+          readonly={true}
+        />
 
       <PostNav post={post} />
 
