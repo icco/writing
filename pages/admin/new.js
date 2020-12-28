@@ -3,7 +3,7 @@ import { gql, useMutation } from "@apollo/client";
 import { Loading, ErrorMessage } from "@icco/react-common";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
-import NotAuthorized from "../../components/NotAuthorized";
+import NotAuthorized from "components/NotAuthorized";
 
 const newPostMutation = gql`
   mutation {

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 
-import App from "../../components/App";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import App from "components/App";
+import Footer from "components/Footer";
+import Header from "components/Header";
 
 const Page = (props) => {
   const router = useRouter();

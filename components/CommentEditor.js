@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Loading } from "@icco/react-common";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import theme from "./editorTheme";
+import theme from "components/editorTheme";
 
 export const saveCommentMutation = gql`
   mutation saveComment($postid: ID!, $content: String!) {

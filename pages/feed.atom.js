@@ -1,11 +1,11 @@
-import generateFeed from "../lib/feed";
+import generateFeed from "lib/feed";
 
 const Feed = () => {
   return "";
 };
 
 export async function getServerSideProps(context) {
-  const ret = {props: {}}
+  const ret = { props: {} };
   const res = context.res;
   if (!res) {
     return ret;
@@ -15,8 +15,7 @@ export async function getServerSideProps(context) {
   res.write(feed.atom1());
   res.end();
 
-  return ret
+  return ret;
 }
-
 
 export default Feed;

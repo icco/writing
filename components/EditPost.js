@@ -6,7 +6,7 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import theme from "./editorTheme";
+import theme from "components/editorTheme";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,
