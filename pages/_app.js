@@ -1,8 +1,8 @@
 import Router from "next/router";
 import Head from "next/head";
-
-import { AuthorizedApolloProvider } from "../lib/apollo";
 import { Auth0Provider } from "@auth0/auth0-react";
+
+import { AuthorizedApolloProvider } from "lib/apollo";
 
 // Can not be done in _document.js
 import "../style.css";

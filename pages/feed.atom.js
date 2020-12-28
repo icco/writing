@@ -1,4 +1,4 @@
-import generateFeed from "../lib/feed";
+import generateFeed from "lib/feed";
 
 const Feed = () => {
   return "";

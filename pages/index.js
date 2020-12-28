@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-import App from "../components/App";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import PostList, { allPosts, allPostsQueryVars } from "../components/PostList";
+import App from "components/App";
+import Header from "components/Header";
+import Footer from "components/Footer";
+import PostList, { allPosts, allPostsQueryVars } from "components/PostList";
 
-import { initializeApollo } from "../lib/apollo";
+import { initializeApollo } from "lib/apollo";
 
 const Index = () => {
   return (

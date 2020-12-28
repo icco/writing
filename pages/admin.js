@@ -5,11 +5,11 @@ import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 import { useLazyQuery } from "@apollo/client";
 import { ErrorMessage, Loading } from "@icco/react-common";
 
-import AdminPostList from "../components/AdminPostList";
-import App from "../components/App";
-import Header from "../components/Header";
-import NotAuthorized from "../components/NotAuthorized";
-import { getUser } from "../components/User";
+import AdminPostList from "components/AdminPostList";
+import App from "components/App";
+import Header from "components/Header";
+import NotAuthorized from "components/NotAuthorized";
+import { getUser } from "components/User";
 
 const Page = (params) => {
   const { isLoading, error, isAuthenticated } = useAuth0();
