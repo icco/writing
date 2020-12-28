@@ -3,8 +3,8 @@
   "version": "7.0.0",
   "scripts": {
     "build": "next build",
-    "start": "node index.js",
-    "dev": "next -p 8080",
+    "start": "next -p $PORT",
+    "dev": "next dev -p 8080",
     "lint": "./lint.sh",
     "test": "snyk test",
     "schema": "get-graphql-schema https://graphql.natwelch.com/graphql --json > ./schema.json"
