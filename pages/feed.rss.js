@@ -5,7 +5,7 @@ const Feed = () => {
 };
 
 export async function getServerSideProps(context) {
-  const ret = {props: {}}
+  const ret = { props: {} };
   const res = context.res;
   if (!res) {
     return ret;
@@ -15,8 +15,7 @@ export async function getServerSideProps(context) {
   res.write(feed.rss2());
   res.end();
 
-  return ret
+  return ret;
 }
-
 
 export default Feed;

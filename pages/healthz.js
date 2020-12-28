@@ -1,7 +1,5 @@
 const Health = () => {
-  return (
-    "ok"
-  );
+  return "ok";
 };
 
 export default Health;
