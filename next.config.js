@@ -19,4 +19,57 @@ module.exports = {
       },
     ];
   },
+  async headers() {
+    return [{
+      source: "/(.*)",
+      headers: createSecureHeaders({
+        contentSecurityPolicy: {
+          directives: {
+        //  default-src 'none'
+        defaultSrc: [
+          "'self'",
+          "https://graphql.natwelch.com/graphql",
+          "https://graphql.natwelch.com/photo/new",
+          "https://icco.auth0.com/",
+          "http://localhost:9393",
+        ],
+        // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fonts.googleapis.com/",
+        ],
+        // font-src https://fonts.gstatic.com
+        fontSrc: ["https://fonts.gstatic.com"],
+        // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
+        imgSrc: [
+          "'self'",
+          "blob:",
+          "data:",
+          "https://a.natwelch.com",
+          "https://icco.imgix.net",
+          "https://storage.googleapis.com",
+          "https://writing.natwelch.com",
+        ],
+        // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
+        scriptSrc: [
+          "'self'",
+          "blob:",
+          "'unsafe-inline'",
+          "'unsafe-eval'",
+          "https://a.natwelch.com/tracker.js",
+        ],
+        // object-src 'none';
+        objectSrc: ["'none'"],
+        // worker-src 'self' blob:
+        // https://developers.google.com/web/updates/2018/09/reportingapi#csp
+        reportUri: "https://reportd.natwelch.com/report/writing",
+        reportTo: "default",
+        },
+        },
+        referrerPolicy: "strict-origin-when-cross-origin",
+        expectCT: true,
+      }),
+    }];
+  },
 };
