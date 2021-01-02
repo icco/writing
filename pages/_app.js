@@ -1,11 +1,15 @@
 import Router from "next/router";
 import Head from "next/head";
 import { Auth0Provider } from "@auth0/auth0-react";
+import fetch from 'node-fetch';
+import { abortableFetch } from 'abortcontroller-polyfill/dist/cjs-ponyfill';
 
 import { AuthorizedApolloProvider } from "lib/apollo";
 
 // Can not be done in _document.js
 import "../style.css";
+
+global.fetch = abortableFetch(fetch).fetch;
 
 function Writing({ Component, pageProps }) {
   return (
