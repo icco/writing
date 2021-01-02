@@ -3,7 +3,7 @@
   "version": "7.0.0",
   "scripts": {
     "build": "next build",
-    "start": "next -p $PORT",
+    "start": "next start -p $PORT",
     "dev": "next dev -p 8080",
     "lint": "./lint.sh",
     "test": "snyk test",
