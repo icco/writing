@@ -1,5 +1,7 @@
 import { gql } from "@apollo/client";
 import { useRouter } from "next/router";
+  import fetch from 'node-fetch';
+  import { abortableFetch } from 'abortcontroller-polyfill/dist/cjs-ponyfill';
 
 import App from "components/App";
 import Footer from "components/Footer";
@@ -40,6 +42,8 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
+
+  global.fetch = abortableFetch(fetch).fetch;
   const apolloClient = initializeApollo();
 
   const result = await apolloClient.query({
