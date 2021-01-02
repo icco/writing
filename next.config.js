@@ -34,6 +34,7 @@ module.exports = {
                 "'self'",
                 "https://graphql.natwelch.com/graphql",
                 "https://graphql.natwelch.com/photo/new",
+                "https://writing.natwelch.com"
                 "https://icco.auth0.com/",
                 "http://localhost:9393",
               ],
