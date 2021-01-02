@@ -9,6 +9,7 @@ import App from "components/App";
 import EditPost from "components/EditPost";
 import Header from "components/Header";
 import NotAuthorized from "components/NotAuthorized";
+import ErrorMessage from "components/ErrorMessage";
 import { getUser } from "components/User";
 
 const Page = (props) => {
