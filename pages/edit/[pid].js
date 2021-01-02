@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
-import { Loading } from "@icco/react-common";
+import { Loading, ErrorMessage } from "@icco/react-common";
 import { useLazyQuery } from "@apollo/client";
 
 import AdminLinkList from "components/AdminLinkList";
@@ -9,7 +9,6 @@ import App from "components/App";
 import EditPost from "components/EditPost";
 import Header from "components/Header";
 import NotAuthorized from "components/NotAuthorized";
-import ErrorMessage from "components/ErrorMessage";
 import { getUser } from "components/User";
 
 const Page = (props) => {
