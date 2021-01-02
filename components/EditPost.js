@@ -91,10 +91,14 @@ export default function EditPost({ id }) {
     let response = await fetch(`${baseUrl}/photo/new`, {
       method: "POST",
       body: formData,
-      headers: { authorization },
+      headers: { authorization: `Bearer ${authorization}` },
     });
 
     let data = await response.json();
+
+    if (data.error) {
+      console.error(data.error)
+    }
     return data.file;
   };
 
