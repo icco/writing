@@ -1,16 +1,19 @@
 const { createSecureHeaders } = require("next-secure-headers");
+
 const port = process.env.PORT || 8080;
+const domain = process.env.DOMAIN || `http://localhost:${port}`
+const graphql = process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql"
+
 module.exports = {
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: false,
   productionBrowserSourceMaps: true,
   env: {
-    GRAPHQL_ORIGIN:
-      process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql",
     AUTH0_CLIENT_ID: "MwFD0COlI4F4AWvOZThe1psOIletecnL",
     AUTH0_DOMAIN: "icco.auth0.com",
-    DOMAIN: process.env.DOMAIN || `http://localhost:${port}`,
+    DOMAIN: domain,
+    GRAPHQL_ORIGIN: graphql,
     PORT: port,
   },
   async redirects() {
@@ -32,11 +35,10 @@ module.exports = {
               //  default-src 'none'
               defaultSrc: [
                 "'self'",
-                "https://graphql.natwelch.com/graphql",
+                graphql,
                 "https://graphql.natwelch.com/photo/new",
-                "https://writing.natwelch.com"
+                domain, 
                 "https://icco.auth0.com/",
-                "http://localhost:9393",
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
               styleSrc: [
@@ -56,17 +58,13 @@ module.exports = {
                 "https://storage.googleapis.com",
                 "https://writing.natwelch.com",
               ],
-              // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
               scriptSrc: [
                 "'self'",
-                "blob:",
-                "'unsafe-inline'",
                 "'unsafe-eval'",
+                "blob:",
                 "https://a.natwelch.com/tracker.js",
               ],
-              // object-src 'none';
               objectSrc: ["'none'"],
-              // worker-src 'self' blob:
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
               reportUri: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
