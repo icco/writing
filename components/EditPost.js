@@ -97,7 +97,7 @@ export default function EditPost({ id }) {
     let data = await response.json();
 
     if (data.error) {
-      console.error(data.error)
+      console.error(data.error);
     }
     return data.file;
   };

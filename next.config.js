@@ -1,8 +1,9 @@
 const { createSecureHeaders } = require("next-secure-headers");
 
 const port = process.env.PORT || 8080;
-const domain = process.env.DOMAIN || `http://localhost:${port}`
-const graphql = process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql"
+const domain = process.env.DOMAIN || `http://localhost:${port}`;
+const graphql =
+  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
 
 module.exports = {
   poweredByHeader: false,
@@ -37,7 +38,7 @@ module.exports = {
                 "'self'",
                 graphql,
                 "https://graphql.natwelch.com/photo/new",
-                domain, 
+                domain,
                 "https://icco.auth0.com/",
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
