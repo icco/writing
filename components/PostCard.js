@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import md from "../lib/markdown.js";
+import md from "lib/markdown.js";
 
 export default function PostCard({ className, post }) {
   let html = { __html: md.render(post.summary) };

@@ -3,9 +3,9 @@ import fs from "fs";
 import { join } from "path";
 import Masonry from "react-masonry-component";
 
-import App from "../components/App";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import App from "components/App";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 const imgdir = join(process.cwd(), "public/imgs/inspiration/");
 

@@ -5,12 +5,12 @@ import { gql, useQuery } from "@apollo/client";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useRouter } from "next/router";
 
-import Comment from "./Comment";
-import CommentEditor from "./CommentEditor";
-import Datetime from "./Datetime";
-import PostCard from "./PostCard";
-import PostNav from "./PostNav";
-import md from "../lib/markdown.js";
+import Comment from "components/Comment";
+import CommentEditor from "components/CommentEditor";
+import Datetime from "components/Datetime";
+import PostCard from "components/PostCard";
+import PostNav from "components/PostNav";
+import md from "lib/markdown.js";
 
 export const getPost = gql`
   query getPost($id: ID!) {

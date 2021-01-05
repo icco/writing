@@ -6,7 +6,7 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import theme from "./editorTheme";
+import theme from "components/editorTheme";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,
@@ -56,7 +56,7 @@ export default function EditPost({ id }) {
   const [content, setContent] = useState("");
   const [draft, setDraft] = useState("");
   const [datetime, setDatetime] = useState("");
-  const { isAuthenticated, getTokenSilently } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   const handleTitleChange = (event) => {
     const target = event.target;
@@ -80,6 +80,26 @@ export default function EditPost({ id }) {
     }
 
     return draft;
+  };
+
+  const handleFileUpload = async (file) => {
+    const authorization = isAuthenticated ? await getAccessTokenSilently() : "";
+
+    let formData = new FormData();
+    formData.append("file", file);
+
+    let response = await fetch(`${baseUrl}/photo/new`, {
+      method: "POST",
+      body: formData,
+      headers: { authorization: `Bearer ${authorization}` },
+    });
+
+    let data = await response.json();
+
+    if (data.error) {
+      console.error(data.error);
+    }
+    return data.file;
   };
 
   const handleDatetimeChange = (event) => {
@@ -157,22 +177,7 @@ export default function EditPost({ id }) {
           aria-describedby="text-desc"
           onChange={handleEditorChange}
           defaultValue={content || post.content}
-          uploadImage={async (file) => {
-            const authorization = isAuthenticated
-              ? await getTokenSilently()
-              : "";
-            let formData = new FormData();
-            formData.append("file", file);
-
-            let response = await fetch(`${baseUrl}/photo/new`, {
-              method: "POST",
-              body: formData,
-              headers: { authorization },
-            });
-
-            let data = await response.json();
-            return data.file;
-          }}
+          uploadImage={handleFileUpload}
         />
 
         <hr />
