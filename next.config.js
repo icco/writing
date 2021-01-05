@@ -55,16 +55,15 @@ module.exports = {
                 "'self'",
                 "blob:",
                 "data:",
-                "https://a.natwelch.com",
                 "https://icco.imgix.net",
                 "https://storage.googleapis.com",
-                "https://writing.natwelch.com",
+                "https://*.natwelch.com",
               ],
               scriptSrc: [
                 "'self'",
                 "'unsafe-eval'",
                 "blob:",
-                "https://a.natwelch.com/tracker.js",
+                "https://*.natwelch.com",
               ],
               objectSrc: ["'none'"],
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
