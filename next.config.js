@@ -72,6 +72,7 @@ module.exports = {
               scriptSrc: [
                 "'self'",
                 "'unsafe-inline'",
+                "blob:",
                 "https://*.natwelch.com",
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
