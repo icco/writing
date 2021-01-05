@@ -52,37 +52,40 @@ module.exports = {
         headers: createSecureHeaders({
           contentSecurityPolicy: {
             directives: {
-              //  default-src 'none'
+              // default-src 'none'
               defaultSrc: [
+                "'none'",
+              ],
+              // connect-src https://graphql.natwelch.com/graphql https://icco.auth0.com/oauth/token
+              connectSrc: [
+                "https://*.natwelch.com",
+                "https://icco.auth0.com",
+              ],
+              // font-src https://fonts.gstatic.com
+              fontSrc: ["https://fonts.gstatic.com"],
+              // frame-src https://icco.auth0.com
+              frameSrc: [
+                "https://icco.auth0.com",
+              ],
+              // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
+              imgSrc: [
                 "'self'",
-                "blob:",
-                graphql,
-                "https://graphql.natwelch.com/photo/new",
-                domain,
-                "https://icco.auth0.com/",
+                "data:",
+                "https://icco.imgix.net",
+                "https://storage.googleapis.com",
+                "https://*.natwelch.com",
+              ],
+              // script-src 'self' 'unsafe-inline'
+              scriptSrc: [
+                "'self'",
+                "'unsafe-inline'",
+                "https://*.natwelch.com",
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
               styleSrc: [
                 "'self'",
                 "'unsafe-inline'",
                 "https://fonts.googleapis.com/",
-              ],
-              // font-src https://fonts.gstatic.com
-              fontSrc: ["https://fonts.gstatic.com"],
-              // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
-              imgSrc: [
-                "'self'",
-                "blob:",
-                "data:",
-                "https://icco.imgix.net",
-                "https://storage.googleapis.com",
-                "https://*.natwelch.com",
-              ],
-              scriptSrc: [
-                "'self'",
-                "'unsafe-eval'",
-                "blob:",
-                "https://*.natwelch.com",
               ],
               objectSrc: ["'none'"],
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
