@@ -36,6 +36,7 @@ module.exports = {
               //  default-src 'none'
               defaultSrc: [
                 "'self'",
+                "blob:",
                 graphql,
                 "https://graphql.natwelch.com/photo/new",
                 domain,
