@@ -30,6 +30,12 @@ module.exports = {
     return [
       {
         source: "/(.*)",
+        headers: {
+          "NEL": JSON.stringify({ report_to: "default", max_age: 2592000 }),
+      "Report-To": JSON.stringify({ group: "default", max_age: 10886400, endpoints: [ { url: `https://reportd.natwelch.com/report/writing`, }, ], }),
+      },
+      {
+        source: "/(.*)",
         headers: createSecureHeaders({
           contentSecurityPolicy: {
             directives: {
