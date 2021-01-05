@@ -53,20 +53,13 @@ module.exports = {
           contentSecurityPolicy: {
             directives: {
               // default-src 'none'
-              defaultSrc: [
-                "'none'",
-              ],
+              defaultSrc: ["'none'"],
               // connect-src https://graphql.natwelch.com/graphql https://icco.auth0.com/oauth/token
-              connectSrc: [
-                "https://*.natwelch.com",
-                "https://icco.auth0.com",
-              ],
+              connectSrc: ["https://*.natwelch.com", "https://icco.auth0.com"],
               // font-src https://fonts.gstatic.com
               fontSrc: ["https://fonts.gstatic.com"],
               // frame-src https://icco.auth0.com
-              frameSrc: [
-                "https://icco.auth0.com",
-              ],
+              frameSrc: ["https://icco.auth0.com"],
               // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
               imgSrc: [
                 "'self'",
