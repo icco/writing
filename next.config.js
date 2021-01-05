@@ -85,10 +85,10 @@ module.exports = {
               reportUri: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
+            reportOnly: true,
           },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,
-          reportOnly: true,
         }),
       },
     ];
