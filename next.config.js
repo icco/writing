@@ -88,6 +88,7 @@ module.exports = {
           },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,
+          reportOnly: true,
         }),
       },
     ];
