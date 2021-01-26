@@ -5223,10 +5223,10 @@ outlayer@^2.1.0:
     fizzy-ui-utils "^2.0.0"
     get-size "^2.0.2"
 
-outline-icons@^1.21.0:
-  version "1.22.1"
-  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-1.22.1.tgz#84eca73e8d444173dc82b75bb37813472f5926f7"
-  integrity sha512-NaCyClTbVmK9GvG7Wl/sYBeRm8XcBBWZy7SUfwTgRZAQbFNpeCWU2+FkoBbn4DOvRT2sEnLQo9FmmrnCSzXNiQ==
+outline-icons@^1.23.0:
+  version "1.23.0"
+  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-1.23.0.tgz#46c9655f7f7f77900349ca39d4676dd99550e3ea"
+  integrity sha512-p4QZ1KIOnkB3qju1+NNJxQPsmVOibqOBp7AksFas7Igchg94plR/fnDbs9Oe2uBzD64PApR4ypU/pe6mkMGong==
 
 p-limit@3.0.2:
   version "3.0.2"
@@ -6142,15 +6142,15 @@ rework@1.0.1:
     convert-source-map "^0.3.3"
     css "^2.0.0"
 
-rich-markdown-editor@^11.0.8:
-  version "11.0.11"
-  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-11.0.11.tgz#7f29f0956a81618966866d4c05219910e317a7d1"
-  integrity sha512-2p7kETZSDCene8DqV0WgGNeSgaK3V8uRIXUK9gJAORl6zaieuY0TQu3GKIYkblxxeJYeMGp/kQeDJRrBYnRDBg==
+rich-markdown-editor@^11.1.0:
+  version "11.1.6"
+  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-11.1.6.tgz#2f492b3cd5a186c0284c5b1ece709293a70b3bff"
+  integrity sha512-iiEgmwYaeNdjQx4OqLWnm8xEDI0XYsmcKGGCppMOrZHPQMBUoXmjUEWLi2edWUGH0EwNdeV8EVWXpQKCMqbQCw==
   dependencies:
     copy-to-clipboard "^3.0.8"
     lodash "^4.17.11"
     markdown-it-container "^3.0.0"
-    outline-icons "^1.21.0"
+    outline-icons "^1.23.0"
     prismjs "^1.19.0"
     prosemirror-commands "^1.1.4"
     prosemirror-dropcursor "^1.3.2"
