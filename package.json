@@ -38,7 +38,7 @@
   },
   "private": true,
   "devDependencies": {
-    "@babel/eslint-parser": "^7.12.13",
+    "@babel/eslint-parser": "^7.12.16",
     "eslint": "^7.15.0",
     "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
