@@ -4161,10 +4161,10 @@ outlayer@^2.1.0:
     fizzy-ui-utils "^2.0.0"
     get-size "^2.0.2"
 
-outline-icons@^1.23.0:
-  version "1.24.1"
-  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-1.24.1.tgz#fe5bfb9fc47606b849cfb895d111b828980718a3"
-  integrity sha512-V8plhrXpjvB/cE7c6uwYU2Nffs6jWs0gkEytGvbY5TFE4HdTs3fZI32Zdisz1PZLpZqb7l1Cw05Fzq7adVPqUQ==
+outline-icons@^1.25.1-1:
+  version "1.25.1-1"
+  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-1.25.1-1.tgz#1d17b478283181fd360f43498421a8b63f3fd9e0"
+  integrity sha512-rnTl/v2nMabiyCmsL9WmVz2PoZXNEO135MULXUTVtTmWo6KGWsl4B9ug8dxw4MR08fIiJt5niwQsE2EDlH6n6A==
 
 p-limit@3.0.2:
   version "3.0.2"
@@ -4431,7 +4431,7 @@ prettier@^2.0.0:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
 
-prismjs@^1.19.0, prismjs@~1.23.0:
+prismjs@~1.23.0:
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
   integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
@@ -4474,16 +4474,16 @@ property-information@^5.0.0:
   dependencies:
     xtend "^4.0.0"
 
-prosemirror-commands@^1.1.4:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/prosemirror-commands/-/prosemirror-commands-1.1.5.tgz#3f07a5b13e424ad8728168b6b45e1b17e47c2b81"
-  integrity sha512-4CKAnDxLTtUHpjRZZVEF/LLMUYh7NbS3Ze3mP5UEAgar4WRWQYg3Js01wnp/GMqaZueNHhsp9UVvOrAK+7DWbQ==
+prosemirror-commands@^1.1.6:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/prosemirror-commands/-/prosemirror-commands-1.1.7.tgz#5b31ae0fe82835d36d22c780641c0b651f27dd03"
+  integrity sha512-tuQr8q5euDjE+WAHWmu1JMLYWsPfUDH80QLLpnQrPYOPysO26FZyyHwEvA0+hUzvF8fOt1oMj0+/YM9UsPkZiA==
   dependencies:
     prosemirror-model "^1.0.0"
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.0.0"
 
-prosemirror-dropcursor@^1.3.2:
+prosemirror-dropcursor@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/prosemirror-dropcursor/-/prosemirror-dropcursor-1.3.3.tgz#583d6a82b4960d468132c07c40803cc1d697fda4"
   integrity sha512-zavE+wh+qkDcP7LaWn+jXVujGyQzBYSmM8E2HSngQ3KaaR+HJYgEBYGs9ynLHqKWLlLCXsxWdVYPV49v4caFyg==
@@ -4535,10 +4535,17 @@ prosemirror-markdown@^1.4.4:
     markdown-it "^10.0.0"
     prosemirror-model "^1.0.0"
 
-prosemirror-model@^1.0.0, prosemirror-model@^1.1.0, prosemirror-model@^1.11.2, prosemirror-model@^1.8.1:
+prosemirror-model@^1.0.0, prosemirror-model@^1.1.0, prosemirror-model@^1.8.1:
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.13.2.tgz#ecb8f6f29a5edde8d824165cefe75b023890b6f2"
   integrity sha512-Yw9LImJ7pU7WVMhwlZctJtTbsX5aJGNlswqqBowHv2waGdkrdmKbGCA4Atq6CTRcZ6uFddn9tIW6KWluj3Kytg==
+  dependencies:
+    orderedmap "^1.1.0"
+
+prosemirror-model@^1.13.3:
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.13.3.tgz#3ccfde73b9c9e706933c72bdf7462906509ff1c9"
+  integrity sha512-wujIYYQEcxdkbKmIJiekVjqtylKxuoEcc+w2PnN7Itc58m/75J4rCUz2dibygVQJFi3gZrD2DNFLjOS6LP4w1g==
   dependencies:
     orderedmap "^1.1.0"
 
@@ -4550,7 +4557,7 @@ prosemirror-schema-list@^1.1.2:
     prosemirror-model "^1.0.0"
     prosemirror-transform "^1.0.0"
 
-prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, prosemirror-state@^1.3.1, prosemirror-state@^1.3.3:
+prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, prosemirror-state@^1.3.1, prosemirror-state@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/prosemirror-state/-/prosemirror-state-1.3.4.tgz#4c6b52628216e753fc901c6d2bfd84ce109e8952"
   integrity sha512-Xkkrpd1y/TQ6HKzN3agsQIGRcLckUMA9u3j207L04mt8ToRgpGeyhbVv0HI7omDORIBHjR29b7AwlATFFf2GLA==
@@ -4588,10 +4595,19 @@ prosemirror-utils@^0.9.6:
   resolved "https://registry.yarnpkg.com/prosemirror-utils/-/prosemirror-utils-0.9.6.tgz#3d97bd85897e3b535555867dc95a51399116a973"
   integrity sha512-UC+j9hQQ1POYfMc5p7UFxBTptRiGPR7Kkmbl3jVvU8VgQbkI89tR/GK+3QYC8n+VvBZrtAoCrJItNhWSxX3slA==
 
-prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.16.1:
+prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3:
   version "1.17.4"
   resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.17.4.tgz#b9264b1a7cf68f1cad5f90ce2febe8db4ee32581"
   integrity sha512-giPj4TPq+36bmd35TOZqPTbP90lN+eTInvZUuHnGC/nSsC5HdQFbSOG+7gTeZt3syoOX+NRAo2PDFNJ3jJWVrg==
+  dependencies:
+    prosemirror-model "^1.1.0"
+    prosemirror-state "^1.0.0"
+    prosemirror-transform "^1.1.0"
+
+prosemirror-view@^1.17.6:
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.18.1.tgz#52ad1c67f51144e27e368bba129142ce87c7791e"
+  integrity sha512-TZd8byDRfdopLiokBY7T27msCSfWqqRxWs/LnBbdI030F+iI2kS+tO59/XFnpZxMLFKlJgOgGGhM9SzD1Nwdxw==
   dependencies:
     prosemirror-model "^1.1.0"
     prosemirror-state "^1.0.0"
@@ -4779,7 +4795,7 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-refractor@^3.1.0:
+refractor@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/refractor/-/refractor-3.3.1.tgz#ebbc04b427ea81dc25ad333f7f67a0b5f4f0be3a"
   integrity sha512-vaN6R56kLMuBszHSWlwTpcZ8KTMG6aUCok4GrxYDT20UIOXxOc5o6oDc8tNTzSlH3m2sI+Eu9Jo2kVdDcUTWYw==
@@ -4892,37 +4908,35 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rich-markdown-editor@^11.0.8:
-  version "11.1.6"
-  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-11.1.6.tgz#2f492b3cd5a186c0284c5b1ece709293a70b3bff"
-  integrity sha512-iiEgmwYaeNdjQx4OqLWnm8xEDI0XYsmcKGGCppMOrZHPQMBUoXmjUEWLi2edWUGH0EwNdeV8EVWXpQKCMqbQCw==
+rich-markdown-editor@^11.3.2:
+  version "11.6.0"
+  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-11.6.0.tgz#f5f47feadf93a9d63f8ce4905482fcf38d2b3c56"
+  integrity sha512-mZHq+FWLbEVivIZNgeHO9hMHsIRV+g5tdTCq/hfz4wWAMRt+f14e+YIMW6QSYAlRXs9WmsNm5eOZ3oc9anAXkA==
   dependencies:
     copy-to-clipboard "^3.0.8"
     lodash "^4.17.11"
     markdown-it-container "^3.0.0"
-    outline-icons "^1.23.0"
-    prismjs "^1.19.0"
-    prosemirror-commands "^1.1.4"
-    prosemirror-dropcursor "^1.3.2"
+    outline-icons "^1.25.1-1"
+    prosemirror-commands "^1.1.6"
+    prosemirror-dropcursor "^1.3.3"
     prosemirror-gapcursor "^1.1.5"
     prosemirror-history "^1.1.3"
     prosemirror-inputrules "^1.1.3"
     prosemirror-keymap "^1.1.4"
     prosemirror-markdown "^1.4.4"
-    prosemirror-model "^1.11.2"
+    prosemirror-model "^1.13.3"
     prosemirror-schema-list "^1.1.2"
-    prosemirror-state "^1.3.3"
+    prosemirror-state "^1.3.4"
     prosemirror-tables "^1.1.1"
     prosemirror-transform "1.2.5"
     prosemirror-utils "^0.9.6"
-    prosemirror-view "^1.16.1"
+    prosemirror-view "^1.17.6"
     react-medium-image-zoom "^3.0.16"
     react-portal "^4.2.1"
-    refractor "^3.1.0"
+    refractor "^3.3.1"
     resize-observer-polyfill "^1.5.1"
     slugify "^1.4.0"
-    smooth-scroll-into-view-if-needed "^1.1.27"
-    typescript "3.7.5"
+    smooth-scroll-into-view-if-needed "^1.1.29"
 
 rimraf@^3.0.2:
   version "3.0.2"
@@ -5156,10 +5170,10 @@ slugify@^1.4.0:
   resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.4.6.tgz#ef288d920a47fb01c2be56b3487b6722f5e34ace"
   integrity sha512-ZdJIgv9gdrYwhXqxsH9pv7nXxjUEyQ6nqhngRxoAAOlmMGA28FDq5O4/5US4G2/Nod7d1ovNcgURQJ7kHq50KQ==
 
-smooth-scroll-into-view-if-needed@^1.1.27:
-  version "1.1.29"
-  resolved "https://registry.yarnpkg.com/smooth-scroll-into-view-if-needed/-/smooth-scroll-into-view-if-needed-1.1.29.tgz#4f532d9f0353dbca122e546fb062e7b5e0643734"
-  integrity sha512-UxvIEbmMEqwbw0aZI4SOAtwwkMaLYVION20bDQmazVp3sNb1+WIA5koukqoJizRuAAUANRmcBcrTnodcB7maqw==
+smooth-scroll-into-view-if-needed@^1.1.29:
+  version "1.1.30"
+  resolved "https://registry.yarnpkg.com/smooth-scroll-into-view-if-needed/-/smooth-scroll-into-view-if-needed-1.1.30.tgz#4a6de250f56934cd0db92fe7fbc22b0de12fc913"
+  integrity sha512-XVLCK2D8/LGqxXCnEWuoW00tRNIuv5NXoWFB6Xek7t4U7xox2bNDWFp9eseku/MDaPoTOJNMz6+uJX64vmaqhQ==
   dependencies:
     scroll-into-view-if-needed "^2.2.26"
 
@@ -5618,11 +5632,6 @@ type-fest@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
-
-typescript@3.7.5:
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
-  integrity sha512-/P5lkRXkWHNAbcJIiHPfRoKqyd7bsyCma1hZNUGfn20qm64T6ZBlrzprymeu918H+mB/0rIg2gGK/BXkhhYgBw==
 
 uc.micro@^1.0.1, uc.micro@^1.0.5:
   version "1.0.6"
