@@ -3998,10 +3998,10 @@ outlayer@^2.1.0:
     fizzy-ui-utils "^2.0.0"
     get-size "^2.0.2"
 
-outline-icons@^1.25.1-1:
-  version "1.25.1"
-  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-1.25.1.tgz#9c935aeb2ff0c38ca02a007a18fc271c77a1185c"
-  integrity sha512-zmMgW5gnuf7ujkyiC4T4PF3cgb/x4LRGQcs9+MvXyHsuMFJfBgCyKKP8QcKfBRG/tXVeng3h2eMQr9EJcg0SNA==
+outline-icons@^1.26.1:
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-1.27.0.tgz#0d923a0b81fe2f3eac1ee5ffe9617158d41e4c29"
+  integrity sha512-YGm0IjCGO3+dduESI4aU/VMmu5uVJwsbStGn6+fRVZLryv2HEFcfofgF93AvPnc8AdFgF9xwzyYisnzpLjhPbA==
 
 p-limit@3.1.0, p-limit@^3.1.0:
   version "3.1.0"
@@ -4381,10 +4381,19 @@ prosemirror-utils@^0.9.6:
   resolved "https://registry.yarnpkg.com/prosemirror-utils/-/prosemirror-utils-0.9.6.tgz#3d97bd85897e3b535555867dc95a51399116a973"
   integrity sha512-UC+j9hQQ1POYfMc5p7UFxBTptRiGPR7Kkmbl3jVvU8VgQbkI89tR/GK+3QYC8n+VvBZrtAoCrJItNhWSxX3slA==
 
-prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.17.6:
+prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3:
   version "1.18.3"
   resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.18.3.tgz#cfc70169cb300e9503d97362463ea870efffd3ef"
   integrity sha512-B0zlzjBI0cHadpghyvAA+JgqLGbkNU9Vxywqkfaa+AdmOZUZImBKH6ufhpK+AEZn97WWgSIkr/MT9RmGpaboAA==
+  dependencies:
+    prosemirror-model "^1.1.0"
+    prosemirror-state "^1.0.0"
+    prosemirror-transform "^1.1.0"
+
+prosemirror-view@^1.18.4:
+  version "1.18.7"
+  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.18.7.tgz#d9843337a1649f532401589899b724e7e87e83c0"
+  integrity sha512-pUCxoyuWnbVfJ/ukhQ+7+bfDMArG3wu6hHnnTFi61C7Teb5OILUhkkhEhF2/RsppBFWrkwsNcf8rQm8SSoSKRg==
   dependencies:
     prosemirror-model "^1.1.0"
     prosemirror-state "^1.0.0"
@@ -4685,15 +4694,15 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rich-markdown-editor@^11.0.8:
-  version "11.6.4"
-  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-11.6.4.tgz#19b69bd7d4df87ae75842bf90a9d08ab3a959a93"
-  integrity sha512-6KmkvIyKEcAsd8wRlzWxGTqKdhKKmdI4BEH2UcsllA6u2fEwXQEXs8hAY0S+gkLHFvUIY3G4s77oH7S5jn+8IQ==
+rich-markdown-editor@^11.7.0:
+  version "11.8.1"
+  resolved "https://registry.yarnpkg.com/rich-markdown-editor/-/rich-markdown-editor-11.8.1.tgz#7a7ddd39ed6ab48785225006630ed392f0766ec5"
+  integrity sha512-4zhd8+gkQtgqI4ZZc0ASbYUIkfyEdHnpfmvpJnAzz78hCenbBoKYVnx4Af23qB2jCsU3bdX7jtdqpspCmxtwPQ==
   dependencies:
     copy-to-clipboard "^3.0.8"
     lodash "^4.17.11"
     markdown-it-container "^3.0.0"
-    outline-icons "^1.25.1-1"
+    outline-icons "^1.26.1"
     prosemirror-commands "^1.1.6"
     prosemirror-dropcursor "^1.3.3"
     prosemirror-gapcursor "^1.1.5"
@@ -4707,7 +4716,7 @@ rich-markdown-editor@^11.0.8:
     prosemirror-tables "^1.1.1"
     prosemirror-transform "1.2.5"
     prosemirror-utils "^0.9.6"
-    prosemirror-view "^1.17.6"
+    prosemirror-view "^1.18.4"
     react-medium-image-zoom "^3.1.3"
     react-portal "^4.2.1"
     refractor "^3.3.1"
