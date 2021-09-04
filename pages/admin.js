@@ -13,10 +13,8 @@ import { getUser } from "components/User";
 
 const Page = (params) => {
   const { isLoading, error, isAuthenticated } = useAuth0();
-  const [
-    user,
-    { loading: queryLoading, error: queryError, data: userData },
-  ] = useLazyQuery(getUser);
+  const [user, { loading: queryLoading, error: queryError, data: userData }] =
+    useLazyQuery(getUser);
 
   if (isLoading || queryLoading) {
     return <Loading />;
