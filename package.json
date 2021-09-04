@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "dev": "next dev -p 8080",
-    "lint": "next lint",
+    "lint": "prettier --write . && next lint",
     "test": "snyk test",
     "schema": "get-graphql-schema https://graphql.natwelch.com/graphql --json > ./schema.json"
   },
