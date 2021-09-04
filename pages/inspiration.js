@@ -2,6 +2,7 @@ import Head from "next/head";
 import fs from "fs";
 import { join } from "path";
 import Masonry from "react-masonry-component";
+import Image from 'next/image'
 
 import App from "components/App";
 import Header from "components/Header";
@@ -23,7 +24,10 @@ const Inspiration = ({ images }) => {
       >
         {images.map((i) => (
           <div className="w-30-ns w-100 pa2" key={i}>
-            <img src={`/imgs/inspiration/${i}`} className="db w-100" />
+          <Image
+          src={`/imgs/inspiration/${i}`} className="db w-100"
+        alt={`inspiration #${i}`}
+      />
           </div>
         ))}
       </Masonry>
