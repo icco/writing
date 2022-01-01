@@ -17,6 +17,11 @@ function Writing({ Component, pageProps }) {
           content="initial-scale=1.0, width=device-width"
           key="viewport"
         />
+        <link
+          rel="webmention"
+          href="https://webmention.io/natwelch.com/webmention"
+        />
+        <link rel="pingback" href="https://webmention.io/natwelch.com/xmlrpc" />
       </Head>
       <Auth0Provider
         domain={process.env.AUTH0_DOMAIN}
@@ -36,8 +41,15 @@ function Writing({ Component, pageProps }) {
 
 // Will be called once for every metric that has to be reported.
 export function reportWebVitals(metric) {
-  // These metrics can be sent to any analytics service
-  console.log(metric);
+  const body = JSON.stringify(metric);
+  const url = "https://reportd.natwelch.com/analytics/writing";
+
+  // Use `navigator.sendBeacon()` if available, falling back to `fetch()`.
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(url, body);
+  } else {
+    fetch(url, { body, method: "POST", keepalive: true });
+  }
 }
 
 export default Writing;

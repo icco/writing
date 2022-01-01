@@ -5,14 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Header({ noLogo }) {
   const { pathname, query } = useRouter();
-  const {
-    isAuthenticated,
-    logout,
-    loginWithRedirect,
-    isLoading,
-    error,
-    user,
-  } = useAuth0();
+  const { isAuthenticated, logout, loginWithRedirect, isLoading, error, user } =
+    useAuth0();
 
   if (error) {
     if (error.error != "consent_required") {

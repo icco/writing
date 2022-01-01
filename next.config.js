@@ -6,6 +6,7 @@ const graphql =
   process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
 
 module.exports = {
+  webpack5: true,
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: false,
@@ -72,6 +73,7 @@ module.exports = {
               scriptSrc: [
                 "'self'",
                 "'unsafe-inline'",
+                "blob:",
                 "https://*.natwelch.com",
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
@@ -85,6 +87,7 @@ module.exports = {
               reportUri: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
+            reportOnly: true,
           },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,

@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '14'
+  - "16"
 env:
   GRAPHQL_ORIGIN: "https://graphql.natwelch.com/graphql"
 cache:
