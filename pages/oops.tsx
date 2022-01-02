@@ -6,5 +6,10 @@ export default function Oops() {
   const router = useRouter()
   const { message } = router.query
 
-  return <ErrorPage statusCode={500} title={message || "Unknown Error"} />
+  let issue: string = "Unknown Error"
+  if (message) {
+    issue = message.toString()
+  }
+    
+  return <ErrorPage statusCode={500} title={issue} />
 }

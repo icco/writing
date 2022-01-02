@@ -6,7 +6,7 @@ import CommentEditor from "components/CommentEditor";
 import Datetime from "components/Datetime";
 import PostCard from "components/PostCard";
 import PostNav from "components/PostNav";
-import md from "lib/markdown.js";
+import { md } from "lib/markdown.js";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -58,7 +58,6 @@ export default function Post(params) {
     isLoading: authLoading,
     error: authError,
     isAuthenticated,
-    user,
   } = useAuth0();
 
   if (error || authError) {
@@ -73,7 +72,6 @@ export default function Post(params) {
 
   if (!post) {
     const e = new Error();
-    e.code = "ENOENT";
     e.message = "Post not found";
     throw e;
   }
@@ -98,7 +96,7 @@ export default function Post(params) {
     commentDiv = (
       <article className="mh3 db">
         <h2>Comments</h2>
-        <CommentEditor postID={id} loggedInUser={user} />
+        <CommentEditor postID={id} />
         <div className="">
           {post.comments.map((item) => (
             <Comment key={item.id} data={{ comment: item }} />

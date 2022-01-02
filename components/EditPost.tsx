@@ -126,7 +126,6 @@ export default function EditPost({ id }) {
 
   if (!post) {
     const e = new Error();
-    e.code = "ENOENT";
     e.message = "Post not found";
     throw e;
   }
@@ -171,7 +170,6 @@ export default function EditPost({ id }) {
 
         <Editor
           id="content"
-          name="content"
           className="db border-box w-100 pa2 br2 mb2"
           theme={theme}
           aria-describedby="text-desc"

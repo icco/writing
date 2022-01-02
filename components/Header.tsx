@@ -9,7 +9,7 @@ export default function Header({ noLogo }) {
     useAuth0();
 
   if (error) {
-    if (error.error != "consent_required") {
+    if (error.message != "consent_required") {
       throw error;
     }
   }
@@ -33,7 +33,7 @@ export default function Header({ noLogo }) {
     signout: (
       <a
         className="f6 link dib dim mr3 black mr4-ns pointer"
-        onClick={() => logout({ appState: { returnTo: { pathname, query } } })}
+        onClick={() => logout({ returnTo: pathname })}
       >
         Sign Out
       </a>

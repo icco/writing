@@ -1,4 +1,4 @@
-import md from "lib/markdown.js";
+import { md } from "lib/markdown.js";
 import Link from "next/link";
 
 export default function PostCard({ className, post }) {
