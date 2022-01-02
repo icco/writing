@@ -1,4 +1,7 @@
-const MarkdownIt = require("markdown-it")
+import MarkdownIt from "markdown-it"
+import footnote from "markdown-it-footnote"
+import imgix from "markdown-it-imgix"
+import images from "markdown-it-linkify-images"
 
 const md = new MarkdownIt({
   // Enable HTML tags in source
@@ -13,9 +16,9 @@ const md = new MarkdownIt({
   // Autoconvert URL-like text to links
   linkify: true,
 })
-  .use(require("markdown-it-footnote"))
-  .use(require("markdown-it-linkify-images"))
-  .use(require("markdown-it-imgix"), {
+  .use(footnote)
+  .use(images)
+  .use(imgix, {
     match: "https://storage.googleapis.com/icco-cloud/",
     domain: "icco.imgix.net",
     secureUrl: true,
