@@ -8,6 +8,13 @@ import {
 import { onError } from "@apollo/client/link/error";
 import { setContext } from "@apollo/client/link/context";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useMemo } from 'react'
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
+import { concatPagination } from '@apollo/client/utilities'
+import merge from 'deepmerge'
+import isEqual from 'lodash/isEqual'
+
+export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
 
 const GRAPHQL_ORIGIN =
   process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
