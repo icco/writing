@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   if (!res) {
     return ret
   }
-  let feed = await generateFeed()
+  const feed = await generateFeed()
   res.setHeader("Content-Type", "application/atom+xml")
   res.write(feed.atom1())
   res.end()

@@ -1,12 +1,12 @@
-import { Feed } from "feed";
-import { md } from "lib/markdown";
+import { Feed } from "feed"
+import { md } from "lib/markdown"
 
 const GRAPHQL_ORIGIN =
-  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
+  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql"
 
 async function recentPosts() {
   try {
-    let resp = await fetch(GRAPHQL_ORIGIN, {
+    const resp = await fetch(GRAPHQL_ORIGIN, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       redirect: "follow",
@@ -23,24 +23,24 @@ async function recentPosts() {
         }
       `,
       }),
-    });
-    let rj = await resp.json();
+    })
+    const rj = await resp.json()
     if (rj.errors) {
       rj.errors.forEach((e) => {
-        console.error(e.message);
-      });
-      return [];
+        console.error(e.message)
+      })
+      return []
     }
 
-    return rj.data.posts;
+    return rj.data.posts
   } catch (err) {
-    console.error(err);
-    return [];
+    console.error(err)
+    return []
   }
 }
 
 export default async function generateFeed() {
-  let feed = new Feed({
+  const feed = new Feed({
     id: "NatNatNat",
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
@@ -56,10 +56,10 @@ export default async function generateFeed() {
     },
     language: "en",
     copyright: "2022",
-  });
+  })
 
   try {
-    let data = await recentPosts();
+    const data = await recentPosts()
 
     data.forEach((p) => {
       feed.addItem({
@@ -74,11 +74,11 @@ export default async function generateFeed() {
             link: "https://natwelch.com",
           },
         ],
-      });
-    });
+      })
+    })
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 
-  return feed;
+  return feed
 }

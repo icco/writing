@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   if (!res) {
     return ret
   }
-  let feed = await generateFeed()
+  const feed = await generateFeed()
   res.setHeader("Content-Type", "application/rss+xml")
   res.write(feed.rss2())
   res.end()

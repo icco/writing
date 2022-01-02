@@ -37,7 +37,7 @@ const Inspiration = ({ images }) => {
 }
 
 export async function getStaticProps() {
-  let images = []
+  const images = []
   fs.readdirSync(imgdir).forEach((file) => {
     if (file.endsWith(".png")) {
       images.push(file)
