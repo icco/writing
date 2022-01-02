@@ -1,16 +1,18 @@
 import {
- ApolloClient,   ApolloLink,
+  ApolloClient,
+  ApolloLink,
   ApolloProvider,
-HttpLink,   
-InMemoryCache } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import { onError } from "@apollo/client/link/error";
-import { useAuth0 } from "@auth0/auth0-react";
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client"
+import { setContext } from "@apollo/client/link/context"
+import { onError } from "@apollo/client/link/error"
+import { useAuth0 } from "@auth0/auth0-react"
 
-export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
+export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__"
 
 const GRAPHQL_ORIGIN =
-  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
+  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql"
 
 export const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -18,26 +20,26 @@ export const errorLink = onError(({ graphQLErrors, networkError }) => {
       console.log(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
       )
-    );
+    )
 
   if (networkError)
-    console.log(`[Network error ${GRAPHQL_ORIGIN}]: ${networkError}`);
-});
+    console.log(`[Network error ${GRAPHQL_ORIGIN}]: ${networkError}`)
+})
 
 export const AuthorizedApolloProvider = ({ children }) => {
-  const { error, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { error, isAuthenticated, getAccessTokenSilently } = useAuth0()
   const authLink = setContext(async (_, { headers, ...context }) => {
     if (typeof window === "undefined") {
-      return { headers, ...context };
+      return { headers, ...context }
     }
 
-    const token = isAuthenticated ? await getAccessTokenSilently() : "";
+    const token = isAuthenticated ? await getAccessTokenSilently() : ""
     if (typeof Storage !== "undefined") {
-      localStorage.setItem("token", token);
+      localStorage.setItem("token", token)
     }
     if (error) {
-      console.error("auth0 error", error);
-      return { headers, ...context };
+      console.error("auth0 error", error)
+      return { headers, ...context }
     }
 
     return {
@@ -46,8 +48,8 @@ export const AuthorizedApolloProvider = ({ children }) => {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
       ...context,
-    };
-  });
+    }
+  })
 
   const client = new ApolloClient({
     ssrMode: typeof window === "undefined",
@@ -58,7 +60,7 @@ export const AuthorizedApolloProvider = ({ children }) => {
     ]),
     cache: new InMemoryCache(),
     connectToDevTools: true,
-  });
+  })
 
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
-};
+  return <ApolloProvider client={client}>{children}</ApolloProvider>
+}
