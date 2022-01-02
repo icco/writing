@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
-import { Loading } from "@icco/react-common";
+import { Loading, ErrorMessage } from "@icco/react-common";
 import { useLazyQuery } from "@apollo/client";
 
 import AdminLinkList from "components/AdminLinkList";
@@ -20,10 +20,8 @@ const Page = (props) => {
   }
 
   const { isLoading, error, isAuthenticated } = useAuth0();
-  const [
-    user,
-    { loading: queryLoading, error: queryError, data: userData },
-  ] = useLazyQuery(getUser);
+  const [user, { loading: queryLoading, error: queryError, data: userData }] =
+    useLazyQuery(getUser);
 
   if (isLoading || queryLoading) {
     return <Loading />;

@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:16-alpine
 WORKDIR /opt
 EXPOSE 8080
 
@@ -7,7 +7,7 @@ ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
 ENV PORT=8080
 ENV DOMAIN="https://writing.natwelch.com"
 
-RUN apk add --no-cache git python make g++
+RUN apk add --no-cache git
 
 COPY . .
 

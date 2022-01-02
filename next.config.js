@@ -1,15 +1,21 @@
 const { createSecureHeaders } = require("next-secure-headers");
+
 const port = process.env.PORT || 8080;
+const domain = process.env.DOMAIN || `http://localhost:${port}`;
+const graphql =
+  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
+
 module.exports = {
+  webpack5: true,
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: false,
   productionBrowserSourceMaps: true,
   env: {
-    GRAPHQL_ORIGIN: process.env.GRAPHQL_ORIGIN,
     AUTH0_CLIENT_ID: "MwFD0COlI4F4AWvOZThe1psOIletecnL",
     AUTH0_DOMAIN: "icco.auth0.com",
-    DOMAIN: process.env.DOMAIN || `http://localhost:${port}`,
+    DOMAIN: domain,
+    GRAPHQL_ORIGIN: graphql,
     PORT: port,
   },
   async redirects() {
@@ -25,16 +31,50 @@ module.exports = {
     return [
       {
         source: "/(.*)",
+        headers: [
+          {
+            key: "NEL",
+            value: JSON.stringify({ report_to: "default", max_age: 2592000 }),
+          },
+          {
+            key: "Report-To",
+            value: JSON.stringify({
+              group: "default",
+              max_age: 10886400,
+              endpoints: [
+                { url: `https://reportd.natwelch.com/report/writing` },
+              ],
+            }),
+          },
+        ],
+      },
+      {
+        source: "/(.*)",
         headers: createSecureHeaders({
           contentSecurityPolicy: {
             directives: {
-              //  default-src 'none'
-              defaultSrc: [
+              // default-src 'none'
+              defaultSrc: ["'none'"],
+              // connect-src https://graphql.natwelch.com/graphql https://icco.auth0.com/oauth/token
+              connectSrc: ["https://*.natwelch.com", "https://icco.auth0.com"],
+              // font-src https://fonts.gstatic.com
+              fontSrc: ["https://fonts.gstatic.com"],
+              // frame-src https://icco.auth0.com
+              frameSrc: ["https://icco.auth0.com"],
+              // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
+              imgSrc: [
                 "'self'",
-                "https://graphql.natwelch.com/graphql",
-                "https://graphql.natwelch.com/photo/new",
-                "https://icco.auth0.com/",
-                "http://localhost:9393",
+                "data:",
+                "https://icco.imgix.net",
+                "https://storage.googleapis.com",
+                "https://*.natwelch.com",
+              ],
+              // script-src 'self' 'unsafe-inline'
+              scriptSrc: [
+                "'self'",
+                "'unsafe-inline'",
+                "blob:",
+                "https://*.natwelch.com",
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
               styleSrc: [
@@ -42,33 +82,12 @@ module.exports = {
                 "'unsafe-inline'",
                 "https://fonts.googleapis.com/",
               ],
-              // font-src https://fonts.gstatic.com
-              fontSrc: ["https://fonts.gstatic.com"],
-              // img-src 'self' data: http://a.natwelch.com https://a.natwelch.com https://icco.imgix.net
-              imgSrc: [
-                "'self'",
-                "blob:",
-                "data:",
-                "https://a.natwelch.com",
-                "https://icco.imgix.net",
-                "https://storage.googleapis.com",
-                "https://writing.natwelch.com",
-              ],
-              // script-src 'self' 'unsafe-eval' 'unsafe-inline' http://a.natwelch.com/tracker.js https://a.natwelch.com/tracker.js
-              scriptSrc: [
-                "'self'",
-                "blob:",
-                "'unsafe-inline'",
-                "'unsafe-eval'",
-                "https://a.natwelch.com/tracker.js",
-              ],
-              // object-src 'none';
               objectSrc: ["'none'"],
-              // worker-src 'self' blob:
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
               reportUri: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
+            reportOnly: true,
           },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,
