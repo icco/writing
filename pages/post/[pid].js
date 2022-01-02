@@ -1,10 +1,9 @@
 import { gql } from "@apollo/client";
-import { useRouter } from "next/router";
-
 import App from "components/App";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import Post, { getPost } from "components/Post";
+import { useRouter } from "next/router";
 
 const Page = (props) => {
   const router = useRouter();

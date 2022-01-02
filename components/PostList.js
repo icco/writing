@@ -1,9 +1,8 @@
-import InfiniteScroll from "react-infinite-scroller";
-import Link from "next/link";
-import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, useQuery } from "@apollo/client";
-
+import { ErrorMessage, Loading } from "@icco/react-common";
 import Datetime from "components/Datetime";
+import Link from "next/link";
+import InfiniteScroll from "react-infinite-scroller";
 
 export const PER_PAGE = 20;
 

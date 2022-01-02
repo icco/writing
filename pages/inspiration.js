@@ -1,12 +1,11 @@
-import Head from "next/head";
+import App from "components/App";
+import Footer from "components/Footer";
+import Header from "components/Header";
 import fs from "fs";
+import Head from "next/head";
+import Image from "next/image";
 import { join } from "path";
 import Masonry from "react-masonry-component";
-import Image from "next/image";
-
-import App from "components/App";
-import Header from "components/Header";
-import Footer from "components/Footer";
 
 const imgdir = join(process.cwd(), "public/imgs/inspiration/");
 

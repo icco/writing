@@ -1,5 +1,4 @@
 import { Feed } from "feed";
-
 import md from "lib/markdown.js";
 
 const GRAPHQL_ORIGIN =

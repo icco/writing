@@ -1,16 +1,15 @@
-import Head from "next/head";
-import Link from "next/link";
-import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, useQuery } from "@apollo/client";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useRouter } from "next/router";
-
+import { ErrorMessage, Loading } from "@icco/react-common";
 import Comment from "components/Comment";
 import CommentEditor from "components/CommentEditor";
 import Datetime from "components/Datetime";
 import PostCard from "components/PostCard";
 import PostNav from "components/PostNav";
 import md from "lib/markdown.js";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const getPost = gql`
   query getPost($id: ID!) {

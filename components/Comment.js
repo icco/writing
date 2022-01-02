@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import md from "lib/markdown.js";
+import Link from "next/link";
 
 export default function Comment(params) {
   const {

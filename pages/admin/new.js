@@ -1,9 +1,8 @@
-import { useRouter } from "next/router";
 import { gql, useMutation } from "@apollo/client";
-import { Loading, ErrorMessage } from "@icco/react-common";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
-
+import { ErrorMessage,Loading } from "@icco/react-common";
 import NotAuthorized from "components/NotAuthorized";
+import { useRouter } from "next/router";
 
 const newPostMutation = gql`
   mutation {

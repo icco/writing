@@ -1,8 +1,7 @@
-import InfiniteScroll from "react-infinite-scroller";
-import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, NetworkStatus, useQuery } from "@apollo/client";
-
+import { ErrorMessage, Loading } from "@icco/react-common";
 import Datetime from "components/Datetime";
+import InfiniteScroll from "react-infinite-scroller";
 
 export const linksQuery = gql`
   query links($offset: Int!, $perpage: Int!) {

@@ -1,12 +1,12 @@
 import "@fortawesome/fontawesome-free/js/all.js";
-import Link from "next/link";
-import Editor from "rich-markdown-editor";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import { gql, useQuery, useMutation } from "@apollo/client";
-import { useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 
+import { gql, useMutation,useQuery } from "@apollo/client";
+import { useAuth0 } from "@auth0/auth0-react";
+import { ErrorMessage, Loading } from "@icco/react-common";
 import theme from "components/editorTheme";
+import Link from "next/link";
+import { useState } from "react";
+import Editor from "rich-markdown-editor";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,

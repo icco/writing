@@ -1,10 +1,9 @@
-import { useRouter } from "next/router";
 import { gql } from "@apollo/client";
-
 import App from "components/App";
-import Header from "components/Header";
 import Footer from "components/Footer";
+import Header from "components/Header";
 import Tag, { getTag } from "components/Tag";
+import { useRouter } from "next/router";
 
 const Page = (props) => {
   const { id } = props;

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { Logo, Loading } from "@icco/react-common";
-import { useRouter } from "next/router";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Loading,Logo } from "@icco/react-common";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Header({ noLogo }) {
   const { pathname, query } = useRouter();

@@ -1,9 +1,8 @@
+import { gql, useQuery } from "@apollo/client";
+import { ErrorMessage, Loading } from "@icco/react-common";
+import Datetime from "components/Datetime";
 import Head from "next/head";
 import Link from "next/link";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import { gql, useQuery } from "@apollo/client";
-
-import Datetime from "components/Datetime";
 
 export const getTag = gql`
   query postsByTag($id: String!) {

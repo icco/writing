@@ -1,11 +1,10 @@
-import Router from "next/router";
-import Head from "next/head";
-import { Auth0Provider } from "@auth0/auth0-react";
-
-import { AuthorizedApolloProvider } from "lib/apollo";
-
 // Can not be done in _document.js
 import "../style.css";
+
+import { Auth0Provider } from "@auth0/auth0-react";
+import { AuthorizedApolloProvider } from "lib/apollo";
+import Head from "next/head";
+import Router from "next/router";
 
 function Writing({ Component, pageProps }) {
   return (

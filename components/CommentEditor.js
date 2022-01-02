@@ -1,10 +1,9 @@
-import Editor from "rich-markdown-editor";
 import { gql, useMutation } from "@apollo/client";
-import { useRouter } from "next/router";
-import { Loading } from "@icco/react-common";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import { Loading } from "@icco/react-common";
 import theme from "components/editorTheme";
+import { useRouter } from "next/router";
+import Editor from "rich-markdown-editor";
 
 export const saveCommentMutation = gql`
   mutation saveComment($postid: ID!, $content: String!) {

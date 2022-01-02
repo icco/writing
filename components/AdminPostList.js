@@ -1,9 +1,8 @@
-import InfiniteScroll from "react-infinite-scroller";
-import Link from "next/link";
-import { ErrorMessage, Loading } from "@icco/react-common";
 import { gql, NetworkStatus, useQuery } from "@apollo/client";
-
+import { ErrorMessage, Loading } from "@icco/react-common";
 import { allPosts, PER_PAGE } from "components/PostList";
+import Link from "next/link";
+import InfiniteScroll from "react-infinite-scroller";
 
 export const allFuturePosts = gql`
   query future($offset: Int!, $perpage: Int!) {
