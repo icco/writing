@@ -1,6 +1,5 @@
 import { Feed } from "feed";
 import { md } from "lib/markdown";
-import { DateTime } from "luxon"
 
 const GRAPHQL_ORIGIN =
   process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
