@@ -1,3 +1,8 @@
+// @ts-check
+
+/**
+ * @type {import('next').NextConfig}
+ **/
 const { createSecureHeaders } = require("next-secure-headers");
 
 const port = process.env.PORT || 8080;
