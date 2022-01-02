@@ -1,9 +1,8 @@
-import App from "components/App";
-import Footer from "components/Footer";
-import Header from "components/Header";
-import PostList, { allPosts, allPostsQueryVars } from "components/PostList";
-import { initializeApollo } from "lib/apollo";
-import Head from "next/head";
+import App from "components/App"
+import Footer from "components/Footer"
+import Header from "components/Header"
+import PostList from "components/PostList"
+import Head from "next/head"
 
 const Index = () => {
   return (
@@ -15,12 +14,12 @@ const Index = () => {
           content="Nat Welch's blog about life and software."
         />
       </Head>
-      <Header />
+      <Header noLogo={undefined} />
       <PostList />
       <Footer />
     </App>
-  );
-};
+  )
+}
 
 // export async function getStaticProps() {
 //   const apolloClient = initializeApollo();
@@ -38,4 +37,4 @@ const Index = () => {
 //   };
 // }
 
-export default Index;
+export default Index

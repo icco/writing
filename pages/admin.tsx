@@ -10,7 +10,7 @@ import Head from "next/head"
 import Link from "next/link"
 import React from "react"
 
-const Page = (params) => {
+const Page = () => {
   const { isLoading, error, isAuthenticated } = useAuth0()
   const [user, { loading: queryLoading, error: queryError, data: userData }] =
     useLazyQuery(getUser)
