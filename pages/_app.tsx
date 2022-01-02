@@ -3,9 +3,10 @@ import "../style.css"
 
 import { Auth0Provider } from "@auth0/auth0-react"
 import { AuthorizedApolloProvider } from "lib/apollo"
+import { AppProps, NextWebVitalsMetric } from "next/app"
 import Head from "next/head"
 
-function Writing({ Component, pageProps }) {
+function Writing({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -38,7 +39,7 @@ function Writing({ Component, pageProps }) {
 }
 
 // Will be called once for every metric that has to be reported.
-export function reportWebVitals(metric: any) {
+export function reportWebVitals(metric: NextWebVitalsMetric) {
   const body = JSON.stringify(metric)
   const url = "https://reportd.natwelch.com/analytics/writing"
 

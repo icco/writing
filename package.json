@@ -4,7 +4,7 @@
   "scripts": {
     "build": "next build",
     "start": "next start -p $PORT",
-    "dev": "next dev -p 8080",
+    "dev": "next lint --fix && next dev -p 8080",
     "lint": "next lint",
     "schema": "get-graphql-schema https://graphql.natwelch.com/graphql --json > ./schema.json"
   },
