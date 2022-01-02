@@ -1,13 +1,13 @@
-import App from "components/App";
-import Footer from "components/Footer";
-import Header from "components/Header";
-import fs from "fs";
-import Head from "next/head";
-import Image from "next/image";
-import { join } from "path";
-import Masonry from "react-masonry-component";
+import App from "components/App"
+import Footer from "components/Footer"
+import Header from "components/Header"
+import fs from "fs"
+import Head from "next/head"
+import Image from "next/image"
+import { join } from "path"
+import Masonry from "react-masonry-component"
 
-const imgdir = join(process.cwd(), "public/imgs/inspiration/");
+const imgdir = join(process.cwd(), "public/imgs/inspiration/")
 
 const Inspiration = ({ images }) => {
   return (
@@ -33,21 +33,21 @@ const Inspiration = ({ images }) => {
       </Masonry>
       <Footer />
     </App>
-  );
-};
+  )
+}
 
 export async function getStaticProps() {
-  let images = [];
+  let images = []
   fs.readdirSync(imgdir).forEach((file) => {
     if (file.endsWith(".png")) {
-      images.push(file);
+      images.push(file)
     }
-  });
+  })
 
   return {
     props: { images },
     revalidate: 1,
-  };
+  }
 }
 
-export default Inspiration;
+export default Inspiration

@@ -1,5 +1,5 @@
-const Health = () => {
-  return "ok";
-};
+function Health() {
+  return "ok"
+}
 
-export default Health;
+export default Health
