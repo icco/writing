@@ -1,16 +1,15 @@
-import { gql } from "@apollo/client";
-import App from "components/App";
-import Footer from "components/Footer";
-import Header from "components/Header";
-import Post, { getPost } from "components/Post";
-import { useRouter } from "next/router";
+import App from "components/App"
+import Footer from "components/Footer"
+import Header from "components/Header"
+import Post from "components/Post"
+import { useRouter } from "next/router"
 
 const Page = (props) => {
-  const router = useRouter();
-  const { pid } = router.query;
+  const router = useRouter()
+  let { pid } = router.query
 
   if (props.pid) {
-    pid = props.pid;
+    pid = props.pid
   }
 
   return (
@@ -19,8 +18,8 @@ const Page = (props) => {
       <Post id={pid} comments />
       <Footer />
     </App>
-  );
-};
+  )
+}
 
 // export async function getStaticProps(context) {
 //   const { pid } = context.params;
@@ -66,4 +65,4 @@ const Page = (props) => {
 //   };
 // }
 
-export default Page;
+export default Page

@@ -1,10 +1,9 @@
 // Can not be done in _document.js
-import "../style.css";
+import "../style.css"
 
-import { Auth0Provider } from "@auth0/auth0-react";
-import { AuthorizedApolloProvider } from "lib/apollo";
-import Head from "next/head";
-import Router from "next/router";
+import { Auth0Provider } from "@auth0/auth0-react"
+import { AuthorizedApolloProvider } from "lib/apollo"
+import Head from "next/head"
 
 function Writing({ Component, pageProps }) {
   return (
@@ -35,20 +34,20 @@ function Writing({ Component, pageProps }) {
         </AuthorizedApolloProvider>
       </Auth0Provider>
     </>
-  );
+  )
 }
 
 // Will be called once for every metric that has to be reported.
-export function reportWebVitals(metric) {
-  const body = JSON.stringify(metric);
-  const url = "https://reportd.natwelch.com/analytics/writing";
+export function reportWebVitals(metric: any) {
+  const body = JSON.stringify(metric)
+  const url = "https://reportd.natwelch.com/analytics/writing"
 
   // Use `navigator.sendBeacon()` if available, falling back to `fetch()`.
   if (navigator.sendBeacon) {
-    navigator.sendBeacon(url, body);
+    navigator.sendBeacon(url, body)
   } else {
-    fetch(url, { body, method: "POST", keepalive: true });
+    fetch(url, { body, method: "POST", keepalive: true })
   }
 }
 
-export default Writing;
+export default Writing

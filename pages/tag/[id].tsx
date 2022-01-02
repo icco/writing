@@ -1,20 +1,18 @@
-import { gql } from "@apollo/client";
-import App from "components/App";
-import Footer from "components/Footer";
-import Header from "components/Header";
-import Tag, { getTag } from "components/Tag";
-import { useRouter } from "next/router";
+import App from "components/App"
+import Footer from "components/Footer"
+import Header from "components/Header"
+import Tag from "components/Tag"
 
 const Page = (props) => {
-  const { id } = props;
+  const { id } = props
   return (
     <App>
       <Header noLogo />
       <Tag id={id} />
       <Footer />
     </App>
-  );
-};
+  )
+}
 
 // export async function getStaticProps(context) {
 //   const { id } = context.params;
@@ -53,4 +51,4 @@ const Page = (props) => {
 //   };
 // }
 
-export default Page;
+export default Page
