@@ -56,7 +56,7 @@ export default async function generateFeed() {
       link: "https://natwelch.com",
     },
     language: "en",
-    copyright: DateTime.now().ISODate(),
+    copyright: "2022",
   });
 
   try {
