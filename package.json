@@ -5,8 +5,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "dev": "next dev -p 8080",
-    "lint": "prettier --write . && next lint",
-    "test": "snyk test",
+    "lint": "next lint",
     "schema": "get-graphql-schema https://graphql.natwelch.com/graphql --json > ./schema.json"
   },
   "dependencies": {
@@ -20,7 +19,7 @@
     "feed": "^4.0.0",
     "graphql": "^16.0.0",
     "jwt-decode": "^3.0.0",
-    "luxon": "^2.0.0",
+    "luxon": "^2.2.0",
     "markdown-it": "^12.0.0",
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-imgix": "^0.1.0",
@@ -38,15 +37,20 @@
   },
   "private": true,
   "devDependencies": {
+    "@types/react": "^17.0.38",
     "eslint": "^8.0.0",
     "eslint-config-next": "^12.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "get-graphql-schema": "^2.1.2",
     "prettier": "^2.3.2",
+    "typescript": "^4.5.4",
     "webpack": "^5.10.0"
   },
   "prettier": {
-    "trailingComma": "es5"
-  },
-  "snyk": true
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": false
+  }
 }
