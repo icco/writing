@@ -1,3 +1,5 @@
+import { theme } from "rich-markdown-editor";
+
 const colors = {
   almostBlack: "#443e3c",
   tan: "#eeeceb",
@@ -14,14 +16,12 @@ const colors = {
   blue: "#265c83",
 };
 
-export const base = {
+export const light: typeof theme = {
   ...colors,
+
   fontFamily: "Roboto",
   fontFamilyMono: "Courier,monospace",
-};
 
-export const light = {
-  ...base,
   text: colors.almostBlack,
   code: colors.lightBlack,
   link: colors.blue,
@@ -36,13 +36,59 @@ export const light = {
   blockToolbarItem: colors.almostBlack,
 
   tableDivider: colors.grey,
-  tableSelected: colors.primary,
+  tableSelected: colors.greyDark,
   tableSelectedBackground: "#E5F7FF",
 
   quote: colors.greyDark,
   codeBorder: colors.grey,
   horizontalRule: colors.grey,
   imageErrorBackground: colors.greyLight,
+
+  background: colors.almostWhite,
+  cursor: colors.black,
+  divider: colors.black,
+
+  toolbarHoverBackground: "",
+  codeBackground: "",
+  scrollbarBackground: "",
+  scrollbarThumb: "",
+  fontWeight: 0,
+  zIndex: 0,
+  placeholder: "",
+  textSecondary: "",
+  textLight: "",
+  textHighlight: "",
+  textHighlightForeground: "",
+  selected: "",
+  codeComment: "",
+  codePunctuation: "",
+  codeNumber: "",
+  codeProperty: "",
+  codeTag: "",
+  codeString: "",
+  codeSelector: "",
+  codeAttr: "",
+  codeEntity: "",
+  codeKeyword: "",
+  codeFunction: "",
+  codeStatement: "",
+  codePlaceholder: "",
+  codeInserted: "",
+  codeImportant: "",
+  blockToolbarIcon: undefined,
+  blockToolbarIconSelected: "",
+  blockToolbarText: "",
+  blockToolbarTextSelected: "",
+  blockToolbarSelectedBackground: "",
+  blockToolbarHoverBackground: "",
+  blockToolbarDivider: "",
+  noticeInfoBackground: "",
+  noticeInfoText: "",
+  noticeTipBackground: "",
+  noticeTipText: "",
+  noticeWarningBackground: "",
+  noticeWarningText: "",
+  primary: ""
 };
 
 export default light;

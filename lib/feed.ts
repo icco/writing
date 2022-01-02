@@ -1,5 +1,6 @@
 import { Feed } from "feed";
-import md from "lib/markdown.js";
+import { md } from "lib/markdown.js";
+import { DateTime } from "luxon"
 
 const GRAPHQL_ORIGIN =
   process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
@@ -41,6 +42,7 @@ async function recentPosts() {
 
 export default async function generateFeed() {
   let feed = new Feed({
+    id: "NatNatNat",
     title: "Nat? Nat. Nat!",
     favicon: "https://writing.natwelch.com/favicon.ico",
     description: "Nat Welch's blog about random stuff.",
@@ -54,6 +56,7 @@ export default async function generateFeed() {
       link: "https://natwelch.com",
     },
     language: "en",
+    copyright: DateTime.now().ISODate(),
   });
 
   try {

@@ -19,7 +19,7 @@ export default function CommentEditor({ postID }) {
   const { isAuthenticated, isLoading, error, loginWithRedirect } = useAuth0();
 
   if (error) {
-    if (error.error != "consent_required") {
+    if (error.message != "consent_required") {
       throw error;
     }
   }
@@ -78,7 +78,6 @@ export default function CommentEditor({ postID }) {
       >
         <Editor
           id="content"
-          name="content"
           className="db border-box w-100 pa2 br2 mb2"
           aria-describedby="text-desc"
           onChange={handleEditorChange}

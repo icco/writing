@@ -71,4 +71,4 @@ md.linkify.add("#", {
   },
 });
 
-module.exports = md;
+export { md }
