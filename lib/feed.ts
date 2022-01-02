@@ -1,5 +1,5 @@
 import { Feed } from "feed";
-import { md } from "lib/markdown.js";
+import { md } from "lib/markdown";
 import { DateTime } from "luxon"
 
 const GRAPHQL_ORIGIN =

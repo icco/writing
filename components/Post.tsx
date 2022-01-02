@@ -6,7 +6,7 @@ import CommentEditor from "components/CommentEditor";
 import Datetime from "components/Datetime";
 import PostCard from "components/PostCard";
 import PostNav from "components/PostNav";
-import { md } from "lib/markdown.js";
+import { md } from "lib/markdown";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
