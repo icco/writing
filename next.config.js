@@ -92,7 +92,7 @@ module.exports = {
               ],
               objectSrc: ["'none'"],
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
-              reportUri: "https://reportd.natwelch.com/report/writing",
+              reportURI: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
             reportOnly: true,
