@@ -3,6 +3,11 @@
     "import",
     "simple-import-sort"
   ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
     "import/first": "error",
     "import/newline-after-import": "error",

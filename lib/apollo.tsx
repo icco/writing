@@ -1,17 +1,11 @@
 import {
-  ApolloClient,
  ApolloClient,   ApolloLink,
   ApolloProvider,
-  HttpLink,
-HttpLink,   InMemoryCache,
+HttpLink,   
 InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
-import { concatPagination } from '@apollo/client/utilities'
 import { useAuth0 } from "@auth0/auth0-react";
-import merge from 'deepmerge'
-import isEqual from 'lodash/isEqual'
-import { useMemo } from 'react'
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
 
