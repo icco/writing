@@ -1,7 +1,7 @@
-import { gql, NetworkStatus, useQuery } from "@apollo/client";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import Datetime from "components/Datetime";
-import InfiniteScroll from "react-infinite-scroller";
+import { gql, NetworkStatus, useQuery } from "@apollo/client"
+import { ErrorMessage, Loading } from "@icco/react-common"
+import Datetime from "components/Datetime"
+import InfiniteScroll from "react-infinite-scroller"
 
 export const linksQuery = gql`
   query links($offset: Int!, $perpage: Int!) {
@@ -13,11 +13,11 @@ export const linksQuery = gql`
       description
     }
   }
-`;
+`
 
-export const PER_PAGE = 50;
+export const PER_PAGE = 50
 
-let hasMoreLinks = true;
+let hasMoreLinks = true
 export default function AdminLinkList() {
   const { loading, error, data, fetchMore, networkStatus } = useQuery(
     linksQuery,
@@ -29,9 +29,9 @@ export default function AdminLinkList() {
       notifyOnNetworkStatusChange: true,
       fetchPolicy: "cache-and-network",
     }
-  );
+  )
 
-  const loadingMoreLinks = networkStatus === NetworkStatus.fetchMore;
+  const loadingMoreLinks = networkStatus === NetworkStatus.fetchMore
 
   const loadMoreLinks = (page) => {
     fetchMore({
@@ -40,26 +40,26 @@ export default function AdminLinkList() {
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
-          return previousResult;
+          return previousResult
         }
         if (fetchMoreResult.links.length <= 0) {
-          hasMoreLinks = false;
-          return previousResult;
+          hasMoreLinks = false
+          return previousResult
         }
         return Object.assign({}, previousResult, {
           // Append the new links results to the old one
           links: [...previousResult.links, ...fetchMoreResult.links],
-        });
+        })
       },
-    });
-  };
+    })
+  }
 
   if (error) {
-    return <ErrorMessage error={error} message="Error loading links." />;
+    return <ErrorMessage error={error} message="Error loading links." />
   }
-  if (loading && !loadingMoreLinks) return <Loading key={0} />;
+  if (loading && !loadingMoreLinks) return <Loading key={0} />
 
-  const { links } = data;
+  const { links } = data
 
   return (
     <section className="pa3 mw8 center">
@@ -82,8 +82,8 @@ export default function AdminLinkList() {
               <span
                 className="gray link pointer dim"
                 onClick={() => {
-                  let text = `[${l.title} - ${l.description}](${l.uri})`;
-                  navigator.clipboard.writeText(text);
+                  const text = `[${l.title} - ${l.description}](${l.uri})`
+                  navigator.clipboard.writeText(text)
                 }}
               >
                 {l.uri}
@@ -94,5 +94,5 @@ export default function AdminLinkList() {
         </ul>
       </InfiniteScroll>
     </section>
-  );
+  )
 }

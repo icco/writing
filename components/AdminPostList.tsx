@@ -1,8 +1,8 @@
-import { gql, NetworkStatus, useQuery } from "@apollo/client";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import { allPosts, PER_PAGE } from "components/PostList";
-import Link from "next/link";
-import InfiniteScroll from "react-infinite-scroller";
+import { gql, NetworkStatus, useQuery } from "@apollo/client"
+import { ErrorMessage, Loading } from "@icco/react-common"
+import { allPosts, PER_PAGE } from "components/PostList"
+import Link from "next/link"
+import InfiniteScroll from "react-infinite-scroller"
 
 export const allFuturePosts = gql`
   query future($offset: Int!, $perpage: Int!) {
@@ -11,7 +11,7 @@ export const allFuturePosts = gql`
       title
     }
   }
-`;
+`
 
 export const allDraftPosts = gql`
   query drafts($offset: Int!, $perpage: Int!) {
@@ -20,22 +20,22 @@ export const allDraftPosts = gql`
       title
     }
   }
-`;
+`
 
-let hasMore = true;
+let hasMore = true
 
 export default function AdminPostList({ type }) {
-  let query = null;
+  let query = null
   switch (type) {
     case "drafts":
-      query = allDraftPosts;
-      break;
+      query = allDraftPosts
+      break
     case "future":
-      query = allFuturePosts;
-      break;
+      query = allFuturePosts
+      break
     default:
-      query = allPosts;
-      break;
+      query = allPosts
+      break
   }
 
   const { loading, error, data, fetchMore, networkStatus } = useQuery(query, {
@@ -45,11 +45,11 @@ export default function AdminPostList({ type }) {
     },
     notifyOnNetworkStatusChange: true,
     fetchPolicy: "network-only",
-  });
+  })
 
-  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
+  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore
 
-  let adminPosts = [];
+  let adminPosts = []
 
   const loadMorePosts = (page) => {
     fetchMore({
@@ -58,59 +58,59 @@ export default function AdminPostList({ type }) {
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
-          return previousResult;
+          return previousResult
         }
 
         if (previousResult.posts) {
           if (fetchMoreResult.posts.length <= 0) {
-            hasMore = false;
+            hasMore = false
           }
           return Object.assign({}, previousResult, {
             posts: [...previousResult.posts, ...fetchMoreResult.posts],
-          });
+          })
         }
 
         if (previousResult.drafts) {
           if (fetchMoreResult.drafts.length <= 0) {
-            hasMore = false;
+            hasMore = false
           }
           return Object.assign({}, previousResult, {
             drafts: [...previousResult.drafts, ...fetchMoreResult.drafts],
-          });
+          })
         }
 
         if (previousResult.futurePosts) {
           if (fetchMoreResult.futurePosts.length <= 0) {
-            hasMore = false;
+            hasMore = false
           }
           return Object.assign({}, previousResult, {
             futurePosts: [
               ...previousResult.futurePosts,
               ...fetchMoreResult.futurePosts,
             ],
-          });
+          })
         }
 
-        return fetchMoreResult;
+        return fetchMoreResult
       },
-    });
-  };
+    })
+  }
 
-  if (error) return <ErrorMessage message="Error loading posts." />;
-  if (loading && !loadingMorePosts) return <Loading key={0} />;
+  if (error) return <ErrorMessage message="Error loading posts." />
+  if (loading && !loadingMorePosts) return <Loading key={0} />
 
-  const { posts, futurePosts, drafts } = data;
+  const { posts, futurePosts, drafts } = data
 
   if (posts) {
-    adminPosts = [...posts, ...adminPosts];
+    adminPosts = [...posts, ...adminPosts]
   }
 
   if (drafts) {
-    adminPosts = [...drafts, ...adminPosts];
+    adminPosts = [...drafts, ...adminPosts]
   }
 
   if (futurePosts) {
-    adminPosts = [...futurePosts, ...adminPosts];
+    adminPosts = [...futurePosts, ...adminPosts]
   }
 
   return (
@@ -133,5 +133,5 @@ export default function AdminPostList({ type }) {
         </ul>
       </InfiniteScroll>
     </section>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { theme } from "rich-markdown-editor";
+import { theme } from "rich-markdown-editor"
 
 const colors = {
   almostBlack: "#443e3c",
@@ -14,7 +14,7 @@ const colors = {
   greyMid: "#9BA6B2",
   greyDark: "#DAE1E9",
   blue: "#265c83",
-};
+}
 
 export const light: typeof theme = {
   ...colors,
@@ -88,7 +88,7 @@ export const light: typeof theme = {
   noticeTipText: "",
   noticeWarningBackground: "",
   noticeWarningText: "",
-  primary: ""
-};
+  primary: "",
+}
 
-export default light;
+export default light

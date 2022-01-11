@@ -1,9 +1,9 @@
-import { gql, useMutation } from "@apollo/client";
-import { useAuth0 } from "@auth0/auth0-react";
-import { Loading } from "@icco/react-common";
-import theme from "components/editorTheme";
-import { useRouter } from "next/router";
-import Editor from "rich-markdown-editor";
+import { gql, useMutation } from "@apollo/client"
+import { useAuth0 } from "@auth0/auth0-react"
+import { Loading } from "@icco/react-common"
+import theme from "components/editorTheme"
+import { useRouter } from "next/router"
+import Editor from "rich-markdown-editor"
 
 export const saveCommentMutation = gql`
   mutation saveComment($postid: ID!, $content: String!) {
@@ -12,24 +12,24 @@ export const saveCommentMutation = gql`
       modified
     }
   }
-`;
+`
 
 export default function CommentEditor({ postID }) {
-  const { asPath } = useRouter();
-  const { isAuthenticated, isLoading, error, loginWithRedirect } = useAuth0();
+  const { asPath } = useRouter()
+  const { isAuthenticated, isLoading, error, loginWithRedirect } = useAuth0()
 
   if (error) {
     if (error.message != "consent_required") {
-      throw error;
+      throw error
     }
   }
 
-  let content = "";
+  let content = ""
   const handleEditorChange = (value) => {
-    content = value();
-  };
+    content = value()
+  }
 
-  const [saveComment] = useMutation(saveCommentMutation);
+  const [saveComment] = useMutation(saveCommentMutation)
 
   const addComment = (content) => {
     saveComment({
@@ -37,8 +37,8 @@ export default function CommentEditor({ postID }) {
         postid: postID,
         content,
       },
-    });
-  };
+    })
+  }
 
   if (isLoading) {
     return (
@@ -47,7 +47,7 @@ export default function CommentEditor({ postID }) {
           <Loading key={0} />
         </div>
       </>
-    );
+    )
   }
 
   if (!isAuthenticated) {
@@ -63,7 +63,7 @@ export default function CommentEditor({ postID }) {
         </a>{" "}
         to post a comment.
       </p>
-    );
+    )
   }
 
   return (
@@ -72,8 +72,8 @@ export default function CommentEditor({ postID }) {
 
       <form
         onSubmit={(e) => {
-          e.preventDefault();
-          addComment(content);
+          e.preventDefault()
+          addComment(content)
         }}
       >
         <Editor
@@ -94,5 +94,5 @@ export default function CommentEditor({ postID }) {
         </div>
       </form>
     </section>
-  );
+  )
 }

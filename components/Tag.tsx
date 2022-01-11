@@ -1,8 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import Datetime from "components/Datetime";
-import Head from "next/head";
-import Link from "next/link";
+import { gql, useQuery } from "@apollo/client"
+import { ErrorMessage, Loading } from "@icco/react-common"
+import Datetime from "components/Datetime"
+import Head from "next/head"
+import Link from "next/link"
 
 export const getTag = gql`
   query postsByTag($id: String!) {
@@ -12,21 +12,21 @@ export const getTag = gql`
       datetime
     }
   }
-`;
+`
 
 export default function Tag({ id }) {
   const { loading, error, data } = useQuery(getTag, {
     variables: { id },
-  });
+  })
 
   if (error) {
-    return <ErrorMessage error={error} message="Tag not found." />;
+    return <ErrorMessage error={error} message="Tag not found." />
   }
   if (loading) {
-    return <Loading key={0} />;
+    return <Loading key={0} />
   }
 
-  const { postsByTag } = data;
+  const { postsByTag } = data
 
   return (
     <section className="mw8 center">
@@ -52,5 +52,5 @@ export default function Tag({ id }) {
         ))}
       </ul>
     </section>
-  );
+  )
 }

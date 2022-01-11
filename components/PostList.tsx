@@ -1,10 +1,10 @@
-import { gql, useQuery } from "@apollo/client";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import Datetime from "components/Datetime";
-import Link from "next/link";
-import InfiniteScroll from "react-infinite-scroller";
+import { gql, useQuery } from "@apollo/client"
+import { ErrorMessage, Loading } from "@icco/react-common"
+import Datetime from "components/Datetime"
+import Link from "next/link"
+import InfiniteScroll from "react-infinite-scroller"
 
-export const PER_PAGE = 20;
+export const PER_PAGE = 20
 
 export const allPosts = gql`
   query posts($offset: Int!, $perpage: Int!) {
@@ -15,19 +15,19 @@ export const allPosts = gql`
       tags
     }
   }
-`;
+`
 
 export const allPostsQueryVars = {
   offset: 0,
   perpage: PER_PAGE,
-};
+}
 
-let hasMore = true;
+let hasMore = true
 
 export default function PostList() {
   const { loading, error, data, fetchMore } = useQuery(allPosts, {
     variables: allPostsQueryVars,
-  });
+  })
 
   const loadMorePosts = (page) => {
     fetchMore({
@@ -36,25 +36,25 @@ export default function PostList() {
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
-          return previousResult;
+          return previousResult
         }
         if (fetchMoreResult.posts.length <= 0) {
-          hasMore = false;
-          return previousResult;
+          hasMore = false
+          return previousResult
         }
         return Object.assign({}, previousResult, {
           // Append the new posts results to the old one
           posts: [...previousResult.posts, ...fetchMoreResult.posts],
-        });
+        })
       },
-    });
-  };
+    })
+  }
 
   if (error)
-    return <ErrorMessage error={error} message="Error loading posts." />;
-  if (loading) return <Loading key={0} />;
+    return <ErrorMessage error={error} message="Error loading posts." />
+  if (loading) return <Loading key={0} />
 
-  const { posts } = data;
+  const { posts } = data
 
   return (
     <section className="mw8 center">
@@ -88,5 +88,5 @@ export default function PostList() {
         </ul>
       </InfiniteScroll>
     </section>
-  );
+  )
 }

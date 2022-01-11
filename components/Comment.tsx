@@ -1,13 +1,13 @@
-import { md } from "lib/markdown";
-import Link from "next/link";
+import { md } from "lib/markdown"
+import Link from "next/link"
 
 export default function Comment(params) {
   const {
     className,
     data: { comment },
-  } = params;
+  } = params
 
-  let html = { __html: md.render(comment.content) };
+  const html = { __html: md.render(comment.content) }
 
   return (
     <article className={className}>
@@ -23,5 +23,5 @@ export default function Comment(params) {
         </div>
       </div>
     </article>
-  );
+  )
 }

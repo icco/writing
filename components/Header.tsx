@@ -1,16 +1,16 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { Loading,Logo } from "@icco/react-common";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { useAuth0 } from "@auth0/auth0-react"
+import { Loading, Logo } from "@icco/react-common"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 export default function Header({ noLogo }) {
-  const { pathname, query } = useRouter();
+  const { pathname, query } = useRouter()
   const { isAuthenticated, logout, loginWithRedirect, isLoading, error, user } =
-    useAuth0();
+    useAuth0()
 
   if (error) {
     if (error.message != "consent_required") {
-      throw error;
+      throw error
     }
   }
 
@@ -56,9 +56,9 @@ export default function Header({ noLogo }) {
       </Link>
     ),
     adminlink: <></>,
-  };
+  }
 
-  let nav = <>{elements.signin}</>;
+  let nav = <>{elements.signin}</>
 
   if (isLoading) {
     nav = (
@@ -67,7 +67,7 @@ export default function Header({ noLogo }) {
           <Loading key={0} />
         </div>
       </>
-    );
+    )
   }
 
   if (isAuthenticated) {
@@ -75,13 +75,13 @@ export default function Header({ noLogo }) {
       <Link key="/admin" href="/admin">
         <a className="f6 link dib dim mr3 black mr4-ns">{user.name}</a>
       </Link>
-    );
+    )
     nav = (
       <>
         {elements.adminlink}
         {elements.signout}
       </>
-    );
+    )
   }
 
   return (
@@ -97,5 +97,5 @@ export default function Header({ noLogo }) {
       </nav>
       {noLogo ? "" : elements.largelogo}
     </>
-  );
+  )
 }

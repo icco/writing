@@ -1,8 +1,8 @@
-import { md } from "lib/markdown";
-import Link from "next/link";
+import { md } from "lib/markdown"
+import Link from "next/link"
 
 export default function PostCard({ className, post }) {
-  let html = { __html: md.render(post.summary) };
+  const html = { __html: md.render(post.summary) }
 
   return (
     <article className={className + " dark-gray w5"}>
@@ -22,5 +22,5 @@ export default function PostCard({ className, post }) {
         />
       </div>
     </article>
-  );
+  )
 }
