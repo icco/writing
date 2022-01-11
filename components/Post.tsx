@@ -44,7 +44,7 @@ export const getPost = gql`
   }
 `
 
-export default function Post(params: { comments?: any; id?: string }) {
+export default function Post(params: { comments?: boolean; id?: string }) {
   const router = useRouter()
   const { pid } = router.query
 
