@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 const PostNav = ({ post }) => {
-  let prevText: {}
+  let prevText: JSX.Element
   if (post.prev && parseInt(post.prev.id) > 0) {
     prevText = (
       <Link href={`/post/${post.prev.id}`}>
@@ -10,7 +10,7 @@ const PostNav = ({ post }) => {
     )
   }
 
-  let nextText: {}
+  let nextText: JSX.Element
   if (post.next && parseInt(post.next.id) > 0) {
     nextText = (
       <Link href={`/post/${post.next.id}`}>
