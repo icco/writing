@@ -15,7 +15,7 @@ const Page = (props) => {
   return (
     <App>
       <Header noLogo />
-      <Post id={pid} comments />
+      <Post id={pid as string} comments />
       <Footer />
     </App>
   )

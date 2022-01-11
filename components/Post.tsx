@@ -19,6 +19,8 @@ export const getPost = gql`
       content
       datetime
       draft
+      social_image
+      summary
       next {
         id
       }
@@ -42,13 +44,14 @@ export const getPost = gql`
   }
 `
 
-export default function Post(params) {
+export default function Post(params: { comments?: boolean; id?: string }) {
   const router = useRouter()
   const { pid } = router.query
 
-  let { id, comments } = params
+  const { comments } = params
+  let { id } = params
   if (pid) {
-    id = pid
+    id = pid as string
   }
 
   const { loading, error, data } = useQuery(getPost, {
@@ -98,7 +101,7 @@ export default function Post(params) {
         <h2>Comments</h2>
         <CommentEditor postID={id} />
         <div className="">
-          {post.comments.map((item) => (
+          {post.comments.map((item: { id: string }) => (
             <Comment key={item.id} data={{ comment: item }} />
           ))}
         </div>
@@ -106,12 +109,30 @@ export default function Post(params) {
     )
   }
 
+  const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
+  const url = `https://writing.natwelch.com/post/${post.id}`
+  const description = md.render(post.summary)
+
   return (
     <section className="mw8 center">
       <Head>
-        <title>
-          Nat? Nat. Nat! | #{post.id} {post.title}
-        </title>
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Nat? Nat. Nat!" />
+        <meta name="twitter:creator" content="@icco" />
+
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="twitter:title" content={title} />
+
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:description" content={description} />
+
+        <meta property="og:image" content={post.social_image} />
+        <meta name="twitter:image" content={post.social_image} />
+
+        <link rel="canonical" href={url} />
+        <meta property="og:url" content={url} />
       </Head>
 
       <div className="mv4 mh3">
