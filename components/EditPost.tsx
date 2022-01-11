@@ -1,17 +1,17 @@
-import "@fortawesome/fontawesome-free/js/all.js";
+import "@fortawesome/fontawesome-free/js/all.js"
 
-import { gql, useMutation,useQuery } from "@apollo/client";
-import { useAuth0 } from "@auth0/auth0-react";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import theme from "components/editorTheme";
-import Link from "next/link";
-import { useState } from "react";
-import Editor from "rich-markdown-editor";
+import { gql, useMutation, useQuery } from "@apollo/client"
+import { useAuth0 } from "@auth0/auth0-react"
+import { ErrorMessage, Loading } from "@icco/react-common"
+import theme from "components/editorTheme"
+import Link from "next/link"
+import { useState } from "react"
+import Editor from "rich-markdown-editor"
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,
   process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
-);
+)
 
 const savePostMutation = gql`
   mutation SavePost(
@@ -37,7 +37,7 @@ const savePostMutation = gql`
       draft
     }
   }
-`;
+`
 
 const getPostQuery = gql`
   query getEditPost($id: ID!) {
@@ -49,85 +49,85 @@ const getPostQuery = gql`
       draft
     }
   }
-`;
+`
 
 export default function EditPost({ id }) {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [draft, setDraft] = useState("");
-  const [datetime, setDatetime] = useState("");
-  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("")
+  const [draft, setDraft] = useState("")
+  const [datetime, setDatetime] = useState("")
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0()
 
   const handleTitleChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    setTitle(value);
-  };
+    const target = event.target
+    const value = target.value
+    setTitle(value)
+  }
 
   const handleEditorChange = (value) => {
-    setContent(value());
-  };
+    setContent(value())
+  }
 
   const handleDraftChange = (event) => {
-    const target = event.target;
-    const value = target.checked;
-    setDraft(value);
-  };
+    const target = event.target
+    const value = target.checked
+    setDraft(value)
+  }
 
   const draftState = (postDraft) => {
     if (draft === "") {
-      return postDraft;
+      return postDraft
     }
 
-    return draft;
-  };
+    return draft
+  }
 
   const handleFileUpload = async (file) => {
-    const authorization = isAuthenticated ? await getAccessTokenSilently() : "";
+    const authorization = isAuthenticated ? await getAccessTokenSilently() : ""
 
-    let formData = new FormData();
-    formData.append("file", file);
+    const formData = new FormData()
+    formData.append("file", file)
 
-    let response = await fetch(`${baseUrl}/photo/new`, {
+    const response = await fetch(`${baseUrl}/photo/new`, {
       method: "POST",
       body: formData,
       headers: { authorization: `Bearer ${authorization}` },
-    });
+    })
 
-    let data = await response.json();
+    const data = await response.json()
 
     if (data.error) {
-      console.error(data.error);
+      console.error(data.error)
     }
-    return data.file;
-  };
+    return data.file
+  }
 
   const handleDatetimeChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    setDatetime(value);
-  };
+    const target = event.target
+    const value = target.value
+    setDatetime(value)
+  }
 
-  const [savePost] = useMutation(savePostMutation);
+  const [savePost] = useMutation(savePostMutation)
   const { loading, error, data } = useQuery(getPostQuery, {
     variables: { id },
     fetchPolicy: "network-only",
-  });
+  })
 
   if (loading) {
-    return <Loading key={0} />;
+    return <Loading key={0} />
   }
 
   if (error) {
-    return <ErrorMessage error={error} message="Page not found." />;
+    return <ErrorMessage error={error} message="Page not found." />
   }
 
-  const { post } = data;
+  const { post } = data
 
   if (!post) {
-    const e = new Error();
-    e.message = "Post not found";
-    throw e;
+    const e = new Error()
+    e.message = "Post not found"
+    throw e
   }
 
   return (
@@ -135,7 +135,7 @@ export default function EditPost({ id }) {
       <h2>Edit Post #{post.id}</h2>
       <form
         onSubmit={(e) => {
-          e.preventDefault();
+          e.preventDefault()
           savePost({
             variables: {
               id,
@@ -146,7 +146,7 @@ export default function EditPost({ id }) {
             },
             refetchQueries: [{ query: getPostQuery, variables: { id } }],
             awaitRefetchQueries: true,
-          });
+          })
         }}
       >
         <div>
@@ -223,5 +223,5 @@ export default function EditPost({ id }) {
         </div>
       </form>
     </section>
-  );
+  )
 }

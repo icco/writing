@@ -1,15 +1,15 @@
-import { gql, useQuery } from "@apollo/client";
-import { useAuth0 } from "@auth0/auth0-react";
-import { ErrorMessage, Loading } from "@icco/react-common";
-import Comment from "components/Comment";
-import CommentEditor from "components/CommentEditor";
-import Datetime from "components/Datetime";
-import PostCard from "components/PostCard";
-import PostNav from "components/PostNav";
-import { md } from "lib/markdown";
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { gql, useQuery } from "@apollo/client"
+import { useAuth0 } from "@auth0/auth0-react"
+import { ErrorMessage, Loading } from "@icco/react-common"
+import Comment from "components/Comment"
+import CommentEditor from "components/CommentEditor"
+import Datetime from "components/Datetime"
+import PostCard from "components/PostCard"
+import PostNav from "components/PostNav"
+import { md } from "lib/markdown"
+import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 export const getPost = gql`
   query getPost($id: ID!) {
@@ -40,58 +40,58 @@ export const getPost = gql`
       }
     }
   }
-`;
+`
 
 export default function Post(params) {
-  const router = useRouter();
-  const { pid } = router.query;
+  const router = useRouter()
+  const { pid } = router.query
 
-  let { id, comments } = params;
+  let { id, comments } = params
   if (pid) {
-    id = pid;
+    id = pid
   }
 
   const { loading, error, data } = useQuery(getPost, {
     variables: { id },
-  });
+  })
   const {
     isLoading: authLoading,
     error: authError,
     isAuthenticated,
-  } = useAuth0();
+  } = useAuth0()
 
   if (error || authError) {
-    return <ErrorMessage error={error} message="Unable to get page." />;
+    return <ErrorMessage error={error} message="Unable to get page." />
   }
 
   if (loading || authLoading) {
-    return <Loading key={0} />;
+    return <Loading key={0} />
   }
 
-  const { post } = data;
+  const { post } = data
 
   if (!post) {
-    const e = new Error();
-    e.message = "Post not found";
-    throw e;
+    const e = new Error()
+    e.message = "Post not found"
+    throw e
   }
 
-  let html = { __html: md.render(post.content) };
-  let draft = "";
+  const html = { __html: md.render(post.content) }
+  let draft = ""
   if (post.draft) {
-    draft = "DRAFT";
+    draft = "DRAFT"
   }
 
-  let edit = <></>;
+  let edit = <></>
   if (isAuthenticated) {
     edit = (
       <Link href={`/edit/${post.id}`}>
         <a className="mh1 link gray dim">edit</a>
       </Link>
-    );
+    )
   }
 
-  let commentDiv = <></>;
+  let commentDiv = <></>
   if (comments) {
     commentDiv = (
       <article className="mh3 db">
@@ -103,7 +103,7 @@ export default function Post(params) {
           ))}
         </div>
       </article>
-    );
+    )
   }
 
   return (
@@ -144,5 +144,5 @@ export default function Post(params) {
         </div>
       </article>
     </section>
-  );
+  )
 }
