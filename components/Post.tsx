@@ -51,7 +51,7 @@ export default function Post(params: { comments?: any; id?: string }) {
   const { comments } = params
   let { id } = params
   if (pid) {
-    id = pid
+    id = pid as string
   }
 
   const { loading, error, data } = useQuery(getPost, {
@@ -111,6 +111,7 @@ export default function Post(params: { comments?: any; id?: string }) {
 
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
   const url = `https://writing.natwelch.com/post/${post.id}`
+  const description = md(post.summary)
 
   return (
     <section className="mw8 center">
@@ -123,9 +124,9 @@ export default function Post(params: { comments?: any; id?: string }) {
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
 
-        <meta name="description" content={post.summary} />
-        <meta property="og:description" content={post.summary} />
-        <meta name="twitter:description" content={post.summary} />
+        <meta name="description"         content={description} />
+        <meta property="og:description"  content={description} />
+        <meta name="twitter:description" content={description} />
 
         <meta property="og:image" content={post.social_image} />
         <meta name="twitter:image" content={post.social_image} />
