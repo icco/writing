@@ -111,7 +111,7 @@ export default function Post(params: { comments?: any; id?: string }) {
 
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
   const url = `https://writing.natwelch.com/post/${post.id}`
-  const description = md(post.summary)
+  const description = md.render(post.summary)
 
   return (
     <section className="mw8 center">
