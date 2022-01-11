@@ -11,7 +11,6 @@ const graphql =
   process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
 
 module.exports = {
-  swcMinify: true,
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: false,
