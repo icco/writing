@@ -1,7 +1,10 @@
+import { gql } from "@apollo/client"
 import App from "components/App"
 import Footer from "components/Footer"
 import Header from "components/Header"
 import Post from "components/Post"
+import { client } from "lib/simple"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { useRouter } from "next/router"
 
 const Page = (props) => {
@@ -21,7 +24,7 @@ const Page = (props) => {
   )
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { pid } = context.params
   return {
     props: {
@@ -30,7 +33,7 @@ export async function getStaticProps(context) {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const result = await client().query({
     query: gql`
       query postIDs($offset: Int!, $perpage: Int!) {
@@ -50,7 +53,6 @@ export async function getStaticPaths() {
       return { params: { pid: d.id } }
     }),
     fallback: true,
-    revalidate: 1,
   }
 }
 
