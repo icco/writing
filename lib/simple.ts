@@ -1,12 +1,12 @@
-import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client"
 
 const GRAPHQL_ORIGIN =
-  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
+  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql"
 
 export function client() {
   return new ApolloClient({
     ssrMode: true,
     link: new HttpLink({ uri: GRAPHQL_ORIGIN }),
     cache: new InMemoryCache(),
-  });
+  })
 }

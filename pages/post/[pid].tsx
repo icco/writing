@@ -22,12 +22,12 @@ const Page = (props) => {
 }
 
 export async function getStaticProps(context) {
-  const { pid } = context.params;
+  const { pid } = context.params
   return {
     props: {
       pid,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
@@ -43,15 +43,15 @@ export async function getStaticPaths() {
       offset: 0,
       perpage: 2000,
     },
-  });
+  })
 
   return {
     paths: result["data"]["posts"].map(function (d) {
-      return { params: { pid: d.id } };
+      return { params: { pid: d.id } }
     }),
     fallback: true,
     revalidate: 1,
-  };
+  }
 }
 
 export default Page
