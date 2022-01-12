@@ -4,23 +4,19 @@
   "scripts": {
     "build": "next build",
     "start": "next start -p $PORT",
-    "dev": "next dev -p 8080",
-    "lint": "prettier --write . && next lint",
-    "test": "snyk test",
+    "dev": "next lint --fix && next dev -p 8080",
+    "lint": "next lint",
     "schema": "get-graphql-schema https://graphql.natwelch.com/graphql --json > ./schema.json"
   },
   "dependencies": {
     "@apollo/client": "^3.3.4",
     "@auth0/auth0-react": "^1.1.0",
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/register": "^7.8.3",
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@icco/react-common": "^2020.11.4-1",
     "feed": "^4.0.0",
     "graphql": "^16.0.0",
     "jwt-decode": "^3.0.0",
-    "luxon": "^2.0.0",
+    "luxon": "^2.2.0",
     "markdown-it": "^12.0.0",
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-imgix": "^0.1.0",
@@ -33,20 +29,28 @@
     "react-infinite-scroller": "^1.2.2",
     "react-is": "^17.0.1",
     "react-masonry-component": "^6.2.1",
-    "rich-markdown-editor": "^11.0.8",
+    "rich-markdown-editor": "^11.20.0",
     "styled-components": "^5.2.1"
   },
   "private": true,
   "devDependencies": {
+    "@types/react": "^17.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
     "eslint": "^8.0.0",
     "eslint-config-next": "^12.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "get-graphql-schema": "^2.1.2",
     "prettier": "^2.3.2",
+    "typescript": "^4.5.4",
     "webpack": "^5.10.0"
   },
   "prettier": {
-    "trailingComma": "es5"
-  },
-  "snyk": true
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": false
+  }
 }

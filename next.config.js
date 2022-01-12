@@ -1,3 +1,8 @@
+// @ts-check
+
+/**
+ * @type {import('next').NextConfig}
+ **/
 const { createSecureHeaders } = require("next-secure-headers");
 
 const port = process.env.PORT || 8080;
@@ -6,7 +11,6 @@ const graphql =
   process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
 
 module.exports = {
-  webpack5: true,
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: false,
@@ -84,7 +88,7 @@ module.exports = {
               ],
               objectSrc: ["'none'"],
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
-              reportUri: "https://reportd.natwelch.com/report/writing",
+              reportURI: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
             reportOnly: true,
