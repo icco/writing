@@ -4,6 +4,20 @@ import Header from "components/Header"
 import PostList from "components/PostList"
 import Head from "next/head"
 
+const components = { ExampleComponent }
+
+interface Props {
+  mdxSource: MDXRemoteSerializeResult
+}
+
+export default function Index({ mdxSource }: Props) {
+  return (
+    <div>
+      <MDXRemote {...mdxSource} components={components} />
+    </div>
+  )
+}
+
 const Index = () => {
   return (
     <App>
@@ -21,10 +35,8 @@ const Index = () => {
   )
 }
 
-export async function getStaticProps() {
-  return {
-    props: {},
-  }
-}
 
-export default Index
+export const getStaticProps: GetStaticProps<MDXRemoteSerializeResult> = async () => {
+  const mdxSource = await serialize('some *mdx* content: <ExampleComponent />')
+  return { props: { mdxSource } }
+}
