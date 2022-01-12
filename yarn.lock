@@ -2380,21 +2380,6 @@ markdown-it-emoji@^2.0.0:
   resolved "https://registry.yarnpkg.com/markdown-it-emoji/-/markdown-it-emoji-2.0.0.tgz#3164ad4c009efd946e98274f7562ad611089a231"
   integrity sha512-39j7/9vP/CPCKbEI44oV8yoPJTpvfeReTn/COgRhSpNrjWF3PfP/JUxxB0hxV6ynOY8KH8Y8aX9NMDdo6z+6YQ==
 
-markdown-it-footnote@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/markdown-it-footnote/-/markdown-it-footnote-3.0.3.tgz#e0e4c0d67390a4c5f0c75f73be605c7c190ca4d8"
-  integrity sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w==
-
-markdown-it-imgix@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-imgix/-/markdown-it-imgix-0.1.0.tgz#7081d1b10adcbfb3ca6965a45c7a0bb348502d2d"
-  integrity sha1-cIHRsQrcv7PKaWWkXHoLs0hQLS0=
-
-markdown-it-linkify-images@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-linkify-images/-/markdown-it-linkify-images-2.0.0.tgz#8712c195e9a496be79a56a471770c8608e5e5911"
-  integrity sha512-8a85tX2OlA48C5BRNDtaaqaUmyvs1QLefnPgCB6NIwWcofVl5cS68I2P4vWSaKN/VZNS28EgG6uNtHawVNlt1w==
-
 markdown-it@^12.0.0, markdown-it@^12.2.0:
   version "12.3.2"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-12.3.2.tgz#bf92ac92283fe983fe4de8ff8abfb5ad72cd0c90"
