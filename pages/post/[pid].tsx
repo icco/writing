@@ -5,6 +5,7 @@ import Header from "components/Header"
 import Post from "components/Post"
 import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
+import { serialize } from "next-mdx-remote/serialize"
 
 const Page = ({ pid, post }) => {
   return (
@@ -33,10 +34,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
       perpage: 2000,
     },
   })
+
+  const post = result.data.post
+  post.html = await serialize(post.content)
   return {
     props: {
       pid,
-      post: result.data.post,
+      post,
     },
   }
 }

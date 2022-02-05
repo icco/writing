@@ -1,6 +1,4 @@
-import { gql, NetworkStatus, useQuery } from "@apollo/client"
-import { ErrorMessage, Loading } from "@icco/react-common"
-import { allPosts, PER_PAGE } from "components/PostList"
+import { ErrorMessage } from "@icco/react-common"
 import Link from "next/link"
 
 export default function AdminPostList({ posts, error }) {
