@@ -1,45 +1,6 @@
 import { Feed } from "feed"
-import { md } from "lib/markdown"
 
-const GRAPHQL_ORIGIN =
-  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql"
-
-async function recentPosts() {
-  try {
-    const resp = await fetch(GRAPHQL_ORIGIN, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify({
-        query: `
-        query recentPosts {
-          posts(input: { limit: 20, offset: 0 }) {
-            id
-            title
-            datetime
-            summary
-          }
-        }
-      `,
-      }),
-    })
-    const rj = await resp.json()
-    if (rj.errors) {
-      rj.errors.forEach((e) => {
-        console.error(e.message)
-      })
-      return []
-    }
-
-    return rj.data.posts
-  } catch (err) {
-    console.error(err)
-    return []
-  }
-}
-
-export default async function generateFeed() {
+export default async function generateFeed({ posts }) {
   const feed = new Feed({
     id: "NatNatNat",
     title: "Nat? Nat. Nat!",
@@ -59,14 +20,12 @@ export default async function generateFeed() {
   })
 
   try {
-    const data = await recentPosts()
-
-    data.forEach((p) => {
+    posts.forEach((p) => {
       feed.addItem({
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
-        content: md.render(p.summary),
+        content: p.summary,
         author: [
           {
             name: "Nat Welch",
