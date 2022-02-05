@@ -1,9 +1,6 @@
-import { md } from "lib/markdown"
 import Link from "next/link"
 
 export default function PostCard({ className, post }) {
-  const html = { __html: md.render(post.summary) }
-
   return (
     <article className={className + " dark-gray w5"}>
       <div className="pa2 ph3-ns pb3-ns">
@@ -16,10 +13,7 @@ export default function PostCard({ className, post }) {
             </h1>
           </div>
         </div>
-        <div
-          className="f6 lh-copy measure mt2 mid-gray"
-          dangerouslySetInnerHTML={html}
-        />
+        <div className="f6 lh-copy measure mt2 mid-gray">{post.content}</div>
       </div>
     </article>
   )
