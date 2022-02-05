@@ -5,20 +5,12 @@ import Header from "components/Header"
 import Post from "components/Post"
 import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
-import { useRouter } from "next/router"
 
-const Page = (props) => {
-  const router = useRouter()
-  let { pid } = router.query
-
-  if (props.pid) {
-    pid = props.pid
-  }
-
+const Page = ({ pid, post }) => {
   return (
     <App>
       <Header noLogo />
-      <Post id={pid as string} comments />
+      <Post id={pid as string} post={post} comments />
       <Footer />
     </App>
   )
@@ -26,9 +18,25 @@ const Page = (props) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { pid } = context.params
+  const result = await client().query({
+    query: gql`
+      query post($id: ID!) {
+        post(id: $id) {
+          content
+          modified
+          title
+        }
+      }
+    `,
+    variables: {
+      offset: 0,
+      perpage: 2000,
+    },
+  })
   return {
     props: {
       pid,
+      post: result.data.post,
     },
   }
 }
