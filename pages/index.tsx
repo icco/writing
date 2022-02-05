@@ -35,8 +35,9 @@ const Index = () => {
   )
 }
 
-
-export const getStaticProps: GetStaticProps<MDXRemoteSerializeResult> = async () => {
-  const mdxSource = await serialize('some *mdx* content: <ExampleComponent />')
+export const getStaticProps: GetStaticProps<
+  MDXRemoteSerializeResult
+> = async () => {
+  const mdxSource = await serialize("some *mdx* content: <ExampleComponent />")
   return { props: { mdxSource } }
 }

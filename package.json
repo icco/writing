@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "dev": "next lint --fix && next dev -p 8080",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "schema": "get-graphql-schema https://graphql.natwelch.com/graphql --json > ./schema.json"
   },
   "dependencies": {
