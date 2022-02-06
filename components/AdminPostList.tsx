@@ -1,9 +1,6 @@
-import { ErrorMessage } from "@icco/react-common"
 import Link from "next/link"
 
-export default function AdminPostList({ posts, error }) {
-  if (error) return <ErrorMessage message="Error loading posts." />
-
+export default function AdminPostList({ posts }) {
   return (
     <section className="mw8">
       <ul className="list pl0" key="admin-post-ul">
