@@ -1,7 +1,9 @@
+import { gql } from "@apollo/client"
 import App from "components/App"
 import Footer from "components/Footer"
 import Header from "components/Header"
 import Tag from "components/Tag"
+import { client } from "lib/simple"
 
 const Page = ({ id, posts }) => {
   return (
@@ -14,38 +16,41 @@ const Page = ({ id, posts }) => {
 }
 
 export async function getStaticProps(context) {
-  const { id } = context.params;
-
-  const apolloClient = initializeApollo();
-  await apolloClient.query({
-    query: getTag,
+  const { id } = context.params
+  const result = await client().query({
+    query: gql`
+      query postsByTag($id: String!) {
+        postsByTag(id: $id) {
+          id
+          title
+          datetime
+          uri
+        }
+      }
+    `,
     variables: { id },
-  });
+  })
 
   return {
     props: {
-      initialApolloState: apolloClient.cache.extract(),
       id,
+      posts: result.data.postsByTag,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
-  const apolloClient = initializeApollo();
-
-  const result = await apolloClient.query({
+  const result = await client().query({
     query: gql`
       query tags {
         tags
       }
     `,
-  });
+  })
 
   return {
-    paths: result["data"]["tags"].map(function (d) {
-      return { params: { id: d } };
-    }),
-  };
+    paths: result.data.tags.map((t: string) => ({ params: { id: t } })),
+  }
 }
 
 export default Page
