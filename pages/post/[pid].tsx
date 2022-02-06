@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     `,
     variables: {
       offset: 0,
-      perpage: 2000,
+      perpage: 200,
     },
   })
 
