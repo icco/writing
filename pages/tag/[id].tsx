@@ -36,6 +36,7 @@ export async function getStaticProps(context) {
       id,
       posts: result.data.postsByTag,
     },
+    revalidate: 600,
   }
 }
 

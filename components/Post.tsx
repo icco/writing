@@ -6,9 +6,8 @@ import PostNav from "components/PostNav"
 import Head from "next/head"
 import Link from "next/link"
 
-export default function Post(params) {
+export default function Post({ id, post }) {
   const { error: authError, isAuthenticated } = useAuth0()
-  const { post } = params
 
   if (!post) {
     const e = new Error()

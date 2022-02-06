@@ -7,11 +7,11 @@ import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { serialize } from "next-mdx-remote/serialize"
 
-const Page = ({ pid, post }) => {
+const Page = ({ pid, post }): JSX.Element => {
   return (
     <App>
       <Header noLogo />
-      <Post id={pid as string} post={post} comments />
+      <Post id={pid} post={post} />
       <Footer />
     </App>
   )
@@ -30,18 +30,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
       }
     `,
     variables: {
-      offset: 0,
-      perpage: 200,
+      id: pid,
     },
   })
 
   const post = result.data.post
   post.html = await serialize(post.content)
+
   return {
     props: {
       pid,
       post,
     },
+    revalidate: 600,
   }
 }
 
@@ -56,7 +57,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     `,
     variables: {
       offset: 0,
-      perpage: 2000,
+      perpage: 50,
     },
   })
 
@@ -64,7 +65,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: result["data"]["posts"].map(function (d) {
       return { params: { pid: d.id } }
     }),
-    fallback: true,
+    fallback: "blocking",
   }
 }
 
