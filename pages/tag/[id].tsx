@@ -50,6 +50,7 @@ export async function getStaticPaths() {
 
   return {
     paths: result.data.tags.map((t: string) => ({ params: { id: t } })),
+    fallback: "blocking",
   }
 }
 
