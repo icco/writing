@@ -5,14 +5,13 @@ import PostCard from "components/PostCard"
 import PostNav from "components/PostNav"
 import Head from "next/head"
 import Link from "next/link"
+import { MDXRemote } from "next-mdx-remote"
 
-export default function Post({ id, post }) {
+export default function Post({ post, html }) {
   const { error: authError, isAuthenticated } = useAuth0()
 
   if (!post) {
-    const e = new Error()
-    e.message = "Post not found"
-    throw e
+    throw new Error("Post not found")
   }
 
   if (authError) {
@@ -61,17 +60,19 @@ export default function Post({ id, post }) {
         </Link>
       </div>
 
-      <article className="mh3">{post.content}</article>
+      <article className="mh3">
+        <MDXRemote {...html} />
+      </article>
 
       <PostNav post={post} />
 
       <article className="mh3 dn db-ns">
         <h2>Related Posts</h2>
         <div className="flex items-start justify-between">
-          <PostCard className="" post={post.related[0]} />
-          <PostCard className="" post={post.related[1]} />
-          <PostCard className="" post={post.related[2]} />
-          <PostCard className="" post={post.related[3]} />
+          <PostCard post={post.related[0]} />
+          <PostCard post={post.related[1]} />
+          <PostCard post={post.related[2]} />
+          <PostCard post={post.related[3]} />
         </div>
       </article>
     </section>

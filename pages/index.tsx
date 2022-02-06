@@ -5,7 +5,6 @@ import Header from "components/Header"
 import PostList from "components/PostList"
 import { client } from "lib/simple"
 import Head from "next/head"
-import { serialize } from "next-mdx-remote/serialize"
 
 const Index = ({ posts }) => {
   return (
@@ -30,9 +29,9 @@ export async function getStaticProps() {
       query posts($offset: Int!, $perpage: Int!) {
         posts(input: { limit: $perpage, offset: $offset }) {
           id
-          summary
           title
-          uri
+          datetime
+          tags
         }
       }
     `,
@@ -42,12 +41,7 @@ export async function getStaticProps() {
     },
   })
 
-  const posts = result.data.posts.map((p) => {
-    p.html = serialize(p.content)
-    return p
-  })
-
-  return { props: { posts } }
+  return { props: { posts: result.data.posts } }
 }
 
 export default Index

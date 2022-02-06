@@ -7,11 +7,11 @@ import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { serialize } from "next-mdx-remote/serialize"
 
-const Page = ({ pid, post }): JSX.Element => {
+const Page = ({ post, html }): JSX.Element => {
   return (
     <App>
       <Header noLogo />
-      <Post id={pid} post={post} />
+      <Post post={post} html={html} />
       <Footer />
     </App>
   )
@@ -23,9 +23,25 @@ export const getStaticProps: GetStaticProps = async (context) => {
     query: gql`
       query post($id: ID!) {
         post(id: $id) {
-          content
-          modified
+          id
           title
+          content
+          datetime
+          draft
+          social_image
+          summary
+          uri
+          next {
+            id
+          }
+          prev {
+            id
+          }
+          related(input: { limit: 4 }) {
+            id
+            title
+            summary
+          }
         }
       }
     `,
@@ -35,12 +51,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   })
 
   const post = result.data.post
-  post.html = await serialize(post.content)
+  const html = await serialize(post.content)
+  console.log(post)
 
   return {
     props: {
-      pid,
       post,
+      html,
     },
     revalidate: 600,
   }

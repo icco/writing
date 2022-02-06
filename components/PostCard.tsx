@@ -1,8 +1,8 @@
 import Link from "next/link"
 
-export default function PostCard({ className, post }) {
+export default function PostCard({ post }) {
   return (
-    <article className={className + " dark-gray w5"}>
+    <article className="dark-gray w5">
       <div className="pa2 ph3-ns pb3-ns">
         <div className="dt w-100 mt1">
           <div className="dtc">
@@ -13,7 +13,6 @@ export default function PostCard({ className, post }) {
             </h1>
           </div>
         </div>
-        <div className="f6 lh-copy measure mt2 mid-gray">{post.content}</div>
       </div>
     </article>
   )
