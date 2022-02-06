@@ -1,11 +1,6 @@
-import { ErrorMessage } from "@icco/react-common"
 import Datetime from "components/Datetime"
 
-export default function AdminLinkList({ links, error }) {
-  if (error) {
-    return <ErrorMessage error={error} message="Error loading links." />
-  }
-
+export default function AdminLinkList({ links }) {
   return (
     <section className="pa3 mw8 center">
       <ul className="list pl0" key="link-ul">

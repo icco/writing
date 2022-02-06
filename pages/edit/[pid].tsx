@@ -8,16 +8,8 @@ import Header from "components/Header"
 import NotAuthorized from "components/NotAuthorized"
 import { getUser } from "components/User"
 import Head from "next/head"
-import { useRouter } from "next/router"
 
-const Page = (props) => {
-  const router = useRouter()
-  let { pid } = router.query
-
-  if (props.pid) {
-    pid = props.pid
-  }
-
+const Page = ({ pid, links }) => {
   const { isLoading, error, isAuthenticated } = useAuth0()
   const [user, { loading: queryLoading, error: queryError, data: userData }] =
     useLazyQuery(getUser)
@@ -51,7 +43,7 @@ const Page = (props) => {
       </Head>
       <Header noLogo />
       <EditPost id={pid} />
-      <AdminLinkList />
+      <AdminLinkList links={links} />
     </App>
   )
 }

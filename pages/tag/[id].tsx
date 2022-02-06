@@ -3,12 +3,11 @@ import Footer from "components/Footer"
 import Header from "components/Header"
 import Tag from "components/Tag"
 
-const Page = (props) => {
-  const { id } = props
+const Page = ({ id, posts }) => {
   return (
     <App>
       <Header noLogo />
-      <Tag id={id} />
+      <Tag id={id} posts={posts} />
       <Footer />
     </App>
   )
