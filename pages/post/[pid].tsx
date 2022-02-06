@@ -52,7 +52,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const post = result.data.post
   const html = await serialize(post.content)
-  console.log(post)
 
   return {
     props: {

@@ -32,7 +32,6 @@ const Page = ({ pid, links }) => {
   }
 
   if (userData.whoami == null || userData.whoami.role != "admin") {
-    console.log(userData)
     return <NotAuthorized />
   }
 
