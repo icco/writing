@@ -77,6 +77,7 @@ module.exports = {
               scriptSrc: [
                 "'self'",
                 "'unsafe-inline'",
+                "'unsafe-eval'",
                 "blob:",
                 "https://*.natwelch.com",
               ],
