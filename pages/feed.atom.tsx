@@ -25,8 +25,9 @@ export async function getServerSideProps(context) {
     },
   })
 
+  const postHTML = {}
   const posts = result.data.posts.map((p) => {
-    p.html = serialize(p.summary)
+    postHTML[p.id] = serialize(p.summary)
     return p
   })
 
@@ -35,7 +36,7 @@ export async function getServerSideProps(context) {
   if (!res) {
     return ret
   }
-  const feed = await generateFeed({ posts })
+  const feed = await generateFeed({ posts, postHTML })
   res.setHeader("Content-Type", "application/atom+xml")
   res.write(feed.atom1())
   res.end()
