@@ -42,7 +42,7 @@ export default function Header(params) {
       <header className="mv5 center mw6">
         <Link href="/">
           <a className="link dark-gray dim">
-            <Logo size={200} className="center" />
+            <Logo size={200} className="center" style={{stroke: "#333", textAlign: "center"}} />
             <h1 className="tc">Nat? Nat. Nat!</h1>
           </a>
         </Link>
@@ -51,7 +51,7 @@ export default function Header(params) {
     smalllogo: (
       <Link href="/">
         <a className="link dark-gray dim">
-          <Logo size={50} className="v-mid mh0-ns dib-ns center ph0 logo" />
+          <Logo size={50} className="v-mid mh0-ns dib-ns center ph0 logo"  style={{stroke: "#333", }} />
         </a>
       </Link>
     ),
