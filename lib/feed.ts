@@ -1,5 +1,4 @@
 import { Feed } from "feed"
-import { MDXRemote } from "next-mdx-remote"
 
 export default async function generateFeed({ posts, postHTML }) {
   const feed = new Feed({
@@ -26,7 +25,6 @@ export default async function generateFeed({ posts, postHTML }) {
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
-        content: MDXRemote(...postHTML[p.id]),
         author: [
           {
             name: "Nat Welch",
