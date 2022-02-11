@@ -327,10 +327,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@icco/react-common@^2022.1.28-2":
-  version "2022.1.28-2"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2022.1.28-2.tgz#6f2c24395bdd168ce5337930754dad5a10bf2929"
-  integrity sha512-3RSb3Om9t9v9UiGzZgtpa5saqLM2PdX86VEWnr2bU8kW9IQJY5iHUK0l8JDWhj07jfRXGWli1oVLw+ORBlq0cQ==
+"@icco/react-common@>= 2022.2.11-2":
+  version "2022.2.11-2"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2022.2.11-2.tgz#29c35ce8bfacd8edafa1d592361f93a00796ee21"
+  integrity sha512-rmLvQvdj42YGyP3EPgI6tVSU8MFZD0RQQ49olBCb/jHhN69hnHMY39wArpgZFEf0T4xGmNPhfZKwuKwxz7/mqQ==
   dependencies:
     prop-types "^15.7"
     react-loading "^2.0"
