@@ -1,6 +1,6 @@
 import { Feed } from "feed"
 
-export default async function generateFeed({ posts, postHTML }) {
+export default async function generateFeed({ posts }) {
   const feed = new Feed({
     id: "NatNatNat",
     title: "Nat? Nat. Nat!",

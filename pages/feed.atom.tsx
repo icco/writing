@@ -25,18 +25,13 @@ export async function getServerSideProps(context) {
     },
   })
 
-  const postHTML = {}
-  const posts = result.data.posts.map((p) => {
-    postHTML[p.id] = serialize(p.summary)
-    return p
-  })
-
+  const posts = result.data.posts
   const ret = { props: {} }
   const res = context.res
   if (!res) {
     return ret
   }
-  const feed = await generateFeed({ posts, postHTML })
+  const feed = await generateFeed({ posts })
   res.setHeader("Content-Type", "application/atom+xml")
   res.write(feed.atom1())
   res.end()
