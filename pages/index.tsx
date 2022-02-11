@@ -16,7 +16,7 @@ const Index = ({ posts }) => {
           content="Nat Welch's blog about life and software."
         />
       </Head>
-      <Header noLogo={undefined} />
+      <Header />
       <PostList posts={posts} />
       <Footer />
     </App>
