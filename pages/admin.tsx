@@ -10,7 +10,7 @@ import Head from "next/head"
 import Link from "next/link"
 import React from "react"
 
-const Page = () => {
+const Page = ({ drafts, future, published }) => {
   const { isLoading, error, isAuthenticated } = useAuth0()
   const [user, { loading: queryLoading, error: queryError, data: userData }] =
     useLazyQuery(getUser)
@@ -53,13 +53,13 @@ const Page = () => {
         </ul>
 
         <h2>Drafts</h2>
-        <AdminPostList type="drafts" />
+        <AdminPostList posts={drafts} />
 
         <h2>Future</h2>
-        <AdminPostList type="future" />
+        <AdminPostList posts={future} />
 
         <h2>Published</h2>
-        <AdminPostList type="published" />
+        <AdminPostList posts={published} />
       </div>
     </App>
   )

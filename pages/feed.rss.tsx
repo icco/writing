@@ -1,16 +1,41 @@
+import { gql } from "@apollo/client"
 import generateFeed from "lib/feed"
+import { client } from "lib/simple"
+import { serialize } from "next-mdx-remote/serialize"
 
 const Feed = () => {
   return ""
 }
 
 export async function getServerSideProps(context) {
+  const result = await client().query({
+    query: gql`
+      query posts($offset: Int!, $perpage: Int!) {
+        posts(input: { limit: $perpage, offset: $offset }) {
+          id
+          summary
+          title
+          uri
+        }
+      }
+    `,
+    variables: {
+      offset: 0,
+      perpage: 25,
+    },
+  })
+
+  const posts = result.data.posts.map((p) => {
+    p.html = serialize(p.summary)
+    return p
+  })
+
   const ret = { props: {} }
   const res = context.res
   if (!res) {
     return ret
   }
-  const feed = await generateFeed()
+  const feed = await generateFeed({ posts })
   res.setHeader("Content-Type", "application/rss+xml")
   res.write(feed.rss2())
   res.end()

@@ -1,4 +1,4 @@
-import { useLazyQuery } from "@apollo/client"
+import { gql, useLazyQuery } from "@apollo/client"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 import { ErrorMessage, Loading } from "@icco/react-common"
 import AdminLinkList from "components/AdminLinkList"
@@ -7,17 +7,10 @@ import EditPost from "components/EditPost"
 import Header from "components/Header"
 import NotAuthorized from "components/NotAuthorized"
 import { getUser } from "components/User"
+import { client } from "lib/simple"
 import Head from "next/head"
-import { useRouter } from "next/router"
 
-const Page = (props) => {
-  const router = useRouter()
-  let { pid } = router.query
-
-  if (props.pid) {
-    pid = props.pid
-  }
-
+const Page = ({ pid, links }) => {
   const { isLoading, error, isAuthenticated } = useAuth0()
   const [user, { loading: queryLoading, error: queryError, data: userData }] =
     useLazyQuery(getUser)
@@ -40,7 +33,6 @@ const Page = (props) => {
   }
 
   if (userData.whoami == null || userData.whoami.role != "admin") {
-    console.log(userData)
     return <NotAuthorized />
   }
 
@@ -51,9 +43,31 @@ const Page = (props) => {
       </Head>
       <Header noLogo />
       <EditPost id={pid} />
-      <AdminLinkList />
+      <AdminLinkList links={links} />
     </App>
   )
+}
+
+export async function getServerSideProps(context) {
+  const { pid } = context.params
+  const result = await client().query({
+    query: gql`
+      query links($offset: Int!, $perpage: Int!) {
+        links(input: { limit: $perpage, offset: $offset }) {
+          id
+          uri
+          title
+          created
+          description
+        }
+      }
+    `,
+    variables: {
+      offset: 0,
+      perpage: 25,
+    },
+  })
+  return { props: { pid, links: result.data.links } }
 }
 
 export default withAuthenticationRequired(Page)

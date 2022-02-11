@@ -1,10 +1,12 @@
+import { gql } from "@apollo/client"
 import App from "components/App"
 import Footer from "components/Footer"
 import Header from "components/Header"
 import PostList from "components/PostList"
+import { client } from "lib/simple"
 import Head from "next/head"
 
-const Index = () => {
+const Index = ({ posts }) => {
   return (
     <App>
       <Head>
@@ -14,27 +16,32 @@ const Index = () => {
           content="Nat Welch's blog about life and software."
         />
       </Head>
-      <Header noLogo={undefined} />
-      <PostList />
+      <Header />
+      <PostList posts={posts} />
       <Footer />
     </App>
   )
 }
 
-// export async function getStaticProps() {
-//   const apolloClient = initializeApollo();
-//
-//   await apolloClient.query({
-//     query: allPosts,
-//     variables: allPostsQueryVars,
-//   });
-//
-//   return {
-//     props: {
-//       initialApolloState: apolloClient.cache.extract(),
-//     },
-//     revalidate: 1,
-//   };
-// }
+export async function getStaticProps() {
+  const result = await client().query({
+    query: gql`
+      query posts($offset: Int!, $perpage: Int!) {
+        posts(input: { limit: $perpage, offset: $offset }) {
+          id
+          title
+          datetime
+          tags
+        }
+      }
+    `,
+    variables: {
+      offset: 0,
+      perpage: 25,
+    },
+  })
+
+  return { props: { posts: result.data.posts } }
+}
 
 export default Index

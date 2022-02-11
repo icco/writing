@@ -3,7 +3,7 @@ import { Loading, Logo } from "@icco/react-common"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-export default function Header({ noLogo }) {
+export default function Header(params) {
   const { pathname, query } = useRouter()
   const { isAuthenticated, logout, loginWithRedirect, isLoading, error, user } =
     useAuth0()
@@ -42,7 +42,11 @@ export default function Header({ noLogo }) {
       <header className="mv5 center mw6">
         <Link href="/">
           <a className="link dark-gray dim">
-            <Logo size={200} className="center" />
+            <Logo
+              size={200}
+              className="center"
+              style={{ stroke: "#333", textAlign: "center" }}
+            />
             <h1 className="tc">Nat? Nat. Nat!</h1>
           </a>
         </Link>
@@ -51,7 +55,11 @@ export default function Header({ noLogo }) {
     smalllogo: (
       <Link href="/">
         <a className="link dark-gray dim">
-          <Logo size={50} className="v-mid mh0-ns dib-ns center ph0 logo" />
+          <Logo
+            size={50}
+            className="v-mid mh0-ns dib-ns center ph0 logo"
+            style={{ stroke: "#333" }}
+          />
         </a>
       </Link>
     ),
@@ -88,14 +96,14 @@ export default function Header({ noLogo }) {
     <>
       <nav className="flex justify-between ttc">
         <div className="flex items-center pa3">
-          {noLogo ? elements.smalllogo : ""}
+          {params.noLogo ? elements.smalllogo : ""}
         </div>
         <div className="flex-grow pa3 flex items-center">
           {elements.about}
           {nav}
         </div>
       </nav>
-      {noLogo ? "" : elements.largelogo}
+      {params.noLogo ? "" : elements.largelogo}
     </>
   )
 }

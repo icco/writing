@@ -1,88 +1,21 @@
-import { gql, useQuery } from "@apollo/client"
 import { useAuth0 } from "@auth0/auth0-react"
-import { ErrorMessage, Loading } from "@icco/react-common"
-import Comment from "components/Comment"
-import CommentEditor from "components/CommentEditor"
+import { ErrorMessage } from "@icco/react-common"
 import Datetime from "components/Datetime"
 import PostCard from "components/PostCard"
 import PostNav from "components/PostNav"
-import { md } from "lib/markdown"
 import Head from "next/head"
 import Link from "next/link"
-import { useRouter } from "next/router"
+import { MDXRemote } from "next-mdx-remote"
 
-export const getPost = gql`
-  query getPost($id: ID!) {
-    post(id: $id) {
-      id
-      title
-      content
-      datetime
-      draft
-      social_image
-      summary
-      next {
-        id
-      }
-      prev {
-        id
-      }
-      related(input: { limit: 4 }) {
-        id
-        title
-        summary
-      }
-      comments(input: { limit: 10 }) {
-        content
-        created
-        id
-        user {
-          name
-        }
-      }
-    }
-  }
-`
-
-export default function Post(params: { comments?: boolean; id?: string }) {
-  const router = useRouter()
-  const { pid } = router.query
-
-  const { comments } = params
-  let { id } = params
-  if (pid) {
-    id = pid as string
-  }
-
-  const { loading, error, data } = useQuery(getPost, {
-    variables: { id },
-  })
-  const {
-    isLoading: authLoading,
-    error: authError,
-    isAuthenticated,
-  } = useAuth0()
-
-  if (error || authError) {
-    return <ErrorMessage error={error} message="Unable to get page." />
-  }
-
-  if (loading || authLoading) {
-    return <Loading key={0} />
-  }
-
-  const { post } = data
+export default function Post({ post, html }) {
+  const { error: authError, isAuthenticated } = useAuth0()
 
   if (!post) {
-    const e = new Error()
-    e.message = "Post not found"
-    throw e
+    throw new Error("Post not found")
   }
 
-  const html = { __html: md.render(post.content) }
-  let draft = ""
-  if (post.draft) {
-    draft = "DRAFT"
+  if (authError) {
+    return <ErrorMessage error={authError} message="Unable to get page." />
   }
 
   let edit = <></>
@@ -94,24 +27,8 @@ export default function Post(params: { comments?: boolean; id?: string }) {
     )
   }
 
-  let commentDiv = <></>
-  if (comments) {
-    commentDiv = (
-      <article className="mh3 db">
-        <h2>Comments</h2>
-        <CommentEditor postID={id} />
-        <div className="">
-          {post.comments.map((item: { id: string }) => (
-            <Comment key={item.id} data={{ comment: item }} />
-          ))}
-        </div>
-      </article>
-    )
-  }
-
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
-  const url = `https://writing.natwelch.com/post/${post.id}`
-  const description = md.render(post.summary)
+  const url = post.uri
 
   return (
     <section className="mw8 center">
@@ -123,10 +40,6 @@ export default function Post(params: { comments?: boolean; id?: string }) {
         <title>{title}</title>
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
-
-        <meta name="description" content={description} />
-        <meta property="og:description" content={description} />
-        <meta name="twitter:description" content={description} />
 
         <meta property="og:image" content={post.social_image} />
         <meta name="twitter:image" content={post.social_image} />
@@ -140,7 +53,7 @@ export default function Post(params: { comments?: boolean; id?: string }) {
           <span className="mr3">#{post.id}</span>
           <Datetime>{post.datetime}</Datetime>
           <span className="ml3">{edit}</span>
-          <span className="ml3 red strong">{draft}</span>
+          <span className="ml3 red strong">{post.draft ? "draft" : ""}</span>
         </div>
         <Link href={`/post/${post.id}`}>
           <a className="header db f3 f1-ns link dark-gray dim">{post.title}</a>
@@ -148,20 +61,18 @@ export default function Post(params: { comments?: boolean; id?: string }) {
       </div>
 
       <article className="mh3">
-        <div dangerouslySetInnerHTML={html} />
+        <MDXRemote {...html} />
       </article>
 
       <PostNav post={post} />
 
-      {commentDiv}
-
       <article className="mh3 dn db-ns">
         <h2>Related Posts</h2>
         <div className="flex items-start justify-between">
-          <PostCard className="" post={post.related[0]} />
-          <PostCard className="" post={post.related[1]} />
-          <PostCard className="" post={post.related[2]} />
-          <PostCard className="" post={post.related[3]} />
+          <PostCard post={post.related[0]} />
+          <PostCard post={post.related[1]} />
+          <PostCard post={post.related[2]} />
+          <PostCard post={post.related[3]} />
         </div>
       </article>
     </section>

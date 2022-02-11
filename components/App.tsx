@@ -1,4 +1,4 @@
-function App({ children }) {
+function App({ children }): JSX.Element {
   return <main>{children}</main>
 }
 
