@@ -327,14 +327,13 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@icco/react-common@>= 2022.2.11-2":
-  version "2022.2.11-2"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2022.2.11-2.tgz#29c35ce8bfacd8edafa1d592361f93a00796ee21"
-  integrity sha512-rmLvQvdj42YGyP3EPgI6tVSU8MFZD0RQQ49olBCb/jHhN69hnHMY39wArpgZFEf0T4xGmNPhfZKwuKwxz7/mqQ==
+"@icco/react-common@>= 2022.2.11-3":
+  version "2022.2.11-3"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2022.2.11-3.tgz#d41774666904b4eb2df731e9fa20e383a792d6f3"
+  integrity sha512-ff+8cB3fxKQMROkznnPjpwxER5EztwqecnscQA/J/5Wuki/Y+f5knpyT1OL64qTOVB0R1zBVl1Pu0AIlg9DNzA==
   dependencies:
     prop-types "^15.7"
     react-loading "^2.0"
-    vivus "^0.4.5"
     webpack "^5.0.0"
 
 "@mdx-js/mdx@^1.6.22":
@@ -3628,11 +3627,6 @@ vfile@^4.0.0:
     is-buffer "^2.0.0"
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
-
-vivus@^0.4.5:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.4.6.tgz#60661b43d08aaa70efc1854dfd2f1583f2066608"
-  integrity sha512-q6cDPTGqw/bq9sKF2h2T6GJ9PlwAFncHq7MdaK95WTSyd/7gz//UHTZbJ3B+r8f7AhcISPTC3sv9+u65BmmFbw==
 
 w3c-keyname@^2.2.0:
   version "2.2.4"
