@@ -51,7 +51,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   })
 
   const post = result.data.post
-  const html = await serialize(post.content)
+  if (!post) {
+    console.log(result)
+    throw new Error("Page not found")
+  }
+
+  const { content } = post
+  const html = await serialize(content)
 
   return {
     props: {
