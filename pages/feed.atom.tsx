@@ -13,6 +13,7 @@ export async function getServerSideProps(context) {
         posts(input: { limit: $perpage, offset: $offset }) {
           id
           summary
+          datetime
           title
           uri
         }
@@ -24,13 +25,12 @@ export async function getServerSideProps(context) {
     },
   })
 
-  const posts = result.data.posts
   const ret = { props: {} }
   const res = context.res
   if (!res) {
     return ret
   }
-  const feed = await generateFeed({ posts })
+  const feed = await generateFeed({ posts: result.data.posts })
   res.setHeader("Content-Type", "application/atom+xml")
   res.write(feed.atom1())
   res.end()

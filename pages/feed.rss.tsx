@@ -14,6 +14,7 @@ export async function getServerSideProps(context) {
         posts(input: { limit: $perpage, offset: $offset }) {
           id
           summary
+          datetime
           title
           uri
         }
@@ -25,17 +26,12 @@ export async function getServerSideProps(context) {
     },
   })
 
-  const posts = result.data.posts.map((p) => {
-    p.html = serialize(p.summary)
-    return p
-  })
-
   const ret = { props: {} }
   const res = context.res
   if (!res) {
     return ret
   }
-  const feed = await generateFeed({ posts })
+  const feed = await generateFeed({ posts: result.data.posts })
   res.setHeader("Content-Type", "application/rss+xml")
   res.write(feed.rss2())
   res.end()
