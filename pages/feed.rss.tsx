@@ -1,7 +1,6 @@
 import { gql } from "@apollo/client"
 import generateFeed from "lib/feed"
 import { client } from "lib/simple"
-import { serialize } from "next-mdx-remote/serialize"
 
 const Feed = () => {
   return ""
