@@ -37,8 +37,10 @@ export default function Post({ post, html }) {
           <Datetime>{post.datetime}</Datetime>
           <span className="ml3 red strong">{post.draft ? "draft" : ""}</span>
         </div>
-        <Link href={`/post/${post.id}`}>
-          <a className="header db f3 f1-ns link dark-gray dim">{post.title}</a>
+        <Link
+          href={`/post/${post.id}`}
+          className="header db f3 f1-ns link dark-gray dim">
+          {post.title}
         </Link>
       </div>
 
@@ -58,5 +60,5 @@ export default function Post({ post, html }) {
         </div>
       </article>
     </section>
-  )
+  );
 }

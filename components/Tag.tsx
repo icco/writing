@@ -18,14 +18,16 @@ export default function Tag({ id, posts }) {
               <span className="mr3">#{post.id}</span>
               <Datetime>{post.datetime}</Datetime>
             </div>
-            <Link href={`/post/${post.id}`}>
-              <a className="header db f3 f1-ns link dark-gray dim">
-                {post.title}
-              </a>
+            <Link
+              href={`/post/${post.id}`}
+              className="header db f3 f1-ns link dark-gray dim">
+
+              {post.title}
+
             </Link>
           </li>
         ))}
       </ul>
     </section>
-  )
+  );
 }

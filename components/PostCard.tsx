@@ -7,13 +7,13 @@ export default function PostCard({ post }) {
         <div className="dt w-100 mt1">
           <div className="dtc">
             <h1 className="f5 f4-ns mv0">
-              <Link href={`/post/${post.id}`}>
-                <a className="link dark-gray dim">{post.title}</a>
+              <Link href={`/post/${post.id}`} className="link dark-gray dim">
+                {post.title}
               </Link>
             </h1>
           </div>
         </div>
       </div>
     </article>
-  )
+  );
 }

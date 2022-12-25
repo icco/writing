@@ -4,8 +4,8 @@ const PostNav = ({ post }) => {
   let prevText: JSX.Element
   if (post.prev && parseInt(post.prev.id) > 0) {
     prevText = (
-      <Link href={`/post/${post.prev.id}`}>
-        <a className="link dark-gray dim">&larr; Prev</a>
+      <Link href={`/post/${post.prev.id}`} className="link dark-gray dim">
+        &larr; Prev
       </Link>
     )
   }
@@ -13,8 +13,8 @@ const PostNav = ({ post }) => {
   let nextText: JSX.Element
   if (post.next && parseInt(post.next.id) > 0) {
     nextText = (
-      <Link href={`/post/${post.next.id}`}>
-        <a className="link dark-gray dim">Next &rarr;</a>
+      <Link href={`/post/${post.next.id}`} className="link dark-gray dim">
+        Next &rarr;
       </Link>
     )
   }
