@@ -1,7 +1,6 @@
 // Can not be done in _document.js
 import "../style.css"
 
-import { Auth0Provider } from "@auth0/auth0-react"
 import { MDXProvider } from "@mdx-js/react"
 import { AuthorizedApolloProvider } from "lib/apollo"
 import { AppProps, NextWebVitalsMetric } from "next/app"
@@ -26,18 +25,9 @@ function Writing({ Component, pageProps }: AppProps) {
         <link rel="pingback" href="https://webmention.io/natwelch.com/xmlrpc" />
       </Head>
       <MDXProvider components={components}>
-        <Auth0Provider
-          domain={process.env.AUTH0_DOMAIN}
-          audience={"https://natwelch.com"}
-          clientId={process.env.AUTH0_CLIENT_ID}
-          redirectUri={process.env.DOMAIN}
-          useRefreshTokens={true}
-          scope={"role,profile"}
-        >
-          <AuthorizedApolloProvider>
-            <Component {...pageProps} />
-          </AuthorizedApolloProvider>
-        </Auth0Provider>
+      <AuthorizedApolloProvider>
+      <Component {...pageProps} />
+      </AuthorizedApolloProvider>
       </MDXProvider>
     </>
   )

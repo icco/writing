@@ -1,42 +1,15 @@
-import { useAuth0 } from "@auth0/auth0-react"
 import { Loading, Logo } from "@icco/react-common"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
 export default function Header(params) {
   const { pathname, query } = useRouter()
-  const { isAuthenticated, logout, loginWithRedirect, isLoading, error, user } =
-    useAuth0()
-
-  if (error) {
-    if (error.message != "consent_required") {
-      throw error
-    }
-  }
 
   const elements = {
     about: (
       <Link key="/about" href="/about" prefetch={false}>
         <a className="f6 link dib dim mr3 black mr4-ns">about</a>
       </Link>
-    ),
-    signin: (
-      <a
-        className="f6 link dib dim mr3 black mr4-ns pointer"
-        onClick={() =>
-          loginWithRedirect({ appState: { returnTo: { pathname, query } } })
-        }
-      >
-        Sign In
-      </a>
-    ),
-    signout: (
-      <a
-        className="f6 link dib dim mr3 black mr4-ns pointer"
-        onClick={() => logout({ returnTo: pathname })}
-      >
-        Sign Out
-      </a>
     ),
     largelogo: (
       <header className="mv5 center mw6">
@@ -63,34 +36,9 @@ export default function Header(params) {
         </a>
       </Link>
     ),
-    adminlink: <></>,
   }
 
   let nav = <>{elements.signin}</>
-
-  if (isLoading) {
-    nav = (
-      <>
-        <div className="dib h1">
-          <Loading key={0} />
-        </div>
-      </>
-    )
-  }
-
-  if (isAuthenticated) {
-    elements.adminlink = (
-      <Link key="/admin" href="/admin">
-        <a className="f6 link dib dim mr3 black mr4-ns">{user.name}</a>
-      </Link>
-    )
-    nav = (
-      <>
-        {elements.adminlink}
-        {elements.signout}
-      </>
-    )
-  }
 
   return (
     <>
