@@ -7,7 +7,6 @@ import {
 } from "@apollo/client"
 import { setContext } from "@apollo/client/link/context"
 import { onError } from "@apollo/client/link/error"
-import { useAuth0 } from "@auth0/auth0-react"
 
 export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__"
 
@@ -27,35 +26,10 @@ export const errorLink = onError(({ graphQLErrors, networkError }) => {
 })
 
 export const AuthorizedApolloProvider = ({ children }) => {
-  const { error, isAuthenticated, getAccessTokenSilently } = useAuth0()
-  const authLink = setContext(async (_, { headers, ...context }) => {
-    if (typeof window === "undefined") {
-      return { headers, ...context }
-    }
-
-    const token = isAuthenticated ? await getAccessTokenSilently() : ""
-    if (typeof Storage !== "undefined") {
-      localStorage.setItem("token", token)
-    }
-    if (error) {
-      console.error("auth0 error", error)
-      return { headers, ...context }
-    }
-
-    return {
-      headers: {
-        ...headers,
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      },
-      ...context,
-    }
-  })
-
   const client = new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: ApolloLink.from([
       errorLink,
-      authLink,
       new HttpLink({ uri: GRAPHQL_ORIGIN }),
     ]),
     cache: new InMemoryCache(),
