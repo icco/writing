@@ -28,10 +28,7 @@ export const errorLink = onError(({ graphQLErrors, networkError }) => {
 export const AuthorizedApolloProvider = ({ children }) => {
   const client = new ApolloClient({
     ssrMode: typeof window === "undefined",
-    link: ApolloLink.from([
-      errorLink,
-      new HttpLink({ uri: GRAPHQL_ORIGIN }),
-    ]),
+    link: ApolloLink.from([errorLink, new HttpLink({ uri: GRAPHQL_ORIGIN })]),
     cache: new InMemoryCache(),
     connectToDevTools: true,
   })

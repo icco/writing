@@ -38,7 +38,7 @@ export default function Header(params) {
     ),
   }
 
-  let nav = <>{elements.signin}</>
+  const nav = <>{elements.signin}</>
 
   return (
     <>

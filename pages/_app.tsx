@@ -25,9 +25,9 @@ function Writing({ Component, pageProps }: AppProps) {
         <link rel="pingback" href="https://webmention.io/natwelch.com/xmlrpc" />
       </Head>
       <MDXProvider components={components}>
-      <AuthorizedApolloProvider>
-      <Component {...pageProps} />
-      </AuthorizedApolloProvider>
+        <AuthorizedApolloProvider>
+          <Component {...pageProps} />
+        </AuthorizedApolloProvider>
       </MDXProvider>
     </>
   )
