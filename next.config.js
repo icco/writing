@@ -16,8 +16,6 @@ module.exports = {
   trailingSlash: false,
   productionBrowserSourceMaps: true,
   env: {
-    AUTH0_CLIENT_ID: "MwFD0COlI4F4AWvOZThe1psOIletecnL",
-    AUTH0_DOMAIN: "icco.auth0.com",
     DOMAIN: domain,
     GRAPHQL_ORIGIN: graphql,
     PORT: port,
@@ -59,12 +57,10 @@ module.exports = {
             directives: {
               // default-src 'none'
               defaultSrc: ["'none'"],
-              // connect-src https://graphql.natwelch.com/graphql https://icco.auth0.com/oauth/token
-              connectSrc: ["https://*.natwelch.com", "https://icco.auth0.com"],
+              // connect-src https://graphql.natwelch.com/graphql
+              connectSrc: ["https://*.natwelch.com"],
               // font-src https://fonts.gstatic.com
               fontSrc: ["https://fonts.gstatic.com"],
-              // frame-src https://icco.auth0.com
-              frameSrc: ["https://icco.auth0.com"],
               // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
               imgSrc: [
                 "'self'",

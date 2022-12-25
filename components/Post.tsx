@@ -1,5 +1,3 @@
-import { useAuth0 } from "@auth0/auth0-react"
-import { ErrorMessage } from "@icco/react-common"
 import Datetime from "components/Datetime"
 import PostCard from "components/PostCard"
 import PostNav from "components/PostNav"
@@ -8,23 +6,8 @@ import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote"
 
 export default function Post({ post, html }) {
-  const { error: authError, isAuthenticated } = useAuth0()
-
   if (!post) {
     throw new Error("Post not found")
-  }
-
-  if (authError) {
-    return <ErrorMessage error={authError} message="Unable to get page." />
-  }
-
-  let edit = <></>
-  if (isAuthenticated) {
-    edit = (
-      <Link href={`/edit/${post.id}`}>
-        <a className="mh1 link gray dim">edit</a>
-      </Link>
-    )
   }
 
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
@@ -52,7 +35,6 @@ export default function Post({ post, html }) {
         <div className="f6 db pb1 gray">
           <span className="mr3">#{post.id}</span>
           <Datetime>{post.datetime}</Datetime>
-          <span className="ml3">{edit}</span>
           <span className="ml3 red strong">{post.draft ? "draft" : ""}</span>
         </div>
         <Link href={`/post/${post.id}`}>
