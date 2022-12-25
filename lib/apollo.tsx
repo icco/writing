@@ -5,7 +5,6 @@ import {
   HttpLink,
   InMemoryCache,
 } from "@apollo/client"
-import { setContext } from "@apollo/client/link/context"
 import { onError } from "@apollo/client/link/error"
 
 export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__"

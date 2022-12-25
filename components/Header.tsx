@@ -1,10 +1,7 @@
-import { Loading, Logo } from "@icco/react-common"
+import { Logo } from "@icco/react-common"
 import Link from "next/link"
-import { useRouter } from "next/router"
 
 export default function Header(params) {
-  const { pathname, query } = useRouter()
-
   const elements = {
     about: (
       <Link key="/about" href="/about" prefetch={false}>

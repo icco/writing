@@ -1,4 +1,3 @@
-import { ErrorMessage } from "@icco/react-common"
 import Datetime from "components/Datetime"
 import PostCard from "components/PostCard"
 import PostNav from "components/PostNav"
