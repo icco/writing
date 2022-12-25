@@ -39,7 +39,8 @@ export default function Post({ post, html }) {
         </div>
         <Link
           href={`/post/${post.id}`}
-          className="header db f3 f1-ns link dark-gray dim">
+          className="header db f3 f1-ns link dark-gray dim"
+        >
           {post.title}
         </Link>
       </div>
@@ -60,5 +61,5 @@ export default function Post({ post, html }) {
         </div>
       </article>
     </section>
-  );
+  )
 }

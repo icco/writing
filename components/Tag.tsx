@@ -20,14 +20,13 @@ export default function Tag({ id, posts }) {
             </div>
             <Link
               href={`/post/${post.id}`}
-              className="header db f3 f1-ns link dark-gray dim">
-
+              className="header db f3 f1-ns link dark-gray dim"
+            >
               {post.title}
-
             </Link>
           </li>
         ))}
       </ul>
     </section>
-  );
+  )
 }

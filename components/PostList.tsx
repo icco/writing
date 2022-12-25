@@ -12,22 +12,25 @@ export default function PostList({ posts }) {
               <Datetime>{post.datetime}</Datetime>
               <span className="dbi ml3">
                 {post.tags.map((tag, i) => (
-                  (<Link key={i} href={`/tag/${tag}`} className="mh1 link gray dim">
+                  <Link
+                    key={i}
+                    href={`/tag/${tag}`}
+                    className="mh1 link gray dim"
+                  >
                     #{tag}
-                  </Link>)
+                  </Link>
                 ))}
               </span>
             </div>
             <Link
               href={`/post/${post.id}`}
-              className="header db f3 f1-ns link dark-gray dim">
-
+              className="header db f3 f1-ns link dark-gray dim"
+            >
               {post.title}
-
             </Link>
           </li>
         ))}
       </ul>
     </section>
-  );
+  )
 }
