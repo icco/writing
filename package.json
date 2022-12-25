@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.4",
-    "@auth0/auth0-react": "^1.1.0",
-    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-free": "^6.0.0",
     "@icco/react-common": ">= 2022.11.16-2",
     "feed": "^4.0.0",
     "graphql": "^16.0.0",
@@ -25,7 +24,6 @@
     "react-dom": "^17.0.0",
     "react-is": "^17.0.1",
     "react-masonry-component": "^6.2.1",
-    "rich-markdown-editor": "^11.20.0",
     "styled-components": "^5.2.1"
   },
   "private": true,
