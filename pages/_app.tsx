@@ -2,7 +2,6 @@
 import "../style.css"
 
 import { MDXProvider } from "@mdx-js/react"
-import { AuthorizedApolloProvider } from "lib/apollo"
 import { AppProps, NextWebVitalsMetric } from "next/app"
 import Head from "next/head"
 
@@ -25,9 +24,7 @@ function Writing({ Component, pageProps }: AppProps) {
         <link rel="pingback" href="https://webmention.io/natwelch.com/xmlrpc" />
       </Head>
       <MDXProvider components={components}>
-        <AuthorizedApolloProvider>
-          <Component {...pageProps} />
-        </AuthorizedApolloProvider>
+        <Component {...pageProps} />
       </MDXProvider>
     </>
   )
