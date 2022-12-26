@@ -6,6 +6,7 @@ import Post from "components/Post"
 import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { serialize } from "next-mdx-remote/serialize"
+import remarkGfm from "remark-gfm"
 
 const Page = ({ post, html }): JSX.Element => {
   return (
@@ -59,6 +60,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { content } = post
   const html = await serialize(content, {
     mdxOptions: {
+      remarkPlugins: [remarkGfm],
       // https://github.com/hashicorp/next-mdx-remote/issues/307#issuecomment-1363415249
       development: false,
     },
