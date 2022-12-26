@@ -3,7 +3,7 @@ import Index from "pages/index"
 
 describe("Home", () => {
   it("renders a heading", () => {
-    render(<Index posts={undefined} />)
+    render(<Index posts={[]} />)
 
     const heading = screen.getByRole("heading", {
       name: /welcome to next\.js!/i,

@@ -1,12 +1,42 @@
 import Datetime from "components/Datetime"
 import PostCard from "components/PostCard"
 import PostNav from "components/PostNav"
+import { DateTime } from "luxon"
 import Error from "next/error"
 import Head from "next/head"
 import Link from "next/link"
-import { MDXRemote } from "next-mdx-remote"
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 
-export default function Post({ post, html }) {
+export type PostType = {
+  id: string
+  title: string
+  content: string
+  datetime: DateTime
+  draft: boolean
+  social_image: string
+  summary: string
+  uri: string
+  next: {
+    id: string
+  }
+  prev: {
+    id: string
+  }
+  related: {
+    id: string
+    title: string
+    summary: string
+  }
+  tags: [string]
+}
+
+export function Post({
+  post,
+  html,
+}: {
+  post: Partial<PostType>
+  html: MDXRemoteSerializeResult
+}): JSX.Element {
   if (!post) {
     return <Error statusCode={404} />
   }

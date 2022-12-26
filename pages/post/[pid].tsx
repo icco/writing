@@ -2,15 +2,24 @@ import { gql } from "@apollo/client"
 import App from "components/App"
 import Footer from "components/Footer"
 import Header from "components/Header"
-import Post from "components/Post"
+import { Post, PostType } from "components/Post"
 import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
 import Error from "next/error"
+import { MDXRemoteSerializeResult } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
-const Page = ({ post, html, error }): JSX.Element => {
+const Page = ({
+  post,
+  html,
+  error,
+}: {
+  post: Partial<PostType>
+  html: MDXRemoteSerializeResult
+  error: number
+}): JSX.Element => {
   if (error) {
     return <Error statusCode={error} />
   }
