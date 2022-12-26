@@ -58,7 +58,7 @@ module.exports = {
               // default-src 'none'
               defaultSrc: ["'none'"],
               // connect-src https://graphql.natwelch.com/graphql
-              connectSrc: ["https://*.natwelch.com"],
+              connectSrc: ["https://*.natwelch.com", domain, domain.replace(/^https?/, "ws"),],
               // font-src https://fonts.gstatic.com
               fontSrc: ["https://fonts.gstatic.com"],
               // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
@@ -76,6 +76,7 @@ module.exports = {
                 "'unsafe-eval'",
                 "blob:",
                 "https://*.natwelch.com",
+                domain,
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
               styleSrc: [
