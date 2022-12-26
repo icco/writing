@@ -92,7 +92,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     `,
     variables: {
       offset: 0,
-      perpage: 1000,
+      perpage: 100,
     },
   })
 
