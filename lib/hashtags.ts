@@ -1,4 +1,8 @@
 import { findAndReplace } from "mdast-util-find-and-replace"
+import {
+  PhrasingContent,
+  ReplaceFunction,
+} from "mdast-util-find-and-replace/lib"
 import { toString } from "mdast-util-to-string"
 import { visit } from "unist-util-visit"
 
@@ -7,11 +11,9 @@ import { visit } from "unist-util-visit"
  *
  * @type {import('unified').Plugin<[Options?]|void[], Root>}
  */
-export default function remarkHashtags(options = {}) {
+export default function remarkHashtags() {
   return (tree, vfile) => {
-    findAndReplace(tree, [[/(?:#)([a-z1-9]\d*)/gi, replaceIssue]], {
-      ignore: ["link", "linkReference"],
-    })
+    findAndReplace(tree, /(?:#)([a-z1-9]\d*)/gi, replaceIssue)
 
     visit(tree, "link", (node) => {
       const link = parse(node)
@@ -39,21 +41,16 @@ export default function remarkHashtags(options = {}) {
     })
 
     /**
-     * @param {BuildUrlValues} values
-     * @returns {string|false}
-     */
-    function buildUrl(values) {
-      if (options.buildUrl) return options.buildUrl(values, defaultBuildUrl)
-      return defaultBuildUrl(values)
-    }
-
-    /**
      * @type {ReplaceFunction}
      * @param {string} value
      * @param {string} no
      * @param {Match} match
      */
-    function replaceIssue(value, no, match) {
+    function replaceHashtag(
+      value,
+      no,
+      match
+    ): PhrasingContent | string | false | undefined | null {
       if (
         /\w/.test(match.input.charAt(match.index - 1)) ||
         /\w/.test(match.input.charAt(match.index + value.length))
@@ -61,7 +58,7 @@ export default function remarkHashtags(options = {}) {
         return false
       }
 
-      const url = buildUrl({ type: "issue", ...repositoryInfo, no })
+      const url = `https://writing.natwelch.com/tag/${tag}`
 
       return url
         ? {
@@ -72,7 +69,8 @@ export default function remarkHashtags(options = {}) {
           }
         : false
     }
-
+  }
+}
 
 /**
  * Parse a link and determine whether it links to GitHub.
