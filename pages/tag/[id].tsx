@@ -15,7 +15,7 @@ const Page = ({ id, posts }) => {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params
   const result = await client().query({
     query: gql`
