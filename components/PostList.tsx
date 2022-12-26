@@ -6,7 +6,7 @@ import { PostType } from "./Post"
 export default function PostList({
   posts,
 }: {
-  posts: [Partial<PostType>]
+  posts: Pick<PostType, "id" | "datetime" | "tags" | "title">[]
 }): JSX.Element {
   return (
     <section className="mw8 center">

@@ -1,7 +1,6 @@
 import Datetime from "components/Datetime"
 import PostCard from "components/PostCard"
 import PostNav from "components/PostNav"
-import { DateTime } from "luxon"
 import Error from "next/error"
 import Head from "next/head"
 import Link from "next/link"
@@ -11,7 +10,7 @@ export type PostType = {
   id: string
   title: string
   content: string
-  datetime: DateTime
+  datetime: string
   draft: boolean
   social_image: string
   summary: string
@@ -27,7 +26,7 @@ export type PostType = {
     title: string
     summary: string
   }
-  tags: [string]
+  tags: string[]
 }
 
 export function Post({

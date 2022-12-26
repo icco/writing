@@ -58,6 +58,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             title
             summary
           }
+          tags
         }
       }
     `,
