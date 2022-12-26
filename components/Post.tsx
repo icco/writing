@@ -10,8 +10,6 @@ export default function Post({ post, html }) {
     throw new Error("Post not found")
   }
 
-  console.log(html)
-
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
   const url = post.uri
 
