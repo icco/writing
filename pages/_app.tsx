@@ -1,11 +1,8 @@
 // Can not be done in _document.js
 import "../style.css"
 
-import { MDXProvider } from "@mdx-js/react"
 import { AppProps, NextWebVitalsMetric } from "next/app"
 import Head from "next/head"
-
-const components = {}
 
 function Writing({ Component, pageProps }: AppProps) {
   return (
@@ -23,9 +20,7 @@ function Writing({ Component, pageProps }: AppProps) {
         />
         <link rel="pingback" href="https://webmention.io/natwelch.com/xmlrpc" />
       </Head>
-      <MDXProvider components={components}>
-        <Component {...pageProps} />
-      </MDXProvider>
+      <Component {...pageProps} />
     </>
   )
 }
