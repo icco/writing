@@ -1,7 +1,12 @@
 import Datetime from "components/Datetime"
+import { DateTime } from "luxon"
 import Link from "next/link"
 
-export default function PostList({ posts }) {
+export default function PostList({
+  posts,
+}: {
+  posts: [{ id: string; datetime: DateTime; tags: [string]; title: string }]
+}): JSX.Element {
   return (
     <section className="mw8 center">
       <ul className="list pl0" key="ul">
