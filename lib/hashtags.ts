@@ -13,7 +13,7 @@ import { visit } from "unist-util-visit"
  */
 export default function remarkHashtags() {
   return (tree, vfile) => {
-    findAndReplace(tree, /(?:#)([a-z1-9]\d*)/gi, replaceIssue)
+    findAndReplace(tree, /(?:#)([a-z1-9]\d*)/gi, replaceHashtag)
 
     visit(tree, "link", (node) => {
       const link = parse(node)
