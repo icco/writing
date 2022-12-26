@@ -1,13 +1,14 @@
 import Datetime from "components/Datetime"
 import PostCard from "components/PostCard"
 import PostNav from "components/PostNav"
+import Error from "next/error"
 import Head from "next/head"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote"
 
 export default function Post({ post, html }) {
   if (!post) {
-    throw new Error("Post not found")
+    return <Error statusCode={404} />
   }
 
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
