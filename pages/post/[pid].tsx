@@ -5,10 +5,15 @@ import Header from "components/Header"
 import Post from "components/Post"
 import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
+import Error from "next/error"
 import { serialize } from "next-mdx-remote/serialize"
 import remarkGfm from "remark-gfm"
 
-const Page = ({ post, html }): JSX.Element => {
+const Page = ({ post, html, error }): JSX.Element => {
+  if (error) {
+    return <Error statusCode={error} />
+  }
+
   return (
     <App>
       <Header noLogo />
@@ -53,8 +58,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const post = result.data.post
   if (!post) {
-    console.log(result)
-    throw new Error("Page not found")
+    return { props: { error: 404 } }
   }
 
   const { content } = post
