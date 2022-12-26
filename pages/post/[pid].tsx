@@ -7,6 +7,7 @@ import { client } from "lib/simple"
 import { GetStaticPaths, GetStaticProps } from "next"
 import Error from "next/error"
 import { serialize } from "next-mdx-remote/serialize"
+import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
 const Page = ({ post, html, error }): JSX.Element => {
@@ -65,6 +66,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const html = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeSlug],
       // https://github.com/hashicorp/next-mdx-remote/issues/307#issuecomment-1363415249
       development: false,
     },
