@@ -97,9 +97,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   })
 
   return {
-    paths: result.data.posts.map(function (d: { id: string }) {
-      return { params: { pid: d.id } }
-    }),
+    paths: result.data.posts.map((d: { id: string }) => ({
+      params: { pid: d.id },
+    })),
     fallback: "blocking",
   }
 }
