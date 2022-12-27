@@ -10,6 +10,7 @@ import App from "components/App"
 import Footer from "components/Footer"
 import Header from "components/Header"
 import { Post, PostType } from "components/Post"
+import remarkHashtags from "lib/hashtags"
 import { client } from "lib/simple"
 
 const Page = ({
@@ -76,7 +77,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { content } = post
   const html = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkGfm],
+      remarkPlugins: [remarkGfm, remarkHashtags],
       rehypePlugins: [rehypeSlug],
       // https://github.com/hashicorp/next-mdx-remote/issues/307#issuecomment-1363415249
       development: false,
