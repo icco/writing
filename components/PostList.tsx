@@ -1,5 +1,6 @@
-import Datetime from "components/Datetime"
 import Link from "next/link"
+
+import Datetime from "components/Datetime"
 
 import { PostType } from "./Post"
 

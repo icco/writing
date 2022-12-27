@@ -1,10 +1,11 @@
-import Datetime from "components/Datetime"
-import PostCard from "components/PostCard"
-import PostNav from "components/PostNav"
 import Error from "next/error"
 import Head from "next/head"
 import Link from "next/link"
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
+
+import Datetime from "components/Datetime"
+import PostCard from "components/PostCard"
+import PostNav from "components/PostNav"
 
 export type PostType = {
   id: string

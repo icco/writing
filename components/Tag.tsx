@@ -1,6 +1,7 @@
-import Datetime from "components/Datetime"
 import Head from "next/head"
 import Link from "next/link"
+
+import Datetime from "components/Datetime"
 
 export default function Tag({ id, posts }) {
   return (
