@@ -26,9 +26,7 @@ export async function getStaticProps(context: { params: { id: string } }) {
           title
           datetime
           uri
-          tags {
-            id
-          }
+          tags
         }
       }
     `,
