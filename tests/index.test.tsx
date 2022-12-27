@@ -15,8 +15,8 @@ describe("Home", () => {
     }
     render(<PostList posts={[post]} />)
 
-    const heading = screen.getByRole("heading", {
-      name: /Test/,
+    const heading = screen.getByRole("link", {
+      name: post.title,
     })
 
     expect(heading).toBeInTheDocument()
