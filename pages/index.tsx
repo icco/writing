@@ -5,7 +5,6 @@ import Header from "components/Header"
 import { PostType } from "components/Post"
 import PostList from "components/PostList"
 import { client } from "lib/simple"
-import { DateTime } from "luxon"
 import Head from "next/head"
 
 const Index = ({
