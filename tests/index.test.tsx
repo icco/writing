@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { DateTime } from "luxon"
+
 import Index from "pages/index"
 
 describe("Home", () => {

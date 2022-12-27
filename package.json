@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.4",
-    "@icco/react-common": ">= 2022.11.16-2",
+    "@icco/react-common": ">= 2022.12.27-1",
     "feed": "^4.0.0",
     "graphql": "^16.0.0",
     "jwt-decode": "^3.0.0",
