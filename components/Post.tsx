@@ -66,6 +66,13 @@ export function Post({
         <div className="f6 db pb1 gray">
           <span className="mr3">#{post.id}</span>
           <Datetime>{post.datetime}</Datetime>
+          <span className="dbi ml3">
+            {post.tags.map((tag, i) => (
+              <Link key={i} href={`/tag/${tag}`} className="mh1 link gray dim">
+                #{tag}
+              </Link>
+            ))}
+          </span>
           <span className="ml3 red strong">{post.draft ? "draft" : ""}</span>
         </div>
         <Link
