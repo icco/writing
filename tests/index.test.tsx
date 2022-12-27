@@ -3,7 +3,7 @@ import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { DateTime } from "luxon"
 
-import Index from "pages/index"
+import PostList from "components/PostList"
 
 describe("Home", () => {
   it("renders", () => {
@@ -13,10 +13,10 @@ describe("Home", () => {
       tags: ["test"],
       datetime: DateTime.local().toISO(),
     }
-    render(<Index posts={[post]} />)
+    render(<PostList posts={[post]} />)
 
     const heading = screen.getByRole("heading", {
-      name: /welcome to next\.js!/i,
+      name: /Test/,
     })
 
     expect(heading).toBeInTheDocument()

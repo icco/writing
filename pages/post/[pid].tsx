@@ -19,7 +19,7 @@ const Page = ({
 }: {
   post: Partial<PostType>
   html: MDXRemoteSerializeResult
-  error: number
+  error?: number
 }): JSX.Element => {
   if (error) {
     return <Error statusCode={error} />
