@@ -1,12 +1,18 @@
 import { gql } from "@apollo/client"
+import Head from "next/head"
+
 import App from "components/App"
 import Footer from "components/Footer"
 import Header from "components/Header"
+import { PostType } from "components/Post"
 import PostList from "components/PostList"
 import { client } from "lib/simple"
-import Head from "next/head"
 
-const Index = ({ posts }) => {
+const Index = ({
+  posts,
+}: {
+  posts: Pick<PostType, "id" | "datetime" | "tags" | "title">[]
+}) => {
   return (
     <App>
       <Head>
@@ -41,7 +47,8 @@ export async function getStaticProps() {
     },
   })
 
-  return { props: { posts: result.data.posts } }
+  const posts = result.data.posts
+  return { props: { posts } }
 }
 
 export default Index

@@ -1,2 +1,9 @@
+# *
 User-agent: *
-Disallow: /admin
+Allow: /
+
+# Host
+Host: https://writing.natwelch.com
+
+# Sitemaps
+Sitemap: https://writing.natwelch.com/sitemap.xml

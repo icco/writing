@@ -1,7 +1,14 @@
-import Datetime from "components/Datetime"
 import Link from "next/link"
 
-export default function PostList({ posts }) {
+import Datetime from "components/Datetime"
+
+import { PostType } from "./Post"
+
+export default function PostList({
+  posts,
+}: {
+  posts: Pick<PostType, "id" | "datetime" | "tags" | "title">[]
+}): JSX.Element {
   return (
     <section className="mw8 center">
       <ul className="list pl0" key="ul">
