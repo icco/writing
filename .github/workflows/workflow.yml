@@ -1,9 +1,10 @@
 name: bump-sitemap
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  schedule:
+    # UTC
+    - cron: '0 * * * *'
 
 jobs:
   bump-sitemap:
