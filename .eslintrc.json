@@ -1,3 +1,41 @@
 {
+  "plugins": [
+    "import",
+    "simple-import-sort"
+  ],
+  "settings": {
+    "next": {}
+  },
+  "rules": {
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          [
+            "^\\u0000"
+          ],
+          [
+            "^node:"
+          ],
+          [
+            "^@?\\w"
+          ],
+          [
+            "^"
+          ],
+          [
+            "^(components|pages|lib)"
+          ],
+          [
+            "^\\."
+          ]
+        ]
+      }
+    ]
+  },
   "extends": "next/core-web-vitals"
 }
