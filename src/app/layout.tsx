@@ -1,8 +1,8 @@
-import './globals.css'
+import "./globals.css"
 
 export const metadata = {
-  title: 'Nat? Nat. Nat!',
-  description: 'Nat Welch\'s personal blog',
+  title: "Nat? Nat. Nat!",
+  description: "Nat Welch's personal blog",
 }
 
 export default function RootLayout({
