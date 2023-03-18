@@ -1,4 +1,7 @@
 // @ts-check
+
+
+// https://nextjs.org/docs/advanced-features/security-headers
 const securityHeaders = [
   {
     key: 'X-DNS-Prefetch-Control',
