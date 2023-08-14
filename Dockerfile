@@ -10,6 +10,6 @@ RUN apk add --no-cache git
 
 COPY . .
 
-RUN yarn install --non-interactive --frozen-lockfile
-RUN yarn run build
-CMD ["yarn", "run", "start"]
+RUN npm ci
+RUN npm run build
+CMD ["npm", "run", "start"]
