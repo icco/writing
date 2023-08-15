@@ -1,9 +1,14 @@
 import remarkGfm from 'remark-gfm'
 import createMDX from '@next/mdx'
- 
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
- 
+const nextConfig = {
+  poweredByHeader: false,
+  experimental: {
+    mdxRs: true,
+  },
+}
+
 const withMDX = createMDX({
   options: {
     extension: /\.mdx?$/,
