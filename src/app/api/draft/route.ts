@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers"
 import { redirect } from "next/navigation"
 
-import { getPostBySlug } from "@/app/util"
+import { getPostBySlug } from "@/lib/util"
 
 export async function GET(request: Request) {
   // Parse query string parameters

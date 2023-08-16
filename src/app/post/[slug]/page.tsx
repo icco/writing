@@ -3,7 +3,7 @@ import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 import { getMDXComponent } from "next-contentlayer/hooks"
 
-import { getPostBySlug } from "@/app/util"
+import { getPostBySlug } from "@/lib/util"
 
 import { allPosts } from "contentlayer/generated"
 
