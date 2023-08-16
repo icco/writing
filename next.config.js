@@ -1,15 +1,11 @@
-import { createSecureHeaders } from "next-secure-headers";
-import { withContentlayer } from 'next-contentlayer'
+const { createSecureHeaders } = require("next-secure-headers");
+const { withContentlayer } = require("next-contentlayer");
 
 const port = process.env.PORT || 8080;
 const domain = process.env.DOMAIN || `http://localhost:${port}`;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config) {
-    config.infrastructureLogging = { debug: /PackFileCache/ }
-    return config;
-  },
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: false,
@@ -98,4 +94,4 @@ const nextConfig = {
   },
 };
 
-export default withContentlayer(nextConfig)
+module.exports = withContentlayer(nextConfig);
