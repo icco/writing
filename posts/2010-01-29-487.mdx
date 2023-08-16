@@ -24,7 +24,7 @@ source, located at [my GitHub](http://github.com/icco/re-delicious).
 ## The Script
 
 I'm not going to tell you how to write bash scripts here, there are many TLDPs
-on that subject \(see the reference section\). But I will do a quick walk\-through.
+on that subject \(see the reference section\). But I will do a quick walk-through.
 
 The first few lines figure out the parameters we will be passing to the
 delicious\.com API, mainly the dates we want, and the specific format those
@@ -37,7 +37,7 @@ Then we make sure you've passed in the proper parameters. If you haven't we
 display an error, else we put all of the URL parts together.
 
 Finally we print out some info, and use curl to pull the data from the URL we
-constructed\. Note the \-s on curl. This is important so we don't get garbage
+constructed\. Note the -s on curl. This is important so we don't get garbage
 filling our script about how long it took to pull down the script.
 
 At the very end we take what we curl'd and pass it through an XSLT processor to

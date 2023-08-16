@@ -17,9 +17,9 @@ I haven't had any sort of automated deployment for my personal projects since I 
 Which, was incredibly painful, because of a few reasons: 
 
 1. It required me to do things manually after things were merged into master.
-1. I couldn't deploy things from my phone easily \(I do small changes from my phone semi\-frequently\).
+1. I couldn't deploy things from my phone easily \(I do small changes from my phone semi-frequently\).
 1. Automatic updates to my git repos \(I have some cron jobs that commit code every day for me\) wouldn't deploy to GKE.
-1. I have ~30 sites and applications running on GKE, and I would semi\-frequently post the commit SHA into the wrong app, which would mean the deploy would never happen.
+1. I have ~30 sites and applications running on GKE, and I would semi-frequently post the commit SHA into the wrong app, which would mean the deploy would never happen.
 
 
 So\! I sat down and played with a few ideas, before I came up with a simple but efficient design. Before I walk through my solution, I want you to understand my production environment.
@@ -38,7 +38,7 @@ This drawing ignores a few things, mainly because I have a longer post on the ov
 After exploring the GKE and Kubernetes docs, I discovered that you can grant deployments special privileges to the Kubernetes Master API, which means that you can have one container modify your entire cluster if you want. So given the above design and this new found information, I developed a new hook in my Cron code to query GitHub, get the most recent commit on master, and then update GKE.
 
 ![](https://storage.googleapis.com/icco-cloud/photos/2019/5da1666b-c8d4-4349-acbd-ce69b65311d8.png)
-You can read the Go code that does the actual update at [https://github.com/icco/cron/blob/8cba5454db6732756ba31df10ea8e284867d9252/updater/main.go#L140\-L170](https://github.com/icco/cron/blob/8cba5454db6732756ba31df10ea8e284867d9252/updater/main.go#L140-L170), but the interesting thing here is giving permission to the Cron deployment to talk to the k8s master API. To do this, you'll need to create a Roll \(i.e. a permission set\), a service account \(this is something you can assign to a pod or a deployment\), and a roll binding to connect them.
+You can read the Go code that does the actual update at [https://github.com/icco/cron/blob/8cba5454db6732756ba31df10ea8e284867d9252/updater/main.go#L140-L170](https://github.com/icco/cron/blob/8cba5454db6732756ba31df10ea8e284867d9252/updater/main.go#L140-L170), but the interesting thing here is giving permission to the Cron deployment to talk to the k8s master API. To do this, you'll need to create a Roll \(i.e. a permission set\), a service account \(this is something you can assign to a pod or a deployment\), and a roll binding to connect them.
 
 First, let's define the role. 
 ```python
