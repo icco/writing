@@ -1,5 +1,6 @@
-import { Post, allPosts } from "contentlayer/generated";
-import { notFound } from "next/navigation";
+import { notFound } from "next/navigation"
+
+import { allPosts, Post } from "contentlayer/generated"
 
 export function getPostBySlug(slug: string): Post {
   const slugNumber = parseInt(slug)

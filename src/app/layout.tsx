@@ -1,12 +1,13 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import "./globals.css"
 
-const inter = Inter({ subsets: ['latin'] })
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'Nat? Nat. Nat!',
-  description: 'The personal blog of Nat Welch',
+  title: "Nat? Nat. Nat!",
+  description: "The personal blog of Nat Welch",
 }
 
 export default function RootLayout({
