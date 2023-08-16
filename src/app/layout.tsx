@@ -1,5 +1,6 @@
 import "./globals.css"
 
+import { Logo } from "@icco/react-common"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 
@@ -17,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header>
+          <Logo />
+        </header>
+        <main>{children}</main>
+        <footer></footer>
+      </body>
     </html>
   )
 }
