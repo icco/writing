@@ -6,10 +6,14 @@ const domain = process.env.DOMAIN || `http://localhost:${port}`;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack(config) {
+    config.infrastructureLogging = { debug: /PackFileCache/ }
+    return config;
+  },
   poweredByHeader: false,
-  productionBrowserSourceMaps: true,
   reactStrictMode: true,
   trailingSlash: false,
+  productionBrowserSourceMaps: true,
   swcMinify: true,
   env: {
     DOMAIN: domain,
