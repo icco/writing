@@ -2,7 +2,8 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/*.md`,
+  filePathPattern: `**/*.md(x)?`,
+  contentType: 'mdx',
   fields: {
     datetime: { type: 'date', required: true },
     draft: { type: 'boolean', required: false, default: false },

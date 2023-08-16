@@ -3,10 +3,11 @@ import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
 import { getPostBySlug } from '@/app/util'
+import { getMDXComponent } from 'next-contentlayer/hooks'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: string }}) => {
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = getPostBySlug(params.slug)
 
   return { title: post.title, id: post.id }
@@ -17,8 +18,10 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
   const { isEnabled } = draftMode()
   if (!isEnabled && post.draft) {
-      notFound()
+    notFound()
   }
+
+  const Content = getMDXComponent(post.body.code)
 
   return (
     <article className="py-8 mx-auto max-w-xl">
@@ -28,7 +31,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         </time>
         <h1>{post.title}</h1>
       </div>
-            <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />
+      <Content />
     </article>
   )
 }
