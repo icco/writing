@@ -1,6 +1,7 @@
 import { format, parseISO } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
+import { draftMode } from 'next/headers'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -18,6 +19,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const slug = parseInt(params.slug)
   const post: Post | undefined = allPosts.find((post) => post.id === slug)
   if (!post) {
+      notFound()
+  }
+
+  const { isEnabled } = draftMode()
+  if (!isEnabled && post.draft) {
       notFound()
   }
 
