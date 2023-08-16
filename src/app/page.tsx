@@ -10,8 +10,8 @@ function PostCard(post: Post) {
           {post.title}
         </Link>
       </h2>
-      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(post.date), 'LLLL d, yyyy')}
+      <time dateTime={post.datetime} className="mb-2 block text-xs text-gray-600">
+        {format(parseISO(post.datetime), 'LLLL d, yyyy')}
       </time>
       <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />
     </div>
@@ -19,7 +19,7 @@ function PostCard(post: Post) {
 }
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  const posts = allPosts.sort((b, a) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
 
   return (
     <div className="mx-auto max-w-xl py-8">
