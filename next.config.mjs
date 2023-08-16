@@ -1,24 +1,18 @@
-import remarkGfm from 'remark-gfm'
-import createMDX from '@next/mdx'
 import { createSecureHeaders } from "next-secure-headers";
+import { withContentlayer } from 'next-contentlayer'
 
 const port = process.env.PORT || 8080;
 const domain = process.env.DOMAIN || `http://localhost:${port}`;
-const graphql =
-  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
-  experimental: {
-    mdxRs: true,
-  },
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
   trailingSlash: false,
+  swcMinify: true,
   env: {
     DOMAIN: domain,
-    GRAPHQL_ORIGIN: graphql,
     PORT: port,
   },
   async redirects() {
@@ -100,13 +94,4 @@ const nextConfig = {
   },
 };
 
-const withMDX = createMDX({
-  options: {
-    extension: /\.mdx?$/,
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
-  },
-})
-export default withMDX(nextConfig)
+export default withContentlayer(nextConfig)
