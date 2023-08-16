@@ -1,26 +1,19 @@
 import { format, parseISO } from 'date-fns'
-import { Post, allPosts } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
+import { getPostBySlug } from '@/app/util'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string }}) => {
-  const slug = parseInt(params.slug)
-  const post: Post | undefined = allPosts.find((post) => post.id === slug)
-  if (!post) {
-      notFound()
-  }
+  const post = getPostBySlug(params.slug)
 
   return { title: post.title, id: post.id }
 }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const slug = parseInt(params.slug)
-  const post: Post | undefined = allPosts.find((post) => post.id === slug)
-  if (!post) {
-      notFound()
-  }
+  const post = getPostBySlug(params.slug)
 
   const { isEnabled } = draftMode()
   if (!isEnabled && post.draft) {
