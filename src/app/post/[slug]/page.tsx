@@ -4,8 +4,9 @@ import { notFound } from 'next/navigation'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: number }}) => {
-  const post: Post | undefined = allPosts.find((post) => post.id === params.slug)
+export const generateMetadata = ({ params }: { params: { slug: string }}) => {
+  const slug = parseInt(params.slug)
+  const post: Post | undefined = allPosts.find((post) => post.id === slug)
   if (!post) {
       notFound()
   }
@@ -13,8 +14,9 @@ export const generateMetadata = ({ params }: { params: { slug: number }}) => {
   return { title: post.title, id: post.id }
 }
 
-const PostLayout = ({ params }: { params: { slug: number } }) => {
-  const post: Post | undefined = allPosts.find((post) => post.id === params.slug)
+const PostLayout = ({ params }: { params: { slug: string } }) => {
+  const slug = parseInt(params.slug)
+  const post: Post | undefined = allPosts.find((post) => post.id === slug)
   if (!post) {
       notFound()
   }
