@@ -13,6 +13,7 @@ function PostCard(post: Post) {
       <time dateTime={post.datetime} className="mb-2 block text-xs text-gray-600">
         {format(parseISO(post.datetime), 'LLLL d, yyyy')}
       </time>
+      <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.excerpt.html }} />
     </div>
   )
 }
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-xl py-8">
-      <h1 className="mb-8 text-center text-2xl font-black">Next.js + Contentlayer Example</h1>
+      <h1 className="mb-8 text-center text-2xl font-black">Nat? Nat. Nat!</h1>
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}

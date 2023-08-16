@@ -10,6 +10,7 @@ export const Post = defineDocumentType(() => ({
     id: { type: 'number', required: true },
     permalink: { type: 'string', required: true },
     title: { type: 'string', required: true },
+    excerpt: { type: 'markdown', required: false, default: "" },
   },
   computedFields: {
     url: { type: 'string', resolve: (post) => post.permalink },
