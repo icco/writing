@@ -1,4 +1,4 @@
-import remarkHashtags from './src/lib/hashtags'
+import { remarkHashtags } from './src/lib/hashtags'
 import { GenerateSocialImage } from './src/lib/socialimage'
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import { format, parseISO } from 'date-fns'
@@ -41,7 +41,7 @@ export default makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkHashtags],
+    remarkPlugins: [remarkHashtags,],
     rehypePlugins: [],
   },
 })
