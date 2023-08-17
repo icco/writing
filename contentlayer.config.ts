@@ -3,6 +3,7 @@ import { GenerateSocialImage } from './src/lib/socialimage'
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import { format, parseISO } from 'date-fns'
 import readingTime from 'reading-time'
+import remarkGfm from 'remark-gfm'
 
 const hashtagRegex = /(?:\s)#(?<tag>\w+)/g
 
@@ -41,7 +42,7 @@ export default makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkHashtags,],
+    remarkPlugins: [remarkHashtags, remarkGfm],
     rehypePlugins: [],
   },
 })
