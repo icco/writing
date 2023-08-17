@@ -1,7 +1,10 @@
+// @ts-check
+
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { createSecureHeaders } = require("next-secure-headers")
 const { withContentlayer } = require("next-contentlayer")
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || "8080"
 const domain = process.env.DOMAIN || `http://localhost:${port}`
 
 /** @type {import('next').NextConfig} */
