@@ -1,7 +1,7 @@
 import "./globals.css"
 
 import type { Metadata } from "next"
-import { Roboto, Roboto_Slab } from "next/font/google"
+import { Roboto } from "next/font/google"
 import Link from "next/link"
 
 import Logo from "@/components/Logo"

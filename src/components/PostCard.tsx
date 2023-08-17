@@ -22,7 +22,11 @@ export function PostCard(post: Post) {
       </time>
       <div className="mb-2 text-sm text-gray-600 dark:text-gray-400">
         {post.tags.map((tag: string) => {
-          return <Link href={`/tag/${tag}`} key={tag}>{tag}</Link>
+          return (
+            <Link href={`/tag/${tag}`} key={tag}>
+              {tag}
+            </Link>
+          )
         })}
       </div>
       <div

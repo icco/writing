@@ -8,28 +8,29 @@ function buildSVG(size: number): React.JSX.Element {
   const viewBox = [0, 0, size, size].join(" ")
   const paths: React.JSX.Element[] = []
 
-  const k = size / 4
-    ;[
-      [k * 1, k * 1],
-      [k * 3, k * 1],
-      [k * 1, k * 3],
-      [k * 3, k * 3],
-    ].forEach(function (arr, i) {
-      const r = k / 2.0 + size / 20.0
-      const cx = arr[0]
-      const cy = arr[1]
+  const k = size / 4;
 
-      const pathArray = [
-        ["M", cx - r, cy],
-        ["A", r, r, 0, 0, 0, cx + r, cy],
-        ["A", r, r, 0, 0, 0, cx - r, cy],
-        ["z"],
-      ]
+  [
+    [k * 1, k * 1],
+    [k * 3, k * 1],
+    [k * 1, k * 3],
+    [k * 3, k * 3],
+  ].forEach(function (arr, i) {
+    const r = k / 2.0 + size / 20.0
+    const cx = arr[0]
+    const cy = arr[1]
 
-      const path = pathArrayToString(pathArray)
+    const pathArray = [
+      ["M", cx - r, cy],
+      ["A", r, r, 0, 0, 0, cx + r, cy],
+      ["A", r, r, 0, 0, 0, cx - r, cy],
+      ["z"],
+    ]
 
-      paths[i] = <path strokeWidth={0.04 * size} fill="none" d={path} key={i} />
-    })
+    const path = pathArrayToString(pathArray)
+
+    paths[i] = <path strokeWidth={0.04 * size} fill="none" d={path} key={i} />
+  })
 
   return (
     <svg
@@ -45,7 +46,9 @@ function buildSVG(size: number): React.JSX.Element {
 }
 
 function pathArrayToString(a: (string | number)[][]): string {
-  for (let i = 0, il = a.length, s = ""; i < il; i++) {
+  const il = a.length
+  let s = ""
+  for (let i = 0; i < il; i++) {
     s += a[i][0]
 
     if (a[i][1] != null) {
