@@ -9,13 +9,14 @@ function buildSVG(size: number): React.JSX.Element {
   const paths: React.JSX.Element[] = []
 
   const k = size / 4
-
-  ;[
+  const base = [
     [k * 1, k * 1],
     [k * 3, k * 1],
     [k * 1, k * 3],
     [k * 3, k * 3],
-  ].forEach(function (arr, i) {
+  ]
+
+  base.forEach(function (arr, i) {
     const r = k / 2.0 + size / 20.0
     const cx = arr[0]
     const cy = arr[1]

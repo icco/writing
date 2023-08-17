@@ -35,7 +35,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     },
     canonical: post.url,
     viewport: {
-      width: 'device-width',
+      width: "device-width",
       initialScale: 1,
       maximumScale: 1,
     },
