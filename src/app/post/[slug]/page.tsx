@@ -2,8 +2,8 @@ import { format, parseISO } from "date-fns"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
-import { getPostBySlug } from "@/lib/util"
 import { MDXContent } from "@/components/MDXContent"
+import { getPostBySlug } from "@/lib/util"
 
 import { allPosts } from "contentlayer/generated"
 

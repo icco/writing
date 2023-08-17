@@ -20,7 +20,11 @@ export function PostCard(post: Post) {
       >
         {format(parseISO(post.datetime), "LLLL d, yyyy")}
       </time>
-      <div className="mb-2 text-sm text-gray-600 dark:text-gray-400">{post.tags.map((tag: string) => <Link href={`/tag/${tag}`}>{tag}</Link>)}</div>
+      <div className="mb-2 text-sm text-gray-600 dark:text-gray-400">
+        {post.tags.map((tag: string) => {
+          return <Link href={`/tag/${tag}`} key={tag}>{tag}</Link>
+        })}
+      </div>
       <div
         className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0"
         dangerouslySetInnerHTML={{ __html: post.excerpt.html }}

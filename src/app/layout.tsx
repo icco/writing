@@ -1,13 +1,14 @@
-import Logo from "@/components/Logo"
 import "./globals.css"
 
 import type { Metadata } from "next"
 import { Roboto, Roboto_Slab } from "next/font/google"
 import Link from "next/link"
 
+import Logo from "@/components/Logo"
+
 const font = Roboto({
   weight: "400",
-  subsets: ['latin']
+  subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
@@ -35,12 +36,7 @@ export default function RootLayout({
           </div>
           <div className="flex-grow"></div>
           <div className="flex-none">
-            <Link
-              key="/about"
-              href="/about"
-              prefetch={false}
-              className="m-8"
-            >
+            <Link key="/about" href="/about" prefetch={false} className="m-8">
               About
             </Link>
           </div>
