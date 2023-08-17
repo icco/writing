@@ -28,10 +28,10 @@ export const Post = defineDocumentType(() => ({
       },
     },
     social_image: { type: 'string', resolve: (post) => GenerateSocialImage(post.title, format(parseISO(post.datetime), "LLLL d, yyyy")) },
-    readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+    readingTime: { type: 'number', resolve: (post) => readingTime(post.body.raw).minutes },
     wordCount: {
       type: 'number',
-      resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
+      resolve: (post) => readingTime(post.body.raw).words,
     },
   },
 }))
