@@ -4,6 +4,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import { format, parseISO } from 'date-fns'
 import readingTime from 'reading-time'
 import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
 
 const hashtagRegex = /(?:\s)#(?<tag>\w+)/g
 
@@ -43,6 +44,6 @@ export default makeSource({
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkHashtags, remarkGfm],
-    rehypePlugins: [],
+    rehypePlugins: [rehypeSlug],
   },
 })
