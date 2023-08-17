@@ -10,6 +10,7 @@ const nextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: true,
   swcMinify: true,
+  reactStrictMode: true,
   env: {
     DOMAIN: domain,
     PORT: port,
