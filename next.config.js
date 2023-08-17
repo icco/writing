@@ -95,6 +95,9 @@ const nextConfig = {
       },
     ];
   },
+  experimental: {
+    mdxRs: true,
+  },
 };
 
 module.exports = withContentlayer(nextConfig);
