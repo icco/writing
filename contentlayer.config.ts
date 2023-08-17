@@ -1,5 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
+const hashtagRegex = /(?:\s)#(?<tag>\w+)/g
+
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `**/*.md(x)?`,
@@ -14,6 +16,14 @@ export const Post = defineDocumentType(() => ({
   },
   computedFields: {
     url: { type: 'string', resolve: (post) => post.permalink },
+    tags: {
+      type: 'list', resolve: (post) => {
+        const match = post.body.raw.match(hashtagRegex)
+        if (!match) return []
+        const tags = new Set<string>(match.map((m) => m.replace(hashtagRegex, '$<tag>')))
+        return Array.from(tags)
+      },
+    },
   },
 }))
 
