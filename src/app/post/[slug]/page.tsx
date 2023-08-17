@@ -1,9 +1,9 @@
 import { format, parseISO } from "date-fns"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
-import { getMDXComponent } from "next-contentlayer/hooks"
 
 import { getPostBySlug } from "@/lib/util"
+import { MDXContent } from "@/components/MDXContent"
 
 import { allPosts } from "contentlayer/generated"
 
@@ -24,8 +24,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     notFound()
   }
 
-  const Content = getMDXComponent(post.body.code)
-
   return (
     <article className="py-8 mx-auto max-w-xl">
       <div className="mb-8 text-center">
@@ -34,7 +32,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         </time>
         <h1>{post.title}</h1>
       </div>
-      <Content />
+      <MDXContent code={post.body.code} />
     </article>
   )
 }
