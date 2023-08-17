@@ -1,8 +1,8 @@
-const { createSecureHeaders } = require("next-secure-headers");
-const { withContentlayer } = require("next-contentlayer");
+const { createSecureHeaders } = require("next-secure-headers")
+const { withContentlayer } = require("next-contentlayer")
 
-const port = process.env.PORT || 8080;
-const domain = process.env.DOMAIN || `http://localhost:${port}`;
+const port = process.env.PORT || 8080
+const domain = process.env.DOMAIN || `http://localhost:${port}`
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,6 +15,9 @@ const nextConfig = {
     DOMAIN: domain,
     PORT: port,
   },
+  eslint: {
+    dirs: ["src", "."],
+  },
   async redirects() {
     return [
       {
@@ -22,7 +25,7 @@ const nextConfig = {
         destination: "https://natwelch.com/",
         permanent: true,
       },
-    ];
+    ]
   },
   async headers() {
     return [
@@ -53,12 +56,13 @@ const nextConfig = {
               // default-src 'none'
               defaultSrc: ["'none'"],
               // connect-src https://graphql.natwelch.com/graphql
-              connectSrc: ["https://*.natwelch.com", domain, domain.replace(/^https?/, "ws"),],
-              // font-src 'self' https://fonts.gstatic.com
-              fontSrc: [
-                "'self'",
-                "https://fonts.gstatic.com"
+              connectSrc: [
+                "https://*.natwelch.com",
+                domain,
+                domain.replace(/^https?/, "ws"),
               ],
+              // font-src 'self' https://fonts.gstatic.com
+              fontSrc: ["'self'", "https://fonts.gstatic.com"],
               // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
               imgSrc: [
                 "'self'",
@@ -93,11 +97,11 @@ const nextConfig = {
           expectCT: true,
         }),
       },
-    ];
+    ]
   },
   experimental: {
     mdxRs: true,
   },
-};
+}
 
-module.exports = withContentlayer(nextConfig);
+module.exports = withContentlayer(nextConfig)
