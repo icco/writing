@@ -1,6 +1,7 @@
 import { GenerateSocialImage } from './src/lib/socialimage'
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import { format, parseISO } from 'date-fns'
+import readingTime from 'reading-time'
 
 const hashtagRegex = /(?:\s)#(?<tag>\w+)/g
 
@@ -27,6 +28,11 @@ export const Post = defineDocumentType(() => ({
       },
     },
     social_image: { type: 'string', resolve: (post) => GenerateSocialImage(post.title, format(parseISO(post.datetime), "LLLL d, yyyy")) },
+    readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+    wordCount: {
+      type: 'number',
+      resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
+    },
   },
 }))
 
