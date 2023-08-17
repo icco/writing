@@ -1,5 +1,4 @@
 import { findAndReplace } from "mdast-util-find-and-replace"
-import { Node, PhrasingContent } from "mdast-util-find-and-replace/lib"
 
 /**
  * Plugin to autolink references for hashtags.
