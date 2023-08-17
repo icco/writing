@@ -16,12 +16,13 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
 
   return {
+    metadataBase: new URL(process.env.DOMAIN ?? ""),
     title,
     id: post.id,
     openGraph: {
       title,
-      url: process.env.DOMAIN + post.url,
-      siteName: 'Nat? Nat. Nat!',
+      url: post.url,
+      siteName: "Nat? Nat. Nat!",
       images: [
         {
           url: post.social_image,
@@ -29,10 +30,15 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
           height: 600,
         },
       ],
-      locale: 'en_US',
-      type: 'article',
+      locale: "en_US",
+      type: "article",
     },
-    canonical: process.env.DOMAIN + post.url,
+    canonical: post.url,
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+      maximumScale: 1,
+    },
   }
 }
 

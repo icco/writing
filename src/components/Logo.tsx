@@ -8,9 +8,9 @@ function buildSVG(size: number): React.JSX.Element {
   const viewBox = [0, 0, size, size].join(" ")
   const paths: React.JSX.Element[] = []
 
-  const k = size / 4;
+  const k = size / 4
 
-  [
+  ;[
     [k * 1, k * 1],
     [k * 3, k * 1],
     [k * 1, k * 3],

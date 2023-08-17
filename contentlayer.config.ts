@@ -1,4 +1,4 @@
-import { GenerateSocialImage } from '@/lib/socialimage'
+import { GenerateSocialImage } from './src/lib/socialimage'
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import { format, parseISO } from 'date-fns'
 

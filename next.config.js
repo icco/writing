@@ -53,8 +53,11 @@ const nextConfig = {
               defaultSrc: ["'none'"],
               // connect-src https://graphql.natwelch.com/graphql
               connectSrc: ["https://*.natwelch.com", domain, domain.replace(/^https?/, "ws"),],
-              // font-src https://fonts.gstatic.com
-              fontSrc: ["https://fonts.gstatic.com"],
+              // font-src 'self' https://fonts.gstatic.com
+              fontSrc: [
+                "'self'",
+                "https://fonts.gstatic.com"
+              ],
               // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
               imgSrc: [
                 "'self'",
