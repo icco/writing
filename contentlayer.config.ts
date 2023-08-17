@@ -1,4 +1,6 @@
+import { GenerateSocialImage } from '@/lib/socialimage'
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { format, parseISO } from 'date-fns'
 
 const hashtagRegex = /(?:\s)#(?<tag>\w+)/g
 
@@ -24,6 +26,7 @@ export const Post = defineDocumentType(() => ({
         return Array.from(tags)
       },
     },
+    social_image: { type: 'string', resolve: (post) => GenerateSocialImage(post.title, format(parseISO(post.datetime), "LLLL d, yyyy")) },
   },
 }))
 

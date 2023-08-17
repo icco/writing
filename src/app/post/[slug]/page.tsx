@@ -13,7 +13,27 @@ export const generateStaticParams = async () =>
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = getPostBySlug(params.slug)
 
-  return { title: post.title, id: post.id }
+  const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
+
+  return {
+    title,
+    id: post.id,
+    openGraph: {
+      title,
+      url: process.env.DOMAIN + post.url,
+      siteName: 'Nat? Nat. Nat!',
+      images: [
+        {
+          url: post.social_image,
+          width: 800,
+          height: 600,
+        },
+      ],
+      locale: 'en_US',
+      type: 'article',
+    },
+    canonical: process.env.DOMAIN + post.url,
+  }
 }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
