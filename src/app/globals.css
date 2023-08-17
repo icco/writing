@@ -2,26 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body,
+p {
+  background-color: #eeeceb;
+  font-family: "Roboto", sans-serif;
+  color: #443e3c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+pre {
+  background-color: #f9f9f9;
+  padding: 1em;
+  overflow: scroll;
+}
+
+p code {
+  overflow-wrap: break-word;
+  background-color: #f9f9f9;
+  padding: 0.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+.header {
+  font-family: "Roboto Slab", serif;
+}
+
+article p {
+  line-height: 1.5;
+}
+
+article img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+article a {
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+  color: #265c83;
+}
+
+a.blue:link,
+a.blue:visited,
+article a:link,
+article a:visited {
+  color: #265c83;
+}
+
+a.blue:hover,
+article a:hover {
+  color: #7fdbff;
+}
+
+a.blue:active,
+article a:active {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  color: #007be6;
+}
+
+section .react-mde .grip {
+  height: 1em;
+}
+
+/* athelas ml0 mt0 pl4 black-90 bl bw2 b--blue */
+article blockquote {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-color: #d5d2d1;
+  border-width: 0.25rem;
+  padding-left: 2rem;
+  margin-left: 0;
+  margin-top: 0;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* f5 f4-m f3-l lh-copy measure mt0 */
+article blockquote p {
+  font-size: 1rem;
+  max-width: 30em;
+  line-height: 1.5;
+  max-width: 30em;
+  margin-top: 0;
+}
+
+/* f6 ttu tracked fs-normal */
+article blockquote cite {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-style: normal;
+}
+
+article li {
+  line-height: 1.2;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 30em) and (max-width: 60em) {
+  article blockquote p {
+    font-size: 1.15rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media screen and (min-width: 60em) {
+  article blockquote p {
+    font-size: 1.5rem;
+  }
 }

@@ -2,10 +2,13 @@ import Logo from "@/components/Logo"
 import "./globals.css"
 
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Roboto, Roboto_Slab } from "next/font/google"
 import Link from "next/link"
 
-const inter = Inter({ subsets: ["latin"] })
+const font = Roboto({
+  weight: "400",
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
   title: "Nat? Nat. Nat!",
@@ -19,25 +22,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <nav className="flex justify-between ttc">
-          <div className="flex items-center pa3">
-            <Link href="/" className="link dark-gray dim">
+      <body className={font.className}>
+        <nav className="flex py-8">
+          <div className="flex-none">
+            <Link href="/" className="">
               <Logo
                 size={50}
-                className="v-mid mh0-ns dib-ns center ph0 logo"
+                className="px-8 logo"
                 style={{ stroke: "#333" }}
               />
             </Link>
           </div>
-          <div className="flex-grow pa3 flex items-center">
+          <div className="flex-grow"></div>
+          <div className="flex-none">
             <Link
               key="/about"
               href="/about"
               prefetch={false}
-              className="f6 link dib dim mr3 black mr4-ns"
+              className="m-8"
             >
-              about
+              About
             </Link>
           </div>
         </nav>
