@@ -7,7 +7,7 @@ export function PostCard(post: Post) {
   return (
     <div className="mb-5">
       <div
-        className="inline-block	pr-2 text-xs text-muted"
+        className="inline-block pr-2 text-xs text-muted"
       >
         #{post.id}
       </div>
