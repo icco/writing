@@ -51,7 +51,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   }
 
   return (
-    <article className="py-8 mx-auto max-w-xl">
+    <article className="py-7 mx-auto max-w-5xl">
       <div className="mb-8 text-center">
         <time dateTime={post.datetime} className="mb-1 text-xs text-gray-600">
           {format(parseISO(post.datetime), "LLLL d, yyyy")}
