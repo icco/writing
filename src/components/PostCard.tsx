@@ -6,17 +6,9 @@ import { Post } from "contentlayer/generated"
 export function PostCard(post: Post) {
   return (
     <div className="mb-5">
-      <div
-        className="inline-block pr-2 text-xs text-muted"
-      >
-        #{post.id}
-      </div>
+      <div className="inline-block pr-2 text-xs text-muted">#{post.id}</div>
       <h1 className="mb-1 text-4xl hover:text-link">
-        <Link
-          href={post.url}
-        >
-          {post.title}
-        </Link>
+        <Link href={post.url}>{post.title}</Link>
       </h1>
       <time
         dateTime={post.datetime}
@@ -31,7 +23,8 @@ export function PostCard(post: Post) {
             <Link
               href={`/tag/${tag}`}
               className="inline-block	pr-1 mb-2 text-xs hover:text-link"
-              key={tag}>
+              key={tag}
+            >
               #{tag}
             </Link>
           )
