@@ -59,4 +59,4 @@ ENV PORT=8080
 ENV DOMAIN="https://writing.natwelch.com"
 ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
 
-CMD ["node", "server.js"]
+CMD ["node", "server.js", "-H", "0.0.0.0", "-p", "$PORT"]
