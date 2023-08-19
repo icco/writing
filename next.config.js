@@ -9,7 +9,7 @@ const domain = process.env.DOMAIN || `http://localhost:${port}`
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: "standalone",
   poweredByHeader: false,
   trailingSlash: false,
   productionBrowserSourceMaps: true,
