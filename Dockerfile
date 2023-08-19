@@ -56,7 +56,8 @@ USER nextjs
 
 EXPOSE 8080
 ENV PORT=8080
+ENV HOSTNAME=0.0.0.0
 ENV DOMAIN="https://writing.natwelch.com"
 ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
 
-CMD ["node", "server.js", "-H", "0.0.0.0", "-p", "$PORT"]
+CMD ["node", "server.js"]

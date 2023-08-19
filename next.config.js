@@ -5,7 +5,8 @@ const { createSecureHeaders } = require("next-secure-headers")
 const { withContentlayer } = require("next-contentlayer")
 
 const port = process.env.PORT || "8080"
-const domain = process.env.DOMAIN || `http://localhost:${port}`
+const hostname = process.env.HOSTNAME || `localhost`
+const domain = process.env.DOMAIN || `http://${hostname}:${port}`
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
