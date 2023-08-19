@@ -2,11 +2,11 @@ import generateFeed from "@/lib/feed"
 
 import { allPosts } from "contentlayer/generated"
 
-export async function Get() {
+export async function GET(request: Request) {
   const feed = await generateFeed(allPosts)
-  return new Response(feed.atom1(), {
+  return new Response(feed.rss2(), {
     headers: {
-      "Content-Type": "application/atom+xml",
+      "Content-Type": "application/rss+xml",
     },
   })
 }

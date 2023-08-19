@@ -41,10 +41,10 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     alternates: {
       canonical: post.url,
       types: {
-        'application/rss+xml': 'https://writing.natwelch.com/feed.rss',
-        'application/atom+xml': 'https://writing.natwelch.com/feed.atom',
+        "application/rss+xml": "https://writing.natwelch.com/feed.rss",
+        "application/atom+xml": "https://writing.natwelch.com/feed.atom",
       },
-    }
+    },
   }
 }
 
