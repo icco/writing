@@ -5,6 +5,17 @@ import { PostCard } from "@/components/PostCard"
 
 import { allPosts } from "contentlayer/generated"
 
+export const generateStaticParams = async () => {
+  const tags = new Set<string>()
+  for (const post of allPosts) {
+    for (const tag of post.tags) {
+      tags.add(tag)
+    }
+  }
+
+  return Array.from(tags).map((tag) => ({ slug: tag }))
+}
+
 const TagLayout = ({ params }: { params: { slug: string } }) => {
   const posts = allPosts
     .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))

@@ -29,8 +29,9 @@ export const Post = defineDocumentType(() => ({
         const match = post.body.raw.match(hashtagRegex)
         if (!match) return []
         const tags = new Set<string>(
-          match.map((m) => m.replace(hashtagRegex, "$<tag>"))
+          match.map((m) => m.replace(hashtagRegex, "$<tag>").toLowerCase())
         )
+
         return Array.from(tags)
       },
     },
