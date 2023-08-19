@@ -1,4 +1,5 @@
 import generateFeed from "@/lib/feed"
+
 import { allPosts } from "contentlayer/generated"
 
 export async function GET() {
@@ -7,5 +8,5 @@ export async function GET() {
     headers: {
       "Content-Type": "application/atom+xml",
     },
-  });
+  })
 }
