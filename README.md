@@ -1,5 +1,7 @@
 # writing
 
-A static react frontend for my blog. The data can be found at [icco/graphql](https://github.com/icco/graphql). That repo talks more about the history of this code.
+A static react frontend for my blog.
 
-You can see screenshots of my inspiration in the [inspiration folder](https://github.com/icco/writing/tree/main/public/imgs/inspiration)
+You can see screenshots of my inspiration in the [inspiration folder](https://github.com/icco/writing/tree/main/public/images/inspiration)
+
+This latest incaration is based off of static compiling MDX files.
