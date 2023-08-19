@@ -33,11 +33,17 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
       locale: "en_US",
       type: "article",
     },
-    canonical: post.url,
     viewport: {
       width: "device-width",
       initialScale: 1,
       maximumScale: 1,
+    },
+    alternates: {
+      canonical: post.url,
+      types: {
+        "application/rss+xml": "https://writing.natwelch.com/feed.rss",
+        "application/atom+xml": "https://writing.natwelch.com/feed.atom",
+      },
     },
   }
 }
