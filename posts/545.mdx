@@ -1,0 +1,36 @@
+---
+
+id: 545
+datetime: "2016-02-10 05:12:22 UTC"
+title: "Google Campaign Donations"
+draft: false
+permalink: "/post/545"
+
+---
+
+I was playing around with the new https://beta.fec.gov and found that it was pretty easy to get a bunch of data about who is donating to what. So I wrote [a little script](https://github.com/icco/influence) to download the data and figure out how much Google employees were donating to political campaigns from January 1st, 2015 until now.
+
+The top 10:
+
+* RO FOR CONGRESS INC.: $9,400
+* LOFGREN FOR CONGRESS: $12,175
+* WYDEN FOR SENATE: $12,700
+* LESSIG2016\.US: $21,210
+* NRSC: $33,400
+* DCCC: $33,620
+* DSCC: $34,700
+* FRIENDS OF SCHUMER: $43,600
+* BERNIE 2016: $47,121
+* HILLARY FOR AMERICA: $105,089
+* GOOGLE INC. NETPAC: $242,489
+
+
+I'm not 100% sure this is correct. I'm wondering if this is double counting stuff some how. You can see the data that I'm [working with on beta.fec.gov](https://beta.fec.gov/data/receipts/?is_individual=true&contributor_employer=Google&min_date=01-01-2015&max_date=12-31-2016) or in [the json file I saved to github](https://raw.githubusercontent.com/icco/influence/master/data.json).
+
+**Update**: I [reran these numbers in April](https://writing.natwelch.com/post/571). The above numbers were a little low.
+
+Also, full disclosure, I am an employee of Hillary For America. That being said, this was done in my free time and purely out of curiosity, and not part of my day to day job.
+
+If this sort of thing interests you, check out the [Sunlight Foundation](https://sunlightfoundation.com/)'s [Influence Explorer](http://influenceexplorer.com/).
+
+/Nat

@@ -1,0 +1,32 @@
+---
+
+id: 102
+datetime: "2015-04-10 22:24:42 UTC"
+title: "Day 17"
+draft: false
+permalink: "/post/102"
+
+---
+
+Today was a day spent thinking and recharging. I didn't go into [RC](https://www.recurse.com/) because I had this theory after last week that if I took Friday off, I wouldn't be so burnt out that I couldn't explore NYC on the weekends (and have energy for socializing and the like).
+ 
+I started the morning off with a [delicious breakfast](https://www.flickr.com/photos/icco/17099464795/) and practiced sketching. I've been wanting to get into daily sketching, but I keep putting it off. This morning I sat down and filled up a page in my notebook with attempts. My inspiration to get off my bum was the [last](http://www.johnnywander.com/comics/639) [two](http://www.johnnywander.com/comics/640) comics on [Johnny Wanderer](http://www.johnnywander.com/). It turned out alright, I'll need to keep at it for sure.
+ 
+I went back to my room and dicked around on the internet, and then added a preview box to my blog software so I can see what posts will look like while writing them.
+
+I then took the G train down to Prospect Park to wander. I quickly realized that I was in a sitting not walking mood though, so I abandoned my plan and hopped between a few coffee shops in the area and continued reading [The Innovators](https://www.goodreads.com/book/show/21856367-the-innovators). This book is quickly justifying all of my thoughts on Open Source and Transparency, which is kind of awesome.
+
+I went home and spent like an hour figuring out why [rsync](https://en.wikipedia.org/wiki/Rsync) wasn't letting me copy things from my parents network back to my laptop. Normally I use [scp](https://en.wikipedia.org/wiki/Secure_copy) which works fine, but I wanted rsync's magic resume (the `-P` flag) to copy some really large files over. This is unusually difficult because to get to the large [NAS](https://en.wikipedia.org/wiki/Network-attached_storage) I have under my Mom's sewing machine, I have to go through a gateway machine I have set up. I've had this working for a long time, but could never figure out why rsync didn't work. The fix I found, is to tell rsync where the rsync binary on the destination machine is, because for some reason the $PATH stuff isn't getting passed along. The magic flag to do this is `--rsync-path=/usr/syno/bin/rsync`. So from my laptop I can run:  
+
+```
+rsync --rsync-path=/usr/syno/bin/rsync -P server:"incriminating\ file.mkv" .
+``` 
+
+and my file will be copied to my laptop, proxied through a Linux box sitting on the edge of their network.
+
+Going out to a birthday party tonight, so yay, socializing!
+
+/Nat
+
+#hackerschool (I really need to fix these hash tags...)
+

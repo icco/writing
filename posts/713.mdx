@@ -1,0 +1,42 @@
+---
+
+id: 713
+datetime: "2020-11-05 20:45:25 UTC"
+title: "Bugs Fixed on Vacation"
+draft: false
+permalink: "/post/713"
+
+---
+
+Hello friends!
+
+You might be surprised to see a blog post from me… seeing as how I haven’t posted here in awhile. Well the reason for no blog posts is that I broke… a lot of my code before the pandemic… and then never fixed it.
+
+So, as I’m on vacation this week between jobs, and reading the news is anxiety inducing, I decided to fix all of the bugs I could find in my personal projects. Some of them were simple, others required a bunch of fixes.
+
+* Fixed auth, blog posting and upgraded NextJS.
+  * https://github.com/icco/writing/pull/301
+  * This was interesting because there were underlying issues in how I was using Apollo.
+  * There was also a variety of bugs in my shared react components that made debugging next to impossible.
+    * https://github.com/icco/react-common/compare/2020.8.10-4...2020.11.4-1
+* Tried to get static pre-rendering working, but mixed versions of node-auth are preventing that from being finished
+  * https://github.com/icco/writing/pull/303
+* Upgraded to React 17
+  * https://github.com/icco/writing/pull/305
+* Fixed the broken RSS feeds
+  * https://github.com/icco/writing/pull/302
+* Created a new page [/inspiration](https://writing.natwelch.com/inspiration) to load all of the images from my blog inspiration onto this site.
+  * https://github.com/icco/writing/pull/304
+* Added SLOs to all of my services
+  * https://github.com/icco/cron/compare/6162a5a...14d68e6
+* Fixed issue where getting a count of all tweets from the database would timeout
+  * https://github.com/icco/graphql/compare/aa8047a32151d2cbe043c4dec73b2b84ffc82cfa...64527924995767f4d60c3b9c5944f2c76ca0c7d0
+
+There’s more work to be done. But I think for now things are in a good place. Also I have been writing a lot which has been good.
+
+I’m going to try and get back in the habit of writing regularly. Maybe bring back the #happy posts or something.
+
+Anyways, hope you’re staying safe and doing alright.
+
+
+/Nat

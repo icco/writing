@@ -1,0 +1,88 @@
+---
+
+id: 401
+datetime: "2015-07-26 01:00:24 UTC"
+title: "RC Spring 2, 2015 Return Statement"
+draft: false
+permalink: "/post/401"
+
+---
+
+So, there is this "tradition" at the [Recurse Center](https://www.recurse.com/) to write a "return statement". I figured before I delved into mine, I would explain what that means. The "recurse" in Recurse Center is a reference to [recursive functions](https://en.wikipedia.org/wiki/Recursion_%28computer_science%29). Wikipedia has a decent description of what recursion is, but I'll give an example nonetheless:
+
+```ruby
+# Calculate the n-th fibonacci number.
+def fibonacci n
+  if n <= 1
+    return n
+  else
+    return fibonacci(n-1) + fibonacci(n-2)
+  end
+end
+
+p fibonacci(3) # => 2
+p fibonacci(6) # => 8
+
+```
+
+The point here is that this is a function that calls itself to figure out the answer. It keeps calling itself until it gets to what is called "the base case". The base case is the final return statement where the recursive function finally returns something instead of calling itself again. Thus the return statement of a recurser at the Recurse Center is a document which the recurser looks back and [reflects on their progress](https://www.recurse.com/manual#sec-principles) from their time at RC.
+
+In [Pam's Return Statement](http://thewebivore.com/recurse-center-return-statement/), she attributed the name to @gnclmorais. Both of them were in the first batch at RC [after it changed its name from Hacker School](https://www.recurse.com/blog/77-hacker-school-is-now-the-recurse-center). [Gonçalo also wrote a return statement](http://around-nyc-in-86-days.tumblr.com/post/119198084603/return-statement-a-week-after-leaving-im-making) on his time at RC. [Mindy wrote a great retrospective](http://www.somerandomidiot.com/blog/2015/07/20/retrospective/) from when she was at RC, and John has a great post on [what he wish he had answers to before he attended RC](http://dev.jdherg.com/posts/2015/07/20/the-recurse-center-a-qa-for-past-me/).
+
+Anyways, enough preamble. On to the meat. 
+
+I'm not entirely sure what happened, but I somehow wrote something every day for one hundred consecutive days. I lived at a level of transparency I wish I had been doing for years \(and I kind of wish all of humanity could do every day\). The place that inspired me to do this was the Recurse Center. RC is a forty-eight day program in New York City I participated in from March 30, 2015 until July 2nd, 2015. For those who followed [my ramblings](https://writing.natwelch.com/tags/recursecenter) \(way more followed than I would have ever expected\), you will note that RC officially runs Monday through Thursday, ten in the morning till seven at night. Despite that, I lived it all one hundred days I was in NYC. Some days I came in at ten in the morning and didn't leave until one in the morning. Other days I'd drop off my stuff at RC and take long meandering walks through the city, ending up in all sorts of places. I spent a bunch of time in Central Park and Prospect Park. I also spent a decent amount of time in coffee shops and bars, sometimes alone, thinking about building things, and what to do next; sometimes with other Recursers, talking about RC, NYC, life, programming, the weather, whatever.
+
+I had two goals for RC: Decompress from my previous job, and finish five projects. One project every twenty days seemed like a pretty reasonable goal. While I did complete my goal, it's worth noting that most of these projects would not have finished without a lot of help. I'm normally a pretty self-motivated person, but executing an idea with someone else provided me with the inspiration and energy I needed to finish \(or at the very least, ship\). It also helped me deal with the very high level of distraction that having sixty amazing people in a room provides.
+
+The first thing I implemented was a version of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) in Javascript. This was actually a lot of fun, although I didn't get a chance to put the polish on it that I wanted. Plus I never quite figured out the optimizations to make it keep running forever. But other distractions came along, so what can you do. You can see [my work on Github Pages](https://icco.github.io/life/), or check out the code at [icco/life](https://github.com/icco/life). If you're looking for a getting started project you can implement in a language your interested in learning, I highly recommend building a version of Conway's. It's a classic that I wish I had done sooner.
+
+My next substantial project was [Hyperspace](http://playhyperspace.com/). Hyperspace was a multiplayer version of [the classic game Asteroids](https://en.wikipedia.org/wiki/Asteroids_%28video_game%29). This project started because of [Ken Pratt](http://kenpratt.net/) and I realizing we had a friend in common, [Seth](http://www.altereddreams.net/).
+
+After we made this realization, we became fast friends, and decided we wanted to build something together. There was lots of back and forth and brainstorming. We both wanted to build something substantial, and we wanted to only work for two weeks. Our plans went all over the place, discussing building a Starcraft clone, some sort of distributed system, something impressive in Rust, something concurrent in Go. We would narrow in on an idea, verbally iterate on it for an hour, and then throw it out. This went on for two days, until we sat down with [Mary Rose Cook](http://maryrosecook.com/). Mary reminded us that scope was important, and that there was this thing called "[Client Side Prediction](https://en.wikipedia.org/wiki/Client-side_prediction)" that was complicated enough to make a real time multiplayer game pretty interesting to build.
+
+So we sat down and built it. A Javascript frontend, and Go backend. We ran into all sorts of problems. I had hoped to write an article about that, but it's fading from my memory fast. The code is at [kenpratt/hyperspace](https://github.com/kenpratt/hyperspace) and it's running online at [playhyperspace\.com](http://playhyperspace.com/).
+
+One of the best parts of RC, in my opinion, are the check-ins. Check-ins happen every day at 10:30, Monday through Thursday at RC. You get together with six to eight people \(the group changes weekly\), and talk about what you did the previous day, and what you're doing today. My favorite check-in spot was the McCarthy room \(all of the rooms [are named after famous programmers](https://recurse-center.squarespace.com/blog/2015/6/27/days-32-33-34-room-names-at-rc)\). McCarthy is interesting because it actually isn't a room, but rather two couches at 90 degrees from each other, with a tall table you could stand and work at or setup a projector and display things on the wall. I liked it because I could sit down, and the check-ins I had there always seemed super relaxed, and maybe even a little silly, compared to check-ins I had in other spots.
+
+My third project came from a check-in at McCarthy. [Pam Selle](http://thewebivore.com/about/) was talking about this cool idea she had. It had come up a few times when we had talked before, but now her time at RC was nearing the end, and so she asked for help with something \(I don't remember what\), and I said I would help. And thus, I found myself working on [ShhParty](http://shhparty.herokuapp.com/). The code is at [pselle/shhparty](https://github.com/pselle/shhparty). Pam's idea was to build a service where you could create a peer to peer [silent dance party](https://en.wikipedia.org/wiki/Silent_disco) with no server in the middle. Using [peer\.js](http://peerjs.com/) we built a system where a user visits the site, creates a party, and then other users and come and join the party. The server only keeps track of the parties, not who is at which one, nor does the stream from the party creator ever reach the server. After we got the basic functionality working, [Cole](https://twitter.com/fantasticole) came in and redesigned it for us. Overall a great success\!
+
+Week Six ended, and with its end, half of the people I spent every day at RC with left. You see, each batch at RC is thirty-ish people. And every batch overlaps with two other batches for six weeks. So for the first six weeks, my batch \(Spring 2, 2015\) shared the space with "Spring 1, 2015" and then the last six weeks, we shared the space with "Summer 1, 2015". Our batch actually had two weeks off in between batches, because there was an alumni week, and a week of planning for the facilitators. But I used a lot of this time to continue working on stuff.
+
+A few weeks earlier, a call for proposals for the third issue of [Code Words](https://codewords.recurse.com/) went out. Code Words is a quarterly online long form programming magazine. I submitted two article ideas, and one got accepted. This turned into four weeks of writing and tweaking. I got help from people at RC, and also lots of advice on writing blog posts from @staringispolite, @mrmrs\_, @dmpatierno and @alexbaldwin. The final product was [this article on DDOS](https://codewords.recurse.com/issues/three/ddos-and-you). It was pretty well received, and I think it is my favorite piece of writing that I have ever put together. I'm trying to write and speak publicly more in general, so this was a good start.
+
+While I was working on Code Words, another project came into existence. I was talking with @jdherg about a few things, and gifs came up. From our conversation, I decided I wanted to build an online repository of my favorite gifs, so I could use them in chat and life more often. Around this time, I also discovered [Tumblr's new gif search functionality](http://techcrunch.com/2015/06/04/tumblr-debuts-its-own-gif-search-engine/). The problem with Tumblr's gif search is it could only be used for new Tumblr posts. So I started deconstructing the request to Tumblr's backend. I found I could recreate the functionality with somewhat simple [curl](http://curl.haxx.se/) request\. I then built a web frontend to the API called [giftionary](http://www.giftionary.city/). Giftionary is probably the simplest thing I built at RC \(it's under 500 lines of code\), but it was so much fun to build, and brought pure joy to everyone who used it. Tumblr has so much fantastic content, and just being able to surface some of that has made me really happy.
+
+On the last week of RC, I sat down with a bunch of people to build an idea @jdherg had been talking about: a Recurser Social Directory. RSD, as it became known, is a website where everyone at RC can share their links to their online identities. This was fun because it caused me to basically live code a website with approximately ten people "mob programming" with me. For most of the time, I would be coding and explaining what every line does, and then stop to explain how something works \(database connections, weird ruby things, how does Sinatra work, CSS, design prototyping, etc\). It was so much fun. After it was done we presented, and then started getting lots of issues and pull requests, which has been awesome. Shout out to @muditameta for lots of cool additions and bug fixes.
+
+Those were just the largish projects that I worked on. Despite shipping five projects \(my original goal\), I often have issues with staying focused. My traditional solution is to have lots of projects with small things that need fixing or tweaking. So when I get bored or stuck or frustrated with my main project I can context switch off to small things to get small wins and keep moving forward. Some of the things I did:
+
+* Restyled this blog.
+* Added functionality to this blog.
+* Redesigned natwelch.com.
+* Tried to optimize the way [mood\.natwelch.com](http://mood.natwelch.com/) loads images.
+* Rewrote [walls\.natwelch.com](http://walls.natwelch.com/) from scratch \(and boy does it still need a lot of work\).
+* Tried to build a drum machine called [gene](https://github.com/icco/gene).
+* Started musing about building an [RSS reader](https://github.com/icco/today). Got a rough prototype working, but that was it. I still want to take a lot of the stuff @kenzan100 was talking about and actually implement it... one day.
+* Went to a music hackathon at Spotify and built a really weird website that turned stars into sound called [starscape](https://github.com/icco/starscape).
+* Wrote a bot for promoting walking at RC called [walkbot](https://github.com/icco/zulip-walkbot).
+
+In hindsight, I actually feel I was productive, which is awesome. Over the one hundred days, since I was keeping a daily blog, actual days felt pretty unproductive, but my overall output from the time in NYC feels pretty good. One thing that did take up a portion of my time, which I probably should have avoided, was job hunting. I took a lot of interviews and conversations that didn't go anywhere. In fact as I write this, I'm remembering a few emails that I never sent to follow up with people \(imagine me switching to my todo list, adding stuff, coming back here\). I wasn't really expecting to take a job, but RC ended up getting me an interview with a company called [LittleBits](http://littlebits.cc/) which I ended up accepting an offer for.
+
+That involved one late night coding exercise where I had to remember how trees worked and some algorithm stuff. And then what was supposed to be a thirty minute meet and greet, but instead turned into a three hour interview, which ended with an offer. I spent about a week waxing on the decision, and I got a lot of good advice on how to make it \(shout out to all of the people at RC and in my life that helped me figure out what was important\). But probably the best thing came from my dad, who said this would probably be a "three year decision". This reminded me that when I started working at Google, he told me it was "two year decision" and I ended up staying there for almost four years, when at the time I thought I'd quit in six months.
+
+The other goal I mentioned was decompressing from my previous job. It took about three weeks for me to start realizing how stressed and out of it I was before RC. I started to be happy more often again, and I started coding more and being relaxed. By the halfway point, it was a distant memory. 
+
+I could keep going on and on, analyzing the good and bad things about RC, but I think this post has become far too long, and I've taken far too long to publish it.
+
+So thanks to everyone at the Recurse Center. You are all awesome. 
+
+![](https://storage.googleapis.com/icco-cloud/photos/2019/839d94a2-b0e7-48b7-9bce-176c1b6e710d.jpg)
+
+See photos of our time together at [https://www.flickr.com/photos/icco/albums/72157656332622632](https://www.flickr.com/photos/icco/albums/72157656332622632).
+
+Cheers,
+
+/Nat
+
+#recursecenter #longform

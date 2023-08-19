@@ -1,0 +1,37 @@
+---
+
+id: 93
+datetime: "2015-04-02 01:33:31 UTC"
+title: "Day 8 (RC 2)"
+draft: false
+permalink: "/post/93"
+
+---
+
+Wednesday! Hump-day: Week One!
+
+I was introduced to [Iron Blogger](http://blog.lazerwalker.com/blog/2013/12/24/one-post-a-week-running-an-iron-blogger-challenge/) today. I really like the idea, and I'm trying to get some people in on it that are currently at RC. I might setup [lazerwalker/iron-blogger](https://github.com/lazerwalker/iron-blogger) on heroku and get that rolling. Or maybe just do something low-tech.
+
+Yesterday, the discussion of a "meet everyone at RC app" came up in my long discussion with Ken. I sketched out some possible UX flows in the morning.
+
+I did a [Fog Code Review](https://github.com/fog/fog/pull/3511), and had a discussion about the current state of [fog-google](https://github.com/fog/fog-google) in an issue.
+
+I found that [Karl](http://icco.github.io/karl) was quite broken, tried fixing it, gave up (and left it in a broken state like a jerk), decided to write from scratch, but did not start on that.
+
+I also attempted to update [CraftyJS](http://craftyjs.com/)'s version in [CDNjs](https://cdnjs.com/). That [did not work out well](https://github.com/cdnjs/cdnjs/pull/4511).
+
+The three weather bots used in the chat room we use for scheduling out daily walks are broken, so I started writing [walkbot](https://walk-bot.herokuapp.com/). I discovered that I do not like [Zulip's API](https://zulip.com/api/endpoints/), and was writing the bot assuming the API was written differently than it is. I guess I need to change my design to match their python library...
+
+I spent some time and changed my blog design at the request of @reed and @dmpatierno after we chatted on hangouts. I'm not too happy with the current state of how it looks. I need to play around with the layout more. It was also discovered that [my SSL cert isn't quite right](https://www.ssllabs.com/ssltest/analyze.html?d=writing.natwelch.com), so I need to fix that, and also, I want to fix the time formatting on this blog. Maybe if I get some more time I can also add draft saving functionality. I also fixed my twitter posting so if there is a title, it is in the tweet.
+
+I had lunch at [a Thai place](https://foursquare.com/v/lan-larb-soho/541c6624498e9ab32651d2ec) with a bunch of RC people, which was quite good. Had a nice chat with [Brian](https://twitter.com/bglusman) while getting sandwiches for dinner.
+
+I bought tickets for [Different Games](http://www.2015.differentgames.org/) this weekend, which should be fun.
+
+Things to look into later:
+
+ - http://gamecenter.nyu.edu/
+ - Add more features to sadnat.com (it took till today to mention sadnat.com in chat! That's a good thing I guess)
+
+#hackerschool
+

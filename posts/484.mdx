@@ -1,0 +1,45 @@
+---
+
+id: 484
+datetime: "2009-08-26 10:42:00 UTC"
+title: "Vim Key Bindings"
+draft: false
+permalink: "/post/484"
+
+---
+
+Hey there kiddos,
+
+I use Vim daily, and as such, I've picked up some key bindings which I think make the program just a little more perfect.
+
+```markup
+" Because we like our line numbers sometimes...
+:nnoremap <Leader>n :set invnumber<CR>
+
+" But we don't always wanna wrap
+:nnoremap <Leader>r :set invwrap<CR>
+
+" And all the cool kids need to paste
+:nnoremap <Leader>p :set invpaste<CR>
+
+" Use the space key to open and close code folds
+:vnoremap <space> zf<CR>
+:nnoremap <space> zd<CR>
+
+```
+
+When reading this, remember that the vim configuration file uses `"` for comments.
+
+So first off I set `Ctrl+n` to turn line numbers on and off. All you need to do is tap `Ctrl+n` twice and line numbers will disappear or reappear. This becomes helpful when trying to switch between reading code and needing to copy something into your Instant Messenger.
+
+The next thing I set is `Ctrl+w` to turn line wrapping on and off. I find line wrapping very annoying, but being able to hit `Ctrl+w` twice and get the entire line on the screen has proven useful when reading poorly formatted Readme.txts or mysql dumps.
+
+The third binding is something I learned of recently and have fallen in love with. Basically, if you tap Ctrl\+p twice before pasting text from an external source \(let's say a website or something\) vim inserts the text as it looks, instead of trying to do auto-formatting. This is especially useful if posting code with comments in it.
+
+The final key binding lets me open and close code folds by just using spacebar. This is pretty sweet and useful when you need to ignore blocks of text at the same time. You can learn more about code folding with [this writeup by Dr. Michael McGuffin](http://www.dgp.toronto.edu/~mjmcguff/learn/vim/folding.txt) or with a simple Google search.
+
+Oh yeah, before I forget. nmap is a binding in normal mode, vmap is a binding for visual mode, and imap is a binding for insert mode. The letters "nore" in-between the mode specifier and map make it so we don't check for recursive mappings. This is useful here because we are binding the space bar and our bindings have spaces in them.
+
+Anyway, hope this was useful, or at least informative.
+/Nat
+

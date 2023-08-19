@@ -1,0 +1,38 @@
+---
+
+id: 598
+datetime: "2016-08-09 10:59:13 UTC"
+title: "Don't laugh at other's downtime"
+draft: false
+permalink: "/post/598"
+
+---
+
+While I was at Google, I heard a piece of advice (I think from @xleem... or maybe @isomer?), which I think about often:
+
+ > Don't laugh at other people's downtime.
+
+This tidbit pops into my head around once a week. Usually when I'm reading about someone else's failure in the tech space. This week it was [Delta Air Lines](http://www.nytimes.com/aponline/2016/08/08/world/europe/ap-eu-delta-outage-.html). When I read something like this, my brain starts jumping between emotions: 
+
+ - Surprise: "A power outage took them down?"
+ - Disgust: "Jeez, can't they build something that won't fail if one piece falls down?"
+ - Sadness: "Aww, I don't know the full story, this probably really sucked."
+ - Thoughtfulness: "Hmm, I wonder what failed that caused this?"
+ - Fear: "Could this happen to me?"
+
+My brain is jumping between all of these emotions because rarely do companies put out much about their internal workings to know what actually went down. All you really know is that they went down. 
+
+The data from Delta in the AP article was:
+
+ > A power outage at an Atlanta facility at around 2:30 a.m. local time initiated a cascading meltdown, according to the airline, which is also based in Atlanta.
+
+Cascading failures suck. I've seen a few, and on large distributed systems, they are really hard to predict, and can be really hard to prepare for. 
+
+And this is why you don't laugh at other people's downtime. As an engineer or developer or whatever you call yourself, it's really easy to go "oh, they fell over, they must be stupid". But because of how most companies operate, we will never know what caused the failure. But whatever happened to them can probably happen to us as well. I get it. I've said horrible things about other companies while they are down. If you search my twitter, you can probably find me pointing to someone's down page. I'm not proud of this. I'm kicking them while they are down. I try to be professional about it, but often it's in anger. "Why did they fall down! Why are they not perfect!"
+
+And the real scary thing is because of shame and fear, many companies won't publish why they failed, so we can't learn from them. If people are laughing and yelling at you, you shut up, you don't explain in detail what went wrong. And then we don't learn. And that's the real crime. Because we all take risks, and we all want 100% uptime, but that's a pipe dream, we're all going to fail at some point for some time.
+
+So, Delta, today I'm raising my glass to your engineers. I can imagine the next few weeks are gonna suck. Good luck.
+
+/Nat
+

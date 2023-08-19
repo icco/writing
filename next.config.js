@@ -1,24 +1,26 @@
 // @ts-check
 
-/**
- * @type {import('next').NextConfig}
- **/
-const { createSecureHeaders } = require("next-secure-headers");
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { createSecureHeaders } = require("next-secure-headers")
+const { withContentlayer } = require("next-contentlayer")
 
-const port = process.env.PORT || 8080;
-const domain = process.env.DOMAIN || `http://localhost:${port}`;
-const graphql =
-  process.env.GRAPHQL_ORIGIN || "https://graphql.natwelch.com/graphql";
+const port = process.env.PORT || "8080"
+const domain = process.env.DOMAIN || `http://localhost:${port}`
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "standalone",
   poweredByHeader: false,
-  reactStrictMode: true,
   trailingSlash: false,
   productionBrowserSourceMaps: true,
+  swcMinify: true,
+  reactStrictMode: true,
   env: {
     DOMAIN: domain,
-    GRAPHQL_ORIGIN: graphql,
     PORT: port,
+  },
+  eslint: {
+    dirs: ["src", "."],
   },
   async redirects() {
     return [
@@ -27,7 +29,7 @@ module.exports = {
         destination: "https://natwelch.com/",
         permanent: true,
       },
-    ];
+    ]
   },
   async headers() {
     return [
@@ -58,9 +60,13 @@ module.exports = {
               // default-src 'none'
               defaultSrc: ["'none'"],
               // connect-src https://graphql.natwelch.com/graphql
-              connectSrc: ["https://*.natwelch.com", domain, domain.replace(/^https?/, "ws"),],
-              // font-src https://fonts.gstatic.com
-              fontSrc: ["https://fonts.gstatic.com"],
+              connectSrc: [
+                "https://*.natwelch.com",
+                domain,
+                domain.replace(/^https?/, "ws"),
+              ],
+              // font-src 'self' https://fonts.gstatic.com
+              fontSrc: ["'self'", "https://fonts.gstatic.com"],
               // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
               imgSrc: [
                 "'self'",
@@ -95,6 +101,11 @@ module.exports = {
           expectCT: true,
         }),
       },
-    ];
+    ]
   },
-};
+  experimental: {
+    mdxRs: true,
+  },
+}
+
+module.exports = withContentlayer(nextConfig)
