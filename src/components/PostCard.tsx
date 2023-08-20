@@ -22,10 +22,13 @@ export function PostCard(post: Post) {
           return (
             <Link
               href={`/tag/${tag}`}
-              className="inline-block	pr-1 mb-2 text-xs hover:text-link"
+              className="inline-block	pr-1 mb-2 text-xs"
               key={tag}
             >
-              #{tag}
+              <span className="inline-block bg-accent rounded-full px-3 py-1 text-sm font-semibold text-link hover:text-text hover:bg-link mr-2 mb-2">
+                #{tag}
+              </span>
+
             </Link>
           )
         })}
