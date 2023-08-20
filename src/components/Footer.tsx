@@ -1,6 +1,5 @@
-import Link from "next/link"
-
 import "./rc.css"
+
 import { format } from "date-fns"
 
 const Footer = () => {
@@ -10,7 +9,8 @@ const Footer = () => {
         <nav className="flex flex-wrap justify-center space-x-6">
           <div className="my-2 rc-scout" data-scout-rendered="true">
             <p className="text-muted text-sm rc-scout__text">
-              <i className="rc-scout__logo" /> Want to become a better programmer?{" "}
+              <i className="rc-scout__logo" /> Want to become a better
+              programmer?{" "}
               <a
                 className="rc-scout__link"
                 href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
@@ -20,7 +20,10 @@ const Footer = () => {
             </p>
           </div>
         </nav>
-        <p className="text-muted text-sm text-center md:text-right">&copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights reserved.</p>
+        <p className="text-muted text-sm text-center md:text-right">
+          &copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights
+          reserved.
+        </p>
       </div>
     </footer>
   )

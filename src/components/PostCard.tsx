@@ -28,7 +28,6 @@ export function PostCard(post: Post) {
               <span className="inline-block bg-accent rounded-full px-3 py-1 text-sm font-semibold text-link hover:text-text hover:bg-link mr-2 mb-2">
                 #{tag}
               </span>
-
             </Link>
           )
         })}

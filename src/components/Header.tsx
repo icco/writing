@@ -1,4 +1,5 @@
 import Link from "next/link"
+
 import Logo from "@/components/Logo"
 
 export default function Header() {
@@ -6,11 +7,7 @@ export default function Header() {
     <nav className="flex py-8">
       <div className="flex-none">
         <Link href="/" className="">
-          <Logo
-            size={50}
-            className="px-8 logo"
-            style={{ stroke: "#333" }}
-          />
+          <Logo size={50} className="px-8 logo" style={{ stroke: "#333" }} />
         </Link>
       </div>
       <div className="flex-grow"></div>
