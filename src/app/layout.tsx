@@ -4,7 +4,8 @@ import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 import Link from "next/link"
 
-import Logo from "@/components/Logo"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 const font = Roboto({
   weight: "400",
@@ -24,25 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <nav className="flex py-8">
-          <div className="flex-none">
-            <Link href="/" className="">
-              <Logo
-                size={50}
-                className="px-8 logo"
-                style={{ stroke: "#333" }}
-              />
-            </Link>
-          </div>
-          <div className="flex-grow"></div>
-          <div className="flex-none">
-            <Link key="/about" href="/about" prefetch={false} className="m-8">
-              About
-            </Link>
-          </div>
-        </nav>
+        <Header />
         <main>{children}</main>
-        <footer></footer>
+        <Footer />
       </body>
     </html>
   )
