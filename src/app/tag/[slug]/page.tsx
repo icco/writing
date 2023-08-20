@@ -28,7 +28,7 @@ const TagLayout = ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <h1 className="text-4xl font-bold text-center my-8">#{params.slug}</h1>
-      <div className="mx-auto max-w-xl px-8 py-7">
+      <div className="mx-auto max-w-3xl px-8 py-7">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}
