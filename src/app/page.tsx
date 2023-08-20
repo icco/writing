@@ -36,7 +36,7 @@ export default function Home() {
   )
 
   return (
-    <div className="mx-auto max-w-xl py-8">
+    <div className="mx-auto max-w-xl px-8 py-7">
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}
