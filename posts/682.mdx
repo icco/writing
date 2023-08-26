@@ -23,27 +23,38 @@ Oooh or a numbered list...
 
 1. Here
 1. we
-1. go\!
+1. go!
 
 
 ![New York, looking north from 16th St in Manhattan.](https://storage.googleapis.com/icco-cloud/photos/2019/6f9f4849-0afa-4361-8299-9235115e2873.jpg)
 
 > This is a quote.
-> \-\- Nat Welch
+>
+> -- Nat Welch
+
+
+Next we have a divider
 
 ---
+
+And now some javascript.
+
 ```javascript
-{﻿
-return
+function getPosts() {
+  const posts = allPosts
+    .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
+    .filter((post) => !post.draft)
+  return posts
+}
 ```
 
-Thanks\!
+Thanks!
+
 /Nat
 
-**Updated**: This is still a draft\!
+**Updated**: This is still a draft!
 
 
 ![](https://storage.googleapis.com/icco-cloud/photos/2019/554fae1f-9130-4bf0-8cc7-72ec7628af75.gif)
 
-Yup\.
-
+Yup.
