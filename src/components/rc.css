@@ -27,7 +27,7 @@
 .rc-scout__link:link,
 .rc-scout__link:visited {
   color: #265c83;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .rc-scout__link:hover,
