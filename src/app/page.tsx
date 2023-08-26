@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function Home() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.datetime), new Date(b.datetime))
-  )
+  ).filter((post) => (!post.draft))
 
   return (
     <>

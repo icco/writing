@@ -19,7 +19,7 @@ export const generateStaticParams = async () => {
 const TagLayout = ({ params }: { params: { slug: string } }) => {
   const posts = allPosts
     .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
-    .filter((post) => post.tags.includes(params.slug))
+    .filter((post) => post.tags.includes(params.slug) && !post.draft)
 
   if (posts.length === 0) {
     return notFound()
