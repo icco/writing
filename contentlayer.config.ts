@@ -22,7 +22,14 @@ export const Post = defineDocumentType(() => ({
     excerpt: { type: "markdown", required: false, default: "" },
   },
   computedFields: {
-    url: { type: "string", resolve: (post) => post.permalink },
+    url: {
+      type: "string", resolve: (post) => {
+        if (post.draft) {
+          return `/api/draft?secret=${process.env.SECRET_TOKEN}&slug=${post.id}`
+        }
+        return post.permalink
+      }
+    },
     tags: {
       type: "list",
       resolve: (post) => {
