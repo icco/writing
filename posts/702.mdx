@@ -1,0 +1,39 @@
+---
+
+id: 702
+datetime: "2019-06-23 13:42:18 UTC"
+title: "Saving Money on GKE"
+draft: true
+permalink: "/post/702"
+
+---
+
+> Note: I am employed by Google, and work on Google Cloud. That being said, this post \(like everything on this site\) is my opinion alone.
+
+So, I mentioned in [my post on Continuous Delivery](https://writing.natwelch.com/post/699), and in [a tweet](https://twitter.com/icco/status/1119243635378335745), that I would talk about my Kubernetes setup running on Google Kubernetes Engine. I've been running on GKE since 2017, often making bad decisions that have costed me a lot of money. I originally moved off of Heroku, because I thought it was too expensive. These days I am spending far more than I ever was on Heroku. I am also running a lot more websites, and do not feel limited by the platform \(which was more of a mentality than a reality\), so let us talk about money and capacity planning on a personal kubernetes system.
+
+![GCP Billing from 2018-01-01 until 2019-06-23](https://storage.googleapis.com/icco-cloud/photos/2019/8caedc75-2daa-4891-9048-f26177ff80a5.png)
+
+Ok, so here is is the last 18 months of billing on my Google Cloud Platform account, broken down by product. You can see the price per day in the chart. The table at the bottom shows the total amount spent.
+
+I feel really self\-conscious about posting this for a few reasons. The first is that I am basically burning money on a bunch of hobby websites that no one uses besides myself. As of today, I am running 18 services, that do a variety of things. A lot of them are just scraping the internet and saving the results to a database. That database is a replicated Cloud SQL Postgres instance, that sees about 20 writes per second. The second reason is I feel really weird talking about this. Spending over six thousand dollars on side projects is a privilege, and I feel a bit of shame showing this to folks. All of that being said, I have made some mistakes, and would like to save you from them as well.
+
+So each section below is a mistake I made, and how I remedied it \(or plan to remedy it…\).
+
+
+## Observability is expensive
+
+
+
+## Tutorials optimize for easy configurations, not good configurations
+
+
+![](https://storage.googleapis.com/icco-cloud/photos/2019/0f1345f7-baf9-494c-8881-058b0ca2bbe6.svg)
+
+
+## Preemptible VMs and normal VMs have different capacity planning strategies
+
+ 
+
+
+/Nat
