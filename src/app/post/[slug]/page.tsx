@@ -6,6 +6,7 @@ import { MDXContent } from "@/components/MDXContent"
 import { getPostBySlug } from "@/lib/util"
 
 import { allPosts } from "contentlayer/generated"
+import Link from "next/link"
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
@@ -59,10 +60,15 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   return (
     <article className="py-7 px-8 mx-auto max-w-5xl">
       <div className="mb-8 text-center">
-        <time dateTime={post.datetime} className="mb-1 text-xs text-gray-600">
-          {format(parseISO(post.datetime), "LLLL d, yyyy")}
-        </time>
+        <div className="mb-1 text-xs text-nord3">
+          <span className="mx-1 inline-block"><Link href={post.url}>#{post.id}</Link></span>
+          <span className="mx-1 inline-block">&mdash;</span>
+          <time className="mx-1 inline-block" dateTime={post.datetime}>
+            {format(parseISO(post.datetime), "LLLL d, yyyy")}
+          </time>
+        </div>
         <h1>{post.title}</h1>
+        {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
       </div>
       <MDXContent code={post.body.code} />
     </article>
