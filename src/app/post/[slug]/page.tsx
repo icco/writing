@@ -1,12 +1,12 @@
 import { format, parseISO } from "date-fns"
 import { draftMode } from "next/headers"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { MDXContent } from "@/components/MDXContent"
 import { getPostBySlug } from "@/lib/util"
 
 import { allPosts } from "contentlayer/generated"
-import Link from "next/link"
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
@@ -61,7 +61,9 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     <article className="py-7 px-8 mx-auto max-w-5xl">
       <div className="mb-8 text-center">
         <div className="mb-1 text-xs text-nord3">
-          <span className="mx-1 inline-block"><Link href={post.url}>#{post.id}</Link></span>
+          <span className="mx-1 inline-block">
+            <Link href={post.url}>#{post.id}</Link>
+          </span>
           <span className="mx-1 inline-block">&mdash;</span>
           <time className="mx-1 inline-block" dateTime={post.datetime}>
             {format(parseISO(post.datetime), "LLLL d, yyyy")}
