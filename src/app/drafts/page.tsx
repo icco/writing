@@ -1,7 +1,9 @@
-import { PostCard } from "@/components/PostCard"
-import { allPosts } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 import { Metadata } from "next"
+
+import { PostCard } from "@/components/PostCard"
+
+import { allPosts } from "contentlayer/generated"
 
 const title = `Drafts!`
 export const metadata: Metadata = {

@@ -23,12 +23,13 @@ export const Post = defineDocumentType(() => ({
   },
   computedFields: {
     url: {
-      type: "string", resolve: (post) => {
+      type: "string",
+      resolve: (post) => {
         if (post.draft) {
           return `/api/draft?secret=${process.env.SECRET_TOKEN}&slug=${post.id}`
         }
         return post.permalink
-      }
+      },
     },
     tags: {
       type: "list",

@@ -1,7 +1,7 @@
-import Link from "next/link"
 import "./rc.css"
 
 import { format } from "date-fns"
+import Link from "next/link"
 
 const Footer = () => {
   return (
@@ -23,7 +23,11 @@ const Footer = () => {
         </nav>
         <p className="text-sm text-center md:text-right">
           &copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights
-          reserved. <Link className="blue" href="https://github.com/icco/writing">Source code</Link>.
+          reserved.{" "}
+          <Link className="blue" href="https://github.com/icco/writing">
+            Source code
+          </Link>
+          .
         </p>
       </div>
     </footer>

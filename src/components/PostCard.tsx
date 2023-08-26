@@ -6,8 +6,14 @@ import { Post } from "contentlayer/generated"
 export function PostCard(post: Post) {
   return (
     <div className="mb-5">
-      <div className="inline-block pr-2 text-xs text-muted"><span className="mr-1">#{post.id}</span>
-        {post.draft && (<><span>&mdash;</span><div className="inline-block mx-1 text-xs text-nord11">DRAFT</div></>)}
+      <div className="inline-block pr-2 text-xs text-muted">
+        <span className="mr-1">#{post.id}</span>
+        {post.draft && (
+          <>
+            <span>&mdash;</span>
+            <div className="inline-block mx-1 text-xs text-nord11">DRAFT</div>
+          </>
+        )}
       </div>
       <h2 className="mb-1 text-3xl hover:text-link">
         <Link href={post.url}>{post.title}</Link>
