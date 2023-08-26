@@ -13,7 +13,9 @@ export const generateStaticParams = async () => {
     }
   }
 
-  return Array.from(tags).sort().map((tag) => ({ slug: tag }))
+  return Array.from(tags)
+    .sort()
+    .map((tag) => ({ slug: tag }))
 }
 
 const TagLayout = ({ params }: { params: { slug: string } }) => {
