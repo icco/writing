@@ -1,39 +1,24 @@
+import { PostCard } from "@/components/PostCard"
+import { allPosts } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 import { Metadata } from "next"
 
-import { PostCard } from "@/components/PostCard"
-
-import { allPosts } from "contentlayer/generated"
-
-const title = `Nat? Nat. Nat!`
+const title = `Drafts!`
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.DOMAIN ?? ""),
   title,
-  openGraph: {
-    title,
-    url: "/",
-    siteName: "Nat? Nat. Nat!",
-    locale: "en_US",
-    type: "website",
-  },
   viewport: {
     width: "device-width",
     initialScale: 1,
     maximumScale: 1,
   },
-  alternates: {
-    canonical: "/",
-    types: {
-      "application/rss+xml": "https://writing.natwelch.com/feed.rss",
-      "application/atom+xml": "https://writing.natwelch.com/feed.atom",
-    },
-  },
+  robots: { index: false, follow: false },
 }
 
 export default function Home() {
   const posts = allPosts
     .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
-    .filter((post) => !post.draft)
+    .filter((post) => post.draft)
 
   return (
     <>
