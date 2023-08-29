@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm"
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
 
-const hashtagRegex = /(?:\s)#(?<tag>\w+)/g
+const hashtagRegex = /#(?<tag>\w+)/g
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
