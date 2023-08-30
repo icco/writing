@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm"
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
 
-const hashtagRegex = /(?:\s)#(?<tag>\w+)/g
+const hashtagRegex = /#(?<tag>\w+)/g
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -37,7 +37,9 @@ export const Post = defineDocumentType(() => ({
         const match = post.body.raw.match(hashtagRegex)
         if (!match) return []
         const tags = new Set<string>(
-          match.map((m) => m.replace(hashtagRegex, "$<tag>").toLowerCase())
+          match.map((m: string) =>
+            m.replace(hashtagRegex, "$<tag>").toLowerCase()
+          )
         )
 
         return Array.from(tags)
@@ -54,10 +56,6 @@ export const Post = defineDocumentType(() => ({
     readingTime: {
       type: "number",
       resolve: (post) => readingTime(post.body.raw).minutes,
-    },
-    wordCount: {
-      type: "number",
-      resolve: (post) => readingTime(post.body.raw).words,
     },
   },
 }))

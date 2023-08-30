@@ -14,3 +14,8 @@ permalink: "/post/$id"
 ---
 
 TBD.
+EOS
+
+git add ./posts/$id.mdx
+git ci -m "chore: init post $id"
+open -a "IA Writer" ./posts/$id.mdx
