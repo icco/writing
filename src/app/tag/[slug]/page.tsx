@@ -1,9 +1,9 @@
-import { compareDesc } from "date-fns"
 import { notFound } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
 
 import { allPosts } from "contentlayer/generated"
+import publishedPosts from "@/lib/posts"
 
 export const generateStaticParams = async () => {
   const tags = new Set<string>()
@@ -19,8 +19,7 @@ export const generateStaticParams = async () => {
 }
 
 const TagLayout = ({ params }: { params: { slug: string } }) => {
-  const posts = allPosts
-    .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
+  const posts = publishedPosts()
     .filter((post) => post.tags.includes(params.slug) && !post.draft)
 
   if (posts.length === 0) {
