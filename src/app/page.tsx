@@ -1,9 +1,8 @@
-import { compareDesc } from "date-fns"
 import { Metadata } from "next"
 
 import { PostCard } from "@/components/PostCard"
 
-import { allPosts } from "contentlayer/generated"
+import publishedPosts from "@/lib/posts"
 
 const title = `Nat? Nat. Nat!`
 export const metadata: Metadata = {
@@ -31,9 +30,7 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  const posts = allPosts
-    .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
-    .filter((post) => !post.draft)
+  const posts = publishedPosts()
 
   return (
     <>
