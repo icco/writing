@@ -4,8 +4,6 @@ import readingTime from "reading-time"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
-import { Post } from "contentlayer/generated"
-
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
 
@@ -26,7 +24,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (post: Post) => {
+      resolve: (post) => {
         if (post.draft) {
           return `/api/draft?secret=${process.env.SECRET_TOKEN}&slug=${post.id}`
         }
@@ -35,7 +33,7 @@ export const Post = defineDocumentType(() => ({
     },
     tags: {
       type: "list",
-      resolve: (post: Post) => {
+      resolve: (post) => {
         const match = post.body.raw.match(hashtagRegex)
         if (!match) return []
         const tags = new Set<string>(
@@ -49,7 +47,7 @@ export const Post = defineDocumentType(() => ({
     },
     social_image: {
       type: "string",
-      resolve: (post: Post) =>
+      resolve: (post) =>
         GenerateSocialImage(
           post.title,
           format(parseISO(post.datetime), "LLLL d, yyyy")
@@ -57,11 +55,7 @@ export const Post = defineDocumentType(() => ({
     },
     readingTime: {
       type: "number",
-      resolve: (post: Post) => readingTime(post.body.raw).minutes,
-    },
-    wordCount: {
-      type: "number",
-      resolve: (post: Post) => readingTime(post.body.raw).words,
+      resolve: (post) => readingTime(post.body.raw).minutes,
     },
   },
 }))
