@@ -12,14 +12,14 @@ export default function publishedPosts() {
   return posts
 }
 
-export function previousPost(slug: string) {
+export function previousPost(slug: number): Post | undefined {
   const posts = publishedPosts()
   const currentIndex = posts.findIndex((post) => post.id === slug)
   const previousPost = posts[currentIndex + 1]
   return previousPost
 }
 
-export function nextPost(slug: string) {
+export function nextPost(slug: number): Post | undefined {
   const posts = publishedPosts()
   const currentIndex = posts.findIndex((post) => post.id === slug)
   const nextPost = posts[currentIndex - 1]
