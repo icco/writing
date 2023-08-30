@@ -1,17 +1,14 @@
-import { compareDesc, format, parseISO } from "date-fns"
+import { format, parseISO } from "date-fns"
 import { draftMode } from "next/headers"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { MDXContent } from "@/components/MDXContent"
-import { getPostBySlug } from "@/lib/util"
 
-import { allPosts } from "contentlayer/generated"
+import publishedPosts, { getPostBySlug } from "@/lib/posts"
 
 export const generateStaticParams = async () =>
-  allPosts
-    .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
-    .filter((post) => !post.draft)
+  publishedPosts()
     .map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {

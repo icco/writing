@@ -4,9 +4,10 @@ import readingTime from "reading-time"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
+import { Post } from "contentlayer/generated"
+
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
-import { Post } from "contentlayer/generated"
 
 const hashtagRegex = /#(?<tag>\w+)/g
 
@@ -38,7 +39,9 @@ export const Post = defineDocumentType(() => ({
         const match = post.body.raw.match(hashtagRegex)
         if (!match) return []
         const tags = new Set<string>(
-          match.map((m: string) => m.replace(hashtagRegex, "$<tag>").toLowerCase())
+          match.map((m: string) =>
+            m.replace(hashtagRegex, "$<tag>").toLowerCase()
+          )
         )
 
         return Array.from(tags)
