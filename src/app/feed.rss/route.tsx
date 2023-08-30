@@ -1,6 +1,4 @@
-
 import generateFeed from "@/lib/feed"
-
 import publishedPosts from "@/lib/posts"
 
 export async function GET() {

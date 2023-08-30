@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 
 import { PostCard } from "@/components/PostCard"
-
 import publishedPosts from "@/lib/posts"
 
 const title = `Nat? Nat. Nat!`

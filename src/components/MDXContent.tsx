@@ -1,6 +1,6 @@
 import { type MDXComponents } from "mdx/types"
-import { useMDXComponent } from "next-contentlayer/hooks"
 import Link from "next/link"
+import { useMDXComponent } from "next-contentlayer/hooks"
 
 export const components: MDXComponents = {
   a: ({ href, children }) => <Link href={href as string}>{children}</Link>,

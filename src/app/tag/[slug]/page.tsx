@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
+import publishedPosts from "@/lib/posts"
 
 import { allPosts } from "contentlayer/generated"
-import publishedPosts from "@/lib/posts"
 
 export const generateStaticParams = async () => {
   const tags = new Set<string>()
@@ -19,8 +19,9 @@ export const generateStaticParams = async () => {
 }
 
 const TagLayout = ({ params }: { params: { slug: string } }) => {
-  const posts = publishedPosts()
-    .filter((post) => post.tags.includes(params.slug) && !post.draft)
+  const posts = publishedPosts().filter(
+    (post) => post.tags.includes(params.slug) && !post.draft
+  )
 
   if (posts.length === 0) {
     return notFound()
