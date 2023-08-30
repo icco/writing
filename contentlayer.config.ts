@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm"
 
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
+import { Post } from "contentlayer/generated"
 
 const hashtagRegex = /#(?<tag>\w+)/g
 
@@ -24,7 +25,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => {
+      resolve: (post: Post) => {
         if (post.draft) {
           return `/api/draft?secret=${process.env.SECRET_TOKEN}&slug=${post.id}`
         }
@@ -33,11 +34,11 @@ export const Post = defineDocumentType(() => ({
     },
     tags: {
       type: "list",
-      resolve: (post) => {
+      resolve: (post: Post) => {
         const match = post.body.raw.match(hashtagRegex)
         if (!match) return []
         const tags = new Set<string>(
-          match.map((m) => m.replace(hashtagRegex, "$<tag>").toLowerCase())
+          match.map((m: string) => m.replace(hashtagRegex, "$<tag>").toLowerCase())
         )
 
         return Array.from(tags)
@@ -45,7 +46,7 @@ export const Post = defineDocumentType(() => ({
     },
     social_image: {
       type: "string",
-      resolve: (post) =>
+      resolve: (post: Post) =>
         GenerateSocialImage(
           post.title,
           format(parseISO(post.datetime), "LLLL d, yyyy")
@@ -53,11 +54,11 @@ export const Post = defineDocumentType(() => ({
     },
     readingTime: {
       type: "number",
-      resolve: (post) => readingTime(post.body.raw).minutes,
+      resolve: (post: Post) => readingTime(post.body.raw).minutes,
     },
     wordCount: {
       type: "number",
-      resolve: (post) => readingTime(post.body.raw).words,
+      resolve: (post: Post) => readingTime(post.body.raw).words,
     },
   },
 }))
