@@ -79,7 +79,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <div className="text-xs text-nord3">
             <span className="mx-1 inline-block">
               A {post.readingTime} min read by{" "}
-              <Link href="https://natwelch.com">Nat Welch</Link>.
+              <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
           {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
