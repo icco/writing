@@ -27,7 +27,7 @@ const nextConfig = {
     return [
       {
         source: "/about",
-        destination: "https://natwelch.com/",
+        destination: "https://natwelch.com/wiki/about",
         permanent: true,
       },
     ]
