@@ -9,7 +9,7 @@ import publishedPosts, {
   nextPost,
   previousPost,
 } from "@/lib/posts"
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid"
+import { ArrowLeftIcon, ArrowRightIcon, BookOpenIcon, ChevronLeftIcon, ChevronRightIcon, PencilIcon } from "@heroicons/react/24/solid"
 
 export const generateStaticParams = async () =>
   publishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
@@ -87,23 +87,25 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         </div>
         <MDXContent code={post.body.code} />
 
-        <div className="py-7 px-8 flex mx-auto max-w-5xl">
+        <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
           <div className="flex-none">
             {prev && (
               <Link href={prev.permalink} title={prev.title}>
-                <ArrowLeftIcon className="inline-block w-4 h-4" />
+                <ChevronLeftIcon className="inline-block w-6 h-6" /> #{prev.id}
               </Link>
             )}
           </div>
           <div className="flex-grow"></div>
           <div className="flex-none">
+            <Link href={post.github} title="Edit this post on Github"><PencilIcon className="inline-block w-4 h-4" /></Link>
+            <BookOpenIcon className="inline-block w-4 h-4" title={`This post is ${post.readingTime} minutes and ${post.wordcount} words long`} />
 
           </div>
           <div className="flex-grow"></div>
           <div className="flex-none">
             {next && (
               <Link href={next.permalink} title={next.title}>
-                <ArrowRightIcon className="inline-block w-4 h-4" />
+                #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
               </Link>
             )}
           </div>
