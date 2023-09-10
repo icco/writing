@@ -9,6 +9,7 @@ import publishedPosts, {
   nextPost,
   previousPost,
 } from "@/lib/posts"
+import { ArrowLeftIcon, ArrowRightIcon, BookOpenIcon, ChevronLeftIcon, ChevronRightIcon, PencilIcon } from "@heroicons/react/24/solid"
 
 export const generateStaticParams = async () =>
   publishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
@@ -78,27 +79,33 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <h1>{post.title}</h1>
           <div className="text-xs text-nord3">
             <span className="mx-1 inline-block">
-              A {post.readingTime} min read by{" "}
-              <Link href="https://natwelch.com">Nat Welch</Link>
+              By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
           {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
         </div>
+
         <MDXContent code={post.body.code} />
 
-        <div className="py-7 px-8 flex mx-auto max-w-5xl">
+        <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
           <div className="flex-none">
             {prev && (
               <Link href={prev.permalink} title={prev.title}>
-                &larr; Previous: #{prev.id}
+                <ChevronLeftIcon className="inline-block w-6 h-6" /> #{prev.id}
               </Link>
             )}
           </div>
-          <div className="flex-grow"></div>
+          <div className="flex-grow flex">
+            <div className="flex-grow"></div>
+            <div className="flex-none">
+              <Link href={post.github} title="Edit this post on Github"><PencilIcon className="inline-block w-4 h-4" /></Link>
+            </div>
+            <div className="flex-grow"></div>
+          </div>
           <div className="flex-none">
             {next && (
               <Link href={next.permalink} title={next.title}>
-                Next: #{next.id} &rarr;
+                #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
               </Link>
             )}
           </div>
