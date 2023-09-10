@@ -94,13 +94,14 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               </Link>
             )}
           </div>
-          <div className="flex-grow"></div>
-          <div className="flex-none">
-            <Link href={post.github} title="Edit this post on Github"><PencilIcon className="inline-block w-4 h-4" /></Link>
-            <BookOpenIcon className="inline-block w-4 h-4 px-1" title={`This post is ${post.readingTime} minutes and ${post.wordCount} words long`} />
-
+          <div className="flex-grow flex">
+            <div className="flex-grow"></div>
+            <div className="flex-none">
+              <Link href={post.github} title="Edit this post on Github"><PencilIcon className="inline-block w-4 h-4" /></Link>
+              <Link href="" title={`This post is ${post.readingTime} minutes and ${post.wordCount} words long`}><BookOpenIcon className="inline-block w-4 h-4 mx-1" /></Link>
+            </div>
+            <div className="flex-grow"></div>
           </div>
-          <div className="flex-grow"></div>
           <div className="flex-none">
             {next && (
               <Link href={next.permalink} title={next.title}>
