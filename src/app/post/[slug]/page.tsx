@@ -84,7 +84,14 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </div>
           {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
         </div>
+
         <MDXContent code={post.body.code} />
+
+        <div className="py-0 px-1 mt-4 mx-auto max-w-5xl border-t-2 border-nord15">
+          <p className="text-center w-100 text-muted">
+            Thanks for reading! This post was {post.readingTime} minutes and {post.wordCount} words long.
+          </p>
+        </div>
 
         <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
           <div className="flex-none">
@@ -98,7 +105,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             <div className="flex-grow"></div>
             <div className="flex-none">
               <Link href={post.github} title="Edit this post on Github"><PencilIcon className="inline-block w-4 h-4" /></Link>
-              <Link href="" title={`This post is ${post.readingTime} minutes and ${post.wordCount} words long`}><BookOpenIcon className="inline-block w-4 h-4 mx-1" /></Link>
             </div>
             <div className="flex-grow"></div>
           </div>
