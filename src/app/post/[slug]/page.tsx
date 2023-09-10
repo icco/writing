@@ -9,6 +9,7 @@ import publishedPosts, {
   nextPost,
   previousPost,
 } from "@/lib/posts"
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid"
 
 export const generateStaticParams = async () =>
   publishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
@@ -90,15 +91,19 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <div className="flex-none">
             {prev && (
               <Link href={prev.permalink} title={prev.title}>
-                &larr; Previous: #{prev.id}
+                <ArrowLeftIcon className="inline-block w-4 h-4" />
               </Link>
             )}
           </div>
           <div className="flex-grow"></div>
           <div className="flex-none">
+
+          </div>
+          <div className="flex-grow"></div>
+          <div className="flex-none">
             {next && (
               <Link href={next.permalink} title={next.title}>
-                Next: #{next.id} &rarr;
+                <ArrowRightIcon className="inline-block w-4 h-4" />
               </Link>
             )}
           </div>

@@ -11,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@icco/react-common": "^2023.3.18-2",
     "@imgix/js-core": "^3.8.0",
     "@mdx-js/loader": "^2.3.0",
