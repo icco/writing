@@ -1,3 +1,8 @@
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  PencilIcon,
+} from "@heroicons/react/24/solid"
 import { format, parseISO } from "date-fns"
 import { draftMode } from "next/headers"
 import Link from "next/link"
@@ -9,7 +14,6 @@ import publishedPosts, {
   nextPost,
   previousPost,
 } from "@/lib/posts"
-import { ArrowLeftIcon, ArrowRightIcon, BookOpenIcon, ChevronLeftIcon, ChevronRightIcon, PencilIcon } from "@heroicons/react/24/solid"
 
 export const generateStaticParams = async () =>
   publishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
@@ -98,7 +102,9 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <div className="flex-grow flex">
             <div className="flex-grow"></div>
             <div className="flex-none">
-              <Link href={post.github} title="Edit this post on Github"><PencilIcon className="inline-block w-4 h-4" /></Link>
+              <Link href={post.github} title="Edit this post on Github">
+                <PencilIcon className="inline-block w-4 h-4" />
+              </Link>
             </div>
             <div className="flex-grow"></div>
           </div>
