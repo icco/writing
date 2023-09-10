@@ -79,8 +79,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <h1>{post.title}</h1>
           <div className="text-xs text-nord3">
             <span className="mx-1 inline-block">
-              A {post.readingTime} min read by{" "}
-              <Link href="https://natwelch.com">Nat Welch</Link>
+              By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
           {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
@@ -98,7 +97,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <div className="flex-grow"></div>
           <div className="flex-none">
             <Link href={post.github} title="Edit this post on Github"><PencilIcon className="inline-block w-4 h-4" /></Link>
-            <BookOpenIcon className="inline-block w-4 h-4" title={`This post is ${post.readingTime} minutes and ${post.wordcount} words long`} />
+            <BookOpenIcon className="inline-block w-4 h-4 px-1" title={`This post is ${post.readingTime} minutes and ${post.wordCount} words long`} />
 
           </div>
           <div className="flex-grow"></div>
