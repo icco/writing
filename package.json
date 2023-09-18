@@ -6,6 +6,7 @@
     "build": "next build",
     "dev": "next dev -p 8080",
     "lint": "next lint --fix",
+    "lint:spell": "misspell -locale US -w ./posts/",
     "postbuild": "next-sitemap",
     "start": "next start -p $PORT",
     "test": "jest"
