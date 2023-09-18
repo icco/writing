@@ -1,7 +1,7 @@
+import { format } from "date-fns"
 import { Feed } from "feed"
 
 import { Post } from "contentlayer/generated"
-import { format } from "date-fns"
 
 export default async function generateFeed(posts: Post[]) {
   const feed = new Feed({
@@ -20,7 +20,10 @@ export default async function generateFeed(posts: Post[]) {
       link: "https://natwelch.com",
     },
     language: "en",
-    copyright: `2011 - ${format(new Date(), "yyyy")} Nat Welch. All rights reserved.`,
+    copyright: `2011 - ${format(
+      new Date(),
+      "yyyy"
+    )} Nat Welch. All rights reserved.`,
   })
 
   try {
@@ -29,7 +32,7 @@ export default async function generateFeed(posts: Post[]) {
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
-        category: p.tags.map((t: string) => ({ name: t, term: t, })),
+        category: p.tags.map((t: string) => ({ name: t, term: t })),
         author: [
           {
             name: "Nat Welch",
