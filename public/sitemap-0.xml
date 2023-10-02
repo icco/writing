@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://writing.natwelch.com/feed.atom</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://writing.natwelch.com/feed.rss</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://writing.natwelch.com/drafts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://writing.natwelch.com/feed.atom</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/post/727</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/post/726</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/post/724</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -674,6 +672,7 @@
 <url><loc>https://writing.natwelch.com/post/453</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/post/452</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/post/451</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://writing.natwelch.com/drafts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/tag/000000</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/tag/065</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/tag/1</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -827,4 +826,5 @@
 <url><loc>https://writing.natwelch.com/tag/x3d</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/tag/yearinreview</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://writing.natwelch.com/tag/youtube</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://writing.natwelch.com/feed.rss</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
