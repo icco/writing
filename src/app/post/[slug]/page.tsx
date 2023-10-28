@@ -89,8 +89,8 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
         </div>
 
-<div className="prose lg:prose-xl">
-        <MDXContent code={post.body.code} />
+        <div className="prose lg:prose-xl max-w-5xl">
+          <MDXContent code={post.body.code} />
         </div>
 
         <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
