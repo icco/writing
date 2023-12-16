@@ -1,12 +1,12 @@
 import "./globals.css"
 
 import type { Metadata } from "next"
-import { Roboto } from "next/font/google"
+import { Archivo } from "next/font/google"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 
-const font = Roboto({
+const font = Archivo({
   weight: "400",
   subsets: ["latin"],
 })
