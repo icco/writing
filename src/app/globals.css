@@ -4,7 +4,7 @@
 
 body,
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-roboto);
   color: theme('colors.text');
   background-color: theme('colors.background');
 }
@@ -17,7 +17,7 @@ pre {
 }
 
 p code {
-  font-family: monospace;
+  font-family: var(--font-roboto-mono);
   overflow-wrap: break-word;
   padding: 0.2em;
 }
@@ -27,7 +27,7 @@ h2,
 h3,
 h4,
 .header {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-roboto-slab);
 }
 
 

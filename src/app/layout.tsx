@@ -1,14 +1,26 @@
 import "./globals.css"
 
 import type { Metadata } from "next"
-import { Roboto } from "next/font/google"
+import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 
-const font = Roboto({
+const roboto = Roboto({
   weight: "400",
+  variable: "--font-roboto",
   subsets: ["latin"],
+})
+
+const robotoSlab = Roboto_Slab({
+  variable: "--font-roboto-slab",
+  subsets: ["latin"],
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -22,8 +34,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={font.className}>
+    <html
+      lang="en"
+      className={`${roboto.variable} ${robotoSlab.variable} ${robotoMono.variable}`}
+    >
+      <body>
         <Header />
         <main>{children}</main>
         <Footer />
