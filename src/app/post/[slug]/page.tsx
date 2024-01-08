@@ -34,8 +34,8 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
       images: [
         {
           url: post.social_image,
-          width: 800,
-          height: 600,
+          width: 1200,
+          height: 630,
         },
       ],
       locale: "en_US",
