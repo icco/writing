@@ -4,6 +4,7 @@ import {
   PencilIcon,
 } from "@heroicons/react/24/solid"
 import { format, parseISO } from "date-fns"
+import type { Viewport } from "next"
 import { draftMode } from "next/headers"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -41,11 +42,6 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
       locale: "en_US",
       type: "article",
     },
-    viewport: {
-      width: "device-width",
-      initialScale: 1,
-      maximumScale: 1,
-    },
     alternates: {
       canonical: post.url,
       types: {
@@ -54,6 +50,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
       },
     },
   }
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
