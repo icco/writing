@@ -1,5 +1,5 @@
 import { compareDesc } from "date-fns"
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 
 import { PostCard } from "@/components/PostCard"
 
@@ -9,12 +9,13 @@ const title = `Drafts!`
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.DOMAIN ?? ""),
   title,
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: { index: false, follow: false },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function Home() {

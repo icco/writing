@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 
 import { PostCard } from "@/components/PostCard"
 import publishedPosts from "@/lib/posts"
@@ -14,11 +14,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   alternates: {
     canonical: "/",
     types: {
@@ -26,6 +21,12 @@ export const metadata: Metadata = {
       "application/atom+xml": "https://writing.natwelch.com/feed.atom",
     },
   },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function Home() {
