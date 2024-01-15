@@ -1,6 +1,7 @@
 import Link from "next/link"
 
-import Logo from "@/components/Logo"
+import Logo from "./Logo"
+import ThemeToggle from "./ThemeToggle"
 
 export default function Header() {
   return (
@@ -12,6 +13,8 @@ export default function Header() {
       </div>
       <div className="flex-grow"></div>
       <div className="flex-none">
+        <ThemeToggle />
+
         <Link key="/about" href="/about" prefetch={false} className="m-8">
           About
         </Link>
