@@ -39,7 +39,7 @@ export default function RootLayout({
       lang="en"
       className={`${roboto.variable} ${robotoSlab.variable} ${robotoMono.variable}`}
     >
-      <body className="bg-white dark:bg-black min-h-[100dvh]">
+      <body className="bg-white dark:bg-black">
         <ThemeProvider attribute="class">
           <Header />
           <main>{children}</main>

@@ -7,7 +7,6 @@ function ThemeToggle() {
 
   return (
     <button
-      className=""
       onClick={() => {
         setTheme(theme === "light" ? "dark" : "light")
       }}
