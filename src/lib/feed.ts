@@ -1,3 +1,4 @@
+import { format } from "date-fns"
 import { Feed } from "feed"
 
 import { Post } from "contentlayer/generated"
@@ -19,7 +20,10 @@ export default async function generateFeed(posts: Post[]) {
       link: "https://natwelch.com",
     },
     language: "en",
-    copyright: "2022",
+    copyright: `2011 - ${format(
+      new Date(),
+      "yyyy"
+    )} Nat Welch. All rights reserved.`,
   })
 
   try {
@@ -28,6 +32,7 @@ export default async function generateFeed(posts: Post[]) {
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
         date: new Date(p.datetime),
+        category: p.tags.map((t: string) => ({ name: t, term: t })),
         author: [
           {
             name: "Nat Welch",
@@ -35,7 +40,7 @@ export default async function generateFeed(posts: Post[]) {
             link: "https://natwelch.com",
           },
         ],
-        content: p.body.raw,
+        content: `Due to a rendering bug, this post is not available in the feed. Please visit <a href="https://writing.natwelch.com/post/${p.id}">https://writing.natwelch.com/post/${p.id}</a> to read it.`,
       })
     })
   } catch (err) {

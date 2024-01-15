@@ -1,4 +1,10 @@
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  PencilIcon,
+} from "@heroicons/react/24/solid"
 import { format, parseISO } from "date-fns"
+import type { Viewport } from "next"
 import { draftMode } from "next/headers"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -29,17 +35,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
       images: [
         {
           url: post.social_image,
-          width: 800,
-          height: 600,
+          width: 1200,
+          height: 630,
         },
       ],
       locale: "en_US",
       type: "article",
-    },
-    viewport: {
-      width: "device-width",
-      initialScale: 1,
-      maximumScale: 1,
     },
     alternates: {
       canonical: post.url,
@@ -49,6 +50,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
       },
     },
   }
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
@@ -78,27 +85,37 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <h1>{post.title}</h1>
           <div className="text-xs text-nord3">
             <span className="mx-1 inline-block">
-              A {post.readingTime} min read by{" "}
-              <Link href="https://natwelch.com">Nat Welch</Link>
+              By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
           {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
         </div>
-        <MDXContent code={post.body.code} />
 
-        <div className="py-7 px-8 flex mx-auto max-w-5xl">
+        <div className="prose lg:prose-xl max-w-5xl">
+          <MDXContent code={post.body.code} />
+        </div>
+
+        <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
           <div className="flex-none">
             {prev && (
               <Link href={prev.permalink} title={prev.title}>
-                &larr; Previous: #{prev.id}
+                <ChevronLeftIcon className="inline-block w-6 h-6" /> #{prev.id}
               </Link>
             )}
           </div>
-          <div className="flex-grow"></div>
+          <div className="flex-grow flex">
+            <div className="flex-grow"></div>
+            <div className="flex-none">
+              <Link href={post.github} title="Edit this post on Github">
+                <PencilIcon className="inline-block w-4 h-4" />
+              </Link>
+            </div>
+            <div className="flex-grow"></div>
+          </div>
           <div className="flex-none">
             {next && (
               <Link href={next.permalink} title={next.title}>
-                Next: #{next.id} &rarr;
+                #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
               </Link>
             )}
           </div>
