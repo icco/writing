@@ -22,6 +22,12 @@ export const Post = defineDocumentType(() => ({
     excerpt: { type: "markdown", required: false, default: "" },
   },
   computedFields: {
+    github: {
+      type: "string",
+      resolve: (post) => {
+        return `https://github.com/icco/writing/tree/main/posts/${post._raw.sourceFileName}`
+      },
+    },
     url: {
       type: "string",
       resolve: (post) => {
@@ -56,6 +62,10 @@ export const Post = defineDocumentType(() => ({
     readingTime: {
       type: "number",
       resolve: (post) => readingTime(post.body.raw).minutes,
+    },
+    wordCount: {
+      type: "number",
+      resolve: (post) => readingTime(post.body.raw).words,
     },
   },
 }))

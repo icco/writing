@@ -4,7 +4,7 @@
 
 body,
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-roboto);
   color: theme('colors.text');
   background-color: theme('colors.background');
 }
@@ -17,7 +17,7 @@ pre {
 }
 
 p code {
-  font-family: monospace;
+  font-family: var(--font-roboto-mono);
   overflow-wrap: break-word;
   padding: 0.2em;
 }
@@ -27,7 +27,7 @@ h2,
 h3,
 h4,
 .header {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-roboto-slab);
 }
 
 
@@ -152,14 +152,31 @@ article hr {
   margin: 1rem;
 }
 
-@media screen and (min-width: 30em) and (max-width: 60em) {
-  article blockquote p {
+/* https://tailwindcss.com/docs/responsive-design */
+@media not all and (min-width: 640px) {
+
+  h1,
+  .f1 {
+    font-size: 2rem;
+  }
+
+  h2,
+  .f2 {
+    font-size: 1.75rem;
+  }
+
+  h3,
+  .f3 {
+    font-size: 1.5rem;
+  }
+
+  h4,
+  .f4 {
     font-size: 1.15rem;
   }
-}
 
-@media screen and (min-width: 60em) {
-  article blockquote p {
-    font-size: 1.5rem;
+  article ol,
+  article ul {
+    margin-left: 0.5rem;
   }
 }

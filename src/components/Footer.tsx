@@ -12,12 +12,12 @@ const Footer = () => {
             <p className="text-muted text-sm rc-scout__text">
               <i className="rc-scout__logo" /> Want to become a better
               programmer?{" "}
-              <a
+              <Link
                 className="rc-scout__link"
                 href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
               >
                 Join the Recurse Center!
-              </a>
+              </Link>
             </p>
           </div>
         </nav>
@@ -26,6 +26,10 @@ const Footer = () => {
           reserved.{" "}
           <Link className="blue" href="https://github.com/icco/writing">
             Source code
+          </Link>
+          .{" "}
+          <Link className="blue" href="https://natwelch.com/privacy">
+            Privacy
           </Link>
           .
         </p>
