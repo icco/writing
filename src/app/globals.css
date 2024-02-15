@@ -107,17 +107,16 @@ article blockquote {
   border-left-style: solid;
   border-width: 0 0 0 0.5em;
   border-color: theme('colors.accent');
-  padding-left: 2rem;
+  padding: 0 2rem;
   margin-left: 0;
+  margin-right: 1rem;
   margin-top: 0;
 }
 
 /* f5 f4-m f3-l lh-copy measure mt0 */
 article blockquote p {
-  font-size: 1rem;
-  max-width: 30em;
+  font-size: 1.2rem;
   line-height: 1.5;
-  max-width: 30em;
   margin: 0.5rem;
 }
 
