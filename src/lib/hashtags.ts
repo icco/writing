@@ -23,11 +23,18 @@ const replaceHashtag: Replace = (
   tag: string
 ) => {
   const url = `/tag/${tag}`
+  const stripped = value.trimStart()
 
-  return {
-    type: "link",
-    title: `#${tag}`,
-    url,
-    children: [{ type: "text", value }],
-  }
+  return [
+    {
+      type: "text",
+      value: preText,
+    },
+    {
+      type: "link",
+      title: `#${tag}`,
+      url,
+      children: [{ type: "text", value: stripped }],
+    },
+  ]
 }
