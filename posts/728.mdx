@@ -27,26 +27,33 @@ If you're a salary worker, you may think, I work more than 40 hours a week all o
 [^disabilities]: And learning disabilities, but that's a post for another day.
 [^hottake]: This is probably the hottest take in this article. Tell two different groups of lawyers or accountants they do the same job and you'll probably get stabbed.
 
-So given all of that context, I wanted to talk about how I have spent the three years and change at Laurel. I am going to do that by describing some of the bigger projects I led and implemented.
+So given all of that context, I wanted to talk about how I have spent the three years and change at Laurel. I am going to do that by describing some of the bigger projects I led and worked on.
 
 ## Migrating to MongoDB Atlas
 
-When I started there were two pretty obvious problems: monitoring was all over the place and no one understood how our datastore worked. We were running on a platform called [Aptible](https://www.aptible.com/). It was ok, but their hosted MongoDB product was not. In particular it was running an old version of MongoDB (4.0), and replicas would just forget about each other all of the time. I worked with MongoDB and Aptible to try and figure out the issues, but eventually it became clear we needed to migrate somewhere else. We chose Atlas for a variety of reasons (cost, autoscaling, availability, support to name a few), and than began migrating all of our clusters to it. We had a cluster for each customer, so migrating with minimal downtime was pretty easy, but it just took a while.
+When I started there were two pretty obvious problems: monitoring was all over the place and no one understood how our datastore worked. We were running on a platform called [Aptible](https://www.aptible.com/). It was ok, but their hosted MongoDB product was not. In particular it was running an old version of MongoDB (4.0), and replicas would just forget about each other all of the time. I worked with MongoDB and Aptible to try and figure out the issues, but eventually it became clear we needed to migrate somewhere else. We chose Atlas for a variety of reasons (cost, autoscaling, availability and support to name a few), and then began migrating all of our clusters to it. We had a cluster for each customer, so migrating with minimal downtime was pretty easy, but it just took a while. We've now been running happily on Atlas for over two years.
 
 ## Consolidating observability around Open Telemetry and Sumologic
 
 Probably my most controversial decision at Laurel: choosing Sumologic. When I joined, we were paying for nine different observability tools. I tried asking folks where they looked when there was an outage, and the answer was different for every engineer. On top of that, folks would see different things in different tools which caused all sorts confusion.
 
-So I did a bake off, and threw in some tools that we weren't using. We evaluated twelve different tools, and the outcome was either Datadog or Sumologic. Sumologic was significantly cheaper, so it won. Since then, they have been great partners in implementing features we've asked for, which has been wonderful. The downside is many engineers struggle with their query language and a few of the integrations we have had to rewrite ourselves.
+So I did a bake off, and threw in some tools that we weren't using. We evaluated twelve different tools, and the outcome was either Datadog or Sumologic. Sumologic was significantly cheaper, so it won. Since then, they have been great partners in implementing features we have asked for, which has been wonderful. The downside is many engineers struggle with their query language and a few of the integrations we have had to rewrite ourselves.
 
-One part that was not controversial: picking [Open Telemetry](https://opentelemetry.io/). Our stack is mostly Typescript and C#, and it has worked wonderfully. The real star is the [Open Telemetry Collector](https://github.com/open-telemetry/opentelemetry-collector).
+One part that was not controversial: picking [Open Telemetry](https://opentelemetry.io/). Our stack is mostly Typescript and C# (with some Python, Go and Swift for good measure), and it has worked wonderfully. The real star is the [Open Telemetry Collector](https://github.com/open-telemetry/opentelemetry-collector). For our first six months or so, we just sent telemetry straight from apps to Sumologic using OTLP over HTTP. Then we transitioned to first sending to a collector. This was great because it gave us all sorts of tools like: label adjustments, filtering, sampling, rate-limiting and caching. It adds some cost as it is not a small binary to run, but save us a bunch of time in the long run.
 
 ## Migrating to AWS
 
+As mentioned in the Atlas section above, we were on Aptible and running a copy of our infrastructure for every customer. Aptible didn't have good Terraform or other automation tooling, so all of our environments were pretty different. This causes outages and bugs... often. Moving to AWS was going to be tricky, and we weren't sure when or how we wanted to do it.
+
+So we talked to an AWS rep, and got into a program where they would pay a part of our bill for two years, and pick up the bill for paying contractors to migrate us. This did not go great. The contractors needed a lot of help to deliver, and delivered a few months late. Some of the later individual engineers we worked with were great, and the final product delivered worked great, but it definitely was not an experience I want to relive. We ended up saving some money, but lost a decent amount of time.
+
+We also debated moving to GCP at this time. No one knew GCP besides me, so we decided not to. Still not sure how I feel about that decision, but dust in the wind.
 
 ## The Full Rewrite
 
+So while the above migration was happening in Summer of 2022, we decided to make a pivot. Calling it a pivot is... not entirely accurate, but it was a significant enough change to the business, there is no other good word for it.
 
+In July and August, the company leadership let go ~25% of the company, including most of Engineering management. Over the next year a few more small downsizings would happen, and we would go from around 70 people to 40. The context for this was our business was not working. 
 
 
 /Nat
