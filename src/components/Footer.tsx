@@ -1,5 +1,6 @@
 import "./rc.css"
 
+import { CodeBracketIcon, DocumentCheckIcon } from "@heroicons/react/24/outline"
 import { format } from "date-fns"
 import Link from "next/link"
 
@@ -24,14 +25,20 @@ const Footer = () => {
         <p className="text-sm text-center md:text-right">
           &copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights
           reserved.{" "}
-          <Link className="blue" href="https://github.com/icco/writing">
-            Source code
+          <Link
+            className="blue ml-2"
+            href="https://github.com/icco/writing"
+            title="Source Code"
+          >
+            <CodeBracketIcon className="inline-block w-4 h-4" />
           </Link>
-          .{" "}
-          <Link className="blue" href="https://natwelch.com/privacy">
-            Privacy
+          <Link
+            className="blue ml-2"
+            href="https://natwelch.com/privacy"
+            title="Privacy Policy"
+          >
+            <DocumentCheckIcon className="inline-block w-4 h-4" />
           </Link>
-          .
         </p>
       </div>
     </footer>

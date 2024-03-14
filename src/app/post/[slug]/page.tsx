@@ -2,7 +2,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   PencilIcon,
-} from "@heroicons/react/24/solid"
+} from "@heroicons/react/24/outline"
 import { format, parseISO } from "date-fns"
 import type { Viewport } from "next"
 import { draftMode } from "next/headers"
