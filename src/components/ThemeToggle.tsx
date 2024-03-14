@@ -22,10 +22,7 @@ function ThemeToggle() {
 
         {/* moon icon */}
         <MoonIcon className="swap-on w-4 h-4" />
-
-        {/* background */}
-
-      </label >
+      </label>
     </>
   )
 }
