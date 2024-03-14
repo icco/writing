@@ -1,20 +1,18 @@
 "use client"
 
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline"
-import { useEffect } from "react"
-import { themeChange } from "theme-change"
+import { useTheme } from "next-themes"
 
 function ThemeToggle() {
-  useEffect(() => {
-    themeChange(false)
-  }, [])
+  const { theme, setTheme } = useTheme()
 
   return (
     <>
       <label
         className="swap swap-rotate"
-        data-toggle-theme="dracula,nord"
-        data-act-class="ACTIVECLASS"
+        onClick={() => {
+          setTheme(theme === "light" ? "dark" : "light")
+        }}
       >
         {/* this hidden checkbox controls the state */}
         <input type="checkbox" />
@@ -27,7 +25,7 @@ function ThemeToggle() {
 
         {/* background */}
 
-      </label>
+      </label >
     </>
   )
 }
