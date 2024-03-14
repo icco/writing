@@ -4,4 +4,5 @@ module.exports = {
   siteUrl: process.env.DOMAIN || "https://writing.natwelch.com",
   generateRobotsTxt: true,
   changefreq: "monthly",
+  output: "standalone",
 }
