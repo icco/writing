@@ -1,5 +1,6 @@
 "use client"
 
+import { MoonIcon } from "@heroicons/react/24/solid"
 import { useTheme } from "next-themes"
 
 function ThemeToggle() {
@@ -11,7 +12,7 @@ function ThemeToggle() {
         setTheme(theme === "light" ? "dark" : "light")
       }}
     >
-      Change Theme
+      <MoonIcon />
     </button>
   )
 }
