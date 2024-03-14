@@ -26,14 +26,14 @@ const Footer = () => {
           &copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights
           reserved.{" "}
           <Link
-            className="blue ml-2"
+            className="blue ms-2"
             href="https://github.com/icco/writing"
             title="Source Code"
           >
             <CodeBracketIcon className="inline-block w-4 h-4" />
           </Link>
           <Link
-            className="blue ml-2"
+            className="blue ms-2"
             href="https://natwelch.com/privacy"
             title="Privacy Policy"
           >
