@@ -38,6 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${roboto.variable} ${robotoSlab.variable} ${robotoMono.variable}`}
+      suppressHydrationWarning
     >
       <body className="bg-white dark:bg-black">
         <ThemeProvider attribute="class">
