@@ -25,12 +25,12 @@
     "next": "^14.0.0",
     "next-contentlayer": "^0.3.4",
     "next-secure-headers": "^2.2.0",
-    "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.0",
+    "theme-change": "^2.5.0",
     "vivus": "^0.4.6"
   },
   "devDependencies": {

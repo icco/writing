@@ -5,7 +5,6 @@ import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
-import { ThemeProvider } from "@/components/ThemeProvider"
 
 const roboto = Roboto({
   weight: "400",
@@ -41,11 +40,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-white dark:bg-black">
-        <ThemeProvider attribute="class">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )

@@ -1,19 +1,34 @@
 "use client"
 
-import { MoonIcon } from "@heroicons/react/24/outline"
-import { useTheme } from "next-themes"
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline"
+import { useEffect } from "react"
+import { themeChange } from "theme-change"
 
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  useEffect(() => {
+    themeChange(false)
+  }, [])
 
   return (
-    <button
-      onClick={() => {
-        setTheme(theme === "light" ? "dark" : "light")
-      }}
-    >
-      <MoonIcon className="inline-block w-4 h-4" />
-    </button>
+    <>
+      <label
+        className="swap swap-rotate"
+        data-toggle-theme="dracula,nord"
+        data-act-class="ACTIVECLASS"
+      >
+        {/* this hidden checkbox controls the state */}
+        <input type="checkbox" />
+
+        {/* sun icon */}
+        <SunIcon className="swap-off w-4 h-4" />
+
+        {/* moon icon */}
+        <MoonIcon className="swap-on w-4 h-4" />
+
+        {/* background */}
+
+      </label>
+    </>
   )
 }
 
