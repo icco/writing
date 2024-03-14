@@ -1,10 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config: Config = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
+  future: {},
   darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,7 +11,6 @@ const config: Config = {
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     themes: ["nord", "dracula"],
-    darkTheme: "dracula",
   },
 }
 export default config
