@@ -38,6 +38,17 @@ export default function RootLayout({
       lang="en"
       className={`${roboto.variable} ${robotoSlab.variable} ${robotoMono.variable}`}
     >
+      <head>
+        {(process.env.NODE_ENV === "development" ||
+          process.env.VERCEL_ENV === "preview") && (
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          <script
+            data-project-id="HRQOYGM9Ui3pdObThsWrs6RCZ38sO96OXPNAeMSu"
+            data-is-production-environment="false"
+            src="https://snippet.meticulous.ai/v1/meticulous.js"
+          />
+        )}
+      </head>
       <body>
         <Header />
         <main>{children}</main>
