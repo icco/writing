@@ -76,8 +76,8 @@ export default makeSource({
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [
+      remarkFrontmatter,
       remarkHashtags,
-      remarkFrontmatter(["yaml", "toml"]),
       remarkGfm,
     ],
     rehypePlugins: [rehypeSlug],
