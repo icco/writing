@@ -75,7 +75,11 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkHashtags, remarkGfm, emoji({ emoticon: true })],
+    remarkPlugins: [
+      remarkHashtags,
+      remarkGfm,
+      emoji({ accessible: true, emoticon: true }),
+    ],
     rehypePlugins: [rehypeSlug],
   },
 })
