@@ -70,8 +70,8 @@ jobs:
         # 2. The sleep is often required to ensure your app is readily being served
         #    by the time the Meticulous tests start
         run: |
-          yarn serve &
-          sleep 5
+          node server.js &
+          sleep 10
 
       - name: Run Meticulous tests
         uses: alwaysmeticulous/report-diffs-action@v1
