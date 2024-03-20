@@ -3,6 +3,7 @@ import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
+import emoji from 'remark-emoji';
 
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
@@ -74,7 +75,7 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkHashtags, remarkGfm],
+    remarkPlugins: [remarkHashtags, remarkGfm, emoji],
     rehypePlugins: [rehypeSlug],
   },
 })
