@@ -88,7 +88,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
-          {post.draft && <div className="mb-1 text-xs text-red">DRAFT</div>}
+          {post.draft && <div className="mb-1 text-xs text-error">DRAFT</div>}
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">
