@@ -85,6 +85,7 @@ const nextConfig = {
                 "blob:",
                 "https://*.natwelch.com",
                 "https://snippet.meticulous.ai",
+                "https://browser.sentry-cdn.com",
                 domain,
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
