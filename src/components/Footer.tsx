@@ -7,7 +7,8 @@ import Link from "next/link"
 const Footer = () => {
   return (
     <footer className="text-muted px-6 lg:px-8 py-12">
-      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 mt-8 lg:mt-12 border-t-2 border-border pt-8">
+      <div className="divider" />
+      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 mt-8 lg:mt-12 pt-8">
         <nav className="flex flex-wrap justify-center space-x-6">
           <div className="my-2 rc-scout" data-scout-rendered="true">
             <p className="text-muted text-sm rc-scout__text">

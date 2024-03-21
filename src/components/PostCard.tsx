@@ -33,7 +33,7 @@ export function PostCard(post: Post) {
               className="inline-block	pr-1 mb-2 text-xs"
               key={tag}
             >
-              <span className="inline-block bg-accent rounded-full px-3 py-1 text-sm font-semibold text-link hover:text-text hover:bg-link mr-2 mb-2">
+              <span className="badge badge-secondary">
                 #{tag}
               </span>
             </Link>
