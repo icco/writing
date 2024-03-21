@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 import { Feed } from "feed"
 
-import { Post } from "contentlayer-temp/generated"
+import { Post } from "contentlayer/generated"
 
 export default async function generateFeed(posts: Post[]) {
   const feed = new Feed({

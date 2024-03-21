@@ -1,7 +1,7 @@
 import { compareDesc, isFuture } from "date-fns"
 import { notFound } from "next/navigation"
 
-import { allPosts, Post } from "contentlayer-temp/generated"
+import { allPosts, Post } from "contentlayer/generated"
 
 export default function publishedPosts() {
   const posts = allPosts

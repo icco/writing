@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next"
 
 import { PostCard } from "@/components/PostCard"
 
-import { allPosts } from "contentlayer-temp/generated"
+import { allPosts } from "contentlayer/generated"
 
 const title = `Drafts!`
 export const metadata: Metadata = {
