@@ -2,7 +2,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   PencilIcon,
-} from "@heroicons/react/24/solid"
+} from "@heroicons/react/24/outline"
 import { format, parseISO } from "date-fns"
 import type { Viewport } from "next"
 import { draftMode } from "next/headers"
@@ -73,7 +73,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     <>
       <article className="py-7 px-8 mx-auto max-w-5xl">
         <div className="mb-8 text-center">
-          <div className="text-xs text-nord3">
+          <div className="text-xs">
             <span className="mx-1 inline-block">
               <Link href={post.url}>#{post.id}</Link>
             </span>
@@ -83,12 +83,12 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             </time>
           </div>
           <h1>{post.title}</h1>
-          <div className="text-xs text-nord3">
+          <div className="text-xs">
             <span className="mx-1 inline-block">
               By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
-          {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
+          {post.draft && <div className="mb-1 text-xs text-error">DRAFT</div>}
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">
@@ -98,7 +98,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
           <div className="flex-none">
             {prev && (
-              <Link href={prev.permalink} title={prev.title}>
+              <Link
+                href={prev.permalink}
+                title={prev.title}
+                className="btn btn-secondary"
+              >
                 <ChevronLeftIcon className="inline-block w-6 h-6" /> #{prev.id}
               </Link>
             )}
@@ -106,7 +110,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <div className="flex-grow flex">
             <div className="flex-grow"></div>
             <div className="flex-none">
-              <Link href={post.github} title="Edit this post on Github">
+              <Link
+                href={post.github}
+                title="Edit this post on Github"
+                className="btn btn-ghost"
+              >
                 <PencilIcon className="inline-block w-4 h-4" />
               </Link>
             </div>
@@ -114,7 +122,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </div>
           <div className="flex-none">
             {next && (
-              <Link href={next.permalink} title={next.title}>
+              <Link
+                href={next.permalink}
+                title={next.title}
+                className="btn btn-secondary"
+              >
                 #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
               </Link>
             )}
