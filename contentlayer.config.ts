@@ -78,7 +78,7 @@ export default makeSource({
     remarkPlugins: [
       remarkHashtags,
       remarkGfm,
-      [remarkEmoji, { emoticon: true, accessible: true }],
+      [remarkEmoji, { emoticon: false, accessible: true }],
     ],
     rehypePlugins: [rehypeSlug],
   },
