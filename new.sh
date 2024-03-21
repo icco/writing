@@ -1,8 +1,8 @@
 #! /bin/zsh
 
-id=$(ls ./posts | sort -n | sed 's/.mdx$//g' | tail -n 1 | awk '{print $1+1}')
+id=$(ls ./posts | sort -n | sed 's/.md$//g' | tail -n 1 | awk '{print $1+1}')
 
-cat <<EOS > ./posts/$id.mdx 
+cat <<EOS > ./posts/$id.md 
 ---
 
 id: $id
@@ -16,6 +16,6 @@ permalink: "/post/$id"
 TBD.
 EOS
 
-git add ./posts/$id.mdx
+git add ./posts/$id.md
 git ci -m "chore: init post $id"
-open -a "IA Writer" ./posts/$id.mdx
+open -a "IA Writer" ./posts/$id.md

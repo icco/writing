@@ -17,20 +17,21 @@
     "@imgix/js-core": "^3.8.0",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
-    "contentlayer": "^0.3.4",
+    "contentlayer-temp": "^0.4.4",
     "daisyui": "^4.7.3",
     "date-fns": "^3.2.0",
     "feed": "^4.2.2",
     "mdast-util-find-and-replace": "^3.0.0",
     "next": "^14.0.0",
-    "next-contentlayer": "^0.3.4",
+    "next-contentlayer-temp": "^0.4.4",
     "next-secure-headers": "^2.2.0",
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
     "rehype-slug": "^6.0.0",
-    "remark-gfm": "^3.0.0",
+    "remark-emoji": "^4.0.0",
+    "remark-gfm": "^4.0.0",
     "vivus": "^0.4.6"
   },
   "devDependencies": {
@@ -51,7 +52,8 @@
     "postcss": "^8.4.36",
     "prettier": "^3.0.2",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "webpack": "^5.91.0"
   },
   "prettier": {
     "trailingComma": "es5",
