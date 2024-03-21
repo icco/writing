@@ -58,6 +58,8 @@ jobs:
           yarn build
 
       - name: Serve project
+        env:
+          PORT: 3000
         # TODO: Update these commands to serve your app's frontend locally, and
         # then update the app-url to match.
         #
