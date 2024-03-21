@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { PostCard } from "@/components/PostCard"
 import publishedPosts from "@/lib/posts"
 
-import { allPosts } from "contentlayer/generated"
+import { allPosts } from "contentlayer-temp/generated"
 
 export const generateStaticParams = async () => {
   const tags = new Set<string>()
