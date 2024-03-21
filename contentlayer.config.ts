@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from "contentlayer-temp/source-files"
 import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
 import rehypeSlug from "rehype-slug"
+import remarkEmoji from "remark-emoji"
 import remarkGfm from "remark-gfm"
 
 import { remarkHashtags } from "./src/lib/hashtags"
@@ -74,7 +75,11 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkHashtags, remarkGfm],
+    remarkPlugins: [
+      remarkHashtags,
+      remarkGfm,
+      [remarkEmoji, { emoticon: true, accessible: true }],
+    ],
     rehypePlugins: [rehypeSlug],
   },
 })
