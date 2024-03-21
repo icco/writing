@@ -70,7 +70,7 @@ jobs:
         # 2. The sleep is often required to ensure your app is readily being served
         #    by the time the Meticulous tests start
         run: |
-          node server.js &
+          yarn start &
           sleep 10
 
       - name: Run Meticulous tests
@@ -78,4 +78,4 @@ jobs:
         with:
           api-token: RJk3ENlIA0S2CvsL9gMQPEUp30cD9EJtMerNOYZN
           # TODO: Update the port and protocol below to match your app's frontend
-          app-url: "http://localhost:8080/"
+          app-url: "http://localhost:3000/"
