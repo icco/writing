@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from "contentlayer-temp/source-files"
 import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
 import rehypeSlug from "rehype-slug"
-import emoji from "remark-emoji"
+import remarkEmoji from "remark-emoji"
 import remarkGfm from "remark-gfm"
 
 import { remarkHashtags } from "./src/lib/hashtags"
@@ -78,7 +78,7 @@ export default makeSource({
     remarkPlugins: [
       remarkHashtags,
       remarkGfm,
-      emoji({ accessible: true, emoticon: true }),
+      [remarkEmoji, { emoticon: true }],
     ],
     rehypePlugins: [rehypeSlug],
   },
