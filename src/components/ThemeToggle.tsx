@@ -16,7 +16,7 @@ function ThemeToggle() {
 
   return (
     <>
-      <label className="swap swap-rotate">
+      <label className="swap swap-rotate align-text-top">
         {/* this hidden checkbox controls the state */}
         <input
           type="checkbox"
