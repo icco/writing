@@ -83,6 +83,7 @@ const nextConfig = {
                 "'unsafe-eval'",
                 "blob:",
                 "https://*.natwelch.com",
+                "https://snippet.meticulous.ai",
                 domain,
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
