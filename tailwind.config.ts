@@ -10,7 +10,17 @@ const config: Config = {
   ],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["nord", "dracula"],
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["nord"],
+        },
+        dark: {
+          ...require("daisyui/src/theming/themes")["dracula"],
+        },
+      },
+    ],
+    logs: false,
   },
 }
 export default config

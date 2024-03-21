@@ -56,7 +56,7 @@ export default function RootLayout({
     >
       <head>{meticulousScript}</head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="nord">
+        <ThemeProvider attribute="class">
           <Header />
           <main>{children}</main>
           <Footer />
