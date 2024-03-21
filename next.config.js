@@ -66,6 +66,7 @@ const nextConfig = {
                 domain,
                 domain.replace(/^https?/, "ws"),
                 "https://browser.sentry-cdn.com",
+                "https://*.amazonaws.com/",
               ],
               // font-src 'self' https://fonts.gstatic.com
               fontSrc: ["'self'", "https://fonts.gstatic.com"],
