@@ -73,7 +73,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     <>
       <article className="py-7 px-8 mx-auto max-w-5xl">
         <div className="mb-8 text-center">
-          <div className="text-xs text-nord3">
+          <div className="text-xs">
             <span className="mx-1 inline-block">
               <Link href={post.url}>#{post.id}</Link>
             </span>
@@ -83,12 +83,12 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             </time>
           </div>
           <h1>{post.title}</h1>
-          <div className="text-xs text-nord3">
+          <div className="text-xs">
             <span className="mx-1 inline-block">
               By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
-          {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
+          {post.draft && <div className="mb-1 text-xs text-red">DRAFT</div>}
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">

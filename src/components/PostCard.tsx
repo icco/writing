@@ -11,7 +11,7 @@ export function PostCard(post: Post) {
         {post.draft && (
           <>
             <span>&mdash;</span>
-            <div className="inline-block mx-1 text-xs text-nord11">DRAFT</div>
+            <div className="inline-block mx-1 text-xs text-red">DRAFT</div>
           </>
         )}
       </div>
