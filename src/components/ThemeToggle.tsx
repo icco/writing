@@ -6,22 +6,22 @@ import { useTheme } from "next-themes"
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
+  const onClick = () => {
+    console.log("clicked", { theme })
+    setTheme(theme === "light" ? "dark" : "light")
+  }
+
   return (
     <>
-      <label
-        className="swap swap-rotate"
-        onClick={() => {
-          setTheme(theme === "light" ? "dark" : "light")
-        }}
-      >
+      <label className="swap swap-rotate">
         {/* this hidden checkbox controls the state */}
         <input type="checkbox" />
 
         {/* sun icon */}
-        <SunIcon className="swap-off w-4 h-4" />
+        <SunIcon className="swap-off w-4 h-4" onClick={onClick} />
 
         {/* moon icon */}
-        <MoonIcon className="swap-on w-4 h-4" />
+        <MoonIcon className="swap-on w-4 h-4" onClick={onClick} />
       </label>
     </>
   )
