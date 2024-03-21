@@ -76,6 +76,6 @@ jobs:
       - name: Run Meticulous tests
         uses: alwaysmeticulous/report-diffs-action@v1
         with:
-          api-token: ${{ secrets.METICULOUS_API_TOKEN }}
+          api-token: RJk3ENlIA0S2CvsL9gMQPEUp30cD9EJtMerNOYZN
           # TODO: Update the port and protocol below to match your app's frontend
           app-url: "http://localhost:8080/"
