@@ -98,7 +98,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
           <div className="flex-none">
             {prev && (
-              <Link href={prev.permalink} title={prev.title}>
+              <Link
+                href={prev.permalink}
+                title={prev.title}
+                className="btn btn-secondary"
+              >
                 <ChevronLeftIcon className="inline-block w-6 h-6" /> #{prev.id}
               </Link>
             )}
@@ -106,7 +110,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <div className="flex-grow flex">
             <div className="flex-grow"></div>
             <div className="flex-none">
-              <Link href={post.github} title="Edit this post on Github">
+              <Link
+                href={post.github}
+                title="Edit this post on Github"
+                className="btn btn-ghost"
+              >
                 <PencilIcon className="inline-block w-4 h-4" />
               </Link>
             </div>
@@ -114,7 +122,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </div>
           <div className="flex-none">
             {next && (
-              <Link href={next.permalink} title={next.title}>
+              <Link
+                href={next.permalink}
+                title={next.title}
+                className="btn btn-secondary"
+              >
                 #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
               </Link>
             )}
