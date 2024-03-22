@@ -18,7 +18,7 @@ const config: Config = {
         },
         dark: {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
-          ...require("daisyui/src/theming/themes")["night"],
+          ...require("daisyui/src/theming/themes")["dracula"],
         },
       },
     ],
