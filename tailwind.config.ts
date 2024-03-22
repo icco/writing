@@ -18,7 +18,6 @@ const config: Config = {
         },
         dark: {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
-          ...require("daisyui/src/theming/themes")["nord"],
           primary: "#3B4252",
           secondary: "#434C5E",
           accent: "#81A1C1",
