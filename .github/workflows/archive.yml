@@ -1,19 +1,14 @@
-
-
-
 on:
   schedule:
-    - cron: "0 12 * * *"
+    - cron: 0 12 * * *
   workflow_dispatch:
-
 jobs:
   archive:
     # docker run -it --rm secsi/waybackpy --url "<target_url>" --user_agent "my-unique-user-agent" --oldest
     name: Archive all posts
     uses: JamieMagee/wayback@v2.1.0
     with:
-      url: |-
-        writing.natwelch.com
+      url: writing.natwelch.com
       saveErrors: false
       saveOutlinks: true
       saveScreenshot: true
