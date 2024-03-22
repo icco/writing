@@ -66,7 +66,9 @@ const nextConfig = {
                 domain,
                 domain.replace(/^https?/, "ws"),
                 "https://browser.sentry-cdn.com",
-                "https://*.amazonaws.com/",
+                "https://*.sentry.io/",
+                "https://user-events-v3.s3-accelerate.amazonaws.com",
+                "https://cognito-identity.us-west-2.amazonaws.com",
               ],
               // font-src 'self' https://fonts.gstatic.com
               fontSrc: ["'self'", "https://fonts.gstatic.com"],
