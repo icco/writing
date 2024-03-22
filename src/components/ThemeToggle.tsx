@@ -9,7 +9,6 @@ function ThemeToggle() {
   let isDark = resolvedTheme === "dark"
 
   const onChange = () => {
-    console.log("clicked", { resolvedTheme, isDark })
     setTheme(isDark ? "light" : "dark")
     isDark = theme === "dark"
   }
