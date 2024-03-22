@@ -5,12 +5,17 @@ on:
   workflow_dispatch:
 jobs:
   archive:
+  - name: Retrieve all posts 
+    run: |
+      echo "POSTS=$(ls ./posts | sort -n | sed 's/.md$//g' | sed 's/^/writing.natwelch.com\/post\//')" >> $GITHUB_OUTPUT
+    id: posts
     # docker run -it --rm secsi/waybackpy --url "<target_url>" --user_agent "my-unique-user-agent" --oldest
-    uses: JamieMagee/wayback@v2.1.0
+  - uses: JamieMagee/wayback@v2.1.0
     with:
       url: |-
         writing.natwelch.com
         natwelch.com
+        ${{ steps.posts.outputs.POSTS }}
       saveErrors: false
       saveOutlinks: true
       saveScreenshot: true
