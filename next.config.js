@@ -65,6 +65,9 @@ const nextConfig = {
                 "https://*.natwelch.com",
                 domain,
                 domain.replace(/^https?/, "ws"),
+                "https://*.sentry.io/",
+                "https://user-events-v3.s3-accelerate.amazonaws.com",
+                "https://cognito-identity.us-west-2.amazonaws.com",
               ],
               // font-src 'self' https://fonts.gstatic.com
               fontSrc: ["'self'", "https://fonts.gstatic.com"],
@@ -84,6 +87,7 @@ const nextConfig = {
                 "blob:",
                 "https://*.natwelch.com",
                 "https://snippet.meticulous.ai",
+                "https://browser.sentry-cdn.com",
                 domain,
               ],
               // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
