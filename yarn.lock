@@ -323,9 +323,9 @@
     yargs "^17.7.2"
 
 "@heroicons/react@^2.0.18":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.1.1.tgz#422deb80c4d6caf3371aec6f4bee8361a354dc13"
-  integrity sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA==
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.1.3.tgz#78a2a7f504a7370283d07eabcddc7fec04f503db"
+  integrity sha512-fEcPfo4oN345SoqdlCDdSa4ivjaKbk0jTd+oubcgNxnNgAfzysfwWfQUr+51wigiWHQQRiZNd1Ao0M5Y3M2EGg==
 
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
@@ -883,9 +883,9 @@
     "@types/unist" "*"
 
 "@types/mdx@^2.0.0":
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/@types/mdx/-/mdx-2.0.11.tgz#21f4c166ed0e0a3a733869ba04cd8daea9834b8e"
-  integrity sha512-HM5bwOaIQJIQbAYfax35HCKxx7a3KrK3nBtIqJgSOitivTD1y3oW9P3rxY9RkXYPUk7y/AjAohfHKmFpGE79zw==
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@types/mdx/-/mdx-2.0.12.tgz#38db34cc8999b982beaec01399620bee6c65ef2e"
+  integrity sha512-H9VZ9YqE+H28FQVchC83RCs5xQ2J7mAAv6qdDEaWmXEVl3OpdH+xfrSUzQ1lp7U7oSTRZ0RvW08ASPJsYBi7Cw==
 
 "@types/ms@*":
   version "0.7.34"
@@ -900,9 +900,9 @@
     undici-types "~5.26.4"
 
 "@types/prop-types@*":
-  version "15.7.11"
-  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.11.tgz#2596fb352ee96a1379c657734d4b913a613ad563"
-  integrity sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==
+  version "15.7.12"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.12.tgz#12bb1e2be27293c1406acb6af1c3f3a1481d98c6"
+  integrity sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==
 
 "@types/react-dom@^18.2.11":
   version "18.2.22"
@@ -912,9 +912,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^18.2.46":
-  version "18.2.67"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.67.tgz#96b7af0b5e79c756f4bdd981de2ca28472c858e5"
-  integrity sha512-vkIE2vTIMHQ/xL0rgmuoECBCkZFZeHr49HeWSc24AptMbNRo7pwSBvj73rlJJs9fGKj0koS+V7kQB1jHS0uCgw==
+  version "18.2.69"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.69.tgz#313ec21891b22bb7646a54cb4bdb8cddb0880271"
+  integrity sha512-W1HOMUWY/1Yyw0ba5TkCV+oqynRjG7BnteBB+B7JmAK7iw3l2SW+VGOxL+akPweix6jk2NNJtyJKpn4TkpfK3Q==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -1546,9 +1546,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001587, caniuse-lite@^1.0.30001599:
-  version "1.0.30001599"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001599.tgz#571cf4f3f1506df9bf41fcbb6d10d5d017817bce"
-  integrity sha512-LRAQHZ4yT1+f9LemSMeqdMpMxZcc4RMWdj4tiFe3G8tNkWK+E58g+/tzotb5cU6TbcVJLr4fySiAW7XmxQvZQA==
+  version "1.0.30001600"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001600.tgz#93a3ee17a35aa6a9f0c6ef1b2ab49507d1ab9079"
+  integrity sha512-+2S9/2JFhYmYaDpZvo0lKkfvuKIglrx68MwOBqMGHhQsNkLjB5xtc/TGoEPs+MxjSyN/72qer2g97nzR641mOQ==
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -1737,9 +1737,9 @@ culori@^3:
   integrity sha512-pHJg+jbuFsCjz9iclQBqyL3B2HLCBF71BwVNujUYEvCeQMvV97R59MNK3R2+jgJ3a1fcZgI9B3vYgz8lzr/BFQ==
 
 daisyui@^4.7.3:
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-4.7.3.tgz#2d75b71d1c52f643914dea9b12930acc51ed9f49"
-  integrity sha512-R8jUpBMAUm4rSyxzGa9QqFdJTkzREtb1QahXdDoOfElGiF4VbSuu5bfqQoOro1kkSagPy+aTKu5WtSSXmH3u3g==
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-4.8.0.tgz#f49ed22d07fe67d92b3f9bd334f8cd4efd3ccb2d"
+  integrity sha512-SXy6MVzhqaa1vPZIdo5K/QAyRaQ4dbRHG+oXy7BFqJnZlwOB6bGkQRqqvClBUY2wCyiiyhk4gY5Ngi1m2JRIEA==
   dependencies:
     css-selector-tokenizer "^0.8"
     culori "^3"
@@ -4245,12 +4245,13 @@ object.groupby@^1.0.1:
     es-abstract "^1.23.2"
 
 object.hasown@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/object.hasown/-/object.hasown-1.1.3.tgz#6a5f2897bb4d3668b8e79364f98ccf971bda55ae"
-  integrity sha512-fFI4VcYpRHvSLXxP7yiZOMAd331cPfd2p7PFDVbgUsYOfCT3tICVqXWngbjr4m49OvsBwUBQ6O2uQoJvy3RexA==
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/object.hasown/-/object.hasown-1.1.4.tgz#e270ae377e4c120cdcb7656ce66884a6218283dc"
+  integrity sha512-FZ9LZt9/RHzGySlBARE3VF+gE26TxR38SdmqOqliuTnl9wrKulaQs+4dee1V+Io8VfxqzAfHu6YuRgUy8OHoTg==
   dependencies:
-    define-properties "^1.2.0"
-    es-abstract "^1.22.1"
+    define-properties "^1.2.1"
+    es-abstract "^1.23.2"
+    es-object-atoms "^1.0.0"
 
 object.values@^1.1.6, object.values@^1.1.7:
   version "1.2.0"
@@ -4269,9 +4270,9 @@ once@^1.3.0:
     wrappy "1"
 
 oo-ascii-tree@^1.94.0:
-  version "1.95.0"
-  resolved "https://registry.yarnpkg.com/oo-ascii-tree/-/oo-ascii-tree-1.95.0.tgz#3a16309f2b08764a0715fd10714d9561db5b4dbd"
-  integrity sha512-e9LWcjDtQIwFHICbeAjv2+RGJUFu3+A6oTjpymH+gfxATqPqcUV5oeGON9a/1uBr8Q0bc2/yEHVp1A/dp1iaog==
+  version "1.96.0"
+  resolved "https://registry.yarnpkg.com/oo-ascii-tree/-/oo-ascii-tree-1.96.0.tgz#f9d97c71c31b7643fbe1165cb5024b7af83937ba"
+  integrity sha512-Brydgf51AsjF2Ojp9myMm05DhYXaazQWNpyWKsP6OWgUI6zBeYDintk0vtoxq5Xu3GxtxRcxlIIzPURq/da86g==
 
 optionator@^0.9.3:
   version "0.9.3"
@@ -5262,9 +5263,9 @@ type-fest@^0.20.2:
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
 
 type-fest@^4.10.0:
-  version "4.13.1"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.13.1.tgz#166cba29f0aef1dde7d16cce1d17a1444bfdc3ad"
-  integrity sha512-ASMgM+Vf2cLwDMt1KXSkMUDSYCxtckDJs8zsaVF/mYteIsiARKCVtyXtcK38mIKbLTctZP8v6GMqdNaeI3fo7g==
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.14.0.tgz#46f9a358e605f0ec5ca99ab83deaa7257a7ae379"
+  integrity sha512-on5/Cw89wwqGZQu+yWO0gGMGu8VNxsaW9SB2HE8yJjllEk7IDTwnSN1dUVldYILhYPN5HzD7WAaw2cc/jBfn0Q==
 
 typed-array-buffer@^1.0.2:
   version "1.0.2"
