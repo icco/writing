@@ -1,7 +1,7 @@
 name: Replace old links with archived links
 on:
   schedule:
-    - cron: "12 * * * *"
+    - cron: "12 */6 * * *"
   workflow_dispatch:
 
 jobs:
