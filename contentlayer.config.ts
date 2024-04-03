@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from "contentlayer-temp/source-files"
+import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
 import rehypeSlug from "rehype-slug"
