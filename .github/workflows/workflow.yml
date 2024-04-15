@@ -13,12 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set Node.js 20.x
+    - name: Set Node.js 21.x
       uses: actions/setup-node@v4
       with:
-        node-version: 20.x
-    - run: yarn
-    - run: yarn run build
-    - uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: 'chore: generate sitemap'
+        node-version: 21.x
+    - run: ./update.sh
+    - run: git push
