@@ -1,21 +1,19 @@
 name: bump
-
 on:
   workflow_dispatch:
   schedule:
     # UTC
-    - cron: '12 0 * * *'
-
+    - cron: 12 0 * * *
 jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Install zsh
-      run: sudo apt-get update; sudo apt-get install zsh
-    - name: Set Node.js 21.x
-      uses: actions/setup-node@v4
-      with:
-        node-version: 21.x
-    - run: ./update.sh
-    - run: git push
+      - uses: actions/checkout@v4
+      - name: Install zsh
+        run: sudo apt-get update; sudo apt-get install zsh
+      - name: Set Node.js 21.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21.x
+      - run: ./update.sh
+      - run: git push
