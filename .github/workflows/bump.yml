@@ -15,5 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 21.x
+      - run: git config user.email "nat@natwelch.com"
+      - run: git config user.name "Nat Welch"
       - run: ./update.sh
       - run: git push
