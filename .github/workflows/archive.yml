@@ -7,6 +7,8 @@ jobs:
   archive:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code.
+        uses: actions/checkout@v4
       - name: Retrieve all posts
         run: |
           echo "POSTS=$(ls ./posts | sort -n | sed 's/.md$//g' | sed 's/^/writing.natwelch.com\/post\//')" >> $GITHUB_OUTPUT
