@@ -19,29 +19,29 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@contentlayer2/cli@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/cli/-/cli-0.4.1.tgz#4294d973b152ad1c926bbac55d3fef736bb32fe6"
-  integrity sha512-LJRwfpwrke+T/KyBebw3we4fsOWsOUjD3qQxfKHi6eMln2Va4YftvuCckbGsiSrBK0BMfdQLBrhtAaHejJB8iQ==
+"@contentlayer2/cli@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/cli/-/cli-0.4.2.tgz#7b48b744bd1d32dfc859459f5e85d16cf1a0358b"
+  integrity sha512-lc7ENmbBxl2kTJK3ubduu/qUJXW5f6XKwnAx33Bl7Mvt5syALVm0vhx3g1ZWtz9JXyIDYsybVgSGQNtMr3Cs3g==
   dependencies:
-    "@contentlayer2/core" "0.4.1"
-    "@contentlayer2/utils" "0.4.1"
+    "@contentlayer2/core" "0.4.2"
+    "@contentlayer2/utils" "0.4.2"
     clipanion "^3.2.1"
     typanion "^3.12.1"
 
-"@contentlayer2/client@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/client/-/client-0.4.1.tgz#8a47f33fca8e0c3ac69f7ed1ae185e2005098a10"
-  integrity sha512-pNIDmcixMhnzb3Epd++uxfHRaxw+vZPcmDBe/W8un5QzGpiLR5IlnKuYHM/3c6pxmOuUJPUIkVjNPCKHfccuuQ==
+"@contentlayer2/client@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/client/-/client-0.4.2.tgz#11653cb010c5e0045659f8bb067da9abe5d53db3"
+  integrity sha512-aumGNIvJZXzB2/YIzE277GmJplJfCCLAHynzi6/87oiq/Ky9hf/0cd2R2w0HMPtGmlm1O2UiroD2TjyzsFTQUQ==
   dependencies:
-    "@contentlayer2/core" "0.4.1"
+    "@contentlayer2/core" "0.4.2"
 
-"@contentlayer2/core@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/core/-/core-0.4.1.tgz#3a801ac09ac16ae5c6f8f95f851a87c60a4b24be"
-  integrity sha512-VQ1bWtLTCPpM8n/DXiKxYvtaVNpVEDlgOCHvXxj5507iAfM1qw5VcCHv9VSo1KZpajdnl7Abkju03ZomwCtpYg==
+"@contentlayer2/core@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/core/-/core-0.4.2.tgz#7c8c854897977ed2dd434a68459ddc1bb9eb7a98"
+  integrity sha512-CjX5oFpR3YfgB4djy2PjWoGROH9WGIOFuHL7633vIKw1Eem5XeuhxzFsEEjhkarLbBpp6BJS27ffIEJbWK3HWA==
   dependencies:
-    "@contentlayer2/utils" "0.4.1"
+    "@contentlayer2/utils" "0.4.2"
     camel-case "^4.1.2"
     comment-json "^4.2.3"
     esbuild "0.17.x || 0.18.x || 0.19.x || 0.20.x"
@@ -55,13 +55,13 @@
     type-fest "^4.10.0"
     unified "^11.0.4"
 
-"@contentlayer2/source-files@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/source-files/-/source-files-0.4.1.tgz#7fa4c2b3c020fe86a5f467329f6c713f53384a80"
-  integrity sha512-j088FXgSSSNEh/jg/4DkkS0fYtrW80OAZ/JVBQR5NTe+125HOKoCVzvyF42MNJJ3KizueSrhEaTNqQ1pZ76cJg==
+"@contentlayer2/source-files@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/source-files/-/source-files-0.4.2.tgz#389e996321f2199efbfe9ab304bb3fd1f455ec60"
+  integrity sha512-r4m7+262ITf4SZFGrK9P6ogyVCa4Bmt3OU8+0gDgFBFZD3aNYTcHZSyXQV+EyoMfduM/F7Sg9RSFJ18bxa9Yxw==
   dependencies:
-    "@contentlayer2/core" "0.4.1"
-    "@contentlayer2/utils" "0.4.1"
+    "@contentlayer2/core" "0.4.2"
+    "@contentlayer2/utils" "0.4.2"
     chokidar "^3.5.3"
     fast-glob "^3.2.12"
     gray-matter "^4.0.3"
@@ -72,19 +72,19 @@
     yaml "^2.3.1"
     zod "^3.22.4"
 
-"@contentlayer2/source-remote-files@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/source-remote-files/-/source-remote-files-0.4.1.tgz#99149835aca76c7e80c3fc6ba2caa27b12a6c7d2"
-  integrity sha512-7JIGyi0PN7pK4zyjv22jGLTAMX5kuO7zn/WH/VmfbJETNHgEMHul0yY7xXtKe6GPklz7VEUmbMbGCnfw+JAPJw==
+"@contentlayer2/source-remote-files@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/source-remote-files/-/source-remote-files-0.4.2.tgz#0459bf79b3954bbf893aac30dc8768c6122b1419"
+  integrity sha512-gzIZynlSMYa175leiyof66nGyXZGp+H9WoDpYRacQDfIiU0pRLy3YfqFbFf2GZM845+r3c5luO7kaPjv88Xvtw==
   dependencies:
-    "@contentlayer2/core" "0.4.1"
-    "@contentlayer2/source-files" "0.4.1"
-    "@contentlayer2/utils" "0.4.1"
+    "@contentlayer2/core" "0.4.2"
+    "@contentlayer2/source-files" "0.4.2"
+    "@contentlayer2/utils" "0.4.2"
 
-"@contentlayer2/utils@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/utils/-/utils-0.4.1.tgz#68edda5656120b7c16b62de629df57ce465fd284"
-  integrity sha512-9K2fbbk3+MJg3HPzqQNjrp9fxL4vb/uzwaPHUH4cCTTldd1fJvm2n66Ec9CNrYvfs0bejw3+wzzvQFTvxFBI7g==
+"@contentlayer2/utils@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/utils/-/utils-0.4.2.tgz#5d8860fffc1d7098a0929dcbdd874e368abc5c86"
+  integrity sha512-CajH0ICW7bPz66ixE3Wf8QYMGPP3ZiEVxmpoyOt6wgJS59XZOAp2StKecUioElZHuXFtBV2MYW5Cq24bjHKhAQ==
   dependencies:
     "@effect-ts/core" "^0.60.5"
     "@effect-ts/otel" "^0.15.1"
@@ -1683,16 +1683,16 @@ concat-map@0.0.1:
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
 contentlayer2@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/contentlayer2/-/contentlayer2-0.4.4.tgz#812f47ea59f9d91fd7520c219bc9908cdf6e6a6e"
-  integrity sha512-5icYlVn6+yp6o2r2z4xOyr1YZI3s/ox5I+InQwKFIN2kSzs7OQbghsD0m5ZC2LE8w9Msfdv8+niCOwCv6V/HqQ==
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/contentlayer2/-/contentlayer2-0.4.5.tgz#f4a5da4211a30e9e1a6b9d11339e128b7f79dcea"
+  integrity sha512-2aZym6MRX1v31ASkBLog4Aodhus/DwMvMcq3JHjPpnwYn7KHNV2gZ7U6RmVNs1OIg9IQWdkhSajzuL5pNaZgHw==
   dependencies:
-    "@contentlayer2/cli" "0.4.1"
-    "@contentlayer2/client" "0.4.1"
-    "@contentlayer2/core" "0.4.1"
-    "@contentlayer2/source-files" "0.4.1"
-    "@contentlayer2/source-remote-files" "0.4.1"
-    "@contentlayer2/utils" "0.4.1"
+    "@contentlayer2/cli" "0.4.2"
+    "@contentlayer2/client" "0.4.2"
+    "@contentlayer2/core" "0.4.2"
+    "@contentlayer2/source-files" "0.4.2"
+    "@contentlayer2/source-remote-files" "0.4.2"
+    "@contentlayer2/utils" "0.4.2"
 
 core-util-is@^1.0.3:
   version "1.0.3"
@@ -1876,9 +1876,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.4.668:
-  version "1.4.746"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.746.tgz#787213e75f6c7bccb55dfe8b68170555c548d093"
-  integrity sha512-jeWaIta2rIG2FzHaYIhSuVWqC6KJYo7oSBX4Jv7g+aVujKztfvdpf+n6MGwZdC5hQXbax4nntykLH2juIQrfPg==
+  version "1.4.747"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.747.tgz#e37fa5b7b7e4c22607c5f59b5cf78f947266e77d"
+  integrity sha512-+FnSWZIAvFHbsNVmUxhEqWiaOiPMcfum1GQzlWCg/wLigVtshOsjXHyEFfmt6cFK6+HkS3QOJBv6/3OPumbBfw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -4121,12 +4121,12 @@ neo-async@^2.6.2:
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
 next-contentlayer2@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/next-contentlayer2/-/next-contentlayer2-0.4.4.tgz#c9d5e0a798419ecce50d89f7357b5e31d9bcac38"
-  integrity sha512-wpmYxTUNf2nIb3X2ej3+E1spUFIuHqvTJq07KE9Pcn4v62NT17jdNUCSDbep3Dt7jU+6gu8oWxzS2+3DoKzuLQ==
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/next-contentlayer2/-/next-contentlayer2-0.4.5.tgz#ae019872f9f593313693dc565b6a699d780f39c6"
+  integrity sha512-QvsmQ/ETfnYOoSLvr2TU9hoRHwMZVQgnyB65Wzg+3SAWUqFBtIPTmn3CXsPAvbUKWvoYP7FQaMim5CJKJHseNg==
   dependencies:
-    "@contentlayer2/core" "0.4.1"
-    "@contentlayer2/utils" "0.4.1"
+    "@contentlayer2/core" "0.4.2"
+    "@contentlayer2/utils" "0.4.2"
 
 next-secure-headers@^2.2.0:
   version "2.2.0"
@@ -5663,9 +5663,9 @@ yocto-queue@^0.1.0:
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
 zod@^3.22.4:
-  version "3.23.3"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.3.tgz#eeb068f83acb55310174673dee631dfa0be5510d"
-  integrity sha512-tPvq1B/2Yu/dh2uAIH2/BhUlUeLIUvAjr6dpL/75I0pCYefHgjhXk1o1Kob3kTU8C7yU1j396jFHlsVWFi9ogg==
+  version "3.23.4"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.4.tgz#c63805b2f39e10d4ab3d55eb3c8cdb472c79dfb1"
+  integrity sha512-/AtWOKbBgjzEYYQRNfoGKHObgfAZag6qUJX1VbHo2PRBgS+wfWagEY2mizjfyAPcGesrJOcx/wcl0L9WnVrHFw==
 
 zwitch@^2.0.0, zwitch@^2.0.4:
   version "2.0.4"
