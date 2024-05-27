@@ -859,7 +859,7 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/mdast@^4.0.0", "@types/mdast@^4.0.2":
+"@types/mdast@^4.0.0", "@types/mdast@^4.0.4":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@types/mdast/-/mdast-4.0.4.tgz#7ccf72edd2f1aa7dd3437e180c64373585804dd6"
   integrity sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==
@@ -4153,7 +4153,7 @@ no-case@^3.0.4:
     lower-case "^2.0.2"
     tslib "^2.0.3"
 
-node-emoji@^2.1.0:
+node-emoji@^2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-2.1.3.tgz#93cfabb5cc7c3653aa52f29d6ffb7927d8047c06"
   integrity sha512-E2WEOVsgs7O16zsURJ/eH8BqhF029wGpEOnv7Urwdo2wmQanOACwJQh0devF9D9RhoZru0+9JXIS0dBXIAz+lA==
@@ -4623,15 +4623,15 @@ rehype-stringify@^10.0.0:
     hast-util-to-html "^9.0.0"
     unified "^11.0.0"
 
-remark-emoji@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/remark-emoji/-/remark-emoji-4.0.1.tgz#671bfda668047689e26b2078c7356540da299f04"
-  integrity sha512-fHdvsTR1dHkWKev9eNyhTo4EFwbUvJ8ka9SgeWkMPYFX4WoI7ViVBms3PjlQYgw5TLvNQso3GUB/b/8t3yo+dg==
+remark-emoji@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/remark-emoji/-/remark-emoji-5.0.0.tgz#14bd520b765cea3f00228258926ed59ad8125729"
+  integrity sha512-LCVYkHja10TXgrpHDB4AGYmYv9GtqiSebjyhK8aihuzJlZvrvkE2cndQmnK40Ch5ez/WtujcrcDa7nXVH6Jwcg==
   dependencies:
-    "@types/mdast" "^4.0.2"
+    "@types/mdast" "^4.0.4"
     emoticon "^4.0.1"
     mdast-util-find-and-replace "^3.0.1"
-    node-emoji "^2.1.0"
+    node-emoji "^2.1.3"
     unified "^11.0.4"
 
 remark-frontmatter@^5.0.0:
