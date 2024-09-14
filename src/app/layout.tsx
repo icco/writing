@@ -6,6 +6,7 @@ import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import { ThemeProvider } from "@/components/ThemeProvider"
+import { WebVitals } from "@/components/WebVitals"
 
 const roboto = Roboto({
   weight: "400",
@@ -27,6 +28,11 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   title: "Nat? Nat. Nat!",
   description: "The personal blog of Nat Welch",
+  other: {
+    webmention: "https://webmention.io/writing.natwelch.com/webmention",
+    pingback: "https://webmention.io/writing.natwelch.com/xmlrpc",
+    charset: "utf-8",
+  },
 }
 
 export const viewport: Viewport = {
@@ -40,30 +46,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  let meticulousScript = <></>
-  if (
-    process.env.NODE_ENV === "development" ||
-    process.env.VERCEL_ENV === "preview"
-  ) {
-    meticulousScript = (
-      // eslint-disable-next-line @next/next/no-sync-scripts
-      <script
-        data-project-id="HRQOYGM9Ui3pdObThsWrs6RCZ38sO96OXPNAeMSu"
-        data-is-production-environment="false"
-        src="https://snippet.meticulous.ai/v1/meticulous.js"
-      />
-    )
-  }
   return (
     <html
       lang="en"
       className={`${roboto.variable} ${robotoSlab.variable} ${robotoMono.variable}`}
       suppressHydrationWarning
     >
-      <head>{meticulousScript}</head>
       <body>
         <ThemeProvider defaultTheme="system" enableSystem>
           <Header />
+          <WebVitals />
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
