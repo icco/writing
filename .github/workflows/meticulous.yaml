@@ -6,10 +6,6 @@ name: Meticulous
 # pull requests. It needs to run on your main branch because it'll use the results
 # from the base commit of the PR on the main branch to compare against.
 on:
-  push:
-    branches:
-      - main
-  pull_request: {}
   # Important: We need the workflow to be triggered on workflow_dispatch events,
   # so that Meticulous can run the workflow on the base commit to compare
   # against if an existing workflow hasn't run
