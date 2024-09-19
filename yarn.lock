@@ -50,25 +50,6 @@
     type-fest "^4.10.0"
     unified "^11.0.4"
 
-"@contentlayer2/core@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/core/-/core-0.5.1.tgz#201cd44d474e1f0b11a0fe5796be661c9e4cdadc"
-  integrity sha512-PR9uJ5lZC6wSq37uX252LZzNpWLmxJjlOzuxcBvFtmX4aSfOBbykSG/EVlwaLK0dFAT/q0vx+nObg7D2mpQ0YA==
-  dependencies:
-    "@contentlayer2/utils" "0.5.1"
-    camel-case "^4.1.2"
-    comment-json "^4.2.3"
-    esbuild ">=0.17"
-    gray-matter "^4.0.3"
-    mdx-bundler "^10.0.2"
-    rehype-stringify "^10.0.0"
-    remark-frontmatter "^5.0.0"
-    remark-parse "^11.0.0"
-    remark-rehype "^11.1.0"
-    source-map-support "^0.5.21"
-    type-fest "^4.10.0"
-    unified "^11.0.4"
-
 "@contentlayer2/source-files@0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@contentlayer2/source-files/-/source-files-0.5.0.tgz#1f68cde8a8210d7ebf90407449e91122d837b232"
@@ -99,30 +80,6 @@
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@contentlayer2/utils/-/utils-0.5.0.tgz#b097690badb89b999d4634268e185830d3fc81aa"
   integrity sha512-7rE37WJrP9U/oz7Y9jC2BPUwNw1/Vz1Xf7LT9C0ontF2uVlAbAzDmZMDxku+aIm+i912563ZZ11HRm7pkfZvCw==
-  dependencies:
-    "@effect-ts/core" "^0.60.5"
-    "@effect-ts/otel" "^0.15.1"
-    "@effect-ts/otel-sdk-trace-node" "^0.15.1"
-    "@js-temporal/polyfill" "^0.4.4"
-    "@opentelemetry/api" "^1.8.0"
-    "@opentelemetry/core" "^1.24.0"
-    "@opentelemetry/exporter-trace-otlp-grpc" "^0.51.0"
-    "@opentelemetry/resources" "^1.21.0"
-    "@opentelemetry/sdk-trace-base" "^1.21.0"
-    "@opentelemetry/sdk-trace-node" "^1.21.0"
-    "@opentelemetry/semantic-conventions" "^1.21.0"
-    chokidar "^3.5.3"
-    hash-wasm "^4.11.0"
-    inflection "^3.0.0"
-    memfs "^4.8.2"
-    oo-ascii-tree "^1.94.0"
-    ts-pattern "^5.0.6"
-    type-fest "^4.10.0"
-
-"@contentlayer2/utils@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/utils/-/utils-0.5.1.tgz#d8120737f62bcdcf8bc9f25aaf244ca3065b76ad"
-  integrity sha512-cIsQ7ySGAbTZFhp8KdiSwHTYpD5GNmvTmCJtI/zaua23l33DuvEt9KCpZa9CmQ2IQyaGlTHKL2wv994bblCH8w==
   dependencies:
     "@effect-ts/core" "^0.60.5"
     "@effect-ts/otel" "^0.15.1"
@@ -4164,13 +4121,13 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-contentlayer2@^0.5.0:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/next-contentlayer2/-/next-contentlayer2-0.5.1.tgz#e7d58f4678d33059c9aef07cd2c898316bfe3c55"
-  integrity sha512-thDT4nsPAP6lHZlaHIPI25urR0+XDVSUexoZytze7PAAcEBRfiddrklA7JYZR7rhFgaCspDg1ryc7Six6lYUgw==
+next-contentlayer2@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/next-contentlayer2/-/next-contentlayer2-0.5.0.tgz#d0b5cb90c3440b1f4a188f05e7f06a07fc822d4c"
+  integrity sha512-pcJGCvxbYfpxD3oBFCsfTNyIPGbz5Aj/n2EU08Db2VgXC0T/vbzfG3cihRFRh1/YmnsoGHXLhnmfh3oeCVfiZg==
   dependencies:
-    "@contentlayer2/core" "0.5.1"
-    "@contentlayer2/utils" "0.5.1"
+    "@contentlayer2/core" "0.5.0"
+    "@contentlayer2/utils" "0.5.0"
 
 next-secure-headers@^2.2.0:
   version "2.2.0"
