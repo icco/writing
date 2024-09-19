@@ -14,7 +14,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@icco/react-common": "^2023.3.18-2",
-    "@imgix/js-core": "^3.8.0",
+    "@imgix/js-core": "icco/imgix-js-core#upgrade",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "contentlayer2": "^0.5.0",

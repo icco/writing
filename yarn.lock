@@ -348,10 +348,9 @@
     vivus "^0.4.6"
     webpack "^5.0.0"
 
-"@imgix/js-core@^3.8.0":
+"@imgix/js-core@icco/imgix-js-core#upgrade":
   version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@imgix/js-core/-/js-core-3.8.0.tgz#630bc4fba8cb968d8c0e8298a2be71e39d75b8b8"
-  integrity sha512-kvLmsODQq7W17UuhDIffimlKN+AUTgtQCgD8kpPN0gglvaqR1VZKXl4gB5eAUXgrwNgi5hRDl5XYAMFRPIUztw==
+  resolved "https://codeload.github.com/icco/imgix-js-core/tar.gz/ee6cd9eae8c1b36121d9e1ebbdaf9fbe29ca4e86"
   dependencies:
     js-base64 "~3.7.0"
     md5 "^2.2.1"
