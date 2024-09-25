@@ -904,9 +904,9 @@
   integrity sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==
 
 "@types/node@*", "@types/node@>=13.7.0", "@types/node@^22.5.5":
-  version "22.6.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.6.1.tgz#e531a45f4d78f14a8468cb9cdc29dc9602afc7ac"
-  integrity sha512-V48tCfcKb/e6cVUigLAaJDAILdMP0fUW6BidkPK4GpGjXcfbnoHasCZDwz3N3yVt5we2RHm4XTQCpv0KJz9zqw==
+  version "22.6.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.6.2.tgz#e09012a8fad9557a4bbbd690a9d5a373366a8595"
+  integrity sha512-roF5SJIJFOiDNf+vO6h/a0Y02/U4wJ7KwgDNrBdkBGUstvOkct7JQaSkF16jXn/UsAhvNeLEXqyuN6EUvg6+xw==
   dependencies:
     undici-types "~6.19.2"
 
@@ -923,9 +923,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^18.2.46":
-  version "18.3.8"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.8.tgz#1672ab19993f8aca7c7dc844c07d5d9e467d5a79"
-  integrity sha512-syBUrW3/XpnW4WJ41Pft+I+aPoDVbrBVQGEnbD7NijDGlVC+8gV/XKRY+7vMDlfPpbwYt0l1vd/Sj8bJGMbs9Q==
+  version "18.3.9"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.9.tgz#2cdf5f425ec8a133d67e9e3673909738b783db20"
+  integrity sha512-+BpAVyTpJkNWWSSnaLBk6ePpHLOGJKnEQNbINNovPWzvEUyAe3e+/d494QdEh71RekM/qV7lw6jzf1HGrJyAtQ==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
@@ -1513,12 +1513,12 @@ braces@^3.0.3, braces@~3.0.2:
     fill-range "^7.1.1"
 
 browserslist@^4.21.10, browserslist@^4.23.3:
-  version "4.23.3"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.23.3.tgz#debb029d3c93ebc97ffbc8d9cbb03403e227c800"
-  integrity sha512-btwCFJVjI4YWDNfau8RhZ+B1Q/VLoUITrm3RlP6y1tYGWIOa+InuYiRGXUBXo8nA1qKmHMyLB/iVQg5TT4eFoA==
+  version "4.24.0"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.24.0.tgz#a1325fe4bc80b64fda169629fc01b3d6cecd38d4"
+  integrity sha512-Rmb62sR1Zpjql25eSanFGEhAxcFwfA1K0GuQcLoaJBAcENegrQut3hYdhXFF1obQfiDyqIW/cLM5HSJ/9k884A==
   dependencies:
-    caniuse-lite "^1.0.30001646"
-    electron-to-chromium "^1.5.4"
+    caniuse-lite "^1.0.30001663"
+    electron-to-chromium "^1.5.28"
     node-releases "^2.0.18"
     update-browserslist-db "^1.1.0"
 
@@ -1563,7 +1563,7 @@ camelcase-css@^2.0.1:
   resolved "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5"
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
-caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001646:
+caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001646, caniuse-lite@^1.0.30001663:
   version "1.0.30001663"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001663.tgz#1529a723505e429fdfd49532e9fc42273ba7fed7"
   integrity sha512-o9C3X27GLKbLeTYZ6HBOLU1tsAcBZsLis28wrVzddShCS16RujjHp9GDHKZqrB3meE0YjhawvMFsGb/igqiPzA==
@@ -1917,10 +1917,10 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
-electron-to-chromium@^1.5.4:
-  version "1.5.27"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.27.tgz#5203ce5d6054857d84ba84d3681cbe59132ade78"
-  integrity sha512-o37j1vZqCoEgBuWWXLHQgTN/KDKe7zwpiY5CPeq2RvUqOyJw9xnrULzZAEVQ5p4h+zjMk7hgtOoPdnLxr7m/jw==
+electron-to-chromium@^1.5.28:
+  version "1.5.28"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.28.tgz#aee074e202c6ee8a0030a9c2ef0b3fe9f967d576"
+  integrity sha512-VufdJl+rzaKZoYVUijN13QcXVF5dWPZANeFTLNy+OSpHdDL5ynXTF35+60RSBbaQYB1ae723lQXHCrf4pyLsMw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -2176,9 +2176,9 @@ eslint-import-resolver-typescript@^3.5.2:
     is-glob "^4.0.3"
 
 eslint-module-utils@^2.8.1, eslint-module-utils@^2.9.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.11.0.tgz#b99b211ca4318243f09661fae088f373ad5243c4"
-  integrity sha512-gbBE5Hitek/oG6MUVj6sFuzEjA/ClzNflVrLovHi/JgLdC7fiN5gLAY1WIPW1a0V5I999MnsrvVrCOGmmVqDBQ==
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.11.1.tgz#6d5a05f09af98f4d238a819ae4c23626a75fa65b"
+  integrity sha512-EwcbfLOhwVMAfatfqLecR2yv3dE5+kQ8kx+Rrt0DvDXEVwW86KQ/xbMDQhtp5l42VXukD5SOF8mQQHbaNtO0CQ==
   dependencies:
     debug "^3.2.7"
 
