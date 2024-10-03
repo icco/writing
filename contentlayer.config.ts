@@ -1,8 +1,8 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
-import rehypeHighlight from "rehype-highlight"
 import rehypeSlug from "rehype-slug"
+import rehypeStarryNight from "rehype-starry-night"
 import remarkEmoji from "remark-emoji"
 import remarkGfm from "remark-gfm"
 
@@ -81,6 +81,6 @@ export default makeSource({
       remarkGfm,
       [remarkEmoji, { emoticon: false, accessible: true }],
     ],
-    rehypePlugins: [rehypeSlug, rehypeHighlight],
+    rehypePlugins: [rehypeSlug, rehypeStarryNight],
   },
 })
