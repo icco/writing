@@ -81,6 +81,6 @@ export default makeSource({
       remarkGfm,
       [remarkEmoji, { emoticon: false, accessible: true }],
     ],
-    rehypePlugins: [rehypeSlug],
+    rehypePlugins: [rehypeSlug, rehypeHighlight],
   },
 })
