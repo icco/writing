@@ -4,6 +4,7 @@ import readingTime from "reading-time"
 import rehypeSlug from "rehype-slug"
 import remarkEmoji from "remark-emoji"
 import remarkGfm from "remark-gfm"
+import rehypeHighlight from 'rehype-highlight';
 
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
