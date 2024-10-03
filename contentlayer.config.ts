@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm"
 
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
+import { all } from "@wooorm/starry-night"
 
 const hashtagRegex = /#(?<tag>\w+)/g
 
@@ -81,6 +82,9 @@ export default makeSource({
       remarkGfm,
       [remarkEmoji, { emoticon: false, accessible: true }],
     ],
-    rehypePlugins: [rehypeSlug, rehypeStarryNight],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeStarryNight, { grammars: all }],
+    ],
   },
 })
