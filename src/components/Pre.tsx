@@ -1,14 +1,14 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
 
 type PreProps = {
-  inline?: boolean;
-  className?: string;
-  children: React.ReactNode | string | string[];
+  inline?: boolean
+  className?: string
+  children: React.ReactNode | string | string[]
 }
 
 const Pre: React.FC<PreProps> = ({ inline, className, children, ...props }) => {
-  const hasLang = /language-(\w+)/.exec(className || "");
+  const hasLang = /language-(\w+)/.exec(className || "")
   return !inline && hasLang ? (
     <SyntaxHighlighter
       style={oneDark}
@@ -21,8 +21,10 @@ const Pre: React.FC<PreProps> = ({ inline, className, children, ...props }) => {
       {children?.toString().replace(/\n$/, "")}
     </SyntaxHighlighter>
   ) : (
-    <pre className={className} {...props}>{children}</pre>
-  );
+    <pre className={className} {...props}>
+      {children}
+    </pre>
+  )
 }
 
-export default Pre;
+export default Pre
