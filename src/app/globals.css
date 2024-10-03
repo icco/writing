@@ -7,14 +7,15 @@ p {
   font-family: var(--font-roboto);
 }
 
+.prose pre,
 pre {
   padding: 1em;
   overflow: scroll;
+  line-height: 1.1;
 }
 
-p code {
-  font-family: var(--font-roboto-mono);
-  overflow-wrap: break-word;
+.prose pre code,
+code {
   padding: 0.2em;
 }
 
@@ -72,16 +73,6 @@ article img {
 article a {
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
-}
-
-a.blue:link,
-a.blue:visited,
-article a:link,
-article a:visited {
-}
-
-a.blue:hover,
-article a:hover {
 }
 
 a.blue:active,
