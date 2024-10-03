@@ -1,10 +1,10 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
+import rehypeHighlight from "rehype-highlight"
 import rehypeSlug from "rehype-slug"
 import remarkEmoji from "remark-emoji"
 import remarkGfm from "remark-gfm"
-import rehypeHighlight from 'rehype-highlight';
 
 import { remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
