@@ -86,7 +86,7 @@ export default makeSource({
     rehypePlugins: [
       rehypeSlug,
       [rehypeStarryNight, { grammars: all }],
-      [rehypeMermaid, { strategy: "img-svg" }],
+      [rehypeMermaid, { strategy: "img-svg", dark: true }],
     ],
   },
 })

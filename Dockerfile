@@ -29,6 +29,8 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ENV DOMAIN="https://writing.natwelch.com"
 ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
 
+RUN npx playwright-core install --with-deps chromium
+
 RUN yarn build
 
 # If using npm comment out above and use below instead
@@ -51,6 +53,8 @@ COPY --from=builder /app/public ./public
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+RUN npx playwright-core install --with-deps chromium
 
 USER nextjs
 
