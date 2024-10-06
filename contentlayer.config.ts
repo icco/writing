@@ -2,6 +2,7 @@ import { all } from "@wooorm/starry-night"
 import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
+import rehypeMermaid from "rehype-mermaid"
 import rehypeSlug from "rehype-slug"
 import rehypeStarryNight from "rehype-starry-night"
 import remarkEmoji from "remark-emoji"
@@ -82,6 +83,10 @@ export default makeSource({
       remarkGfm,
       [remarkEmoji, { emoticon: false, accessible: true }],
     ],
-    rehypePlugins: [rehypeSlug, [rehypeStarryNight, { grammars: all }]],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeStarryNight, { grammars: all }],
+      rehypeMermaid,
+    ],
   },
 })
