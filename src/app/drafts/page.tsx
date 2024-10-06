@@ -1,9 +1,10 @@
 import { compareDesc } from "date-fns"
 import { Metadata, Viewport } from "next"
+import { headers } from "next/headers"
 
 import { PostCard } from "@/components/PostCard"
 
-import { allPosts } from "contentlayer/generated"
+import { allPosts, Post } from "contentlayer/generated"
 
 const title = `Drafts!`
 export const metadata: Metadata = {
@@ -18,10 +19,19 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
-export default function Home() {
+export default function Drafts() {
+  const headersList = headers()
+  const host = headersList.get("host")
+
+  if (!host?.includes("localhost")) {
+    throw new Error("This page is restricted to development")
+  }
+
   const posts = allPosts
-    .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
-    .filter((post) => post.draft)
+    .sort((a: Post, b: Post) =>
+      compareDesc(new Date(a.datetime), new Date(b.datetime))
+    )
+    .filter((post: Post) => post.draft)
 
   return (
     <>
