@@ -131,6 +131,12 @@ article hr {
   margin: 1rem;
 }
 
+picture {
+  background-color: theme('colors.secondary');
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
 /* https://tailwindcss.com/docs/responsive-design */
 @media not all and (min-width: 640px) {
 

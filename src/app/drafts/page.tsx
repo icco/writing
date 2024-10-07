@@ -1,14 +1,14 @@
 import { compareDesc } from "date-fns"
 import { Metadata, Viewport } from "next"
-import { headers } from "next/headers"
 
 import { PostCard } from "@/components/PostCard"
 
 import { allPosts, Post } from "contentlayer/generated"
 
+const domain = new URL(process.env.DOMAIN ?? "")
 const title = `Drafts!`
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.DOMAIN ?? ""),
+  metadataBase: domain,
   title,
   robots: { index: false, follow: false },
 }
@@ -20,10 +20,7 @@ export const viewport: Viewport = {
 }
 
 export default function Drafts() {
-  const headersList = headers()
-  const host = headersList.get("host")
-
-  if (!host?.includes("localhost")) {
+  if (domain.hostname !== "localhost") {
     throw new Error("This page is restricted to development")
   }
 
