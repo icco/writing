@@ -28,7 +28,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 ENV DOMAIN="https://writing.natwelch.com"
 ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
 
-RUN npx playwright-core install --with-deps chromium
+RUN yarn playwright-core install --with-deps chromium
 
 RUN yarn build
 
@@ -53,7 +53,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-RUN npx playwright-core install --with-deps chromium
+RUN yarn playwright-core install --with-deps chromium
 
 USER nextjs
 
