@@ -20,10 +20,6 @@ export const viewport: Viewport = {
 }
 
 export default function Drafts() {
-  if (domain.hostname !== "localhost") {
-    throw new Error("This page is restricted to development")
-  }
-
   const posts = allPosts
     .sort((a: Post, b: Post) =>
       compareDesc(new Date(a.datetime), new Date(b.datetime))
