@@ -3,11 +3,12 @@ import { Metadata, Viewport } from "next"
 
 import { PostCard } from "@/components/PostCard"
 
-import { allPosts } from "contentlayer/generated"
+import { allPosts, Post } from "contentlayer/generated"
 
+const domain = new URL(process.env.DOMAIN ?? "")
 const title = `Drafts!`
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.DOMAIN ?? ""),
+  metadataBase: domain,
   title,
   robots: { index: false, follow: false },
 }
@@ -18,10 +19,12 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
-export default function Home() {
+export default function Drafts() {
   const posts = allPosts
-    .sort((a, b) => compareDesc(new Date(a.datetime), new Date(b.datetime)))
-    .filter((post) => post.draft)
+    .sort((a: Post, b: Post) =>
+      compareDesc(new Date(a.datetime), new Date(b.datetime))
+    )
+    .filter((post: Post) => post.draft)
 
   return (
     <>
