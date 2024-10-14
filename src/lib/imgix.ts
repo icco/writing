@@ -1,3 +1,5 @@
+import md5 from "md5"
+
 export default class ImgixClient {
   settings = {
     domain: null,
@@ -37,66 +39,16 @@ export default class ImgixClient {
     return this.settings.urlPrefix + this.settings.domain + path + finalParams
   }
 
-  _signParams(path, queryParams) {
-    const signatureBase = this.settings.secureURLToken + path + queryParams;
-    const signature = md5(signatureBase);
+  _signParams(path: string, queryParams: string | any[]) {
+    const signatureBase = this.settings.secureURLToken + path + queryParams
+    const signature = md5(signatureBase)
 
     return queryParams.length > 0
-      ? queryParams + '&s=' + signature
-      : '?s=' + signature;
+      ? queryParams + "&s=" + signature
+      : "?s=" + signature
   }
 
-  /**
-   *`_buildURL` static method allows full URLs to be formatted for use with
-   * imgix.
-   *
-   * - If the source URL has included parameters, they are merged with
-   * the `params` passed in as an argument.
-   * - URL must match `{host}/{pathname}?{query}` otherwise an error is thrown.
-   *
-   * @param {String} url - full source URL path string, required
-   * @param {Object} params - imgix params object, optional
-   * @param {Object} options - imgix client options, optional
-   *
-   * @returns URL string formatted to imgix specifications.
-   *
-   * @example
-   * const client = ImgixClient
-   * const params = { w: 100 }
-   * const opts = { useHttps: true }
-   * const src = "sdk-test.imgix.net/amsterdam.jpg?h=100"
-   * const url = client._buildURL(src, params, opts)
-   * console.log(url)
-   * // => "https://sdk-test.imgix.net/amsterdam.jpg?h=100&w=100"
-   */
-  static _buildURL(url, params = {}, options = {}) {
-    if (url == null) {
-      return ""
-    }
-
-    const { host, pathname, search } = extractUrl({
-      url,
-      useHTTPS: options.useHTTPS,
-    })
-    // merge source URL parameters with options parameters
-    const combinedParams = { ...getQuery(search), ...params }
-
-    // throw error if no host or no pathname present
-    if (!host.length || !pathname.length) {
-      throw new Error("_buildURL: URL must match {host}/{pathname}?{query}")
-    }
-
-    const client = new ImgixClient({ domain: host, ...options })
-
-    return client.buildURL(pathname, combinedParams)
-  }
-
-  _buildParams(params = {}, options = {}) {
-    // If a custom encoder is present, use it
-    // Otherwise just use the encodeURIComponent
-    const useCustomEncoder = !!options.encoder
-    const customEncoder = options.encoder
-
+  _buildParams(params: Record<string, string>) {
     const queryParams = [
       // Set the libraryParam if applicable.
       ...(this.settings.libraryParam
@@ -104,21 +56,12 @@ export default class ImgixClient {
         : []),
 
       // Map over the key-value pairs in params while applying applicable encoding.
-      ...Object.entries(params).reduce((prev, [key, value]) => {
+      ...Object.entries(params).reduce((prev: string[], [key, value]) => {
         if (value == null) {
           return prev
         }
-        const encodedKey = useCustomEncoder
-          ? customEncoder(key, value)
-          : encodeURIComponent(key)
-        const encodedValue =
-          key.substr(-2) === "64"
-            ? useCustomEncoder
-              ? customEncoder(value, key)
-              : Base64.encodeURI(value)
-            : useCustomEncoder
-              ? customEncoder(value, key)
-              : encodeURIComponent(value)
+        const encodedKey = encodeURIComponent(key)
+        const encodedValue = encodeURIComponent(value)
         prev.push(`${encodedKey}=${encodedValue}`)
 
         return prev
@@ -127,4 +70,35 @@ export default class ImgixClient {
 
     return `${queryParams.length > 0 ? "?" : ""}${queryParams.join("&")}`
   }
+}
+
+/**
+ * `extractUrl()` extracts URL components from a source URL string.
+ * It does this by matching the URL against regular expressions. The irrelevant
+ * (entire URL) matches are removed and the rest stored as their corresponding
+ * URL components.
+ *
+ * `url` can be a partial, full URL, or full proxy URL. `useHttps` boolean
+ * defaults to false.
+ *
+ * @returns {Object} `{ protocol, auth, host, pathname, search, hash }`
+ * extracted from the URL.
+ */
+export function extractUrl({ url }: { url: string }) {
+  const u = new URL(url)
+
+  const { protocol, host, pathname, search, hash } = u
+
+  return { protocol, host, pathname, search, hash }
+}
+
+function getQuery(search: string): Record<string, string> {
+  const searchParams = new URLSearchParams(search)
+  const params: Record<string, string> = {}
+
+  for (const [key, value] of searchParams) {
+    params[key] = value
+  }
+
+  return params
 }
