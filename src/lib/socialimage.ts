@@ -1,4 +1,4 @@
-import ImgixClient from "@imgix/js-core"
+import ImgixClient from "./imgix"
 
 export function GenerateSocialImage(title: string, when: string): string {
   const bgColor = "eeeceb"
