@@ -5267,10 +5267,10 @@ rehype-slug@^6.0.0:
     hast-util-to-string "^3.0.0"
     unist-util-visit "^5.0.0"
 
-rehype-starry-night@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/rehype-starry-night/-/rehype-starry-night-2.1.0.tgz#5082254d74da33064b6c79700ab1aa65ff1c00a2"
-  integrity sha512-ma1lf3Jmu7v12xu55Q79IjvwH7fQm2TSnQn/JTp+rlffjmApeXLnn4cefLdWNqAUp044YcejESsIrXEMQ1aYwg==
+rehype-starry-night@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/rehype-starry-night/-/rehype-starry-night-2.2.0.tgz#9e07997194256e00ddfb428d97e4085e120b4728"
+  integrity sha512-hAdJb/14aNHPEAsP37Rt1X8HbkTsQb/2pAyL0inJn+VnXqdM714MBAL/9zC5CObCM3/zIjpwOsXMETTayx2iaw==
   dependencies:
     "@types/hast" "^3.0.0"
     "@wooorm/starry-night" "^3.0.0"
