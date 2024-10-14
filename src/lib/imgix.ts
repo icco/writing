@@ -25,21 +25,17 @@ export default class ImgixClient {
     return "/" + _path
   }
 
-  buildURL(
-    rawPath: string,
-    params?: Record<string, string>,
-    options?: { disablePathEncoding?: boolean }
-  ) {
+  buildURL(rawPath: string, params: Record<string, string>) {
     const path = this._sanitizePath(rawPath)
 
-    let finalParams = this._buildParams(params, options)
+    let finalParams = this._buildParams(params)
     if (this.settings.secureURLToken) {
       finalParams = this._signParams(path, finalParams)
     }
     return this.settings.urlPrefix + this.settings.domain + path + finalParams
   }
 
-  _signParams(path: string, queryParams: string | any[]) {
+  _signParams(path: string, queryParams: string | string[]) {
     const signatureBase = this.settings.secureURLToken + path + queryParams
     const signature = md5(signatureBase)
 
@@ -90,15 +86,4 @@ export function extractUrl({ url }: { url: string }) {
   const { protocol, host, pathname, search, hash } = u
 
   return { protocol, host, pathname, search, hash }
-}
-
-function getQuery(search: string): Record<string, string> {
-  const searchParams = new URLSearchParams(search)
-  const params: Record<string, string> = {}
-
-  for (const [key, value] of searchParams) {
-    params[key] = value
-  }
-
-  return params
 }
