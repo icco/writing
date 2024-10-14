@@ -19,29 +19,29 @@
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-6.0.4.tgz#923ca57e173c6b232bbbb07347b1be982f03e783"
   integrity sha512-s3jaWicZd0pkP0jf5ysyHUI/RE7MHos6qlToFcGWXVp+ykHOy77OUMrfbgJ9it2C5bow7OIQwYYaHjk9XlBQ2A==
 
-"@contentlayer2/cli@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/cli/-/cli-0.5.0.tgz#7e07debee493bf27c8c4ff393910cceec5b36106"
-  integrity sha512-V6mhjqFN1GNlea75TRsTAdJaT/wG2EwaRUwl13Zv3302682TB8Pkewfew19JvNX+V3c8y7zMYhQ44c2QgR2h9w==
+"@contentlayer2/cli@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/cli/-/cli-0.5.1.tgz#7e5f567c485f1a6141ac62e6a81ad412ffb7f5e9"
+  integrity sha512-nwDTAXKBXUg/eORBxXLDA9FoCxaSqhengSb6FjlyBCkrRyJ3IKQhWilld9Ol1xyYfTisI/5iddHa9ZB4kqltNg==
   dependencies:
-    "@contentlayer2/core" "0.5.0"
-    "@contentlayer2/utils" "0.5.0"
+    "@contentlayer2/core" "0.5.1"
+    "@contentlayer2/utils" "0.5.1"
     clipanion "^3.2.1"
     typanion "^3.12.1"
 
-"@contentlayer2/client@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/client/-/client-0.5.0.tgz#fb1c1b06f987e91e88ff71dd568a26aa542617e8"
-  integrity sha512-YEsGjKWZvp+wanyK2I38r5X50NQKfRvnQ8BL23H51WeB5Y4J8KrjaDm1fF4qg91RZQCSe+l3z2t7wN6IqunXkQ==
+"@contentlayer2/client@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/client/-/client-0.5.1.tgz#391701260c97f17dd4e453dafdd421c0f17d99e5"
+  integrity sha512-5/mNEEJN47h9AQ11qt9iu3XJCAMhgAPRJRp64+Trgr1iKHRVOWg9VvV+NHL3NCnDqMbJrw7vWICCgdCWn114IQ==
   dependencies:
-    "@contentlayer2/core" "0.5.0"
+    "@contentlayer2/core" "0.5.1"
 
-"@contentlayer2/core@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/core/-/core-0.5.0.tgz#d0bcbfbd5ca0556a7bb50ad140f25def2e48cec7"
-  integrity sha512-yf6sBc2wov/TNVtEms0X5VBzdYf3kxRUObGcn68+G0EE1/mrS7Ynl3aILghxAT//7Re+KeovNkLl+UdTTPF7sg==
+"@contentlayer2/core@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/core/-/core-0.5.1.tgz#201cd44d474e1f0b11a0fe5796be661c9e4cdadc"
+  integrity sha512-PR9uJ5lZC6wSq37uX252LZzNpWLmxJjlOzuxcBvFtmX4aSfOBbykSG/EVlwaLK0dFAT/q0vx+nObg7D2mpQ0YA==
   dependencies:
-    "@contentlayer2/utils" "0.5.0"
+    "@contentlayer2/utils" "0.5.1"
     camel-case "^4.1.2"
     comment-json "^4.2.3"
     esbuild ">=0.17"
@@ -55,13 +55,13 @@
     type-fest "^4.10.0"
     unified "^11.0.4"
 
-"@contentlayer2/source-files@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/source-files/-/source-files-0.5.0.tgz#1f68cde8a8210d7ebf90407449e91122d837b232"
-  integrity sha512-jdRgHvXy9BQ45BgrNleqx9aWlcUgvZUiakQIk+A1vqGUFpzSFh03TnTUKZw2sC/8QH6Aqtg7+YP1F5C/gCPVLg==
+"@contentlayer2/source-files@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/source-files/-/source-files-0.5.1.tgz#1a67ab387494beb074ffb5c037af263e15aab71b"
+  integrity sha512-M2Z/LtfU9TwE9z9dH0jqU7UEI80KuFzVvnz51ykRsktfsbZ76n/0fU6ERojiqGS5KgK8Djg3SoxJsY521dvHjQ==
   dependencies:
-    "@contentlayer2/core" "0.5.0"
-    "@contentlayer2/utils" "0.5.0"
+    "@contentlayer2/core" "0.5.1"
+    "@contentlayer2/utils" "0.5.1"
     chokidar "^3.5.3"
     fast-glob "^3.2.12"
     gray-matter "^4.0.3"
@@ -72,19 +72,19 @@
     yaml "^2.3.1"
     zod "^3.22.4"
 
-"@contentlayer2/source-remote-files@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/source-remote-files/-/source-remote-files-0.5.0.tgz#f38034a6256e01834009c6086f31a9593ea3972c"
-  integrity sha512-Sj4F0QNHJKzJkfPalWtf8Yb0HJkvAL751sC4LiEevvoqFhIkNMEuVVyPzBA81c8aNBxnSw7NEjPHOlKH1dKJNA==
+"@contentlayer2/source-remote-files@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/source-remote-files/-/source-remote-files-0.5.1.tgz#19a410130a11f70853365827772895e98cd9ea88"
+  integrity sha512-VJRhJEIMXVr8qq4otmND1F8qvjU28fOZ9c9tmLuga2dHbiMiZbnSM4WOOkvJJ4tNJH/3OCfdWgznj/fdP2NyLw==
   dependencies:
-    "@contentlayer2/core" "0.5.0"
-    "@contentlayer2/source-files" "0.5.0"
-    "@contentlayer2/utils" "0.5.0"
+    "@contentlayer2/core" "0.5.1"
+    "@contentlayer2/source-files" "0.5.1"
+    "@contentlayer2/utils" "0.5.1"
 
-"@contentlayer2/utils@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@contentlayer2/utils/-/utils-0.5.0.tgz#b097690badb89b999d4634268e185830d3fc81aa"
-  integrity sha512-7rE37WJrP9U/oz7Y9jC2BPUwNw1/Vz1Xf7LT9C0ontF2uVlAbAzDmZMDxku+aIm+i912563ZZ11HRm7pkfZvCw==
+"@contentlayer2/utils@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@contentlayer2/utils/-/utils-0.5.1.tgz#d8120737f62bcdcf8bc9f25aaf244ca3065b76ad"
+  integrity sha512-cIsQ7ySGAbTZFhp8KdiSwHTYpD5GNmvTmCJtI/zaua23l33DuvEt9KCpZa9CmQ2IQyaGlTHKL2wv994bblCH8w==
   dependencies:
     "@effect-ts/core" "^0.60.5"
     "@effect-ts/otel" "^0.15.1"
@@ -1668,17 +1668,17 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-contentlayer2@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/contentlayer2/-/contentlayer2-0.5.0.tgz#8ac9c18aea947e457967e0eb7bced405808d53cd"
-  integrity sha512-Q8OqhJv+mGIl/yqLOTJd6hNIs0241PGMAFfobCSq/A29dOQeOTvA1CwlePx/QxgrvLfqsx/stga8rb/1SRNz2Q==
+contentlayer2@^0.5.0:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/contentlayer2/-/contentlayer2-0.5.1.tgz#8ba3fa560adfa3d07a09ba7d13495e65c779b11b"
+  integrity sha512-lsLaYijf5OrHXdi7WgHRHpBxWZr+EIB++IAwJj4svOId+2IW9GNTUW4hixKsAp6e/lzOl7ZnW1o1zk6tCLvOSA==
   dependencies:
-    "@contentlayer2/cli" "0.5.0"
-    "@contentlayer2/client" "0.5.0"
-    "@contentlayer2/core" "0.5.0"
-    "@contentlayer2/source-files" "0.5.0"
-    "@contentlayer2/source-remote-files" "0.5.0"
-    "@contentlayer2/utils" "0.5.0"
+    "@contentlayer2/cli" "0.5.1"
+    "@contentlayer2/client" "0.5.1"
+    "@contentlayer2/core" "0.5.1"
+    "@contentlayer2/source-files" "0.5.1"
+    "@contentlayer2/source-remote-files" "0.5.1"
+    "@contentlayer2/utils" "0.5.1"
 
 core-util-is@^1.0.3:
   version "1.0.3"
@@ -4799,13 +4799,13 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-contentlayer2@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/next-contentlayer2/-/next-contentlayer2-0.5.0.tgz#d0b5cb90c3440b1f4a188f05e7f06a07fc822d4c"
-  integrity sha512-pcJGCvxbYfpxD3oBFCsfTNyIPGbz5Aj/n2EU08Db2VgXC0T/vbzfG3cihRFRh1/YmnsoGHXLhnmfh3oeCVfiZg==
+next-contentlayer2@^0.5.0:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/next-contentlayer2/-/next-contentlayer2-0.5.1.tgz#e7d58f4678d33059c9aef07cd2c898316bfe3c55"
+  integrity sha512-thDT4nsPAP6lHZlaHIPI25urR0+XDVSUexoZytze7PAAcEBRfiddrklA7JYZR7rhFgaCspDg1ryc7Six6lYUgw==
   dependencies:
-    "@contentlayer2/core" "0.5.0"
-    "@contentlayer2/utils" "0.5.0"
+    "@contentlayer2/core" "0.5.1"
+    "@contentlayer2/utils" "0.5.1"
 
 next-secure-headers@^2.2.0:
   version "2.2.0"
