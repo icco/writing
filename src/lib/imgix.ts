@@ -1,20 +1,17 @@
-import md5 from "md5"
+import { Base64 } from "js-base64"
 
 export default class ImgixClient {
   settings: {
     domain: string
     urlPrefix: string
-    secureURLToken: string | null
     libraryParam: string
   } = {
     domain: "",
     urlPrefix: "https://",
-    secureURLToken: null,
     libraryParam: "js-icco",
   }
   constructor(options: { domain: string }) {
     this.settings.domain = options.domain
-    this.settings.secureURLToken = ""
   }
 
   _sanitizePath(path: string) {
@@ -28,20 +25,8 @@ export default class ImgixClient {
   buildURL(rawPath: string, params: Record<string, string | string[]>) {
     const path = this._sanitizePath(rawPath)
 
-    let finalParams = this._buildParams(params)
-    if (this.settings.secureURLToken) {
-      finalParams = this._signParams(path, finalParams)
-    }
+    const finalParams = this._buildParams(params)
     return this.settings.urlPrefix + this.settings.domain + path + finalParams
-  }
-
-  _signParams(path: string, queryParams: string | string[]) {
-    const signatureBase = this.settings.secureURLToken + path + queryParams
-    const signature = md5(signatureBase)
-
-    return queryParams.length > 0
-      ? queryParams + "&s=" + signature
-      : "?s=" + signature
   }
 
   _buildParams(params: Record<string, string | string[]>) {
@@ -60,7 +45,8 @@ export default class ImgixClient {
         const v = (Array.isArray(value) ? value : [value]).join(",")
 
         const encodedKey = encodeURIComponent(key)
-        const encodedValue = encodeURIComponent(v)
+        const encodedValue = Base64.encodeURI(v)
+
         prev.push(`${encodedKey}=${encodedValue}`)
 
         return prev
