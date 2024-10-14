@@ -1,16 +1,20 @@
 import md5 from "md5"
 
 export default class ImgixClient {
-  settings = {
+  settings: {
+    domain: string
+    urlPrefix: string
+    secureURLToken: string | null
+    libraryParam: string
+  } = {
     domain: "",
-    useHTTPS: true,
-    includeLibraryParam: true,
     urlPrefix: "https://",
     secureURLToken: null,
     libraryParam: "js-icco",
   }
   constructor(options: { domain: string }) {
     this.settings.domain = options.domain
+    this.settings.secureURLToken = ""
   }
 
   _sanitizePath(path: string) {
