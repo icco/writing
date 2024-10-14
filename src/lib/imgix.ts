@@ -45,7 +45,11 @@ export default class ImgixClient {
         const v = (Array.isArray(value) ? value : [value]).join(",")
 
         const encodedKey = encodeURIComponent(key)
-        const encodedValue = Base64.encodeURI(v)
+        let encodedValue = encodeURIComponent(v)
+
+        if (key.indexOf("64") !== -1) {
+          encodedValue = Base64.encodeURL(v)
+        }
 
         prev.push(`${encodedKey}=${encodedValue}`)
 
