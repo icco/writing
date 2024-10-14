@@ -1,3 +1,5 @@
+import ImgixClient from "./imgix"
+
 export function GenerateSocialImage(title: string, when: string): string {
   const bgColor = "eeeceb"
   const txtColor = "333"

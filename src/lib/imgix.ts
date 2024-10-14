@@ -2,19 +2,15 @@ import md5 from "md5"
 
 export default class ImgixClient {
   settings = {
-    domain: null,
+    domain: "",
     useHTTPS: true,
     includeLibraryParam: true,
     urlPrefix: "https://",
     secureURLToken: null,
     libraryParam: "js-icco",
   }
-  constructor() {
-    if (this.settings.includeLibraryParam) {
-      this.settings.libraryParam = "js-icco"
-    }
-
-    this.settings.urlPrefix = this.settings.useHTTPS ? "https://" : "http://"
+  constructor(options: { domain: string }) {
+    this.settings.domain = options.domain
   }
 
   _sanitizePath(path: string) {
@@ -25,7 +21,7 @@ export default class ImgixClient {
     return "/" + _path
   }
 
-  buildURL(rawPath: string, params: Record<string, string>) {
+  buildURL(rawPath: string, params: Record<string, string | string[]>) {
     const path = this._sanitizePath(rawPath)
 
     let finalParams = this._buildParams(params)
@@ -44,7 +40,7 @@ export default class ImgixClient {
       : "?s=" + signature
   }
 
-  _buildParams(params: Record<string, string>) {
+  _buildParams(params: Record<string, string | string[]>) {
     const queryParams = [
       // Set the libraryParam if applicable.
       ...(this.settings.libraryParam
@@ -56,8 +52,11 @@ export default class ImgixClient {
         if (value == null) {
           return prev
         }
+
+        const v = (Array.isArray(value) ? value : [value]).join(",")
+
         const encodedKey = encodeURIComponent(key)
-        const encodedValue = encodeURIComponent(value)
+        const encodedValue = encodeURIComponent(v)
         prev.push(`${encodedKey}=${encodedValue}`)
 
         return prev
