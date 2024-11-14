@@ -1378,7 +1378,14 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@npm:types-react@19.0.0-rc.1":
+"@types/react-dom@npm:types-react-dom@^19.0.0-rc.1":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/types-react-dom/-/types-react-dom-19.0.0.tgz#48286ba504ac48e9345cc860f76845344c5a633a"
+  integrity sha512-qtWBYduBCmrgf4wqnTrGttEJJSZ6cTGmzuvmWd/34TJNKz/Pp69Islc1+txHF3nRxSuRvmhxztFXvLyxhp8G2w==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@npm:types-react@19.0.0-rc.1", "@types/react@npm:types-react@^19.0.0-rc.1":
   version "19.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/types-react/-/types-react-19.0.0-rc.1.tgz#576d1a702f6d0cc5b24813a293913e5cbfeaa647"
   integrity sha512-RshndUfqTW6K3STLPis8BtAYCGOkMbtvYsi90gmVNDZBXUyUc5juf2PE9LfS/JmOlUIRO8cWTS/1MTnmhjDqyQ==
