@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "chrome": "playwright install --with-deps chromium",
-    "dev": "next dev -p 8080",
+    "dev": "next dev --turbopack -p 8080",
     "lint": "next lint --fix",
     "lint:spell": "misspell -locale US -w ./posts/",
     "postbuild": "next-sitemap",
@@ -23,13 +23,13 @@
     "feed": "^4.2.2",
     "js-base64": "^3.7.7",
     "mdast-util-find-and-replace": "^3.0.0",
-    "next": "^14.2.11",
+    "next": "15.0.3",
     "next-contentlayer2": "^0.5.0",
     "next-secure-headers": "^2.2.0",
     "next-themes": "^0.4.3",
     "playwright": "^1.48.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
     "reading-time": "^1.5.0",
     "rehype-mermaid": "^3.0.0",
     "rehype-slug": "^6.0.0",
@@ -41,15 +41,15 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^22.7.4",
-    "@types/react": "^18.2.46",
-    "@types/react-dom": "^18.2.11",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "@types/vivus": "^0.4.6",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "@wooorm/starry-night": "^3.5.0",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.56.0",
-    "eslint-config-next": "^14.2.11",
+    "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
@@ -66,5 +66,9 @@
     "tabWidth": 2,
     "semi": false,
     "singleQuote": false
+  },
+  "resolutions": {
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   }
 }

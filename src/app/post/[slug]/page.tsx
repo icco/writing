@@ -19,7 +19,8 @@ import publishedPosts, {
 export const generateStaticParams = async () =>
   publishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const post = getPostBySlug(params.slug)
 
   const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
@@ -58,10 +59,11 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
+const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const post = getPostBySlug(params.slug)
 
-  const { isEnabled } = draftMode()
+  const { isEnabled } = await draftMode()
   if (!isEnabled && post.draft) {
     notFound()
   }
