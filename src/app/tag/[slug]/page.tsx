@@ -19,7 +19,7 @@ export const generateStaticParams = async () => {
 }
 
 const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
-  const params = await props.params;
+  const params = await props.params
   const posts = publishedPosts().filter(
     (post) => post.tags.includes(params.slug) && !post.draft
   )

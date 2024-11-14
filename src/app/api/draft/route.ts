@@ -23,7 +23,7 @@ export async function GET(request: Request) {
   }
 
   // Enable Draft Mode by setting the cookie
-  (await draftMode()).enable()
+  ;(await draftMode()).enable()
 
   // Redirect to the path from the fetched post
   // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
