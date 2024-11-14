@@ -14,7 +14,6 @@ const nextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
   productionBrowserSourceMaps: true,
-  swcMinify: true,
   reactStrictMode: true,
   env: {
     DOMAIN: domain,
@@ -111,6 +110,7 @@ const nextConfig = {
   },
   experimental: {
     mdxRs: true,
+    turbo: {},
   },
 }
 
