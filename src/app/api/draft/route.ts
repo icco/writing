@@ -11,8 +11,12 @@ export async function GET(request: Request) {
 
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
-  if (secret !== process.env.SECRET_TOKEN || !slug) {
+  if (secret !== process.env.SECRET_TOKEN) {
     return new Response("Invalid token", { status: 401 })
+  }
+
+  if (!slug) {
+    return new Response("Missing slug", { status: 400 })
   }
 
   const post = getPostBySlug(slug)
@@ -23,7 +27,8 @@ export async function GET(request: Request) {
   }
 
   // Enable Draft Mode by setting the cookie
-  ;(await draftMode()).enable()
+  const dm = await draftMode();
+  dm.enable()
 
   // Redirect to the path from the fetched post
   // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
