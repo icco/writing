@@ -52,7 +52,7 @@ const nextConfig = {
           },
           {
             key: "Reporting-Endpoints",
-            value: 'default="https://reportd.natwelch.com/report/writing"',
+            value: 'default="https://reportd.natwelch.com/reporting/writing"',
           },
         ],
       },
