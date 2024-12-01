@@ -104,7 +104,7 @@ const nextConfig = {
               reportURI: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
-            reportOnly: true,
+            reportOnly: false,
           },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,
