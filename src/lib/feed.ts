@@ -40,7 +40,7 @@ export default async function generateFeed(posts: Post[]) {
             link: "https://natwelch.com",
           },
         ],
-        content: `Due to a rendering bug, this post is not available in the feed. Please visit <a href="https://writing.natwelch.com/post/${p.id}">https://writing.natwelch.com/post/${p.id}</a> to read it.`,
+        content: p.body.code,
       })
     })
   } catch (err) {
