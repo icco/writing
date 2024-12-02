@@ -50,6 +50,10 @@ const nextConfig = {
               ],
             }),
           },
+          {
+            key: "Reporting-Endpoints",
+            value: 'default="https://reportd.natwelch.com/reporting/writing"',
+          },
         ],
       },
       {
@@ -100,7 +104,7 @@ const nextConfig = {
               reportURI: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
-            reportOnly: true,
+            reportOnly: false,
           },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,
