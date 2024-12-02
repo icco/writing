@@ -40,7 +40,8 @@ export default async function generateFeed(posts: Post[]) {
             link: "https://natwelch.com",
           },
         ],
-        content: p.body.code,
+        // Just raw markdown for now.
+        content: p.body.raw,
       })
     })
   } catch (err) {
