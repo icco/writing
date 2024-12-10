@@ -1,8 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-"use client"
-
-import "react-photo-album/masonry.css"
-
 import React from "react"
 
 interface PhotoGridProps {
