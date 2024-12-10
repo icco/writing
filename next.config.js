@@ -114,7 +114,6 @@ const nextConfig = {
   },
   experimental: {
     mdxRs: true,
-    turbo: {},
   },
 }
 
