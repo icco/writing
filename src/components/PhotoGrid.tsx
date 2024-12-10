@@ -4,20 +4,26 @@
 import "react-photo-album/masonry.css"
 
 import React from "react"
-import { MasonryPhotoAlbum } from "react-photo-album"
 
 interface PhotoGridProps {
   urls: string[]
 }
 
 const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
-  const photos = urls.map((url) => ({
-    src: url,
-    width: 400,
-    height: 300,
-  }))
-
-  return <MasonryPhotoAlbum photos={photos} />
+  return (
+    <div className="columns-2 md:columns-3 gap-2 not-prose">
+      {urls.map((url, index) => (
+        <a href={url} key={index}>
+          <img
+            src={url + "?w=500"}
+            alt={`Grid item ${index + 1}`}
+            width={500}
+            className="w-full my-2"
+          />
+        </a>
+      ))}
+    </div>
+  )
 }
 
 export default PhotoGrid
