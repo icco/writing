@@ -2,7 +2,8 @@
 "use client"
 
 import React from "react"
-import Masonry from "react-masonry-css"
+import { MasonryPhotoAlbum } from "react-photo-album";
+import "react-photo-album/masonry.css";
 
 interface PhotoGridProps {
   urls: string[]
