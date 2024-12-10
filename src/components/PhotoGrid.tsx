@@ -1,17 +1,18 @@
-import React from 'react';
-import Masonry from 'react-masonry-css';
+/* eslint-disable @next/next/no-img-element */
+"use client"
+
+import React from "react"
+import Masonry from "react-masonry-css"
 
 interface PhotoGridProps {
-  urls: string[];
+  urls: string[]
 }
 
 const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
   const breakpointColumns = {
     default: 4,
-    1100: 3,
-    700: 2,
-    500: 1
-  };
+    500: 1,
+  }
 
   return (
     <Masonry
@@ -20,16 +21,19 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
       columnClassName="masonry-grid-column"
     >
       {urls.map((url, index) => (
-        <img
-          key={index}
-          src={url}
-          alt={`Grid item ${index + 1}`}
-          className="masonry-grid-item"
-          loading="lazy"
-        />
+        <a href={url} key={index}>
+          <img
+            key={index}
+            src={url + "?w=500"}
+            alt={`Grid item ${index + 1}`}
+            className="masonry-grid-item"
+            loading="lazy"
+            width={500}
+          />
+        </a>
       ))}
     </Masonry>
-  );
-};
+  )
+}
 
-export default PhotoGrid;
+export default PhotoGrid
