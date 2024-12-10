@@ -1,40 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
 
+import "react-photo-album/masonry.css"
+
 import React from "react"
-import { MasonryPhotoAlbum } from "react-photo-album";
-import "react-photo-album/masonry.css";
+import { MasonryPhotoAlbum } from "react-photo-album"
 
 interface PhotoGridProps {
   urls: string[]
 }
 
 const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
-  const breakpointColumns = {
-    default: 4,
-    500: 1,
-  }
+  const photos = urls.map((url) => ({
+    src: url,
+    width: 400,
+    height: 300,
+  }))
 
-  return (
-    <Masonry
-      breakpointCols={breakpointColumns}
-      className="masonry-grid"
-      columnClassName="masonry-grid-column"
-    >
-      {urls.map((url, index) => (
-        <a href={url} key={index}>
-          <img
-            key={index}
-            src={url + "?w=500"}
-            alt={`Grid item ${index + 1}`}
-            className="masonry-grid-item"
-            loading="lazy"
-            width={500}
-          />
-        </a>
-      ))}
-    </Masonry>
-  )
+  return <MasonryPhotoAlbum photos={photos} />
 }
 
 export default PhotoGrid
