@@ -14,7 +14,7 @@ export const generateStaticParams = async () => {
   }
 
   return Array.from(tags)
-    .sort()
+    .sort((a, b) => a.localeCompare(b))
     .map((tag) => ({ slug: tag }))
 }
 
