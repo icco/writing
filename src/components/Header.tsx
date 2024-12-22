@@ -15,7 +15,11 @@ export default function Header() {
       <div className="flex-none">
         <ThemeToggle />
 
-        <Link key="/about" href="/about" prefetch={false} className="m-8">
+        <Link key="/tags" href="/tags" className="ml-8 mr-4">
+          Tags
+        </Link>
+
+        <Link key="/about" href="/about" prefetch={false} className="mx-4">
           About
         </Link>
       </div>
