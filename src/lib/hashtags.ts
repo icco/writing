@@ -1,6 +1,8 @@
 import { findAndReplace, Replace } from "mdast-util-find-and-replace"
 import { Plugin } from "unified"
 
+export const hashtagRegex = /(^|\s)#(?<tag>[a-z][a-z0-9-]{2,})\b/gi
+
 /**
  * Plugin to autolink references for hashtags.
  */
@@ -9,7 +11,7 @@ export const remarkHashtags: Plugin = () => {
     findAndReplace(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       tree as any,
-      [[/(^|\s)#([a-z][a-z0-9-]{2,})\b/gi, replaceHashtag]],
+      [[hashtagRegex, replaceHashtag]],
       {
         ignore: ["link", "linkReference"],
       }

@@ -1,21 +1,11 @@
 import { notFound } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
+import { allTags } from "@/components/Tag"
 import publishedPosts from "@/lib/posts"
 
-import { allPosts } from "contentlayer/generated"
-
 export const generateStaticParams = async () => {
-  const tags = new Set<string>()
-  for (const post of allPosts) {
-    for (const tag of post.tags) {
-      tags.add(tag)
-    }
-  }
-
-  return Array.from(tags)
-    .sort((a, b) => a.localeCompare(b))
-    .map((tag) => ({ slug: tag }))
+  return allTags().map((tag) => ({ slug: tag }))
 }
 
 const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
