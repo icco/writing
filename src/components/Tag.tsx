@@ -13,9 +13,18 @@ export const allTags = (): string[] => {
   return Array.from(tags).sort((a, b) => a.localeCompare(b))
 }
 
-export const Tag = ({ tag }: { tag: string }) => {
+export const Tag = ({
+  tag,
+  className,
+}: {
+  tag: string
+  className?: string
+}) => {
   return (
-    <Link href={`/tag/${tag}`} className="m-2 badge badge-secondary">
+    <Link
+      href={`/tag/${tag}`}
+      className={`m-2 badge badge-secondary ${className}`}
+    >
       #{tag}
     </Link>
   )
