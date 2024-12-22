@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
-import { allTags } from "@/lib/hashtags"
+import { allTags } from "@/components/Tag"
 import publishedPosts from "@/lib/posts"
 
 export const generateStaticParams = async () => {

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { allTags } from "@/lib/hashtags"
+import { allTags } from "@/components/Tag"
 
 const TagList = () => {
   return (
