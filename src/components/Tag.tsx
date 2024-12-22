@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { allPosts } from "contentlayer/generated"
 
 export const allTags = (): string[] => {
@@ -9,4 +11,12 @@ export const allTags = (): string[] => {
   }
 
   return Array.from(tags).sort((a, b) => a.localeCompare(b))
+}
+
+export const Tag = ({ tag }: { tag: string }) => {
+  return (
+    <Link href={`/tag/${tag}`} className="m-2 badge badge-secondary">
+      #{tag}
+    </Link>
+  )
 }

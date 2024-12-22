@@ -1,6 +1,4 @@
-import Link from "next/link"
-
-import { allTags } from "@/components/Tag"
+import { allTags, Tag } from "@/components/Tag"
 
 const TagList = () => {
   return (
@@ -8,9 +6,7 @@ const TagList = () => {
       <h1 className="text-4xl font-bold text-center my-8">Tags</h1>
       <div className="mx-auto max-w-3xl px-8 py-7">
         {allTags().map((tag) => (
-          <Link key={tag} href={`/tag/${tag}`}>
-            {tag}
-          </Link>
+          <Tag key={tag} tag={tag} />
         ))}
       </div>
     </>
