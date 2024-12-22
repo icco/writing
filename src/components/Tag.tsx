@@ -23,7 +23,7 @@ export const Tag = ({
   return (
     <Link
       href={`/tag/${tag}`}
-      className={`m-2 badge badge-secondary ${className}`}
+      className={`mb-2 mr-2 badge badge-secondary ${className}`}
     >
       #{tag}
     </Link>
