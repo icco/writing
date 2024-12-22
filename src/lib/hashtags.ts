@@ -1,6 +1,8 @@
 import { findAndReplace, Replace } from "mdast-util-find-and-replace"
 import { Plugin } from "unified"
 
+export const hashtagRegex = /(^|\s)#(?<tag>[a-z][a-z0-9-]{2,})\b/gi
+
 /**
  * Plugin to autolink references for hashtags.
  */
