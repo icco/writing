@@ -40,7 +40,8 @@ export default async function generateFeed(posts: Post[]) {
             link: "https://natwelch.com",
           },
         ],
-        content: `Due to a rendering bug, this post is not available in the feed. Please visit <a href="https://writing.natwelch.com/post/${p.id}">https://writing.natwelch.com/post/${p.id}</a> to read it.`,
+        // Just raw markdown for now.
+        content: `Due to a rendering bug, this post is not available in the feed. Please visit <a href="https://writing.natwelch.com/post/${p.id}">https://writing.natwelch.com/post/${p.id}</a> to read it rendered. Raw markdown is included below.\n\n${p.body.raw}`,
       })
     })
   } catch (err) {
