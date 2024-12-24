@@ -41,7 +41,7 @@ export default async function generateFeed(posts: Post[]) {
           },
         ],
         // Just raw markdown for now.
-        content: p.body.raw,
+        content: `Due to a rendering bug, this post is not available in the feed. Please visit <a href="https://writing.natwelch.com/post/${p.id}">https://writing.natwelch.com/post/${p.id}</a> to read it rendered. Raw markdown is included below.\n\n${p.body.raw}`,
       })
     })
   } catch (err) {
