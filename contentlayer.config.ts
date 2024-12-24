@@ -8,10 +8,8 @@ import rehypeStarryNight from "rehype-starry-night"
 import remarkEmoji from "remark-emoji"
 import remarkGfm from "remark-gfm"
 
-import { remarkHashtags } from "./src/lib/hashtags"
+import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
-
-const hashtagRegex = /#(?<tag>\w+)/g
 
 export const Post = defineDocumentType(() => ({
   name: "Post",

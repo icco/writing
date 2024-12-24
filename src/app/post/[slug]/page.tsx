@@ -17,7 +17,9 @@ import publishedPosts, {
 } from "@/lib/posts"
 
 export const generateStaticParams = async () =>
-  publishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
+  publishedPosts()
+    .sort((a, b) => b.datetime.localeCompare(a.datetime))
+    .map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = async (props: {
   params: Promise<{ slug: string }>

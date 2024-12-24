@@ -3,6 +3,8 @@ import Link from "next/link"
 
 import { Post } from "contentlayer/generated"
 
+import { Tag } from "./Tag"
+
 export function PostCard(post: Post) {
   return (
     <div className="mb-5">
@@ -27,15 +29,7 @@ export function PostCard(post: Post) {
 
       <div className="mb-2 text-sm text-gray-600 dark:text-muted">
         {post.tags.map((tag: string) => {
-          return (
-            <Link
-              href={`/tag/${tag}`}
-              className="inline-block	pr-1 mb-2 text-xs"
-              key={tag}
-            >
-              <span className="badge badge-secondary">#{tag}</span>
-            </Link>
-          )
+          return <Tag tag={tag} key={tag} className="text-xs" />
         })}
       </div>
       <div
