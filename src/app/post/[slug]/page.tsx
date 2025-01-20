@@ -27,7 +27,7 @@ export const generateMetadata = async (props: {
   const params = await props.params
   const post = getPostBySlug(params.slug)
 
-  const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
+  const title = `#${post.id} ${post.title}`
 
   return {
     metadataBase: new URL(process.env.DOMAIN ?? ""),
