@@ -334,11 +334,11 @@
   integrity sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==
 
 "@eslint/config-array@^0.19.0":
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/@eslint/config-array/-/config-array-0.19.1.tgz#734aaea2c40be22bbb1f2a9dac687c57a6a4c984"
-  integrity sha512-fo6Mtm5mWyKjA/Chy1BYTdn5mGJoDNjC7C64ug20ADsRDGrA85bN3uK3MaKbeRkRuuIEAR5N33Jr1pbm411/PA==
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/@eslint/config-array/-/config-array-0.19.2.tgz#3060b809e111abfc97adb0bb1172778b90cb46aa"
+  integrity sha512-GNKqxfHG2ySmJOBSHg7LxeUx4xpuCoFjacmlCoYWEbaPXLwvfIjixRI12xCQZeULksQb23uiA8F40w5TojpV7w==
   dependencies:
-    "@eslint/object-schema" "^2.1.5"
+    "@eslint/object-schema" "^2.1.6"
     debug "^4.3.1"
     minimatch "^3.1.2"
 
@@ -369,10 +369,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.19.0.tgz#51dbb140ed6b49d05adc0b171c41e1a8713b7789"
   integrity sha512-rbq9/g38qjfqFLOVPvwjIvFFdNziEC5S65jmjPw5r6A//QH+W91akh9irMwjDN8zKUTak6W9EsAv4m/7Wnw0UQ==
 
-"@eslint/object-schema@^2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@eslint/object-schema/-/object-schema-2.1.5.tgz#8670a8f6258a2be5b2c620ff314a1d984c23eb2e"
-  integrity sha512-o0bhxnL89h5Bae5T318nFoFzGy+YE5i/gGkoPAgkmTVdRKTiv3p8JHevPiPaMwoloKfEiiaHlawCqaZMqRm+XQ==
+"@eslint/object-schema@^2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@eslint/object-schema/-/object-schema-2.1.6.tgz#58369ab5b5b3ca117880c0f6c0b0f32f6950f24f"
+  integrity sha512-RBMg5FRL0I0gs51M/guSAj5/e14VQ4tpZnQNWwuDT66P14I43ItmPfIZRhO9fUVIPOAQXU47atlywZ/czoqFPA==
 
 "@eslint/plugin-kit@^0.2.5":
   version "0.2.5"
@@ -1367,9 +1367,9 @@
   integrity sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==
 
 "@types/node@*", "@types/node@>=13.7.0", "@types/node@^22.7.4":
-  version "22.12.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.12.0.tgz#bf8af3b2af0837b5a62a368756ff2b705ae0048c"
-  integrity sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==
+  version "22.13.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.0.tgz#d376dd9a0ee2f9382d86c2d5d7beb4d198b4ea8c"
+  integrity sha512-ClIbNe36lawluuvq3+YYhnIN2CELi+6q8NpnM7PYp4hBn/TatfboPgVSm2rwKRfnV2M+Ty9GWDFI64KEe+kysA==
   dependencies:
     undici-types "~6.20.0"
 
@@ -5393,17 +5393,17 @@ pkg-types@^1.2.1, pkg-types@^1.3.0:
     mlly "^1.7.4"
     pathe "^2.0.1"
 
-playwright-core@1.50.0:
-  version "1.50.0"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.50.0.tgz#28dd6a1488211c193933695ed337a5b44d46867c"
-  integrity sha512-CXkSSlr4JaZs2tZHI40DsZUN/NIwgaUPsyLuOAaIZp2CyF2sN5MM5NJsyB188lFSSozFxQ5fPT4qM+f0tH/6wQ==
+playwright-core@1.50.1:
+  version "1.50.1"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.50.1.tgz#6a0484f1f1c939168f40f0ab3828c4a1592c4504"
+  integrity sha512-ra9fsNWayuYumt+NiM069M6OkcRb1FZSK8bgi66AtpFoWkg2+y0bJSNmkFrWhMbEBbVKC/EruAHH3g0zmtwGmQ==
 
 playwright@^1.48.0:
-  version "1.50.0"
-  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.50.0.tgz#ccaf334f948d78139922844de55a18f8ae785410"
-  integrity sha512-+GinGfGTrd2IfX1TA4N2gNmeIksSb+IAe589ZH+FlmpV3MYTx6+buChGIuDLQwrGNCw2lWibqV50fU510N7S+w==
+  version "1.50.1"
+  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.50.1.tgz#2f93216511d65404f676395bfb97b41aa052b180"
+  integrity sha512-G8rwsOQJ63XG6BbKj2w5rHeavFjy5zynBA9zsJMMtBoe/Uf757oG12NXz6e6OirF7RCrTVAKFXbLmn1RbL7Qaw==
   dependencies:
-    playwright-core "1.50.0"
+    playwright-core "1.50.1"
   optionalDependencies:
     fsevents "2.3.2"
 
