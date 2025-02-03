@@ -17,11 +17,13 @@ const roboto = Roboto({
 
 const robotoSlab = Roboto_Slab({
   variable: "--font-roboto-slab",
+  subsets: ["latin"],
 })
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   display: "swap",
+  subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
