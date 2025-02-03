@@ -1,16 +1,15 @@
 @import 'tailwindcss';
 
-@plugin '@tailwindcss/typography';
-
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
   root: ":root";
   include: ;
   exclude: ;
   prefix: ;
-  logs: true;
+  logs: false;
 }
 
+@plugin '@tailwindcss/typography';
 
 @plugin "daisyui/theme" {
   name: "light";
@@ -37,6 +36,7 @@
   --color-warning-content: oklch(17.097% 0.017 84.093);
   --color-error: oklch(60.61% 0.12 15.341);
   --color-error-content: oklch(12.122% 0.024 15.341);
+
   --radius-selector: 1rem;
   --radius-field: 0.25rem;
   --radius-box: 0.5rem;
@@ -53,13 +53,14 @@
   default: false;
   color-scheme: dark;
 
+  --color-base-100: oklch(32.44% 0.0229 264.18);
+  --color-base-content: oklch(95.13% 0.0074 260.73);
   --color-primary: oklch(37.92% 0.029 266.47);
   --color-secondary: oklch(41.57% 0.0324 264.13);
   --color-accent: oklch(69.65% 0.0591 248.69);
   --color-neutral: oklch(45.23% 0.0352 264.13);
-  --color-base-content: oklch(95.13% 0.0074 260.73);
-  --color-base-100: oklch(32.44% 0.0229 264.18);
   --color-info: oklch(59.44% 0.0772 254.03);
+  --color-info-content: oklch(59.44% 0.0772 254.03);
   --color-success: oklch(76.83% 0.0749 131.06);
   --color-success-content: oklch(76.83% 0.0749 131.06);
   --color-warning: oklch(69.29% 0.0963 38.24);
