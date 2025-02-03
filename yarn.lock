@@ -443,10 +443,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/retry/-/retry-0.4.1.tgz#9a96ce501bc62df46c4031fbd970e3cc6b10f07b"
   integrity sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==
 
-"@icco/react-common@^2024.11.14-4":
-  version "2024.11.14-4"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2024.11.14-4.tgz#40bd35ebdcaa1b7d48567e50f9c8f6580cfc6114"
-  integrity sha512-XOL68d58kSRe+ESIZHNB8FMapaiCoG+lpZJbNoxDABVmvEV48gCu83sLfBXjqzQ4lUFQXbVBRjFgAD0xgb2QSg==
+"@icco/react-common@^2025.1.27-1":
+  version "2025.1.27-1"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2025.1.27-1.tgz#7f630a6ecfc17535aa8fd2b61e9daab874c82099"
+  integrity sha512-rAx2PtXyLJbUpb9i8UIzhyolHvMZP/jp0Nz575R8Sw3PT6OHhaDcxpyu6K0XUJFHlIkTjMNKLzIUg1IrIte4qg==
   dependencies:
     prop-types "^15.7"
     react-loading "^2.0"
