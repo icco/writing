@@ -10,18 +10,16 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 import { WebVitals } from "@/components/WebVitals"
 
 const roboto = Roboto({
-  weight: "400",
+  weight: ["400", "700"],
   variable: "--font-roboto",
   subsets: ["latin"],
 })
 
 const robotoSlab = Roboto_Slab({
   variable: "--font-roboto-slab",
-  subsets: ["latin"],
 })
 
 const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
   variable: "--font-roboto-mono",
   display: "swap",
 })
