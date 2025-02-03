@@ -84,14 +84,15 @@ p {
   font-family: var(--font-roboto);
 }
 
+.prose pre,
 pre {
   padding: 1em;
   overflow: scroll;
+  line-height: 1.1;
 }
 
-p code {
-  font-family: var(--font-roboto-mono);
-  overflow-wrap: break-word;
+.prose pre code,
+code {
   padding: 0.2em;
 }
 
@@ -151,14 +152,6 @@ article a {
   transition: color 0.4s;
 }
 
-a.blue:link,
-a.blue:visited,
-article a:link,
-article a:visited {}
-
-a.blue:hover,
-article a:hover {}
-
 a.blue:active,
 article a:active {
   -webkit-transition: color 0.3s;
@@ -215,9 +208,14 @@ article hr {
   margin: 1rem;
 }
 
+picture {
+  background-color: theme('colors.secondary');
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
 /* https://tailwindcss.com/docs/responsive-design */
 @media not all and (min-width: 640px) {
-
   h1,
   .f1 {
     font-size: 2rem;
