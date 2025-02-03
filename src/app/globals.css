@@ -1,5 +1,45 @@
 @import 'tailwindcss';
-@plugin "daisyui";
+
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@plugin "daisyui" {
+  themes: nord --default, dark --prefersdark;
+  root: ":root";
+  include: ;
+  exclude: ;
+  prefix: ;
+  logs: true;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  /* set as default */
+  prefersdark: true;
+  /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: dark;
+  /* color of browser-provided UI */
+
+
+  --color-primary: "#3B4252";
+  --color-secondary: "#434C5E";
+  --color-accent: "#81A1C1";
+  --color-neutral: "#4C566A";
+  --color-base-content: "#eceff4";
+  --color-base-100: "#2E3440";
+  --color-info: "#5E81AC";
+  --color-success: "#A3BE8C";
+  --color-warning: "#D08770";
+  --color-error: "#BF616A";
+
+  --rounded-box: 0.4rem;
+  --rounded-btn: 0.2rem;
+  --rounded-badge: 0.4rem;
+  --tab-radius: 0.2rem;
+}
 
 @config '../../tailwind.config.ts';
 
