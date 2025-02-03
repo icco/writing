@@ -33,7 +33,7 @@ export function PostCard(post: Post) {
         })}
       </div>
       <div
-        className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0"
+        className="text-sm *:mb-3 [&>*:last-child]:mb-0"
         dangerouslySetInnerHTML={{ __html: post.excerpt.html }}
       />
     </div>

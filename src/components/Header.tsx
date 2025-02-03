@@ -11,7 +11,7 @@ export default function Header() {
           <Logo size={50} className="px-8 logo stroke-current" />
         </Link>
       </div>
-      <div className="flex-grow"></div>
+      <div className="grow"></div>
       <div className="flex-none">
         <ThemeToggle />
 

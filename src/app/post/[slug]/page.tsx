@@ -113,8 +113,8 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
               </Link>
             )}
           </div>
-          <div className="flex-grow flex">
-            <div className="flex-grow"></div>
+          <div className="grow flex">
+            <div className="grow"></div>
             <div className="flex-none">
               <Link
                 href={post.github}
@@ -124,7 +124,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
                 <PencilIcon className="inline-block w-4 h-4" />
               </Link>
             </div>
-            <div className="flex-grow"></div>
+            <div className="grow"></div>
           </div>
           <div className="flex-none">
             {next && (
