@@ -209,13 +209,14 @@ article hr {
 }
 
 picture {
-  background-color: theme('colors.secondary');
+  background-color: var(--color-secondary);
   padding: 1rem;
   border-radius: 1rem;
 }
 
 /* https://tailwindcss.com/docs/responsive-design */
 @media not all and (min-width: 640px) {
+
   h1,
   .f1 {
     font-size: 2rem;
