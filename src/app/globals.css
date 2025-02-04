@@ -2,10 +2,6 @@
 
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
-  root: ":root";
-  include: ;
-  exclude: ;
-  prefix: ;
   logs: false;
 }
 
@@ -80,11 +76,9 @@
 
 @variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-/* https://tailwindcss.com/docs/theme#referencing-other-variables */
-@theme inline {
-  --font-sans: var(--font-roboto);
-  --font-mono: var(--font-roboto-mono);
-  --font-serif: var(--font-roboto-slab);
+body,
+p {
+  font-family: var(--font-roboto);
 }
 
 .prose pre,
@@ -97,6 +91,14 @@ pre {
 .prose pre code,
 code {
   padding: 0.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+.header {
+  font-family: var(--font-roboto-slab);
 }
 
 h1,
