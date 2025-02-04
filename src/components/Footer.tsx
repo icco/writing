@@ -19,7 +19,7 @@ const Footer = () => {
             href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
             title="Want to become a better programmer? Join the Recurse Center!"
           >
-            <RecurseLogo />
+            <RecurseLogo className="inline-block h-4 w-4" />
           </Link>
           <Link
             className="blue ms-2"
