@@ -10,6 +10,7 @@
     "lint:spell": "misspell -locale US -w ./posts/",
     "postbuild": "next-sitemap",
     "start": "next start -p $PORT",
+    "clean": "rm -rf node_modules .next .contentlayer",
     "test": "jest"
   },
   "dependencies": {
