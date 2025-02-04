@@ -6,10 +6,10 @@ import Link from "next/link"
 
 const Footer = () => {
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="mx-auto max-w-5xl">
       <div className="divider" />
       <footer className="footer items-center p-4">
-        <aside className="items-center grid-flow-col">
+        <aside className="grid-flow-col items-center">
           <p>
             &copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights
             reserved.
@@ -27,14 +27,14 @@ const Footer = () => {
             href="https://github.com/icco/writing"
             title="Source Code"
           >
-            <CodeBracketIcon className="inline-block w-4 h-4" />
+            <CodeBracketIcon className="inline-block h-4 w-4" />
           </Link>
           <Link
             className="blue ms-2"
             href="https://natwelch.com/privacy"
             title="Privacy Policy"
           >
-            <DocumentCheckIcon className="inline-block w-4 h-4" />
+            <DocumentCheckIcon className="inline-block h-4 w-4" />
           </Link>
         </nav>
       </footer>

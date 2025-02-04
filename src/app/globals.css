@@ -1,7 +1,9 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes:
+    light --default,
+    dark --prefersdark;
   logs: false;
 }
 
@@ -42,7 +44,6 @@
   --depth: 0;
   --noise: 0;
 }
-
 
 @plugin "daisyui/theme" {
   name: "dark";
@@ -130,7 +131,7 @@ h5,
 
 h6,
 .f6 {
-  font-size: .875rem;
+  font-size: 0.875rem;
 }
 
 article p {
@@ -214,7 +215,6 @@ picture {
 
 /* https://tailwindcss.com/docs/responsive-design */
 @media not all and (min-width: 640px) {
-
   h1,
   .f1 {
     font-size: 2rem;
