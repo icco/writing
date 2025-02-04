@@ -1,6 +1,7 @@
 import { CodeBracketIcon, DocumentCheckIcon } from "@heroicons/react/24/outline"
 import { format } from "date-fns"
 import Link from "next/link"
+
 import { RecurseLogo } from "./RecurseLogo"
 
 const Footer = () => {
