@@ -131,7 +131,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
               <Link
                 href={next.permalink}
                 title={next.title}
-                className="btn btn-soft btn-secondary"
+                className="btn btn-secondary"
               >
                 #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
               </Link>
