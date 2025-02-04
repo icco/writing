@@ -7,7 +7,7 @@
   logs: false;
 }
 
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/typography";
 
 @plugin "daisyui/theme" {
   name: "light";
@@ -215,6 +215,7 @@ picture {
 
 /* https://tailwindcss.com/docs/responsive-design */
 @media not all and (min-width: 640px) {
+
   h1,
   .f1 {
     font-size: 2rem;
