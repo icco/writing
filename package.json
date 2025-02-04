@@ -54,7 +54,8 @@
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "next-sitemap": "^4.2.2",
     "postcss": "^8.4.36",
-    "prettier": "^3.0.2",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.6.2"
   },
@@ -62,6 +63,9 @@
     "trailingComma": "es5",
     "tabWidth": 2,
     "semi": false,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ],
     "singleQuote": false
   }
 }
