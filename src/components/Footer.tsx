@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="mx-auto max-w-5xl">
       <div className="divider" />
-      <footer className="footer items-center p-4">
+      <footer className="footer sm:footer-horizontal items-center p-4">
         <aside className="grid-flow-col items-center">
           <p>
             &copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights
