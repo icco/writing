@@ -1,8 +1,7 @@
-import "./rc.css"
-
 import { CodeBracketIcon, DocumentCheckIcon } from "@heroicons/react/24/outline"
 import { format } from "date-fns"
 import Link from "next/link"
+import { RecurseLogo } from "./RecurseLogo"
 
 const Footer = () => {
   return (
@@ -20,7 +19,7 @@ const Footer = () => {
             href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
             title="Want to become a better programmer? Join the Recurse Center!"
           >
-            <i className="rc-scout__logo" />
+            <RecurseLogo />
           </Link>
           <Link
             className="blue ms-2"
