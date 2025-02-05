@@ -2,10 +2,10 @@ import { all } from "@wooorm/starry-night"
 import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 import { format, parseISO } from "date-fns"
 import readingTime from "reading-time"
+import rehypeGithubEmoji from "rehype-github-emoji"
 import rehypeMermaid from "rehype-mermaid"
 import rehypeSlug from "rehype-slug"
 import rehypeStarryNight from "rehype-starry-night"
-import rehypeGithubEmoji from 'rehype-github-emoji'
 import remarkGfm from "remark-gfm"
 
 import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
@@ -76,10 +76,7 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [
-      remarkHashtags,
-      remarkGfm,
-    ],
+    remarkPlugins: [remarkHashtags, remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       rehypeGithubEmoji,
