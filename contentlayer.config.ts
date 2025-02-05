@@ -5,7 +5,7 @@ import readingTime from "reading-time"
 import rehypeMermaid from "rehype-mermaid"
 import rehypeSlug from "rehype-slug"
 import rehypeStarryNight from "rehype-starry-night"
-import remarkEmoji from "remark-emoji"
+import rehypeGithubEmoji from 'rehype-github-emoji'
 import remarkGfm from "remark-gfm"
 
 import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
@@ -79,10 +79,10 @@ export default makeSource({
     remarkPlugins: [
       remarkHashtags,
       remarkGfm,
-      [remarkEmoji, { emoticon: false, accessible: true }],
     ],
     rehypePlugins: [
       rehypeSlug,
+      rehypeGithubEmoji,
       [rehypeStarryNight, { grammars: all }],
       [rehypeMermaid, { strategy: "img-svg", dark: true }],
     ],
