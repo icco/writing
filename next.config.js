@@ -81,6 +81,7 @@ const nextConfig = {
                 "https://icco.imgix.net",
                 "https://storage.googleapis.com",
                 "https://*.natwelch.com",
+                "https://*.static.flickr.com",
               ],
               // script-src 'self' 'unsafe-inline'
               scriptSrc: [
