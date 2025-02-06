@@ -148,13 +148,11 @@ article img {
 }
 
 article a {
-  -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
 
 a.blue:active,
 article a:active {
-  -webkit-transition: color 0.3s;
   transition: color 0.3s;
 }
 
@@ -214,7 +212,6 @@ picture {
   border-radius: 1rem;
 }
 
-/* https://tailwindcss.com/docs/responsive-design */
 @media not all and (min-width: 640px) {
   h1,
   .f1 {

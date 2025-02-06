@@ -11,6 +11,7 @@
     "postbuild": "next-sitemap",
     "start": "next start -p $PORT",
     "clean": "rm -rf node_modules .next .contentlayer",
+    "tw": "tailwindcss -i src/app/globals.css",
     "test": "jest"
   },
   "dependencies": {
