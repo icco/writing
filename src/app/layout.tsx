@@ -1,5 +1,4 @@
 import "./globals.css"
-import "@wooorm/starry-night/style/dimmed" // For syntax highlighting
 
 import type { Metadata, Viewport } from "next"
 import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"

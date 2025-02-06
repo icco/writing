@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@wooorm/starry-night/style/dimmed";
 
 @plugin "daisyui" {
   themes:
