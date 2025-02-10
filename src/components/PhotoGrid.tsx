@@ -6,7 +6,7 @@ interface PhotoGridProps {
 
 const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
   return (
-    <div className="columns-2 md:columns-3 gap-2 not-prose">
+    <div className="not-prose columns-2 gap-2 md:columns-3">
       {urls.map((url, index) => (
         <a href={url} key={index}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -14,7 +14,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
             src={url + "?w=500"}
             alt={`Grid item ${index + 1}`}
             width={500}
-            className="w-full my-2"
+            className="my-2 w-full"
           />
         </a>
       ))}

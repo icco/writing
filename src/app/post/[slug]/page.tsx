@@ -77,7 +77,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <>
-      <article className="py-7 px-8 mx-auto max-w-5xl">
+      <article className="mx-auto max-w-5xl px-8 py-7">
         <div className="mb-8 text-center">
           <div className="text-xs">
             <span className="mx-1 inline-block">
@@ -94,14 +94,14 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
               By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
-          {post.draft && <div className="mb-1 text-xs text-error">DRAFT</div>}
+          {post.draft && <div className="text-error mb-1 text-xs">DRAFT</div>}
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">
           <MDXContent code={post.body.code} />
         </div>
 
-        <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
+        <div className="mx-auto flex max-w-5xl px-8 py-7 align-middle">
           <div className="flex-none">
             {prev && (
               <Link
@@ -109,22 +109,22 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
                 title={prev.title}
                 className="btn btn-secondary"
               >
-                <ChevronLeftIcon className="inline-block w-6 h-6" /> #{prev.id}
+                <ChevronLeftIcon className="inline-block h-6 w-6" /> #{prev.id}
               </Link>
             )}
           </div>
-          <div className="flex-grow flex">
-            <div className="flex-grow"></div>
+          <div className="flex grow">
+            <div className="grow"></div>
             <div className="flex-none">
               <Link
                 href={post.github}
                 title="Edit this post on Github"
                 className="btn btn-ghost"
               >
-                <PencilIcon className="inline-block w-4 h-4" />
+                <PencilIcon className="inline-block h-4 w-4" />
               </Link>
             </div>
-            <div className="flex-grow"></div>
+            <div className="grow"></div>
           </div>
           <div className="flex-none">
             {next && (
@@ -133,7 +133,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
                 title={next.title}
                 className="btn btn-secondary"
               >
-                #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
+                #{next.id} <ChevronRightIcon className="inline-block h-6 w-6" />
               </Link>
             )}
           </div>

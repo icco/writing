@@ -20,7 +20,7 @@ const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-8">#{params.slug}</h1>
+      <h1 className="my-8 text-center text-4xl font-bold">#{params.slug}</h1>
       <div className="mx-auto max-w-3xl px-8 py-7">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />

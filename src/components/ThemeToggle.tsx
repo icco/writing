@@ -15,7 +15,7 @@ function ThemeToggle() {
 
   return (
     <>
-      <label className="swap swap-rotate align-text-top">
+      <label className="swap swap-rotate">
         {/* this hidden checkbox controls the state */}
         <input
           type="checkbox"
@@ -25,9 +25,9 @@ function ThemeToggle() {
           value={resolvedTheme}
         />
 
-        <SunIcon className="swap-off w-4 h-4" />
+        <SunIcon className="swap-off h-4 w-4" />
 
-        <MoonIcon className="swap-on w-4 h-4" />
+        <MoonIcon className="swap-on h-4 w-4" />
       </label>
     </>
   )

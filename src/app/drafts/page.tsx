@@ -28,7 +28,7 @@ export default function Drafts() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-8">{title}</h1>
+      <h1 className="my-8 text-center text-4xl font-bold">{title}</h1>
 
       <div className="mx-auto max-w-3xl px-8 py-7">
         {posts.map((post, idx) => (
