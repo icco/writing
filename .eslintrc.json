@@ -1,9 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "import",
-    "simple-import-sort"
-  ],
+  "plugins": ["import", "simple-import-sort"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -19,24 +16,12 @@
       "error",
       {
         "groups": [
-          [
-            "^\\u0000"
-          ],
-          [
-            "^node:"
-          ],
-          [
-            "^@?\\w"
-          ],
-          [
-            "^"
-          ],
-          [
-            "^(contentlayer/generated)"
-          ],
-          [
-            "^\\."
-          ]
+          ["^\\u0000"],
+          ["^node:"],
+          ["^@?\\w"],
+          ["^"],
+          ["^(contentlayer/generated)"],
+          ["^\\."]
         ]
       }
     ]

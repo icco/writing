@@ -8,14 +8,14 @@ export default function Header() {
     <nav className="flex py-8">
       <div className="flex-none">
         <Link href="/" className="">
-          <Logo size={50} className="px-8 logo stroke-current" />
+          <Logo size={50} className="logo stroke-current px-8" />
         </Link>
       </div>
-      <div className="flex-grow"></div>
+      <div className="grow"></div>
       <div className="flex-none">
         <ThemeToggle />
 
-        <Link key="/tags" href="/tags" className="ml-8 mr-4">
+        <Link key="/tags" href="/tags" className="mr-4 ml-8">
           Tags
         </Link>
 
