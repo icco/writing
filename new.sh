@@ -17,5 +17,5 @@ TBD.
 EOS
 
 git add ./posts/$id.md
-git ci -m "chore: init post $id"
+git commit -m "chore: init post $id"
 open -a "IA Writer" ./posts/$id.md
