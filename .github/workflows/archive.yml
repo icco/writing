@@ -4,7 +4,7 @@ on:
     - cron: 36 0 * * *
   workflow_dispatch:
 jobs:
-  get-posts:
+  get_posts:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code.
@@ -20,7 +20,7 @@ jobs:
   archive:
     strategy:
       matrix:
-        url: ${{fromJson(needs.get-posts.outputs.posts)}}
+        url: ${{fromJson(needs.get_posts.outputs.posts)}}
     runs-on: ubuntu-latest
     steps:
       - uses: JamieMagee/wayback@v2.0.0
