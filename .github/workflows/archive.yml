@@ -16,10 +16,7 @@ jobs:
         # docker run -it --rm secsi/waybackpy --url "<target_url>" --user_agent "my-unique-user-agent" --oldest
       - uses: JamieMagee/wayback@v2.0.0
         with:
-          url: |-
-            writing.natwelch.com
-            natwelch.com
-            ${{ fromJson(steps.posts.outputs.POSTS) }}
+          url: ${{ fromJson(steps.posts.outputs.POSTS) }}
           saveErrors: false
           saveOutlinks: true
           saveScreenshot: true
