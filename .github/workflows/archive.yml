@@ -17,8 +17,11 @@ jobs:
         id: posts
         # docker run -it --rm secsi/waybackpy --url "<target_url>" --user_agent "my-unique-user-agent" --oldest
       - uses: JamieMagee/wayback@v2.0.0
+        strategy:
+          matrix:
+            url: ${{fromJson(steps.posts.outputs.POSTS)}}
         with:
-          url: ${{ fromJson(steps.posts.outputs.POSTS) }}
+          url: ${{ matrix.url }}
           saveErrors: false
           saveOutlinks: true
           saveScreenshot: true
