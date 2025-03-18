@@ -1,7 +1,7 @@
 name: Archive all posts
 on:
   schedule:
-    - cron: 0 12 * * *
+    - cron: 0 36 * * *
   workflow_dispatch:
 jobs:
   archive:
@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Retrieve all posts
         run: |
-          echo "POSTS=\"$(ls ./posts | sort -n | sed 's/.md$//g' | sed 's/^/writing.natwelch.com\/post\//')\"" >> $GITHUB_OUTPUT
+          echo "POSTS=\"$(./all-posts.sh)\"" >> $GITHUB_OUTPUT
         id: posts
         # docker run -it --rm secsi/waybackpy --url "<target_url>" --user_agent "my-unique-user-agent" --oldest
       - uses: JamieMagee/wayback@v2.0.0
@@ -19,7 +19,7 @@ jobs:
           url: |-
             writing.natwelch.com
             natwelch.com
-            ${{ steps.posts.outputs.POSTS }}
+            ${{ fromJson(steps.posts.outputs.POSTS) }}
           saveErrors: false
           saveOutlinks: true
           saveScreenshot: true
