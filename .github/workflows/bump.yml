@@ -1,4 +1,4 @@
-name: bump
+name: Bump dependencies and artifacts
 on:
   workflow_dispatch:
   schedule:
