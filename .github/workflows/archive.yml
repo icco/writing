@@ -19,7 +19,7 @@ jobs:
           url: |-
             writing.natwelch.com
             natwelch.com
-            ${{ steps.posts.outputs.POSTS }}
+            ${{ fromJson(steps.posts.outputs.POSTS) }}
           saveErrors: false
           saveOutlinks: true
           saveScreenshot: true
