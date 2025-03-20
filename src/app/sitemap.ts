@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next"
-import { allPosts } from "contentlayer/generated"
 
 import { allTags } from "@/components/Tag"
+
+import { allPosts } from "contentlayer/generated"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const domain = process.env.DOMAIN || "http://localhost:8080"
