@@ -22,7 +22,6 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV DOMAIN="https://writing.natwelch.com"
-ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
 
 RUN yarn run chrome
 
@@ -53,6 +52,5 @@ EXPOSE 8080
 ENV PORT=8080
 ENV HOSTNAME=0.0.0.0
 ENV DOMAIN="https://writing.natwelch.com"
-ENV GRAPHQL_ORIGIN="https://graphql.natwelch.com/graphql"
 
-CMD ["node", "server.js"]
+CMD ["node", ".next/standalone/server.js"]
