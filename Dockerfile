@@ -53,4 +53,4 @@ ENV PORT=8080
 ENV HOSTNAME=0.0.0.0
 ENV DOMAIN="https://writing.natwelch.com"
 
-CMD ["node", ".next/standalone/server.js"]
+CMD ["node", "server.js"]
