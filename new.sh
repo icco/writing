@@ -18,4 +18,8 @@ EOS
 
 git add ./posts/$id.md
 git commit -m "chore: init post $id"
-open -a "IA Writer" ./posts/$id.md
+git push -u
+
+if [[ $(uname) == "Darwin" ]]; then
+  open -a "IA Writer" ./posts/$id.md
+fi
