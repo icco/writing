@@ -1,6 +1,7 @@
 import { all } from "@wooorm/starry-night"
 import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 import { format, parseISO } from "date-fns"
+import fs from "fs"
 import readingTime from "reading-time"
 import rehypeGithubEmoji from "rehype-github-emoji"
 import rehypeMermaid from "rehype-mermaid"
@@ -68,6 +69,14 @@ export const Post = defineDocumentType(() => ({
     wordCount: {
       type: "number",
       resolve: (post) => readingTime(post.body.raw).words,
+    },
+    modifiedAt: {
+      type: "string",
+      resolve: (doc) => {
+        return new Date(
+          fs.statSync("posts/" + doc._raw.sourceFilePath).mtime
+        ).toISOString()
+      },
     },
   },
 }))
