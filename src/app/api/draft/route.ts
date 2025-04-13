@@ -11,6 +11,7 @@ export async function GET(request: Request) {
   const secret = searchParams.get("secret")
   const slug = searchParams.get("slug")
 
+  console.log("Draft mode request:", { secret, slug })
   console.log(
     "Available posts:",
     allPosts.map((p) => ({ id: p.id, title: p.title }))
@@ -19,17 +20,22 @@ export async function GET(request: Request) {
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
   if (secret !== process.env.SECRET_TOKEN) {
+    console.log("Invalid token")
     return new Response("Invalid token", { status: 401 })
   }
 
   if (!slug) {
+    console.log("Missing slug")
     return new Response("Missing slug", { status: 400 })
   }
 
   try {
     const post = getPostBySlug(slug)
+    console.log("Found post:", post)
+
     // If the slug doesn't exist prevent draft mode from being enabled
     if (!post) {
+      console.log("Post not found")
       return new Response("Invalid slug", { status: 401 })
     }
 
@@ -39,9 +45,11 @@ export async function GET(request: Request) {
 
     // Redirect to the path from the fetched post
     // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
-    redirect(post.permalink)
+    const redirectUrl = `/post/${post.id}`
+    console.log("Redirecting to:", redirectUrl)
+    redirect(redirectUrl)
   } catch (error) {
-    console.error("Error fetching post:", error)
-    notFound()
+    console.error("Error in draft mode:", error)
+    return new Response("Error processing draft mode request", { status: 500 })
   }
 }
