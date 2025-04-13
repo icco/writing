@@ -1,9 +1,6 @@
 import { draftMode } from "next/headers"
-import { notFound, redirect } from "next/navigation"
 
 import { getPostBySlug } from "@/lib/posts"
-
-import { allPosts } from "contentlayer/generated"
 
 export async function GET(request: Request) {
   // Parse query string parameters
