@@ -90,7 +90,7 @@ export default makeSource({
       rehypeSlug,
       rehypeGithubEmoji,
       [rehypeStarryNight, { grammars: all }],
-      [rehypeMermaid, { strategy: "img-svg", dark: true }],
+      [rehypeMermaid, { strategy: "img-svg", dark: true, mermaidConfig: {layout: "elk"} }],
     ],
   },
 })
