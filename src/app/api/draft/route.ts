@@ -12,10 +12,6 @@ export async function GET(request: Request) {
   const slug = searchParams.get("slug")
 
   console.log("Draft mode request:", { secret, slug })
-  console.log(
-    "Available posts:",
-    allPosts.map((p) => ({ id: p.id, title: p.title }))
-  )
 
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
