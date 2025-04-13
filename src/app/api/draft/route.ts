@@ -47,7 +47,14 @@ export async function GET(request: Request) {
     // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
     const redirectUrl = `/post/${post.id}`
     console.log("Redirecting to:", redirectUrl)
-    redirect(redirectUrl)
+
+    // Return a Response with a redirect instead of using the redirect() function
+    return new Response(null, {
+      status: 307,
+      headers: {
+        Location: redirectUrl,
+      },
+    })
   } catch (error) {
     console.error("Error in draft mode:", error)
     return new Response("Error processing draft mode request", { status: 500 })
