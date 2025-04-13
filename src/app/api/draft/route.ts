@@ -31,11 +31,9 @@ export async function GET(request: Request) {
 
   try {
     const post = getPostBySlug(slug)
-    console.log("Found post:", post)
 
     // If the slug doesn't exist prevent draft mode from being enabled
     if (!post) {
-      console.log("Post not found")
       return new Response("Invalid slug", { status: 401 })
     }
 
@@ -46,7 +44,6 @@ export async function GET(request: Request) {
     // Redirect to the path from the fetched post
     // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
     const redirectUrl = `/post/${post.id}`
-    console.log("Redirecting to:", redirectUrl)
 
     // Return a Response with a redirect instead of using the redirect() function
     return new Response(null, {
