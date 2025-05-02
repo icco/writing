@@ -351,9 +351,9 @@
     minimatch "^3.1.2"
 
 "@eslint/config-helpers@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@eslint/config-helpers/-/config-helpers-0.2.1.tgz#26042c028d1beee5ce2235a7929b91c52651646d"
-  integrity sha512-RI17tsD2frtDu/3dmI7QRrD4bedNKPM08ziRYaC5AhkGrzIAJelm9kJU1TznK+apx6V+cqRz8tfpEeG3oIyjxw==
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@eslint/config-helpers/-/config-helpers-0.2.2.tgz#3779f76b894de3a8ec4763b79660e6d54d5b1010"
+  integrity sha512-+GPzk8PlG0sPpzdU5ZvIRMPidzAnZDl/s9L+y13iodqvb8leL53bTannOrQ/Im7UkpsmFU5Ily5U60LWixnmLg==
 
 "@eslint/core@^0.13.0":
   version "0.13.0"
@@ -2217,9 +2217,9 @@ cytoscape-fcose@^2.2.0:
     cose-base "^2.2.0"
 
 cytoscape@^3.29.3:
-  version "3.31.4"
-  resolved "https://registry.yarnpkg.com/cytoscape/-/cytoscape-3.31.4.tgz#154875e5b623675415f08770ebd793ad24f5e592"
-  integrity sha512-JfUX/esCfnBGP+uNqRSkAr8jDr1HDSEm6jUNG+BToi43zwLisWrArZjIboB3NfCF5yKu2eG6sbPYaefEEaufyQ==
+  version "3.32.0"
+  resolved "https://registry.yarnpkg.com/cytoscape/-/cytoscape-3.32.0.tgz#34bc2402c9bc7457ab7d9492745f034b7bf47644"
+  integrity sha512-5JHBC9n75kz5851jeklCPmZWcg3hUe6sjqJvyk3+hVqFaKcHwHgxsjeN1yLmggoUc6STbtm9/NQyabQehfjvWQ==
 
 "d3-array@1 - 2":
   version "2.12.1"
@@ -2501,9 +2501,9 @@ dagre-d3-es@7.0.11:
     lodash-es "^4.17.21"
 
 daisyui@^5.0.13:
-  version "5.0.34"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-5.0.34.tgz#804e15594e4901df32343fa6a9f95a4f1a97821d"
-  integrity sha512-UuAGL43FIh98+BK+eW3S056SmBWyK1eg0JpD8W/+eNx0NcPEt39eChra9tW/j1nWSpTzD0qRmMYnpt3jjzuTMQ==
+  version "5.0.35"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-5.0.35.tgz#2d73139b455b21b89960eb9ae019a3de78f388de"
+  integrity sha512-AWi11n/x5++mps55jcwrBf0Lmip1euWY0FYcH/05SFGmoqrU7S7/aIUWaiaeqlJ5EcmEZ/7zEY73aOxMv6hcIg==
 
 damerau-levenshtein@^1.0.8:
   version "1.0.8"
