@@ -9,17 +9,26 @@ concurrency:
   group: notfoundbot-workflow
   cancel-in-progress: true
 
+# Add explicit permissions for cache access
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: Clean up existing cache
+        run: |
+          # Remove any existing notfoundbot cache
+          rm -rf ~/.cache/notfoundbot || true
       - name: Fix links
         uses: tmcw/notfoundbot@v2.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXCEPTIONS: writing.natwelch.com
-          # Add unique cache key to prevent conflicts
-          CACHE_KEY: notfoundbot-${{ github.run_id }}
+          # Disable caching to avoid cache conflicts
+          NOTFOUNDBOT_CACHE: "false"
         with:
           content-folder: ./posts/
