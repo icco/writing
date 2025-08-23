@@ -4,6 +4,11 @@ on:
     - cron: "12 */6 * * *"
   workflow_dispatch:
 
+# Add concurrency control to prevent multiple runs
+concurrency:
+  group: notfoundbot-workflow
+  cancel-in-progress: true
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -14,5 +19,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXCEPTIONS: writing.natwelch.com
+          # Add unique cache key to prevent conflicts
+          CACHE_KEY: notfoundbot-${{ github.run_id }}
         with:
           content-folder: ./posts/
