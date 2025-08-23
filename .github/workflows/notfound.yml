@@ -4,31 +4,15 @@ on:
     - cron: "12 */6 * * *"
   workflow_dispatch:
 
-# Add concurrency control to prevent multiple runs
-concurrency:
-  group: notfoundbot-workflow
-  cancel-in-progress: true
-
-# Add explicit permissions for cache access
-permissions:
-  contents: write
-  actions: write
-
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - name: Clean up existing cache
-        run: |
-          # Remove any existing notfoundbot cache
-          rm -rf ~/.cache/notfoundbot || true
+      - uses: actions/checkout@v4
       - name: Fix links
         uses: tmcw/notfoundbot@v2.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXCEPTIONS: writing.natwelch.com
-          # Disable caching to avoid cache conflicts
-          NOTFOUNDBOT_CACHE: "false"
         with:
           content-folder: ./posts/
