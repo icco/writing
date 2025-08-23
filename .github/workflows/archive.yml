@@ -13,14 +13,17 @@ jobs:
         run: sudo apt-get update; sudo apt-get install zsh
       - name: Retrieve all posts
         run: |
-          echo "POSTS=\"$(./all-posts.sh)\"" >> $GITHUB_OUTPUT
+          POSTS=$(./all-posts.sh)
+          echo "posts=$POSTS" >> $GITHUB_OUTPUT
         id: posts
     outputs:
-      posts: ${{ steps.posts.outputs.POSTS }}
+      posts: ${{ steps.posts.outputs.posts }}
   archive:
+    needs: get_posts
+    if: needs.get_posts.outputs.posts != '[]'
     strategy:
       matrix:
-        url: ${{fromJson(needs.get_posts.outputs.posts)}}
+        url: ${{ fromJson(needs.get_posts.outputs.posts) }}
     runs-on: ubuntu-latest
     steps:
       - uses: JamieMagee/wayback@v2.1.0
