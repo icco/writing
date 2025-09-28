@@ -39,7 +39,9 @@
     "vivus": "^0.4.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "@eslint/compat": "^1.4.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.36.0",
     "@tailwindcss/cli": "^4.0.3",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
