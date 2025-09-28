@@ -54,7 +54,7 @@ export default defineConfig([
       "import/newline-after-import": "error",
       "import/no-duplicates": "error",
       "simple-import-sort/exports": "error",
-
+      "@typescript-eslint/triple-slash-reference": "off",
       "simple-import-sort/imports": [
         "error",
         {
