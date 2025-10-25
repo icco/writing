@@ -1162,9 +1162,9 @@
   integrity sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==
 
 "@rushstack/eslint-patch@^1.10.3":
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.14.0.tgz#61b05741089552a3d352b3503d6a242978a2cb08"
-  integrity sha512-WJFej426qe4RWOm9MMtP4V3CV4AucXolQty+GRgAWLgQXmpCuwzs7hEpxxhSc/znXUSxum9d/P/32MW0FlAAlA==
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.14.1.tgz#5f7c5c335643cff62ad8e6a9432d708a9c51e98c"
+  integrity sha512-jGTk8UD/RdjsNZW8qq10r0RBvxL8OWtoT+kImlzPDFilmozzM+9QmIJsmze9UiSBrFU45ZxhTYBypn9q9z/VfQ==
 
 "@swc/helpers@0.5.15":
   version "0.5.15"
@@ -2595,9 +2595,9 @@ dagre-d3-es@7.0.11:
     lodash-es "^4.17.21"
 
 daisyui@^5.0.13:
-  version "5.3.8"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-5.3.8.tgz#8e85174d911c1319f67475eca6ac4f964e44464c"
-  integrity sha512-ihDXb07IzM/2ugkwBWdy2LFCaepdn1oGsKIsR3gNG/VuTAmS60+HUG9rskjR5BzyJOVVUDDpWoiX3PBDIT3DYQ==
+  version "5.3.9"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-5.3.9.tgz#ab5e996a2c0fe70b16ffd2dc8cb136a2e085e925"
+  integrity sha512-741x1pGGSGHcrBYtdE7iKbqW1OoiijYdAZ8oJPZR9MhSKLcMBlHjKfN3YlM2/K7t5jd7O0sg4SqkVNPylalRFw==
 
 damerau-levenshtein@^1.0.8:
   version "1.0.8"
@@ -3221,9 +3221,9 @@ estree-util-to-js@^2.0.0:
     source-map "^0.7.0"
 
 estree-util-value-to-estree@^3.0.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/estree-util-value-to-estree/-/estree-util-value-to-estree-3.4.1.tgz#b7b3847832ac4fff87ee281e4bffa5555fb3aafe"
-  integrity sha512-E4fEc8KLhDXnbyDa5XrbdT9PbgSMt0AGZPFUsGFok8N2Q7DTO+F6xAFJjIdw71EkidRg186I1mQCKzZ1ZbEsCw==
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/estree-util-value-to-estree/-/estree-util-value-to-estree-3.5.0.tgz#cd70cf37e7f78eae3e110d66a3436ce0d18a8f80"
+  integrity sha512-aMV56R27Gv3QmfmF1MY12GWkGzzeAezAX+UplqHVASfjc9wNzI/X6hC0S9oxq61WT4aQesLGslWP9tKk6ghRZQ==
   dependencies:
     "@types/estree" "^1.0.0"
 
@@ -4365,9 +4365,9 @@ lower-case@^2.0.2:
     tslib "^2.0.3"
 
 magic-string@^0.30.19:
-  version "0.30.19"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.19.tgz#cebe9f104e565602e5d2098c5f2e79a77cc86da9"
-  integrity sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==
+  version "0.30.21"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.21.tgz#56763ec09a0fa8091df27879fd94d19078c00d91"
+  integrity sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.5.5"
 
