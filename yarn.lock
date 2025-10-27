@@ -2595,9 +2595,9 @@ dagre-d3-es@7.0.11:
     lodash-es "^4.17.21"
 
 daisyui@^5.0.13:
-  version "5.3.9"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-5.3.9.tgz#ab5e996a2c0fe70b16ffd2dc8cb136a2e085e925"
-  integrity sha512-741x1pGGSGHcrBYtdE7iKbqW1OoiijYdAZ8oJPZR9MhSKLcMBlHjKfN3YlM2/K7t5jd7O0sg4SqkVNPylalRFw==
+  version "5.3.10"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-5.3.10.tgz#36d386fd02c2eb38934fbcc06a54fadb9421e0f1"
+  integrity sha512-vmjyPmm0hvFhA95KB6uiGmWakziB2pBv6CUcs5Ka/3iMBMn9S+C3SZYx9G9l2JrgTZ1EFn61F/HrPcwaUm2kLQ==
 
 damerau-levenshtein@^1.0.8:
   version "1.0.8"
@@ -6231,9 +6231,9 @@ ts-dedent@^2.2.0:
   integrity sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==
 
 ts-pattern@^5.0.6:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/ts-pattern/-/ts-pattern-5.8.0.tgz#1bf2dcdc58ae96ac7b64e59c9515d7ce1bf0ff19"
-  integrity sha512-kIjN2qmWiHnhgr5DAkAafF9fwb0T5OhMVSWrm8XEdTFnX6+wfXwYOFjeF86UZ54vduqiR7BfqScFmXSzSaH8oA==
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/ts-pattern/-/ts-pattern-5.9.0.tgz#f0fb5205ce0b0c59af72beba62fee7612a61cea4"
+  integrity sha512-6s5V71mX8qBUmlgbrfL33xDUwO0fq48rxAu2LBE11WBeGdpCPOsXksQbZJHvHwhrd3QjUusd3mAOM5Gg0mFBLg==
 
 tsconfig-paths@^3.15.0:
   version "3.15.0"
