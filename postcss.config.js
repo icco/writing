@@ -1,6 +1,6 @@
-const preserveProperty = require("./postcss-preserve-property")
+import preserveProperty from "./postcss-preserve-property.js"
 
-module.exports = {
+export default {
   plugins: {
     "@tailwindcss/postcss": {},
     preserveProperty: preserveProperty(),

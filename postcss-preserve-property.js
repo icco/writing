@@ -1,4 +1,4 @@
-module.exports = () => {
+const plugin = () => {
   return {
     postcssPlugin: "postcss-preserve-property",
     Once(root) {
@@ -11,5 +11,7 @@ module.exports = () => {
   }
 }
 
-module.exports.postcss = true
+plugin.postcss = true
+
+export default plugin
 
