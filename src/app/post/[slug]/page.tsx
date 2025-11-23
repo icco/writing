@@ -27,6 +27,10 @@ export const generateMetadata = async (props: {
   const params = await props.params
   const post = getPostBySlug(params.slug)
 
+  if (!post) {
+    notFound()
+  }
+
   const title = `#${post.id} ${post.title}`
 
   return {
@@ -66,6 +70,10 @@ export const viewport: Viewport = {
 const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params
   const post = getPostBySlug(params.slug)
+
+  if (!post) {
+    notFound()
+  }
 
   const { isEnabled } = await draftMode()
   if (!isEnabled && post.draft) {

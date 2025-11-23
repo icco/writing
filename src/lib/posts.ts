@@ -25,11 +25,11 @@ export function nextPost(slug: number): Post | undefined {
   return nextPost
 }
 
-export function getPostBySlug(slug: string): Post {
+export function getPostBySlug(slug: string): Post | null {
   const slugNumber = parseInt(slug)
   const post: Post | undefined = allPosts.find((post) => post.id === slugNumber)
   if (!post) {
-    throw new Error(`Post with slug ${slug} not found`)
+    return null
   }
 
   return post
