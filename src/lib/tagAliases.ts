@@ -1,6 +1,8 @@
 import pluralize from "pluralize"
 
 export const tagAliases: Record<string, string> = {
+  "chatop": "chatops",
+  "chatops": "chatops",
   "dev": "coding",
   "development": "coding",
   "devop": "devops",
@@ -8,6 +10,8 @@ export const tagAliases: Record<string, string> = {
   "k8s": "kubernetes",
   "programming": "coding",
   "starwar": "star-wars",
+  "star-war": "star-wars",
+  "politics" : "politics",
   "starwars": "star-wars",
   "sysadmin": "sre",
   "sysadmins": "sre",
