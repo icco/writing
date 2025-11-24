@@ -29,6 +29,11 @@ const nextConfig = {
         destination: "https://natwelch.com/wiki/about",
         permanent: true,
       },
+      {
+        source: "/tag",
+        destination: "/tags",
+        permanent: true,
+      },
     ]
   },
   async headers() {
