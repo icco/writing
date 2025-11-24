@@ -1,6 +1,8 @@
 import { findAndReplace, Replace } from "mdast-util-find-and-replace"
 import { Plugin } from "unified"
 
+import { normalizeTag } from "./tagAliases"
+
 export const hashtagRegex = /(^|\s)#(?<tag>[a-z][a-z0-9-]{2,})\b/gi
 
 /**
@@ -24,7 +26,8 @@ const replaceHashtag: Replace = (
   preText: string,
   tag: string
 ) => {
-  const url = `/tag/${tag}`
+  const normalizedTag = normalizeTag(tag)
+  const url = `/tag/${normalizedTag}`
   const stripped = value.trimStart()
 
   return [
@@ -34,7 +37,7 @@ const replaceHashtag: Replace = (
     },
     {
       type: "link",
-      title: `#${tag}`,
+      title: `#${normalizedTag}`,
       url,
       children: [{ type: "text", value: stripped }],
     },

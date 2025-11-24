@@ -11,6 +11,7 @@ import remarkGfm from "remark-gfm"
 
 import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
 import { GenerateSocialImage } from "./src/lib/socialimage"
+import { normalizeTag } from "./src/lib/tagAliases"
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -47,7 +48,7 @@ export const Post = defineDocumentType(() => ({
         if (!match) return []
         const tags = new Set<string>(
           match.map((m: string) =>
-            m.replace(hashtagRegex, "$<tag>").toLowerCase()
+            normalizeTag(m.replace(hashtagRegex, "$<tag>"))
           )
         )
 

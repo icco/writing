@@ -3,15 +3,24 @@ import { notFound } from "next/navigation"
 import { PostCard } from "@/components/PostCard"
 import { allTags } from "@/components/Tag"
 import publishedPosts from "@/lib/posts"
+import { normalizeTag, tagAliases } from "@/lib/tagAliases"
 
 export const generateStaticParams = async () => {
-  return allTags().map((tag) => ({ slug: tag }))
+  const canonicalTags = allTags()
+  const aliasSlugs = Object.keys(tagAliases)
+  
+  // Generate params for both canonical tags and their aliases
+  return [
+    ...canonicalTags.map((tag) => ({ slug: tag })),
+    ...aliasSlugs.map((alias) => ({ slug: alias })),
+  ]
 }
 
 const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params
+  const normalizedSlug = normalizeTag(params.slug)
   const posts = publishedPosts().filter(
-    (post) => post.tags.includes(params.slug) && !post.draft
+    (post) => post.tags.includes(normalizedSlug) && !post.draft
   )
 
   if (posts.length === 0) {
@@ -20,7 +29,7 @@ const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <>
-      <h1 className="my-8 text-center text-4xl font-bold">#{params.slug}</h1>
+      <h1 className="my-8 text-center text-4xl font-bold">#{normalizedSlug}</h1>
       <div className="mx-auto max-w-3xl px-8 py-7">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
