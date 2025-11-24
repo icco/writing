@@ -2,6 +2,8 @@ import Link from "next/link"
 
 import { allPosts } from "contentlayer/generated"
 
+import { normalizeTag } from "@/lib/tagAliases"
+
 export const allTags = (): string[] => {
   const tags = new Set<string>()
   for (const post of allPosts) {
@@ -20,12 +22,13 @@ export const Tag = ({
   tag: string
   className?: string
 }) => {
+  const normalizedTag = normalizeTag(tag)
   return (
     <Link
-      href={`/tag/${tag}`}
+      href={`/tag/${normalizedTag}`}
       className={`badge badge-secondary mr-2 mb-2 ${className}`}
     >
-      #{tag}
+      #{normalizedTag}
     </Link>
   )
 }
