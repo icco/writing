@@ -11,7 +11,7 @@ export const hashtagRegex = /(^|\s)#(?<tag>[a-z][a-z0-9-]{2,})\b/gim
 export const remarkHashtags: Plugin = () => {
   return (tree) => {
     findAndReplace(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+       
       tree as any,
       [[hashtagRegex, replaceHashtag]],
       {

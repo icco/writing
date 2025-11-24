@@ -10,7 +10,6 @@ function ThemeToggle() {
 
   const onChange = () => {
     setTheme(isDark ? "light" : "dark")
-    isDark = theme === "dark"
   }
 
   return (
