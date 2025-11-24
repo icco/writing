@@ -4,6 +4,8 @@ export const tagAliases: Record<string, string> = {
   "dev": "coding",
   "development": "coding",
   "devops": "sre",
+  "funny": "comedy",
+  "humor": "comedy",
   "k8s": "kubernetes",
   "programming": "coding",
   "sysadmin": "sre",
