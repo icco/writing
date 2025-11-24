@@ -152,15 +152,16 @@ function singularize(word: string): string {
 /**
  * Normalizes a tag by resolving any aliases to the canonical tag name.
  * Also automatically handles plural/singular forms by checking against existing tags.
+ * The preferred canonical form is singular.
  * 
  * Priority:
  * 1. Explicit aliases in tagAliases
  * 2. If existing tags are available:
  *    a. If tag exists in posts, use it as-is
- *    b. Try plural form - if it exists, use that
- *    c. Try singular form - if it exists, use that
+ *    b. Try singular form first (preferred) - if it exists, use that
+ *    c. Try plural form as fallback - if it exists, use that
  * 3. If existing tags are not available (during build):
- *    a. Use a simple heuristic: prefer plural form for consistency
+ *    a. Use a simple heuristic: prefer singular form for consistency
  * 4. Otherwise, return the tag as-is
  */
 export function normalizeTag(tag: string): string {
@@ -180,26 +181,25 @@ export function normalizeTag(tag: string): string {
       return lowerTag
     }
     
-    // 2b. Try plural form
-    const pluralForm = pluralize(lowerTag)
-    if (existingTags.has(pluralForm)) {
-      return pluralForm
-    }
-    
-    // 2c. Try singular form
+    // 2b. Try singular form first (preferred canonical form)
     const singularForm = singularize(lowerTag)
     if (existingTags.has(singularForm)) {
       return singularForm
     }
+    
+    // 2c. Try plural form as fallback
+    const pluralForm = pluralize(lowerTag)
+    if (existingTags.has(pluralForm)) {
+      return pluralForm
+    }
   } else {
     // 3. During build time, use a simple heuristic
-    // If tag doesn't end in 's', try pluralizing it
-    // This helps ensure consistency (e.g., "community" -> "communities")
-    if (!lowerTag.endsWith("s") && lowerTag.length > 3) {
-      const pluralForm = pluralize(lowerTag)
-      // We can't check against existing tags, so we'll use the plural form
+    // Prefer singular form for consistency (e.g., "communities" -> "community")
+    if (lowerTag.endsWith("s") && lowerTag.length > 3) {
+      const singularForm = singularize(lowerTag)
+      // We can't check against existing tags, so we'll use the singular form
       // This will be corrected at runtime when existing tags are available
-      return pluralForm
+      return singularForm
     }
   }
   
