@@ -10,10 +10,11 @@ export const tagAliases: Record<string, string> = {
 
 export function normalizeTag(tag: string): string {
   const lowerTag = tag.toLowerCase()
-  if (tagAliases[lowerTag]) return tagAliases[lowerTag]
+  if (tagAliases[lowerTag]) {
+    return tagAliases[lowerTag]
+  }
 
-  // Always singularize for consistent normalization
-    return pluralize.singular(lowerTag)
+  return pluralize.singular(lowerTag)
 }
 
 export function getCanonicalTag(tag: string): string {
