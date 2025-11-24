@@ -1,6 +1,11 @@
 import pluralize from "pluralize"
 
 export const tagAliases: Record<string, string> = {
+  "devop": "devops",
+  "devops": "sre",
+  "sysadmin": "sre",
+  "sysadmins": "sre",
+  "k8s": "kubernetes",
 }
 
 export function normalizeTag(tag: string): string {
