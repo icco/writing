@@ -1,17 +1,33 @@
 import pluralize from "pluralize"
 
 export const tagAliases: Record<string, string> = {
-  "devop": "devops",
+  "dev": "coding",
+  "development": "coding",
   "devops": "sre",
+  "funny": "comedy",
+  "humor": "comedy",
+  "k8s": "kubernetes",
+  "programming": "coding",
   "sysadmin": "sre",
   "sysadmins": "sre",
-  "k8s": "kubernetes",
 }
+
+// Tags that should remain plural and not be singularized
+export const approvedPlurals: Set<string> = new Set([
+  "starwars",
+  "politics",
+  "chatops",
+])
 
 export function normalizeTag(tag: string): string {
   const lowerTag = tag.toLowerCase()
   if (tagAliases[lowerTag]) {
     return tagAliases[lowerTag]
+  }
+
+  // If the tag is in the approved plurals list, return it as-is
+  if (approvedPlurals.has(lowerTag)) {
+    return lowerTag
   }
 
   return pluralize.singular(lowerTag)
