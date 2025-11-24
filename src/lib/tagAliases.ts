@@ -1,4 +1,4 @@
-import { singular } from "pluralize"
+import pluralize from "pluralize"
 
 export const tagAliases: Record<string, string> = {
 }
@@ -8,7 +8,7 @@ export function normalizeTag(tag: string): string {
   if (tagAliases[lowerTag]) return tagAliases[lowerTag]
 
   // Always singularize for consistent normalization
-  return singular(lowerTag)
+    return pluralize.singular(lowerTag)
 }
 
 export function getCanonicalTag(tag: string): string {
