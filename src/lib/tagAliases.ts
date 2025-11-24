@@ -1,3 +1,5 @@
+import pluralize from "pluralize"
+
 export const tagAliases: Record<string, string> = {
 }
 
@@ -25,52 +27,6 @@ function getExistingTags(): Set<string> | null {
   }
 }
 
-function pluralize(word: string): string {
-  const lower = word.toLowerCase()
-  const irregulars: Record<string, string> = {
-    child: "children",
-    person: "people",
-    man: "men",
-    woman: "women",
-    mouse: "mice",
-    foot: "feet",
-    tooth: "teeth",
-    goose: "geese",
-    ox: "oxen",
-    die: "dice",
-  }
-
-  if (irregulars[lower]) return irregulars[lower]
-  if (/[bcdfghjklmnpqrstvwxz]y$/i.test(word)) return word.slice(0, -1) + "ies"
-  if (/[sxz]$|sh$|ch$/i.test(word)) return word + "es"
-  if (/f$/i.test(word)) return word.slice(0, -1) + "ves"
-  if (/fe$/i.test(word)) return word.slice(0, -2) + "ves"
-  return word + "s"
-}
-
-function singularize(word: string): string {
-  const lower = word.toLowerCase()
-  const irregulars: Record<string, string> = {
-    children: "child",
-    people: "person",
-    men: "man",
-    women: "woman",
-    mice: "mouse",
-    feet: "foot",
-    teeth: "tooth",
-    geese: "goose",
-    oxen: "ox",
-    dice: "die",
-  }
-
-  if (irregulars[lower]) return irregulars[lower]
-  if (/ies$/i.test(word)) return word.slice(0, -3) + "y"
-  if (/ves$/i.test(word) && word.length > 3) return word.slice(0, -3) + "f"
-  if (/[sxz]es$|shes$|ches$/i.test(word)) return word.slice(0, -2)
-  if (/s$/i.test(word) && word.length > 1) return word.slice(0, -1)
-  return word
-}
-
 export function normalizeTag(tag: string): string {
   const lowerTag = tag.toLowerCase()
   if (tagAliases[lowerTag]) return tagAliases[lowerTag]
@@ -79,12 +35,12 @@ export function normalizeTag(tag: string): string {
 
   if (existingTags !== null) {
     if (existingTags.has(lowerTag)) return lowerTag
-    const singularForm = singularize(lowerTag)
+    const singularForm = pluralize.singular(lowerTag)
     if (existingTags.has(singularForm)) return singularForm
-    const pluralForm = pluralize(lowerTag)
+    const pluralForm = pluralize.plural(lowerTag)
     if (existingTags.has(pluralForm)) return pluralForm
   } else if (lowerTag.endsWith("s") && lowerTag.length > 3) {
-    return singularize(lowerTag)
+    return pluralize.singular(lowerTag)
   }
 
   return lowerTag
