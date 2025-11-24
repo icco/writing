@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/static-components */
 import { type MDXComponents } from "mdx/types"
 import Link from "next/link"
 import { useMDXComponent } from "next-contentlayer2/hooks"
