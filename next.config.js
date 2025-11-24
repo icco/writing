@@ -18,9 +18,6 @@ const nextConfig = {
     DOMAIN: domain,
     PORT: port,
   },
-  eslint: {
-    dirs: ["src", "."],
-  },
   async redirects() {
     return [
       {
@@ -112,6 +109,7 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
+  turbopack: {},
 }
 
 module.exports = withContentlayer(nextConfig)
