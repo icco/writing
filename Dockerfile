@@ -1,4 +1,4 @@
-FROM node:24 AS base
+FROM node:24-slim AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -27,17 +27,14 @@ RUN yarn run chrome
 
 RUN yarn build
 
-# If using npm comment out above and use below instead
-# RUN npm run build
-
 # Production image, copy all the files and run next
-FROM base AS runner
+FROM node:24-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
 
