@@ -1,4 +1,4 @@
-FROM node:24-slim AS base
+FROM node:25-slim AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -28,7 +28,7 @@ RUN yarn run chrome
 RUN yarn build
 
 # Production image, copy all the files and run next
-FROM node:24-alpine AS runner
+FROM node:25-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
