@@ -28,7 +28,7 @@ RUN yarn run chrome
 RUN yarn build
 
 # Production image, copy all the files and run next
-FROM node:25-alpine AS runner
+FROM node:25-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
