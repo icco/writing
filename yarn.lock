@@ -2399,9 +2399,9 @@ commander@^8.3.0:
   integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
 
 comment-json@^4.2.3:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/comment-json/-/comment-json-4.5.0.tgz#19f51e1005d5f0e2a8306bdc04ffac59b042fa13"
-  integrity sha512-aKl8CwoMKxVTfAK4dFN4v54AEvuUh9pzmgVIBeK6gBomLwMgceQUKKWHzJdW1u1VQXQuwnJ7nJGWYYMTl5U4yg==
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/comment-json/-/comment-json-4.5.1.tgz#2da1b85d5471b6494a344ed166fed3e831d268ed"
+  integrity sha512-taEtr3ozUmOB7it68Jll7s0Pwm+aoiHyXKrEC8SEodL4rNpdfDLqa7PfBlrgFoCNNdR8ImL+muti5IGvktJAAg==
   dependencies:
     array-timsort "^1.0.3"
     core-util-is "^1.0.3"
