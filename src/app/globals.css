@@ -212,6 +212,19 @@ picture {
   border-radius: 1rem;
 }
 
+/* Make footnotes heading match h3 size instead of h2 */
+.footnotes h2,
+section[data-footnotes] h2 {
+  font-size: 1.5rem;
+}
+
+@media not all and (min-width: 640px) {
+  .footnotes h2,
+  section[data-footnotes] h2 {
+    font-size: 1.5rem;
+  }
+}
+
 @media not all and (min-width: 640px) {
   h1,
   .f1 {
