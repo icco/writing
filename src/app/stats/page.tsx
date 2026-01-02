@@ -1,7 +1,7 @@
 import { Metadata } from "next"
-import { differenceInDays, format, getYear } from "date-fns"
+import { differenceInDays, getYear } from "date-fns"
 
-import { Post } from "contentlayer/generated"
+import { allPosts, Post } from "contentlayer/generated"
 
 import publishedPosts from "@/lib/posts"
 
@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 function StatSlab({
   label,
   value,
-  subtitle,
 }: {
   label: string
   value: string | number
@@ -25,7 +24,6 @@ function StatSlab({
         {label}
       </dt>
       <dd className="text-4xl font-bold tabular-nums md:text-5xl">{value}</dd>
-      {subtitle && <dd className="mt-1 text-sm opacity-50">{subtitle}</dd>}
     </dl>
   )
 }
@@ -35,6 +33,9 @@ export default function StatsPage() {
 
   // Total posts
   const totalPosts = posts.length
+
+  // Drafts
+  const draftsCount = allPosts.filter((post) => post.draft).length
 
   // Days since last post
   const lastPost = posts[0]
@@ -65,18 +66,21 @@ export default function StatsPage() {
 
       <article className="mx-auto max-w-4xl px-8 py-7">
         <section className="mb-12">
-          <h2 className="mb-6 border-b pb-2 text-lg font-bold uppercase tracking-widest opacity-40">
+          <h2 className="mb-6 pb-2 text-lg font-bold uppercase tracking-widest">
             Overview
           </h2>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-5">
             <StatSlab
               label="Total Posts"
               value={totalPosts.toLocaleString()}
             />
             <StatSlab
+              label="Drafts"
+              value={draftsCount}
+            />
+            <StatSlab
               label="Days Since Post"
               value={daysSinceLastPost}
-              subtitle={format(lastPostDate, "MMM d, yyyy")}
             />
             <StatSlab
               label="Avg. Words/Post"
@@ -90,7 +94,7 @@ export default function StatsPage() {
         </section>
 
         <section>
-          <h2 className="mb-6 border-b pb-2 text-lg font-bold uppercase tracking-widest opacity-40">
+          <h2 className="mb-6 pb-2 text-lg font-bold uppercase tracking-widest">
             Posts by Year
           </h2>
           <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
