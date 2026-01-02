@@ -62,11 +62,11 @@ export default function StatsPage() {
 
   return (
     <>
-      <h1 className="my-8 text-center text-4xl font-bold">Stats</h1>
+      <h1 className="my-8 text-center">Stats</h1>
 
       <article className="mx-auto max-w-4xl px-8 py-7">
         <section className="mb-12">
-          <h2 className="mb-6 pb-2 text-lg font-bold uppercase tracking-widest">
+          <h2 className="mb-6 pb-2">
             Overview
           </h2>
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-5">
@@ -94,7 +94,7 @@ export default function StatsPage() {
         </section>
 
         <section>
-          <h2 className="mb-6 pb-2 text-lg font-bold uppercase tracking-widest">
+          <h2 className="mb-6 pb-2">
             Posts by Year
           </h2>
           <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
