@@ -1,5 +1,7 @@
 import { Metadata } from "next"
-import { differenceInDays, getYear } from "date-fns"
+import { differenceInDays, format, getYear } from "date-fns"
+
+import { Post } from "contentlayer/generated"
 
 import publishedPosts from "@/lib/posts"
 
@@ -11,16 +13,25 @@ export const metadata: Metadata = {
 function StatSlab({
   label,
   value,
+  subtitle,
+  highlight = false,
 }: {
   label: string
   value: string | number
+  subtitle?: string
+  highlight?: boolean
 }) {
   return (
-    <dl className="mr-8 mb-6 inline-block align-top">
-      <dt className="text-sm font-bold uppercase tracking-wide opacity-70">
+    <dl className="min-w-[140px]">
+      <dt className="text-sm font-semibold uppercase tracking-wide opacity-60">
         {label}
       </dt>
-      <dd className="text-4xl font-bold tabular-nums md:text-5xl">{value}</dd>
+      <dd
+        className={`text-4xl font-bold tabular-nums md:text-5xl ${highlight ? "text-sky-600 dark:text-sky-400" : ""}`}
+      >
+        {value}
+      </dd>
+      {subtitle && <dd className="mt-1 text-sm opacity-50">{subtitle}</dd>}
     </dl>
   )
 }
@@ -32,16 +43,20 @@ export default function StatsPage() {
   const totalPosts = posts.length
 
   // Days since last post
-  const lastPostDate = new Date(posts[0]?.datetime)
+  const lastPost = posts[0]
+  const lastPostDate = new Date(lastPost?.datetime)
   const daysSinceLastPost = differenceInDays(new Date(), lastPostDate)
 
   // Average word count
-  const totalWords = posts.reduce((sum, post) => sum + (post.wordCount || 0), 0)
+  const totalWords = posts.reduce(
+    (sum: number, post: Post) => sum + (post.wordCount || 0),
+    0
+  )
   const avgWordCount = Math.round(totalWords / totalPosts)
 
   // Posts per year
   const postsByYear: Record<number, number> = {}
-  posts.forEach((post) => {
+  posts.forEach((post: Post) => {
     const year = getYear(new Date(post.datetime))
     postsByYear[year] = (postsByYear[year] || 0) + 1
   })
@@ -56,18 +71,36 @@ export default function StatsPage() {
 
       <article className="mx-auto max-w-4xl px-8 py-7">
         <section className="mb-12">
-          <h2 className="mb-6 text-2xl font-bold">Overview</h2>
-          <div>
-            <StatSlab label="Total Posts" value={totalPosts.toLocaleString()} />
-            <StatSlab label="Days Since Last Post" value={daysSinceLastPost} />
-            <StatSlab label="Avg. Words/Post" value={avgWordCount.toLocaleString()} />
-            <StatSlab label="Total Words" value={totalWords.toLocaleString()} />
+          <h2 className="mb-6 border-b pb-2 text-lg font-bold uppercase tracking-widest opacity-40">
+            Overview
+          </h2>
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+            <StatSlab
+              label="Total Posts"
+              value={totalPosts.toLocaleString()}
+              highlight
+            />
+            <StatSlab
+              label="Days Since Post"
+              value={daysSinceLastPost}
+              subtitle={format(lastPostDate, "MMM d, yyyy")}
+            />
+            <StatSlab
+              label="Avg. Words/Post"
+              value={avgWordCount.toLocaleString()}
+            />
+            <StatSlab
+              label="Total Words"
+              value={totalWords.toLocaleString()}
+            />
           </div>
         </section>
 
         <section>
-          <h2 className="mb-6 text-2xl font-bold">Posts by Year</h2>
-          <div>
+          <h2 className="mb-6 border-b pb-2 text-lg font-bold uppercase tracking-widest opacity-40">
+            Posts by Year
+          </h2>
+          <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
             {years.map((year) => (
               <StatSlab
                 key={year}
@@ -81,4 +114,3 @@ export default function StatsPage() {
     </>
   )
 }
-
