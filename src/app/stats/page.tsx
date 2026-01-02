@@ -14,23 +14,17 @@ function StatSlab({
   label,
   value,
   subtitle,
-  highlight = false,
 }: {
   label: string
   value: string | number
   subtitle?: string
-  highlight?: boolean
 }) {
   return (
     <dl className="min-w-[140px]">
       <dt className="text-sm font-semibold uppercase tracking-wide opacity-60">
         {label}
       </dt>
-      <dd
-        className={`text-4xl font-bold tabular-nums md:text-5xl ${highlight ? "text-sky-600 dark:text-sky-400" : ""}`}
-      >
-        {value}
-      </dd>
+      <dd className="text-4xl font-bold tabular-nums md:text-5xl">{value}</dd>
       {subtitle && <dd className="mt-1 text-sm opacity-50">{subtitle}</dd>}
     </dl>
   )
@@ -78,7 +72,6 @@ export default function StatsPage() {
             <StatSlab
               label="Total Posts"
               value={totalPosts.toLocaleString()}
-              highlight
             />
             <StatSlab
               label="Days Since Post"
