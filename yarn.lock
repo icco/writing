@@ -2146,9 +2146,9 @@ available-typed-arrays@^1.0.7:
     possible-typed-array-names "^1.0.0"
 
 axe-core@^4.10.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.11.0.tgz#16f74d6482e343ff263d4f4503829e9ee91a86b6"
-  integrity sha512-ilYanEU8vxxBexpJd8cWM4ElSQq4QctCLKih0TSfjIfCQTeyH/6zVrmIJfLPrKTKJRbiG+cfnZbQIjAlJmF1jQ==
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.11.1.tgz#052ff9b2cbf543f5595028b583e4763b40c78ea7"
+  integrity sha512-BASOg+YwO2C+346x3LZOeoovTIoTrRqEsqMa6fmfAV0P+U9mFr9NsyOEpiYvFjbc64NMrSswhV50WdXzdb/Z5A==
 
 axobject-query@^4.1.0:
   version "4.1.0"
@@ -6720,9 +6720,9 @@ typescript@^5.6.2:
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
 
 ufo@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.6.1.tgz#ac2db1d54614d1b22c1d603e3aef44a85d8f146b"
-  integrity sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.6.2.tgz#aaf4d46b98425b2fb5031abe8d65ca069e93e755"
+  integrity sha512-heMioaxBcG9+Znsda5Q8sQbWnLJSl98AFDXTO80wELWEzX3hordXsTdxrIfMQoO9IY1MEnoGoPjpoKpMj+Yx0Q==
 
 unbox-primitive@^1.1.0:
   version "1.1.0"
@@ -6943,9 +6943,9 @@ vscode-oniguruma@^2.0.0:
   integrity sha512-poJU8iHIWnC3vgphJnrLZyI3YdqRlR27xzqDmpPXYzA93R4Gk8z7T6oqDzDoHjoikA2aS82crdXFkjELCdJsjQ==
 
 vscode-textmate@^9.0.0:
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-9.3.0.tgz#d0449bac71774d45fbf6a379161cd6a1f6ca96a7"
-  integrity sha512-zHiZZOdb9xqj5/X1C4a29sbgT2HngdWxPLSl3PyHRQF+5visI4uNM020OHiLJjsMxUssyk/pGVAg/9LCIobrVg==
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-9.3.1.tgz#0a83c03fc97f1f0416da9907bd5edd41d1425fdc"
+  integrity sha512-U19nFkCraZF9/bkQKQYsb9mRqM9NwpToQQFl40nGiioZTH9gRtdtCHwp48cubayVfreX3ivnoxgxQgNwrTVmQg==
 
 vscode-uri@~3.0.8:
   version "3.0.8"
