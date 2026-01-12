@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { differenceInDays, getYear } from "date-fns"
+import Link from "next/link"
 
 import { allPosts, Post } from "contentlayer/generated"
 
@@ -13,12 +14,14 @@ export const metadata: Metadata = {
 function StatSlab({
   label,
   value,
+  href,
 }: {
   label: string
   value: string | number
   subtitle?: string
+  href?: string
 }) {
-  return (
+  const content = (
     <dl className="min-w-[140px]">
       <dt className="text-sm font-semibold uppercase tracking-wide opacity-60">
         {label}
@@ -26,6 +29,16 @@ function StatSlab({
       <dd className="text-4xl font-bold tabular-nums md:text-5xl">{value}</dd>
     </dl>
   )
+
+  if (href) {
+    return (
+      <Link href={href} className="hover:text-link transition-colors">
+        {content}
+      </Link>
+    )
+  }
+
+  return content
 }
 
 export default function StatsPage() {
@@ -103,6 +116,7 @@ export default function StatsPage() {
                 key={year}
                 label={year.toString()}
                 value={postsByYear[year]}
+                href={`/year/${year}`}
               />
             ))}
           </div>
