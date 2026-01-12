@@ -80,18 +80,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 0.3,
     },
-    {
-      url: `${domain}/stats`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.5,
-    },
-    {
-      url: `${domain}/tags`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.5,
-    },
   ]
 
   return [...staticPages, ...posts, ...tags, ...yearPages]
