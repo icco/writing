@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next"
+import { getYear } from "date-fns"
 
 import { allTags } from "@/components/Tag"
 
@@ -25,6 +26,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }))
 
+  // Get all year pages
+  const years = new Set<number>()
+  allPosts
+    .filter((post) => !post.draft)
+    .forEach((post) => {
+      const year = getYear(new Date(post.datetime))
+      years.add(year)
+    })
+
+  const yearPages = Array.from(years).map((year) => ({
+    url: `${domain}/year/${year}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }))
+
   // Static pages
   const staticPages = [
     {
@@ -32,6 +49,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 1,
+    },
+    {
+      url: `${domain}/stats`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${domain}/tags`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${domain}/years`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
     },
     {
       url: `${domain}/feed.rss`,
@@ -47,5 +82,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  return [...staticPages, ...posts, ...tags]
+  return [...staticPages, ...posts, ...tags, ...yearPages]
 }
