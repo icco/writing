@@ -39,8 +39,8 @@ const YearLayout = async (props: { params: Promise<{ year: string }> }) => {
     <>
       <h1 className="my-8 text-center text-4xl font-bold">{yearNumber}</h1>
       <div className="mx-auto max-w-3xl px-8 py-7">
-        {posts.map((post, idx) => (
-          <PostCard key={idx} {...post} />
+        {posts.map((post) => (
+          <PostCard key={post.id} {...post} />
         ))}
       </div>
     </>
