@@ -1,7 +1,39 @@
 import { format } from "date-fns"
 import { Feed } from "feed"
+import { remark } from "remark"
+import remarkGfm from "remark-gfm"
+import remarkHtml from "remark-html"
 
 import { Post } from "contentlayer/generated"
+
+async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark()
+    .use(remarkGfm)
+    // Note: sanitize is disabled because:
+    // 1. All content is version-controlled and written by the blog owner
+    // 2. Posts contain intentional HTML (links, images, embeds)
+    // 3. There is no user-generated content
+    .use(remarkHtml, { sanitize: false })
+    .process(markdown)
+  return result.toString()
+}
+
+function createFeedItem(post: Post, content: string) {
+  return {
+    title: post.title,
+    link: `https://writing.natwelch.com/post/${post.id}`,
+    date: new Date(post.datetime),
+    category: post.tags.map((t: string) => ({ name: t, term: t })),
+    author: [
+      {
+        name: "Nat Welch",
+        email: "nat@natwelch.com",
+        link: "https://natwelch.com",
+      },
+    ],
+    content,
+  }
+}
 
 export default async function generateFeed(posts: Post[]) {
   const feed = new Feed({
@@ -26,26 +58,16 @@ export default async function generateFeed(posts: Post[]) {
     )} Nat Welch. All rights reserved.`,
   })
 
-  try {
-    posts.forEach((p) => {
-      feed.addItem({
-        title: p.title,
-        link: `https://writing.natwelch.com/post/${p.id}`,
-        date: new Date(p.datetime),
-        category: p.tags.map((t: string) => ({ name: t, term: t })),
-        author: [
-          {
-            name: "Nat Welch",
-            email: "nat@natwelch.com",
-            link: "https://natwelch.com",
-          },
-        ],
-        // Just raw markdown for now.
-        content: `Due to a rendering bug, this post is not available in the feed. Please visit <a href="https://writing.natwelch.com/post/${p.id}">https://writing.natwelch.com/post/${p.id}</a> to read it rendered. Raw markdown is included below.\n\n${p.body.raw}`,
-      })
-    })
-  } catch (err) {
-    console.error(err)
+  for (const p of posts) {
+    try {
+      const htmlContent = await markdownToHtml(p.body.raw)
+      feed.addItem(createFeedItem(p, htmlContent))
+    } catch (err) {
+      console.error(`Error processing post ${p.id}:`, err)
+      // Add post with fallback content on error
+      const fallbackContent = `<p>Error rendering post content. Please visit <a href="https://writing.natwelch.com/post/${p.id}">the full post</a> to read it.</p>`
+      feed.addItem(createFeedItem(p, fallbackContent))
+    }
   }
 
   return feed
