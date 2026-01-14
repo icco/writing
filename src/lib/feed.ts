@@ -9,6 +9,10 @@ import { Post } from "contentlayer/generated"
 async function markdownToHtml(markdown: string): Promise<string> {
   const result = await remark()
     .use(remarkGfm)
+    // Note: sanitize is disabled because:
+    // 1. All content is version-controlled and written by the blog owner
+    // 2. Posts contain intentional HTML (links, images, embeds)
+    // 3. There is no user-generated content
     .use(remarkHtml, { sanitize: false })
     .process(markdown)
   return result.toString()
