@@ -1,7 +1,18 @@
 import { format } from "date-fns"
 import { Feed } from "feed"
+import { remark } from "remark"
+import remarkGfm from "remark-gfm"
+import remarkHtml from "remark-html"
 
 import { Post } from "contentlayer/generated"
+
+async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark()
+    .use(remarkGfm)
+    .use(remarkHtml, { sanitize: false })
+    .process(markdown)
+  return result.toString()
+}
 
 export default async function generateFeed(posts: Post[]) {
   const feed = new Feed({
@@ -27,7 +38,8 @@ export default async function generateFeed(posts: Post[]) {
   })
 
   try {
-    posts.forEach((p) => {
+    for (const p of posts) {
+      const htmlContent = await markdownToHtml(p.body.raw)
       feed.addItem({
         title: p.title,
         link: `https://writing.natwelch.com/post/${p.id}`,
@@ -40,10 +52,9 @@ export default async function generateFeed(posts: Post[]) {
             link: "https://natwelch.com",
           },
         ],
-        // Just raw markdown for now.
-        content: `Due to a rendering bug, this post is not available in the feed. Please visit <a href="https://writing.natwelch.com/post/${p.id}">https://writing.natwelch.com/post/${p.id}</a> to read it rendered. Raw markdown is included below.\n\n${p.body.raw}`,
+        content: htmlContent,
       })
-    })
+    }
   } catch (err) {
     console.error(err)
   }
