@@ -37,8 +37,8 @@ export default async function generateFeed(posts: Post[]) {
     )} Nat Welch. All rights reserved.`,
   })
 
-  try {
-    for (const p of posts) {
+  for (const p of posts) {
+    try {
       const htmlContent = await markdownToHtml(p.body.raw)
       feed.addItem({
         title: p.title,
@@ -54,9 +54,24 @@ export default async function generateFeed(posts: Post[]) {
         ],
         content: htmlContent,
       })
+    } catch (err) {
+      console.error(`Error processing post ${p.id}:`, err)
+      // Add post with fallback content on error
+      feed.addItem({
+        title: p.title,
+        link: `https://writing.natwelch.com/post/${p.id}`,
+        date: new Date(p.datetime),
+        category: p.tags.map((t: string) => ({ name: t, term: t })),
+        author: [
+          {
+            name: "Nat Welch",
+            email: "nat@natwelch.com",
+            link: "https://natwelch.com",
+          },
+        ],
+        content: `<p>Error rendering post content. Please visit <a href="https://writing.natwelch.com/post/${p.id}">the full post</a> to read it.</p>`,
+      })
     }
-  } catch (err) {
-    console.error(err)
   }
 
   return feed
