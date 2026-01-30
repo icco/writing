@@ -9,7 +9,6 @@ This is a static React frontend for a personal blog at natwelch.com. The project
 - **Styling**: Tailwind CSS 4.0 with DaisyUI components
 - **Content**: MDX files processed via Contentlayer2
 - **Runtime**: React 19
-- **Testing**: Jest
 - **Linting**: ESLint with TypeScript, Prettier, and Next.js configs
 
 # Project Structure
@@ -40,9 +39,9 @@ This is a static React frontend for a personal blog at natwelch.com. The project
 
 ## Import Organization
 
-- Use the simple-import-sort ESLint plugin
 - Group imports: external libraries first, then internal modules
-- Use named exports (avoid default exports where possible)
+- Use default exports for React components (following Next.js conventions)
+- Use named exports for utilities and helper functions
 
 ## TypeScript
 
@@ -74,12 +73,6 @@ This is a static React frontend for a personal blog at natwelch.com. The project
 - Minimize client-side JavaScript
 - Follow Next.js App Router best practices
 
-## Testing
-
-- Use Jest for testing
-- Write tests for critical functionality
-- Follow existing test patterns in the repository
-
 ## Build and Development
 
 - Use `yarn dev` to run the development server
@@ -101,7 +94,6 @@ This is a static React frontend for a personal blog at natwelch.com. The project
 - `yarn build`: Build for production (includes contentlayer build)
 - `yarn lint`: Run ESLint with auto-fix
 - `yarn lint:spell`: Check spelling in posts
-- `yarn test`: Run Jest tests
 - `yarn start`: Start production server
 
 # Additional Notes
