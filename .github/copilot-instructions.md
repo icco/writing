@@ -1,6 +1,6 @@
 # Project Overview
 
-This is a static React frontend for a personal blog at natwelch.com. The project compiles MDX files into a Next.js-based website with a focus on content presentation, readability, and performance.
+This is a static React frontend for a personal blog at writing.natwelch.com. The project compiles MDX files into a Next.js-based website with a focus on content presentation, readability, and performance.
 
 # Technology Stack
 
