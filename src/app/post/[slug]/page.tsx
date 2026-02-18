@@ -32,13 +32,16 @@ export const generateMetadata = async (props: {
   }
 
   const title = `#${post.id} ${post.title}`
+  const description = post.excerpt || post.summary || undefined
 
   return {
     metadataBase: new URL(process.env.DOMAIN ?? ""),
     title,
+    description,
     id: post.id,
     openGraph: {
       title,
+      description,
       url: post.url,
       siteName: "Nat? Nat. Nat!",
       images: [
