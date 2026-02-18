@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   const date = searchParams.get("date") ?? ""
 
   const fontData = await fetch(
-    "https://fonts.gstatic.com/s/robotoslab/v34/BngMUXZYTXPIvIBgJJSb6ufN5qA.ttf"
+    "https://cdn.jsdelivr.net/fontsource/fonts/roboto-slab@latest/latin-400-normal.ttf"
   ).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
