@@ -10,7 +10,7 @@ import rehypeStarryNight from "rehype-starry-night"
 import remarkGfm from "remark-gfm"
 
 import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
-import { GenerateSocialImage } from "./src/lib/socialimage"
+
 import { normalizeTag } from "./src/lib/tagAliases"
 
 export const Post = defineDocumentType(() => ({
@@ -57,11 +57,13 @@ export const Post = defineDocumentType(() => ({
     },
     social_image: {
       type: "string",
-      resolve: (post) =>
-        GenerateSocialImage(
-          post.title,
-          format(parseISO(post.datetime), "LLLL d, yyyy")
-        ),
+      resolve: (post) => {
+        const params = new URLSearchParams({
+          title: post.title,
+          date: format(parseISO(post.datetime), "LLLL d, yyyy"),
+        })
+        return `/api/og?${params.toString()}`
+      },
     },
     readingTime: {
       type: "number",
