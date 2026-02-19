@@ -8,6 +8,7 @@
     "dev:contentlayer": "contentlayer2 dev",
     "dev:next": "next dev -p 8080",
     "dev": "run-p dev:*",
+    "generate-descriptions": "npx tsx generate-descriptions.ts",
     "lint": "eslint --fix .",
     "lint:spell": "misspell -locale US -w ./posts/",
     "start": "next start -p $PORT",

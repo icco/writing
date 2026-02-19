@@ -18,6 +18,6 @@ To generate AI-powered descriptions for your posts:
 
 ```bash
 export GEMINI_API_KEY="your-api-key"
-tsx generate-descriptions.ts        # All posts without summaries
-tsx generate-descriptions.ts 123    # Specific post
+yarn generate-descriptions        # All posts without summaries
+yarn generate-descriptions 123    # Specific post
 ```
