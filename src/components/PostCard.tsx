@@ -32,8 +32,8 @@ export function PostCard(post: Post) {
           return <Tag tag={tag} key={tag} className="text-xs" />
         })}
       </div>
-      {post.autoSummary && (
-        <div className="text-sm text-gray-600">{post.autoSummary}</div>
+      {post.summary && (
+        <div className="text-sm text-gray-600">{post.summary}</div>
       )}
     </div>
   )

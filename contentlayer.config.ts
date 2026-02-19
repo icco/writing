@@ -65,41 +65,6 @@ export const Post = defineDocumentType(() => ({
         return `/api/og?${params.toString()}`
       },
     },
-    autoSummary: {
-      type: "string",
-      resolve: (post) => {
-        // If summary is provided in frontmatter, use that
-        if (post.summary && post.summary.trim().length > 0) {
-          return post.summary.trim()
-        }
-        
-        // Otherwise, generate a summary from the first paragraph
-        const text = post.body.raw
-          .replace(/^---[\s\S]*?---/, "") // Remove frontmatter
-          .replace(/#[^\s#]+/g, "") // Remove hashtags
-          .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images
-          .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1") // Convert links to text
-          .replace(/[#*_`]/g, "") // Remove markdown formatting
-          .trim()
-        
-        // Get first meaningful paragraph
-        const paragraphs = text.split("\n\n").filter((p) => p.trim().length > 0)
-        const firstParagraph = paragraphs[0] || ""
-        
-        // Truncate to reasonable length for OG description
-        const maxLength = 160
-        if (firstParagraph.length <= maxLength) {
-          return firstParagraph
-        }
-        
-        // Truncate at last complete word
-        const truncated = firstParagraph.substring(0, maxLength)
-        const lastSpace = truncated.lastIndexOf(" ")
-        return lastSpace > 0
-          ? truncated.substring(0, lastSpace) + "..."
-          : truncated + "..."
-      },
-    },
     readingTime: {
       type: "number",
       resolve: (post) => readingTime(post.body.raw).minutes,
