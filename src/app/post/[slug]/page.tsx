@@ -32,7 +32,7 @@ export const generateMetadata = async (props: {
   }
 
   const title = `#${post.id} ${post.title}`
-  const description = post.excerpt || post.summary || undefined
+  const description = post.autoSummary || undefined
 
   return {
     metadataBase: new URL(process.env.DOMAIN ?? ""),

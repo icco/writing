@@ -23,7 +23,7 @@ export const Post = defineDocumentType(() => ({
     id: { type: "number", required: true },
     permalink: { type: "string", required: true },
     title: { type: "string", required: true },
-    excerpt: { type: "markdown", required: false, default: "" },
+    summary: { type: "string", required: false, default: "" },
   },
   computedFields: {
     github: {
@@ -65,17 +65,12 @@ export const Post = defineDocumentType(() => ({
         return `/api/og?${params.toString()}`
       },
     },
-    summary: {
+    autoSummary: {
       type: "string",
       resolve: (post) => {
-        // If excerpt is provided in frontmatter, use that
-        if (post.excerpt) {
-          const excerptText = typeof post.excerpt === 'string' 
-            ? post.excerpt 
-            : post.excerpt.html || post.excerpt.raw || ""
-          if (excerptText.trim().length > 0) {
-            return excerptText.replace(/\n/g, " ").trim()
-          }
+        // If summary is provided in frontmatter, use that
+        if (post.summary && post.summary.trim().length > 0) {
+          return post.summary.trim()
         }
         
         // Otherwise, generate a summary from the first paragraph

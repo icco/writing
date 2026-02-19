@@ -9,5 +9,15 @@ This latest incaration is based off of static compiling MDX files.
 ## Features
 
 - **Social Images**: Automatically generated OpenGraph images for all posts and the home page
-- **AI-Generated Descriptions**: Optional script to generate meta descriptions using Google Gemini API (see [DESCRIPTION_GENERATION.md](./DESCRIPTION_GENERATION.md))
-- **Automatic Summaries**: Posts without explicit excerpts get automatic summaries from their first paragraph
+- **AI-Generated Descriptions**: Optional TypeScript script to generate meta descriptions using Google Gemini API
+- **Automatic Summaries**: Posts without explicit summaries get automatic summaries from their first paragraph
+
+### Generating Descriptions with Gemini
+
+To generate AI-powered descriptions for your posts:
+
+```bash
+export GEMINI_API_KEY="your-api-key"
+tsx generate-descriptions.ts        # All posts without summaries
+tsx generate-descriptions.ts 123    # Specific post
+```

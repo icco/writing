@@ -32,10 +32,9 @@ export function PostCard(post: Post) {
           return <Tag tag={tag} key={tag} className="text-xs" />
         })}
       </div>
-      <div
-        className="text-sm *:mb-3 [&>*:last-child]:mb-0"
-        dangerouslySetInnerHTML={{ __html: post.excerpt.html }}
-      />
+      {post.autoSummary && (
+        <div className="text-sm text-gray-600">{post.autoSummary}</div>
+      )}
     </div>
   )
 }
