@@ -97,8 +97,40 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
   const prev = previousPost(post.id)
   const next = nextPost(post.id)
 
+  const domain = process.env.DOMAIN || "https://writing.natwelch.com"
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    datePublished: post.datetime,
+    dateModified: post.modifiedAt,
+    author: {
+      "@type": "Person",
+      name: "Nat Welch",
+      url: "https://natwelch.com",
+    },
+    url: `${domain}${post.permalink}`,
+    image: `${domain}${post.social_image}`,
+    ...(post.summary ? { description: post.summary } : {}),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${domain}${post.permalink}`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Nat Welch",
+      url: "https://natwelch.com",
+    },
+    keywords: post.tags,
+    wordCount: post.wordCount,
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <article className="mx-auto max-w-5xl px-8 py-7">
         <div className="mb-8 text-center">
           <div className="text-xs">
