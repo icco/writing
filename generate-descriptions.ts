@@ -17,6 +17,8 @@
 import * as fs from "fs"
 import * as path from "path"
 import * as https from "https"
+import { remark } from "remark"
+import stripMarkdown from "strip-markdown"
 const matter = require("gray-matter")
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
@@ -121,11 +123,12 @@ async function generateDescription(postContent: string): Promise<string | null> 
   const frontmatter = parsed.data as PostFrontmatter
   const content = parsed.content
 
-  // Clean up the content for the prompt
-  const cleanContent = content
-    .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images
-    .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1") // Convert links to text
-    .replace(/(^|\s)#[a-zA-Z]\w*/g, "$1") // Remove social-style hashtags while preserving spacing
+  // Strip markdown formatting using remark
+  const file = await remark()
+    .use(stripMarkdown)
+    .process(content)
+  
+  const cleanContent = String(file)
     .trim()
     .substring(0, 3000) // Limit to first 3000 chars to keep prompt reasonable
 
