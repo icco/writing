@@ -1,8 +1,35 @@
 import { getYear } from "date-fns"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
 import publishedPosts from "@/lib/posts"
+
+export const generateMetadata = async (props: {
+  params: Promise<{ year: string }>
+}): Promise<Metadata> => {
+  const params = await props.params
+  const year = params.year
+  const title = `Posts from ${year} | Nat? Nat. Nat!`
+  const description = `All blog posts written by Nat Welch in ${year}`
+
+  return {
+    metadataBase: new URL(process.env.DOMAIN ?? ""),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `/year/${year}`,
+      siteName: "Nat? Nat. Nat!",
+      locale: "en_US",
+      type: "website",
+    },
+    alternates: {
+      canonical: `/year/${year}`,
+    },
+  }
+}
 
 export const generateStaticParams = async () => {
   const posts = publishedPosts()
