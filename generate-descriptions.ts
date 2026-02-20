@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 
 /**
  * Script to generate descriptions for blog posts using Google Gemini API
