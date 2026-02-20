@@ -10,7 +10,7 @@ This latest incaration is based off of static compiling MDX files.
 
 - **Social Images**: Automatically generated OpenGraph images for all posts and the home page
 - **AI-Generated Descriptions**: Optional TypeScript script to generate meta descriptions using Google Gemini API
-- **Summaries Support**: Summaries can be added manually or generated explicitly using the Gemini script (no automatic fallback)
+- **Summary Support**: Summaries can be added manually to post frontmatter or generated using the Gemini script
 
 ### Generating Descriptions with Gemini
 

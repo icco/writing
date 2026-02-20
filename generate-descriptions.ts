@@ -131,17 +131,24 @@ function parseMarkdown(content: string): ParsedPost {
 
   const frontmatter: PostFrontmatter = {}
   frontmatterText.split("\n").forEach((line) => {
+    // Skip empty lines
+    if (!line.trim()) return
+    
     const match = line.match(/^(\w+):\s*(.*)$/)
     if (match) {
       const key = match[1]
-      let value: string | boolean = match[2].trim()
+      let value: string | boolean | number = match[2].trim()
       // Remove quotes if present
-      if (value.startsWith('"') && value.endsWith('"')) {
+      if (typeof value === "string" && value.startsWith('"') && value.endsWith('"')) {
         value = value.slice(1, -1)
       }
       // Parse booleans
       if (value === "true") value = true
-      if (value === "false") value = false
+      else if (value === "false") value = false
+      // Parse numbers
+      else if (typeof value === "string" && value !== "" && !isNaN(Number(value))) {
+        value = Number(value)
+      }
       frontmatter[key] = value
     }
   })
@@ -172,7 +179,19 @@ Generate only the meta description text, nothing else. Make it compelling and ac
 
   try {
     const description = await callGeminiAPI(prompt)
-    return description.trim()
+    const trimmed = description.trim()
+    
+    // Return null if empty
+    if (!trimmed) {
+      return null
+    }
+    
+    // Warn if description exceeds recommended length
+    if (trimmed.length > 160) {
+      console.warn(`  Warning: Generated description is ${trimmed.length} characters (recommended max: 160)`)
+    }
+    
+    return trimmed
   } catch (error) {
     console.error(`Error generating description: ${(error as Error).message}`)
     return null
@@ -192,8 +211,11 @@ function updatePostWithSummary(filePath: string, summary: string): boolean {
     return false
   }
 
-  // Build new frontmatter
-  const frontmatterLines: string[] = ["---"]
+  // Escape double quotes in summary to prevent YAML syntax errors
+  const escapedSummary = summary.replace(/"/g, '\\"')
+  
+  // Build new frontmatter preserving empty lines between fields
+  const frontmatterLines: string[] = ["---", ""]
   Object.entries(frontmatter).forEach(([key, value]) => {
     if (typeof value === "string" && (value.includes(":") || value.includes("\n"))) {
       frontmatterLines.push(`${key}: "${value}"`)
@@ -201,7 +223,8 @@ function updatePostWithSummary(filePath: string, summary: string): boolean {
       frontmatterLines.push(`${key}: ${value}`)
     }
   })
-  frontmatterLines.push(`summary: "${summary}"`)
+  frontmatterLines.push(`summary: "${escapedSummary}"`)
+  frontmatterLines.push("")
   frontmatterLines.push("---")
 
   const updatedContent = `${frontmatterLines.join("\n")}\n${bodyContent}`
