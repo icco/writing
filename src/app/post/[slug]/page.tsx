@@ -49,6 +49,7 @@ export const generateMetadata = async (props: {
           url: post.social_image,
           width: 1200,
           height: 630,
+          alt: post.title,
         },
       ],
       locale: "en_US",
@@ -62,7 +63,7 @@ export const generateMetadata = async (props: {
       card: "summary_large_image",
       title,
       description,
-      images: [post.social_image],
+      images: [{ url: post.social_image, alt: post.title }],
     },
     alternates: {
       canonical: post.url,

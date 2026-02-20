@@ -21,6 +21,7 @@ export const metadata: Metadata = {
         url: "/api/og",
         width: 1200,
         height: 630,
+        alt: "Nat? Nat. Nat! - The personal blog of Nat Welch",
       },
     ],
   },
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/api/og"],
+    images: [{ url: "/api/og", alt: "Nat? Nat. Nat! - The personal blog of Nat Welch" }],
   },
   alternates: {
     canonical: "/",
