@@ -3,7 +3,7 @@ import { Plugin } from "unified"
 
 import { normalizeTag } from "./tagAliases"
 
-export const hashtagRegex = /(^|\s)#(?<tag>[a-zA-Z][a-zA-Z0-9-]{1,})\b/gim
+export const hashtagRegex = /(^|\s)\\?#(?<tag>[a-zA-Z][a-zA-Z0-9-]{1,})\b/gim
 
 /**
  * Plugin to autolink references for hashtags.
@@ -28,7 +28,7 @@ const replaceHashtag: Replace = (
 ) => {
   const normalizedTag = normalizeTag(tag)
   const url = `/tag/${normalizedTag}`
-  const stripped = value.trimStart()
+  const stripped = value.trimStart().replace(/^\\/, "")
 
   return [
     {
