@@ -22,7 +22,7 @@ import stripMarkdown from "strip-markdown"
 const matter = require("gray-matter")
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-const GEMINI_MODEL = "gemini-2.0-flash-exp" // Latest model as of 2026
+const GEMINI_MODEL = "gemini-2.0-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
 
 if (!GEMINI_API_KEY) {
@@ -55,7 +55,7 @@ interface PostFrontmatter {
 /**
  * Makes a request to the Gemini API
  */
-function callGeminiAPI(prompt: string): Promise<string> {
+function callGeminiAPI(prompt: string, retries = 3): Promise<string> {
   return new Promise((resolve, reject) => {
     const data = JSON.stringify({
       contents: [
@@ -79,18 +79,26 @@ function callGeminiAPI(prompt: string): Promise<string> {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Content-Length": data.length,
+        "Content-Length": Buffer.byteLength(data, "utf8"),
       },
     }
 
     const req = https.request(options, (res) => {
       let body = ""
       res.on("data", (chunk) => (body += chunk))
-      res.on("end", () => {
-        if (res.statusCode !== 200) {
+      res.on("end", async () => {
+        const statusCode = res.statusCode || 0
+        if (statusCode >= 500 && retries > 0) {
+          const delay = (4 - retries) * 2000
+          console.log(`  Retrying after ${delay}ms (${retries} retries left)...`)
+          await new Promise((r) => setTimeout(r, delay))
+          callGeminiAPI(prompt, retries - 1).then(resolve).catch(reject)
+          return
+        }
+        if (statusCode !== 200) {
           reject(
             new Error(
-              `API request failed with status ${res.statusCode}: ${body}`
+              `API request failed with status ${statusCode}: ${body}`
             )
           )
           return
