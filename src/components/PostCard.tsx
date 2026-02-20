@@ -33,7 +33,7 @@ export function PostCard(post: Post) {
         })}
       </div>
       {post.summary && (
-        <div className="text-sm text-gray-600">{post.summary}</div>
+        <div className="text-sm text-muted dark:text-muted">{post.summary}</div>
       )}
     </div>
   )
