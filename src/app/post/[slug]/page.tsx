@@ -53,6 +53,10 @@ export const generateMetadata = async (props: {
       ],
       locale: "en_US",
       type: "article",
+      publishedTime: post.datetime,
+      modifiedTime: post.modifiedAt,
+      authors: ["Nat Welch"],
+      tags: post.tags,
     },
     twitter: {
       card: "summary_large_image",
