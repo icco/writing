@@ -54,6 +54,12 @@ export const generateMetadata = async (props: {
       locale: "en_US",
       type: "article",
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [post.social_image],
+    },
     alternates: {
       canonical: post.url,
       types: {
