@@ -23,7 +23,7 @@ export const Post = defineDocumentType(() => ({
     id: { type: "number", required: true },
     permalink: { type: "string", required: true },
     title: { type: "string", required: true },
-    excerpt: { type: "markdown", required: false, default: "" },
+    summary: { type: "string", required: false, default: "" },
   },
   computedFields: {
     github: {
