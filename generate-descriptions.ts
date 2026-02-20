@@ -136,12 +136,12 @@ async function generateDescription(postContent: string): Promise<string | null> 
   const file = await remark()
     .use(stripMarkdown)
     .process(content)
-  
+
   const cleanContent = String(file)
     .trim()
     .substring(0, 3000) // Limit to first 3000 chars to keep prompt reasonable
 
-  const prompt = `Write a concise, engaging meta description (max 160 characters) for a blog post titled "${frontmatter.title || "Untitled"}". 
+  const prompt = `Write a concise, engaging meta description (max 160 characters) for a blog post titled "${frontmatter.title || "Untitled"}". Do not include the title or hashtags in the description. Don't be overly cute or promotional. Try to stick to the style of the post.
 
 The post content is:
 ${cleanContent}
@@ -151,17 +151,17 @@ Generate only the meta description text, nothing else. Make it compelling and ac
   try {
     const description = await callGeminiAPI(prompt)
     const trimmed = description.trim()
-    
+
     // Return null if empty
     if (!trimmed) {
       return null
     }
-    
+
     // Warn if description exceeds recommended length
     if (trimmed.length > 160) {
       console.warn(`  Warning: Generated description is ${trimmed.length} characters (recommended max: 160)`)
     }
-    
+
     return trimmed
   } catch (error) {
     console.error(`Error generating description: ${(error as Error).message}`)
@@ -185,7 +185,7 @@ function updatePostWithSummary(filePath: string, summary: string): boolean {
 
   // Add summary to frontmatter
   frontmatter.summary = summary
-  
+
   // Stringify with gray-matter, preserving formatting
   const updatedContent = matter.stringify(parsed.content, frontmatter)
   fs.writeFileSync(filePath, updatedContent, "utf8")
