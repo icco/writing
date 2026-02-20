@@ -20,9 +20,12 @@ async function markdownToHtml(markdown: string): Promise<string> {
 
 function createFeedItem(post: Post, content: string) {
   return {
+    id: `https://writing.natwelch.com/post/${post.id}`,
     title: post.title,
     link: `https://writing.natwelch.com/post/${post.id}`,
     date: new Date(post.datetime),
+    description: post.summary || undefined,
+    image: `https://writing.natwelch.com${post.social_image}`,
     category: post.tags.map((t: string) => ({ name: t, term: t })),
     author: [
       {
