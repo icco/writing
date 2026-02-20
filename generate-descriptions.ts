@@ -17,6 +17,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import * as https from "https"
+import { execSync } from "child_process"
 import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 const matter = require("gray-matter")
@@ -191,6 +192,16 @@ function updatePostWithSummary(filePath: string, summary: string): boolean {
   return true
 }
 
+function gitCommit(filePath: string, postId: string): void {
+  try {
+    execSync(`git add ${filePath}`, { stdio: "pipe" })
+    execSync(`git commit -m "Add summary for post ${postId}"`, { stdio: "pipe" })
+    console.log(`  ✓ Committed to git`)
+  } catch (error) {
+    console.error(`  ✗ Git commit failed: ${(error as Error).message}`)
+  }
+}
+
 /**
  * Main function
  */
@@ -237,7 +248,9 @@ async function main() {
       console.log(`  Generated: ${description}`)
       const updated = updatePostWithSummary(postFile, description)
       if (updated) {
-        console.log(`  ✓ Updated post with summary\n`)
+        console.log(`  ✓ Updated post with summary`)
+        gitCommit(postFile, postId)
+        console.log()
       }
     } else {
       console.log(`  ✗ Failed to generate description\n`)
