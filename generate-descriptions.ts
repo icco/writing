@@ -159,7 +159,7 @@ async function generateDescription(postContent: string): Promise<string | null> 
   const cleanContent = content
     .replace(/!\[.*?\]\(.*?\)/g, "") // Remove images
     .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1") // Convert links to text
-    .replace(/#[^\s#]+/g, "") // Remove hashtags
+    .replace(/(^|\s)#[a-zA-Z]\w*/g, "$1") // Remove social-style hashtags while preserving spacing
     .trim()
     .substring(0, 3000) // Limit to first 3000 chars to keep prompt reasonable
 
