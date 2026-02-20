@@ -1,9 +1,36 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
 import { allTags } from "@/components/Tag"
 import publishedPosts from "@/lib/posts"
 import { normalizeTag, tagAliases } from "@/lib/tagAliases"
+
+export const generateMetadata = async (props: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> => {
+  const params = await props.params
+  const tag = normalizeTag(params.slug)
+  const title = `Posts tagged #${tag} | Nat? Nat. Nat!`
+  const description = `All blog posts tagged #${tag} by Nat Welch`
+
+  return {
+    metadataBase: new URL(process.env.DOMAIN ?? ""),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `/tag/${tag}`,
+      siteName: "Nat? Nat. Nat!",
+      locale: "en_US",
+      type: "website",
+    },
+    alternates: {
+      canonical: `/tag/${tag}`,
+    },
+  }
+}
 
 export const generateStaticParams = async () => {
   const canonicalTags = allTags()
