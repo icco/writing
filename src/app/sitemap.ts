@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((post) => !post.draft)
     .map((post) => ({
       url: `${domain}${post.permalink}`,
-      lastModified: new Date(post.datetime),
+      lastModified: new Date(post.modifiedAt || post.datetime),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     }))
