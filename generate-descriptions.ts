@@ -17,6 +17,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import * as https from "https"
+const matter = require("gray-matter")
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const GEMINI_MODEL = "gemini-2.0-flash-exp" // Latest model as of 2026
@@ -46,12 +47,7 @@ interface PostFrontmatter {
   datetime?: string
   draft?: boolean
   permalink?: string
-  [key: string]: string | boolean | number | undefined
-}
-
-interface ParsedPost {
-  frontmatter: PostFrontmatter
-  content: string
+  [key: string]: any
 }
 
 /**
@@ -118,49 +114,12 @@ function callGeminiAPI(prompt: string): Promise<string> {
 }
 
 /**
- * Parses frontmatter and content from a markdown file
- */
-function parseMarkdown(content: string): ParsedPost {
-  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
-  if (!frontmatterMatch) {
-    return { frontmatter: {}, content: content }
-  }
-
-  const frontmatterText = frontmatterMatch[1]
-  const bodyContent = frontmatterMatch[2]
-
-  const frontmatter: PostFrontmatter = {}
-  frontmatterText.split("\n").forEach((line) => {
-    // Skip empty lines
-    if (!line.trim()) return
-    
-    const match = line.match(/^(\w+):\s*(.*)$/)
-    if (match) {
-      const key = match[1]
-      let value: string | boolean | number = match[2].trim()
-      // Remove quotes if present
-      if (typeof value === "string" && value.startsWith('"') && value.endsWith('"')) {
-        value = value.slice(1, -1)
-      }
-      // Parse booleans
-      if (value === "true") value = true
-      else if (value === "false") value = false
-      // Parse numbers
-      else if (typeof value === "string" && value !== "" && !isNaN(Number(value))) {
-        value = Number(value)
-      }
-      frontmatter[key] = value
-    }
-  })
-
-  return { frontmatter, content: bodyContent }
-}
-
-/**
  * Generates a description for a post using Gemini
  */
 async function generateDescription(postContent: string): Promise<string | null> {
-  const { frontmatter, content } = parseMarkdown(postContent)
+  const parsed = matter(postContent)
+  const frontmatter = parsed.data as PostFrontmatter
+  const content = parsed.content
 
   // Clean up the content for the prompt
   const cleanContent = content
@@ -203,7 +162,8 @@ Generate only the meta description text, nothing else. Make it compelling and ac
  */
 function updatePostWithSummary(filePath: string, summary: string): boolean {
   const content = fs.readFileSync(filePath, "utf8")
-  const { frontmatter, content: bodyContent } = parseMarkdown(content)
+  const parsed = matter(content)
+  const frontmatter = parsed.data as PostFrontmatter
 
   // Check if summary already exists
   if (frontmatter.summary && frontmatter.summary.trim().length > 0) {
@@ -211,23 +171,11 @@ function updatePostWithSummary(filePath: string, summary: string): boolean {
     return false
   }
 
-  // Escape double quotes in summary to prevent YAML syntax errors
-  const escapedSummary = summary.replace(/"/g, '\\"')
+  // Add summary to frontmatter
+  frontmatter.summary = summary
   
-  // Build new frontmatter preserving empty lines between fields
-  const frontmatterLines: string[] = ["---", ""]
-  Object.entries(frontmatter).forEach(([key, value]) => {
-    if (typeof value === "string" && (value.includes(":") || value.includes("\n"))) {
-      frontmatterLines.push(`${key}: "${value}"`)
-    } else {
-      frontmatterLines.push(`${key}: ${value}`)
-    }
-  })
-  frontmatterLines.push(`summary: "${escapedSummary}"`)
-  frontmatterLines.push("")
-  frontmatterLines.push("---")
-
-  const updatedContent = `${frontmatterLines.join("\n")}\n${bodyContent}`
+  // Stringify with gray-matter, preserving formatting
+  const updatedContent = matter.stringify(parsed.content, frontmatter)
   fs.writeFileSync(filePath, updatedContent, "utf8")
   return true
 }
@@ -262,7 +210,8 @@ async function main() {
     console.log(`Processing post ${postId}...`)
 
     const content = fs.readFileSync(postFile, "utf8")
-    const { frontmatter } = parseMarkdown(content)
+    const parsed = matter(content)
+    const frontmatter = parsed.data as PostFrontmatter
 
     // Skip if already has summary
     if (frontmatter.summary && frontmatter.summary.toString().trim()) {
