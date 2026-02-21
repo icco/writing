@@ -6,7 +6,10 @@ import remarkHtml from "remark-html"
 
 import { Post } from "contentlayer/generated"
 
-async function markdownToHtml(markdown: string): Promise<string> {
+async function markdownToHtml(
+  markdown: string,
+  postUrl: string
+): Promise<string> {
   const result = await remark()
     .use(remarkGfm)
     // Note: sanitize is disabled because:
@@ -15,7 +18,9 @@ async function markdownToHtml(markdown: string): Promise<string> {
     // 3. There is no user-generated content
     .use(remarkHtml, { sanitize: false })
     .process(markdown)
-  return result.toString()
+  return result
+    .toString()
+    .replace(/href="#/g, `href="${postUrl}#`)
 }
 
 function createFeedItem(post: Post, content: string) {
@@ -62,7 +67,8 @@ export default async function generateFeed(posts: Post[]) {
 
   for (const p of posts) {
     try {
-      const htmlContent = await markdownToHtml(p.body.raw)
+      const postUrl = `https://writing.natwelch.com/post/${p.id}`
+      const htmlContent = await markdownToHtml(p.body.raw, postUrl)
       feed.addItem(createFeedItem(p, htmlContent))
     } catch (err) {
       console.error(`Error processing post ${p.id}:`, err)
