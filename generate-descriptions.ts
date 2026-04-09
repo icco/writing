@@ -35,7 +35,7 @@ async function callGemini(prompt: string): Promise<string> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.7, maxOutputTokens: 200 },
+        generationConfig: { temperature: 0.7, maxOutputTokens: 1024 },
       }),
     })
 
@@ -51,7 +51,11 @@ async function callGemini(prompt: string): Promise<string> {
     }
 
     const json = await res.json()
-    return json.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ?? ""
+    const candidate = json.candidates?.[0]
+    if (candidate?.finishReason === "MAX_TOKENS") {
+      throw new Error("Response truncated — increase maxOutputTokens")
+    }
+    return candidate?.content?.parts?.[0]?.text?.trim() ?? ""
   }
 
   throw new Error("Gemini API failed after retries")
