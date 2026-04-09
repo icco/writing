@@ -74,7 +74,7 @@ async function generateSummary(
 
   const prompt = `You are writing a short summary for a personal blog post titled "${title}".
 
-Write one or two natural sentences that describe what the post is about. Write in third person. Be plain and direct — no marketing language, no hashtags, no clickbait. Match the casual tone of the blog.
+Write one or two natural sentences that describe what the post is about. Refer to the author as "Nat" — never "the author", "he", or "they". Be plain and direct — no marketing language, no hashtags, no clickbait. Match the casual tone of the blog.
 
 The summary should be under 160 characters and work well as a meta description.
 
