@@ -21,7 +21,7 @@ import stripMarkdown from "strip-markdown"
 const matter = require("gray-matter")
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-const GEMINI_MODEL = "gemini-2.0-flash"
+const GEMINI_MODEL = "gemini-2.5-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
 
 if (!GEMINI_API_KEY) {
