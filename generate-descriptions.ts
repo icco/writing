@@ -1,21 +1,15 @@
 /**
- * Script to generate descriptions for blog posts using Google Gemini API
+ * Generate summaries for blog posts using Google Gemini.
  *
  * Usage:
- *   ts-node generate-descriptions.ts [post-id]
  *   tsx generate-descriptions.ts [post-id]
  *
- * If post-id is provided, generates description for that specific post.
- * If no post-id is provided, generates descriptions for all posts without summaries.
- *
- * Set GEMINI_API_KEY environment variable before running:
- *   export GEMINI_API_KEY="your-api-key"
+ * Set GEMINI_API_KEY environment variable before running.
  */
 
 import * as fs from "fs"
 import * as path from "path"
-import * as https from "https"
-import { execSync } from "child_process"
+import { execFileSync } from "child_process"
 import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 const matter = require("gray-matter")
@@ -23,242 +17,159 @@ const matter = require("gray-matter")
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const GEMINI_MODEL = "gemini-2.5-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
+const MAX_RETRIES = 3
 
 if (!GEMINI_API_KEY) {
-  console.error("Error: GEMINI_API_KEY environment variable is not set.")
-  console.error("Please set it before running this script:")
-  console.error('  export GEMINI_API_KEY="your-api-key"')
+  console.error(
+    "GEMINI_API_KEY is not set. Export it before running this script."
+  )
   process.exit(1)
 }
 
-interface GeminiResponse {
-  candidates?: Array<{
-    content?: {
-      parts?: Array<{
-        text?: string
-      }>
-    }
-  }>
-}
+async function callGemini(prompt: string): Promise<string> {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`
 
-interface PostFrontmatter {
-  summary?: string
-  title?: string
-  id?: number
-  datetime?: string
-  draft?: boolean
-  permalink?: string
-  [key: string]: any
-}
-
-/**
- * Makes a request to the Gemini API
- */
-function callGeminiAPI(prompt: string, retries = 3): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const data = JSON.stringify({
-      contents: [
-        {
-          parts: [
-            {
-              text: prompt,
-            },
-          ],
-        },
-      ],
-      generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 200,
-      },
-    })
-
-    const options = {
-      hostname: "generativelanguage.googleapis.com",
-      path: `/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+  for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+    const res = await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Content-Length": Buffer.byteLength(data, "utf8"),
-      },
-    }
-
-    const req = https.request(options, (res) => {
-      let body = ""
-      res.on("data", (chunk) => (body += chunk))
-      res.on("end", async () => {
-        const statusCode = res.statusCode || 0
-        if (statusCode >= 500 && retries > 0) {
-          const delay = (4 - retries) * 2000
-          console.log(`  Retrying after ${delay}ms (${retries} retries left)...`)
-          await new Promise((r) => setTimeout(r, delay))
-          callGeminiAPI(prompt, retries - 1).then(resolve).catch(reject)
-          return
-        }
-        if (statusCode !== 200) {
-          reject(
-            new Error(
-              `API request failed with status ${statusCode}: ${body}`
-            )
-          )
-          return
-        }
-        try {
-          const response: GeminiResponse = JSON.parse(body)
-          const text = response.candidates?.[0]?.content?.parts?.[0]?.text
-          resolve(text || "")
-        } catch (err) {
-          reject(
-            new Error(
-              `Failed to parse API response: ${(err as Error).message}`
-            )
-          )
-        }
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: 200 },
+      }),
     })
 
-    req.on("error", reject)
-    req.write(data)
-    req.end()
-  })
+    if (res.status >= 500 && attempt < MAX_RETRIES - 1) {
+      const delay = (attempt + 1) * 2000
+      console.log(`  Retrying in ${delay}ms...`)
+      await new Promise((r) => setTimeout(r, delay))
+      continue
+    }
+
+    if (!res.ok) {
+      throw new Error(`Gemini API error ${res.status}: ${await res.text()}`)
+    }
+
+    const json = await res.json()
+    return json.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ?? ""
+  }
+
+  throw new Error("Gemini API failed after retries")
 }
 
-/**
- * Generates a description for a post using Gemini
- */
-async function generateDescription(postContent: string): Promise<string | null> {
-  const parsed = matter(postContent)
-  const frontmatter = parsed.data as PostFrontmatter
-  const content = parsed.content
+async function stripMd(content: string): Promise<string> {
+  const file = await remark().use(stripMarkdown).process(content)
+  return String(file).trim()
+}
 
-  // Strip markdown formatting using remark
-  const file = await remark()
-    .use(stripMarkdown)
-    .process(content)
+async function generateSummary(
+  title: string,
+  content: string
+): Promise<string | null> {
+  const plainText = (await stripMd(content)).substring(0, 3000)
 
-  const cleanContent = String(file)
-    .trim()
-    .substring(0, 3000) // Limit to first 3000 chars to keep prompt reasonable
+  const prompt = `You are writing a short summary for a personal blog post titled "${title}".
 
-  const prompt = `Write a concise, engaging meta description (max 160 characters) for a blog post titled "${frontmatter.title || "Untitled"}". Do not include the title or hashtags in the description. Don't be overly cute or promotional. Try to stick to the style of the post.
+Write one or two natural sentences that describe what the post is about. Write in third person. Be plain and direct — no marketing language, no hashtags, no clickbait. Match the casual tone of the blog.
 
-The post content is:
-${cleanContent}
+The summary should be under 160 characters and work well as a meta description.
 
-Generate only the meta description text, nothing else. Make it compelling and accurately summarize the main point.`
+Post content:
+${plainText}
+
+Reply with only the summary, nothing else.`
 
   try {
-    const description = await callGeminiAPI(prompt)
-    const trimmed = description.trim()
-
-    // Return null if empty
-    if (!trimmed) {
-      return null
+    const result = await callGemini(prompt)
+    if (!result) return null
+    if (result.length > 160) {
+      console.warn(
+        `  Warning: summary is ${result.length} chars (aim for ≤160)`
+      )
     }
-
-    // Warn if description exceeds recommended length
-    if (trimmed.length > 160) {
-      console.warn(`  Warning: Generated description is ${trimmed.length} characters (recommended max: 160)`)
-    }
-
-    return trimmed
-  } catch (error) {
-    console.error(`Error generating description: ${(error as Error).message}`)
+    return result
+  } catch (err) {
+    console.error(`  Error: ${(err as Error).message}`)
     return null
   }
 }
 
-/**
- * Updates a markdown file with a new summary
- */
-function updatePostWithSummary(filePath: string, summary: string): boolean {
-  const content = fs.readFileSync(filePath, "utf8")
-  const parsed = matter(content)
-  const frontmatter = parsed.data as PostFrontmatter
+function updatePost(filePath: string, summary: string): boolean {
+  const raw = fs.readFileSync(filePath, "utf8")
+  const parsed = matter(raw)
 
-  // Check if summary already exists
-  if (frontmatter.summary && frontmatter.summary.trim().length > 0) {
-    console.log(`  Skipping: post already has a summary`)
+  if (parsed.data.summary?.toString().trim()) {
+    console.log(`  Skipping: already has summary`)
     return false
   }
 
-  // Add summary to frontmatter
-  frontmatter.summary = summary
-
-  // Stringify with gray-matter, preserving formatting
-  const updatedContent = matter.stringify(parsed.content, frontmatter)
-  fs.writeFileSync(filePath, updatedContent, "utf8")
+  parsed.data.summary = summary
+  fs.writeFileSync(filePath, matter.stringify(parsed.content, parsed.data))
   return true
 }
 
 function gitCommit(filePath: string, postId: string): void {
   try {
-    execSync(`git add ${filePath}`, { stdio: "pipe" })
-    execSync(`git commit -m "Add summary for post ${postId}"`, { stdio: "pipe" })
-    console.log(`  ✓ Committed to git`)
-  } catch (error) {
-    console.error(`  ✗ Git commit failed: ${(error as Error).message}`)
+    execFileSync("git", ["add", filePath], { stdio: "pipe" })
+    execFileSync("git", ["commit", "-m", `Add summary for post ${postId}`], {
+      stdio: "pipe",
+    })
+    console.log(`  Committed`)
+  } catch (err) {
+    console.error(`  Git commit failed: ${(err as Error).message}`)
   }
 }
 
-/**
- * Main function
- */
 async function main() {
-  const args = process.argv.slice(2)
-  const specificPostId = args[0]
+  const specificId = process.argv[2]
 
   let postFiles: string[]
-  if (specificPostId) {
-    const postFile = path.join(POSTS_DIR, `${specificPostId}.md`)
-    if (!fs.existsSync(postFile)) {
-      console.error(`Error: Post ${specificPostId} not found.`)
+  if (specificId) {
+    const p = path.join(POSTS_DIR, `${specificId}.md`)
+    if (!fs.existsSync(p)) {
+      console.error(`Post ${specificId} not found.`)
       process.exit(1)
     }
-    postFiles = [postFile]
+    postFiles = [p]
   } else {
-    // Get all markdown files
     postFiles = fs
       .readdirSync(POSTS_DIR)
-      .filter((file) => file.endsWith(".md") || file.endsWith(".mdx"))
-      .map((file) => path.join(POSTS_DIR, file))
+      .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
+      .map((f) => path.join(POSTS_DIR, f))
   }
 
   console.log(`Processing ${postFiles.length} post(s)...\n`)
 
   for (const postFile of postFiles) {
     const postId = path.basename(postFile, path.extname(postFile))
-    console.log(`Processing post ${postId}...`)
+    const raw = fs.readFileSync(postFile, "utf8")
+    const parsed = matter(raw)
+    const { title, summary } = parsed.data
 
-    const content = fs.readFileSync(postFile, "utf8")
-    const parsed = matter(content)
-    const frontmatter = parsed.data as PostFrontmatter
-
-    // Skip if already has summary
-    if (frontmatter.summary && frontmatter.summary.toString().trim()) {
-      console.log(`  Skipping: already has summary\n`)
-      continue
+    if (summary?.toString().trim()) {
+      continue // silently skip posts that already have summaries
     }
 
-    console.log(`  Generating description...`)
-    const description = await generateDescription(content)
+    console.log(`Post ${postId}: ${title || "(untitled)"}`)
+    const newSummary = await generateSummary(
+      title || "Untitled",
+      parsed.content
+    )
 
-    if (description) {
-      console.log(`  Generated: ${description}`)
-      const updated = updatePostWithSummary(postFile, description)
-      if (updated) {
-        console.log(`  ✓ Updated post with summary`)
+    if (newSummary) {
+      console.log(`  → ${newSummary}`)
+      if (updatePost(postFile, newSummary)) {
         gitCommit(postFile, postId)
-        console.log()
       }
     } else {
-      console.log(`  ✗ Failed to generate description\n`)
+      console.log(`  Failed to generate summary`)
     }
 
-    // Add a small delay to avoid rate limiting
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    // Small delay to avoid rate limiting
+    await new Promise((r) => setTimeout(r, 1000))
   }
 
-  console.log("Done!")
+  console.log("\nDone!")
 }
 
 main().catch((err) => {
