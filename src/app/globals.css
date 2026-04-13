@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source "../../node_modules/@icco/react-common/dist/**/*.js";
+@source "../../node_modules/@icco/react-common/dist";
 @import "@wooorm/starry-night/style/dimmed";
 
 @plugin "daisyui" {
