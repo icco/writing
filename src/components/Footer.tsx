@@ -2,13 +2,19 @@ import { CodeBracketIcon, DocumentCheckIcon } from "@heroicons/react/24/outline"
 import { format } from "date-fns"
 import Link from "next/link"
 
-import { RecurseLogo } from "./RecurseLogo"
+import {
+  RecurseLogo,
+  RecurseRing,
+  Social,
+  XXIIVVLogo,
+  XXIIVVRing,
+} from "@icco/react-common"
 
 const Footer = () => {
   return (
-    <div className="mx-auto max-w-5xl">
+    <footer className="mx-auto max-w-5xl pt-[14vh] pb-[8vh]">
       <div className="divider" />
-      <footer className="footer sm:footer-horizontal items-center p-4">
+      <div className="footer sm:footer-horizontal items-center p-4">
         <aside className="grid-flow-col items-center">
           <p>
             &copy; 2011 - {format(new Date(), "yyyy")} Nat Welch. All rights
@@ -37,8 +43,42 @@ const Footer = () => {
             <DocumentCheckIcon className="inline-block h-4 w-4" />
           </Link>
         </nav>
-      </footer>
-    </div>
+      </div>
+
+      <div className="footer sm:footer-horizontal text-base-content p-4">
+        <nav className="gap-4">
+          <h6 className="footer-title">Social</h6>
+          <Social includeWebring={false} size={24} />
+        </nav>
+        <nav className="gap-4 md:justify-self-end">
+          <h6 className="footer-title">
+            <Link href="https://ring.recurse.com/" className="hover:underline">
+              <RecurseLogo
+                className="inline-block h-4 w-4 align-text-bottom"
+                size={12}
+              />{" "}
+              Webring
+            </Link>
+          </h6>
+          <RecurseRing />
+        </nav>
+        <nav className="gap-4 md:justify-self-end">
+          <h6 className="footer-title">
+            <Link
+              href="https://webring.xxiivv.com/"
+              className="hover:underline"
+            >
+              <XXIIVVLogo
+                className="inline-block h-4 w-4 align-text-bottom"
+                size={12}
+              />{" "}
+              Webring
+            </Link>
+          </h6>
+          <XXIIVVRing />
+        </nav>
+      </div>
+    </footer>
   )
 }
 

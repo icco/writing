@@ -1,7 +1,6 @@
 import Link from "next/link"
 
-import Logo from "./Logo"
-import ThemeToggle from "./ThemeToggle"
+import { Logo, ThemeToggle } from "@icco/react-common"
 
 export default function Header() {
   return (

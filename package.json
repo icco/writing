@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
+    "@icco/react-common": "file:../react-common",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@wooorm/starry-night": "^3.5.0",
