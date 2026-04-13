@@ -5,7 +5,8 @@ import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
-import { ThemeProvider, WebVitals } from "@icco/react-common"
+import { ThemeProvider } from "@icco/react-common/ThemeProvider"
+import { WebVitals } from "@icco/react-common/WebVitals"
 
 const roboto = Roboto({
   weight: "400",

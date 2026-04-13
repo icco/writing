@@ -2,13 +2,11 @@ import { CodeBracketIcon, DocumentCheckIcon } from "@heroicons/react/24/outline"
 import { format } from "date-fns"
 import Link from "next/link"
 
-import {
-  RecurseLogo,
-  RecurseRing,
-  Social,
-  XXIIVVLogo,
-  XXIIVVRing,
-} from "@icco/react-common"
+import { RecurseLogo } from "@icco/react-common/RecurseLogo"
+import { RecurseRing } from "@icco/react-common/RecurseRing"
+import { Social } from "@icco/react-common/Social"
+import { XXIIVVLogo } from "@icco/react-common/XXIIVVLogo"
+import { XXIIVVRing } from "@icco/react-common/XXIIVVRing"
 
 const Footer = () => {
   return (
