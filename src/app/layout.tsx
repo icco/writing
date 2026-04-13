@@ -5,8 +5,8 @@ import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
-import { ThemeProvider } from "@/components/ThemeProvider"
-import { WebVitals } from "@/components/WebVitals"
+import { ThemeProvider } from "@icco/react-common/ThemeProvider"
+import { WebVitals } from "@icco/react-common/WebVitals"
 
 const roboto = Roboto({
   weight: "400",
@@ -55,7 +55,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider defaultTheme="system" enableSystem>
           <Header />
-          <WebVitals />
+          <WebVitals analyticsPath="/analytics/writing" />
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
