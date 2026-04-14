@@ -30,6 +30,21 @@ const nextConfig = {
         destination: "/tags",
         permanent: true,
       },
+      {
+        source: "/posts/:slug",
+        destination: "/post/:slug",
+        permanent: true,
+      },
+      {
+        source: "/tags/:tag",
+        destination: "/tag/:tag",
+        permanent: true,
+      },
+      {
+        source: "/:id(\\d+)",
+        destination: "/post/:id",
+        permanent: true,
+      },
     ]
   },
   async headers() {

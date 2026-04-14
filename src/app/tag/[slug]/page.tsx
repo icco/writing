@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
 import { allTags } from "@/components/Tag"
@@ -48,6 +48,11 @@ export const generateStaticParams = async () => {
 const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params
   const normalizedSlug = normalizeTag(params.slug)
+
+  if (params.slug !== normalizedSlug) {
+    redirect(`/tag/${normalizedSlug}`)
+  }
+
   const posts = publishedPosts().filter(
     (post) => post.tags.includes(normalizedSlug) && !post.draft
   )
