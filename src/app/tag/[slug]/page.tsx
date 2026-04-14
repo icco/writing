@@ -15,7 +15,9 @@ export const generateMetadata = async (props: {
   const description = `All blog posts tagged #${tag} by Nat Welch`
 
   return {
-    metadataBase: new URL(process.env.DOMAIN ?? ""),
+    metadataBase: new URL(
+      process.env.DOMAIN ?? "https://writing.natwelch.com"
+    ),
     title,
     description,
     openGraph: {

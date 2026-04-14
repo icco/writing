@@ -5,7 +5,7 @@ import { PostCard } from "@/components/PostCard"
 
 import { allPosts, Post } from "contentlayer/generated"
 
-const domain = new URL(process.env.DOMAIN ?? "")
+const domain = new URL(process.env.DOMAIN ?? "https://writing.natwelch.com")
 const title = `Drafts!`
 export const metadata: Metadata = {
   metadataBase: domain,

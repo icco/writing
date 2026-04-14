@@ -5,7 +5,9 @@ import Link from "next/link"
 import publishedPosts from "@/lib/posts"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.DOMAIN ?? ""),
+  metadataBase: new URL(
+    process.env.DOMAIN ?? "https://writing.natwelch.com"
+  ),
   title: "Archive by Year | Nat? Nat. Nat!",
   description: "Browse Nat Welch's blog posts by year",
   openGraph: {

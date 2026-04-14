@@ -35,7 +35,9 @@ export const generateMetadata = async (props: {
   const description = post.summary || undefined
 
   return {
-    metadataBase: new URL(process.env.DOMAIN ?? ""),
+    metadataBase: new URL(
+      process.env.DOMAIN ?? "https://writing.natwelch.com"
+    ),
     title,
     description,
     id: post.id,

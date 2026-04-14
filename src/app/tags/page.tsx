@@ -3,7 +3,9 @@ import type { Metadata } from "next"
 import { allTagsWithCounts, Tag } from "@/components/Tag"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.DOMAIN ?? ""),
+  metadataBase: new URL(
+    process.env.DOMAIN ?? "https://writing.natwelch.com"
+  ),
   title: "All Tags | Nat? Nat. Nat!",
   description: "Browse all topics and tags on Nat Welch's blog",
   openGraph: {

@@ -7,8 +7,22 @@ import { allPosts, Post } from "contentlayer/generated"
 import publishedPosts from "@/lib/posts"
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.DOMAIN ?? "https://writing.natwelch.com"
+  ),
   title: "Stats | Nat? Nat. Nat!",
   description: "Writing statistics for Nat Welch's blog",
+  openGraph: {
+    title: "Stats | Nat? Nat. Nat!",
+    description: "Writing statistics for Nat Welch's blog",
+    url: "/stats",
+    siteName: "Nat? Nat. Nat!",
+    locale: "en_US",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/stats",
+  },
 }
 
 function StatSlab({
