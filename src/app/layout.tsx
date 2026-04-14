@@ -26,6 +26,9 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.DOMAIN ?? "https://writing.natwelch.com"
+  ),
   title: "Nat? Nat. Nat!",
   description: "The personal blog of Nat Welch",
   other: {
