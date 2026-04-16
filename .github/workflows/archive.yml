@@ -13,7 +13,7 @@ jobs:
         run: sudo apt-get update; sudo apt-get install zsh
       - name: Retrieve all posts
         run: |
-          POSTS=$(./all-posts.sh)
+          POSTS=$(./all-posts.sh 25)
           echo "posts=$POSTS" >> $GITHUB_OUTPUT
         id: posts
     outputs:
