@@ -27,7 +27,7 @@ jobs:
         url: ${{ fromJson(needs.get_posts.outputs.posts) }}
     runs-on: ubuntu-latest
     steps:
-      - uses: JamieMagee/wayback@v2.1.0
+      - uses: JamieMagee/wayback@09d9eb335b234c48032a90b5d630e1723a62982c # main
         with:
           url: ${{ matrix.url }}
           saveErrors: false
