@@ -1,7 +1,7 @@
-name: Archive all posts
+name: Archive some posts
 on:
   schedule:
-    - cron: 36 0 * * *
+    - cron: 12 */6 * * *
   workflow_dispatch:
 jobs:
   get_posts:
