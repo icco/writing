@@ -22,6 +22,7 @@ jobs:
     needs: get_posts
     if: needs.get_posts.outputs.posts != '[]'
     strategy:
+      fail-fast: false
       matrix:
         url: ${{ fromJson(needs.get_posts.outputs.posts) }}
     runs-on: ubuntu-latest
