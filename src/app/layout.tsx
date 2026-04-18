@@ -57,9 +57,15 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider defaultTheme="system" enableSystem>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-base-100 focus:px-4 focus:py-2 focus:text-base-content"
+          >
+            Skip to main content
+          </a>
           <Header />
           <WebVitals analyticsPath="/analytics/writing" />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
