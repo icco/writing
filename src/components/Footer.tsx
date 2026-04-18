@@ -59,7 +59,7 @@ const Footer = () => {
                 className="inline-block h-4 w-4 align-text-bottom"
                 size={12}
               />{" "}
-              Recurse Center Webring
+              Webring
             </Link>
           </h6>
           <RecurseRing />
@@ -75,7 +75,7 @@ const Footer = () => {
                 className="inline-block h-4 w-4 align-text-bottom"
                 size={12}
               />{" "}
-              XXIIVV Webring
+              Webring
             </Link>
           </h6>
           <XXIIVVRing />
