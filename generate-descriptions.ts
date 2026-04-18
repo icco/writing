@@ -4,61 +4,63 @@
  * Usage:
  *   tsx generate-descriptions.ts [post-id]
  *
- * Set GEMINI_API_KEY environment variable before running.
+ * Auth (in priority order):
+ *   1. GEMINI_API_KEY environment variable
+ *   2. gcloud ADC via Vertex AI (uses active gcloud project)
  */
 
 import * as fs from "fs"
 import * as path from "path"
 import { execFileSync } from "child_process"
+import { GoogleGenAI } from "@google/genai"
 import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 const matter = require("gray-matter")
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const GEMINI_MODEL = "gemini-2.5-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
-const MAX_RETRIES = 3
 
-if (!GEMINI_API_KEY) {
-  console.error(
-    "GEMINI_API_KEY is not set. Export it before running this script."
-  )
-  process.exit(1)
-}
-
-async function callGemini(prompt: string): Promise<string> {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`
-
-  for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.7, maxOutputTokens: 1024 },
-      }),
-    })
-
-    if (res.status >= 500 && attempt < MAX_RETRIES - 1) {
-      const delay = (attempt + 1) * 2000
-      console.log(`  Retrying in ${delay}ms...`)
-      await new Promise((r) => setTimeout(r, delay))
-      continue
+function makeClient(): { ai: GoogleGenAI; useVertexAI: boolean } {
+  if (process.env.GEMINI_API_KEY) {
+    return {
+      ai: new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }),
+      useVertexAI: false,
     }
-
-    if (!res.ok) {
-      throw new Error(`Gemini API error ${res.status}: ${await res.text()}`)
-    }
-
-    const json = await res.json()
-    const candidate = json.candidates?.[0]
-    if (candidate?.finishReason === "MAX_TOKENS") {
-      throw new Error("Response truncated — increase maxOutputTokens")
-    }
-    return candidate?.content?.parts?.[0]?.text?.trim() ?? ""
   }
 
-  throw new Error("Gemini API failed after retries")
+  let project: string | null = null
+  try {
+    project = execFileSync("gcloud", ["config", "get-value", "project"], {
+      stdio: ["pipe", "pipe", "pipe"],
+    })
+      .toString()
+      .trim() || null
+  } catch {
+    // ignore
+  }
+
+  if (!project) {
+    console.error(
+      "No auth available: set GEMINI_API_KEY or configure gcloud (`gcloud auth login && gcloud config set project <project>`)"
+    )
+    process.exit(1)
+  }
+
+  return {
+    ai: new GoogleGenAI({ vertexai: true, project, location: "us-central1" }),
+    useVertexAI: true,
+  }
+}
+
+const { ai, useVertexAI } = makeClient()
+
+async function callGemini(prompt: string): Promise<string> {
+  const response = await ai.models.generateContent({
+    model: useVertexAI ? `publishers/google/models/${GEMINI_MODEL}` : GEMINI_MODEL,
+    contents: prompt,
+    config: { temperature: 0.7, maxOutputTokens: 1024 },
+  })
+  return response.text?.trim() ?? ""
 }
 
 async function stripMd(content: string): Promise<string> {

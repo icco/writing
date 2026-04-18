@@ -17,6 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@google/genai": "^1.50.1",
     "@heroicons/react": "^2.1.5",
     "@icco/react-common": "*",
     "@mdx-js/loader": "^3.0.0",
