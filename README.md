@@ -1,23 +1,21 @@
 # writing
 
-A static react frontend for my blog.
+A Next.js blog. Posts are written in MDX and processed with contentlayer2.
 
-You can see screenshots of my inspiration in the [inspiration folder](https://github.com/icco/writing/tree/main/public/images/inspiration)
+Design inspiration is in the [inspiration folder](https://github.com/icco/writing/tree/main/public/images/inspiration).
 
-This latest incaration is based off of static compiling MDX files.
+## Development
+
+```bash
+yarn dev      # start dev server on :8080
+yarn build    # build for production
+yarn start    # run production build
+```
 
 ## Features
 
-- **Social Images**: Automatically generated OpenGraph images for all posts and the home page
-- **AI-Generated Descriptions**: Optional TypeScript script to generate meta descriptions using Google Gemini API
-- **Summary Support**: Summaries can be added manually to post frontmatter or generated using the Gemini script
-
-### Generating Descriptions with Gemini
-
-To generate AI-powered descriptions for your posts:
-
-```bash
-export GEMINI_API_KEY="your-api-key"
-yarn generate-descriptions        # All posts without summaries
-yarn generate-descriptions 123    # Specific post
-```
+- Syntax highlighting, Mermaid diagrams, and GFM via rehype/remark plugins
+- OpenGraph images generated with Playwright
+- RSS feed
+- Dark mode via next-themes
+- AI-generated post descriptions (optional)
