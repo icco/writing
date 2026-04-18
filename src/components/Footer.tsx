@@ -19,39 +19,43 @@ const Footer = () => {
             reserved.
           </p>
         </aside>
-        <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+        <nav aria-label="Footer links" className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
           <Link
             href="https://www.recurse.com/scout/click?t=1a20cf01214e4c5923ab6ebd6c0f8f18"
             title="Want to become a better programmer? Join the Recurse Center!"
+            aria-label="Want to become a better programmer? Join the Recurse Center!"
           >
-            <RecurseLogo className="inline-block h-4 w-4" />
+            <RecurseLogo className="inline-block h-4 w-4" aria-hidden="true" />
           </Link>
           <Link
             className="blue ms-2"
             href="https://github.com/icco/writing"
             title="Source Code"
+            aria-label="Source code on GitHub"
           >
-            <CodeBracketIcon className="inline-block h-4 w-4" />
+            <CodeBracketIcon className="inline-block h-4 w-4" aria-hidden="true" />
           </Link>
           <Link
             className="blue ms-2"
             href="https://natwelch.com/privacy"
             title="Privacy Policy"
+            aria-label="Privacy Policy"
           >
-            <DocumentCheckIcon className="inline-block h-4 w-4" />
+            <DocumentCheckIcon className="inline-block h-4 w-4" aria-hidden="true" />
           </Link>
         </nav>
       </div>
 
       <div className="footer sm:footer-horizontal text-base-content p-4">
-        <nav className="gap-4">
+        <nav aria-label="Social links" className="gap-4">
           <h6 className="footer-title">Social</h6>
           <Social includeWebring={false} size={24} />
         </nav>
-        <nav className="gap-4 md:justify-self-end">
+        <nav aria-label="Recurse Center webring" className="gap-4 md:justify-self-end">
           <h6 className="footer-title">
             <Link href="https://ring.recurse.com/" className="hover:underline">
               <RecurseLogo
+                aria-hidden="true"
                 className="inline-block h-4 w-4 align-text-bottom"
                 size={12}
               />{" "}
@@ -60,13 +64,14 @@ const Footer = () => {
           </h6>
           <RecurseRing />
         </nav>
-        <nav className="gap-4 md:justify-self-end">
+        <nav aria-label="XXIIVV webring" className="gap-4 md:justify-self-end">
           <h6 className="footer-title">
             <Link
               href="https://webring.xxiivv.com/"
               className="hover:underline"
             >
               <XXIIVVLogo
+                aria-hidden="true"
                 className="inline-block h-4 w-4 align-text-bottom"
                 size={12}
               />{" "}

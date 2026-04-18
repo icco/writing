@@ -5,10 +5,10 @@ import ThemeToggle from "@icco/react-common/ThemeToggle"
 
 export default function Header() {
   return (
-    <nav className="flex py-8">
+    <nav aria-label="Site navigation" className="flex py-8">
       <div className="flex-none">
-        <Link href="/" className="">
-          <Logo size={50} className="logo stroke-current px-8" />
+        <Link href="/" aria-label="Home">
+          <Logo size={50} className="logo stroke-current px-8" aria-hidden="true" />
         </Link>
       </div>
       <div className="grow"></div>

@@ -2,9 +2,10 @@ import React from "react"
 
 interface PhotoGridProps {
   urls: string[]
+  alts?: string[]
 }
 
-const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
+const PhotoGrid: React.FC<PhotoGridProps> = ({ urls, alts }) => {
   return (
     <div className="not-prose columns-2 gap-2 md:columns-3">
       {urls.map((url, index) => (
@@ -12,7 +13,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ urls }) => {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={url + "?w=500"}
-            alt={`Grid item ${index + 1}`}
+            alt={alts?.[index] ?? `Grid item ${index + 1}`}
             width={500}
             className="my-2 w-full"
           />
