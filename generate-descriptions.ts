@@ -20,12 +20,9 @@ const matter = require("gray-matter")
 const GEMINI_MODEL = "gemini-2.5-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
 
-function makeClient(): { ai: GoogleGenAI; useVertexAI: boolean } {
+function makeClient(): GoogleGenAI {
   if (process.env.GEMINI_API_KEY) {
-    return {
-      ai: new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }),
-      useVertexAI: false,
-    }
+    return new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
   }
 
   let project: string | null = null
@@ -41,26 +38,34 @@ function makeClient(): { ai: GoogleGenAI; useVertexAI: boolean } {
 
   if (!project) {
     console.error(
-      "No auth available: set GEMINI_API_KEY or configure gcloud (`gcloud auth login && gcloud config set project <project>`)"
+      "No auth available: set GEMINI_API_KEY or configure gcloud (`gcloud auth application-default login && gcloud config set project <project>`)"
     )
     process.exit(1)
   }
 
-  return {
-    ai: new GoogleGenAI({ vertexai: true, project, location: "us-central1" }),
-    useVertexAI: true,
-  }
+  return new GoogleGenAI({ vertexai: true, project, location: "us-central1" })
 }
 
-const { ai, useVertexAI } = makeClient()
+const ai = makeClient()
 
 async function callGemini(prompt: string): Promise<string> {
-  const response = await ai.models.generateContent({
-    model: useVertexAI ? `publishers/google/models/${GEMINI_MODEL}` : GEMINI_MODEL,
-    contents: prompt,
-    config: { temperature: 0.7, maxOutputTokens: 1024 },
-  })
-  return response.text?.trim() ?? ""
+  try {
+    const response = await ai.models.generateContent({
+      model: `publishers/google/models/${GEMINI_MODEL}`,
+      contents: prompt,
+      config: { temperature: 0.7, maxOutputTokens: 1024 },
+    })
+    return response.text?.trim() ?? ""
+  } catch (err) {
+    const msg = (err as Error).message ?? ""
+    if (msg.includes("invalid_grant")) {
+      console.error(
+        "ADC credentials expired. Run: gcloud auth application-default login"
+      )
+      process.exit(1)
+    }
+    throw err
+  }
 }
 
 async function stripMd(content: string): Promise<string> {
