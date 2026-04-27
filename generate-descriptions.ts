@@ -9,6 +9,12 @@
  * Auth (in priority order):
  *   1. GEMINI_API_KEY environment variable
  *   2. gcloud ADC via Vertex AI (uses active gcloud project)
+ *
+ * Non-`icco.imgix.net` images found for `header_image` are downloaded and
+ * uploaded through photos.natwelch.com (POST multipart `photo` to
+ * `PHOTOS_UPLOAD_URL`, default `https://photos.natwelch.com/api/upload`), which
+ * must return JSON `{ success, files: [{ url: "https://icco.imgix.net/…" }] }`
+ * (supported by the photos app upload route).
  */
 
 import * as fs from "fs"
@@ -21,6 +27,10 @@ import matter from "gray-matter"
 
 const GEMINI_MODEL = "gemini-2.5-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
+
+const ICCO_IMGIX_HOST = "icco.imgix.net"
+const DEFAULT_PHOTOS_UPLOAD = "https://photos.natwelch.com/api/upload"
+const MAX_IMPORT_IMAGE_BYTES = 25 * 1024 * 1024
 
 type ExtractResult = {
   url: string
@@ -76,6 +86,133 @@ async function callGemini(prompt: string, maxOutputTokens = 1024): Promise<strin
     }
     throw err
   }
+}
+
+function isIccoImgixUrl(url: string): boolean {
+  try {
+    return new URL(url).hostname === ICCO_IMGIX_HOST
+  } catch {
+    return false
+  }
+}
+
+function extFromContentType(ct: string | null): string {
+  if (!ct) {
+    return ".jpg"
+  }
+  const m = ct.match(
+    /image\/(jpeg|jpg|pjpeg|png|gif|webp|svg\+xml|heic|heif|bmp)/i
+  )
+  if (!m) {
+    return ".jpg"
+  }
+  const t = m[1]!.toLowerCase()
+  if (t === "jpeg" || t === "pjpeg" || t === "jpg") {
+    return ".jpg"
+  }
+  if (t === "png") {
+    return ".png"
+  }
+  if (t === "gif") {
+    return ".gif"
+  }
+  if (t === "webp") {
+    return ".webp"
+  }
+  if (t === "svg+xml") {
+    return ".svg"
+  }
+  if (t === "heic" || t === "heif") {
+    return ".heic"
+  }
+  if (t === "bmp") {
+    return ".bmp"
+  }
+  return ".jpg"
+}
+
+function extFromPathname(url: string): string | null {
+  try {
+    const p = new URL(url).pathname
+    const e = path.extname(p).toLowerCase()
+    if (
+      e &&
+      [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".heic", ".heif", ".bmp"].includes(
+        e
+      )
+    ) {
+      return e === ".jpeg" ? ".jpg" : e
+    }
+  } catch {
+    // ignore
+  }
+  return null
+}
+
+async function uploadSourceImageToPhotos(
+  sourceUrl: string
+): Promise<string> {
+  const res = await fetch(sourceUrl, {
+    redirect: "follow",
+    headers: { Accept: "image/*,*/*" },
+  })
+  if (!res.ok) {
+    throw new Error(`Download failed: ${res.status} for ${sourceUrl}`)
+  }
+  const cl = res.headers.get("content-length")
+  if (cl && Number.parseInt(cl, 10) > MAX_IMPORT_IMAGE_BYTES) {
+    throw new Error("Image is too large to import (Content-Length).")
+  }
+  const ab = await res.arrayBuffer()
+  if (ab.byteLength > MAX_IMPORT_IMAGE_BYTES) {
+    throw new Error("Image is too large to import.")
+  }
+  const ct = res.headers.get("content-type")
+  const ext = extFromPathname(sourceUrl) || extFromContentType(ct)
+  const uploadBase =
+    process.env.PHOTOS_UPLOAD_URL?.trim() || DEFAULT_PHOTOS_UPLOAD
+  const name = `import${ext}`
+  const file = new File(
+    [new Uint8Array(ab)],
+    name,
+    { type: ct || "application/octet-stream" }
+  )
+  const form = new FormData()
+  form.append("photo", file)
+
+  const up = await fetch(uploadBase, { method: "POST", body: form })
+  if (!up.ok) {
+    const t = await up.text()
+    throw new Error(
+      `Photos upload error ${up.status}: ${t.slice(0, 500)}`
+    )
+  }
+  const j = (await up.json()) as {
+    success?: boolean
+    files?: { path?: string; url: string }[]
+  }
+  const u = j.files?.[0]?.url
+  if (!u) {
+    throw new Error(
+      "Upload response missing files[0].url. Deploy a photos app whose /api/upload returns { files: [{ url }]}."
+    )
+  }
+  return normalizeImageUrl(u)
+}
+
+/**
+ * `header_image` in this repo is always stored as `https://icco.imgix.net/…`
+ * (except for anything already on that host). Other URLs are pushed through
+ * photos.natwelch.com.
+ */
+async function ensureIccoHeaderImageUrl(
+  sourceUrl: string
+): Promise<string> {
+  if (isIccoImgixUrl(sourceUrl)) {
+    return normalizeImageUrl(sourceUrl)
+  }
+  console.log("  → Uploading via photos.natwelch.com → icco.imgix.net …")
+  return uploadSourceImageToPhotos(sourceUrl)
 }
 
 function normalizeImageUrl(url: string): string {
@@ -307,29 +444,40 @@ async function main() {
     if (needHeader) {
       const ex = tryExtractLeadingImage(content)
       if (ex) {
-        console.log(
-          `  → Moving leading image to front matter: ${ex.url.slice(0, 64)}${ex.url.length > 64 ? "…" : ""}`
-        )
-        content = ex.stripped
-        data.header_image = ex.url
-        const firstForAlt = (await stripMd(
-          (content && content.trim() ? content : " ").slice(0, 1500)
-        )).slice(0, 800)
-        const alt = await generateImageAlt(
-          ex.url,
-          String(data.title || "Untitled"),
-          ex.hintAlt,
-          firstForAlt
-        )
-        if (alt) {
-          data.header_image_alt_text = alt
-          console.log(`  → Alt: ${alt}`)
-        } else {
+        let finalImageUrl = ""
+        try {
+          finalImageUrl = await ensureIccoHeaderImageUrl(ex.url)
+        } catch (err) {
+          console.error(`  ${(err as Error).message}`)
           console.log(
-            `  → (No alt from model; site will use title as fallback.)`
+            `  (Header image not moved: fix upload or use an ${ICCO_IMGIX_HOST} URL.)`
           )
         }
-        didHeader = true
+        if (finalImageUrl) {
+          console.log(
+            `  → Moving to front matter: ${finalImageUrl.slice(0, 72)}${finalImageUrl.length > 72 ? "…" : ""}`
+          )
+          content = ex.stripped
+          data.header_image = finalImageUrl
+          const firstForAlt = (await stripMd(
+            (content && content.trim() ? content : " ").slice(0, 1500)
+          )).slice(0, 800)
+          const alt = await generateImageAlt(
+            finalImageUrl,
+            String(data.title || "Untitled"),
+            ex.hintAlt,
+            firstForAlt
+          )
+          if (alt) {
+            data.header_image_alt_text = alt
+            console.log(`  → Alt: ${alt}`)
+          } else {
+            console.log(
+              `  → (No alt from model; site will use title as fallback.)`
+            )
+          }
+          didHeader = true
+        }
       }
     }
 
