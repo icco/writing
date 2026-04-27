@@ -509,7 +509,6 @@ async function buildHeaderImageAltText(
   if (!image) {
     return null
   }
-  const titleHint = postTitle.replace(/"/g, '\\"')
   const userPrompt = [
     "Write a single concise HTML alt-text sentence for the image above.",
     "",
@@ -521,9 +520,9 @@ async function buildHeaderImageAltText(
     "- Don't name specific real people, brands, or places unless they're unmistakable (clear logo, famous landmark).",
     "- If the image is blank, broken, or unreadable, reply with the single word: NONE.",
     "",
-    `Context (do not describe; describe the photo): blog post titled "${titleHint}".`,
+    `Context (do not describe; describe the photo): blog post titled ${JSON.stringify(postTitle)}.`,
     mdAltHint
-      ? `Author's original markdown alt was "${mdAltHint.replace(/"/g, '\\"')}". Use only if consistent with what you see; otherwise ignore.`
+      ? `Author's original markdown alt was ${JSON.stringify(mdAltHint)}. Use only if consistent with what you see; otherwise ignore.`
       : "",
     "",
     "Output the sentence only (no quotes, no preface, no explanation).",
