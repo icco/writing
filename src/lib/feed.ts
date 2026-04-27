@@ -6,6 +6,8 @@ import remarkHtml from "remark-html"
 
 import { Post } from "contentlayer/generated"
 
+import { toAbsoluteImageUrl } from "@/lib/absoluteImageUrl"
+
 async function markdownToHtml(
   markdown: string,
   postUrl: string
@@ -23,11 +25,13 @@ async function markdownToHtml(
     .replace(/href="#/g, `href="${postUrl}#`)
 }
 
+const FEED_SITE = "https://writing.natwelch.com"
+
 function createFeedItem(post: Post, content: string) {
   return {
-    id: `https://writing.natwelch.com/post/${post.id}`,
+    id: `${FEED_SITE}/post/${post.id}`,
     title: post.title,
-    link: `https://writing.natwelch.com/post/${post.id}`,
+    link: `${FEED_SITE}/post/${post.id}`,
     date: new Date(post.datetime),
     description: post.summary || undefined,
     category: post.tags.map((t: string) => ({ name: t, term: t })),
@@ -39,6 +43,7 @@ function createFeedItem(post: Post, content: string) {
       },
     ],
     content,
+    image: toAbsoluteImageUrl(post.social_image, FEED_SITE),
   }
 }
 

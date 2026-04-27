@@ -14,6 +14,20 @@ const nextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "icco.imgix.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "natnatnat.imgix.net",
+        pathname: "/**",
+      },
+    ],
+  },
   env: {
     DOMAIN: domain,
     PORT: port,

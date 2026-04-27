@@ -10,6 +10,11 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { MDXContent } from "@/components/MDXContent"
+import PostHeaderImage from "@/components/PostHeaderImage"
+import {
+  getHeaderImageAlt,
+  toAbsoluteImageUrl,
+} from "@/lib/absoluteImageUrl"
 import publishedPosts, {
   getPostBySlug,
   nextPost,
@@ -33,6 +38,7 @@ export const generateMetadata = async (props: {
 
   const title = `#${post.id} ${post.title}`
   const description = post.summary || undefined
+  const imageAlt = getHeaderImageAlt(post)
 
   return {
     metadataBase: new URL(
@@ -51,7 +57,7 @@ export const generateMetadata = async (props: {
           url: post.social_image,
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: imageAlt,
         },
       ],
       locale: "en_US",
@@ -65,7 +71,7 @@ export const generateMetadata = async (props: {
       card: "summary_large_image",
       title,
       description,
-      images: [{ url: post.social_image, alt: post.title }],
+      images: [{ url: post.social_image, alt: imageAlt }],
     },
     alternates: {
       canonical: post.url,
@@ -112,7 +118,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
       url: "https://natwelch.com",
     },
     url: `${domain}${post.permalink}`,
-    image: `${domain}${post.social_image}`,
+    image: toAbsoluteImageUrl(post.social_image, domain),
     ...(post.summary ? { description: post.summary } : {}),
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -134,23 +140,42 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <article className="mx-auto max-w-5xl px-8 py-7">
-        <div className="mb-8 text-center">
-          <div className="text-xs">
-            <span className="mx-1 inline-block">
-              <Link href={post.url}>#{post.id}</Link>
-            </span>
-            <span className="mx-1 inline-block">&mdash;</span>
-            <time className="mx-1 inline-block" dateTime={post.datetime}>
-              {format(parseISO(post.datetime), "LLLL d, yyyy")}
-            </time>
+        <div
+          className={`mb-8 ${
+            post.header_image
+              ? "text-center md:flex md:items-start md:justify-between md:gap-8 md:text-left"
+              : "text-center"
+          }`}
+        >
+          <div
+            className={
+              post.header_image ? "min-w-0 flex-1" : "contents"
+            }
+          >
+            <div className="text-xs">
+              <span className="mx-1 inline-block">
+                <Link href={post.url}>#{post.id}</Link>
+              </span>
+              <span className="mx-1 inline-block">&mdash;</span>
+              <time className="mx-1 inline-block" dateTime={post.datetime}>
+                {format(parseISO(post.datetime), "LLLL d, yyyy")}
+              </time>
+            </div>
+            <h1
+              className={post.header_image ? "mt-2 md:mt-0" : undefined}
+            >
+              {post.title}
+            </h1>
+            <div className="text-xs">
+              <span className="mx-1 inline-block">
+                By <Link href="https://natwelch.com">Nat Welch</Link>
+              </span>
+            </div>
+            {post.draft && (
+              <div className="text-error mb-1 text-xs">DRAFT</div>
+            )}
           </div>
-          <h1>{post.title}</h1>
-          <div className="text-xs">
-            <span className="mx-1 inline-block">
-              By <Link href="https://natwelch.com">Nat Welch</Link>
-            </span>
-          </div>
-          {post.draft && <div className="text-error mb-1 text-xs">DRAFT</div>}
+          <PostHeaderImage post={post} />
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">
