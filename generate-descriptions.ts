@@ -24,7 +24,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import { execFileSync } from "child_process"
-import { GoogleGenAI, type GenerateContentResponse } from "@google/genai"
+import { GoogleGenAI } from "@google/genai"
 import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 import matter from "gray-matter"
@@ -102,26 +102,28 @@ async function callGemini(prompt: string, maxOutputTokens = 1024): Promise<strin
   }
 }
 
-/** Build a suitable fetch URL: prefer a bounded size for imgix. */
-function urlForVisionFetch(url: string): string {
+/** Imgix-only sizing helper: mutate the URL in place if it's an imgix URL. */
+function withImgixSize(href: string, width: number): string {
   try {
-    const u = new URL(url)
-    if (u.hostname === ICCO_IMGIX_HOST) {
-      u.searchParams.set("w", "1280")
-      u.searchParams.set("auto", "format,compress")
+    const u = new URL(href)
+    if (u.hostname !== ICCO_IMGIX_HOST) {
+      return href
     }
+    u.searchParams.set("w", String(width))
+    u.searchParams.set("auto", "format,compress")
     return u.toString()
   } catch {
-    return url
+    return href
   }
 }
 
 async function fetchImageForVision(
   publicUrl: string
 ): Promise<{ data: string; mime: string } | null> {
-  const tryUrl = (href: string) => fetch(href, { headers: { Accept: "image/*" } })
-  const url = urlForVisionFetch(publicUrl)
-  let r = await tryUrl(url)
+  const tryUrl = (href: string) =>
+    fetch(href, { headers: { Accept: "image/*" } })
+
+  let r = await tryUrl(withImgixSize(publicUrl, 1280))
   if (!r.ok) {
     r = await tryUrl(publicUrl)
   }
@@ -129,17 +131,13 @@ async function fetchImageForVision(
     console.error(`  Could not download image for vision alt: ${r.status}`)
     return null
   }
-  const ct = (r.headers.get("content-type") || "").split(";")[0]!.trim()
+
   let ab = await r.arrayBuffer()
-  if (ab.byteLength > MAX_VISION_INLINE_BYTES) {
-    if (isIccoImgixUrl(publicUrl)) {
-      const u = new URL(publicUrl)
-      u.searchParams.set("w", "768")
-      u.searchParams.set("auto", "format,compress")
-      r = await tryUrl(u.toString())
-      if (r.ok) {
-        ab = await r.arrayBuffer()
-      }
+  if (ab.byteLength > MAX_VISION_INLINE_BYTES && isIccoImgixUrl(publicUrl)) {
+    const r2 = await tryUrl(withImgixSize(publicUrl, 768))
+    if (r2.ok) {
+      r = r2
+      ab = await r2.arrayBuffer()
     }
   }
   if (ab.byteLength > MAX_VISION_INLINE_BYTES) {
@@ -148,35 +146,10 @@ async function fetchImageForVision(
     )
     return null
   }
-  const mime =
-    ct && ct.startsWith("image/")
-      ? ct
-      : (() => {
-          const p = new URL(publicUrl).pathname
-          const ext = path.extname(p).toLowerCase()
-          if (ext === ".png") return "image/png"
-          if (ext === ".gif") return "image/gif"
-          if (ext === ".webp") return "image/webp"
-          if (ext === ".svg" || ext === ".svgz") return "image/svg+xml"
-          return "image/jpeg"
-        })()
-  return {
-    data: Buffer.from(ab).toString("base64"),
-    mime,
-  }
-}
 
-/** Walk parts in case .text is empty (blocked/partial). */
-function extractTextFromResponse(res: GenerateContentResponse): string {
-  const t = res.text?.trim()
-  if (t) {
-    return t
-  }
-  const parts = res.candidates?.[0]?.content?.parts ?? []
-  return parts
-    .map((p) => p.text ?? "")
-    .join("")
-    .trim()
+  const ct = (r.headers.get("content-type") ?? "").split(";")[0]!.trim()
+  const mime = ct.startsWith("image/") ? ct : "image/jpeg"
+  return { data: Buffer.from(ab).toString("base64"), mime }
 }
 
 /**
@@ -207,7 +180,7 @@ async function describeImageWithGemini(
         thinkingConfig: { thinkingBudget: 1024 },
       },
     })
-    const text = extractTextFromResponse(res)
+    const text = res.text?.trim() ?? ""
     const c0 = res.candidates?.[0]
     const meta = JSON.stringify({
       finishReason: c0?.finishReason,
@@ -238,57 +211,36 @@ function isIccoImgixUrl(url: string): boolean {
   }
 }
 
-function extFromContentType(ct: string | null): string {
-  if (!ct) {
-    return ".jpg"
-  }
-  const m = ct.match(
-    /image\/(jpeg|jpg|pjpeg|png|gif|webp|svg\+xml|heic|heif|bmp)/i
-  )
-  if (!m) {
-    return ".jpg"
-  }
-  const t = m[1]!.toLowerCase()
-  if (t === "jpeg" || t === "pjpeg" || t === "jpg") {
-    return ".jpg"
-  }
-  if (t === "png") {
-    return ".png"
-  }
-  if (t === "gif") {
-    return ".gif"
-  }
-  if (t === "webp") {
-    return ".webp"
-  }
-  if (t === "svg+xml") {
-    return ".svg"
-  }
-  if (t === "heic" || t === "heif") {
-    return ".heic"
-  }
-  if (t === "bmp") {
-    return ".bmp"
-  }
-  return ".jpg"
+/** image/<subtype> → ".<ext>" with a few common normalisations. */
+const IMAGE_EXT_BY_SUBTYPE: Record<string, string> = {
+  jpeg: ".jpg",
+  pjpeg: ".jpg",
+  jpg: ".jpg",
+  png: ".png",
+  gif: ".gif",
+  webp: ".webp",
+  "svg+xml": ".svg",
+  heic: ".heic",
+  heif: ".heic",
+  bmp: ".bmp",
 }
 
-function extFromPathname(url: string): string | null {
+/**
+ * Pick a file extension for a downloaded image. Trust `path.extname()` first,
+ * then fall back to the response Content-Type, then `.jpg`.
+ */
+function pickImageExt(sourceUrl: string, contentType: string | null): string {
+  let ext: string | undefined
   try {
-    const p = new URL(url).pathname
-    const e = path.extname(p).toLowerCase()
-    if (
-      e &&
-      [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".heic", ".heif", ".bmp"].includes(
-        e
-      )
-    ) {
-      return e === ".jpeg" ? ".jpg" : e
-    }
+    ext = path.extname(new URL(sourceUrl).pathname).toLowerCase() || undefined
   } catch {
-    // ignore
+    // fall through to content-type
   }
-  return null
+  if (ext) {
+    return ext === ".jpeg" ? ".jpg" : ext
+  }
+  const subtype = contentType?.match(/^image\/([\w+-]+)/i)?.[1]?.toLowerCase()
+  return (subtype && IMAGE_EXT_BY_SUBTYPE[subtype]) || ".jpg"
 }
 
 async function uploadSourceImageToPhotos(
@@ -310,7 +262,7 @@ async function uploadSourceImageToPhotos(
     throw new Error("Image is too large to import.")
   }
   const ct = res.headers.get("content-type")
-  const ext = extFromPathname(sourceUrl) || extFromContentType(ct)
+  const ext = pickImageExt(sourceUrl, ct)
   const uploadBase =
     process.env.PHOTOS_UPLOAD_URL?.trim() || DEFAULT_PHOTOS_UPLOAD
   const name = `import${ext}`
