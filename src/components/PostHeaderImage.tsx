@@ -13,7 +13,14 @@ export default function PostHeaderImage({ post }: { post: Post }) {
   }
 
   return (
-    <div className="not-prose -mx-8 mb-8 w-[calc(100%+4rem)] max-w-none overflow-hidden rounded-2xl shadow-sm">
+    <div
+      className={[
+        "not-prose -mx-8 mb-8 w-[calc(100%+4rem)] max-w-none overflow-hidden",
+        /* mobile: full band reads cleaner without rounding (avoids “floating sliver” look) */
+        "rounded-none shadow-none",
+        "sm:rounded-2xl sm:shadow-sm",
+      ].join(" ")}
+    >
       <div className="relative h-[min(40vh,380px)] w-full sm:h-[min(45vh,480px)]">
         <Image
           src={post.header_image}
