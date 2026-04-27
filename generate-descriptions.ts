@@ -551,20 +551,22 @@ async function buildHeaderImageAltText(
   }
   const titleHint = postTitle.replace(/"/g, '\\"')
   const userPrompt = [
-    "Write one sentence of HTML alt text for the image attached above.",
+    "Write a single concise HTML alt-text sentence for the image above.",
     "",
-    "Describe only what is actually visible: the main subject, setting, and any obvious objects, action, or mood. Aim for 12–22 words.",
-    "Do not start with phrases like \"image of\" or \"photo of\".",
-    "Do not invent text on signs, screens, or clothing; if text is present but you can't read it cleanly, say so generally instead of quoting.",
-    "Do not name specific real people, brands, or places unless the image makes them obvious (logo, landmark, etc.).",
-    "If you genuinely cannot see anything (image is blank, broken, all black), reply with the exact word: NONE.",
+    "Hard rules:",
+    "- 6 to 14 words. One sentence. End with a period.",
+    "- Lead with the subject; cut filler like \"this image shows\", \"a photo of\", \"there is\", \"we can see\".",
+    "- Mention only the most important things: subject, action, setting. Skip lighting, mood, and minor background details.",
+    "- Don't invent text on signs, screens, or clothing. If text is present but unreadable, just say so generically.",
+    "- Don't name specific real people, brands, or places unless they're unmistakable (clear logo, famous landmark).",
+    "- If the image is blank, broken, or unreadable, reply with the single word: NONE.",
     "",
-    `For context only — the surrounding blog post is titled "${titleHint}". The photo does not have to match this title; describe the photo, not the post.`,
+    `Context (do not describe; describe the photo): blog post titled "${titleHint}".`,
     mdAltHint
-      ? `The author's original markdown alt was "${mdAltHint.replace(/"/g, '\\"')}". Use this as a hint only if it is consistent with what's in the image; otherwise ignore it.`
+      ? `Author's original markdown alt was "${mdAltHint.replace(/"/g, '\\"')}". Use only if consistent with what you see; otherwise ignore.`
       : "",
     "",
-    "Output only the sentence (no quotes, no preface).",
+    "Output the sentence only (no quotes, no preface, no explanation).",
   ]
     .filter(Boolean)
     .join("\n")
