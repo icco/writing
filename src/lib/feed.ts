@@ -6,7 +6,7 @@ import remarkHtml from "remark-html"
 
 import { Post } from "contentlayer/generated"
 
-import { toAbsoluteImageUrl } from "@/lib/absoluteImageUrl"
+import { getHeaderImageAlt, toAbsoluteImageUrl } from "@/lib/absoluteImageUrl"
 
 async function markdownToHtml(
   markdown: string,
@@ -27,7 +27,31 @@ async function markdownToHtml(
 
 const FEED_SITE = "https://writing.natwelch.com"
 
+function escapeHtmlAttribute(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+}
+
+/**
+ * When a post has a metadata header image, it is not in the MDX body, so feed HTML
+ * would not show it. Prepend a figure so RSS/Atom `content:encoded` matches the site.
+ * The `image` / enclosure URL remains for clients that use that only.
+ */
+function withFeedHeaderImageIfPresent(post: Post, contentHtml: string) {
+  if (!post.header_image) {
+    return contentHtml
+  }
+  const src = escapeHtmlAttribute(
+    toAbsoluteImageUrl(post.social_image, FEED_SITE)
+  )
+  const alt = escapeHtmlAttribute(getHeaderImageAlt(post))
+  return `<p><a href="${FEED_SITE}/post/${post.id}"><img src="${src}" width="800" height="500" alt="${alt}" loading="lazy" /></a></p>\n\n${contentHtml}`
+}
+
 function createFeedItem(post: Post, content: string) {
+  const contentWithOptionalHero = withFeedHeaderImageIfPresent(post, content)
   return {
     id: `${FEED_SITE}/post/${post.id}`,
     title: post.title,
@@ -42,7 +66,7 @@ function createFeedItem(post: Post, content: string) {
         link: "https://natwelch.com",
       },
     ],
-    content,
+    content: contentWithOptionalHero,
     image: toAbsoluteImageUrl(post.social_image, FEED_SITE),
   }
 }
