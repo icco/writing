@@ -130,6 +130,8 @@ const nextConfig = {
                 "https://www.youtube-nocookie.com",
                 "https://render.githubusercontent.com",
               ],
+              // <audio> / <video> do not inherit from img-src; without media-src they fall back to default-src.
+              mediaSrc: ["'self'"],
               objectSrc: ["'none'"],
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
               reportURI: "https://reportd.natwelch.com/report/writing",
