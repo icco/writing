@@ -15,10 +15,14 @@ export default function PostHeaderImage({ post }: { post: Post }) {
   return (
     <div
       className={[
-        "not-prose -mx-8 mb-8 w-[calc(100%+4rem)] max-w-none overflow-hidden",
-        /* mobile: full band reads cleaner without rounding (avoids “floating sliver” look) */
+        "not-prose mb-8 max-w-none overflow-hidden",
+        /* Break out of article horizontal padding — values must match page article padding. */
+        "-mx-4 w-[calc(100%+2rem)]",
+        "md:-mx-6 md:w-[calc(100%+3rem)]",
+        "lg:-mx-8 lg:w-[calc(100%+4rem)]",
+        /* Square through tablet: rounded card only on large screens. */
         "rounded-none shadow-none",
-        "sm:rounded-2xl sm:shadow-sm",
+        "lg:rounded-2xl lg:shadow-sm",
       ].join(" ")}
     >
       <div className="relative h-[min(40vh,380px)] w-full sm:h-[min(45vh,480px)]">
