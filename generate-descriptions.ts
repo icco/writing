@@ -224,6 +224,16 @@ function isImgixHostname(hostname: string): boolean {
   )
 }
 
+function isFlickrHostname(host: string): boolean {
+  const h = host.toLowerCase()
+  return (
+    h === "flickr.com" ||
+    h.endsWith(".flickr.com") ||
+    h === "staticflickr.com" ||
+    h.endsWith(".staticflickr.com")
+  )
+}
+
 function normalizeImageUrl(url: string): string {
   try {
     const u = new URL(url)
@@ -239,21 +249,32 @@ function normalizeImageUrl(url: string): string {
   }
 }
 
-function isLikelyImageUrl(u: string): boolean {
-  const p = u.split("?")[0]!.toLowerCase()
-  if (/\.(jpe?g|png|gif|webp|svg|avif|bmp|heic)$/.test(p)) return true
-  if (u.startsWith("http://") || u.startsWith("https://")) {
-    try {
-      if (isImgixHostname(new URL(u).hostname)) return true
-    } catch {
-      // not a valid absolute URL
-    }
-  }
-  if (p.includes("staticflickr.com") || p.includes("static.flickr.com")) {
+/**
+ * Whether a URL (or path string) is probably an image. CodeQL: do not use
+ * substring matches on the full string — parse with URL and test hostname
+ * and pathname.
+ */
+function isLikelyImageUrl(s: string): boolean {
+  const noQuery = s.split("?")[0]!
+  if (/\.(jpe?g|png|gif|webp|svg|avif|bmp|heic)$/i.test(noQuery)) {
     return true
   }
-  if (u.includes("flickr.com/") && p.includes("photos/")) return true
-  if (p.includes("storage.googleapis.com") && /\.(jpe?g|png|gif|webp)($|\?)/.test(p)) return true
+  if (s.startsWith("http://") || s.startsWith("https://")) {
+    let u: URL
+    try {
+      u = new URL(s)
+    } catch {
+      return false
+    }
+    const h = u.hostname.toLowerCase()
+    if (isImgixHostname(h) || isFlickrHostname(h)) {
+      return true
+    }
+    if (h === "storage.googleapis.com") {
+      return /\.(jpe?g|png|gif|webp|svg|avif)$/i.test(u.pathname)
+    }
+    return false
+  }
   return false
 }
 
