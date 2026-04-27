@@ -452,12 +452,22 @@ const HTML_IMG_RE =
 /** Fenced code blocks we never rewrite inside. */
 const CODE_FENCE_RE = /```[\s\S]*?```|~~~[\s\S]*?~~~/g
 
+/**
+ * Per CommonMark, a backslash before any ASCII punctuation is an escape and
+ * the backslash should be dropped — markdown editors often emit `\_` inside
+ * URLs to keep underscores from triggering emphasis. Strip those before we
+ * fetch / cache the URL so we don't 404 on a literal `\_` request.
+ */
+function unescapeMdUrl(s: string): string {
+  return s.replace(/\\([!-/:-@[-`{-~])/g, "$1")
+}
+
 /** All body-image URLs that live outside fenced code blocks. */
 function findBodyImageUrls(content: string): string[] {
   const urls: string[] = []
   const visit = (segment: string) => {
-    for (const m of segment.matchAll(MD_IMG_RE)) urls.push(m[3]!)
-    for (const m of segment.matchAll(HTML_IMG_RE)) urls.push(m[2]!)
+    for (const m of segment.matchAll(MD_IMG_RE)) urls.push(unescapeMdUrl(m[3]!))
+    for (const m of segment.matchAll(HTML_IMG_RE)) urls.push(unescapeMdUrl(m[2]!))
   }
   let cursor = 0
   for (const fm of content.matchAll(CODE_FENCE_RE)) {
@@ -519,13 +529,13 @@ async function rewriteBodyImagesToImgix(content: string): Promise<{
   let rewrote = 0
   const rewriteSegment = (segment: string): string => {
     let out = segment.replace(MD_IMG_RE, (full, pre, ws, url, tail) => {
-      const next = map.get(url)
+      const next = map.get(unescapeMdUrl(url))
       if (!next) return full
       rewrote += 1
       return `${pre}${ws}${next}${tail}`
     })
     out = out.replace(HTML_IMG_RE, (full, pre, url, post) => {
-      const next = map.get(url)
+      const next = map.get(unescapeMdUrl(url))
       if (!next) return full
       rewrote += 1
       return `${pre}${next}${post}`
