@@ -355,32 +355,70 @@ Reply with only the summary, nothing else.`
   }
 }
 
+/** Model often stops mid-phrase; strip a trailing "looking at" with no object, etc. */
+function trimDanglingImageAlt(alt: string): string {
+  return alt
+    .replace(/\s+/g, " ")
+    .replace(/^['"]|['"]$/g, "")
+    .trim()
+    .replace(
+      /[\s,;]+(looking|staring|peering|glancing|pointing) at$/i,
+      ""
+    )
+    .replace(
+      /[\s,;]+(sitting|standing|wearing) (in|on|at)\s*$/i,
+      ""
+    )
+    .replace(/\s+$/g, "")
+    .trim()
+}
+
+function capAltLength(alt: string, max = 200): string {
+  if (alt.length <= max) {
+    return alt
+  }
+  const snip = alt.slice(0, max + 1)
+  const lastSpace = snip.lastIndexOf(" ")
+  if (lastSpace > 60) {
+    return snip.slice(0, lastSpace).replace(/[,.:;\s-]+$/g, "").trim()
+  }
+  return alt.slice(0, max - 1).trim() + "…"
+}
+
 async function generateImageAlt(
   imageUrl: string,
   postTitle: string,
   mdAltHint: string,
   firstWordsOfPost: string
 ): Promise<string | null> {
-  const prompt = `You are writing a concise alt (alternative text) string for a blog post header image.
+  const prompt = `You are writing a single alt (alternative text) string for a blog post header image.
 
 Image URL: ${imageUrl}
 Post title: ${postTitle}
-${mdAltHint ? `Existing markdown / link text: "${mdAltHint}"\n` : ""}
-First part of the post (after the image, plain text, may be short):
+${mdAltHint ? `Hint from the old markdown: "${mdAltHint}"\n` : ""}
+Text after the image in the post (for context, plain text, may be short):
 ${firstWordsOfPost.slice(0, 500)}
 
-Write one short, specific line (ideally 80–120 characters, max 200) for the HTML/OG image "alt" attribute. Describe what is in the image for people who use screen readers. Be concrete, not generic ("photo of equipment" is too vague). No quotes around the line. No "image of" prefix.
+Rules:
+- One or two full sentences, no more than about 20 words in total, under 200 characters.
+- The text must be finished and grammatical: do not end with a dangling preposition (at, in, on, of, to) or a fragment like "looking at" with nothing after it, or "a person" with no following detail.
+- Describe what is actually visible: people, setting, key objects, mood. Be specific.
+- Do not use "image of" or "photo of" to start. Do not use quotation marks in the output.
 
-Reply with only the alt text, nothing else.`
+Output only the alt line, no preamble.`
 
   try {
-    const result = await callGemini(prompt, 300)
+    const result = await callGemini(prompt, 500)
     if (!result) return null
-    const t = result.replace(/\s+/g, " ").replace(/^['"]|['"]$/g, "").trim()
-    if (t.length > 200) {
-      return t.slice(0, 197) + "…"
+    let t = trimDanglingImageAlt(result)
+    t = capAltLength(t, 200)
+    if (t.length < 6) {
+      return null
     }
-    return t || null
+    if (/(^|\s)(at|in|on|of|to|for|with|and|or|the|a|an)\s*$/i.test(t)) {
+      return null
+    }
+    return t
   } catch (err) {
     console.error(`  Error (alt text): ${(err as Error).message}`)
     return null
