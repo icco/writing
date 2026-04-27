@@ -31,6 +31,8 @@ const POSTS_DIR = path.join(__dirname, "posts")
 const ICCO_IMGIX_HOST = "icco.imgix.net"
 const DEFAULT_PHOTOS_UPLOAD = "https://photos.natwelch.com/api/upload"
 const MAX_IMPORT_IMAGE_BYTES = 25 * 1024 * 1024
+/** Multimodal inline image limit; request smaller from imgix if over. */
+const MAX_VISION_INLINE_BYTES = 4 * 1024 * 1024
 
 type ExtractResult = {
   url: string
@@ -85,6 +87,104 @@ async function callGemini(prompt: string, maxOutputTokens = 1024): Promise<strin
       process.exit(1)
     }
     throw err
+  }
+}
+
+/** Build a suitable fetch URL: prefer a bounded size for imgix. */
+function urlForVisionFetch(url: string): string {
+  try {
+    const u = new URL(url)
+    if (u.hostname === ICCO_IMGIX_HOST) {
+      u.searchParams.set("w", "1280")
+      u.searchParams.set("auto", "format,compress")
+    }
+    return u.toString()
+  } catch {
+    return url
+  }
+}
+
+async function fetchImageForVision(
+  publicUrl: string
+): Promise<{ data: string; mime: string } | null> {
+  const tryUrl = (href: string) => fetch(href, { headers: { Accept: "image/*" } })
+  const url = urlForVisionFetch(publicUrl)
+  let r = await tryUrl(url)
+  if (!r.ok) {
+    r = await tryUrl(publicUrl)
+  }
+  if (!r.ok) {
+    console.error(`  Could not download image for vision alt: ${r.status}`)
+    return null
+  }
+  const ct = (r.headers.get("content-type") || "").split(";")[0]!.trim()
+  let ab = await r.arrayBuffer()
+  if (ab.byteLength > MAX_VISION_INLINE_BYTES) {
+    if (isIccoImgixUrl(publicUrl)) {
+      const u = new URL(publicUrl)
+      u.searchParams.set("w", "768")
+      u.searchParams.set("auto", "format,compress")
+      r = await tryUrl(u.toString())
+      if (r.ok) {
+        ab = await r.arrayBuffer()
+      }
+    }
+  }
+  if (ab.byteLength > MAX_VISION_INLINE_BYTES) {
+    console.error(
+      `  Image still too large for inline vision (~${(ab.byteLength / 1e6).toFixed(1)}MB); skip alt.`
+    )
+    return null
+  }
+  const mime =
+    ct && ct.startsWith("image/")
+      ? ct
+      : (() => {
+          const p = new URL(publicUrl).pathname
+          const ext = path.extname(p).toLowerCase()
+          if (ext === ".png") return "image/png"
+          if (ext === ".gif") return "image/gif"
+          if (ext === ".webp") return "image/webp"
+          if (ext === ".svg" || ext === ".svgz") return "image/svg+xml"
+          return "image/jpeg"
+        })()
+  return {
+    data: Buffer.from(ab).toString("base64"),
+    mime,
+  }
+}
+
+/**
+ * Image + text so the model sees pixels (text-only promps were hallucinating).
+ * @see https://ai.google.dev/gemini-api/docs/vision
+ */
+async function callGeminiVision(
+  userText: string,
+  image: { data: string; mime: string }
+): Promise<string> {
+  try {
+    const response = await ai.models.generateContent({
+      model: `publishers/google/models/${GEMINI_MODEL}`,
+      contents: {
+        role: "user",
+        parts: [
+          { text: userText },
+          { inlineData: { mimeType: image.mime, data: image.data } },
+        ],
+      },
+      config: { temperature: 0.1, maxOutputTokens: 220 },
+    })
+    return response.text?.trim() ?? ""
+  } catch (err) {
+    const msg = (err as Error).message ?? ""
+    if (msg.includes("invalid_grant")) {
+      console.error(
+        "ADC credentials expired. Run: gcloud auth application-default login"
+      )
+      process.exit(1)
+    }
+    console.error(`  Error (vision alt): ${msg}`)
+    return ""
   }
 }
 
@@ -390,6 +490,14 @@ function trimDanglingImageAlt(alt: string): string {
       /[\s,;]+(sitting|standing|wearing) (in|on|at)\s*$/i,
       ""
     )
+    .replace(
+      /[\s,;]+(including|such as|with) one that reads$/i,
+      ""
+    )
+    .replace(
+      /[\s,;]+,?\s*including (one )?that reads?$/i,
+      ""
+    )
     .replace(/\s+$/g, "")
     .trim()
 }
@@ -406,44 +514,74 @@ function capAltLength(alt: string, max = 200): string {
   return alt.slice(0, max - 1).trim() + "…"
 }
 
+function isBadOrInventedAlt(alt: string): boolean {
+  const t = alt.replace(/\s+/g, " ").trim()
+  if (t.length < 6 || t.length > 220) {
+    return true
+  }
+  if (/^UNSURE(\.|!)?$|^I cannot (see|describe)\b/i.test(t)) {
+    return true
+  }
+  if (/\bthat reads\s*\.?\s*$/i.test(t)) {
+    return true
+  }
+  if (/(,\s*|\s)(including|such as)\s*\.?\s*$/i.test(t)) {
+    return true
+  }
+  if (/\b(one|that) that\s*\.?\s*$/i.test(t) || /including one that\s*\.?\s*$/i.test(t)) {
+    return true
+  }
+  if (/(^|\s)(at|in|on|of|to|for|with|as|from)\s*\.?\s*$/i.test(t)) {
+    return true
+  }
+  if (t.split(/\s+/).length > 22) {
+    return true
+  }
+  return false
+}
+
+/**
+ * Use multimodal (image + text) so the model sees the photo. We no longer
+ * send post body, which was biasing the model to invent “newsy” stories.
+ */
 async function generateImageAlt(
-  imageUrl: string,
+  finalImageUrl: string,
   postTitle: string,
-  mdAltHint: string,
-  firstWordsOfPost: string
+  mdAltHint: string
 ): Promise<string | null> {
-  const prompt = `You are writing a single alt (alternative text) string for a blog post header image.
-
-Image URL: ${imageUrl}
-Post title: ${postTitle}
-${mdAltHint ? `Hint from the old markdown: "${mdAltHint}"\n` : ""}
-Text after the image in the post (for context, plain text, may be short):
-${firstWordsOfPost.slice(0, 500)}
-
-Rules:
-- One or two full sentences, no more than about 20 words in total, under 200 characters.
-- The text must be finished and grammatical: do not end with a dangling preposition (at, in, on, of, to) or a fragment like "looking at" with nothing after it, or "a person" with no following detail.
-- Describe what is actually visible: people, setting, key objects, mood. Be specific.
-- Do not use "image of" or "photo of" to start. Do not use quotation marks in the output.
-
-Output only the alt line, no preamble.`
-
-  try {
-    const result = await callGemini(prompt, 500)
-    if (!result) return null
-    let t = trimDanglingImageAlt(result)
-    t = capAltLength(t, 200)
-    if (t.length < 6) {
-      return null
-    }
-    if (/(^|\s)(at|in|on|of|to|for|with|and|or|the|a|an)\s*$/i.test(t)) {
-      return null
-    }
-    return t
-  } catch (err) {
-    console.error(`  Error (alt text): ${(err as Error).message}`)
+  const image = await fetchImageForVision(finalImageUrl)
+  if (!image) {
     return null
   }
+  const prompt = `The image to describe is below this text.
+
+You are writing HTML \`alt\` text: one short, factual sentence (max ~25 words) describing ONLY what a sighted person would see in the image. End with a period.
+
+Strict rules:
+- Do NOT guess events, causes, or stories (e.g. protests, elections) unless the image clearly shows that.
+- Do NOT invent or paraphrase text on signs unless you can read the exact words. If there is text but it is not legible, say "signs with text" or similar, not made-up quotes.
+- Do not start with "Image of" or "Photo of."
+- The blog post title (for your context only) is "${postTitle.replace(/"/g, '\\"')}" — the photo is not required to match this title; do not use the title to invent a scene.
+${mdAltHint ? `Optional: old link text in markdown was: "${mdAltHint.replace(/"/g, '\\"')}" — use only if it matches the image; otherwise ignore.` : ""}
+- If you really cannot see enough to describe, reply with exactly: UNSURE
+
+Output only the alt line or the word UNSURE, nothing else.`
+
+  const result = await callGeminiVision(prompt, image)
+  if (!result || /^UNSURE(\.|!)?\s*$/i.test(result.trim())) {
+    return null
+  }
+  let t = trimDanglingImageAlt(result)
+  t = t.replace(/^[""']|[""']$/g, "").replace(/\s+/g, " ").trim()
+  t = capAltLength(t, 200)
+  t = t.replace(/[,;:,\s-]+$/g, "").trim()
+  if (t && !/[.!?]$/.test(t)) {
+    t += "."
+  }
+  if (isBadOrInventedAlt(t)) {
+    return null
+  }
+  return t
 }
 
 function readMatter(filePath: string) {
@@ -533,14 +671,10 @@ async function main() {
           )
           content = ex.stripped
           data.header_image = finalImageUrl
-          const firstForAlt = (await stripMd(
-            (content && content.trim() ? content : " ").slice(0, 1500)
-          )).slice(0, 800)
           const alt = await generateImageAlt(
             finalImageUrl,
             String(data.title || "Untitled"),
-            ex.hintAlt,
-            firstForAlt
+            ex.hintAlt
           )
           if (alt) {
             data.header_image_alt_text = alt
