@@ -24,12 +24,12 @@
 import * as fs from "fs"
 import * as path from "path"
 import { execFileSync } from "child_process"
-import { GoogleGenAI, Type, type GenerateContentResponse } from "@google/genai"
+import { GoogleGenAI, type GenerateContentResponse } from "@google/genai"
 import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 import matter from "gray-matter"
 
-const GEMINI_MODEL = "gemini-2.5-flash"
+const GEMINI_MODEL = process.env.GEMINI_MODEL?.trim() || "gemini-2.5-pro"
 const POSTS_DIR = path.join(__dirname, "posts")
 
 const ICCO_IMGIX_HOST = "icco.imgix.net"
@@ -158,170 +158,68 @@ async function fetchImageForVision(
   }
 }
 
-const VISION_SYSTEM = `You write HTML alt text: one short, literal sentence (max about 22 words) about what is visible in the image.
-- Describe people, place, light, objects, and composition. Be camera-neutral: do not interpret motivation, backstory, or the “meaning” of the photo.
-- Do not guess news events, causes, or demonstrations unless the scene is unambiguous.
-- If there is text (sign, shirt, screen) and you cannot read it clearly, say it is indistinct; do not invent or paraphrase exact wording.
-- Do not start with "Image of" or "Photo of."
-You respond only with valid JSON that matches the requested schema.`
-
-/**
- * Some SDK / API paths return an empty .text on blocked or partial responses; walk parts.
- * @see https://ai.google.dev/gemini-api/docs/vision
- */
-function extractTextFromModelResponse(res: GenerateContentResponse): string {
+/** Walk parts in case .text is empty (blocked/partial). */
+function extractTextFromResponse(res: GenerateContentResponse): string {
   const t = res.text?.trim()
   if (t) {
     return t
   }
-  const parts = res.candidates?.[0]?.content?.parts
-  if (!parts?.length) {
-    return ""
-  }
-  const out: string[] = []
-  for (const p of parts) {
-    if (p.text) {
-      out.push(p.text)
-    }
-  }
-  return out.join("").trim()
-}
-
-function logVisionResponseFailure(res: GenerateContentResponse): void {
-  const c0 = res.candidates?.[0]
-  const line = {
-    blockReason: res.promptFeedback?.blockReason,
-    blockMessage: res.promptFeedback?.blockReasonMessage,
-    finishReason: c0?.finishReason,
-    finishMessage: c0?.finishMessage,
-  }
-  console.error(`  Vision call returned no text. ${JSON.stringify(line)}`)
-}
-
-function parseJsonAltObject(raw: string): string | null {
-  const s = raw.trim()
-  if (!s) {
-    return null
-  }
-  const tryParse = (j: string) => {
-    const o = JSON.parse(j) as { alt?: unknown }
-    if (o.alt == null) {
-      return null
-    }
-    return String(o.alt).trim()
-  }
-  try {
-    return tryParse(s)
-  } catch {
-    const m = s.match(/\{[\s\S]*\}/)
-    if (m) {
-      try {
-        return tryParse(m[0]!)
-      } catch {
-        return null
-      }
-    }
-  }
-  return null
+  const parts = res.candidates?.[0]?.content?.parts ?? []
+  return parts
+    .map((p) => p.text ?? "")
+    .join("")
+    .trim()
 }
 
 /**
- * Vision caption: image first, then text; JSON out so the model can’t drop a half-sentence
- * as easily as in freeform prose. Retries with plain text if structured output is rejected.
+ * One simple Gemini vision call. Logs raw model output and any block reason
+ * so failures aren’t silent. Returns the model’s text exactly; cleanup happens
+ * in `buildHeaderImageAltText`.
  */
-async function requestVisionCaption(
-  userAsk: string,
-  image: { data: string; mime: string }
-): Promise<string | null> {
-  const parts: Array<{
-    text?: string
-    inlineData?: { mimeType: string; data: string }
-  }> = [
-    { inlineData: { mimeType: image.mime, data: image.data } },
-    { text: userAsk },
-  ]
-  const run = async (structured: boolean) => {
-    return ai.models.generateContent({
+async function describeImageWithGemini(
+  image: { data: string; mime: string },
+  userPrompt: string
+): Promise<{ text: string; meta: string }> {
+  try {
+    const res = await ai.models.generateContent({
       model: `publishers/google/models/${GEMINI_MODEL}`,
-      contents: { role: "user", parts },
+      contents: {
+        role: "user",
+        parts: [
+          { inlineData: { mimeType: image.mime, data: image.data } },
+          { text: userPrompt },
+        ],
+      },
       config: {
-        systemInstruction: VISION_SYSTEM,
-        temperature: 0.25,
-        maxOutputTokens: 220,
-        ...(structured
-          ? {
-              responseMimeType: "application/json" as const,
-              responseSchema: {
-                type: Type.OBJECT,
-                properties: {
-                  alt: {
-                    type: Type.STRING,
-                    description:
-                      "One full sentence, period at the end, or an empty string if a useful alt cannot be written.",
-                  },
-                },
-                required: ["alt"],
-              },
-            }
-          : {}),
+        temperature: 0.2,
+        // Gemini 2.5 Pro does not let you fully disable thinking, and thinking
+        // tokens count against this budget. Give it room so the user-visible
+        // sentence isn't truncated when ~hundreds of thinking tokens are used.
+        maxOutputTokens: 2048,
+        thinkingConfig: { thinkingBudget: 1024 },
       },
     })
-  }
-  for (const structured of [true, false] as const) {
-    try {
-      const res = await run(structured)
-      const raw = extractTextFromModelResponse(res)
-      if (!raw) {
-        logVisionResponseFailure(res)
-        if (structured) {
-          continue
-        }
-        return null
-      }
-      let alt = parseJsonAltObject(raw)
-      if (alt == null && !structured) {
-        const line = raw
-          .split("\n")
-          .map((s) => s.trim())
-          .find(Boolean)
-        alt = line
-          ? line
-              .replace(/^["']|["']$/g, "")
-              .replace(/^(json|```)\s*/i, "")
-              .replace(/```\s*$/g, "")
-              .trim()
-          : null
-      }
-      if (alt == null) {
-        if (structured) {
-          continue
-        }
-        return null
-      }
-      if (alt === "") {
-        if (structured) {
-          continue
-        }
-        return null
-      }
-      return alt
-    } catch (err) {
-      const msg = (err as Error).message ?? ""
-      if (msg.includes("invalid_grant")) {
-        console.error(
-          "ADC credentials expired. Run: gcloud auth application-default login"
-        )
-        process.exit(1)
-      }
-      if (structured) {
-        console.error(`  Vision JSON mode failed, retrying without schema: ${msg.slice(0, 400)}`)
-        continue
-      }
-      console.error(`  Error (vision alt): ${msg.slice(0, 500)}`)
-      return null
+    const text = extractTextFromResponse(res)
+    const c0 = res.candidates?.[0]
+    const meta = JSON.stringify({
+      finishReason: c0?.finishReason,
+      finishMessage: c0?.finishMessage,
+      blockReason: res.promptFeedback?.blockReason,
+      blockMessage: res.promptFeedback?.blockReasonMessage,
+      model: GEMINI_MODEL,
+      bytes: image.data.length,
+    })
+    return { text, meta }
+  } catch (err) {
+    const msg = (err as Error).message ?? ""
+    if (msg.includes("invalid_grant")) {
+      console.error(
+        "ADC credentials expired. Run: gcloud auth application-default login"
+      )
+      process.exit(1)
     }
+    return { text: "", meta: `error: ${msg.slice(0, 400)}` }
   }
-  return null
 }
 
 function isIccoImgixUrl(url: string): boolean {
@@ -612,90 +510,35 @@ Reply with only the summary, nothing else.`
   }
 }
 
-/** Model often stops mid-phrase; strip a trailing "looking at" with no object, etc. */
-function trimDanglingImageAlt(alt: string): string {
-  return alt
-    .replace(/\s+/g, " ")
-    .replace(/^['"]|['"]$/g, "")
-    .trim()
-    .replace(
-      /[\s,;]+(looking|staring|peering|glancing|pointing) at$/i,
-      ""
-    )
-    .replace(
-      /[\s,;]+(sitting|standing|wearing) (in|on|at)\s*$/i,
-      ""
-    )
-    .replace(
-      /[\s,;]+(including|such as|with) one that reads$/i,
-      ""
-    )
-    .replace(
-      /[\s,;]+,?\s*including (one )?that reads?$/i,
-      ""
-    )
-    .replace(/\s+$/g, "")
-    .trim()
-}
-
-function capAltLength(alt: string, max = 200): string {
-  if (alt.length <= max) {
-    return alt
+/** Tidy whitespace, strip wrapping quotes, cap length, ensure terminal punctuation. */
+function cleanAltText(raw: string, max = 200): string {
+  let t = raw.replace(/\s+/g, " ").trim()
+  t = t.replace(/^["'“”‘’]|["'“”‘’]$/g, "").trim()
+  t = t.replace(/^(image|photo|photograph|picture|alt(\s*text)?)\s*:\s*/i, "")
+  t = t.replace(/^(an? |the )?(image|photo|photograph|picture) (of|showing) /i, "")
+  if (t.length > max) {
+    const cut = t.slice(0, max + 1)
+    const space = cut.lastIndexOf(" ")
+    t = (space > 60 ? cut.slice(0, space) : t.slice(0, max - 1)).trim()
+    t = t.replace(/[,;:\s\-–—]+$/g, "")
+    if (!/[.!?…]$/.test(t)) {
+      t += "…"
+    }
+  } else {
+    t = t.replace(/[,;:\s\-–—]+$/g, "")
+    if (t && !/[.!?]$/.test(t)) {
+      t += "."
+    }
   }
-  const snip = alt.slice(0, max + 1)
-  const lastSpace = snip.lastIndexOf(" ")
-  if (lastSpace > 60) {
-    return snip.slice(0, lastSpace).replace(/[,.:;\s-]+$/g, "").trim()
-  }
-  return alt.slice(0, max - 1).trim() + "…"
+  return t
 }
 
 /**
- * Reject only obvious model failures (truncation, junk). Prefer letting a slightly plain
- * caption through over returning nothing; author fallback is next.
- */
-function isBadOrInventedAlt(alt: string): boolean {
-  const t = alt.replace(/\s+/g, " ").trim()
-  if (t.length < 5 || t.length > 220) {
-    return true
-  }
-  if (/^UNSURE\.*$/i.test(t) || /^I cannot (see|describe)\b/i.test(t)) {
-    return true
-  }
-  if (/\bthat reads\s*\.?\s*$/i.test(t)) {
-    return true
-  }
-  if (/(,\s*|\s)(including|such as)\s*\.?\s*$/i.test(t)) {
-    return true
-  }
-  if (t.split(/\s+/).length > 32) {
-    return true
-  }
-  return false
-}
-
-/**
- * The markdown `![this text](...)` the author already wrote: best non-model
- * option when the API refuses or is blocked.
- */
-function authorAltFromMarkdown(hint: string): string | null {
-  const t = hint.replace(/\s+/g, " ").trim()
-  if (t.length < 2) {
-    return null
-  }
-  if (
-    /^(image|img|photo|pic|photograph|picture)\.?$/i.test(t) ||
-    /^\s*!?\[?\]?\(/.test(t)
-  ) {
-    return null
-  }
-  return capAltLength(t, 200)
-}
-
-/**
- * Vision (pixels in request) + optional post title (disambiguation only) — no
- * post body, which was biasing "news" hallucinations. On failure, use
- * `authorFromMarkdown` when the promotion step has the old `![]` alt.
+ * Single, focused multimodal call: ask Gemini to describe the image in one
+ * sentence, no escape hatches. We log the raw response so the failure mode
+ * is never silent; let cleanAltText handle minor formatting issues.
+ *
+ * @see https://ai.google.dev/gemini-api/docs/vision
  */
 async function buildHeaderImageAltText(
   finalImageUrl: string,
@@ -704,36 +547,42 @@ async function buildHeaderImageAltText(
 ): Promise<string | null> {
   const image = await fetchImageForVision(finalImageUrl)
   if (!image) {
-    return authorAltFromMarkdown(mdAltHint)
+    return null
   }
-  const postTitleForPrompt = postTitle.replace(/"/g, '\\"')
-  const userAsk = `The image is the inline image in this same user turn.
+  const titleHint = postTitle.replace(/"/g, '\\"')
+  const userPrompt = [
+    "Write one sentence of HTML alt text for the image attached above.",
+    "",
+    "Describe only what is actually visible: the main subject, setting, and any obvious objects, action, or mood. Aim for 12–22 words.",
+    "Do not start with phrases like \"image of\" or \"photo of\".",
+    "Do not invent text on signs, screens, or clothing; if text is present but you can't read it cleanly, say so generally instead of quoting.",
+    "Do not name specific real people, brands, or places unless the image makes them obvious (logo, landmark, etc.).",
+    "If you genuinely cannot see anything (image is blank, broken, all black), reply with the exact word: NONE.",
+    "",
+    `For context only — the surrounding blog post is titled "${titleHint}". The photo does not have to match this title; describe the photo, not the post.`,
+    mdAltHint
+      ? `The author's original markdown alt was "${mdAltHint.replace(/"/g, '\\"')}". Use this as a hint only if it is consistent with what's in the image; otherwise ignore it.`
+      : "",
+    "",
+    "Output only the sentence (no quotes, no preface).",
+  ]
+    .filter(Boolean)
+    .join("\n")
 
-Task: return one \`alt\` string: what is visible in the image (main subject, setting, notable objects, lighting if obvious).
-Post title (for context only; the photo is not required to “match” it): "${postTitleForPrompt}"
-${mdAltHint ? `The author’s markdown link may have been !["${mdAltHint.replace(/"/g, '\\"')}"](…); you may use it to label the scene only if it fits what you see; otherwise ignore.` : ""}
-
-Set "alt" to a single full sentence, ending in a period, or "" if the image is blank or you cannot see enough to be useful.`
-
-  let raw = await requestVisionCaption(userAsk, image)
-  if (!raw) {
-    const fall = authorAltFromMarkdown(mdAltHint)
-    if (fall) {
-      console.log(`  → (Vision had no alt; using markdown link text.)`)
-    }
-    return fall
+  const { text, meta } = await describeImageWithGemini(image, userPrompt)
+  if (!text) {
+    console.error(`  Gemini returned no text. ${meta}`)
+    return null
   }
-  let t = trimDanglingImageAlt(raw)
-  t = t.replace(/^['"]|['"]$/g, "").replace(/\s+/g, " ").trim()
-  t = capAltLength(t, 200)
-  t = t.replace(/[,;:\s-–—]+$/g, "").trim()
-  if (t && !/[.!?]$/.test(t)) {
-    t += "."
+  console.log(`  ↳ raw: ${text.replace(/\s+/g, " ").slice(0, 240)}`)
+  if (/^NONE\.?$/i.test(text.trim())) {
+    return null
   }
-  if (isBadOrInventedAlt(t)) {
-    return authorAltFromMarkdown(mdAltHint)
+  const cleaned = cleanAltText(text, 200)
+  if (cleaned.length < 5) {
+    return null
   }
-  return t
+  return cleaned
 }
 
 function readMatter(filePath: string) {
