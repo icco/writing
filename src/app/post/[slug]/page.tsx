@@ -139,43 +139,29 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="mx-auto max-w-5xl px-8 py-7">
-        <div
-          className={`mb-8 ${
-            post.header_image
-              ? "text-center md:flex md:items-start md:justify-between md:gap-8 md:text-left"
-              : "text-center"
-          }`}
-        >
-          <div
-            className={
-              post.header_image ? "min-w-0 flex-1" : "contents"
-            }
-          >
-            <div className="text-xs">
-              <span className="mx-1 inline-block">
-                <Link href={post.url}>#{post.id}</Link>
-              </span>
-              <span className="mx-1 inline-block">&mdash;</span>
-              <time className="mx-1 inline-block" dateTime={post.datetime}>
-                {format(parseISO(post.datetime), "LLLL d, yyyy")}
-              </time>
-            </div>
-            <h1
-              className={post.header_image ? "mt-2 md:mt-0" : undefined}
-            >
-              {post.title}
-            </h1>
-            <div className="text-xs">
-              <span className="mx-1 inline-block">
-                By <Link href="https://natwelch.com">Nat Welch</Link>
-              </span>
-            </div>
-            {post.draft && (
-              <div className="text-error mb-1 text-xs">DRAFT</div>
-            )}
+      <article className="mx-auto flex max-w-5xl flex-col px-8 py-7">
+        {post.header_image && <PostHeaderImage post={post} />}
+        <div className="mb-8 text-center">
+          <div className="text-xs">
+            <span className="mx-1 inline-block">
+              <Link href={post.url}>#{post.id}</Link>
+            </span>
+            <span className="mx-1 inline-block">&mdash;</span>
+            <time className="mx-1 inline-block" dateTime={post.datetime}>
+              {format(parseISO(post.datetime), "LLLL d, yyyy")}
+            </time>
           </div>
-          <PostHeaderImage post={post} />
+          <h1 className={post.header_image ? "mt-2" : undefined}>
+            {post.title}
+          </h1>
+          <div className="text-xs">
+            <span className="mx-1 inline-block">
+              By <Link href="https://natwelch.com">Nat Welch</Link>
+            </span>
+          </div>
+          {post.draft && (
+            <div className="text-error mb-1 text-xs">DRAFT</div>
+          )}
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">
