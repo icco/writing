@@ -2,6 +2,8 @@
 
 My blog. Posts are written in MDX and processed with contentlayer2.
 
+You can see screenshots of my inspiration in the [inspiration folder](https://github.com/icco/writing/tree/main/public/images/inspiration)
+
 ## Development
 
 ```bash
