@@ -15,29 +15,24 @@
  */
 import ImgixClient from "@imgix/js-core"
 
-const IMGIX_HOSTS = new Set(["icco.imgix.net", "natnatnat.imgix.net"])
+const IMGIX_HOST = "icco.imgix.net"
 
-const clientCache = new Map<string, ImgixClient>()
-function clientForHost(host: string): ImgixClient {
-  let c = clientCache.get(host)
-  if (!c) {
-    c = new ImgixClient({ domain: host, includeLibraryParam: false })
-    clientCache.set(host, c)
-  }
-  return c
-}
+const client = new ImgixClient({
+  domain: IMGIX_HOST,
+  includeLibraryParam: false,
+})
 
 type LoaderArgs = { src: string; width: number; quality?: number }
 
 export default function imgixLoader({ src, width, quality }: LoaderArgs): string {
   let url: URL
   try {
-    url = new URL(src, "https://icco.imgix.net")
+    url = new URL(src, `https://${IMGIX_HOST}`)
   } catch {
     return src
   }
 
-  if (!IMGIX_HOSTS.has(url.hostname)) {
+  if (url.hostname !== IMGIX_HOST) {
     return src
   }
 
@@ -53,5 +48,5 @@ export default function imgixLoader({ src, width, quality }: LoaderArgs): string
     params.q = String(quality)
   }
 
-  return clientForHost(url.hostname).buildURL(url.pathname, params)
+  return client.buildURL(url.pathname, params)
 }

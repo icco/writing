@@ -315,11 +315,7 @@ async function ensureIccoHeaderImageUrl(
 
 /** Real imgix delivery hostnames (avoid loose substring matches on full URLs). */
 function isImgixHostname(hostname: string): boolean {
-  return (
-    hostname === ICCO_IMGIX_HOST ||
-    hostname === "natnatnat.imgix.net" ||
-    hostname.endsWith(".imgix.net")
-  )
+  return hostname === ICCO_IMGIX_HOST || hostname.endsWith(".imgix.net")
 }
 
 function isFlickrHostname(host: string): boolean {

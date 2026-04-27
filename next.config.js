@@ -25,11 +25,6 @@ const nextConfig = {
         hostname: "icco.imgix.net",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "natnatnat.imgix.net",
-        pathname: "/**",
-      },
     ],
   },
   env: {
@@ -111,7 +106,6 @@ const nextConfig = {
                 "https://*.static.flickr.com",
                 "https://*.staticflickr.com",
                 "https://icco.imgix.net",
-                "https://natnatnat.imgix.net",
                 "https://storage.googleapis.com",
                 "https://s3.amazonaws.com",
                 "https://cl.ly",
