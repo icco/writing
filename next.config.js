@@ -14,6 +14,19 @@ const nextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
+  images: {
+    // Send <Image> requests directly to imgix instead of re-optimizing via
+    // /_next/image. See src/lib/imgixLoader.ts.
+    loader: "custom",
+    loaderFile: "./src/lib/imgixLoader.ts",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "icco.imgix.net",
+        pathname: "/**",
+      },
+    ],
+  },
   env: {
     DOMAIN: domain,
     PORT: port,
@@ -43,6 +56,11 @@ const nextConfig = {
       {
         source: "/:id(\\d+)",
         destination: "/post/:id",
+        permanent: true,
+      },
+      {
+        source: "/images/:path((?:.*\\.pdf))",
+        destination: "/files/:path",
         permanent: true,
       },
     ]
@@ -84,29 +102,14 @@ const nextConfig = {
                 domain.replace(/^https?/, "ws"),
               ],
               fontSrc: ["'self'", "https://fonts.gstatic.com"],
+              // Every body image now flows through `prepare-posts.ts` and ends
+              // up on icco.imgix.net (proxied through photos.natwelch.com), so
+              // the CSP allow-list only needs the canonical hosts.
               imgSrc: [
                 "'self'",
                 "data:",
-                "http://*.static.flickr.com",
-                "http://*.staticflickr.com",
                 "https://*.natwelch.com",
-                "https://*.static.flickr.com",
-                "https://*.staticflickr.com",
                 "https://icco.imgix.net",
-                "https://natnatnat.imgix.net",
-                "https://storage.googleapis.com",
-                "https://s3.amazonaws.com",
-                "https://cl.ly",
-                "http://cl.ly",
-                "https://i.imgur.com",
-                "https://upload.wikimedia.org",
-                "https://d13yacurqjgara.cloudfront.net",
-                "https://j.gifs.com",
-                "https://photos.smugmug.com",
-                "https://*.media.tumblr.com",
-                "http://*.media.tumblr.com",
-                "https://static01.nyt.com",
-                "https://syllabus.vox-cdn.com",
               ],
               scriptSrc: [
                 "'self'",

@@ -24,6 +24,8 @@ export const Post = defineDocumentType(() => ({
     permalink: { type: "string", required: true },
     title: { type: "string", required: true },
     summary: { type: "string", required: false, default: "" },
+    header_image: { type: "string", required: false },
+    header_image_alt_text: { type: "string", required: false },
   },
   computedFields: {
     github: {
@@ -58,6 +60,9 @@ export const Post = defineDocumentType(() => ({
     social_image: {
       type: "string",
       resolve: (post) => {
+        if (post.header_image) {
+          return post.header_image
+        }
         const params = new URLSearchParams({
           title: post.title,
           date: format(parseISO(post.datetime), "LLLL d, yyyy"),
