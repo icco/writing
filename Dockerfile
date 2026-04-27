@@ -31,6 +31,10 @@ RUN yarn build
 
 # Production image, copy all the files and run next
 FROM node:25-slim AS runner
+
+LABEL org.opencontainers.image.source=https://github.com/icco/writing
+LABEL org.opencontainers.image.description="A react frontend for my blog"
+LABEL org.opencontainers.image.licenses=MPL-2.0
 WORKDIR /app
 
 ENV NODE_ENV=production
