@@ -58,6 +58,11 @@ const nextConfig = {
         destination: "/post/:id",
         permanent: true,
       },
+      {
+        source: "/images/:path((?:.*\\.pdf))",
+        destination: "/files/:path",
+        permanent: true,
+      },
     ]
   },
   async headers() {
