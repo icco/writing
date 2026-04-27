@@ -4,8 +4,8 @@ import Image from "next/image"
 import { getHeaderImageAlt } from "@/lib/absoluteImageUrl"
 
 /**
- * Full-width “cover” under the post max-width: breaks out of article `px-8` so
- * the image spans the full content column, with a short viewport-relative height.
+ * In-column hero: same width as the title and prose (article padding, no
+ * full-bleed). Rounded on all viewports.
  */
 export default function PostHeaderImage({ post }: { post: Post }) {
   if (!post.header_image) {
@@ -13,26 +13,15 @@ export default function PostHeaderImage({ post }: { post: Post }) {
   }
 
   return (
-    <div
-      className={[
-        "not-prose mb-8 max-w-none overflow-hidden",
-        /* Break out of article horizontal padding — values must match page article padding. */
-        "-mx-4 w-[calc(100%+2rem)]",
-        "md:-mx-6 md:w-[calc(100%+3rem)]",
-        "lg:-mx-8 lg:w-[calc(100%+4rem)]",
-        /* Square through tablet: rounded card only on large screens. */
-        "rounded-none shadow-none",
-        "lg:rounded-2xl lg:shadow-sm",
-      ].join(" ")}
-    >
-      <div className="relative h-[min(40vh,380px)] w-full sm:h-[min(45vh,480px)]">
+    <div className="not-prose mb-8 w-full max-w-full overflow-hidden rounded-2xl shadow-sm">
+      <div className="relative h-[min(40vh,22rem)] w-full min-h-[10rem] sm:h-[min(45vh,26rem)]">
         <Image
           src={post.header_image}
           alt={getHeaderImageAlt(post)}
           fill
           className="object-cover"
           priority
-          sizes="(max-width: 80rem) 100vw, 80rem"
+          sizes="(min-width: 64rem) 64rem, calc(100vw - 2rem)"
         />
       </div>
     </div>
