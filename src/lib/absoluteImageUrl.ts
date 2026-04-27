@@ -21,7 +21,7 @@ export function getHeaderImageAlt(post: Post) {
 
 /**
  * For imgix-hosted hero images, set sensible cropping defaults so the image
- * fits a 2:1 cover frame and centres on a face when one is detected. Any
+ * fits a 2:1 cover frame and centers on a face when one is detected. Any
  * params the author already set (e.g. fp-x, ar, crop) are preserved.
  */
 export function withHeaderCropDefaults(src: string): string {

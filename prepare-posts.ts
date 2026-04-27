@@ -21,7 +21,7 @@
  * to `PHOTOS_UPLOAD_URL`, default `https://photos.natwelch.com/api/upload`),
  * which returns JSON `{ success, files: [{ url: "https://icco.imgix.net/…" }] }`.
  * The original markdown URL is replaced with the returned imgix URL so every
- * downstream consumer (RSS, OG cards, the site itself) gets imgix-optimised
+ * downstream consumer (RSS, OG cards, the site itself) gets imgix-optimized
  * delivery.
  */
 
