@@ -6,6 +6,10 @@
  *   yarn generate-descriptions
  *   yarn generate-descriptions 772
  *
+ * When `header_image` is set but `header_image_alt_text` is empty, we still
+ * run vision alt generation (so re-running a single post can fill in alt
+ * after you already moved the image into front matter).
+ *
  * Auth (in priority order):
  *   1. GEMINI_API_KEY environment variable
  *   2. gcloud ADC via Vertex AI (uses active gcloud project)
@@ -20,7 +24,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import { execFileSync } from "child_process"
-import { GoogleGenAI } from "@google/genai"
+import { GoogleGenAI, Type, type GenerateContentResponse } from "@google/genai"
 import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 import matter from "gray-matter"
@@ -154,38 +158,170 @@ async function fetchImageForVision(
   }
 }
 
+const VISION_SYSTEM = `You write HTML alt text: one short, literal sentence (max about 22 words) about what is visible in the image.
+- Describe people, place, light, objects, and composition. Be camera-neutral: do not interpret motivation, backstory, or the “meaning” of the photo.
+- Do not guess news events, causes, or demonstrations unless the scene is unambiguous.
+- If there is text (sign, shirt, screen) and you cannot read it clearly, say it is indistinct; do not invent or paraphrase exact wording.
+- Do not start with "Image of" or "Photo of."
+You respond only with valid JSON that matches the requested schema.`
+
 /**
- * Image + text so the model sees pixels (text-only promps were hallucinating).
+ * Some SDK / API paths return an empty .text on blocked or partial responses; walk parts.
  * @see https://ai.google.dev/gemini-api/docs/vision
  */
-async function callGeminiVision(
-  userText: string,
-  image: { data: string; mime: string }
-): Promise<string> {
-  try {
-    const response = await ai.models.generateContent({
-      model: `publishers/google/models/${GEMINI_MODEL}`,
-      contents: {
-        role: "user",
-        parts: [
-          { text: userText },
-          { inlineData: { mimeType: image.mime, data: image.data } },
-        ],
-      },
-      config: { temperature: 0.1, maxOutputTokens: 220 },
-    })
-    return response.text?.trim() ?? ""
-  } catch (err) {
-    const msg = (err as Error).message ?? ""
-    if (msg.includes("invalid_grant")) {
-      console.error(
-        "ADC credentials expired. Run: gcloud auth application-default login"
-      )
-      process.exit(1)
-    }
-    console.error(`  Error (vision alt): ${msg}`)
+function extractTextFromModelResponse(res: GenerateContentResponse): string {
+  const t = res.text?.trim()
+  if (t) {
+    return t
+  }
+  const parts = res.candidates?.[0]?.content?.parts
+  if (!parts?.length) {
     return ""
   }
+  const out: string[] = []
+  for (const p of parts) {
+    if (p.text) {
+      out.push(p.text)
+    }
+  }
+  return out.join("").trim()
+}
+
+function logVisionResponseFailure(res: GenerateContentResponse): void {
+  const c0 = res.candidates?.[0]
+  const line = {
+    blockReason: res.promptFeedback?.blockReason,
+    blockMessage: res.promptFeedback?.blockReasonMessage,
+    finishReason: c0?.finishReason,
+    finishMessage: c0?.finishMessage,
+  }
+  console.error(`  Vision call returned no text. ${JSON.stringify(line)}`)
+}
+
+function parseJsonAltObject(raw: string): string | null {
+  const s = raw.trim()
+  if (!s) {
+    return null
+  }
+  const tryParse = (j: string) => {
+    const o = JSON.parse(j) as { alt?: unknown }
+    if (o.alt == null) {
+      return null
+    }
+    return String(o.alt).trim()
+  }
+  try {
+    return tryParse(s)
+  } catch {
+    const m = s.match(/\{[\s\S]*\}/)
+    if (m) {
+      try {
+        return tryParse(m[0]!)
+      } catch {
+        return null
+      }
+    }
+  }
+  return null
+}
+
+/**
+ * Vision caption: image first, then text; JSON out so the model can’t drop a half-sentence
+ * as easily as in freeform prose. Retries with plain text if structured output is rejected.
+ */
+async function requestVisionCaption(
+  userAsk: string,
+  image: { data: string; mime: string }
+): Promise<string | null> {
+  const parts: Array<{
+    text?: string
+    inlineData?: { mimeType: string; data: string }
+  }> = [
+    { inlineData: { mimeType: image.mime, data: image.data } },
+    { text: userAsk },
+  ]
+  const run = async (structured: boolean) => {
+    return ai.models.generateContent({
+      model: `publishers/google/models/${GEMINI_MODEL}`,
+      contents: { role: "user", parts },
+      config: {
+        systemInstruction: VISION_SYSTEM,
+        temperature: 0.25,
+        maxOutputTokens: 220,
+        ...(structured
+          ? {
+              responseMimeType: "application/json" as const,
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  alt: {
+                    type: Type.STRING,
+                    description:
+                      "One full sentence, period at the end, or an empty string if a useful alt cannot be written.",
+                  },
+                },
+                required: ["alt"],
+              },
+            }
+          : {}),
+      },
+    })
+  }
+  for (const structured of [true, false] as const) {
+    try {
+      const res = await run(structured)
+      const raw = extractTextFromModelResponse(res)
+      if (!raw) {
+        logVisionResponseFailure(res)
+        if (structured) {
+          continue
+        }
+        return null
+      }
+      let alt = parseJsonAltObject(raw)
+      if (alt == null && !structured) {
+        const line = raw
+          .split("\n")
+          .map((s) => s.trim())
+          .find(Boolean)
+        alt = line
+          ? line
+              .replace(/^["']|["']$/g, "")
+              .replace(/^(json|```)\s*/i, "")
+              .replace(/```\s*$/g, "")
+              .trim()
+          : null
+      }
+      if (alt == null) {
+        if (structured) {
+          continue
+        }
+        return null
+      }
+      if (alt === "") {
+        if (structured) {
+          continue
+        }
+        return null
+      }
+      return alt
+    } catch (err) {
+      const msg = (err as Error).message ?? ""
+      if (msg.includes("invalid_grant")) {
+        console.error(
+          "ADC credentials expired. Run: gcloud auth application-default login"
+        )
+        process.exit(1)
+      }
+      if (structured) {
+        console.error(`  Vision JSON mode failed, retrying without schema: ${msg.slice(0, 400)}`)
+        continue
+      }
+      console.error(`  Error (vision alt): ${msg.slice(0, 500)}`)
+      return null
+    }
+  }
+  return null
 }
 
 function isIccoImgixUrl(url: string): boolean {
@@ -514,12 +650,16 @@ function capAltLength(alt: string, max = 200): string {
   return alt.slice(0, max - 1).trim() + "…"
 }
 
+/**
+ * Reject only obvious model failures (truncation, junk). Prefer letting a slightly plain
+ * caption through over returning nothing; author fallback is next.
+ */
 function isBadOrInventedAlt(alt: string): boolean {
   const t = alt.replace(/\s+/g, " ").trim()
-  if (t.length < 6 || t.length > 220) {
+  if (t.length < 5 || t.length > 220) {
     return true
   }
-  if (/^UNSURE(\.|!)?$|^I cannot (see|describe)\b/i.test(t)) {
+  if (/^UNSURE\.*$/i.test(t) || /^I cannot (see|describe)\b/i.test(t)) {
     return true
   }
   if (/\bthat reads\s*\.?\s*$/i.test(t)) {
@@ -528,58 +668,70 @@ function isBadOrInventedAlt(alt: string): boolean {
   if (/(,\s*|\s)(including|such as)\s*\.?\s*$/i.test(t)) {
     return true
   }
-  if (/\b(one|that) that\s*\.?\s*$/i.test(t) || /including one that\s*\.?\s*$/i.test(t)) {
-    return true
-  }
-  if (/(^|\s)(at|in|on|of|to|for|with|as|from)\s*\.?\s*$/i.test(t)) {
-    return true
-  }
-  if (t.split(/\s+/).length > 22) {
+  if (t.split(/\s+/).length > 32) {
     return true
   }
   return false
 }
 
 /**
- * Use multimodal (image + text) so the model sees the photo. We no longer
- * send post body, which was biasing the model to invent “newsy” stories.
+ * The markdown `![this text](...)` the author already wrote: best non-model
+ * option when the API refuses or is blocked.
  */
-async function generateImageAlt(
+function authorAltFromMarkdown(hint: string): string | null {
+  const t = hint.replace(/\s+/g, " ").trim()
+  if (t.length < 2) {
+    return null
+  }
+  if (
+    /^(image|img|photo|pic|photograph|picture)\.?$/i.test(t) ||
+    /^\s*!?\[?\]?\(/.test(t)
+  ) {
+    return null
+  }
+  return capAltLength(t, 200)
+}
+
+/**
+ * Vision (pixels in request) + optional post title (disambiguation only) — no
+ * post body, which was biasing "news" hallucinations. On failure, use
+ * `authorFromMarkdown` when the promotion step has the old `![]` alt.
+ */
+async function buildHeaderImageAltText(
   finalImageUrl: string,
   postTitle: string,
   mdAltHint: string
 ): Promise<string | null> {
   const image = await fetchImageForVision(finalImageUrl)
   if (!image) {
-    return null
+    return authorAltFromMarkdown(mdAltHint)
   }
-  const prompt = `The image to describe is below this text.
+  const postTitleForPrompt = postTitle.replace(/"/g, '\\"')
+  const userAsk = `The image is the inline image in this same user turn.
 
-You are writing HTML \`alt\` text: one short, factual sentence (max ~25 words) describing ONLY what a sighted person would see in the image. End with a period.
+Task: return one \`alt\` string: what is visible in the image (main subject, setting, notable objects, lighting if obvious).
+Post title (for context only; the photo is not required to “match” it): "${postTitleForPrompt}"
+${mdAltHint ? `The author’s markdown link may have been !["${mdAltHint.replace(/"/g, '\\"')}"](…); you may use it to label the scene only if it fits what you see; otherwise ignore.` : ""}
 
-Strict rules:
-- Do NOT guess events, causes, or stories (e.g. protests, elections) unless the image clearly shows that.
-- Do NOT invent or paraphrase text on signs unless you can read the exact words. If there is text but it is not legible, say "signs with text" or similar, not made-up quotes.
-- Do not start with "Image of" or "Photo of."
-- The blog post title (for your context only) is "${postTitle.replace(/"/g, '\\"')}" — the photo is not required to match this title; do not use the title to invent a scene.
-${mdAltHint ? `Optional: old link text in markdown was: "${mdAltHint.replace(/"/g, '\\"')}" — use only if it matches the image; otherwise ignore.` : ""}
-- If you really cannot see enough to describe, reply with exactly: UNSURE
+Set "alt" to a single full sentence, ending in a period, or "" if the image is blank or you cannot see enough to be useful.`
 
-Output only the alt line or the word UNSURE, nothing else.`
-
-  const result = await callGeminiVision(prompt, image)
-  if (!result || /^UNSURE(\.|!)?\s*$/i.test(result.trim())) {
-    return null
+  let raw = await requestVisionCaption(userAsk, image)
+  if (!raw) {
+    const fall = authorAltFromMarkdown(mdAltHint)
+    if (fall) {
+      console.log(`  → (Vision had no alt; using markdown link text.)`)
+    }
+    return fall
   }
-  let t = trimDanglingImageAlt(result)
-  t = t.replace(/^[""']|[""']$/g, "").replace(/\s+/g, " ").trim()
+  let t = trimDanglingImageAlt(raw)
+  t = t.replace(/^['"]|['"]$/g, "").replace(/\s+/g, " ").trim()
   t = capAltLength(t, 200)
-  t = t.replace(/[,;:,\s-]+$/g, "").trim()
+  t = t.replace(/[,;:\s-–—]+$/g, "").trim()
   if (t && !/[.!?]$/.test(t)) {
     t += "."
   }
   if (isBadOrInventedAlt(t)) {
-    return null
+    return authorAltFromMarkdown(mdAltHint)
   }
   return t
 }
@@ -598,13 +750,20 @@ function writeMatterFile(
   fs.writeFileSync(filePath, matter.stringify(body, data), "utf8")
 }
 
-function needWork(data: { summary?: string; header_image?: string }): {
+function needWork(data: {
+  summary?: string
+  header_image?: string
+  header_image_alt_text?: string
+}): {
   needSummary: boolean
   needHeader: boolean
+  needHeaderAltOnly: boolean
 } {
+  const hasImage = String(data.header_image || "").trim()
   return {
     needSummary: !String(data.summary || "").trim(),
-    needHeader: !String(data.header_image || "").trim(),
+    needHeader: !hasImage,
+    needHeaderAltOnly: Boolean(hasImage && !String(data.header_image_alt_text || "").trim()),
   }
 }
 
@@ -641,9 +800,11 @@ async function main() {
   for (const postFile of postFiles) {
     const postId = path.basename(postFile, path.extname(postFile))
     const { parsed: initial } = readMatter(postFile)
-    const { needSummary, needHeader } = needWork(initial.data)
+    const { needSummary, needHeader, needHeaderAltOnly } = needWork(
+      initial.data
+    )
 
-    if (!needSummary && !needHeader) {
+    if (!needSummary && !needHeader && !needHeaderAltOnly) {
       continue
     }
 
@@ -653,6 +814,7 @@ async function main() {
     let content = String(initial.content ?? "")
 
     let didHeader = false
+    let didHeaderAlt = false
     if (needHeader) {
       const ex = tryExtractLeadingImage(content)
       if (ex) {
@@ -671,7 +833,7 @@ async function main() {
           )
           content = ex.stripped
           data.header_image = finalImageUrl
-          const alt = await generateImageAlt(
+          const alt = await buildHeaderImageAltText(
             finalImageUrl,
             String(data.title || "Untitled"),
             ex.hintAlt
@@ -681,10 +843,30 @@ async function main() {
             console.log(`  → Alt: ${alt}`)
           } else {
             console.log(
-              `  → (No alt from model; site will use title as fallback.)`
+              `  → (No alt: site will use title as fallback, or set alt in the markdown ![] or front matter.)`
             )
           }
           didHeader = true
+        }
+      }
+    }
+
+    if (!needHeader && needHeaderAltOnly) {
+      const u = String(data.header_image || "").trim()
+      if (u) {
+        const alt = await buildHeaderImageAltText(
+          u,
+          String(data.title || "Untitled"),
+          ""
+        )
+        if (alt) {
+          data.header_image_alt_text = alt
+          console.log(`  → Alt (for existing header image): ${alt}`)
+          didHeaderAlt = true
+        } else {
+          console.log(
+            `  → (No alt for existing image; set header_image_alt_text by hand, or re-add the image in markdown with a good ![]() caption to promote again.)`
+          )
         }
       }
     }
@@ -709,11 +891,14 @@ async function main() {
       Boolean(String(data.summary || "").trim()) &&
       !String(initial.data.summary || "").trim()
 
-    if (didHeader || summaryAdded) {
+    if (didHeader || didHeaderAlt || summaryAdded) {
       writeMatterFile(postFile, data, content)
       const parts: string[] = []
       if (didHeader) {
         parts.push("header")
+      }
+      if (didHeaderAlt) {
+        parts.push("header alt")
       }
       if (summaryAdded) {
         parts.push("summary")
