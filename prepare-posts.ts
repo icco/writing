@@ -1,10 +1,12 @@
 /**
- * Generate summaries for blog posts and optionally move a leading in-body
- * image to front matter (header_image / header_image_alt_text) when missing.
+ * Prepare blog posts for publishing: backfill summaries, promote leading
+ * in-body images to front matter (`header_image` + `header_image_alt_text`),
+ * and rewrite *all* remaining body images so they are served from
+ * `icco.imgix.net`.
  *
  * Usage:
- *   yarn generate-descriptions
- *   yarn generate-descriptions 772
+ *   yarn prepare-posts
+ *   yarn prepare-posts 772
  *
  * When `header_image` is set but `header_image_alt_text` is empty, we still
  * run vision alt generation (so re-running a single post can fill in alt
@@ -14,11 +16,13 @@
  *   1. GEMINI_API_KEY environment variable
  *   2. gcloud ADC via Vertex AI (uses active gcloud project)
  *
- * Non-`icco.imgix.net` images found for `header_image` are downloaded and
- * uploaded through photos.natwelch.com (POST multipart `photo` to
- * `PHOTOS_UPLOAD_URL`, default `https://photos.natwelch.com/api/upload`), which
- * must return JSON `{ success, files: [{ url: "https://icco.imgix.net/…" }] }`
- * (supported by the photos app upload route).
+ * Any image that isn't already on `icco.imgix.net` (header or body) is
+ * downloaded and uploaded through photos.natwelch.com (POST multipart `photo`
+ * to `PHOTOS_UPLOAD_URL`, default `https://photos.natwelch.com/api/upload`),
+ * which returns JSON `{ success, files: [{ url: "https://icco.imgix.net/…" }] }`.
+ * The original markdown URL is replaced with the returned imgix URL so every
+ * downstream consumer (RSS, OG cards, the site itself) gets imgix-optimised
+ * delivery.
  */
 
 import * as fs from "fs"
@@ -438,6 +442,113 @@ async function stripMd(content: string): Promise<string> {
   return String(file).trim()
 }
 
+/**
+ * Markdown image with optional title: `![alt](url "title")`. Captures the
+ * pieces around the URL so a callback can swap the URL safely.
+ */
+const MD_IMG_RE =
+  /(!\[[^\]]*\]\()(\s*)(\S+?)((?:\s+"[^"]*")?\s*\))/g
+
+/** HTML `<img src="url" ...>` (single or double quoted). */
+const HTML_IMG_RE =
+  /(<img\b[^>]*?\bsrc\s*=\s*["'])([^"']+)(["'][^>]*?>)/gi
+
+/** Fenced code blocks we never rewrite inside. */
+const CODE_FENCE_RE = /```[\s\S]*?```|~~~[\s\S]*?~~~/g
+
+/** All body-image URLs that live outside fenced code blocks. */
+function findBodyImageUrls(content: string): string[] {
+  const urls: string[] = []
+  const visit = (segment: string) => {
+    for (const m of segment.matchAll(MD_IMG_RE)) urls.push(m[3]!)
+    for (const m of segment.matchAll(HTML_IMG_RE)) urls.push(m[2]!)
+  }
+  let cursor = 0
+  for (const fm of content.matchAll(CODE_FENCE_RE)) {
+    visit(content.slice(cursor, fm.index))
+    cursor = fm.index + fm[0].length
+  }
+  visit(content.slice(cursor))
+  return urls
+}
+
+/** True when at least one body image is on a host other than icco.imgix.net. */
+function bodyHasNonImgixImage(content: string): boolean {
+  return findBodyImageUrls(content).some(isRewritableImageUrl)
+}
+
+function isRewritableImageUrl(raw: string): boolean {
+  const u = raw.trim()
+  if (!u || u.startsWith("data:") || u.startsWith("#")) return false
+  if (!/^https?:\/\//i.test(u)) return false
+  if (isIccoImgixUrl(u)) return false
+  return isLikelyImageUrl(u)
+}
+
+/**
+ * Upload every non-icco-imgix body image to photos.natwelch.com and replace
+ * its URL in the markdown with the returned `https://icco.imgix.net/…` URL.
+ * Identical source URLs are uploaded once and reused. URLs inside fenced
+ * code blocks are left alone.
+ */
+async function rewriteBodyImagesToImgix(content: string): Promise<{
+  content: string
+  rewrote: number
+  failed: number
+}> {
+  const candidates = Array.from(
+    new Set(findBodyImageUrls(content).filter(isRewritableImageUrl))
+  )
+  if (!candidates.length) {
+    return { content, rewrote: 0, failed: 0 }
+  }
+
+  const map = new Map<string, string>()
+  let failed = 0
+  for (const url of candidates) {
+    try {
+      console.log(
+        `  → Body image → imgix: ${url.slice(0, 80)}${url.length > 80 ? "…" : ""}`
+      )
+      map.set(url, await uploadSourceImageToPhotos(url))
+    } catch (err) {
+      failed += 1
+      console.error(`    Upload failed: ${(err as Error).message}`)
+    }
+  }
+  if (!map.size) {
+    return { content, rewrote: 0, failed }
+  }
+
+  let rewrote = 0
+  const rewriteSegment = (segment: string): string => {
+    let out = segment.replace(MD_IMG_RE, (full, pre, ws, url, tail) => {
+      const next = map.get(url)
+      if (!next) return full
+      rewrote += 1
+      return `${pre}${ws}${next}${tail}`
+    })
+    out = out.replace(HTML_IMG_RE, (full, pre, url, post) => {
+      const next = map.get(url)
+      if (!next) return full
+      rewrote += 1
+      return `${pre}${next}${post}`
+    })
+    return out
+  }
+
+  let cursor = 0
+  let result = ""
+  for (const fm of content.matchAll(CODE_FENCE_RE)) {
+    result += rewriteSegment(content.slice(cursor, fm.index))
+    result += fm[0]
+    cursor = fm.index + fm[0].length
+  }
+  result += rewriteSegment(content.slice(cursor))
+
+  return { content: result, rewrote, failed }
+}
+
 async function generateSummary(
   title: string,
   content: string
@@ -560,20 +671,25 @@ function writeMatterFile(
   fs.writeFileSync(filePath, matter.stringify(body, data), "utf8")
 }
 
-function needWork(data: {
-  summary?: string
-  header_image?: string
-  header_image_alt_text?: string
-}): {
+function needWork(
+  data: {
+    summary?: string
+    header_image?: string
+    header_image_alt_text?: string
+  },
+  content: string
+): {
   needSummary: boolean
   needHeader: boolean
   needHeaderAltOnly: boolean
+  needBodyRewrite: boolean
 } {
   const hasImage = String(data.header_image || "").trim()
   return {
     needSummary: !String(data.summary || "").trim(),
     needHeader: !hasImage,
     needHeaderAltOnly: Boolean(hasImage && !String(data.header_image_alt_text || "").trim()),
+    needBodyRewrite: bodyHasNonImgixImage(content),
   }
 }
 
@@ -611,21 +727,22 @@ async function main() {
   for (const postFile of postFiles) {
     const postId = path.basename(postFile, path.extname(postFile))
     const { parsed: initial } = readMatter(postFile)
-    const { needSummary, needHeader, needHeaderAltOnly } = needWork(
-      initial.data
-    )
+    const initialContent = String(initial.content ?? "")
+    const { needSummary, needHeader, needHeaderAltOnly, needBodyRewrite } =
+      needWork(initial.data, initialContent)
 
-    if (!needSummary && !needHeader && !needHeaderAltOnly) {
+    if (!needSummary && !needHeader && !needHeaderAltOnly && !needBodyRewrite) {
       continue
     }
 
     console.log(`Post ${postId}: ${(initial.data.title as string) || "(untitled)"}`)
 
     const data: Record<string, unknown> = { ...initial.data }
-    let content = String(initial.content ?? "")
+    let content = initialContent
 
     let didHeader = false
     let didHeaderAlt = false
+    let didBodyRewrite = false
     if (needHeader) {
       const ex = tryExtractLeadingImage(content)
       if (ex) {
@@ -682,6 +799,23 @@ async function main() {
       }
     }
 
+    // Rewrite remaining non-icco-imgix body images. Run after the header
+    // extraction so the leading image isn't uploaded twice.
+    if (bodyHasNonImgixImage(content)) {
+      const r = await rewriteBodyImagesToImgix(content)
+      if (r.rewrote > 0) {
+        content = r.content
+        didBodyRewrite = true
+        console.log(
+          `  → Rewrote ${r.rewrote} body image(s) to icco.imgix.net${r.failed ? ` (${r.failed} failed)` : ""}`
+        )
+      } else if (r.failed > 0) {
+        console.log(
+          `  (Body image rewrite: ${r.failed} failed; nothing changed.)`
+        )
+      }
+    }
+
     if (needSummary) {
       const newSummary = await generateSummary(
         String(data.title || "Untitled"),
@@ -702,7 +836,7 @@ async function main() {
       Boolean(String(data.summary || "").trim()) &&
       !String(initial.data.summary || "").trim()
 
-    if (didHeader || didHeaderAlt || summaryAdded) {
+    if (didHeader || didHeaderAlt || didBodyRewrite || summaryAdded) {
       writeMatterFile(postFile, data, content)
       const parts: string[] = []
       if (didHeader) {
@@ -710,6 +844,9 @@ async function main() {
       }
       if (didHeaderAlt) {
         parts.push("header alt")
+      }
+      if (didBodyRewrite) {
+        parts.push("body images")
       }
       if (summaryAdded) {
         parts.push("summary")

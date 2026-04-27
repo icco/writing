@@ -1,22 +1,27 @@
 import { Post } from "contentlayer/generated"
 import Image from "next/image"
 
-import { getHeaderImageAlt } from "@/lib/absoluteImageUrl"
+import {
+  getHeaderImageAlt,
+  withHeaderCropDefaults,
+} from "@/lib/absoluteImageUrl"
 
 /**
- * In-column hero: same width as the title and prose (article padding, no
- * full-bleed). Rounded on all viewports.
+ * In-column hero: same width as the title and prose. Imgix crops the image
+ * to 2:1 with a face/focal-point fallback so the result lines up with the
+ * 2:1 frame and avoids browser-side cropping.
  */
 export default function PostHeaderImage({ post }: { post: Post }) {
   if (!post.header_image) {
     return null
   }
+  const src = withHeaderCropDefaults(post.header_image)
 
   return (
     <div className="not-prose mb-8 w-full max-w-full overflow-hidden rounded-2xl shadow-sm">
-      <div className="relative h-[min(40vh,22rem)] w-full min-h-[10rem] sm:h-[min(45vh,26rem)]">
+      <div className="relative aspect-[2/1] w-full">
         <Image
-          src={post.header_image}
+          src={src}
           alt={getHeaderImageAlt(post)}
           fill
           className="object-cover"

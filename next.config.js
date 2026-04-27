@@ -15,6 +15,10 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
   images: {
+    // Send <Image> requests directly to imgix instead of re-optimising via
+    // /_next/image. See src/lib/imgixLoader.ts.
+    loader: "custom",
+    loaderFile: "./src/lib/imgixLoader.ts",
     remotePatterns: [
       {
         protocol: "https",

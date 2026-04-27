@@ -18,3 +18,33 @@ export function getHeaderImageAlt(post: Post) {
   }
   return post.title
 }
+
+/**
+ * For imgix-hosted hero images, set sensible cropping defaults so the image
+ * fits a 2:1 cover frame and centres on a face when one is detected. Any
+ * params the author already set (e.g. fp-x, ar, crop) are preserved.
+ */
+export function withHeaderCropDefaults(src: string): string {
+  let u: URL
+  try {
+    u = new URL(src)
+  } catch {
+    return src
+  }
+  if (!u.hostname.endsWith(".imgix.net")) {
+    return src
+  }
+  const defaults: Record<string, string> = {
+    ar: "2:1",
+    fit: "crop",
+    crop: "faces,focalpoint",
+    "fp-x": "0.5",
+    "fp-y": "0.5",
+  }
+  for (const [k, v] of Object.entries(defaults)) {
+    if (!u.searchParams.has(k)) {
+      u.searchParams.set(k, v)
+    }
+  }
+  return u.toString()
+}
