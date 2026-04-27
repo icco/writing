@@ -74,6 +74,14 @@ function makeClient(): GoogleGenAI {
 
 const ai = makeClient()
 
+/** Fisher–Yates so a partial run touches a random spread of posts. */
+function shuffleInPlace<T>(arr: T[]): void {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j]!, arr[i]!]
+  }
+}
+
 async function callGemini(prompt: string, maxOutputTokens = 1024): Promise<string> {
   try {
     const response = await ai.models.generateContent({
@@ -644,6 +652,7 @@ async function main() {
       .readdirSync(POSTS_DIR)
       .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
       .map((f) => path.join(POSTS_DIR, f))
+    shuffleInPlace(postFiles)
   }
 
   console.log(`Processing ${postFiles.length} post(s)...\n`)
