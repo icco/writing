@@ -215,10 +215,19 @@ async function ensureIccoHeaderImageUrl(
   return uploadSourceImageToPhotos(sourceUrl)
 }
 
+/** Real imgix delivery hostnames (avoid loose substring matches on full URLs). */
+function isImgixHostname(hostname: string): boolean {
+  return (
+    hostname === ICCO_IMGIX_HOST ||
+    hostname === "natnatnat.imgix.net" ||
+    hostname.endsWith(".imgix.net")
+  )
+}
+
 function normalizeImageUrl(url: string): string {
   try {
     const u = new URL(url)
-    if (u.hostname.includes("imgix.net")) {
+    if (isImgixHostname(u.hostname)) {
       u.searchParams.delete("w")
       u.searchParams.delete("h")
       u.searchParams.delete("fit")
@@ -233,7 +242,13 @@ function normalizeImageUrl(url: string): string {
 function isLikelyImageUrl(u: string): boolean {
   const p = u.split("?")[0]!.toLowerCase()
   if (/\.(jpe?g|png|gif|webp|svg|avif|bmp|heic)$/.test(p)) return true
-  if (u.includes("imgix.net/")) return true
+  if (u.startsWith("http://") || u.startsWith("https://")) {
+    try {
+      if (isImgixHostname(new URL(u).hostname)) return true
+    } catch {
+      // not a valid absolute URL
+    }
+  }
   if (p.includes("staticflickr.com") || p.includes("static.flickr.com")) {
     return true
   }
