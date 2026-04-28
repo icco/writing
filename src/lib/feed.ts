@@ -1,6 +1,5 @@
 import { format } from "date-fns"
 import { Feed } from "feed"
-import { JSDOM } from "jsdom"
 import { remark } from "remark"
 import remarkGfm from "remark-gfm"
 import remarkHtml from "remark-html"
@@ -144,196 +143,13 @@ function expandMdxComponents(markdown: string): string {
 
 /**
  * Make root-relative URLs absolute so the feed validator stops warning about
- * `content:encoded` containing relative references like `/post/772`. Also
- * promotes protocol-relative URLs (`//imgur.com/...`) to `https://`, which
- * the validator likewise treats as relative.
+ * `content:encoded` containing relative references like `/post/772`.
  */
 function absolutizeRelativeUrls(html: string): string {
-  return html
-    .replace(
-      /(\b(?:href|src)\s*=\s*")\/\/([^"]*)/g,
-      (_, prefix: string, rest: string) => `${prefix}https://${rest}`
-    )
-    .replace(
-      /(\b(?:href|src)\s*=\s*")\/([^"/][^"]*)/g,
-      (_, prefix: string, rest: string) => `${prefix}${FEED_SITE}/${rest}`
-    )
-}
-
-/**
- * Convert an iframe / object / embed `src` to a friendly external URL + label
- * so feed readers (which strip these tags for security) can still link out to
- * the original. Handles modern HTML5 embeds plus legacy Flash URLs from older
- * posts (YouTube `/v/`, Vimeo `moogaloop.swf`, Flickr `stewart.swf`, etc.).
- */
-function describeEmbedUrl(src: string): { url: string; label: string } {
-  let parsed: URL
-  try {
-    parsed = new URL(src, FEED_SITE)
-  } catch {
-    return { url: src, label: "View embedded content" }
-  }
-  const host = parsed.hostname.replace(/^www\./, "")
-  if (host === "youtube.com" || host === "youtube-nocookie.com") {
-    // Both modern `/embed/<id>` and legacy Flash `/v/<id>`.
-    const m = parsed.pathname.match(/^\/(?:embed|v)\/([^/?#&]+)/)
-    if (m) {
-      return {
-        url: `https://www.youtube.com/watch?v=${m[1]}`,
-        label: "Watch on YouTube",
-      }
-    }
-  }
-  if (host === "player.vimeo.com" && parsed.pathname.startsWith("/video/")) {
-    const id = parsed.pathname.slice("/video/".length).split("/")[0]
-    if (id) {
-      return { url: `https://vimeo.com/${id}`, label: "Watch on Vimeo" }
-    }
-  }
-  if (host === "vimeo.com" && parsed.pathname.includes("moogaloop.swf")) {
-    const id = parsed.searchParams.get("clip_id")
-    if (id) {
-      return { url: `https://vimeo.com/${id}`, label: "Watch on Vimeo" }
-    }
-  }
-  if (host === "flickr.com" && parsed.pathname.startsWith("/apps/")) {
-    const photoId = parsed.searchParams.get("photo_id")
-    if (photoId) {
-      return {
-        url: `https://www.flickr.com/photos/${photoId}/`,
-        label: "View on Flickr",
-      }
-    }
-  }
-  if (host === "hulu.com" && parsed.pathname.startsWith("/embed/")) {
-    const id = parsed.pathname.slice("/embed/".length).split("/")[0]
-    if (id) {
-      return { url: `https://www.hulu.com/watch/${id}`, label: "Watch on Hulu" }
-    }
-  }
-  return { url: parsed.toString(), label: `View embedded content (${host})` }
-}
-
-/**
- * Replace a block-level embed node (`<iframe>`, `<object>`, `<embed>`) with a
- * link to the original content. Markdown wraps these embeds in `<p>` already,
- * so naively producing another `<p>` would yield `<p><p>…</p></p>` (which the
- * validator flags as `Unexpected end tag (p). Ignored.`). To keep output
- * structurally valid:
- *   - If the embed is the sole child of a `<p>`, replace the parent `<p>`
- *     with a fresh `<p><a>…</a></p>`.
- *   - If it shares the `<p>` with siblings (e.g. a Vimeo Flash object next to
- *     a caption with `<br>` and extra `<a>` tags), replace the embed inline
- *     with just the anchor, leaving the surrounding paragraph intact.
- *   - Otherwise (no `<p>` parent) wrap the anchor in a new paragraph.
- */
-function replaceEmbedNode(
-  embed: Element,
-  document: Document,
-  src: string | null
-): void {
-  const parent = embed.parentElement
-  const isOnlyChildOfP =
-    parent?.tagName === "P" &&
-    Array.from(parent.childNodes).every(
-      (n) =>
-        n === embed ||
-        (n.nodeType === n.TEXT_NODE && !(n.textContent ?? "").trim())
-    )
-
-  let inner: Element
-  if (src) {
-    const { url, label } = describeEmbedUrl(src)
-    const a = document.createElement("a")
-    a.setAttribute("href", url)
-    a.textContent = label
-    inner = a
-  } else {
-    const span = document.createElement("span")
-    span.textContent = "[embedded content]"
-    inner = span
-  }
-
-  if (parent?.tagName === "P" && !isOnlyChildOfP) {
-    embed.replaceWith(inner)
-    return
-  }
-  const wrapper = document.createElement("p")
-  wrapper.appendChild(inner)
-  if (isOnlyChildOfP && parent) {
-    parent.replaceWith(wrapper)
-  } else {
-    embed.replaceWith(wrapper)
-  }
-}
-
-/** Find the most likely playable URL inside an `<object>` element. */
-function objectEmbedSrc(object: Element): string | null {
-  const data = object.getAttribute("data")
-  if (data) return data
-  const movieParam = object.querySelector('param[name="movie" i]')
-  const movie = movieParam?.getAttribute("value")
-  if (movie) return movie
-  const childEmbed = object.querySelector("embed[src]")
-  const embedSrc = childEmbed?.getAttribute("src")
-  if (embedSrc) return embedSrc
-  return null
-}
-
-/**
- * Replace iframes with link paragraphs and drop scripts. Also re-serializes
- * the body via jsdom so structurally invalid markup (e.g. `<p>` containing a
- * `<blockquote>` from twitter embeds) gets normalized into well-formed HTML
- * before being placed inside `<content type="html"><![CDATA[...]]>`. This
- * eliminates the W3C feed validator's `content should not contain script tag`
- * / `iframe tag` recommendations and the `Unexpected end tag (p)` warnings
- * those structures produced.
- */
-function cleanFeedContentHtml(html: string): string {
-  const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`)
-  const { document } = dom.window
-
-  for (const iframe of Array.from(document.querySelectorAll("iframe"))) {
-    replaceEmbedNode(iframe, document, iframe.getAttribute("src"))
-  }
-
-  // Process `<object>` before standalone `<embed>` so the inner `<embed>` of
-  // each object goes away with its parent and isn't replaced twice.
-  for (const object of Array.from(document.querySelectorAll("object"))) {
-    replaceEmbedNode(object, document, objectEmbedSrc(object))
-  }
-  for (const embed of Array.from(document.querySelectorAll("embed"))) {
-    replaceEmbedNode(embed, document, embed.getAttribute("src"))
-  }
-
-  for (const script of Array.from(document.querySelectorAll("script"))) {
-    script.remove()
-  }
-
-  // Anchors with empty or relative-looking `href` (broken markdown like
-  // `[Foo]()` or a typo like `[Foo](some-handle)`) are reported as relative
-  // URL references by the feed validator. Unwrap any such anchor so just the
-  // link text remains.
-  for (const anchor of Array.from(document.querySelectorAll("a[href]"))) {
-    const href = anchor.getAttribute("href") ?? ""
-    if (!isAbsoluteOrFragmentHref(href)) {
-      while (anchor.firstChild) {
-        anchor.parentNode?.insertBefore(anchor.firstChild, anchor)
-      }
-      anchor.remove()
-    }
-  }
-
-  return document.body.innerHTML
-}
-
-function isAbsoluteOrFragmentHref(href: string): boolean {
-  const trimmed = href.trim()
-  if (!trimmed) return false
-  if (trimmed.startsWith("#")) return true
-  // Common absolute schemes — anything else is treated as relative by feed
-  // readers even if it's syntactically a valid URI.
-  return /^(?:[a-z][a-z0-9+.-]*:)/i.test(trimmed)
+  return html.replace(
+    /(\b(?:href|src)\s*=\s*")\/(?!\/)([^"]*)/g,
+    (_, prefix: string, rest: string) => `${prefix}${FEED_SITE}/${rest}`
+  )
 }
 
 async function markdownToHtml(
@@ -350,22 +166,7 @@ async function markdownToHtml(
     .use(remarkHtml, { sanitize: false })
     .process(expanded)
   const html = result.toString().replace(/href="#/g, `href="${postUrl}#`)
-  const absolute = absolutizeRelativeUrls(html)
-  return cleanFeedContentHtml(absolute)
-}
-
-/**
- * Post summaries are plain text but get embedded as HTML inside CDATA in the
- * feed. Bare ampersands (e.g. `D&D drama`) parse as broken named entity
- * references when the validator interprets the CDATA as HTML, producing the
- * `Named entity expected. Got none.` warning. Escape ampersands and angle
- * brackets so the summary is valid HTML.
- */
-function escapeSummaryHtml(text: string): string {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
+  return absolutizeRelativeUrls(html)
 }
 
 /**
@@ -392,7 +193,7 @@ function createFeedItem(post: Post, content: string) {
     title: post.title,
     link: `${FEED_SITE}/post/${post.id}`,
     date: new Date(post.datetime),
-    description: post.summary ? escapeSummaryHtml(post.summary) : undefined,
+    description: post.summary || undefined,
     category: post.tags.map((t: string) => ({ name: t, term: t })),
     author: [
       {
