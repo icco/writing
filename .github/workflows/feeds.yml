@@ -12,6 +12,10 @@ on:
       - ".github/workflows/feeds.yml"
   workflow_dispatch:
 
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
