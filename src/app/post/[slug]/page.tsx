@@ -11,6 +11,7 @@ import { notFound } from "next/navigation"
 
 import { MDXContent } from "@/components/MDXContent"
 import PostHeaderImage from "@/components/PostHeaderImage"
+import { PostStats } from "@/components/PostStats"
 import {
   getHeaderImageAlt,
   toAbsoluteImageUrl,
@@ -167,6 +168,8 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
         <div className="prose lg:prose-xl max-w-5xl">
           <MDXContent code={post.body.code} />
         </div>
+
+        <PostStats post={post} />
 
         <div className="mx-auto flex w-full py-7 align-middle">
           <div className="flex-none">

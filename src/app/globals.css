@@ -213,6 +213,25 @@ picture {
   border-radius: 1rem;
 }
 
+/* GFM footnotes use an sr-only h2; make it visible inside article prose */
+article .prose section[data-footnotes] > h2#footnote-label {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin-block: 2rem 0.75rem;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+  border-width: 0;
+}
+
+article .prose section[data-footnotes] {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 /* Make footnotes heading match h3 size instead of h2 */
 .footnotes h2,
 section[data-footnotes] h2 {
