@@ -27,3 +27,11 @@ export function countMarkdownHeadings(raw: string): number {
   const matches = body.match(/^#{1,6}\s+/gm)
   return matches?.length ?? 0
 }
+
+/** `![alt](url)` plus literal `<img …>` tags (code blocks stripped). */
+export function countBodyImages(raw: string): number {
+  const body = stripCodeFromRaw(raw)
+  const md = body.matchAll(/!\[[^\]]*\]\([^)]+\)/g)
+  const html = body.match(/<img\b[^>]*>/gi)
+  return [...md].length + (html?.length ?? 0)
+}

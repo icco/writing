@@ -5,6 +5,7 @@ import type { Post } from "contentlayer/generated"
 
 import {
   characterCount,
+  countBodyImages,
   countMarkdownHeadings,
   countMarkdownLinks,
 } from "@/lib/postBodyMetrics"
@@ -40,6 +41,7 @@ export function PostStats({ post }: { post: Post }) {
   const readDesc =
     minutes < 1 ? "Under one minute" : pluralize("minute", readCeil, true)
   const linkCount = countMarkdownLinks(raw)
+  const imageCount = countBodyImages(raw)
   const tagCount = post.tags.length
   const chars = characterCount(raw)
   const headings = countMarkdownHeadings(raw)
@@ -69,6 +71,12 @@ export function PostStats({ post }: { post: Post }) {
       title: "Links",
       value: String(linkCount),
       desc: "Markdown & autolinks",
+    },
+    {
+      key: "images",
+      title: "Images",
+      value: String(imageCount),
+      desc: "Markdown ![]() and HTML img",
     },
     {
       key: "tags",
