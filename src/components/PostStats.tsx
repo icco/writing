@@ -1,5 +1,3 @@
-import type { ReactNode } from "react"
-
 import type { Post } from "contentlayer/generated"
 
 import {
@@ -12,12 +10,10 @@ import {
 function StatCell({
   title,
   value,
-  desc,
   borderEnd,
 }: {
   title: string
   value: string
-  desc: ReactNode
   borderEnd?: boolean
 }) {
   return (
@@ -26,7 +22,6 @@ function StatCell({
     >
       <div className="stat-title">{title}</div>
       <div className="stat-value text-base-content">{value}</div>
-      <div className="stat-desc">{desc}</div>
     </div>
   )
 }
@@ -37,7 +32,6 @@ export function PostStats({ post }: { post: Post }) {
   const minutes = post.readingTime ?? 0
   const readCeil = Math.ceil(minutes)
   const readValue = minutes < 1 ? "<1 min" : `${readCeil} min`
-  const readDesc = "Guess from word count"
   const linkCount = countMarkdownLinks(raw)
   const imageCount = countBodyImages(raw)
   const tagCount = post.tags.length
@@ -48,52 +42,20 @@ export function PostStats({ post }: { post: Post }) {
     key: string
     title: string
     value: string
-    desc: ReactNode
   }
 
   const rows: Row[] = [
-    {
-      key: "words",
-      title: "Words",
-      value: words,
-      desc: "How chatty this got",
-    },
-    {
-      key: "read",
-      title: "Read time",
-      value: readValue,
-      desc: readDesc,
-    },
-    {
-      key: "links",
-      title: "Links",
-      value: String(linkCount),
-      desc: "Hyperlinks in the source",
-    },
-    {
-      key: "images",
-      title: "Images",
-      value: String(imageCount),
-      desc: "Markdown or HTML images",
-    },
-    {
-      key: "tags",
-      title: "Tags",
-      value: String(tagCount),
-      desc: "Unique body hashtags",
-    },
+    { key: "words", title: "Words", value: words },
+    { key: "read", title: "Read time", value: readValue },
+    { key: "links", title: "Links", value: String(linkCount) },
+    { key: "images", title: "Images", value: String(imageCount) },
+    { key: "tags", title: "Tags", value: String(tagCount) },
     {
       key: "chars",
       title: "Characters",
       value: new Intl.NumberFormat("en-US").format(chars),
-      desc: "Source length in characters",
     },
-    {
-      key: "headings",
-      title: "Headings",
-      value: String(headings),
-      desc: "Hash-prefixed title lines",
-    },
+    { key: "headings", title: "Headings", value: String(headings) },
   ]
 
   return (
@@ -108,7 +70,6 @@ export function PostStats({ post }: { post: Post }) {
             borderEnd={i < rows.length - 1}
             title={row.title}
             value={row.value}
-            desc={row.desc}
           />
         ))}
       </div>
