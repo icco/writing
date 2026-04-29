@@ -1,78 +1,120 @@
 import { format, parseISO } from "date-fns"
-import Link from "next/link"
 import pluralize from "pluralize"
+import type { ReactNode } from "react"
 
 import type { Post } from "contentlayer/generated"
 
-import { normalizeTag } from "@/lib/tagAliases"
+import {
+  countMarkdownLinks,
+  footnoteDefinitionCount,
+} from "@/lib/postBodyMetrics"
 
-function footnoteDefinitionCount(raw: string): number {
-  const matches = raw.match(/^\[\^[^\]]+\]:/gm)
-  return matches?.length ?? 0
-}
-
-function MetaSep() {
+function StatCell({
+  title,
+  value,
+  desc,
+  borderEnd,
+}: {
+  title: string
+  value: string
+  desc: ReactNode
+  borderEnd?: boolean
+}) {
   return (
-    <span className="text-base-content/25 px-1 select-none" aria-hidden>
-      ·
-    </span>
+    <div
+      className={`stat place-items-center px-2 py-3 lg:place-items-start lg:px-4 ${borderEnd ? "border-base-300 lg:border-e" : ""}`}
+    >
+      <div className="stat-title">{title}</div>
+      <div className="stat-value text-base-content">{value}</div>
+      <div className="stat-desc">{desc}</div>
+    </div>
   )
 }
 
 export function PostStats({ post }: { post: Post }) {
+  const raw = post.body.raw
   const words = new Intl.NumberFormat("en-US").format(post.wordCount ?? 0)
   const minutes = post.readingTime ?? 0
   const readCeil = Math.ceil(minutes)
-  const readPhrase =
-    minutes < 1 ? "under 1 min read" : `${readCeil} min read`
+  const readValue = minutes < 1 ? "<1" : String(readCeil)
+  const readDesc =
+    minutes < 1 ? "Under one minute" : pluralize("minute", readCeil, true)
   const showUpdated =
     format(parseISO(post.modifiedAt), "yyyy-MM-dd") !==
     format(parseISO(post.datetime), "yyyy-MM-dd")
-  const footnotes = footnoteDefinitionCount(post.body.raw)
-  const tags = post.tags
+  const footnotes = footnoteDefinitionCount(raw)
+  const linkCount = countMarkdownLinks(raw)
+  const tagCount = post.tags.length
+
+  type Row = {
+    key: string
+    title: string
+    value: string
+    desc: ReactNode
+  }
+
+  const rows: Row[] = [
+    {
+      key: "words",
+      title: "Words",
+      value: words,
+      desc: "In this post",
+    },
+    {
+      key: "read",
+      title: "Read time",
+      value: readValue,
+      desc: readDesc,
+    },
+    {
+      key: "links",
+      title: "Links",
+      value: String(linkCount),
+      desc: "Markdown & autolinks",
+    },
+    {
+      key: "tags",
+      title: "Tags",
+      value: String(tagCount),
+      desc: "Distinct hashtags",
+    },
+  ]
+
+  if (footnotes > 0) {
+    rows.push({
+      key: "footnotes",
+      title: "Footnotes",
+      value: String(footnotes),
+      desc: pluralize("definition", footnotes),
+    })
+  }
+
+  if (showUpdated) {
+    const modified = parseISO(post.modifiedAt)
+    rows.push({
+      key: "updated",
+      title: "File updated",
+      value: format(modified, "MMM d, yyyy"),
+      desc: "Source file mtime",
+    })
+  }
 
   return (
     <aside
-      className="not-prose text-base-content/80 mx-auto mt-8 max-w-5xl rounded-box border border-base-300 bg-base-200/30 px-4 py-3 text-sm leading-relaxed"
+      className="not-prose mx-auto mt-8 w-full max-w-5xl"
       aria-label="Post statistics"
     >
-      <p className="m-0 font-medium text-base-content">
-        {words} words
-        <MetaSep />
-        {readPhrase}
-        {footnotes > 0 && (
-          <>
-            <MetaSep />
-            {footnotes} {pluralize("footnote", footnotes)}
-          </>
-        )}
-      </p>
-
-      {showUpdated && (
-        <p className="text-base-content/65 mt-2 mb-0 text-xs">
-          File updated{" "}
-          <time dateTime={post.modifiedAt}>
-            {format(parseISO(post.modifiedAt), "MMMM d, yyyy")}
-          </time>
-        </p>
-      )}
-
-      {tags.length > 0 && (
-        <p className="mt-2 mb-0 flex flex-wrap gap-1.5">
-          {tags.map((tag) => {
-            const slug = normalizeTag(tag)
-            return (
-              <Link
-                key={slug}
-                href={`/tag/${slug}`}
-                className="badge badge-outline badge-sm font-normal"
-              >
-                #{slug}
-              </Link>
-            )
-          })}
-        </p>
-      )}
+      <div className="stats stats-vertical shadow-sm lg:stats-horizontal w-full rounded-box border border-base-300 bg-base-200/40">
+        {rows.map((row, i) => (
+          <StatCell
+            key={row.key}
+            borderEnd={i < rows.length - 1}
+            title={row.title}
+            value={row.value}
+            desc={row.desc}
+          />
+        ))}
+      </div>
     </aside>
   )
 }
