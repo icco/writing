@@ -37,7 +37,7 @@ export function PostStats({ post }: { post: Post }) {
   const minutes = post.readingTime ?? 0
   const readCeil = Math.ceil(minutes)
   const readValue = minutes < 1 ? "<1 min" : `${readCeil} min`
-  const readDesc = "Ballpark from word count — your eyeballs may unionize"
+  const readDesc = "Guess from word count"
   const linkCount = countMarkdownLinks(raw)
   const imageCount = countBodyImages(raw)
   const tagCount = post.tags.length
@@ -56,7 +56,7 @@ export function PostStats({ post }: { post: Post }) {
       key: "words",
       title: "Words",
       value: words,
-      desc: "Roughly this many decisions",
+      desc: "How chatty this got",
     },
     {
       key: "read",
@@ -68,31 +68,31 @@ export function PostStats({ post }: { post: Post }) {
       key: "links",
       title: "Links",
       value: String(linkCount),
-      desc: "Rabbit holes, politely hyperlinked",
+      desc: "Hyperlinks in the source",
     },
     {
       key: "images",
       title: "Images",
       value: String(imageCount),
-      desc: "Markdown ![]() plus literal HTML img tags",
+      desc: "Markdown or HTML images",
     },
     {
       key: "tags",
       title: "Tags",
       value: String(tagCount),
-      desc: "Distinct hashtags parsed from the body",
+      desc: "Unique body hashtags",
     },
     {
       key: "chars",
       title: "Characters",
       value: new Intl.NumberFormat("en-US").format(chars),
-      desc: "Every key survived the draft",
+      desc: "Source length in characters",
     },
     {
       key: "headings",
       title: "Headings",
       value: String(headings),
-      desc: "Outline energy, unleashed",
+      desc: "Hash-prefixed title lines",
     },
   ]
 
