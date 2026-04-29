@@ -1,4 +1,3 @@
-import pluralize from "pluralize"
 import type { ReactNode } from "react"
 
 import type { Post } from "contentlayer/generated"
@@ -39,7 +38,11 @@ export function PostStats({ post }: { post: Post }) {
   const readCeil = Math.ceil(minutes)
   const readValue = minutes < 1 ? "<1" : String(readCeil)
   const readDesc =
-    minutes < 1 ? "Under one minute" : pluralize("minute", readCeil, true)
+    minutes < 1
+      ? "Blink-and-you-missed-it tier"
+      : readCeil <= 3
+        ? "Snack-sized attention span"
+        : "Pack a beverage, we're walking"
   const linkCount = countMarkdownLinks(raw)
   const imageCount = countBodyImages(raw)
   const tagCount = post.tags.length
@@ -58,7 +61,7 @@ export function PostStats({ post }: { post: Post }) {
       key: "words",
       title: "Words",
       value: words,
-      desc: "In this post",
+      desc: "Roughly this many decisions",
     },
     {
       key: "read",
@@ -70,31 +73,31 @@ export function PostStats({ post }: { post: Post }) {
       key: "links",
       title: "Links",
       value: String(linkCount),
-      desc: "Markdown & autolinks",
+      desc: "Rabbit holes, politely hyperlinked",
     },
     {
       key: "images",
       title: "Images",
       value: String(imageCount),
-      desc: "Markdown ![]() and HTML img",
+      desc: "JPEGs of the soul (approx.)",
     },
     {
       key: "tags",
       title: "Tags",
       value: String(tagCount),
-      desc: "Distinct hashtags",
+      desc: "Pound signs we couldn't quit",
     },
     {
       key: "chars",
       title: "Characters",
       value: new Intl.NumberFormat("en-US").format(chars),
-      desc: "Raw body length",
+      desc: "Every key survived the draft",
     },
     {
       key: "headings",
       title: "Headings",
       value: String(headings),
-      desc: "Markdown # lines",
+      desc: "Outline energy, unleashed",
     },
   ]
 
