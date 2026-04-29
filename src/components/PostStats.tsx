@@ -1,4 +1,3 @@
-import { format, parseISO } from "date-fns"
 import pluralize from "pluralize"
 import type { ReactNode } from "react"
 
@@ -39,9 +38,6 @@ export function PostStats({ post }: { post: Post }) {
   const readValue = minutes < 1 ? "<1" : String(readCeil)
   const readDesc =
     minutes < 1 ? "Under one minute" : pluralize("minute", readCeil, true)
-  const showUpdated =
-    format(parseISO(post.modifiedAt), "yyyy-MM-dd") !==
-    format(parseISO(post.datetime), "yyyy-MM-dd")
   const footnotes = footnoteDefinitionCount(raw)
   const linkCount = countMarkdownLinks(raw)
   const tagCount = post.tags.length
@@ -86,16 +82,6 @@ export function PostStats({ post }: { post: Post }) {
       title: "Footnotes",
       value: String(footnotes),
       desc: pluralize("definition", footnotes),
-    })
-  }
-
-  if (showUpdated) {
-    const modified = parseISO(post.modifiedAt)
-    rows.push({
-      key: "updated",
-      title: "File updated",
-      value: format(modified, "MMM d, yyyy"),
-      desc: "Source file mtime",
     })
   }
 
