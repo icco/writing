@@ -74,16 +74,13 @@ export function PostStats({ post }: { post: Post }) {
       value: String(tagCount),
       desc: "Distinct hashtags",
     },
-  ]
-
-  if (footnotes > 0) {
-    rows.push({
+    {
       key: "footnotes",
       title: "Footnotes",
       value: String(footnotes),
-      desc: pluralize("definition", footnotes),
-    })
-  }
+      desc: "GFM definitions",
+    },
+  ]
 
   return (
     <aside
