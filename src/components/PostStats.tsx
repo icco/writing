@@ -36,13 +36,8 @@ export function PostStats({ post }: { post: Post }) {
   const words = new Intl.NumberFormat("en-US").format(post.wordCount ?? 0)
   const minutes = post.readingTime ?? 0
   const readCeil = Math.ceil(minutes)
-  const readValue = minutes < 1 ? "<1" : String(readCeil)
-  const readDesc =
-    minutes < 1
-      ? "Blink-and-you-missed-it tier"
-      : readCeil <= 3
-        ? "Snack-sized attention span"
-        : "Pack a beverage, we're walking"
+  const readValue = minutes < 1 ? "<1 min" : `${readCeil} min`
+  const readDesc = "Ballpark from word count — your eyeballs may unionize"
   const linkCount = countMarkdownLinks(raw)
   const imageCount = countBodyImages(raw)
   const tagCount = post.tags.length
