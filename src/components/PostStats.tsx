@@ -74,13 +74,13 @@ export function PostStats({ post }: { post: Post }) {
       key: "images",
       title: "Images",
       value: String(imageCount),
-      desc: "JPEGs of the soul (approx.)",
+      desc: "Markdown ![]() plus literal HTML img tags",
     },
     {
       key: "tags",
       title: "Tags",
       value: String(tagCount),
-      desc: "Pound signs we couldn't quit",
+      desc: "Distinct hashtags parsed from the body",
     },
     {
       key: "chars",
