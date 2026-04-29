@@ -4,8 +4,9 @@ import type { ReactNode } from "react"
 import type { Post } from "contentlayer/generated"
 
 import {
+  characterCount,
+  countMarkdownHeadings,
   countMarkdownLinks,
-  footnoteDefinitionCount,
 } from "@/lib/postBodyMetrics"
 
 function StatCell({
@@ -38,9 +39,10 @@ export function PostStats({ post }: { post: Post }) {
   const readValue = minutes < 1 ? "<1" : String(readCeil)
   const readDesc =
     minutes < 1 ? "Under one minute" : pluralize("minute", readCeil, true)
-  const footnotes = footnoteDefinitionCount(raw)
   const linkCount = countMarkdownLinks(raw)
   const tagCount = post.tags.length
+  const chars = characterCount(raw)
+  const headings = countMarkdownHeadings(raw)
 
   type Row = {
     key: string
@@ -75,10 +77,16 @@ export function PostStats({ post }: { post: Post }) {
       desc: "Distinct hashtags",
     },
     {
-      key: "footnotes",
-      title: "Footnotes",
-      value: String(footnotes),
-      desc: "GFM definitions",
+      key: "chars",
+      title: "Characters",
+      value: new Intl.NumberFormat("en-US").format(chars),
+      desc: "Raw body length",
+    },
+    {
+      key: "headings",
+      title: "Headings",
+      value: String(headings),
+      desc: "Markdown # lines",
     },
   ]
 
