@@ -20,10 +20,11 @@ function StatCell({
 }
 
 export function PostStats({ post }: { post: Post }) {
-  const words = new Intl.NumberFormat("en-US").format(post.wordCount ?? 0)
+  const nf = new Intl.NumberFormat("en-US")
+  const words = nf.format(post.wordCount ?? 0)
   const minutes = post.readingTime ?? 0
   const readCeil = Math.ceil(minutes)
-  const readValue = minutes < 1 ? "<1 min" : `${readCeil} min`
+  const readValue = minutes < 1 ? "<1 min" : `${nf.format(readCeil)} min`
 
   type Row = {
     key: string
@@ -34,15 +35,15 @@ export function PostStats({ post }: { post: Post }) {
   const rows: Row[] = [
     { key: "words", title: "Words", value: words },
     { key: "read", title: "Read time", value: readValue },
-    { key: "links", title: "Links", value: String(post.linkCount) },
-    { key: "images", title: "Images", value: String(post.imageCount) },
-    { key: "tags", title: "Tags", value: String(post.tagCount) },
+    { key: "links", title: "Links", value: nf.format(post.linkCount) },
+    { key: "images", title: "Images", value: nf.format(post.imageCount) },
+    { key: "tags", title: "Tags", value: nf.format(post.tagCount) },
     {
       key: "chars",
       title: "Characters",
-      value: new Intl.NumberFormat("en-US").format(post.characterCount),
+      value: nf.format(post.characterCount),
     },
-    { key: "headings", title: "Headings", value: String(post.headingCount) },
+    { key: "headings", title: "Headings", value: nf.format(post.headingCount) },
   ]
 
   return (
