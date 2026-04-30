@@ -60,7 +60,7 @@ export function PostStats({ post }: { post: Post }) {
 
   return (
     <aside
-      className="not-prose mx-auto mt-8 w-full max-w-5xl"
+      className="not-prose mx-auto my-12 w-full max-w-5xl"
       aria-label="Post statistics"
     >
       <div className="stats stats-vertical shadow-sm lg:stats-horizontal w-full rounded-box border border-base-300 bg-base-200/40 p-4 sm:p-5">
