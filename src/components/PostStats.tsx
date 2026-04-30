@@ -18,10 +18,10 @@ function StatCell({
 }) {
   return (
     <div
-      className={`stat place-items-center px-2 py-2 sm:px-3 ${borderEnd ? "border-base-300 border-e" : ""}`}
+      className={`stat place-items-start text-left px-2 py-2 sm:px-3 ${borderEnd ? "border-base-300 border-e" : ""}`}
     >
-      <div className="stat-title">{title}</div>
-      <div className="stat-value text-base-content">{value}</div>
+      <div className="stat-title text-left">{title}</div>
+      <div className="stat-value text-base-content text-left">{value}</div>
     </div>
   )
 }
