@@ -18,7 +18,7 @@ function StatCell({
 }) {
   return (
     <div
-      className={`stat place-items-center px-2 py-3 lg:place-items-start lg:px-4 ${borderEnd ? "border-base-300 lg:border-e" : ""}`}
+      className={`stat place-items-center px-2 py-2 sm:px-3 ${borderEnd ? "border-base-300 border-e" : ""}`}
     >
       <div className="stat-title">{title}</div>
       <div className="stat-value text-base-content">{value}</div>
@@ -63,7 +63,7 @@ export function PostStats({ post }: { post: Post }) {
       className="not-prose mx-auto my-16 w-full max-w-5xl"
       aria-label="Post statistics"
     >
-      <div className="stats stats-vertical shadow-sm lg:stats-horizontal w-full rounded-box border border-base-300 bg-base-200/40 p-2 sm:p-3">
+      <div className="stats stats-horizontal w-full overflow-x-auto rounded-box border border-base-300 bg-base-200/40 p-2 shadow-sm sm:p-3">
         {rows.map((row, i) => (
           <StatCell
             key={row.key}
