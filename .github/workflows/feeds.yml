@@ -1,0 +1,100 @@
+name: Validate feeds
+on:
+  pull_request:
+    paths:
+      - "posts/**"
+      - "src/lib/feed.ts"
+      - "src/app/feed.atom/**"
+      - "src/app/feed.rss/**"
+      - "src/lib/posts.ts"
+      - "package.json"
+      - "yarn.lock"
+      - ".github/workflows/feeds.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          lfs: true
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+          registry-url: https://npm.pkg.github.com
+
+      - name: Install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Playwright browsers
+        run: yarn run chrome
+
+      - name: Build site
+        run: yarn build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Start server
+        run: |
+          PORT=8080 yarn start > server.log 2>&1 &
+          echo $! > server.pid
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for server
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf -o /dev/null http://localhost:8080/feed.atom; then
+              echo "Server is ready after ${i}s"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "::error::Server did not become ready in 60s"
+          tail -n 200 server.log
+          exit 1
+
+      - name: Fetch feeds
+        run: |
+          curl -sS --fail -o feed.atom http://localhost:8080/feed.atom
+          curl -sS --fail -o feed.rss http://localhost:8080/feed.rss
+          ls -la feed.atom feed.rss
+
+      - name: Check XML well-formedness
+        run: |
+          xmllint --noout feed.atom
+          xmllint --noout feed.rss
+
+      - name: Validate with W3C feed validator
+        run: python3 .github/scripts/validate_feed.py feed.atom feed.rss
+
+      - name: Stop server
+        if: always()
+        run: |
+          if [ -f server.pid ]; then
+            kill "$(cat server.pid)" 2>/dev/null || true
+          fi
+
+      - name: Upload feeds and server log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: feeds
+          path: |
+            feed.atom
+            feed.rss
+            server.log
+          if-no-files-found: ignore

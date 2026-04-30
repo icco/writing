@@ -30,3 +30,4 @@ yarn-error.log*
 .contentlayer
 package-lock.json
 *.tsbuildinfo
+__pycache__/
