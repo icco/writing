@@ -1,12 +1,5 @@
 import type { Post } from "contentlayer/generated"
 
-import {
-  characterCount,
-  countBodyImages,
-  countMarkdownHeadings,
-  countMarkdownLinks,
-} from "@/lib/postBodyMetrics"
-
 function StatCell({
   title,
   value,
@@ -27,16 +20,10 @@ function StatCell({
 }
 
 export function PostStats({ post }: { post: Post }) {
-  const raw = post.body.raw
   const words = new Intl.NumberFormat("en-US").format(post.wordCount ?? 0)
   const minutes = post.readingTime ?? 0
   const readCeil = Math.ceil(minutes)
   const readValue = minutes < 1 ? "<1 min" : `${readCeil} min`
-  const linkCount = countMarkdownLinks(raw)
-  const imageCount = countBodyImages(raw)
-  const tagCount = post.tags.length
-  const chars = characterCount(raw)
-  const headings = countMarkdownHeadings(raw)
 
   type Row = {
     key: string
@@ -47,15 +34,15 @@ export function PostStats({ post }: { post: Post }) {
   const rows: Row[] = [
     { key: "words", title: "Words", value: words },
     { key: "read", title: "Read time", value: readValue },
-    { key: "links", title: "Links", value: String(linkCount) },
-    { key: "images", title: "Images", value: String(imageCount) },
-    { key: "tags", title: "Tags", value: String(tagCount) },
+    { key: "links", title: "Links", value: String(post.linkCount) },
+    { key: "images", title: "Images", value: String(post.imageCount) },
+    { key: "tags", title: "Tags", value: String(post.tagCount) },
     {
       key: "chars",
       title: "Characters",
-      value: new Intl.NumberFormat("en-US").format(chars),
+      value: new Intl.NumberFormat("en-US").format(post.characterCount),
     },
-    { key: "headings", title: "Headings", value: String(headings) },
+    { key: "headings", title: "Headings", value: String(post.headingCount) },
   ]
 
   return (
