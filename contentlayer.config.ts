@@ -103,5 +103,14 @@ export default makeSource({
         { strategy: "img-svg", dark: true, mermaidConfig: { layout: "elk" } },
       ],
     ],
+    // GFM footnotes label defaults to h2.sr-only; show it to sighted readers.
+    // See remark-rehype / mdast-util-to-hast `footnoteLabelProperties`.
+    mdxOptions: (opts) => ({
+      ...opts,
+      remarkRehypeOptions: {
+        ...opts.remarkRehypeOptions,
+        footnoteLabelProperties: { className: [] },
+      },
+    }),
   },
 })
