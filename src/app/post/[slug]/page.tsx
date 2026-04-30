@@ -11,6 +11,7 @@ import { notFound } from "next/navigation"
 
 import { MDXContent } from "@/components/MDXContent"
 import PostHeaderImage from "@/components/PostHeaderImage"
+import { PostStats } from "@/components/PostStats"
 import {
   getHeaderImageAlt,
   toAbsoluteImageUrl,
@@ -139,7 +140,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="mx-auto flex max-w-5xl flex-col px-4 py-7 md:px-6 lg:px-8">
+      <article className="mx-auto flex max-w-5xl flex-col px-4 pt-7 pb-3 md:px-6 md:pt-8 lg:px-8">
         {post.header_image && <PostHeaderImage post={post} />}
         <div className="mb-8 text-center">
           <div className="text-xs">
@@ -168,7 +169,9 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
           <MDXContent code={post.body.code} />
         </div>
 
-        <div className="mx-auto flex w-full py-7 align-middle">
+        <PostStats post={post} />
+
+        <div className="mx-auto flex w-full pt-4 pb-1 align-middle">
           <div className="flex-none">
             {prev && (
               <Link

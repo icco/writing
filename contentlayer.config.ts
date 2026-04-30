@@ -10,6 +10,12 @@ import rehypeStarryNight from "rehype-starry-night"
 import remarkGfm from "remark-gfm"
 
 import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
+import {
+  characterCount as countSourceCharacters,
+  countBodyImages,
+  countMarkdownHeadings,
+  countMarkdownLinks,
+} from "./src/lib/postBodyMetrics"
 
 import { normalizeTag } from "./src/lib/tagAliases"
 
@@ -78,6 +84,35 @@ export const Post = defineDocumentType(() => ({
       type: "number",
       resolve: (post) => readingTime(post.body.raw).words,
     },
+    /** Distinct hashtags (same logic as `tags`, for stats without recomputing in React). */
+    tagCount: {
+      type: "number",
+      resolve: (post) => {
+        const match = post.body.raw.match(hashtagRegex)
+        if (!match) return 0
+        return new Set(
+          match.map((m: string) =>
+            normalizeTag(m.replace(hashtagRegex, "$<tag>"))
+          )
+        ).size
+      },
+    },
+    characterCount: {
+      type: "number",
+      resolve: (post) => countSourceCharacters(post.body.raw),
+    },
+    headingCount: {
+      type: "number",
+      resolve: (post) => countMarkdownHeadings(post.body.raw),
+    },
+    linkCount: {
+      type: "number",
+      resolve: (post) => countMarkdownLinks(post.body.raw),
+    },
+    imageCount: {
+      type: "number",
+      resolve: (post) => countBodyImages(post.body.raw),
+    },
     modifiedAt: {
       type: "string",
       resolve: (doc) => {
@@ -103,5 +138,14 @@ export default makeSource({
         { strategy: "img-svg", dark: true, mermaidConfig: { layout: "elk" } },
       ],
     ],
+    // GFM footnotes label defaults to h2.sr-only; show it to sighted readers.
+    // See remark-rehype / mdast-util-to-hast `footnoteLabelProperties`.
+    mdxOptions: (opts) => ({
+      ...opts,
+      remarkRehypeOptions: {
+        ...opts.remarkRehypeOptions,
+        footnoteLabelProperties: { className: [] },
+      },
+    }),
   },
 })
