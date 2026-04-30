@@ -65,7 +65,7 @@ export default function MusicEmbed({
   const downloadHref = primaryUrl
 
   return (
-    <figure className="not-prose my-6 rounded-box border border-base-300 bg-base-200/40 p-4">
+    <figure className="not-prose my-6 rounded-box border border-base-content/10 bg-base-200/40 p-4">
       {title ? (
         <figcaption
           className="text-base-content mb-3 text-sm font-medium"
