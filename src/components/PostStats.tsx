@@ -21,7 +21,6 @@ function StatCell({
 
 export function PostStats({ post }: { post: Post }) {
   const nf = new Intl.NumberFormat("en-US")
-  const words = nf.format(post.wordCount ?? 0)
   const minutes = post.readingTime ?? 0
   const readCeil = Math.ceil(minutes)
   const readValue = minutes < 1 ? "<1 min" : `${nf.format(readCeil)} min`
@@ -33,7 +32,7 @@ export function PostStats({ post }: { post: Post }) {
   }
 
   const rows: Row[] = [
-    { key: "words", title: "Words", value: words },
+    { key: "words", title: "Words", value: nf.format(post.wordCount ?? 0) },
     { key: "read", title: "Read time", value: readValue },
     { key: "links", title: "Links", value: nf.format(post.linkCount) },
     { key: "images", title: "Images", value: nf.format(post.imageCount) },
