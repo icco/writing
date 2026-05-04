@@ -1,26 +1,60 @@
-import { notFound } from "next/navigation"
+import type { Metadata } from "next"
+import { notFound, redirect } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
+import { allTags } from "@/components/Tag"
 import publishedPosts from "@/lib/posts"
+import { normalizeTag, tagAliases } from "@/lib/tagAliases"
 
-import { allPosts } from "contentlayer/generated"
+export const generateMetadata = async (props: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> => {
+  const params = await props.params
+  const tag = normalizeTag(params.slug)
+  const title = `Posts tagged #${tag} | Nat? Nat. Nat!`
+  const description = `All blog posts tagged #${tag} by Nat Welch`
 
-export const generateStaticParams = async () => {
-  const tags = new Set<string>()
-  for (const post of allPosts) {
-    for (const tag of post.tags) {
-      tags.add(tag)
-    }
+  return {
+    metadataBase: new URL(
+      process.env.DOMAIN ?? "https://writing.natwelch.com"
+    ),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `/tag/${tag}`,
+      siteName: "Nat? Nat. Nat!",
+      locale: "en_US",
+      type: "website",
+    },
+    alternates: {
+      canonical: `/tag/${tag}`,
+    },
   }
-
-  return Array.from(tags)
-    .sort()
-    .map((tag) => ({ slug: tag }))
 }
 
-const TagLayout = ({ params }: { params: { slug: string } }) => {
+export const generateStaticParams = async () => {
+  const canonicalTags = allTags()
+  const aliasSlugs = Object.keys(tagAliases)
+  
+  // Generate params for both canonical tags and their aliases
+  return [
+    ...canonicalTags.map((tag) => ({ slug: tag })),
+    ...aliasSlugs.map((alias) => ({ slug: alias })),
+  ]
+}
+
+const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params
+  const normalizedSlug = normalizeTag(params.slug)
+
+  if (params.slug !== normalizedSlug) {
+    redirect(`/tag/${normalizedSlug}`)
+  }
+
   const posts = publishedPosts().filter(
-    (post) => post.tags.includes(params.slug) && !post.draft
+    (post) => post.tags.includes(normalizedSlug) && !post.draft
   )
 
   if (posts.length === 0) {
@@ -29,7 +63,7 @@ const TagLayout = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-8">#{params.slug}</h1>
+      <h1 className="my-8 text-center text-4xl font-bold">#{normalizedSlug}</h1>
       <div className="mx-auto max-w-3xl px-8 py-7">
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />

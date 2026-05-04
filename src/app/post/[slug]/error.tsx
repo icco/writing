@@ -40,8 +40,9 @@ export default function Error({
     <>
       <div className="flex flex-col items-center justify-center">
         <div className="mb-4 flex-auto">
-          <h1 className="inline-block mx-2">{code}</h1>
-          <h2 className="inline-block mx-2">{message}</h2>
+          <h1 className="mx-2 inline-block">
+            {code} <span className="mx-2">{message}</span>
+          </h1>
         </div>
       </div>
     </>

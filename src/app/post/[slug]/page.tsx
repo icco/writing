@@ -2,7 +2,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   PencilIcon,
-} from "@heroicons/react/24/solid"
+} from "@heroicons/react/24/outline"
 import { format, parseISO } from "date-fns"
 import type { Viewport } from "next"
 import { draftMode } from "next/headers"
@@ -10,6 +10,12 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { MDXContent } from "@/components/MDXContent"
+import PostHeaderImage from "@/components/PostHeaderImage"
+import { PostStats } from "@/components/PostStats"
+import {
+  getHeaderImageAlt,
+  toAbsoluteImageUrl,
+} from "@/lib/absoluteImageUrl"
 import publishedPosts, {
   getPostBySlug,
   nextPost,
@@ -17,19 +23,34 @@ import publishedPosts, {
 } from "@/lib/posts"
 
 export const generateStaticParams = async () =>
-  publishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
+  publishedPosts()
+    .sort((a, b) => b.datetime.localeCompare(a.datetime))
+    .map((post) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = async (props: {
+  params: Promise<{ slug: string }>
+}) => {
+  const params = await props.params
   const post = getPostBySlug(params.slug)
 
-  const title = `Nat? Nat. Nat! | #${post.id} ${post.title}`
+  if (!post) {
+    notFound()
+  }
+
+  const title = `#${post.id} ${post.title}`
+  const description = post.summary || undefined
+  const imageAlt = getHeaderImageAlt(post)
 
   return {
-    metadataBase: new URL(process.env.DOMAIN ?? ""),
+    metadataBase: new URL(
+      process.env.DOMAIN ?? "https://writing.natwelch.com"
+    ),
     title,
+    description,
     id: post.id,
     openGraph: {
       title,
+      description,
       url: post.url,
       siteName: "Nat? Nat. Nat!",
       images: [
@@ -37,10 +58,21 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
           url: post.social_image,
           width: 1200,
           height: 630,
+          alt: imageAlt,
         },
       ],
       locale: "en_US",
       type: "article",
+      publishedTime: post.datetime,
+      modifiedTime: post.modifiedAt,
+      authors: ["Nat Welch"],
+      tags: post.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [{ url: post.social_image, alt: imageAlt }],
     },
     alternates: {
       canonical: post.url,
@@ -58,10 +90,15 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
+const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params
   const post = getPostBySlug(params.slug)
 
-  const { isEnabled } = draftMode()
+  if (!post) {
+    notFound()
+  }
+
+  const { isEnabled } = await draftMode()
   if (!isEnabled && post.draft) {
     notFound()
   }
@@ -69,11 +106,44 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const prev = previousPost(post.id)
   const next = nextPost(post.id)
 
+  const domain = process.env.DOMAIN || "https://writing.natwelch.com"
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    datePublished: post.datetime,
+    dateModified: post.modifiedAt,
+    author: {
+      "@type": "Person",
+      name: "Nat Welch",
+      url: "https://natwelch.com",
+    },
+    url: `${domain}${post.permalink}`,
+    image: toAbsoluteImageUrl(post.social_image, domain),
+    ...(post.summary ? { description: post.summary } : {}),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${domain}${post.permalink}`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Nat Welch",
+      url: "https://natwelch.com",
+    },
+    keywords: post.tags,
+    wordCount: post.wordCount,
+  }
+
   return (
     <>
-      <article className="py-7 px-8 mx-auto max-w-5xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <article className="mx-auto flex max-w-5xl flex-col px-4 pt-7 pb-3 md:px-6 md:pt-8 lg:px-8">
+        {post.header_image && <PostHeaderImage post={post} />}
         <div className="mb-8 text-center">
-          <div className="text-xs text-nord3">
+          <div className="text-xs">
             <span className="mx-1 inline-block">
               <Link href={post.url}>#{post.id}</Link>
             </span>
@@ -82,40 +152,58 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               {format(parseISO(post.datetime), "LLLL d, yyyy")}
             </time>
           </div>
-          <h1>{post.title}</h1>
-          <div className="text-xs text-nord3">
+          <h1 className={post.header_image ? "mt-2" : undefined}>
+            {post.title}
+          </h1>
+          <div className="text-xs">
             <span className="mx-1 inline-block">
               By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
-          {post.draft && <div className="mb-1 text-xs text-nord11">DRAFT</div>}
+          {post.draft && (
+            <div className="text-error mb-1 text-xs">DRAFT</div>
+          )}
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">
           <MDXContent code={post.body.code} />
         </div>
 
-        <div className="py-7 px-8 flex mx-auto max-w-5xl align-middle">
+        <PostStats post={post} />
+
+        <div className="mx-auto flex w-full pt-4 pb-1 align-middle">
           <div className="flex-none">
             {prev && (
-              <Link href={prev.permalink} title={prev.title}>
-                <ChevronLeftIcon className="inline-block w-6 h-6" /> #{prev.id}
+              <Link
+                href={prev.permalink}
+                title={prev.title}
+                className="btn btn-secondary"
+              >
+                <ChevronLeftIcon className="inline-block h-6 w-6" /> #{prev.id}
               </Link>
             )}
           </div>
-          <div className="flex-grow flex">
-            <div className="flex-grow"></div>
+          <div className="flex grow">
+            <div className="grow"></div>
             <div className="flex-none">
-              <Link href={post.github} title="Edit this post on Github">
-                <PencilIcon className="inline-block w-4 h-4" />
+              <Link
+                href={post.github}
+                title="Edit this post on Github"
+                className="btn btn-ghost"
+              >
+                <PencilIcon className="inline-block h-4 w-4" />
               </Link>
             </div>
-            <div className="flex-grow"></div>
+            <div className="grow"></div>
           </div>
           <div className="flex-none">
             {next && (
-              <Link href={next.permalink} title={next.title}>
-                #{next.id} <ChevronRightIcon className="inline-block w-6 h-6" />
+              <Link
+                href={next.permalink}
+                title={next.title}
+                className="btn btn-secondary"
+              >
+                #{next.id} <ChevronRightIcon className="inline-block h-6 w-6" />
               </Link>
             )}
           </div>
