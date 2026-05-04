@@ -17,6 +17,7 @@
 .env.test.local
 .env.production.local
 .env
+.claude
 
 npm-debug.log*
 yarn-debug.log*
@@ -27,3 +28,6 @@ yarn-error.log*
 
 # contentlayer
 .contentlayer
+package-lock.json
+*.tsbuildinfo
+__pycache__/

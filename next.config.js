@@ -1,8 +1,7 @@
 // @ts-check
 
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { createSecureHeaders } = require("next-secure-headers")
-const { withContentlayer } = require("next-contentlayer")
+const { withContentlayer } = require("next-contentlayer2")
 
 const port = process.env.PORT || "8080"
 const hostname = process.env.HOSTNAME || `localhost`
@@ -14,20 +13,54 @@ const nextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
   productionBrowserSourceMaps: true,
-  swcMinify: true,
   reactStrictMode: true,
+  images: {
+    // Send <Image> requests directly to imgix instead of re-optimizing via
+    // /_next/image. See src/lib/imgixLoader.ts.
+    loader: "custom",
+    loaderFile: "./src/lib/imgixLoader.ts",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "icco.imgix.net",
+        pathname: "/**",
+      },
+    ],
+  },
   env: {
     DOMAIN: domain,
     PORT: port,
-  },
-  eslint: {
-    dirs: ["src", "."],
   },
   async redirects() {
     return [
       {
         source: "/about",
         destination: "https://natwelch.com/wiki/about",
+        permanent: true,
+      },
+      {
+        source: "/tag",
+        destination: "/tags",
+        permanent: true,
+      },
+      {
+        source: "/posts/:slug",
+        destination: "/post/:slug",
+        permanent: true,
+      },
+      {
+        source: "/tags/:tag",
+        destination: "/tag/:tag",
+        permanent: true,
+      },
+      {
+        source: "/:id(\\d+)",
+        destination: "/post/:id",
+        permanent: true,
+      },
+      {
+        source: "/images/:path((?:.*\\.pdf))",
+        destination: "/files/:path",
         permanent: true,
       },
     ]
@@ -51,6 +84,10 @@ const nextConfig = {
               ],
             }),
           },
+          {
+            key: "Reporting-Endpoints",
+            value: 'default="https://reportd.natwelch.com/reporting/writing"',
+          },
         ],
       },
       {
@@ -58,45 +95,52 @@ const nextConfig = {
         headers: createSecureHeaders({
           contentSecurityPolicy: {
             directives: {
-              // default-src 'none'
               defaultSrc: ["'none'"],
-              // connect-src https://graphql.natwelch.com/graphql
               connectSrc: [
                 "https://*.natwelch.com",
                 domain,
                 domain.replace(/^https?/, "ws"),
               ],
-              // font-src 'self' https://fonts.gstatic.com
               fontSrc: ["'self'", "https://fonts.gstatic.com"],
-              // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
+              // Every body image now flows through `prepare-posts.ts` and ends
+              // up on icco.imgix.net (proxied through photos.natwelch.com), so
+              // the CSP allow-list only needs the canonical hosts.
               imgSrc: [
                 "'self'",
                 "data:",
-                "https://icco.imgix.net",
-                "https://storage.googleapis.com",
                 "https://*.natwelch.com",
+                "https://icco.imgix.net",
               ],
-              // script-src 'self' 'unsafe-inline'
               scriptSrc: [
                 "'self'",
                 "'unsafe-inline'",
                 "'unsafe-eval'",
                 "blob:",
                 "https://*.natwelch.com",
+                "https://embedr.flickr.com",
+                "https://widgets.flickr.com",
+                "https://platform.twitter.com",
+                "https://s.imgur.com",
                 domain,
               ],
-              // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
               styleSrc: [
                 "'self'",
                 "'unsafe-inline'",
                 "https://fonts.googleapis.com/",
               ],
+              frameSrc: [
+                "https://www.youtube.com",
+                "https://www.youtube-nocookie.com",
+                "https://render.githubusercontent.com",
+              ],
+              // <audio> / <video> do not inherit from img-src; without media-src they fall back to default-src.
+              mediaSrc: ["'self'"],
               objectSrc: ["'none'"],
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
               reportURI: "https://reportd.natwelch.com/report/writing",
               reportTo: "default",
             },
-            reportOnly: true,
+            reportOnly: false,
           },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,
@@ -107,6 +151,7 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
+  turbopack: {},
 }
 
 module.exports = withContentlayer(nextConfig)

@@ -1,0 +1,24 @@
+name: Bump dependencies and artifacts
+on:
+  workflow_dispatch:
+  schedule:
+    # UTC
+    - cron: 12 0 * * *
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install zsh
+        run: sudo apt-get update; sudo apt-get install zsh
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: https://npm.pkg.github.com
+      - run: git config user.email "nat@natwelch.com"
+      - run: git config user.name "Nat Welch"
+      - run: ./update.sh
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: git push
