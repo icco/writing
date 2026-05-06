@@ -15,7 +15,7 @@
     "start": "next start -p $PORT",
     "clean": "rm -rf node_modules .next .contentlayer",
     "tw": "tailwindcss -i src/app/globals.css",
-    "test": "jest"
+    "test": "vitest run"
   },
   "dependencies": {
     "@google/genai": "^1.50.1",
@@ -75,7 +75,8 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.5"
   },
   "prettier": {
     "trailingComma": "es5",

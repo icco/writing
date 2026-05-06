@@ -111,7 +111,8 @@ export const Post = defineDocumentType(() => ({
     },
     imageCount: {
       type: "number",
-      resolve: (post) => countBodyImages(post.body.raw),
+      resolve: (post) =>
+        countBodyImages(post.body.raw) + (post.header_image ? 1 : 0),
     },
     modifiedAt: {
       type: "string",
