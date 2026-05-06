@@ -42,7 +42,6 @@ export function PostStats({ post }: { post: Post }) {
       title: "Characters",
       value: nf.format(post.characterCount),
     },
-    { key: "headings", title: "Headings", value: nf.format(post.headingCount) },
   ]
 
   return (

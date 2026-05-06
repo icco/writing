@@ -13,7 +13,6 @@ import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
 import {
   characterCount as countSourceCharacters,
   countBodyImages,
-  countMarkdownHeadings,
   countMarkdownLinks,
 } from "./src/lib/postBodyMetrics"
 
@@ -100,10 +99,6 @@ export const Post = defineDocumentType(() => ({
     characterCount: {
       type: "number",
       resolve: (post) => countSourceCharacters(post.body.raw),
-    },
-    headingCount: {
-      type: "number",
-      resolve: (post) => countMarkdownHeadings(post.body.raw),
     },
     linkCount: {
       type: "number",
