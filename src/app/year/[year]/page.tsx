@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 
 import { PostCard } from "@/components/PostCard"
 import publishedPosts from "@/lib/posts"
+import { siteUrl } from "@/lib/siteUrl"
 
 export const generateMetadata = async (props: {
   params: Promise<{ year: string }>
@@ -14,9 +15,7 @@ export const generateMetadata = async (props: {
   const description = `All blog posts written by Nat Welch in ${year}`
 
   return {
-    metadataBase: new URL(
-      process.env.DOMAIN ?? "https://writing.natwelch.com"
-    ),
+    metadataBase: siteUrl(),
     title,
     description,
     openGraph: {

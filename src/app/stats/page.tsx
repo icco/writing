@@ -5,11 +5,10 @@ import Link from "next/link"
 import { allPosts, Post } from "contentlayer/generated"
 
 import publishedPosts from "@/lib/posts"
+import { siteUrl } from "@/lib/siteUrl"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.DOMAIN ?? "https://writing.natwelch.com"
-  ),
+  metadataBase: siteUrl(),
   title: "Stats | Nat? Nat. Nat!",
   description: "Writing statistics for Nat Welch's blog",
   openGraph: {

@@ -5,6 +5,7 @@ import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import { siteUrl } from "@/lib/siteUrl"
 import { ThemeProvider } from "@icco/react-common/ThemeProvider"
 import { WebVitals } from "@icco/react-common/WebVitals"
 
@@ -26,9 +27,7 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.DOMAIN ?? "https://writing.natwelch.com"
-  ),
+  metadataBase: siteUrl(),
   title: "Nat? Nat. Nat!",
   description: "The personal blog of Nat Welch",
   other: {

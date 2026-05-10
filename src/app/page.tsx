@@ -2,13 +2,12 @@ import { Metadata, Viewport } from "next"
 
 import { PostCard } from "@/components/PostCard"
 import publishedPosts from "@/lib/posts"
+import { siteUrl } from "@/lib/siteUrl"
 
 const title = `Nat? Nat. Nat!`
 const description = `The personal blog of Nat Welch`
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.DOMAIN ?? "https://writing.natwelch.com"
-  ),
+  metadataBase: siteUrl(),
   title,
   description,
   openGraph: {

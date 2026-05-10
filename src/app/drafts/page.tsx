@@ -2,13 +2,13 @@ import { compareDesc } from "date-fns"
 import { Metadata, Viewport } from "next"
 
 import { PostCard } from "@/components/PostCard"
+import { siteUrl } from "@/lib/siteUrl"
 
 import { allPosts, Post } from "contentlayer/generated"
 
-const domain = new URL(process.env.DOMAIN ?? "https://writing.natwelch.com")
 const title = `Drafts!`
 export const metadata: Metadata = {
-  metadataBase: domain,
+  metadataBase: siteUrl(),
   title,
   robots: { index: false, follow: false },
 }
