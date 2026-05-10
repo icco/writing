@@ -3,11 +3,10 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 import publishedPosts from "@/lib/posts"
+import { siteUrl } from "@/lib/siteUrl"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.DOMAIN ?? "https://writing.natwelch.com"
-  ),
+  metadataBase: siteUrl(),
   title: "Archive by Year | Nat? Nat. Nat!",
   description: "Browse Nat Welch's blog posts by year",
   openGraph: {

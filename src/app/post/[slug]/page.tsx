@@ -21,6 +21,7 @@ import publishedPosts, {
   nextPost,
   previousPost,
 } from "@/lib/posts"
+import { siteUrl } from "@/lib/siteUrl"
 
 export const generateStaticParams = async () =>
   publishedPosts()
@@ -42,9 +43,7 @@ export const generateMetadata = async (props: {
   const imageAlt = getHeaderImageAlt(post)
 
   return {
-    metadataBase: new URL(
-      process.env.DOMAIN ?? "https://writing.natwelch.com"
-    ),
+    metadataBase: siteUrl(),
     title,
     description,
     id: post.id,
