@@ -6,7 +6,7 @@
   "scripts": {
     "build": "contentlayer2 build && next build",
     "contentlayer:build": "contentlayer2 build",
-    "chrome": "playwright install --with-deps chromium",
+    "chrome": "playwright install --with-deps chromium-headless-shell",
     "dev:contentlayer": "contentlayer2 dev",
     "dev:next": "next dev -p 8080",
     "dev": "run-p dev:*",
