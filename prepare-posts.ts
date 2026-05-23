@@ -33,12 +33,12 @@ import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 import matter from "gray-matter"
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL?.trim() || "gemini-2.5-pro"
+const GEMINI_MODEL = process.env.GEMINI_MODEL?.trim() || "gemini-3.5-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
 
 const ICCO_IMGIX_HOST = "icco.imgix.net"
 const DEFAULT_PHOTOS_UPLOAD = "https://photos.natwelch.com/api/upload"
-const MAX_IMPORT_IMAGE_BYTES = 25 * 1024 * 1024
+const MAX_IMPORT_IMAGE_BYTES = 200 * 1024 * 1024
 /** Multimodal inline image limit; request smaller from imgix if over. */
 const MAX_VISION_INLINE_BYTES = 4 * 1024 * 1024
 
@@ -86,12 +86,17 @@ function shuffleInPlace<T>(arr: T[]): void {
   }
 }
 
-async function callGemini(prompt: string, maxOutputTokens = 1024): Promise<string> {
+async function callGemini(prompt: string, maxOutputTokens = 2048): Promise<string> {
   try {
     const response = await ai.models.generateContent({
-      model: `publishers/google/models/${GEMINI_MODEL}`,
+      model: GEMINI_MODEL,
       contents: prompt,
-      config: { temperature: 0.5, maxOutputTokens },
+      config: {
+        temperature: 0.5,
+        maxOutputTokens,
+        // Thinking tokens count against maxOutputTokens and can't be disabled.
+        thinkingConfig: { thinkingBudget: 1024 },
+      },
     })
     return response.text?.trim() ?? ""
   } catch (err) {
@@ -167,7 +172,7 @@ async function describeImageWithGemini(
 ): Promise<{ text: string; meta: string }> {
   try {
     const res = await ai.models.generateContent({
-      model: `publishers/google/models/${GEMINI_MODEL}`,
+      model: GEMINI_MODEL,
       contents: {
         role: "user",
         parts: [
@@ -177,9 +182,7 @@ async function describeImageWithGemini(
       },
       config: {
         temperature: 0.2,
-        // Gemini 2.5 Pro does not let you fully disable thinking, and thinking
-        // tokens count against this budget. Give it room so the user-visible
-        // sentence isn't truncated when ~hundreds of thinking tokens are used.
+        // Thinking tokens count against maxOutputTokens and can't be disabled.
         maxOutputTokens: 2048,
         thinkingConfig: { thinkingBudget: 1024 },
       },
