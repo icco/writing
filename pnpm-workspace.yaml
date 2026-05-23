@@ -9,6 +9,7 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - date-fns@4.3.0
+  - "@icco/react-common"
 
 overrides:
   uuid: ^11.0.0
