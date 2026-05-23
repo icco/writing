@@ -75,9 +75,9 @@ This is a static React frontend for a personal blog at writing.natwelch.com. The
 
 ## Build and Development
 
-- Use `yarn dev` to run the development server
-- Use `yarn build` to create a production build
-- Use `yarn lint` to check code quality
+- Use `pnpm dev` to run the development server
+- Use `pnpm build` to create a production build
+- Use `pnpm lint` to check code quality
 - The project uses npm-run-all to run multiple dev tasks in parallel
 
 # Security Practices
@@ -90,11 +90,11 @@ This is a static React frontend for a personal blog at writing.natwelch.com. The
 
 # Common Commands
 
-- `yarn dev`: Start development server (runs contentlayer and next dev in parallel)
-- `yarn build`: Build for production (includes contentlayer build)
-- `yarn lint`: Run ESLint with auto-fix
-- `yarn lint:spell`: Check spelling in posts
-- `yarn start`: Start production server
+- `pnpm dev`: Start development server (runs contentlayer and next dev in parallel)
+- `pnpm build`: Build for production (includes contentlayer build)
+- `pnpm lint`: Run ESLint with auto-fix
+- `pnpm lint:spell`: Check spelling in posts
+- `pnpm start`: Start production server
 
 # Additional Notes
 

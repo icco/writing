@@ -7,9 +7,9 @@ You can see screenshots of my inspiration in the [inspiration folder](https://gi
 ## Development
 
 ```bash
-yarn dev      # start dev server on :8080
-yarn build    # build for production
-yarn start    # run production build
+pnpm dev      # start dev server on :8080
+pnpm build    # build for production
+pnpm start    # run production build
 ```
 
 ## Features

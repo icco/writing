@@ -1,19 +1,16 @@
 FROM node:25-slim AS base
 
+RUN corepack enable
+
 # Install dependencies only when needed
 FROM base AS deps
 
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc .yarnrc ./
+COPY package.json pnpm-lock.yaml .npmrc ./
 RUN --mount=type=secret,id=npm_token \
   echo "//npm.pkg.github.com/:_authToken=$(cat /run/secrets/npm_token)" >> .npmrc && \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi && \
+  pnpm install --frozen-lockfile && \
   rm -f .npmrc
 
 
@@ -25,9 +22,9 @@ COPY . .
 
 ENV DOMAIN="https://writing.natwelch.com"
 
-RUN yarn run chrome
+RUN pnpm run chrome
 
-RUN yarn build
+RUN pnpm build
 
 # Production image, copy all the files and run next
 FROM node:25-slim AS runner

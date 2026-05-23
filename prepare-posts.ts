@@ -5,8 +5,8 @@
  * `icco.imgix.net`.
  *
  * Usage:
- *   yarn prepare-posts
- *   yarn prepare-posts 772
+ *   pnpm prepare-posts
+ *   pnpm prepare-posts 772
  *
  * When `header_image` is set but `header_image_alt_text` is empty, we still
  * run vision alt generation (so re-running a single post can fill in alt

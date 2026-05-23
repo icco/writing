@@ -8,7 +8,7 @@ on:
       - "src/app/feed.rss/**"
       - "src/lib/posts.ts"
       - "package.json"
-      - "yarn.lock"
+      - "pnpm-lock.yaml"
       - ".github/workflows/feeds.yml"
   workflow_dispatch:
 
@@ -25,31 +25,33 @@ jobs:
         with:
           lfs: true
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
-          cache: "yarn"
+          cache: "pnpm"
           registry-url: https://npm.pkg.github.com
 
       - name: Install xmllint
         run: sudo apt-get update && sudo apt-get install -y libxml2-utils
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Playwright browsers
-        run: yarn run chrome
+        run: pnpm run chrome
 
       - name: Build site
-        run: yarn build
+        run: pnpm build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Start server
         run: |
-          PORT=8080 yarn start > server.log 2>&1 &
+          PORT=8080 pnpm start > server.log 2>&1 &
           echo $! > server.pid
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

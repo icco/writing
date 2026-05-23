@@ -17,4 +17,4 @@ jobs:
         with:
           locale: "US"
           ignore: "Colour,colour"
-          exclude: "yarn.lock"
+          exclude: "pnpm-lock.yaml"

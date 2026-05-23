@@ -2,20 +2,20 @@
 
 set -ex
 
-rm -rf package-lock.json dist node_modules .next .contentlayer
+rm -rf package-lock.json yarn.lock dist node_modules .next .contentlayer
 
-yarn 
-yarn upgrade 
-git add package* yarn.lock
-git diff --quiet --staged || git commit -m 'chore(deps): yarn upgrade'
+pnpm install
+pnpm update
+git add package.json pnpm-lock.yaml
+git diff --quiet --staged || git commit -m 'chore(deps): pnpm update'
 
-yarn run chrome
+pnpm run chrome
 
-yarn run lint 
+pnpm run lint
 git add src
 git diff --quiet --staged || git commit -m 'chore: lint'
 
-yarn run build
+pnpm run build
 
 git add public
 git diff --quiet --staged || git commit -m 'chore: update build artifacts'
