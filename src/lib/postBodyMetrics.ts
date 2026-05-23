@@ -5,12 +5,31 @@ export function stripCodeFromRaw(raw: string): string {
     .replace(/`[^`\n]+`/g, " ")
 }
 
-/** Markdown links [text](url), excluding images ![…](…). */
+/**
+ * Count links in a post body:
+ *   - markdown `[text](url)` (excluding images `![…](…)`)
+ *   - angle-bracket autolinks `<https://…>`
+ *   - GFM autolink-literals: bare `http(s)://`, `ftp://`, or `www.` URLs
+ *
+ * Code fences and inline code are stripped first. Markdown / image / angle
+ * forms are masked before the bare-URL scan so URLs that already appear inside
+ * `[text](url)` or `<url>` are not double-counted.
+ */
 export function countMarkdownLinks(raw: string): number {
   const body = stripCodeFromRaw(raw)
-  const md = body.matchAll(/(?<!\!)\[[^\]]*\]\([^)]+\)/g)
-  const angle = body.match(/<https?:\/\/[^>\s]+>/gi)
-  return [...md].length + (angle?.length ?? 0)
+  const md = [...body.matchAll(/(?<!\!)\[[^\]]*\]\([^)]+\)/g)].length
+  const angle = (body.match(/<https?:\/\/[^>\s]+>/gi) ?? []).length
+
+  const masked = body
+    .replace(/!?\[[^\]]*\]\([^)]+\)/g, " ")
+    .replace(/<https?:\/\/[^>\s]+>/gi, " ")
+  const bare = (
+    masked.match(
+      /(?<![\w@/])(?:https?:\/\/|ftp:\/\/|www\.)[^\s<>()]+/gi
+    ) ?? []
+  ).length
+
+  return md + angle + bare
 }
 
 /** Length of raw post body (UTF-16 code units, same as `.length` in JS). */

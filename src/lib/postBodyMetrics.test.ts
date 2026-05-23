@@ -98,6 +98,32 @@ describe("countMarkdownLinks", () => {
       "```\n[code](https://x.example)\n```\n\n[real](https://r.example)"
     expect(countMarkdownLinks(raw)).toBe(1)
   })
+
+  test("counts GFM bare-URL autolink-literals", () => {
+    const raw = "See https://a.example and http://b.example for details."
+    expect(countMarkdownLinks(raw)).toBe(2)
+  })
+
+  test("counts bare www. autolinks", () => {
+    const raw = "Visit www.example.com today."
+    expect(countMarkdownLinks(raw)).toBe(1)
+  })
+
+  test("does not double-count URLs that appear inside [text](url)", () => {
+    const raw = "Read [the post](https://example.com/post) please."
+    expect(countMarkdownLinks(raw)).toBe(1)
+  })
+
+  test("does not count URLs inside fenced code blocks as bare links", () => {
+    const raw = "```\nfetch('https://api.example.com')\n```\nplain prose"
+    expect(countMarkdownLinks(raw)).toBe(0)
+  })
+
+  test("regression: post 777 has 3 links (2 bare URLs + 1 markdown)", () => {
+    // /post/777 reported 0 links before this fix; the body has two bare
+    // https:// URLs (outside fenced code) and one [reddit](…) markdown link.
+    expect(countMarkdownLinks(readPostBody(777))).toBe(3)
+  })
 })
 
 describe("countBodyImages", () => {
