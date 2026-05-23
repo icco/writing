@@ -1,6 +1,6 @@
 FROM node:26-slim AS base
 
-RUN corepack enable
+RUN npm install -g pnpm@11.2.2
 
 # Install dependencies only when needed
 FROM base AS deps
