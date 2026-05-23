@@ -1,4 +1,4 @@
-FROM node:25-slim AS base
+FROM node:26-slim AS base
 
 RUN corepack enable
 
@@ -27,7 +27,7 @@ RUN pnpm run chrome
 RUN pnpm build
 
 # Production image, copy all the files and run next
-FROM node:25-slim AS runner
+FROM node:26-slim AS runner
 
 LABEL org.opencontainers.image.source=https://github.com/icco/writing
 LABEL org.opencontainers.image.description="A react frontend for my blog"
