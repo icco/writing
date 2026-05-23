@@ -33,7 +33,7 @@ import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 import matter from "gray-matter"
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL?.trim() || "gemini-3-pro-preview"
+const GEMINI_MODEL = process.env.GEMINI_MODEL?.trim() || "gemini-3.1-pro-preview"
 const POSTS_DIR = path.join(__dirname, "posts")
 
 const ICCO_IMGIX_HOST = "icco.imgix.net"
