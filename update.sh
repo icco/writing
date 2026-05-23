@@ -2,7 +2,7 @@
 
 set -ex
 
-rm -rf package-lock.json yarn.lock dist node_modules .next .contentlayer
+rm -rf package-lock.json yarn.lock pnpm-lock.yaml dist node_modules .next .contentlayer
 
 pnpm install
 pnpm update
