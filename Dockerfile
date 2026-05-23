@@ -1,13 +1,13 @@
-FROM node:25-slim AS base
+FROM node:26-slim AS base
 
-RUN corepack enable
+RUN npm install -g pnpm@11.2.2
 
 # Install dependencies only when needed
 FROM base AS deps
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml .npmrc ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 RUN --mount=type=secret,id=npm_token \
   echo "//npm.pkg.github.com/:_authToken=$(cat /run/secrets/npm_token)" >> .npmrc && \
   pnpm install --frozen-lockfile && \
@@ -27,7 +27,7 @@ RUN pnpm run chrome
 RUN pnpm build
 
 # Production image, copy all the files and run next
-FROM node:25-slim AS runner
+FROM node:26-slim AS runner
 
 LABEL org.opencontainers.image.source=https://github.com/icco/writing
 LABEL org.opencontainers.image.description="A react frontend for my blog"
