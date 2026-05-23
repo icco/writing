@@ -48,6 +48,7 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "strip-markdown": "^6.0.0",
+    "unified": "^11.0.5",
     "vivus": "^0.4.6"
   },
   "devDependencies": {
@@ -57,6 +58,7 @@
     "@tailwindcss/cli": "^4.3.0",
     "@tailwindcss/postcss": "^4.3.0",
     "@tailwindcss/typography": "^0.5.19",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^25.9.1",
     "@types/pluralize": "^0.0.33",
     "@types/react": "^19.2.15",
