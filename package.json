@@ -30,7 +30,7 @@
     "@mdx-js/react": "^3.1.1",
     "@wooorm/starry-night": "^3.9.0",
     "contentlayer2": "^0.5.8",
-    "date-fns": "^4.2.1",
+    "date-fns": "^4.3.0",
     "feed": "^5.2.1",
     "gray-matter": "^4.0.3",
     "jsdom": "^29.1.1",
@@ -51,8 +51,7 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "strip-markdown": "^6.0.0",
-    "unified": "^11.0.5",
-    "vivus": "^0.4.6"
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.0",
@@ -66,7 +65,6 @@
     "@types/pluralize": "^0.0.33",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
-    "@types/vivus": "^0.4.7",
     "@typescript-eslint/eslint-plugin": "^8.59.4",
     "@typescript-eslint/parser": "^8.59.4",
     "daisyui": "^5.5.20",
