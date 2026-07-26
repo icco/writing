@@ -1,19 +1,21 @@
-name: Archive all posts
+name: Archive some posts
 on:
   schedule:
-    - cron: 36 0 * * *
+    - cron: 12 */6 * * *
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   get_posts:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code.
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Install zsh
         run: sudo apt-get update; sudo apt-get install zsh
       - name: Retrieve all posts
         run: |
-          POSTS=$(./all-posts.sh)
+          POSTS=$(./all-posts.sh 25)
           echo "posts=$POSTS" >> $GITHUB_OUTPUT
         id: posts
     outputs:
@@ -22,11 +24,12 @@ jobs:
     needs: get_posts
     if: needs.get_posts.outputs.posts != '[]'
     strategy:
+      fail-fast: false
       matrix:
         url: ${{ fromJson(needs.get_posts.outputs.posts) }}
     runs-on: ubuntu-latest
     steps:
-      - uses: JamieMagee/wayback@v2.1.0
+      - uses: JamieMagee/wayback@v2
         with:
           url: ${{ matrix.url }}
           saveErrors: false

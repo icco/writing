@@ -1,18 +1,17 @@
-FROM node:25-slim AS base
+FROM node:26-slim AS base
+
+RUN npm install -g pnpm@11.2.2
 
 # Install dependencies only when needed
 FROM base AS deps
 
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+RUN --mount=type=secret,id=npm_token \
+  echo "//npm.pkg.github.com/:_authToken=$(cat /run/secrets/npm_token)" >> .npmrc && \
+  pnpm install --frozen-lockfile && \
+  rm -f .npmrc
 
 
 # Rebuild the source code only when needed
@@ -23,12 +22,16 @@ COPY . .
 
 ENV DOMAIN="https://writing.natwelch.com"
 
-RUN yarn run chrome
+RUN pnpm run chrome
 
-RUN yarn build
+RUN pnpm build
 
 # Production image, copy all the files and run next
-FROM node:25-slim AS runner
+FROM node:26-slim AS runner
+
+LABEL org.opencontainers.image.source=https://github.com/icco/writing
+LABEL org.opencontainers.image.description="A react frontend for my blog"
+LABEL org.opencontainers.image.licenses=MPL-2.0
 WORKDIR /app
 
 ENV NODE_ENV=production

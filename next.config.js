@@ -14,6 +14,19 @@ const nextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
+  images: {
+    // Send <Image> requests directly to imgix instead of re-optimizing via
+    // /_next/image. See src/lib/imgixLoader.ts.
+    loader: "custom",
+    loaderFile: "./src/lib/imgixLoader.ts",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "icco.imgix.net",
+        pathname: "/**",
+      },
+    ],
+  },
   env: {
     DOMAIN: domain,
     PORT: port,
@@ -28,6 +41,26 @@ const nextConfig = {
       {
         source: "/tag",
         destination: "/tags",
+        permanent: true,
+      },
+      {
+        source: "/posts/:slug",
+        destination: "/post/:slug",
+        permanent: true,
+      },
+      {
+        source: "/tags/:tag",
+        destination: "/tag/:tag",
+        permanent: true,
+      },
+      {
+        source: "/:id(\\d+)",
+        destination: "/post/:id",
+        permanent: true,
+      },
+      {
+        source: "/images/:path((?:.*\\.pdf))",
+        destination: "/files/:path",
         permanent: true,
       },
     ]
@@ -69,16 +102,14 @@ const nextConfig = {
                 domain.replace(/^https?/, "ws"),
               ],
               fontSrc: ["'self'", "https://fonts.gstatic.com"],
+              // Every body image now flows through `prepare-posts.ts` and ends
+              // up on icco.imgix.net (proxied through photos.natwelch.com), so
+              // the CSP allow-list only needs the canonical hosts.
               imgSrc: [
                 "'self'",
                 "data:",
-                "http://*.static.flickr.com",
-                "http://*.staticflickr.com",
                 "https://*.natwelch.com",
-                "https://*.static.flickr.com",
-                "https://*.staticflickr.com",
                 "https://icco.imgix.net",
-                "https://storage.googleapis.com",
               ],
               scriptSrc: [
                 "'self'",
@@ -86,6 +117,10 @@ const nextConfig = {
                 "'unsafe-eval'",
                 "blob:",
                 "https://*.natwelch.com",
+                "https://embedr.flickr.com",
+                "https://widgets.flickr.com",
+                "https://platform.twitter.com",
+                "https://s.imgur.com",
                 domain,
               ],
               styleSrc: [
@@ -93,6 +128,13 @@ const nextConfig = {
                 "'unsafe-inline'",
                 "https://fonts.googleapis.com/",
               ],
+              frameSrc: [
+                "https://www.youtube.com",
+                "https://www.youtube-nocookie.com",
+                "https://render.githubusercontent.com",
+              ],
+              // <audio> / <video> do not inherit from img-src; without media-src they fall back to default-src.
+              mediaSrc: ["'self'"],
               objectSrc: ["'none'"],
               // https://developers.google.com/web/updates/2018/09/reportingapi#csp
               reportURI: "https://reportd.natwelch.com/report/writing",
