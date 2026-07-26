@@ -1,24 +1,40 @@
 import { Metadata } from "next"
 import { differenceInDays, getYear } from "date-fns"
+import Link from "next/link"
 
 import { allPosts, Post } from "contentlayer/generated"
 
 import publishedPosts from "@/lib/posts"
+import { siteUrl } from "@/lib/siteUrl"
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl(),
   title: "Stats | Nat? Nat. Nat!",
   description: "Writing statistics for Nat Welch's blog",
+  openGraph: {
+    title: "Stats | Nat? Nat. Nat!",
+    description: "Writing statistics for Nat Welch's blog",
+    url: "/stats",
+    siteName: "Nat? Nat. Nat!",
+    locale: "en_US",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/stats",
+  },
 }
 
 function StatSlab({
   label,
   value,
+  href,
 }: {
   label: string
   value: string | number
   subtitle?: string
+  href?: string
 }) {
-  return (
+  const content = (
     <dl className="min-w-[140px]">
       <dt className="text-sm font-semibold uppercase tracking-wide opacity-60">
         {label}
@@ -26,6 +42,16 @@ function StatSlab({
       <dd className="text-4xl font-bold tabular-nums md:text-5xl">{value}</dd>
     </dl>
   )
+
+  if (href) {
+    return (
+      <Link href={href} className="hover:text-link transition-colors">
+        {content}
+      </Link>
+    )
+  }
+
+  return content
 }
 
 export default function StatsPage() {
@@ -103,6 +129,7 @@ export default function StatsPage() {
                 key={year}
                 label={year.toString()}
                 value={postsByYear[year]}
+                href={`/year/${year}`}
               />
             ))}
           </div>

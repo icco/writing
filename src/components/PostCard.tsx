@@ -27,15 +27,15 @@ export function PostCard(post: Post) {
         {format(parseISO(post.datetime), "LLLL d, yyyy")}
       </time>
 
+      {post.summary && (
+        <div className="border-l-4 border-primary p-2 my-3 prose text-sm text-muted dark:text-muted">{post.summary}</div>
+      )}
+
       <div className="dark:text-muted mb-2 text-sm text-gray-600">
         {post.tags.map((tag: string) => {
           return <Tag tag={tag} key={tag} className="text-xs" />
         })}
       </div>
-      <div
-        className="text-sm *:mb-3 [&>*:last-child]:mb-0"
-        dangerouslySetInnerHTML={{ __html: post.excerpt.html }}
-      />
     </div>
   )
 }

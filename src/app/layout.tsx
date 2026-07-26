@@ -5,8 +5,9 @@ import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
-import { ThemeProvider } from "@/components/ThemeProvider"
-import { WebVitals } from "@/components/WebVitals"
+import { siteUrl } from "@/lib/siteUrl"
+import { ThemeProvider } from "@icco/react-common/ThemeProvider"
+import { WebVitals } from "@icco/react-common/WebVitals"
 
 const roboto = Roboto({
   weight: "400",
@@ -26,6 +27,7 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl(),
   title: "Nat? Nat. Nat!",
   description: "The personal blog of Nat Welch",
   other: {
@@ -53,10 +55,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider defaultTheme="system" enableSystem>
+        <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-base-100 focus:px-4 focus:py-2 focus:text-base-content"
+          >
+            Skip to main content
+          </a>
           <Header />
-          <WebVitals />
-          <main>{children}</main>
+          <WebVitals analyticsPath="/analytics/writing" />
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

@@ -1,32 +1,31 @@
-import Link from "next/link"
-
-import Logo from "./Logo"
-import ThemeToggle from "./ThemeToggle"
+import {
+  ChartBarIcon,
+  InformationCircleIcon,
+  TagIcon,
+} from "@heroicons/react/24/outline"
+import { SiteHeader } from "@icco/react-common/SiteHeader"
 
 export default function Header() {
   return (
-    <nav className="flex py-8">
-      <div className="flex-none">
-        <Link href="/" className="">
-          <Logo size={50} className="logo stroke-current px-8" />
-        </Link>
-      </div>
-      <div className="grow"></div>
-      <div className="flex-none">
-        <ThemeToggle />
-
-        <Link key="/stats" href="/stats" className="mr-4 ml-8">
-          Stats
-        </Link>
-
-        <Link key="/tags" href="/tags" className="mx-4">
-          Tags
-        </Link>
-
-        <Link key="/about" href="/about" prefetch={false} className="mx-4">
-          About
-        </Link>
-      </div>
-    </nav>
+    <SiteHeader
+      links={[
+        {
+          name: "Stats",
+          href: "/stats",
+          icon: <ChartBarIcon className="h-5 w-5" />,
+        },
+        {
+          name: "Tags",
+          href: "/tags",
+          icon: <TagIcon className="h-5 w-5" />,
+        },
+        {
+          name: "About",
+          href: "/about",
+          prefetch: false,
+          icon: <InformationCircleIcon className="h-5 w-5" />,
+        },
+      ]}
+    />
   )
 }

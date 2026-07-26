@@ -12,7 +12,7 @@ export async function GET() {
     datetime: post.datetime,
     permalink: post.permalink,
     url: post.url,
-    excerpt: post.excerpt,
+    summary: post.summary,
     tags: post.tags,
     readingTime: post.readingTime,
     wordCount: post.wordCount,

@@ -10,11 +10,18 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { MDXContent } from "@/components/MDXContent"
+import PostHeaderImage from "@/components/PostHeaderImage"
+import { PostStats } from "@/components/PostStats"
+import {
+  getHeaderImageAlt,
+  toAbsoluteImageUrl,
+} from "@/lib/absoluteImageUrl"
 import publishedPosts, {
   getPostBySlug,
   nextPost,
   previousPost,
 } from "@/lib/posts"
+import { siteUrl } from "@/lib/siteUrl"
 
 export const generateStaticParams = async () =>
   publishedPosts()
@@ -32,13 +39,17 @@ export const generateMetadata = async (props: {
   }
 
   const title = `#${post.id} ${post.title}`
+  const description = post.summary || undefined
+  const imageAlt = getHeaderImageAlt(post)
 
   return {
-    metadataBase: new URL(process.env.DOMAIN ?? ""),
+    metadataBase: siteUrl(),
     title,
+    description,
     id: post.id,
     openGraph: {
       title,
+      description,
       url: post.url,
       siteName: "Nat? Nat. Nat!",
       images: [
@@ -46,10 +57,21 @@ export const generateMetadata = async (props: {
           url: post.social_image,
           width: 1200,
           height: 630,
+          alt: imageAlt,
         },
       ],
       locale: "en_US",
       type: "article",
+      publishedTime: post.datetime,
+      modifiedTime: post.modifiedAt,
+      authors: ["Nat Welch"],
+      tags: post.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [{ url: post.social_image, alt: imageAlt }],
     },
     alternates: {
       canonical: post.url,
@@ -83,9 +105,42 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
   const prev = previousPost(post.id)
   const next = nextPost(post.id)
 
+  const domain = process.env.DOMAIN || "https://writing.natwelch.com"
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    datePublished: post.datetime,
+    dateModified: post.modifiedAt,
+    author: {
+      "@type": "Person",
+      name: "Nat Welch",
+      url: "https://natwelch.com",
+    },
+    url: `${domain}${post.permalink}`,
+    image: toAbsoluteImageUrl(post.social_image, domain),
+    ...(post.summary ? { description: post.summary } : {}),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${domain}${post.permalink}`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Nat Welch",
+      url: "https://natwelch.com",
+    },
+    keywords: post.tags,
+    wordCount: post.wordCount,
+  }
+
   return (
     <>
-      <article className="mx-auto max-w-5xl px-8 py-7">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <article className="mx-auto flex max-w-5xl flex-col px-4 pt-7 pb-3 md:px-6 md:pt-8 lg:px-8">
+        {post.header_image && <PostHeaderImage post={post} />}
         <div className="mb-8 text-center">
           <div className="text-xs">
             <span className="mx-1 inline-block">
@@ -96,20 +151,26 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
               {format(parseISO(post.datetime), "LLLL d, yyyy")}
             </time>
           </div>
-          <h1>{post.title}</h1>
+          <h1 className={post.header_image ? "mt-2" : undefined}>
+            {post.title}
+          </h1>
           <div className="text-xs">
             <span className="mx-1 inline-block">
               By <Link href="https://natwelch.com">Nat Welch</Link>
             </span>
           </div>
-          {post.draft && <div className="text-error mb-1 text-xs">DRAFT</div>}
+          {post.draft && (
+            <div className="text-error mb-1 text-xs">DRAFT</div>
+          )}
         </div>
 
         <div className="prose lg:prose-xl max-w-5xl">
           <MDXContent code={post.body.code} />
         </div>
 
-        <div className="mx-auto flex max-w-5xl px-8 py-7 align-middle">
+        <PostStats post={post} />
+
+        <div className="mx-auto flex w-full pt-4 pb-1 align-middle">
           <div className="flex-none">
             {prev && (
               <Link

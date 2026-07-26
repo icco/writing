@@ -7,9 +7,13 @@ import { normalizeTag } from "@/lib/tagAliases"
 
 export const allTags = (): string[] => {
   const tags = new Set<string>()
-  for (const post of allPosts) {
+  const publishedPosts = allPosts.filter(
+    (post) => !post.draft && !isFuture(new Date(post.datetime))
+  )
+
+  for (const post of publishedPosts) {
     for (const tag of post.tags) {
-      tags.add(tag)
+      tags.add(normalizeTag(tag))
     }
   }
 

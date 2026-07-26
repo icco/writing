@@ -1,4 +1,24 @@
+import type { Metadata } from "next"
+
 import { allTagsWithCounts, Tag } from "@/components/Tag"
+import { siteUrl } from "@/lib/siteUrl"
+
+export const metadata: Metadata = {
+  metadataBase: siteUrl(),
+  title: "All Tags | Nat? Nat. Nat!",
+  description: "Browse all topics and tags on Nat Welch's blog",
+  openGraph: {
+    title: "All Tags | Nat? Nat. Nat!",
+    description: "Browse all topics and tags on Nat Welch's blog",
+    url: "/tags",
+    siteName: "Nat? Nat. Nat!",
+    locale: "en_US",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/tags",
+  },
+}
 
 const TagList = () => {
   return (
