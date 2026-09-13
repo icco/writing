@@ -26,8 +26,8 @@ export async function GET(req: NextRequest) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="https://natwelch.com/i/logo.png"
-          width="200"
-          height="200"
+          width={200}
+          height={200}
           alt=""
           style={{ marginBottom: "20px" }}
         />
