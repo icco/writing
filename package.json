@@ -22,7 +22,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@google/genai": "^2.22.0",
+    "@google/genai": "^2.23.0",
     "@heroicons/react": "^2.2.0",
     "@icco/react-common": "^2026.10917.2",
     "@imgix/js-core": "^3.8.0",
