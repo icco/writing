@@ -1,5 +1,6 @@
 import { format } from "date-fns"
 import { Feed } from "feed"
+import { migrateImageUrls } from "./imageUrls"
 import { remark } from "remark"
 import remarkGfm from "remark-gfm"
 import remarkHtml from "remark-html"
@@ -156,7 +157,7 @@ async function markdownToHtml(
   markdown: string,
   postUrl: string
 ): Promise<string> {
-  const expanded = expandMdxComponents(markdown)
+  const expanded = expandMdxComponents(migrateImageUrls(markdown))
   const result = await remark()
     .use(remarkGfm)
     // Note: sanitize is disabled because:

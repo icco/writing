@@ -1,9 +1,10 @@
 import { Post } from "contentlayer/generated"
+import { migrateImageUrls } from "./imageUrls"
 
 /** For JSON-LD and feeds: `social_image` is either a full URL or a root-relative path. */
 export function toAbsoluteImageUrl(socialImage: string, siteOrigin: string) {
   if (socialImage.startsWith("https://") || socialImage.startsWith("http://")) {
-    return socialImage
+    return migrateImageUrls(socialImage)
   }
   const base = siteOrigin.replace(/\/$/, "")
   const path = socialImage.startsWith("/") ? socialImage : `/${socialImage}`
@@ -27,11 +28,11 @@ export function getHeaderImageAlt(post: Post) {
 export function withHeaderCropDefaults(src: string): string {
   let u: URL
   try {
-    u = new URL(src)
+    u = new URL(migrateImageUrls(src))
   } catch {
     return src
   }
-  if (!u.hostname.endsWith(".imgix.net")) {
+  if (u.hostname !== "images.natwelch.com") {
     return src
   }
   const defaults: Record<string, string> = {
