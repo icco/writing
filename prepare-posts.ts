@@ -32,11 +32,12 @@ import { GoogleGenAI } from "@google/genai"
 import { remark } from "remark"
 import stripMarkdown from "strip-markdown"
 import matter from "gray-matter"
+import { migrateImageUrls } from "./src/lib/imageUrls"
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL?.trim() || "gemini-3.5-flash"
 const POSTS_DIR = path.join(__dirname, "posts")
 
-const ICCO_IMGIX_HOST = "icco.imgix.net"
+const ICCO_IMGIX_HOST = "images.natwelch.com"
 const DEFAULT_PHOTOS_UPLOAD = "https://photos.natwelch.com/api/upload"
 const MAX_IMPORT_IMAGE_BYTES = 200 * 1024 * 1024
 /** Multimodal inline image limit; request smaller from imgix if over. */
@@ -212,7 +213,7 @@ async function describeImageWithGemini(
 
 function isIccoImgixUrl(url: string): boolean {
   try {
-    return new URL(url).hostname === ICCO_IMGIX_HOST
+    return new URL(migrateImageUrls(url)).hostname === ICCO_IMGIX_HOST
   } catch {
     return false
   }
@@ -333,7 +334,7 @@ function isFlickrHostname(host: string): boolean {
 
 function normalizeImageUrl(url: string): string {
   try {
-    const u = new URL(url)
+    const u = new URL(migrateImageUrls(url))
     if (isImgixHostname(u.hostname)) {
       u.searchParams.delete("w")
       u.searchParams.delete("h")

@@ -22,7 +22,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "icco.imgix.net",
+        hostname: "images.natwelch.com",
         pathname: "/**",
       },
     ],
@@ -109,7 +109,7 @@ const nextConfig = {
                 "'self'",
                 "data:",
                 "https://*.natwelch.com",
-                "https://icco.imgix.net",
+                "https://images.natwelch.com",
               ],
               scriptSrc: [
                 "'self'",

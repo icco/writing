@@ -1,4 +1,5 @@
 import React from "react"
+import { migrateImageUrls } from "@/lib/imageUrls"
 
 interface PhotoGridProps {
   urls: string[]
@@ -18,7 +19,7 @@ const SIZES = "(min-width: 1024px) 16rem, (min-width: 768px) 33vw, 50vw"
 function buildImgixSrc(rawUrl: string): { src: string; srcSet?: string } {
   let url: URL
   try {
-    url = new URL(rawUrl)
+    url = new URL(migrateImageUrls(rawUrl))
   } catch {
     return { src: rawUrl }
   }
@@ -44,7 +45,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ urls, alts }) => {
         const { src, srcSet } = buildImgixSrc(url)
         return (
           <a
-            href={url}
+            href={migrateImageUrls(url)}
             key={index}
             className="mb-2 block break-inside-avoid"
           >

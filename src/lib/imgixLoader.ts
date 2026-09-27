@@ -13,21 +13,16 @@
  *
  * @see https://docs.imgix.com/getting-started/tutorials/developer-guides/imgix-with-nextjs
  */
-import ImgixClient from "@imgix/js-core"
+import { migrateImageUrls } from "./imageUrls"
 
-const IMGIX_HOST = "icco.imgix.net"
-
-const client = new ImgixClient({
-  domain: IMGIX_HOST,
-  includeLibraryParam: false,
-})
+const IMGIX_HOST = "images.natwelch.com"
 
 type LoaderArgs = { src: string; width: number; quality?: number }
 
 export default function imgixLoader({ src, width, quality }: LoaderArgs): string {
   let url: URL
   try {
-    url = new URL(src, `https://${IMGIX_HOST}`)
+    url = new URL(migrateImageUrls(src), `https://${IMGIX_HOST}`)
   } catch {
     return src
   }
@@ -48,5 +43,6 @@ export default function imgixLoader({ src, width, quality }: LoaderArgs): string
     params.q = String(quality)
   }
 
-  return client.buildURL(url.pathname, params)
+  url.search = new URLSearchParams(params).toString()
+  return url.toString()
 }
