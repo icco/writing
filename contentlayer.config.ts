@@ -8,6 +8,7 @@ import rehypeMermaid from "rehype-mermaid"
 import rehypeSlug from "rehype-slug"
 import rehypeStarryNight from "rehype-starry-night"
 import remarkGfm from "remark-gfm"
+import { migrateImageUrls, remarkImageUrls } from "./src/lib/imageUrls"
 
 import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
 import {
@@ -66,7 +67,7 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       resolve: (post) => {
         if (post.header_image) {
-          return post.header_image
+          return migrateImageUrls(post.header_image)
         }
         const params = new URLSearchParams({
           title: post.title,
@@ -124,7 +125,7 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkHashtags, remarkGfm],
+    remarkPlugins: [remarkImageUrls, remarkHashtags, remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       rehypeGithubEmoji,
