@@ -18,8 +18,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(react@19.3.0)
       '@icco/react-common':
-        specifier: ^2026.10929.4
-        version: 2026.10929.4(@heroicons/react@2.2.0(react@19.3.0))(jsdom@30.1.1)(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
+        specifier: ^2026.10929.6
+        version: 2026.10929.6(@heroicons/react@2.2.0(react@19.3.0))(jsdom@30.1.1)(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
       '@wooorm/starry-night':
         specifier: ^3.11.0
         version: 3.11.0
@@ -628,8 +628,8 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@icco/react-common@2026.10929.4':
-    resolution: {integrity: sha512-bgmdumddFNDK3qSeqRcBDBAqBjMKNhqEgu5qyc7eoEhf/ng/aSnC038AqItlQ+eAy4X5/7xQbpgZ0KM/dh0B/g==, tarball: https://npm.pkg.github.com/download/@icco/react-common/2026.10929.4/c4df39b00a10bbac946fb3bbbc8f8deeb6caeda4}
+  '@icco/react-common@2026.10929.6':
+    resolution: {integrity: sha512-0l7zf8wP60J38Q0XdKbAowuSlVEW9juv6MSB11fpjNt+bV2xbqr+dS/KrwqBm/Ih+mtaOXMXvF4jMtlg6+Isug==, tarball: https://npm.pkg.github.com/download/@icco/react-common/2026.10929.6/9400bef88caab107bd3038d71b57091346cd2d2b}
     peerDependencies:
       '@heroicons/react': ^2.0.0
       jsdom: '>=20.0.0'
@@ -1833,13 +1833,13 @@ packages:
   '@wooorm/starry-night@3.11.0':
     resolution: {integrity: sha512-xs0DlS8BYDIoLIYAezO+XRSPPUjeVhAwHWbOno/p16S4Ik63JRfHFjfkHO1wJwQ8r0Cq6leGuWqHKpH7G1BS6g==}
 
-  '@wrksz/themes@1.2.0':
-    resolution: {integrity: sha512-jAyeKHnhvouLTsNCbTZXXX45gCYIJ3eLAFgktIdYHRotGz4ufhs8PMQd3baiZO0EPIXyf0vzPlasbuOfM5J5Gg==}
+  '@wrksz/themes@2.0.2':
+    resolution: {integrity: sha512-Us7orFtKm+TiTdAZyxUQgpW7yika0+IK4Ao2jN2fJskRVF4kZQhsnFXPCz/yp8kR1ku0bhBfOhic43Dh3xOldw==}
     peerDependencies:
       next: '>=16.0.0'
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
-      typescript: '>=4.5.0'
+      typescript: '>=5.9'
     peerDependenciesMeta:
       next:
         optional: true
@@ -5209,10 +5209,10 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@icco/react-common@2026.10929.4(@heroicons/react@2.2.0(react@19.3.0))(jsdom@30.1.1)(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)':
+  '@icco/react-common@2026.10929.6(@heroicons/react@2.2.0(react@19.3.0))(jsdom@30.1.1)(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)':
     dependencies:
       '@heroicons/react': 2.2.0(react@19.3.0)
-      '@wrksz/themes': 1.2.0(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
+      '@wrksz/themes': 2.0.2(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
       jsdom: 30.1.1
       next: 16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
@@ -6287,7 +6287,7 @@ snapshots:
       vscode-oniguruma: 2.0.1
       vscode-textmate: 9.3.2
 
-  '@wrksz/themes@1.2.0(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)':
+  '@wrksz/themes@2.0.2(next@16.3.6(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@26.6.3)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)':
     dependencies:
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
