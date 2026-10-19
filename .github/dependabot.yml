@@ -13,7 +13,11 @@ updates:
     groups:
       npm:
         patterns:
-          - '*'
+          - "*"
+    ignore:
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
   - package-ecosystem: docker
     directory: /
     schedule:
@@ -25,7 +29,7 @@ updates:
     groups:
       docker:
         patterns:
-          - '*'
+          - "*"
   - package-ecosystem: github-actions
     directory: /
     schedule:
@@ -37,7 +41,7 @@ updates:
     groups:
       github-actions:
         patterns:
-          - '*'
+          - "*"
   - package-ecosystem: gomod
     directory: /
     schedule:
@@ -49,4 +53,4 @@ updates:
     groups:
       gomod:
         patterns:
-          - '*'
+          - "*"
