@@ -6,11 +6,7 @@ allowBuilds:
   protobufjs: true
   sharp: true
   unrs-resolver: true
-
 minimumReleaseAgeExclude:
-  - date-fns@4.3.0
-  - "@icco/react-common"
-  - '@next/swc-win32-x64-msvc@16.3.5'
-
+  - '@icco/react-common'
 overrides:
   uuid: ^11.0.0

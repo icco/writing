@@ -1,50 +1,24 @@
-import { fixupPluginRules } from "@eslint/compat"
+import nextPlugin from "@next/eslint-plugin-next"
 import tsParser from "@typescript-eslint/parser"
-import nextConfig from "eslint-config-next"
-
-// Fix eslint-config-next for ESLint 10:
-// 1. The bundled Babel parser (eslint-config-next/parser) returns a scope manager
-//    without addGlobals() which ESLint 10 requires — override to @typescript-eslint/parser
-// 2. eslint-plugin-react still uses context.getFilename() (removed in ESLint 10) — fix up
-const nextConfigFixed = nextConfig.map((config) => {
-  const result = { ...config }
-
-  // Override Babel parser with @typescript-eslint/parser for all files
-  if (result.languageOptions?.parser?.meta?.name === "eslint-config-next/parser") {
-    result.languageOptions = {
-      ...result.languageOptions,
-      parser: tsParser,
-    }
-  }
-
-  // Fix up only the React plugin for ESLint 10 compat
-  if (result.plugins?.react) {
-    result.plugins = {
-      ...result.plugins,
-      react: fixupPluginRules(result.plugins.react),
-    }
-  }
-
-  return result
-})
+import reactHooks from "eslint-plugin-react-hooks"
 
 const eslintConfig = [
   {
-    ignores: [".contentlayer/", ".next/", "node_modules/"],
+    ignores: [".contentlayer/", ".next/", "node_modules/", "next-env.d.ts"],
   },
-  ...nextConfigFixed,
   {
-    rules: {
-      "@typescript-eslint/triple-slash-reference": "off",
+    files: ["**/*.{js,jsx,mjs,ts,tsx,mts,cts}"],
+    plugins: {
+      "react-hooks": reactHooks,
+      "@next/next": nextPlugin,
     },
-  },
-  // TypeScript handles undefined-variable and unused-variable checking.
-  // Disable base ESLint rules for TS files to avoid false positives.
-  {
-    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parser: tsParser,
+    },
     rules: {
-      "no-undef": "off",
-      "no-unused-vars": "off",
+      ...reactHooks.configs.recommended.rules,
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
     },
   },
 ]

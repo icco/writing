@@ -1,6 +1,6 @@
 FROM node:26-slim AS base
 
-RUN npm install -g pnpm@11.2.2
+RUN npm install -g pnpm@12.16.1
 
 # Install dependencies only when needed
 FROM base AS deps
