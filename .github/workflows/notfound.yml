@@ -1,9 +1,8 @@
 name: Replace old links with archived links
 on:
   schedule:
-    - cron: "12 */6 * * *"
+    - cron: 12 */6 * * *
   workflow_dispatch:
-
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -13,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Fix links
-        uses: tmcw/notfoundbot@v3.1.0
+        uses: tmcw/notfoundbot@feeb668347f9c0ef8abdc4a8c43778fce2ee85d9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXCEPTIONS: writing.natwelch.com
