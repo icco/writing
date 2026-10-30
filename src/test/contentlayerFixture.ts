@@ -2,7 +2,9 @@
  * Minimal stand-in for `contentlayer/generated` used by Vitest. Only the
  * fields the app reads are populated.
  */
-export type Post = {
+import type { Post as GeneratedPost } from "contentlayer/generated"
+
+type FixturePost = {
   _id: string
   _raw: { flattenedPath: string }
   type: "Post"
@@ -28,7 +30,13 @@ export type Post = {
   body: { raw: string; code: string }
 }
 
-export function makePost(overrides: Partial<Post> & { id: number }): Post {
+/**
+ * Build a post fixture. The result is adapted to the generated Contentlayer
+ * `Post` type so it can be passed anywhere the app expects a real post.
+ */
+export function makePost(
+  overrides: Partial<FixturePost> & { id: number }
+): GeneratedPost {
   const { id } = overrides
   return {
     _id: `${id}.md`,
@@ -52,8 +60,10 @@ export function makePost(overrides: Partial<Post> & { id: number }): Post {
     characterCount: 2000,
     body: { raw: "Hello", code: "" },
     ...overrides,
-  }
+  } as FixturePost as unknown as GeneratedPost
 }
+
+export type Post = GeneratedPost
 
 export const allPosts: Post[] = [
   makePost({

@@ -35,7 +35,7 @@ describe("generateFeed", () => {
       makePost({ id: 12, social_image: "not a url at all" }),
       makePost({ id: 13, social_image: "https://e.com/noext" }),
     ]
-    const feed = await generateFeed(posts as never)
+    const feed = await generateFeed(posts)
     const rss = feed.rss2()
     expect(rss).toContain("https://writing.natwelch.com/post/10#x")
     expect(rss).toContain("https://writing.natwelch.com/post/1")
@@ -63,7 +63,7 @@ describe("generateFeed", () => {
         }
       },
     })
-    const feed = await generateFeed([bad] as never)
+    const feed = await generateFeed([bad])
     expect(feed.rss2()).toContain("Error rendering post content")
     expect(err).toHaveBeenCalled()
     err.mockRestore()

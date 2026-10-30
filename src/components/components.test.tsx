@@ -99,23 +99,23 @@ describe("components", () => {
   test("PostCard shows draft, summary, and tags", () => {
     const out = html(
       <PostCard
-        {...(makePost({
+        {...makePost({
           id: 7,
           draft: true,
           summary: "Sum",
           tags: ["dev"],
-        }) as never)}
+        })}
       />
     )
     expect(out).toContain("DRAFT")
     expect(out).toContain("Sum")
     expect(out).toContain("/tag/coding")
-    const plain = html(<PostCard {...(makePost({ id: 8 }) as never)} />)
+    const plain = html(<PostCard {...makePost({ id: 8 })} />)
     expect(plain).not.toContain("DRAFT")
   })
 
   test("PostHeaderImage only renders with a header image", () => {
-    expect(html(<PostHeaderImage post={makePost({ id: 1 }) as never} />)).toBe(
+    expect(html(<PostHeaderImage post={makePost({ id: 1 })} />)).toBe(
       ""
     )
     const out = html(
@@ -125,7 +125,7 @@ describe("components", () => {
             id: 1,
             header_image: "https://icco.imgix.net/h.jpg",
             header_image_alt_text: "Hero",
-          }) as never
+          })
         }
       />
     )
@@ -134,10 +134,10 @@ describe("components", () => {
 
   test("PostStats formats reading time", () => {
     expect(
-      html(<PostStats post={makePost({ id: 1, readingTime: 0.5 }) as never} />)
+      html(<PostStats post={makePost({ id: 1, readingTime: 0.5 })} />)
     ).toContain("&lt;1 min")
     expect(
-      html(<PostStats post={makePost({ id: 1, readingTime: 2.2 }) as never} />)
+      html(<PostStats post={makePost({ id: 1, readingTime: 2.2 })} />)
     ).toContain("3 min")
   })
 
