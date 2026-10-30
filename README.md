@@ -10,6 +10,8 @@ You can see screenshots of my inspiration in the [inspiration folder](https://gi
 pnpm dev      # start dev server on :8080
 pnpm build    # build for production
 pnpm start    # run production build
+pnpm test     # run unit tests
+pnpm test:coverage  # run tests with 90% coverage threshold (used in CI)
 ```
 
 ## Features
