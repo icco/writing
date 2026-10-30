@@ -4,7 +4,15 @@ on:
     branches:
       - main
   pull_request:
-    types: [assigned, opened, synchronize, reopened]
+    types:
+      - assigned
+      - opened
+      - synchronize
+      - reopened
+permissions:
+  contents: read
+  checks: write
+  pull-requests: read
 jobs:
   misspell:
     name: runner / misspell
@@ -13,8 +21,8 @@ jobs:
       - name: Check out code.
         uses: actions/checkout@v7
       - name: misspell
-        uses: reviewdog/action-misspell@v1
+        uses: reviewdog/action-misspell@840bfbe9f804da9afb0bd739dc4689012f3fdd2d
         with:
-          locale: "US"
-          ignore: "Colour,colour"
-          exclude: "pnpm-lock.yaml"
+          locale: US
+          ignore: Colour,colour
+          exclude: pnpm-lock.yaml

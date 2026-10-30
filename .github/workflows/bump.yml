@@ -4,6 +4,9 @@ on:
   schedule:
     # UTC
     - cron: 12 0 * * *
+permissions:
+  contents: write
+  packages: read
 jobs:
   bump:
     runs-on: ubuntu-latest
@@ -14,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: .nvmrc
           registry-url: https://npm.pkg.github.com
       - run: git config user.email "nat@natwelch.com"
       - run: git config user.name "Nat Welch"
