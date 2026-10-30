@@ -6,11 +6,24 @@ allowBuilds:
   protobufjs: true
   sharp: true
   unrs-resolver: true
-
 minimumReleaseAgeExclude:
   - date-fns@4.3.0
-  - "@icco/react-common"
+  - '@icco/react-common'
   - '@next/swc-win32-x64-msvc@16.3.5'
-
 overrides:
   uuid: ^11.0.0
+peerDependencyRules:
+  allowedVersions:
+    '@tailwindcss/typography>tailwindcss': "4"
+    eslint-plugin-import>eslint: "10"
+    eslint-plugin-jsx-a11y>eslint: "10"
+    eslint-plugin-react>eslint: "10"
+    '@opentelemetry/core>@opentelemetry/api': "1.10"
+    '@opentelemetry/resources>@opentelemetry/api': "1.10"
+    '@opentelemetry/sdk-trace-base>@opentelemetry/api': "1.10"
+    '@opentelemetry/sdk-trace-node>@opentelemetry/api': "1.10"
+    '@opentelemetry/context-async-hooks>@opentelemetry/api': "1.10"
+    '@opentelemetry/propagator-b3>@opentelemetry/api': "1.10"
+    '@opentelemetry/propagator-jaeger>@opentelemetry/api': "1.10"
+    '@opentelemetry/sdk-logs>@opentelemetry/api': "1.10"
+    '@opentelemetry/sdk-metrics>@opentelemetry/api': "1.10"
