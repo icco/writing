@@ -16,13 +16,15 @@
  *   1. GEMINI_API_KEY environment variable
  *   2. gcloud ADC via Vertex AI (uses active gcloud project)
  *
- * Any image that isn't already on `icco.imgix.net` (header or body) is
+ * Any image that isn't already on ICCO_IMAGE_HOST (header or body) is
  * downloaded and uploaded through photos.natwelch.com (POST multipart `photo`
  * to `PHOTOS_UPLOAD_URL`, default `https://photos.natwelch.com/api/upload`),
- * which returns JSON `{ success, files: [{ url: "https://icco.imgix.net/…" }] }`.
- * The original markdown URL is replaced with the returned imgix URL so every
- * downstream consumer (RSS, OG cards, the site itself) gets imgix-optimized
- * delivery.
+ * which returns JSON `{ success, files: [{ url: "https://icco.imgix.net/…" }]
+ * }`.  The original markdown URL is replaced with the returned imgix URL so
+ * every downstream consumer (RSS, OG cards, the site itself) gets
+ * imgix-optimized delivery.
+ *
+ * Summaries should be removed if a post is in draft.
  */
 
 import * as fs from "fs"
