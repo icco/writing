@@ -19,6 +19,18 @@ test("keeps other thematic breaks and mentions of annotations", () => {
   expect(stripAnnotations(body)).toBe(body)
 })
 
+test("keeps content between an ordinary annotations paragraph and the block", () => {
+  const body = "One\n\n---\n\nAnnotations: 2 are fine\n\nTwo\n"
+  expect(stripAnnotations(body + "\n" + annotated)).toBe(
+    body + "\nHello there.\n\n"
+  )
+})
+
+test("keeps ordinary content that ends in an ellipsis", () => {
+  const body = "One\n\n---\n\nAnnotations: 2 are fine\n\nTwo\n...\n"
+  expect(stripAnnotations(body)).toBe(body)
+})
+
 test("removes the block before the parser sees it", async () => {
   const output = await remark().use(remarkStripAnnotations).process(annotated)
   expect(String(output)).toBe("Hello there.\n")

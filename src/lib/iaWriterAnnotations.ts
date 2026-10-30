@@ -1,6 +1,6 @@
 import { Plugin } from "unified"
 
-const annotationBlock = /(?:^|\r?\n)---[ \t]*\r?\n+Annotations:[ \t]+\d[\s\S]*?\r?\n\.\.\.\s*$/
+const annotationBlock = /(?:^|\r?\n)---[ \t]*\r?\n+Annotations:[ \t]+\d+,\d+[ \t]+SHA-256[ \t]+[0-9a-f]+[\s\S]*?\r?\n\.\.\.\s*$/
 
 /** Remove the authorship block iA Writer appends to the end of a Markdown file. */
 export function stripAnnotations(raw: string): string {
