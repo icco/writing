@@ -12,6 +12,10 @@ import { migrateImageUrls, remarkImageUrls } from "./src/lib/imageUrls"
 
 import { hashtagRegex, remarkHashtags } from "./src/lib/hashtags"
 import {
+  remarkStripAnnotations,
+  stripAnnotations,
+} from "./src/lib/iaWriterAnnotations"
+import {
   characterCount as countSourceCharacters,
   countBodyImages,
   countMarkdownLinks,
@@ -52,7 +56,7 @@ export const Post = defineDocumentType(() => ({
     tags: {
       type: "list",
       resolve: (post) => {
-        const match = post.body.raw.match(hashtagRegex)
+        const match = stripAnnotations(post.body.raw).match(hashtagRegex)
         if (!match) return []
         const tags = new Set<string>(
           match.map((m: string) =>
@@ -78,17 +82,17 @@ export const Post = defineDocumentType(() => ({
     },
     readingTime: {
       type: "number",
-      resolve: (post) => readingTime(post.body.raw).minutes,
+      resolve: (post) => readingTime(stripAnnotations(post.body.raw)).minutes,
     },
     wordCount: {
       type: "number",
-      resolve: (post) => readingTime(post.body.raw).words,
+      resolve: (post) => readingTime(stripAnnotations(post.body.raw)).words,
     },
     /** Distinct hashtags (same logic as `tags`, for stats without recomputing in React). */
     tagCount: {
       type: "number",
       resolve: (post) => {
-        const match = post.body.raw.match(hashtagRegex)
+        const match = stripAnnotations(post.body.raw).match(hashtagRegex)
         if (!match) return 0
         return new Set(
           match.map((m: string) =>
@@ -99,16 +103,16 @@ export const Post = defineDocumentType(() => ({
     },
     characterCount: {
       type: "number",
-      resolve: (post) => countSourceCharacters(post.body.raw),
+      resolve: (post) => countSourceCharacters(stripAnnotations(post.body.raw)),
     },
     linkCount: {
       type: "number",
-      resolve: (post) => countMarkdownLinks(post.body.raw),
+      resolve: (post) => countMarkdownLinks(stripAnnotations(post.body.raw)),
     },
     imageCount: {
       type: "number",
       resolve: (post) =>
-        countBodyImages(post.body.raw) + (post.header_image ? 1 : 0),
+        countBodyImages(stripAnnotations(post.body.raw)) + (post.header_image ? 1 : 0),
     },
     modifiedAt: {
       type: "string",
@@ -125,7 +129,7 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkImageUrls, remarkHashtags, remarkGfm],
+    remarkPlugins: [remarkStripAnnotations, remarkImageUrls, remarkHashtags, remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       rehypeGithubEmoji,
