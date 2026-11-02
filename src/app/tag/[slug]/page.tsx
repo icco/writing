@@ -36,7 +36,7 @@ export const generateMetadata = async (props: {
 export const generateStaticParams = async () => {
   const canonicalTags = allTags()
   const aliasSlugs = Object.keys(tagAliases)
-  
+
   // Generate params for both canonical tags and their aliases
   return [
     ...canonicalTags.map((tag) => ({ slug: tag })),
@@ -63,7 +63,10 @@ const TagLayout = async (props: { params: Promise<{ slug: string }> }) => {
   return (
     <>
       <h1 className="my-8 text-center text-4xl font-bold">#{normalizedSlug}</h1>
-      <div className="mx-auto max-w-3xl px-8 py-7">
+      <div className="h-feed mx-auto max-w-3xl px-8 py-7">
+        <span className="p-name" hidden>
+          Posts tagged #{normalizedSlug}
+        </span>
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}

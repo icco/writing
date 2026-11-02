@@ -1,6 +1,7 @@
 import { Metadata, Viewport } from "next"
 
 import { PostCard } from "@/components/PostCard"
+import { AuthorCard } from "@/components/AuthorCard"
 import publishedPosts from "@/lib/posts"
 import { siteUrl } from "@/lib/siteUrl"
 
@@ -30,7 +31,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: [{ url: "/api/og", alt: "Nat? Nat. Nat! - The personal blog of Nat Welch" }],
+    images: [
+      {
+        url: "/api/og",
+        alt: "Nat? Nat. Nat! - The personal blog of Nat Welch",
+      },
+    ],
   },
   alternates: {
     canonical: "/",
@@ -54,7 +60,11 @@ export default function Home() {
     <>
       <h1 className="my-8 text-center text-4xl font-bold">{title}</h1>
 
-      <div className="mx-auto max-w-3xl px-8 py-7">
+      <AuthorCard representative hidden />
+      <div className="h-feed mx-auto max-w-3xl px-8 py-7">
+        <span className="p-name" hidden>
+          {title}
+        </span>
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}
