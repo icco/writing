@@ -76,7 +76,7 @@ export function Webmentions({
   return (
     <section
       aria-label="Responses"
-      className="not-prose rounded-box border-base-content/10 bg-base-200/40 mx-auto mt-12 w-full max-w-5xl border px-4 py-3 text-sm shadow-sm sm:px-6"
+      className="not-prose rounded-box border-base-content/10 bg-base-200/40 mx-auto -mt-12 mb-16 w-full max-w-5xl border px-4 py-3 text-sm shadow-sm sm:px-6"
     >
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
         <span className="text-base-content/60 font-medium">Responses</span>
