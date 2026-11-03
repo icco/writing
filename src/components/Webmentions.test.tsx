@@ -16,12 +16,12 @@ test("all reaction kinds render safe text and isolated citations", () => {
     groups[reaction.kind].push(reaction)
   }
   const html = renderToStaticMarkup(<article className="h-entry"><h1 className="p-name">Original</h1><div className="e-content">Body</div><Webmentions reactions={groups} target={target} /></article>)
-  expect(html).toContain("1 likes")
-  expect(html).toContain("1 reposts")
-  expect(html).toContain("1 bookmarks")
+  expect(html).toContain('title="1 like"')
+  expect(html).toContain('title="1 repost"')
+  expect(html).toContain('title="1 bookmark"')
   expect(html).toContain("&lt;script&gt;evil&lt;/script&gt;")
   expect(html).not.toContain("<script>")
-  expect(html).toContain('width="32"')
+  expect(html).toContain('width="24"')
   expect(html).toContain('referrerPolicy="no-referrer"')
   const entry = mf2(html, { baseUrl: target }).items[0]
   expect(entry.properties.name).toEqual(["Original"])
