@@ -41,6 +41,7 @@ export async function runSender(options: {
   limit: number
   post?: number
   statePath: string
+  deadline?: number
 }): Promise<void> {
   if (
     !Number.isInteger(options.limit) ||
@@ -58,10 +59,16 @@ export async function runSender(options: {
   const validated = parsed.data
     .map((post) => ({ id: post.id, source: `${BLOG_URL}${post.permalink}` }))
     .sort((a, b) => a.id - b.id)
+  const expired = () => {
+    if (options.deadline === undefined || Date.now() < options.deadline)
+      return false
+    console.log("Time budget reached; stopping")
+    return true
+  }
   let count = 0
   for (const post of validated) {
     if (options.post !== undefined && options.post !== post.id) continue
-    if (count >= options.limit) break
+    if (count >= options.limit || expired()) return
     let snapshot
     try {
       const response = await safeRequest(post.source)
@@ -73,6 +80,7 @@ export async function runSender(options: {
       continue
     }
     for (const operation of planOperations(snapshot, state, new Date())) {
+      if (expired()) return
       if (count++ >= options.limit) break
       console.log(
         `${options.send ? "SEND" : "DRY-RUN"} ${operation.source} -> ${operation.target} (${operation.operation})`

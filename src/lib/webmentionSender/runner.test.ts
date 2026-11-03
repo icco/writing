@@ -183,3 +183,40 @@ test("failed operations checkpoint and stop at three attempts", async () => {
   await runSender({ send: true, limit: 10, statePath: file })
   expect(delivery).toHaveBeenCalledTimes(6)
 })
+
+test("expired deadline stops cleanly before fetching sources", async () => {
+  const file = await statePath()
+  const requests = sourceMock()
+  const delivery = vi.spyOn(discovery, "deliverWebmention")
+  await runSender({
+    send: true,
+    limit: 10,
+    statePath: file,
+    deadline: Date.now() - 1,
+  })
+  expect(requests).toHaveBeenCalledTimes(1)
+  expect(delivery).not.toHaveBeenCalled()
+  await expect(readFile(file)).rejects.toMatchObject({ code: "ENOENT" })
+})
+
+test("deadline reached mid-post keeps completed checkpoints", async () => {
+  const file = await statePath()
+  sourceMock()
+  let now = 1000
+  vi.spyOn(Date, "now").mockImplementation(() => now)
+  const delivery = vi
+    .spyOn(discovery, "deliverWebmention")
+    .mockImplementation(async () => {
+      now = 2000
+      return { status: "accepted" }
+    })
+  await runSender({ send: true, limit: 10, statePath: file, deadline: 1500 })
+  expect(delivery).toHaveBeenCalledTimes(1)
+  expect(
+    Object.keys(
+      JSON.parse(await readFile(file, "utf8")).sources[
+        "https://writing.natwelch.com/post/1"
+      ].targets
+    )
+  ).toEqual(["https://example.com/a"])
+})
