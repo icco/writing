@@ -61,6 +61,7 @@ import ErrorPage from "./post/[slug]/error"
 import PostLayout, {
   generateMetadata as postMetadata,
   generateStaticParams as postParams,
+  revalidate as postRevalidate,
 } from "./post/[slug]/page"
 import { GET as postsJsonGET } from "./posts.json/route"
 import sitemap from "./sitemap"
@@ -208,6 +209,20 @@ describe("post page", () => {
     expect(html(await PostLayout(params({ slug: "1" })))).toContain(
       '"description":"First post"'
     )
+  })
+
+  test("skips webmention.io during next build and revalidates hourly", async () => {
+    mentions.calls.length = 0
+    vi.stubEnv("NEXT_PHASE", "phase-production-build")
+    try {
+      html(await PostLayout(params({ slug: "2" })))
+    } finally {
+      vi.unstubAllEnvs()
+    }
+    expect(mentions.calls).toEqual([])
+    html(await PostLayout(params({ slug: "2" })))
+    expect(mentions.calls).toEqual([2])
+    expect(postRevalidate).toBe(3600)
   })
 
   test("drafts require draft mode", async () => {
