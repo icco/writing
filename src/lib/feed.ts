@@ -6,7 +6,7 @@ import { remark } from "remark"
 import remarkGfm from "remark-gfm"
 import remarkHtml from "remark-html"
 
-import { Post } from "contentlayer/generated"
+import { Post } from "content-collections"
 
 import { getHeaderImageAlt, toAbsoluteImageUrl } from "@/lib/absoluteImageUrl"
 

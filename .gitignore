@@ -27,8 +27,8 @@ next-env.d.ts
 .dccache
 .iac-data
 
-# contentlayer
-.contentlayer
+# content-collections
+.content-collections
 package-lock.json
 *.tsbuildinfo
 __pycache__/

@@ -7,7 +7,7 @@ This is a static React frontend for a personal blog at writing.natwelch.com. The
 - **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript with strict mode enabled
 - **Styling**: Tailwind CSS 4.0 with DaisyUI components
-- **Content**: MDX files processed via Contentlayer2
+- **Content**: MDX files processed via content-collections
 - **Runtime**: React 19
 - **Linting**: ESLint with TypeScript, Prettier, and Next.js configs
 
@@ -62,7 +62,7 @@ This is a static React frontend for a personal blog at writing.natwelch.com. The
 ## Content and MDX
 
 - Blog posts are written in MDX format in the `posts/` directory
-- Use Contentlayer2 for processing MDX content
+- Use content-collections for processing MDX content
 - Support for GitHub emoji, Mermaid diagrams, and syntax highlighting
 - Use remark and rehype plugins for content processing
 
@@ -90,15 +90,15 @@ This is a static React frontend for a personal blog at writing.natwelch.com. The
 
 # Common Commands
 
-- `pnpm dev`: Start development server (runs contentlayer and next dev in parallel)
-- `pnpm build`: Build for production (includes contentlayer build)
+- `pnpm dev`: Start development server (runs content-collections and next dev in parallel)
+- `pnpm build`: Build for production (includes content-collections build)
 - `pnpm lint`: Run ESLint with auto-fix
 - `pnpm lint:spell`: Check spelling in posts
 - `pnpm start`: Start production server
 
 # Additional Notes
 
-- The project uses Contentlayer2 to process MDX files at build time
+- The project uses content-collections to process MDX files at build time
 - The site supports both light and dark themes via next-themes
 - RSS feed generation is supported via the feed package
 - Code syntax highlighting uses starry-night

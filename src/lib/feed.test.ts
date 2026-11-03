@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from "vitest"
 
-import { makePost } from "@/test/contentlayerFixture"
+import { makePost } from "@/test/postFixture"
 
 import generateFeed from "./feed"
 

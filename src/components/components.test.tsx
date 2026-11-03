@@ -1,18 +1,22 @@
 import { renderToStaticMarkup } from "react-dom/server"
 import { describe, expect, test, vi } from "vitest"
 
-import { makePost } from "@/test/contentlayerFixture"
+import { makePost } from "@/test/postFixture"
 
-vi.mock("next-contentlayer2/hooks", () => ({
-  useMDXComponent:
-    () =>
-    ({ components }: { components: Record<string, React.FC<never>> }) => {
+vi.mock("@mdx-js/mdx", () => ({
+  runSync: () => ({
+    default: ({
+      components,
+    }: {
+      components: Record<string, React.FC<never>>
+    }) => {
       const A = components.a as unknown as React.FC<{
         href: string
         children: React.ReactNode
       }>
       return <A href="/x">mdx-link</A>
     },
+  }),
 }))
 
 vi.mock("@icco/react-common/SiteHeader", () => ({
@@ -115,18 +119,14 @@ describe("components", () => {
   })
 
   test("PostHeaderImage only renders with a header image", () => {
-    expect(html(<PostHeaderImage post={makePost({ id: 1 })} />)).toBe(
-      ""
-    )
+    expect(html(<PostHeaderImage post={makePost({ id: 1 })} />)).toBe("")
     const out = html(
       <PostHeaderImage
-        post={
-          makePost({
-            id: 1,
-            header_image: "https://icco.imgix.net/h.jpg",
-            header_image_alt_text: "Hero",
-          })
-        }
+        post={makePost({
+          id: 1,
+          header_image: "https://icco.imgix.net/h.jpg",
+          header_image_alt_text: "Hero",
+        })}
       />
     )
     expect(out).toContain('alt="Hero"')
