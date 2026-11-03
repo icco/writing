@@ -78,7 +78,7 @@ This is a static React frontend for a personal blog at writing.natwelch.com. The
 - Use `pnpm dev` to run the development server
 - Use `pnpm build` to create a production build
 - Use `pnpm lint` to check code quality
-- The project uses npm-run-all to run multiple dev tasks in parallel
+- The project uses npm-run-all2 to run multiple dev tasks in parallel
 
 # Security Practices
 
