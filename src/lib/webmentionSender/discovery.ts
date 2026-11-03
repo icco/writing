@@ -41,7 +41,7 @@ export async function discoverEndpoint(target: string): Promise<string | null> {
     const link = dom.window.document.querySelector(
       'link[rel~="webmention"][href], a[rel~="webmention"][href]'
     )
-    return link ? new URL(link.getAttribute("href")!, res.url).href : null
+    return link ? new URL(link.getAttribute("href")!, link.baseURI).href : null
   } finally {
     dom.window.close()
   }

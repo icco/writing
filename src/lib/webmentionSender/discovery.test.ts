@@ -201,3 +201,15 @@ test("successful page without endpoint is distinct from failures", async () => {
     ).status
   ).toBe("no-endpoint")
 })
+
+test("HTML discovery honors the document base element", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/post",
+    status: 200,
+    headers: new Headers({ "content-type": "text/html" }),
+    body: '<base href="/api/"><link rel="webmention" href="wm">',
+  })
+  expect(await discoverEndpoint("https://example.com/post")).toBe(
+    "https://example.com/api/wm"
+  )
+})
