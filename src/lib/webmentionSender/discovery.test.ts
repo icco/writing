@@ -104,3 +104,82 @@ describe("endpoint discovery and delivery", () => {
     expect(result.status).toBe("accepted")
   })
 })
+
+test("HTML discovery resolves empty and relative hrefs against final URL", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/final",
+    status: 200,
+    headers: new Headers({ "content-type": "text/html; charset=utf-8" }),
+    body: '<a rel="webmention" href="">Endpoint</a>',
+  })
+  expect(await discoverEndpoint("https://example.com/start")).toBe(
+    "https://example.com/final"
+  )
+})
+
+test("non-2xx discovery is retryable and valid HTML without links has no endpoint", async () => {
+  vi.spyOn(network, "safeRequest")
+    .mockResolvedValueOnce({
+      url: "https://example.com/",
+      status: 503,
+      headers: new Headers(),
+      body: "",
+    })
+    .mockResolvedValueOnce({
+      url: "https://example.com/",
+      status: 200,
+      headers: new Headers({ "content-type": "text/html" }),
+      body: "<p>Nothing</p>",
+    })
+  expect(
+    (
+      await deliverWebmention(
+        "https://writing.natwelch.com/post/1",
+        "https://example.com/"
+      )
+    ).status
+  ).toBe("failed")
+  expect(await discoverEndpoint("https://example.com/")).toBeNull()
+})
+
+test.each(["3600", "Tue, 03 Nov 2026 14:00:00 GMT", "bad"])(
+  "records receiver retry policy %s",
+  async (retry) => {
+    vi.spyOn(network, "safeRequest")
+      .mockResolvedValueOnce({
+        url: "https://example.com/",
+        status: 200,
+        headers: new Headers({ Link: '</wm>; rel="webmention"' }),
+        body: "",
+      })
+      .mockResolvedValueOnce({
+        url: "https://example.com/wm",
+        status: 429,
+        headers: new Headers({ "retry-after": retry }),
+        body: "",
+      })
+    const result = await deliverWebmention(
+      "https://writing.natwelch.com/post/1",
+      "https://example.com/"
+    )
+    expect(result.status).toBe("failed")
+    expect(Boolean(result.retryAt)).toBe(retry !== "bad")
+  }
+)
+
+test("successful page without endpoint is distinct from failures", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers(),
+    body: "",
+  })
+  expect(
+    (
+      await deliverWebmention(
+        "https://writing.natwelch.com/post/1",
+        "https://example.com/"
+      )
+    ).status
+  ).toBe("no-endpoint")
+})
