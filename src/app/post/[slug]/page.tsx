@@ -5,6 +5,7 @@ import {
 } from "@heroicons/react/24/outline"
 import { format, parseISO } from "date-fns"
 import type { Viewport } from "next"
+import { PHASE_PRODUCTION_BUILD } from "next/constants"
 import { draftMode } from "next/headers"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -23,6 +24,8 @@ import publishedPosts, {
   previousPost,
 } from "@/lib/posts"
 import { siteUrl } from "@/lib/siteUrl"
+
+export const revalidate = 3600
 
 export const generateStaticParams = async () =>
   publishedPosts()
@@ -104,7 +107,9 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
   }
 
   const reactions =
-    !post.draft && new Date(post.datetime) <= new Date()
+    !post.draft &&
+    new Date(post.datetime) <= new Date() &&
+    process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD
       ? await getWebmentions(post.id, post.permalink)
       : emptyReactions()
   const prev = previousPost(post.id)
