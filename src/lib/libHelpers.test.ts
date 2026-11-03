@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, test, vi } from "vitest"
 
-import { allPosts, makePost } from "@/test/contentlayerFixture"
+import { allPosts, makePost } from "@/test/postFixture"
 
 import {
   getHeaderImageAlt,

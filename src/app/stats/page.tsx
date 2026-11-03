@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import { differenceInDays, getYear } from "date-fns"
 import Link from "next/link"
 
-import { allPosts, Post } from "contentlayer/generated"
+import { allPosts, Post } from "content-collections"
 
 import publishedPosts from "@/lib/posts"
 import { siteUrl } from "@/lib/siteUrl"

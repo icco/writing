@@ -4,7 +4,7 @@ import reactHooks from "eslint-plugin-react-hooks"
 
 const eslintConfig = [
   {
-    ignores: [".contentlayer/", ".next/", "node_modules/", "next-env.d.ts"],
+    ignores: [".content-collections/", ".next/", "node_modules/", "next-env.d.ts"],
   },
   {
     files: ["**/*.{js,jsx,mjs,ts,tsx,mts,cts}"],

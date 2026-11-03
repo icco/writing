@@ -3,7 +3,7 @@ import { getYear } from "date-fns"
 
 import { allTags } from "@/components/Tag"
 
-import { allPosts } from "contentlayer/generated"
+import { allPosts } from "content-collections"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const domain = process.env.DOMAIN || "http://localhost:8080"

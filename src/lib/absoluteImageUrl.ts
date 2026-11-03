@@ -1,4 +1,4 @@
-import { Post } from "contentlayer/generated"
+import { Post } from "content-collections"
 import { migrateImageUrls } from "./imageUrls"
 
 /** For JSON-LD and feeds: `social_image` is either a full URL or a root-relative path. */
