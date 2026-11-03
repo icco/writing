@@ -16,7 +16,6 @@ export async function discoverEndpoint(targetUrl: string): Promise<string | null
         }
       }
     }
-    const contentType = res.headers.get("Content-Type") || ""
     const dom = new JSDOM(res.body, { url: targetUrl })
     const links = dom.window.document.querySelectorAll("link[rel~='webmention'], a[rel~='webmention']")
     for (const link of links) {
@@ -28,6 +27,8 @@ export async function discoverEndpoint(targetUrl: string): Promise<string | null
   }
   return null
 }
+
+
 
 
 export async function deliverWebmention(source: string, target: string): Promise<{ status: "accepted" | "no-endpoint" | "failed"; endpoint?: string; httpStatus?: number; retryAt?: string }> {
