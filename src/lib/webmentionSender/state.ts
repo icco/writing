@@ -82,13 +82,16 @@ export function planOperations(
     const operation = present.has(target) ? "present" : "removed"
     if (operation === "removed" && !record?.acceptedVersion) continue
     const version = operation === "present" ? snapshot.fingerprint : "removed"
+    if (
+      record?.status === "failed" &&
+      Date.parse(record.retryAt || "") > now.getTime()
+    )
+      continue
     const same = record?.version === version && record.operation === operation
     if (
       same &&
       (record.status === "accepted" ||
-        (record.status === "failed" &&
-          (record.attempts >= 3 ||
-            Date.parse(record.retryAt || "") > now.getTime())) ||
+        (record.status === "failed" && record.attempts >= 3) ||
         (record.status === "no-endpoint" &&
           now.getTime() - Date.parse(record.lastAttempt) < 90 * 86400000))
     )

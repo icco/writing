@@ -89,3 +89,29 @@ test("rechecks no-endpoint after 90 days and resets failed attempts for new vers
     )
   ).toHaveLength(1)
 })
+
+test("receiver retry delays apply to new source versions", () => {
+  const now = new Date("2026-01-01Z")
+  const snapshot = extractSnapshot(source, html())
+  const state: SenderState = {
+    version: 1,
+    sources: {
+      [source]: {
+        targets: {
+          [target]: {
+            version: "old",
+            operation: "present",
+            status: "failed",
+            attempts: 1,
+            lastAttempt: now.toISOString(),
+            retryAt: "2026-01-02T00:00:00Z",
+          },
+        },
+      },
+    },
+  }
+  expect(planOperations(snapshot, state, now)).toEqual([])
+  expect(planOperations(snapshot, state, new Date("2026-01-03Z"))).toHaveLength(
+    1
+  )
+})
