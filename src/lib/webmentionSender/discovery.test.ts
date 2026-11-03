@@ -1,0 +1,259 @@
+import { describe, expect, test, vi } from "vitest"
+import { discoverEndpoint, deliverWebmention } from "./discovery"
+import * as network from "./network"
+
+describe("endpoint discovery and delivery", () => {
+  test.each([
+    "</wm>; rel=webmention",
+    '</wm>; type="text/plain"; rel="alternate webmention"',
+  ])("discovers header %s", async (header) => {
+    vi.spyOn(network, "safeRequest").mockResolvedValue({
+      url: "https://example.com/final",
+      status: 200,
+      headers: new Headers({ Link: header }),
+      body: "",
+    })
+    expect(await discoverEndpoint("https://example.com/start")).toBe(
+      "https://example.com/wm"
+    )
+  })
+
+  test("transient discovery errors remain failures", async () => {
+    vi.spyOn(network, "safeRequest").mockRejectedValue(new Error("offline"))
+    expect(
+      (
+        await deliverWebmention(
+          "https://writing.natwelch.com/post/1",
+          "https://example.com"
+        )
+      ).status
+    ).toBe("failed")
+  })
+
+  test("does not parse plain-text examples as endpoints", async () => {
+    vi.spyOn(network, "safeRequest").mockResolvedValue({
+      url: "https://example.com/",
+      status: 200,
+      headers: new Headers({ "content-type": "text/plain" }),
+      body: '<a rel="webmention" href="/wm">Example</a>',
+    })
+    expect(await discoverEndpoint("https://example.com/")).toBeNull()
+  })
+  test("Link header precedes HTML and form contains exact source/target", async () => {
+    const spy = vi
+      .spyOn(network, "safeRequest")
+      .mockImplementation(
+        async (
+          url: string,
+          init?: { method?: "GET" | "POST"; body?: string }
+        ) => {
+          if (url === "https://example.com/post") {
+            return {
+              url,
+              status: 200,
+              headers: new Headers({
+                Link: '<https://example.com/wm>; rel="webmention"',
+              }),
+              body: "ok",
+            }
+          }
+          if (url === "https://example.com/wm") {
+            expect(init?.method).toBe("POST")
+            expect(init?.body).toBe(
+              "source=https%3A%2F%2Fwriting.natwelch.com%2Fpost%2F1&target=https%3A%2F%2Fexample.com%2Fpost%23frag"
+            )
+            return {
+              url,
+              status: 202,
+              headers: new Headers(),
+              body: "Accepted",
+            }
+          }
+          return { url, status: 404, headers: new Headers(), body: "not found" }
+        }
+      )
+    const endpoint = await discoverEndpoint("https://example.com/post")
+    expect(endpoint).toBe("https://example.com/wm")
+    spy.mockRestore()
+    vi.spyOn(network, "safeRequest").mockImplementation(
+      async (
+        url: string,
+        init?: { method?: "GET" | "POST"; body?: string }
+      ) => {
+        if (url === "https://example.com/wm") {
+          expect(init?.method).toBe("POST")
+          expect(init?.body).toBe(
+            "source=https%3A%2F%2Fwriting.natwelch.com%2Fpost%2F1&target=https%3A%2F%2Fexample.com%2Fpost%23frag"
+          )
+          return { url, status: 202, headers: new Headers(), body: "Accepted" }
+        }
+        return {
+          url,
+          status: 200,
+          headers: new Headers({
+            Link: '<https://example.com/wm>; rel="webmention"',
+          }),
+          body: "ok",
+        }
+      }
+    )
+    const result = await deliverWebmention(
+      "https://writing.natwelch.com/post/1",
+      "https://example.com/post#frag"
+    )
+    expect(result.status).toBe("accepted")
+  })
+})
+
+test("HTML discovery resolves empty and relative hrefs against final URL", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/final",
+    status: 200,
+    headers: new Headers({ "content-type": "text/html; charset=utf-8" }),
+    body: '<a rel="webmention" href="">Endpoint</a>',
+  })
+  expect(await discoverEndpoint("https://example.com/start")).toBe(
+    "https://example.com/final"
+  )
+})
+
+test("non-2xx discovery is retryable and valid HTML without links has no endpoint", async () => {
+  vi.spyOn(network, "safeRequest")
+    .mockResolvedValueOnce({
+      url: "https://example.com/",
+      status: 503,
+      headers: new Headers(),
+      body: "",
+    })
+    .mockResolvedValueOnce({
+      url: "https://example.com/",
+      status: 200,
+      headers: new Headers({ "content-type": "text/html" }),
+      body: "<p>Nothing</p>",
+    })
+  expect(
+    (
+      await deliverWebmention(
+        "https://writing.natwelch.com/post/1",
+        "https://example.com/"
+      )
+    ).status
+  ).toBe("failed")
+  expect(await discoverEndpoint("https://example.com/")).toBeNull()
+})
+
+test.each(["3600", "Tue, 03 Nov 2026 14:00:00 GMT", "bad"])(
+  "records receiver retry policy %s",
+  async (retry) => {
+    vi.spyOn(network, "safeRequest")
+      .mockResolvedValueOnce({
+        url: "https://example.com/",
+        status: 200,
+        headers: new Headers({ Link: '</wm>; rel="webmention"' }),
+        body: "",
+      })
+      .mockResolvedValueOnce({
+        url: "https://example.com/wm",
+        status: 429,
+        headers: new Headers({ "retry-after": retry }),
+        body: "",
+      })
+    const result = await deliverWebmention(
+      "https://writing.natwelch.com/post/1",
+      "https://example.com/"
+    )
+    expect(result.status).toBe("failed")
+    expect(Boolean(result.retryAt)).toBe(retry !== "bad")
+  }
+)
+
+test.each(["3600", "Tue, 03 Nov 2026 14:00:00 GMT", "bad"])(
+  "records discovery retry policy %s",
+  async (retry) => {
+    vi.spyOn(network, "safeRequest").mockResolvedValueOnce({
+      url: "https://example.com/",
+      status: 429,
+      headers: new Headers({ "retry-after": retry }),
+      body: "",
+    })
+    const result = await deliverWebmention(
+      "https://writing.natwelch.com/post/1",
+      "https://example.com/"
+    )
+    expect(result).toMatchObject({ status: "failed", httpStatus: 429 })
+    expect(Boolean(result.retryAt)).toBe(retry !== "bad")
+  }
+)
+
+test("successful page without endpoint is distinct from failures", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers(),
+    body: "",
+  })
+  expect(
+    (
+      await deliverWebmention(
+        "https://writing.natwelch.com/post/1",
+        "https://example.com/"
+      )
+    ).status
+  ).toBe("no-endpoint")
+})
+
+test("HTML discovery honors the document base element", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/post",
+    status: 200,
+    headers: new Headers({ "content-type": "text/html" }),
+    body: '<base href="/api/"><link rel="webmention" href="wm">',
+  })
+  expect(await discoverEndpoint("https://example.com/post")).toBe(
+    "https://example.com/api/wm"
+  )
+})
+
+test.each([
+  "text/html ; charset=utf-8",
+  " TEXT/HTML",
+  "application/xhtml+xml;charset=utf-8",
+])("HTML discovery accepts content type %s", async (contentType) => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers({ "content-type": contentType }),
+    body: '<link rel="webmention" href="/wm">',
+  })
+  expect(await discoverEndpoint("https://example.com/")).toBe(
+    "https://example.com/wm"
+  )
+})
+
+test("first webmention Link header wins", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers([
+      ["link", '</first>; rel="alternate webmention"'],
+      ["link", "</second>; rel=webmention"],
+    ]),
+    body: "",
+  })
+  expect(await discoverEndpoint("https://example.com/")).toBe(
+    "https://example.com/first"
+  )
+})
+
+test("malformed Link header falls back to HTML discovery", async () => {
+  vi.spyOn(console, "warn").mockImplementation(() => {})
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers({ link: "garbage", "content-type": "text/html" }),
+    body: '<link rel="webmention" href="/wm">',
+  })
+  expect(await discoverEndpoint("https://example.com/")).toBe(
+    "https://example.com/wm"
+  )
+})

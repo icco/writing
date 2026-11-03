@@ -71,6 +71,14 @@ const nextConfig = {
         source: "/(.*)",
         headers: [
           {
+            key: "Link",
+            value: '<https://webmention.io/writing.natwelch.com/webmention>; rel="webmention", <https://natwelch.com>; rel="me"',
+          },
+          {
+            key: "X-Pingback",
+            value: "https://webmention.io/writing.natwelch.com/xmlrpc",
+          },
+          {
             key: "NEL",
             value: JSON.stringify({ report_to: "default", max_age: 2592000 }),
           },
@@ -110,6 +118,7 @@ const nextConfig = {
                 "data:",
                 "https://*.natwelch.com",
                 "https://images.natwelch.com",
+                "https://avatars.webmention.io",
               ],
               scriptSrc: [
                 "'self'",

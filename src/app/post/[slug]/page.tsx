@@ -9,13 +9,14 @@ import { draftMode } from "next/headers"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
+import { AuthorCard } from "@/components/AuthorCard"
+import { Webmentions } from "@/components/Webmentions"
+import { emptyReactions, getWebmentions } from "@/lib/webmentions"
+import { canonicalPostUrl } from "@/lib/indieweb"
 import { MDXContent } from "@/components/MDXContent"
 import PostHeaderImage from "@/components/PostHeaderImage"
 import { PostStats } from "@/components/PostStats"
-import {
-  getHeaderImageAlt,
-  toAbsoluteImageUrl,
-} from "@/lib/absoluteImageUrl"
+import { getHeaderImageAlt, toAbsoluteImageUrl } from "@/lib/absoluteImageUrl"
 import publishedPosts, {
   getPostBySlug,
   nextPost,
@@ -102,6 +103,10 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
     notFound()
   }
 
+  const reactions =
+    !post.draft && new Date(post.datetime) <= new Date()
+      ? await getWebmentions(post.id, post.permalink)
+      : emptyReactions()
   const prev = previousPost(post.id)
   const next = nextPost(post.id)
 
@@ -139,36 +144,55 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="mx-auto flex max-w-5xl flex-col px-4 pt-7 pb-3 md:px-6 md:pt-8 lg:px-8">
+      <article className="h-entry mx-auto flex max-w-5xl flex-col px-4 pt-7 pb-3 md:px-6 md:pt-8 lg:px-8">
         {post.header_image && <PostHeaderImage post={post} />}
         <div className="mb-8 text-center">
           <div className="text-xs">
             <span className="mx-1 inline-block">
-              <Link href={post.url}>#{post.id}</Link>
+              <Link
+                className={post.draft ? undefined : "u-url u-uid"}
+                href={post.draft ? post.url : canonicalPostUrl(post.permalink)}
+              >
+                #{post.id}
+              </Link>
             </span>
             <span className="mx-1 inline-block">&mdash;</span>
-            <time className="mx-1 inline-block" dateTime={post.datetime}>
+            <time
+              className="dt-published mx-1 inline-block"
+              dateTime={post.datetime}
+            >
               {format(parseISO(post.datetime), "LLLL d, yyyy")}
             </time>
           </div>
-          <h1 className={post.header_image ? "mt-2" : undefined}>
+          <h1 className={post.header_image ? "p-name mt-2" : "p-name"}>
             {post.title}
           </h1>
           <div className="text-xs">
             <span className="mx-1 inline-block">
-              By <Link href="https://natwelch.com">Nat Welch</Link>
+              By <AuthorCard />
             </span>
           </div>
-          {post.draft && (
-            <div className="text-error mb-1 text-xs">DRAFT</div>
-          )}
+          {post.draft && <div className="text-error mb-1 text-xs">DRAFT</div>}
         </div>
 
-        <div className="prose lg:prose-xl max-w-5xl">
+        {post.summary && (
+          <span className="p-summary" hidden>
+            {post.summary}
+          </span>
+        )}
+        {post.tags.map((tag: string) => (
+          <data key={tag} className="p-category" value={tag} hidden />
+        ))}
+        <div className="e-content prose lg:prose-xl max-w-5xl">
           <MDXContent code={post.body.code} />
         </div>
 
         <PostStats post={post} />
+
+        <Webmentions
+          reactions={reactions}
+          target={canonicalPostUrl(post.permalink)}
+        />
 
         <div className="mx-auto flex w-full pt-4 pb-1 align-middle">
           <div className="flex-none">

@@ -32,3 +32,5 @@ next-env.d.ts
 package-lock.json
 *.tsbuildinfo
 __pycache__/
+.worktrees/
+.superpowers/

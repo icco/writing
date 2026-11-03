@@ -1,7 +1,20 @@
 import { renderToStaticMarkup } from "react-dom/server"
+import { mf2 } from "microformats-parser"
 import { beforeEach, describe, expect, test, vi } from "vitest"
 
 const draft = vi.hoisted(() => ({ isEnabled: false, enable: vi.fn() }))
+
+const mentions = vi.hoisted(() => ({ calls: [] as number[] }))
+vi.mock("@/lib/webmentions", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/webmentions")>()
+  return {
+    ...actual,
+    getWebmentions: async (id: number) => {
+      mentions.calls.push(id)
+      return actual.emptyReactions()
+    },
+  }
+})
 
 vi.mock("next/navigation", () => ({
   notFound: vi.fn(() => {
@@ -72,6 +85,61 @@ beforeEach(() => {
   draft.enable.mockClear()
 })
 
+describe("IndieWeb markup", () => {
+  const parse = (markup: string) =>
+    mf2(markup, { baseUrl: "https://writing.natwelch.com/" })
+
+  test("root layout advertises discovery links without duplicate meta tags", () => {
+    expect(rootMetadata.other?.webmention).toBeUndefined()
+    expect(rootMetadata.other?.pingback).toBeUndefined()
+    const parsed = parse(html(<RootLayout>child</RootLayout>))
+    expect(parsed.rels.webmention).toEqual([
+      "https://webmention.io/writing.natwelch.com/webmention",
+    ])
+    expect(parsed.rels.me).toEqual(["https://natwelch.com"])
+  })
+
+  test("post properties describe the author and body, not navigation", async () => {
+    const entry = parse(
+      html(await PostLayout(params({ slug: "1" })))
+    ).items.find((item) => item.type?.includes("h-entry"))
+    expect(entry?.properties).toMatchObject({
+      name: ["Post 1"],
+      url: ["https://writing.natwelch.com/post/1"],
+      summary: ["First post"],
+      author: [
+        {
+          type: ["h-card"],
+          properties: { name: ["Nat Welch"], url: ["https://natwelch.com"] },
+        },
+      ],
+      content: [{ value: "mdx-body" }],
+    })
+    expect(entry?.properties.updated).toBeUndefined()
+  })
+
+  test("home has a named feed and representative homepage card", () => {
+    const parsed = parse(html(<Home />))
+    const feed = parsed.items.find((item) => item.type?.includes("h-feed"))
+    expect(feed?.properties.name).toEqual(["Nat? Nat. Nat!"])
+    expect(feed?.children).toHaveLength(3)
+    const card = parsed.items.find((item) => item.type?.includes("h-card"))
+    expect(card?.properties.uid).toEqual(["https://writing.natwelch.com/"])
+  })
+
+  test("tag and year lists are feeds", async () => {
+    for (const page of [
+      await TagLayout(params({ slug: "coding" })),
+      await YearLayout(params({ year: "2021" })),
+    ]) {
+      const feed = parse(html(page)).items.find((item) =>
+        item.type?.includes("h-feed")
+      )
+      expect(feed?.children?.length).toBeGreaterThan(0)
+    }
+  })
+})
+
 describe("static pages", () => {
   test("home, drafts, tags, years, stats", () => {
     expect(html(<Home />)).toContain("Post 3")
@@ -103,9 +171,7 @@ describe("static pages", () => {
     ]
     for (const [digest, code] of cases) {
       const error = Object.assign(new Error("x"), { digest })
-      expect(html(<ErrorPage error={error} reset={() => {}} />)).toContain(
-        code
-      )
+      expect(html(<ErrorPage error={error} reset={() => {}} />)).toContain(code)
     }
   })
 
@@ -192,9 +258,7 @@ describe("year page", () => {
   })
 
   test("renders and 404s", async () => {
-    expect(html(await YearLayout(params({ year: "2021" })))).toContain(
-      "Post 3"
-    )
+    expect(html(await YearLayout(params({ year: "2021" })))).toContain("Post 3")
     await expect(YearLayout(params({ year: "abc" }))).rejects.toThrow(
       "NEXT_NOT_FOUND"
     )
@@ -239,7 +303,8 @@ describe("route handlers", () => {
     vi.spyOn(console, "log").mockImplementation(() => {})
     vi.spyOn(console, "error").mockImplementation(() => {})
     vi.stubEnv("SECRET_TOKEN", "s")
-    const call = (q: string) => draftGET(new Request(`https://x/api/draft?${q}`))
+    const call = (q: string) =>
+      draftGET(new Request(`https://x/api/draft?${q}`))
     expect((await call("secret=bad&slug=1")).status).toBe(401)
     expect((await call("secret=s")).status).toBe(400)
     expect((await call("secret=s&slug=999")).status).toBe(401)
