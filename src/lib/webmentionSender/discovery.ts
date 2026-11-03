@@ -1,5 +1,5 @@
 import { JSDOM } from "jsdom"
-import parseLinkHeader from "parse-link-header"
+import LinkHeader from "http-link-header"
 import { MIMEType } from "whatwg-mimetype"
 import { safeRequest, type SafeResponse } from "./network"
 
@@ -26,11 +26,20 @@ function retryAtFor(response: SafeResponse): string | undefined {
   ).toISOString()
 }
 
+function linkEndpoint(value: string | null): string | undefined {
+  try {
+    return LinkHeader.parse(value || "").rel("webmention")[0]?.uri
+  } catch (error) {
+    console.warn("Ignoring malformed Link header", error)
+    return undefined
+  }
+}
+
 export async function discoverEndpoint(target: string): Promise<string | null> {
   const res = await safeRequest(target)
   if (res.status < 200 || res.status >= 300) throw new DiscoveryError(res)
-  const header = parseLinkHeader(res.headers.get("link"))
-  if (header?.webmention) return new URL(header.webmention.url, res.url).href
+  const header = linkEndpoint(res.headers.get("link"))
+  if (header !== undefined) return new URL(header, res.url).href
   const type = MIMEType.parse(res.headers.get("content-type") || "")
   if (!type || !["text/html", "application/xhtml+xml"].includes(type.essence))
     return null

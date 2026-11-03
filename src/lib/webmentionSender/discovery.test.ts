@@ -229,3 +229,31 @@ test.each([
     "https://example.com/wm"
   )
 })
+
+test("first webmention Link header wins", async () => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers([
+      ["link", '</first>; rel="alternate webmention"'],
+      ["link", "</second>; rel=webmention"],
+    ]),
+    body: "",
+  })
+  expect(await discoverEndpoint("https://example.com/")).toBe(
+    "https://example.com/first"
+  )
+})
+
+test("malformed Link header falls back to HTML discovery", async () => {
+  vi.spyOn(console, "warn").mockImplementation(() => {})
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers({ link: "garbage", "content-type": "text/html" }),
+    body: '<link rel="webmention" href="/wm">',
+  })
+  expect(await discoverEndpoint("https://example.com/")).toBe(
+    "https://example.com/wm"
+  )
+})
