@@ -5,9 +5,15 @@ import { beforeEach, describe, expect, test, vi } from "vitest"
 const draft = vi.hoisted(() => ({ isEnabled: false, enable: vi.fn() }))
 
 const mentions = vi.hoisted(() => ({ calls: [] as number[] }))
-vi.mock("@/lib/webmentions", async importOriginal => {
+vi.mock("@/lib/webmentions", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/webmentions")>()
-  return { ...actual, getWebmentions: async (id: number) => { mentions.calls.push(id); return actual.emptyReactions() } }
+  return {
+    ...actual,
+    getWebmentions: async (id: number) => {
+      mentions.calls.push(id)
+      return actual.emptyReactions()
+    },
+  }
 })
 
 vi.mock("next/navigation", () => ({
@@ -83,10 +89,14 @@ describe("IndieWeb markup", () => {
   const parse = (markup: string) =>
     mf2(markup, { baseUrl: "https://writing.natwelch.com/" })
 
-  test("root layout does not duplicate endpoint metadata", () => {
+  test("root layout advertises discovery links without duplicate meta tags", () => {
     expect(rootMetadata.other?.webmention).toBeUndefined()
     expect(rootMetadata.other?.pingback).toBeUndefined()
-    expect(html(<RootLayout>child</RootLayout>)).not.toContain('rel="webmention"')
+    const parsed = parse(html(<RootLayout>child</RootLayout>))
+    expect(parsed.rels.webmention).toEqual([
+      "https://webmention.io/writing.natwelch.com/webmention",
+    ])
+    expect(parsed.rels.me).toEqual(["https://natwelch.com"])
   })
 
   test("post properties describe the author and body, not navigation", async () => {

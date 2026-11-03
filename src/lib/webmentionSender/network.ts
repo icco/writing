@@ -1,7 +1,6 @@
 import dns from "node:dns/promises"
-import http from "node:http"
-import https from "node:https"
 import { isIP } from "node:net"
+import got, { type NormalizedOptions } from "got"
 import ipaddr from "ipaddr.js"
 
 export type SafeResponse = {
@@ -29,10 +28,8 @@ export async function safeRequest(
   options: Options = {}
 ): Promise<SafeResponse> {
   const signal = AbortSignal.timeout(10000)
-  let url = new URL(rawUrl)
-  let method = options.method || "GET"
-  let body = options.body
-  for (let hop = 0; hop <= 5; hop++) {
+  const validateDestination = async (request: NormalizedOptions) => {
+    const url = request.url!
     if (
       !["http:", "https:"].includes(url.protocol) ||
       url.username ||
@@ -58,68 +55,55 @@ export async function safeRequest(
     )
       throw new Error("Blocked private or reserved address")
     const pinned = addresses[0]
-    const response = await new Promise<SafeResponse>((resolve, reject) => {
-      const transport = url.protocol === "https:" ? https : http
-      const request = transport.request(
-        url,
-        {
-          method,
-          signal,
-          agent: false,
-          lookup: (_hostname, _options, callback) =>
-            callback(null, pinned.address, pinned.family),
-          headers: {
-            "User-Agent": "writing.natwelch.com webmention sender",
-            ...(body
-              ? { "Content-Type": "application/x-www-form-urlencoded" }
-              : {}),
-          },
-        },
-        (res) => {
-          const chunks: Buffer[] = []
-          let size = 0
-          res.on("error", reject)
-          res.on("data", (chunk: Buffer) => {
-            size += chunk.length
-            if (size > 2 * 1024 * 1024)
-              request.destroy(new Error("Response exceeds 2 MiB"))
-            else chunks.push(chunk)
-          })
-          res.on("end", () => {
-            const headers = new Headers()
-            for (const [key, values] of Object.entries(res.headers)) {
-              for (const value of Array.isArray(values)
-                ? values
-                : values === undefined
-                  ? []
-                  : [String(values)])
-                headers.append(key, value)
-            }
-            resolve({
-              url: url.href,
-              status: res.statusCode || 500,
-              headers,
-              body: Buffer.concat(chunks).toString("utf8"),
-            })
-          })
-        }
-      )
-      request.on("error", reject)
-      request.end(body)
-    })
-    const location = response.headers.get("location")
-    if (![301, 302, 303, 307, 308].includes(response.status) || !location)
-      return response
-    if (hop === 5) throw new Error("Too many redirects")
-    url = new URL(location, url)
-    if (
-      response.status === 303 ||
-      ((response.status === 301 || response.status === 302) &&
-        method === "POST")
-    ) {
-      method = "GET"
-      body = undefined
+    request.dnsLookup = (_hostname, lookupOptions, callback) => {
+      if (lookupOptions.all) callback(null, [pinned] as never)
+      else callback(null, pinned.address, pinned.family)
     }
   }
-  throw new Error("Too many redirects")
+  const response = got.stream(rawUrl, {
+    method: options.method || "GET",
+    body: options.body,
+    headers: {
+      "user-agent": "writing.natwelch.com Webmention sender",
+      ...(options.body
+        ? { "content-type": "application/x-www-form-urlencoded" }
+        : {}),
+    },
+    signal,
+    timeout: { request: 10000 },
+    retry: { limit: 0 },
+    maxRedirects: 5,
+    throwHttpErrors: false,
+    agent: { http: false, https: false },
+    hooks: {
+      beforeRequest: [validateDestination],
+      beforeRedirect: [validateDestination],
+    },
+  })
+  const chunks: Buffer[] = []
+  let size = 0
+  for await (const chunk of response) {
+    const buffer = Buffer.from(chunk)
+    size += buffer.length
+    if (size > 2 * 1024 * 1024) {
+      response.destroy()
+      throw new Error("Response exceeds 2 MiB")
+    }
+    chunks.push(buffer)
+  }
+  const headers = new Headers()
+  for (const [key, values] of Object.entries(response.response!.headers)) {
+    for (const value of Array.isArray(values)
+      ? values
+      : values === undefined
+        ? []
+        : [String(values)])
+      headers.append(key, value)
+  }
+  return {
+    url: response.response!.url,
+    status: response.response!.statusCode,
+    headers,
+    body: Buffer.concat(chunks).toString("utf8"),
+  }
 }

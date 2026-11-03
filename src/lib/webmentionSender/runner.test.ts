@@ -109,12 +109,32 @@ test.each([
   { version: 2, sources: {} },
   { version: 1, sources: { a: {} } },
   { version: 1, sources: { a: { targets: { b: {} } } } },
+  { version: 1, sources: { a: { targets: [] } } },
+  {
+    version: 1,
+    sources: {
+      a: {
+        targets: {
+          b: {
+            version: "v1",
+            operation: "present",
+            status: "failed",
+            attempts: 1,
+            lastAttempt: "2026-01-01T00:00:00Z",
+            retryAt: "not a date",
+          },
+        },
+      },
+    },
+  },
 ])("invalid state schema aborts", async (state) => {
+  const requests = sourceMock()
   const file = await statePath()
   await writeFile(file, JSON.stringify(state))
   await expect(
     runSender({ send: true, limit: 1, statePath: file })
-  ).rejects.toThrow("Invalid")
+  ).rejects.toThrow()
+  expect(requests).not.toHaveBeenCalled()
 })
 
 test("non-200 index and non-array JSON abort", async () => {

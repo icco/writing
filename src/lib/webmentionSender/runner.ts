@@ -1,9 +1,11 @@
 import fs from "node:fs/promises"
 import path from "node:path"
+import writeFileAtomic from "write-file-atomic"
 import { BLOG_URL } from "../indieweb"
 import { deliverWebmention } from "./discovery"
 import { safeRequest } from "./network"
 import { extractSnapshot, planOperations, type SenderState } from "./state"
+import { postIndexSchema, senderStateSchema } from "./schemas"
 
 async function loadState(file: string): Promise<SenderState> {
   let raw: string
@@ -14,38 +16,13 @@ async function loadState(file: string): Promise<SenderState> {
       return { version: 1, sources: {} }
     throw error
   }
-  const state = JSON.parse(raw) as SenderState
-  if (
-    state.version !== 1 ||
-    !state.sources ||
-    typeof state.sources !== "object" ||
-    Array.isArray(state.sources)
-  )
-    throw new Error("Invalid sent state")
-  for (const source of Object.values(state.sources)) {
-    if (!source.targets || typeof source.targets !== "object")
-      throw new Error("Invalid target state")
-    for (const item of Object.values(source.targets)) {
-      if (
-        !item ||
-        typeof item.version !== "string" ||
-        !["present", "removed"].includes(item.operation) ||
-        !["accepted", "failed", "no-endpoint"].includes(item.status) ||
-        !Number.isInteger(item.attempts) ||
-        item.attempts < 0 ||
-        !Number.isFinite(Date.parse(item.lastAttempt))
-      )
-        throw new Error("Invalid delivery state")
-    }
-  }
-  return state
+  return senderStateSchema.parse(JSON.parse(raw))
 }
 
 async function saveState(file: string, state: SenderState) {
   await fs.mkdir(path.dirname(file), { recursive: true })
-  const temporary = `${file}.${process.pid}.tmp`
-  await fs.writeFile(
-    temporary,
+  await writeFileAtomic(
+    file,
     JSON.stringify(
       state,
       (_key, value) =>
@@ -57,7 +34,6 @@ async function saveState(file: string, state: SenderState) {
       2
     ) + "\n"
   )
-  await fs.rename(temporary, file)
 }
 
 export async function runSender(options: {
@@ -76,20 +52,11 @@ export async function runSender(options: {
   const index = await safeRequest(`${BLOG_URL}/posts.json`)
   if (index.status !== 200 || index.url !== `${BLOG_URL}/posts.json`)
     throw new Error("Invalid production post index")
-  const posts: unknown = JSON.parse(index.body)
-  if (!Array.isArray(posts)) throw new Error("Invalid production post index")
-  const validated = posts
-    .map((post: { id?: unknown; permalink?: unknown }) => {
-      if (
-        !post ||
-        !Number.isSafeInteger(post.id) ||
-        typeof post.permalink !== "string" ||
-        !/^\/post\/\d+$/.test(post.permalink) ||
-        post.permalink !== `/post/${post.id}`
-      )
-        throw new Error("Invalid published source URL")
-      return { id: post.id as number, source: `${BLOG_URL}${post.permalink}` }
-    })
+  const parsed = postIndexSchema.safeParse(JSON.parse(index.body))
+  if (!parsed.success)
+    throw new Error("Invalid production post index", { cause: parsed.error })
+  const validated = parsed.data
+    .map((post) => ({ id: post.id, source: `${BLOG_URL}${post.permalink}` }))
     .sort((a, b) => a.id - b.id)
   let count = 0
   for (const post of validated) {

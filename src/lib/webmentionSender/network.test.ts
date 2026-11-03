@@ -1,5 +1,110 @@
 import { afterEach, describe, expect, test, vi } from "vitest"
 import { isIpAllowed, safeRequest } from "./network"
+import dns from "node:dns/promises"
+import nock from "nock"
+import { gzipSync } from "node:zlib"
+
+afterEach(() => {
+  vi.restoreAllMocks()
+  nock.cleanAll()
+  nock.enableNetConnect()
+})
+
+function publicDns() {
+  nock.disableNetConnect()
+  vi.spyOn(dns, "lookup").mockResolvedValue([
+    { address: "8.8.8.8", family: 4 },
+  ] as never)
+}
+
+test("Got follows redirects and decompresses responses", async () => {
+  publicDns()
+  nock("https://example.com")
+    .get("/start")
+    .reply(302, "", { location: "/final" })
+    .get("/final")
+    .reply(200, gzipSync("Hello"), {
+      "content-type": "text/html",
+      "content-encoding": "gzip",
+    })
+  expect(await safeRequest("https://example.com/start")).toMatchObject({
+    url: "https://example.com/final",
+    status: 200,
+    body: "Hello",
+  })
+})
+
+test("redirects to local addresses are blocked", async () => {
+  publicDns()
+  nock("https://example.com")
+    .get("/")
+    .reply(302, "", { location: "http://127.0.0.2/" })
+  await expect(safeRequest("https://example.com/")).rejects.toThrow(/Blocked/)
+})
+
+test("mixed public and private DNS is rejected", async () => {
+  publicDns()
+  vi.mocked(dns.lookup).mockResolvedValue([
+    { address: "8.8.8.8", family: 4 },
+    { address: "127.0.0.1", family: 4 },
+  ] as never)
+  await expect(safeRequest("https://example.com/")).rejects.toThrow(/Blocked/)
+})
+
+test("POST redirects preserve payload and do not forward caller credentials", async () => {
+  publicDns()
+  nock("https://example.com", { badheaders: ["authorization", "cookie"] })
+    .post("/start", { source: "a", target: "b" })
+    .reply(307, "", { location: "/final" })
+    .post("/final", { source: "a", target: "b" })
+    .reply(202, "Accepted")
+  expect(
+    (
+      await safeRequest("https://example.com/start", {
+        method: "POST",
+        body: "source=a&target=b",
+        headers: { Authorization: "secret" },
+      })
+    ).status
+  ).toBe(202)
+})
+
+test("redirect loops and stream failures reject without retries", async () => {
+  publicDns()
+  nock("https://example.com")
+    .get("/loop")
+    .times(6)
+    .reply(302, "", { location: "/loop" })
+  await expect(safeRequest("https://example.com/loop")).rejects.toThrow()
+  nock("https://example.com").get("/error").replyWithError("stream failed")
+  await expect(safeRequest("https://example.com/error")).rejects.toThrow(
+    "stream failed"
+  )
+})
+
+test("responses remain bounded and HTTP failures do not retry", async () => {
+  publicDns()
+  nock("https://example.com")
+    .get("/large")
+    .reply(200, Buffer.alloc(2 * 1024 * 1024 + 1))
+  await expect(safeRequest("https://example.com/large")).rejects.toThrow(
+    /2 MiB/
+  )
+  const scope = nock("https://example.com").get("/failure").reply(503, "Busy")
+  expect((await safeRequest("https://example.com/failure")).status).toBe(503)
+  expect(scope.isDone()).toBe(true)
+})
+
+test("hung DNS respects the absolute deadline", async () => {
+  const controller = new AbortController()
+  vi.spyOn(AbortSignal, "timeout").mockReturnValue(controller.signal)
+  vi.spyOn(dns, "lookup").mockImplementation(
+    () => new Promise(() => {}) as never
+  )
+  const result = expect(safeRequest("https://example.com/")).rejects.toThrow()
+  controller.abort(new Error("deadline"))
+  await result
+})
 
 describe("IP safety and SSRF prevention", () => {
   test.each([
@@ -43,160 +148,4 @@ describe("IP safety and SSRF prevention", () => {
     ).rejects.toThrow()
     await expect(safeRequest("https://example.com:8443/")).rejects.toThrow()
   })
-})
-
-import dns from "node:dns/promises"
-import http from "node:http"
-import https from "node:https"
-import { EventEmitter } from "node:events"
-
-afterEach(() => {
-  vi.restoreAllMocks()
-  vi.useRealTimers()
-})
-
-function transport(
-  replies: Array<{
-    status?: number
-    headers?: Record<string, string | string[]>
-    chunks?: Buffer[]
-    error?: string
-    requestError?: string
-  }> = [{}]
-) {
-  vi.spyOn(dns, "lookup").mockResolvedValue([
-    { address: "8.8.8.8", family: 4 },
-  ] as never)
-  const urls: string[] = []
-  const mock = vi.fn((url, options, callback) => {
-    urls.push(url.href)
-    const reply = replies.shift() || {}
-    const req = new EventEmitter() as EventEmitter & {
-      end: ReturnType<typeof vi.fn>
-      destroy: ReturnType<typeof vi.fn>
-    }
-    req.destroy = vi.fn((error) => {
-      req.emit("error", error)
-    })
-    req.end = vi.fn(() => {
-      options.lookup(
-        "example.com",
-        {},
-        (error: Error | null, address: string, family: number) => {
-          expect(error).toBeNull()
-          expect(address).toBe("8.8.8.8")
-          expect(family).toBe(4)
-        }
-      )
-      queueMicrotask(() => {
-        if (reply.requestError) {
-          req.emit("error", new Error(reply.requestError))
-          return
-        }
-        const res = Object.assign(new EventEmitter(), {
-          statusCode: reply.status,
-          headers: reply.headers || {},
-        })
-        callback(res)
-        if (reply.error) {
-          res.emit("error", new Error(reply.error))
-          return
-        }
-        for (const chunk of reply.chunks || []) res.emit("data", chunk)
-        res.emit("end")
-      })
-    })
-    return req
-  })
-  vi.spyOn(https, "request").mockImplementation(mock as never)
-  vi.spyOn(http, "request").mockImplementation(mock as never)
-  return { mock, urls }
-}
-
-test("pins validated DNS and follows redirects with a final response URL", async () => {
-  const { urls, mock } = transport([
-    { status: 301, headers: { location: "https://example.com/new" } },
-    {
-      status: 200,
-      headers: { "content-type": "text/html", "set-cookie": ["a", "b"] },
-      chunks: [Buffer.from("Hi")],
-    },
-  ])
-  const response = await safeRequest("http://example.com/start", {
-    method: "POST",
-    body: "a=b",
-  })
-  expect(urls).toEqual(["http://example.com/start", "https://example.com/new"])
-  expect(response).toMatchObject({
-    url: "https://example.com/new",
-    status: 200,
-    body: "Hi",
-  })
-  expect(mock.mock.calls[1][1].method).toBe("GET")
-  expect(mock.mock.calls[1][1].headers.Authorization).toBeUndefined()
-})
-
-test("307 preserves the POST body", async () => {
-  const { mock } = transport([
-    { status: 307, headers: { location: "/new" } },
-    { status: 202 },
-  ])
-  await safeRequest("https://example.com/start", {
-    method: "POST",
-    body: "a=b",
-  })
-  expect(mock.mock.calls[1][1].method).toBe("POST")
-})
-
-test("blocks mixed private DNS answers and revalidates redirect destinations", async () => {
-  const { mock } = transport([
-    { status: 302, headers: { location: "http://127.0.0.2/" } },
-  ])
-  await expect(safeRequest("https://example.com")).rejects.toThrow("Blocked")
-  expect(mock).toHaveBeenCalledTimes(1)
-  vi.mocked(dns.lookup).mockResolvedValue([
-    { address: "8.8.8.8", family: 4 },
-    { address: "127.0.0.1", family: 4 },
-  ] as never)
-  await expect(safeRequest("https://example.com")).rejects.toThrow("Blocked")
-})
-
-test("blocks empty DNS and malformed addresses", async () => {
-  transport()
-  vi.mocked(dns.lookup).mockResolvedValue([] as never)
-  await expect(safeRequest("https://example.com")).rejects.toThrow("Blocked")
-  expect(isIpAllowed("not an address")).toBe(false)
-})
-
-test("limits redirects to five hops", async () => {
-  const { mock } = transport(
-    Array.from({ length: 6 }, () => ({
-      status: 302,
-      headers: { location: "/again" },
-    }))
-  )
-  await expect(safeRequest("https://example.com")).rejects.toThrow(
-    "Too many redirects"
-  )
-  expect(mock).toHaveBeenCalledTimes(6)
-})
-
-test.each([
-  { error: "stream failed" },
-  { requestError: "request failed" },
-  { chunks: [Buffer.alloc(2 * 1024 * 1024 + 1)] },
-])("rejects failed or oversized responses", async (reply) => {
-  transport([reply])
-  await expect(safeRequest("https://example.com")).rejects.toThrow()
-})
-
-test("absolute deadline includes a hung DNS lookup", async () => {
-  const controller = new AbortController()
-  vi.spyOn(AbortSignal, "timeout").mockReturnValue(controller.signal)
-  vi.spyOn(dns, "lookup").mockImplementation(
-    () => new Promise(() => {}) as never
-  )
-  const pending = expect(safeRequest("https://example.com")).rejects.toThrow()
-  controller.abort(new Error("deadline"))
-  await pending
 })

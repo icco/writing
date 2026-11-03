@@ -179,7 +179,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
             {post.summary}
           </span>
         )}
-        {post.tags.map((tag) => (
+        {post.tags.map((tag: string) => (
           <data key={tag} className="p-category" value={tag} hidden />
         ))}
         <div className="e-content prose lg:prose-xl max-w-5xl">

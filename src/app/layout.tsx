@@ -52,6 +52,17 @@ export default function RootLayout({
       className={`${roboto.variable} ${robotoSlab.variable} ${robotoMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <link
+          rel="webmention"
+          href="https://webmention.io/writing.natwelch.com/webmention"
+        />
+        <link
+          rel="pingback"
+          href="https://webmention.io/writing.natwelch.com/xmlrpc"
+        />
+        <link rel="me" href="https://natwelch.com" />
+      </head>
       <body>
         <ThemeProvider>
           <a

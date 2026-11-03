@@ -1,26 +1,15 @@
 import { createHash } from "node:crypto"
 import { JSDOM } from "jsdom"
 import { BLOG_URL } from "../indieweb"
+import type { z } from "zod"
+import type { deliveryRecordSchema, senderStateSchema } from "./schemas"
 export type SourceSnapshot = {
   source: string
   fingerprint: string
   targets: string[]
 }
-export type DeliveryRecord = {
-  version: string
-  acceptedVersion?: string
-  operation: "present" | "removed"
-  attempts: number
-  status: "accepted" | "no-endpoint" | "failed"
-  endpoint?: string
-  lastAttempt: string
-  retryAt?: string
-  error?: string
-}
-export type SenderState = {
-  version: 1
-  sources: Record<string, { targets: Record<string, DeliveryRecord> }>
-}
+export type DeliveryRecord = z.infer<typeof deliveryRecordSchema>
+export type SenderState = z.infer<typeof senderStateSchema>
 export type Operation = {
   source: string
   target: string

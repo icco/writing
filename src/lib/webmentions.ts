@@ -1,4 +1,5 @@
 import { BLOG_URL, canonicalPostUrl } from "./indieweb"
+import { z } from "zod"
 
 export type Reaction = {
   id: number
@@ -24,10 +25,26 @@ const kinds: Record<string, Reaction["kind"]> = {
   "in-reply-to": "replies",
   "mention-of": "mentions",
 }
-const record = (value: unknown): Record<string, unknown> =>
-  value !== null && typeof value === "object"
-    ? (value as Record<string, unknown>)
-    : {}
+const optionalText = z.string().catch("")
+const authorSchema = z
+  .object({ name: optionalText, url: optionalText, photo: optionalText })
+  .catch({ name: "", url: "", photo: "" })
+const mentionSchema = z.object({
+  "wm-id": z.number().int().nonnegative(),
+  "wm-private": z.boolean().optional(),
+  "wm-property": optionalText,
+  "wm-source": optionalText,
+  "wm-received": optionalText,
+  url: optionalText,
+  name: optionalText,
+  published: optionalText,
+  author: authorSchema,
+  content: z.object({ text: optionalText }).catch({ text: "" }),
+})
+const snapshotSchema = z.object({
+  children: z.array(z.unknown()),
+  paging: z.object({ "total-pages": z.number().int().min(0).max(10) }),
+})
 const text = (value: unknown) => (typeof value === "string" ? value : "")
 const date = (value: unknown) =>
   typeof value === "string" && Number.isFinite(Date.parse(value))
@@ -50,16 +67,17 @@ export function safeWebUrl(value: unknown): string | undefined {
 }
 
 function normalize(value: unknown): Reaction | undefined {
-  const item = record(value)
-  if (item["wm-private"] || !Number.isSafeInteger(item["wm-id"])) return
+  const parsed = mentionSchema.safeParse(value)
+  if (!parsed.success || parsed.data["wm-private"]) return
+  const item = parsed.data
   const property = text(item["wm-property"]) || "mention-of"
   const kind = Object.hasOwn(kinds, property) ? kinds[property] : undefined
   const url = safeWebUrl(item.url) || safeWebUrl(item["wm-source"])
   if (!kind || !url) return
-  const author = record(item.author)
+  const author = item.author
   const photo = safeWebUrl(author.photo)
   return {
-    id: item["wm-id"] as number,
+    id: item["wm-id"],
     kind,
     url,
     author: {
@@ -71,7 +89,7 @@ function normalize(value: unknown): Reaction | undefined {
           : undefined,
     },
     published: date(item.published) || date(item["wm-received"]),
-    text: text(record(item.content).text),
+    text: item.content.text,
     name: text(item.name),
   }
 }
@@ -101,18 +119,8 @@ export async function getWebmentions(
         signal,
       })
       if (!response.ok) throw new Error(`Webmention API: ${response.status}`)
-      const data = record(await response.json())
-      if (!Array.isArray(data.children))
-        throw new Error("Invalid webmention snapshot")
-      const totalPages = record(data.paging)["total-pages"]
-      if (
-        typeof totalPages !== "number" ||
-        !Number.isInteger(totalPages) ||
-        totalPages < 0 ||
-        totalPages > 10
-      )
-        throw new Error("Incomplete webmention pagination")
-      pages = totalPages
+      const data = snapshotSchema.parse(await response.json())
+      pages = data.paging["total-pages"]
       for (const raw of data.children) {
         const reaction = normalize(raw)
         if (!reaction || seen.has(reaction.id)) continue
