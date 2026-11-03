@@ -1,19 +1,102 @@
-import { describe, expect, test, vi } from "vitest"
+import { mkdtemp, readFile, writeFile, rm } from "node:fs/promises"
+import { tmpdir } from "node:os"
+import { join } from "node:path"
+import { afterEach, expect, test, vi } from "vitest"
 import { runSender } from "./runner"
-import fs from "node:fs/promises"
+import * as network from "./network"
+import * as discovery from "./discovery"
+const directories: string[] = []
+afterEach(async () => {
+  vi.restoreAllMocks()
+  await Promise.all(
+    directories.splice(0).map((dir) => rm(dir, { recursive: true }))
+  )
+})
+async function statePath() {
+  const dir = await mkdtemp(join(tmpdir(), "wm-test-"))
+  directories.push(dir)
+  return join(dir, "sent.json")
+}
+function sourceMock(
+  permalink = "/post/1",
+  body = '<article class="h-entry"><div class="e-content"><a href="https://example.com/a">Link</a><a href="https://example.com/b">Other</a></div></article>'
+) {
+  return vi
+    .spyOn(network, "safeRequest")
+    .mockImplementation(async (url) => ({
+      url,
+      status: 200,
+      headers: new Headers(),
+      body: url.endsWith("posts.json")
+        ? JSON.stringify([{ id: 1, permalink }])
+        : body,
+    }))
+}
 
-describe("sender runner", () => {
-  test("dry-run does not write state or send network requests", async () => {
-    const fetcher = vi.fn().mockImplementation(async (url: string) => {
-      if (url.endsWith("/posts.json")) {
-        return { ok: true, json: async () => [{ id: 1, permalink: "/post/1" }] }
-      }
-      return { ok: true, text: async () => "<div class='e-content'><a href='https://example.com/a'>Link</a></div>" }
-    })
-    vi.stubGlobal("fetch", fetcher)
-    const writeFileSpy = vi.spyOn(fs, "writeFile")
+test("corrupt state aborts without delivering", async () => {
+  const file = await statePath()
+  await writeFile(file, "broken json")
+  sourceMock()
+  const delivery = vi.spyOn(discovery, "deliverWebmention")
+  await expect(
+    runSender({ send: true, limit: 10, statePath: file })
+  ).rejects.toThrow()
+  expect(delivery).not.toHaveBeenCalled()
+})
 
-    await runSender({ send: false, limit: 10, statePath: "webmentions/sent.json" })
-    expect(writeFileSpy).not.toHaveBeenCalled()
-  })
+test("dry-run does not discover endpoints or write state", async () => {
+  const file = await statePath()
+  const requests = sourceMock()
+  const delivery = vi.spyOn(discovery, "deliverWebmention")
+  await runSender({ send: false, limit: 1, statePath: file })
+  expect(delivery).not.toHaveBeenCalled()
+  expect(
+    requests.mock.calls.every(([url]) =>
+      url.startsWith("https://writing.natwelch.com/")
+    )
+  ).toBe(true)
+  await expect(readFile(file)).rejects.toMatchObject({ code: "ENOENT" })
+})
+
+test("checkpoints each target and resumes a capped post", async () => {
+  const file = await statePath()
+  sourceMock()
+  const delivery = vi
+    .spyOn(discovery, "deliverWebmention")
+    .mockResolvedValue({ status: "accepted" })
+  await runSender({ send: true, limit: 1, statePath: file })
+  expect(
+    Object.keys(
+      JSON.parse(await readFile(file, "utf8")).sources[
+        "https://writing.natwelch.com/post/1"
+      ].targets
+    )
+  ).toEqual(["https://example.com/a"])
+  await runSender({ send: true, limit: 1, statePath: file })
+  expect(delivery.mock.calls.map(([, target]) => target)).toEqual([
+    "https://example.com/a",
+    "https://example.com/b",
+  ])
+})
+
+test("rejects off-origin source index before requesting a source", async () => {
+  const requests = sourceMock("https://evil.example/post/1")
+  await expect(
+    runSender({ send: true, limit: 1, statePath: await statePath() })
+  ).rejects.toThrow()
+  expect(requests).toHaveBeenCalledTimes(1)
+})
+
+test("missing source markup preserves accepted state without sending removals", async () => {
+  const file = await statePath()
+  sourceMock()
+  const delivery = vi
+    .spyOn(discovery, "deliverWebmention")
+    .mockResolvedValue({ status: "accepted" })
+  await runSender({ send: true, limit: 1, statePath: file })
+  const saved = await readFile(file, "utf8")
+  sourceMock("/post/1", "<article>Maintenance</article>")
+  await runSender({ send: true, limit: 10, statePath: file })
+  expect(await readFile(file, "utf8")).toBe(saved)
+  expect(delivery).toHaveBeenCalledTimes(1)
 })

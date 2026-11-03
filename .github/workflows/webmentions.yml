@@ -1,42 +1,52 @@
 name: Send webmentions
 on:
   schedule:
-    - cron: '15 */6 * * *'
+    - cron: 15 */6 * * *
   workflow_dispatch:
-
 permissions:
-  contents: write
-
+  contents: read
+  packages: read
 jobs:
   send:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          persist-credentials: true
+          persist-credentials: false
       - name: Set up pnpm
         uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413
         with:
           version: 12.16.1
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version-file: .nvmrc
           cache: pnpm
+          registry-url: https://npm.pkg.github.com
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Configure git user
-        run: |
-          git config user.email "nat@natwelch.com"
-          git config user.name "Nat Welch"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Run webmention sender
-        run: pnpm run webmentions:send -- --send
+        run: pnpm exec tsx scripts/send-webmentions.ts --send
+      - name: Authenticate state persistence
+        run: 'git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic $(printf ''x-access-token:%s'' "$GH_TOKEN" | base64 -w0)"'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit sent log if changed
-        uses: stefanzweifel/git-auto-commit-action@v7
+        uses: stefanzweifel/git-auto-commit-action@d0b01107b5db882071f96de5dd4b54961ea93f4c
         with:
-          commit_message: "chore: update sent webmentions"
-          file_pattern: "webmentions/sent.json"
-          commit_author: "GitHub Actions <actions@github.com>"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: 'chore: update sent webmentions'
+          file_pattern: webmentions/sent.json
+          commit_author: GitHub Actions <actions@github.com>
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+    if: github.ref == 'refs/heads/main'
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      packages: read
+concurrency:
+  group: webmentions
+  cancel-in-progress: false

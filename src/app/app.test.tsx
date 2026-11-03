@@ -83,18 +83,16 @@ describe("IndieWeb markup", () => {
   const parse = (markup: string) =>
     mf2(markup, { baseUrl: "https://writing.natwelch.com/" })
 
-  test("discovery uses real link relations", () => {
-    const parsed = parse(html(<RootLayout>child</RootLayout>))
-    expect(parsed.rels.webmention).toEqual([
-      "https://webmention.io/writing.natwelch.com/webmention",
-    ])
-    expect(parsed.rels.me).toContain("https://natwelch.com")
+  test("root layout does not duplicate endpoint metadata", () => {
+    expect(rootMetadata.other?.webmention).toBeUndefined()
+    expect(rootMetadata.other?.pingback).toBeUndefined()
+    expect(html(<RootLayout>child</RootLayout>)).not.toContain('rel="webmention"')
   })
 
   test("post properties describe the author and body, not navigation", async () => {
     const entry = parse(
       html(await PostLayout(params({ slug: "1" })))
-    ).items.find((item) => item.type.includes("h-entry"))
+    ).items.find((item) => item.type?.includes("h-entry"))
     expect(entry?.properties).toMatchObject({
       name: ["Post 1"],
       url: ["https://writing.natwelch.com/post/1"],
@@ -112,10 +110,10 @@ describe("IndieWeb markup", () => {
 
   test("home has a named feed and representative homepage card", () => {
     const parsed = parse(html(<Home />))
-    const feed = parsed.items.find((item) => item.type.includes("h-feed"))
+    const feed = parsed.items.find((item) => item.type?.includes("h-feed"))
     expect(feed?.properties.name).toEqual(["Nat? Nat. Nat!"])
     expect(feed?.children).toHaveLength(3)
-    const card = parsed.items.find((item) => item.type.includes("h-card"))
+    const card = parsed.items.find((item) => item.type?.includes("h-card"))
     expect(card?.properties.uid).toEqual(["https://writing.natwelch.com/"])
   })
 
@@ -125,7 +123,7 @@ describe("IndieWeb markup", () => {
       await YearLayout(params({ year: "2021" })),
     ]) {
       const feed = parse(html(page)).items.find((item) =>
-        item.type.includes("h-feed")
+        item.type?.includes("h-feed")
       )
       expect(feed?.children?.length).toBeGreaterThan(0)
     }

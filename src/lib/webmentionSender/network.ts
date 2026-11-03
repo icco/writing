@@ -1,73 +1,125 @@
 import dns from "node:dns/promises"
 import http from "node:http"
 import https from "node:https"
-import { URL } from "node:url"
+import { isIP } from "node:net"
+import ipaddr from "ipaddr.js"
 
-export type SafeResponse = { url: string; status: number; headers: Headers; body: string }
-
-export function isIpAllowed(ip: string): boolean {
-  if (!ip || typeof ip !== "string") return false
-  const clean = ip.replace(/^::ffff:/i, "")
-  if (clean === "127.0.0.1" || clean === "::1" || clean === "0.0.0.0") return false
-  if (clean.startsWith("10.") || clean.startsWith("192.168.") || clean.startsWith("169.254.")) return false
-  const parts = clean.split(".")
-  if (parts.length === 4) {
-    const first = parseInt(parts[0], 10)
-    const second = parseInt(parts[1], 10)
-    if (first === 172 && second >= 16 && second <= 31) return false
-  }
-  if (clean.toLowerCase().startsWith("fc") || clean.toLowerCase().startsWith("fd") || clean.toLowerCase().startsWith("fe8")) return false
-  return true
+export type SafeResponse = {
+  url: string
+  status: number
+  headers: Headers
+  body: string
+}
+type Options = {
+  method?: "GET" | "POST"
+  body?: string
+  headers?: Record<string, string>
 }
 
-export async function safeRequest(rawUrl: string, options?: { method?: "GET" | "POST"; body?: string; headers?: Record<string, string> }): Promise<SafeResponse> {
-  const url = new URL(rawUrl)
-  if (!["http:", "https:"].includes(url.protocol) || url.username || url.password) throw new Error("Invalid protocol or credentials")
-  if (url.port && url.port !== (url.protocol === "https:" ? "443" : "80")) throw new Error("Nonstandard port rejected")
+export function isIpAllowed(ip: string): boolean {
+  try {
+    return ipaddr.process(ip).range() === "unicast"
+  } catch {
+    return false
+  }
+}
 
-  const addresses = await dns.resolve4(url.hostname).catch(() => [] as string[])
-  const addresses6 = await dns.resolve6(url.hostname).catch(() => [] as string[])
-  const all = [...addresses, ...addresses6]
-  if (!all.length || !all.every(isIpAllowed)) throw new Error("Blocked private or unresolvable IP")
-  const pinnedIp = all[0]
-
-  const method = options?.method || "GET"
-  const headers = { "User-Agent": "writing.natwelch.com webmention sender", ...options?.headers }
-  if (options?.body && !headers["Content-Type"]) headers["Content-Type"] = "application/x-www-form-urlencoded"
-
-  return new Promise((resolve, reject) => {
-    const lib = url.protocol === "https:" ? https : http
-    const req = lib.request({
-      hostname: pinnedIp,
-      port: url.port || (url.protocol === "https:" ? 443 : 80),
-      path: url.pathname + url.search,
-      method,
-      headers: { ...headers, Host: url.hostname },
-      timeout: 10000,
-    }, res => {
-      if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        res.resume()
-        return reject(new Error("Redirects handled manually"))
-      }
-      let body = ""
-      res.on("data", chunk => {
-        body += chunk
-        if (body.length > 2 * 1024 * 1024) {
-          req.destroy(new Error("Response body exceeded 2 MiB limit"))
+export async function safeRequest(
+  rawUrl: string,
+  options: Options = {}
+): Promise<SafeResponse> {
+  const signal = AbortSignal.timeout(10000)
+  let url = new URL(rawUrl)
+  let method = options.method || "GET"
+  let body = options.body
+  for (let hop = 0; hop <= 5; hop++) {
+    if (
+      !["http:", "https:"].includes(url.protocol) ||
+      url.username ||
+      url.password ||
+      url.port
+    )
+      throw new Error("Unsafe destination URL")
+    const hostname = url.hostname.replace(/^\[|\]$/g, "")
+    const addresses = await Promise.race([
+      isIP(hostname)
+        ? Promise.resolve([{ address: hostname, family: isIP(hostname) }])
+        : dns.lookup(hostname, { all: true }),
+      new Promise<never>((_, reject) => {
+        signal.addEventListener("abort", () => reject(signal.reason), {
+          once: true,
+        })
+      }),
+    ])
+    signal.throwIfAborted()
+    if (
+      !addresses.length ||
+      !addresses.every((item) => isIpAllowed(item.address))
+    )
+      throw new Error("Blocked private or reserved address")
+    const pinned = addresses[0]
+    const response = await new Promise<SafeResponse>((resolve, reject) => {
+      const transport = url.protocol === "https:" ? https : http
+      const request = transport.request(
+        url,
+        {
+          method,
+          signal,
+          agent: false,
+          lookup: (_hostname, _options, callback) =>
+            callback(null, pinned.address, pinned.family),
+          headers: {
+            "User-Agent": "writing.natwelch.com webmention sender",
+            ...(body
+              ? { "Content-Type": "application/x-www-form-urlencoded" }
+              : {}),
+          },
+        },
+        (res) => {
+          const chunks: Buffer[] = []
+          let size = 0
+          res.on("error", reject)
+          res.on("data", (chunk: Buffer) => {
+            size += chunk.length
+            if (size > 2 * 1024 * 1024)
+              request.destroy(new Error("Response exceeds 2 MiB"))
+            else chunks.push(chunk)
+          })
+          res.on("end", () => {
+            const headers = new Headers()
+            for (const [key, values] of Object.entries(res.headers)) {
+              for (const value of Array.isArray(values)
+                ? values
+                : values === undefined
+                  ? []
+                  : [String(values)])
+                headers.append(key, value)
+            }
+            resolve({
+              url: url.href,
+              status: res.statusCode || 500,
+              headers,
+              body: Buffer.concat(chunks).toString("utf8"),
+            })
+          })
         }
-      })
-      res.on("end", () => {
-        const responseHeaders = new Headers()
-        for (const [key, val] of Object.entries(res.headers)) {
-          if (Array.isArray(val)) for (const v of val) responseHeaders.append(key, v)
-          else if (typeof val === "string") responseHeaders.set(key, val)
-        }
-        resolve({ url: rawUrl, status: res.statusCode || 500, headers: responseHeaders, body })
-      })
+      )
+      request.on("error", reject)
+      request.end(body)
     })
-    req.on("error", reject)
-    req.on("timeout", () => { req.destroy(new Error("Request timeout")) })
-    if (options?.body) req.write(options.body)
-    req.end()
-  })
+    const location = response.headers.get("location")
+    if (![301, 302, 303, 307, 308].includes(response.status) || !location)
+      return response
+    if (hop === 5) throw new Error("Too many redirects")
+    url = new URL(location, url)
+    if (
+      response.status === 303 ||
+      ((response.status === 301 || response.status === 302) &&
+        method === "POST")
+    ) {
+      method = "GET"
+      body = undefined
+    }
+  }
+  throw new Error("Too many redirects")
 }
