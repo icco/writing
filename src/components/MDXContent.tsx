@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/static-components */
 import { runSync } from "@mdx-js/mdx"
 import { type MDXComponents } from "mdx/types"
 import Link from "next/link"
