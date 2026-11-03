@@ -65,10 +65,22 @@ export async function runSender(options: {
     console.log("Time budget reached; stopping")
     return true
   }
+  const start = validated.findIndex((post) => post.id > (state.cursor ?? 0))
+  const ordered =
+    start < 0
+      ? validated
+      : [...validated.slice(start), ...validated.slice(0, start)]
   let count = 0
-  for (const post of validated) {
+  let completed: number | undefined
+  const stop = async () => {
+    if (!options.send || options.post !== undefined || completed === undefined)
+      return
+    state.cursor = completed
+    await saveState(options.statePath, state)
+  }
+  for (const post of ordered) {
     if (options.post !== undefined && options.post !== post.id) continue
-    if (count >= options.limit || expired()) return
+    if (count >= options.limit || expired()) return stop()
     let snapshot
     try {
       const response = await safeRequest(post.source)
@@ -77,11 +89,12 @@ export async function runSender(options: {
       snapshot = extractSnapshot(post.source, response.body)
     } catch (error) {
       console.warn(`Skipping ${post.source}`, error)
+      completed = post.id
       continue
     }
     for (const operation of planOperations(snapshot, state, new Date())) {
-      if (expired()) return
-      if (count++ >= options.limit) break
+      if (count >= options.limit || expired()) return stop()
+      count++
       console.log(
         `${options.send ? "SEND" : "DRY-RUN"} ${operation.source} -> ${operation.target} (${operation.operation})`
       )
@@ -111,5 +124,6 @@ export async function runSender(options: {
           `Delivery failed: ${operation.target}: ${result.error}; attempt ${source.targets[operation.target].attempts}/3`
         )
     }
+    completed = post.id
   }
 }

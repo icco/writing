@@ -246,3 +246,29 @@ test("no-endpoint rechecks do not consume the failure budget", async () => {
     ].targets["https://example.com/a"]
   ).toMatchObject({ status: "failed", attempts: 1 })
 })
+
+test("interrupted runs resume after the last completed post", async () => {
+  const file = await statePath()
+  vi.spyOn(network, "safeRequest").mockImplementation(async (url) => ({
+    url,
+    status: 200,
+    headers: new Headers(),
+    body: url.endsWith("posts.json")
+      ? JSON.stringify([
+          { id: 1, permalink: "/post/1" },
+          { id: 2, permalink: "/post/2" },
+        ])
+      : '<article class="h-entry"><div class="e-content"><a href="https://example.com/a">A</a><a href="https://example.com/b">B</a></div></article>',
+  }))
+  const delivery = vi
+    .spyOn(discovery, "deliverWebmention")
+    .mockResolvedValue({ status: "accepted" })
+  await runSender({ send: true, limit: 3, statePath: file })
+  expect(JSON.parse(await readFile(file, "utf8")).cursor).toBe(1)
+  await runSender({ send: true, limit: 1, statePath: file })
+  expect(delivery.mock.calls.at(-1)).toEqual([
+    "https://writing.natwelch.com/post/2",
+    "https://example.com/b",
+  ])
+  expect(JSON.parse(await readFile(file, "utf8")).cursor).toBe(2)
+})

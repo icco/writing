@@ -16,6 +16,7 @@ export const deliveryRecordSchema = z.object({
 })
 export const senderStateSchema = z.object({
   version: z.literal(1),
+  cursor: z.number().int().positive().optional(),
   sources: z.record(
     z.string(),
     z.object({ targets: z.record(z.string(), deliveryRecordSchema) })
