@@ -21,16 +21,14 @@ function sourceMock(
   permalink = "/post/1",
   body = '<article class="h-entry"><div class="e-content"><a href="https://example.com/a">Link</a><a href="https://example.com/b">Other</a></div></article>'
 ) {
-  return vi
-    .spyOn(network, "safeRequest")
-    .mockImplementation(async (url) => ({
-      url,
-      status: 200,
-      headers: new Headers(),
-      body: url.endsWith("posts.json")
-        ? JSON.stringify([{ id: 1, permalink }])
-        : body,
-    }))
+  return vi.spyOn(network, "safeRequest").mockImplementation(async (url) => ({
+    url,
+    status: 200,
+    headers: new Headers(),
+    body: url.endsWith("posts.json")
+      ? JSON.stringify([{ id: 1, permalink }])
+      : body,
+  }))
 }
 
 test("corrupt state aborts without delivering", async () => {
@@ -99,4 +97,69 @@ test("missing source markup preserves accepted state without sending removals", 
   await runSender({ send: true, limit: 10, statePath: file })
   expect(await readFile(file, "utf8")).toBe(saved)
   expect(delivery).toHaveBeenCalledTimes(1)
+})
+
+test.each([0, 1001, NaN])("invalid runner limit %s aborts", async (limit) => {
+  await expect(
+    runSender({ send: false, limit, statePath: await statePath() })
+  ).rejects.toThrow("Limit")
+})
+
+test.each([
+  { version: 2, sources: {} },
+  { version: 1, sources: { a: {} } },
+  { version: 1, sources: { a: { targets: { b: {} } } } },
+])("invalid state schema aborts", async (state) => {
+  const file = await statePath()
+  await writeFile(file, JSON.stringify(state))
+  await expect(
+    runSender({ send: true, limit: 1, statePath: file })
+  ).rejects.toThrow("Invalid")
+})
+
+test("non-200 index and non-array JSON abort", async () => {
+  const file = await statePath()
+  vi.spyOn(network, "safeRequest")
+    .mockResolvedValueOnce({
+      url: "https://writing.natwelch.com/posts.json",
+      status: 503,
+      headers: new Headers(),
+      body: "",
+    })
+    .mockResolvedValueOnce({
+      url: "https://writing.natwelch.com/posts.json",
+      status: 200,
+      headers: new Headers(),
+      body: "{}",
+    })
+  await expect(
+    runSender({ send: true, limit: 1, statePath: file })
+  ).rejects.toThrow("index")
+  await expect(
+    runSender({ send: true, limit: 1, statePath: file })
+  ).rejects.toThrow("index")
+})
+
+test("single-post selection skips other posts", async () => {
+  const requests = sourceMock()
+  await runSender({
+    send: true,
+    limit: 1,
+    post: 2,
+    statePath: await statePath(),
+  })
+  expect(requests).toHaveBeenCalledTimes(1)
+})
+
+test("failed operations checkpoint and stop at three attempts", async () => {
+  sourceMock()
+  const file = await statePath()
+  const delivery = vi
+    .spyOn(discovery, "deliverWebmention")
+    .mockResolvedValue({ status: "failed", error: "offline" })
+  for (let i = 0; i < 3; i++)
+    await runSender({ send: true, limit: 10, statePath: file })
+  expect(delivery).toHaveBeenCalledTimes(6)
+  await runSender({ send: true, limit: 10, statePath: file })
+  expect(delivery).toHaveBeenCalledTimes(6)
 })
