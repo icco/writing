@@ -1,1 +1,2561 @@
-{"version":1,"sources":{}}
+{
+  "cursor": 98,
+  "sources": {
+    "https://writing.natwelch.com/post/10": {
+      "targets": {
+        "http://www.newyorker.com/magazine/2014/10/20/crooner-rights-spat": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:50.482Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0129c585cd068f5cab2fcbf769b19c968ad09e501016a8c687b64cdd99493fd6"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/11": {
+      "targets": {
+        "https://www.youtube.com/watch?v=yLFABNHyLV4": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:50.845Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7bac715a811ef09c366d640968acdd7e0e00308f0dbc4298edd7b42edcff8191"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/12": {
+      "targets": {
+        "https://www.youtube.com/watch?v=0ggyGVJDgwg": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:51.929Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c176d1f98f102f9cdcc98361fb7656fb902d139f6fe92441ba61fdc0c0c48f74"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/16": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/Chef_%282014_film%29": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:52.528Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1385ab7ed98eb6a1ca8231a8b3f90068019cb87f55f74f21798f170fe0c6378d"
+        },
+        "https://en.wikipedia.org/wiki/Jon_Favreau": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:52.811Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1385ab7ed98eb6a1ca8231a8b3f90068019cb87f55f74f21798f170fe0c6378d"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/18": {
+      "targets": {
+        "https://github.com/russross/blackfriday/issues/116": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:53.883Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "9ece8d3d58bac0d231c84cecd57d09863b14a7c05050974c3748a9f3a7e85d83"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/2": {
+      "targets": {
+        "https://www.reddit.com/r/WritingPrompts": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:16:43.334Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "3557e0c8c397485d87a8c037001316e05a076d48727e975adcd04ef428672735"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/20": {
+      "targets": {
+        "http://youtu.be/u1ZB_rGFyeU": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:55.381Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f66982e887789b1b25015adbf10e3b69abfc0ad3772f034d3bd528a12dc2b46"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/21": {
+      "targets": {
+        "http://motherboard.vice.com/read/every-space-mission-should-have-its-own-sci-fi-short": {
+          "attempts": 1,
+          "error": "getaddrinfo ENOTFOUND motherboard.vice.com",
+          "lastAttempt": "2026-11-03T23:16:55.560Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "68f2c9b08be1e4ae404133f59d96a7270207708bc0d9e1116c399920df89755d"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/22": {
+      "targets": {
+        "http://www.npr.org/event/music/359661053/t-pain-tiny-desk-concert": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:56.254Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "a1201ed93bef8f856fbddeca2afaff37f7c5fcd6c474d967dd470ad5d118f150"
+        },
+        "https://www.youtube.com/watch?v=CIjXUg1s5gc": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:57.394Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "a1201ed93bef8f856fbddeca2afaff37f7c5fcd6c474d967dd470ad5d118f150"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/23": {
+      "targets": {
+        "http://sfist.com/2014/10/30/brace_for_friday_sf_giants_paradeha.php": {
+          "acceptedVersion": "04c359f1785d854a131768f6567a316c30e730c9c19aa008faaa21ca5ebc3b11",
+          "attempts": 1,
+          "endpoint": "https://sfist.com/webmentions/receive/",
+          "httpStatus": 202,
+          "lastAttempt": "2026-11-03T23:16:58.557Z",
+          "operation": "present",
+          "status": "accepted",
+          "version": "04c359f1785d854a131768f6567a316c30e730c9c19aa008faaa21ca5ebc3b11"
+        },
+        "http://www.huffingtonpost.com/2014/10/30/san-francisco-goes-nuts_n_6072746.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:59.504Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "04c359f1785d854a131768f6567a316c30e730c9c19aa008faaa21ca5ebc3b11"
+        },
+        "http://www.newsweek.com/photos-mayhem-san-francisco-after-giants-world-series-win-281014": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:59.742Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "04c359f1785d854a131768f6567a316c30e730c9c19aa008faaa21ca5ebc3b11"
+        },
+        "http://www.usatoday.com/story/sports/mlb/2014/10/29/world-series-game-7-giants-royals-madison-bumgarner/18156531/": {
+          "attempts": 1,
+          "error": "Discovery failed: 402",
+          "httpStatus": 402,
+          "lastAttempt": "2026-11-03T23:16:59.896Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "04c359f1785d854a131768f6567a316c30e730c9c19aa008faaa21ca5ebc3b11"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/24": {
+      "targets": {
+        "https://www.goodreads.com/book/show/1633.Getting_Things_Done": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:00.945Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ac609eaa0c757c8e5023332464fc07b572e69275d0650a64032004d7aa4d3ab9"
+        },
+        "https://www.goodreads.com/book/show/376236.Time_Management_for_System_Administrators": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:02.906Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ac609eaa0c757c8e5023332464fc07b572e69275d0650a64032004d7aa4d3ab9"
+        },
+        "https://www.toggl.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:03.459Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ac609eaa0c757c8e5023332464fc07b572e69275d0650a64032004d7aa4d3ab9"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/25": {
+      "targets": {
+        "https://www.ifixit.com/Teardown/Mac+Mini+Late+2014+Teardown/30410": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:04.409Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8623402fc8817d4d34ff3a21914b044c35dc9099567083fad151d0a13cd390b5"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/27": {
+      "targets": {
+        "https://odesza.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:05.058Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7e28fadb4fbf9b54f5dd9f12bfe431a8a6c7a9bd966f5f81101717f51e39d8cb"
+        },
+        "https://soundcloud.com/odesza/sets/no-sleep": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:05.419Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7e28fadb4fbf9b54f5dd9f12bfe431a8a6c7a9bd966f5f81101717f51e39d8cb"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/28": {
+      "targets": {
+        "http://youtu.be/ECfxP6OpsNU": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:06.564Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "dd650f89898b34923371da6cae1bf000bd104e072c1fa36bc2bcd37c05223c90"
+        },
+        "http://youtu.be/lXCNw1DaIzo": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:07.717Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "dd650f89898b34923371da6cae1bf000bd104e072c1fa36bc2bcd37c05223c90"
+        },
+        "http://youtu.be/nXjsFiEbO8E": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:08.608Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "dd650f89898b34923371da6cae1bf000bd104e072c1fa36bc2bcd37c05223c90"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/29": {
+      "targets": {
+        "http://hackaday.com/2014/11/03/hackadays-48-hour-tokyo-speedrun/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:09.225Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "da67006965a472e50b813eff6fdf14fca36f2e4b2cb7b868bb6750724ab598d4"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/3": {
+      "targets": {
+        "https://www.youtube.com/watch?v=OjFxc75zuUE": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:44.894Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7c35994f9ccb34dcb7a48897178701d4cc2dd8db4e31e670e7f1506b81a4324d"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/30": {
+      "targets": {
+        "http://travelsmake.tumblr.com/post/101887227625/three-months-later": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:17:09.368Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "bbd870a7dcdb446cf8e69191744f6015d43b28c586e9f5f20ffa04243e9521f0"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/32": {
+      "targets": {
+        "http://www.newyorker.com/news/news-desk/almost-everything-in-dr-strangelove-was-true": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:09.918Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c549c1c2f736402da62ba0ec91174c29596daa88c096f4d8890136d157ab00d7"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/33": {
+      "targets": {
+        "https://medium.com/matter/our-own-private-germany-6ce44ac93a7b": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:17:10.107Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "58f499c8a9112d232e2f50f835a615d6d3913e92dbdfe876b8f4256c291654e0"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/34": {
+      "targets": {
+        "https://medium.com/@niket/talk-the-age-of-embedded-mobile-8db772a0b6b6": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:17:10.270Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "58778b2f2ce91f4dc2dd9894d61f36ddc5f4605df91c0da101a2984980e233e0"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/35": {
+      "targets": {
+        "http://www.wired.com/2014/10/astrophysics-interstellar-black-hole/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:10.710Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "fbfbb345bd3ae062898915769c710457da53ad598367d5e0e24ec9cfe869f8d8"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/36": {
+      "targets": {
+        "http://www.theverge.com/2014/11/20/7254757/robots-homes-energy-six-years-acting-like-humans": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:11.323Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "e2835995a30b763ac5d022e75a7a7daa5b09c408608728f5ee07a2febf556aa4"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/38": {
+      "targets": {
+        "http://comediansincarsgettingcoffee.com/miranda-sings-happy-thanksgiving-miranda": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:11.621Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "88e35db1331e87e92d609968aad4d6b57acd7148960797da8a5ae508dedb0d5b"
+        },
+        "http://www.vulture.com/2014/11/jerry-seinfeld-interview-youtube-star-miranda.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:12.128Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "88e35db1331e87e92d609968aad4d6b57acd7148960797da8a5ae508dedb0d5b"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/39": {
+      "targets": {
+        "http://carcinisation.com/2014/10/04/the-last-of-the-monsters-with-iron-teeth/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:12.441Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aeceb9d77ca9594e2a2eb0e927e8cb7adfbe20d8ccd5c272c92ba7b02d579b71"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/40": {
+      "targets": {
+        "http://www.bloomberg.com/video/steve-wozniak-on-steve-jobs-geekiness-and-starting-apple-GVS_jUoTQtGYj9fwLg8dbQ.html": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:17:12.652Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "e2853722e74e415720b96a66faa2e77b887026268a17062b547b34147e998e87"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/41": {
+      "targets": {
+        "https://www.schneier.com/blog/archives/2014/12/comments_on_the.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:14.041Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "937f50895916b1d4c072da7312b030f604f598e31a53812d3507579a76dd23f5"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/42": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/Maker_Studios": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:14.320Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c2cc13c110115e1398c9a476abb46f54f16cdf7adade70800757e9db10206207"
+        },
+        "https://en.wikipedia.org/wiki/PewDiePie": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:14.939Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c2cc13c110115e1398c9a476abb46f54f16cdf7adade70800757e9db10206207"
+        },
+        "https://web.archive.org/web/20170413205133/http://www.epicrapbattlesofhistory.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:19.572Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c2cc13c110115e1398c9a476abb46f54f16cdf7adade70800757e9db10206207"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/43": {
+      "targets": {
+        "http://web.archive.org/web/20121024173845/http://blog.objectmentor.com/articles/2009/02/26/10-papers-every-programmer-should-read-at-least-twice": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:21.792Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "70eba24af33c754f101a6ff093f9ac3bdb4357caf09adcc9d7664efdcc15a6d7"
+        },
+        "https://blog.fogus.me/2011/09/08/10-technical-papers-every-programmer-should-read-at-least-twice/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:22.431Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "70eba24af33c754f101a6ff093f9ac3bdb4357caf09adcc9d7664efdcc15a6d7"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/44": {
+      "targets": {
+        "http://www.theawl.com/2014/12/the-triumphant-rise-of-the-shitpic": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:23.314Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "e0d62ac0edd8709edfbb9daa9a254555065b226886e3411d80f6378c2c3214b2"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/45": {
+      "targets": {
+        "http://torrentfreak.com/open-bay-now-everyone-can-run-pirate-bay-copy-141219/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:23.712Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "970a315cf0ee35df9f59ba9dc6c2cd332d8d6dff0b00dc43b9649945c659a53b"
+        },
+        "https://github.com/isohuntto/openbay": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:24.462Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "970a315cf0ee35df9f59ba9dc6c2cd332d8d6dff0b00dc43b9649945c659a53b"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/46": {
+      "targets": {
+        "http://www.theverge.com/2014/12/31/7472819/Mark-zuckerberg-facebook-personal-challenge-poll-2015": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:25.062Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8c4f0419fd68312d3731586b277493a82ad34b8dcab49aefafebc8e9eede1cb7"
+        },
+        "https://www.facebook.com/zuck/posts/10101822067339241": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:25.374Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8c4f0419fd68312d3731586b277493a82ad34b8dcab49aefafebc8e9eede1cb7"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/47": {
+      "targets": {
+        "http://pitchfork.com/news/57929-aphex-twin-answered-questions-from-skrillex-hot-chip-caribou-nicholas-jaar-more/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:26.326Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "33caf6cc48b2d73873f7df02191bdea014818f860382bd37adf278bc361d7af4"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/48": {
+      "targets": {
+        "http://www.theverge.com/2015/1/2/7480899/dj-controller-built-into-vinyl-record-packaging-dj-qbert": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:27.596Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "a11a1f082261d29042a5998a9e6a946c42f1652093c47adfadaffa63712a9291"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/49": {
+      "targets": {
+        "http://www.bbc.co.uk/news/technology-27444158": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:28.656Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "74f754dbd27f45aa6bdf8b338b3f4bf7d1a427969a34f380aac5c350a27d1996"
+        },
+        "http://www.sciencefriday.com/segment/12/19/2014/making-space-a-more-democratic-place.html": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:17:29.289Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "74f754dbd27f45aa6bdf8b338b3f4bf7d1a427969a34f380aac5c350a27d1996"
+        },
+        "http://www.space.com/25820-kicksat-satellite-falling-from-space.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:30.222Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "74f754dbd27f45aa6bdf8b338b3f4bf7d1a427969a34f380aac5c350a27d1996"
+        },
+        "https://en.wikipedia.org/wiki/CubeSat": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:30.495Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "74f754dbd27f45aa6bdf8b338b3f4bf7d1a427969a34f380aac5c350a27d1996"
+        },
+        "https://en.wikipedia.org/wiki/KickSat": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:30.728Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "74f754dbd27f45aa6bdf8b338b3f4bf7d1a427969a34f380aac5c350a27d1996"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/5": {
+      "targets": {
+        "http://www.wired.com/2014/10/twitter-sues-government/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:46.474Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "43e00472f5e3e971418bee5d68575623aeac542a1d42320442a67c0a5ae7745f"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/50": {
+      "targets": {
+        "http://genius.com/Dave-matthews-i-need-a-word-lyrics": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:17:30.874Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "8dd8fda81c36ad8006257de4773a592a0b6aadd0358b1f9e35eeee9ec1ee42d0"
+        },
+        "http://youtu.be/Po5lHYJJQfw": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:32.021Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8dd8fda81c36ad8006257de4773a592a0b6aadd0358b1f9e35eeee9ec1ee42d0"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/51": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/L%27esprit_de_l%27escalier": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:32.190Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "2126dcc35ce80414f043e78b6e847c6381f02ce5e37489ac2f51cc1eb2d1a891"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/52": {
+      "targets": {
+        "http://bobulate.com/post/100527482559/this-is-new-york": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:32.753Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "a45e2ef4b831c2d5192efea5698a84b8f3c32c80d4744f38d3fbaa0bebfa30de"
+        },
+        "http://bobulate.com/post/14047770566/lessons-according-to-salt": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:33.561Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "a45e2ef4b831c2d5192efea5698a84b8f3c32c80d4744f38d3fbaa0bebfa30de"
+        },
+        "https://designobserver.com/feature/liz-danzico/38700/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:34.138Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "a45e2ef4b831c2d5192efea5698a84b8f3c32c80d4744f38d3fbaa0bebfa30de"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/53": {
+      "targets": {
+        "https://github.com/ExPHAT/twitter-sort/blob/master/main.py": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:34.725Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "55dc1d32a1defa3a96b87b278701cd190f5e145a0043e49fedf5d695544630e6"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/54": {
+      "targets": {
+        "http://www.instructables.com/id/TimeRuler/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:35.481Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0816bec46f5ba91bd6e5dffdb432fd485d6b97b8a3168aae8133939d280c4309"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/55": {
+      "targets": {
+        "http://www.spacetelescope.org/images/heic1502a/": {
+          "attempts": 1,
+          "error": "The operation was aborted due to timeout",
+          "lastAttempt": "2026-11-03T23:17:45.590Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "734ef2b3d340c2217df5b409caf39f17821c25eca0737dad32cd02e5a282179f"
+        },
+        "https://www.youtube.com/watch?v=udAL48P5NJU": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:46.451Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "734ef2b3d340c2217df5b409caf39f17821c25eca0737dad32cd02e5a282179f"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/56": {
+      "targets": {
+        "https://www.washingtonpost.com/news/the-intersect/wp/2015/01/22/i-paid-25-for-an-invisible-boyfriend-and-i-think-i-might-be-in-love/": {
+          "attempts": 1,
+          "error": "The operation was aborted due to timeout",
+          "lastAttempt": "2026-11-03T23:17:56.536Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "72bcbca695bfc070f065897ef2cebdcb01133af1ba192f4f9bd952d6c07ffcf6"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/57": {
+      "targets": {
+        "https://www.londonreconnections.com/2015/know-run-story-behind-xmas-kings-cross-problems/": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:17:57.593Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "9004cc61d449e3694b528b9fd845d5069ce28b84819c68a44f65324bf3dc5362"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/58": {
+      "targets": {
+        "http://freshome.com/2015/01/22/jovial-office-building-design-in-texas-complete-with-two-story-adult-slide/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:58.389Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d727bc1b934ddeaac00ea6f6d88bae6f0deebe8eb5d415b7dabb3448f602dcee"
+        },
+        "http://www.dwell.com/houses-we-love/article/petite-prefab-stunning-views-texas-landscape#1": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:17:58.426Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d727bc1b934ddeaac00ea6f6d88bae6f0deebe8eb5d415b7dabb3448f602dcee"
+        },
+        "http://www.homedit.com/small-alpine-lodge/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:59.386Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d727bc1b934ddeaac00ea6f6d88bae6f0deebe8eb5d415b7dabb3448f602dcee"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/59": {
+      "targets": {
+        "http://thepiratecinema.com/online/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:59.721Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "12d8c132f9d452a736140b30cd682d4ac67ad33193a2772b7512a8a0787e9dee"
+        },
+        "http://torrentfreak.com/pirate-cinema-visualizes-torrent-traffic-in-online-art-display-150125/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:17:59.978Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "12d8c132f9d452a736140b30cd682d4ac67ad33193a2772b7512a8a0787e9dee"
+        },
+        "http://vimeo.com/67518774": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:00.487Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "12d8c132f9d452a736140b30cd682d4ac67ad33193a2772b7512a8a0787e9dee"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/6": {
+      "targets": {
+        "https://www.youtube.com/watch?v=uHWX4pG0FNY": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:47.445Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "73566a7d2781543f25e977ce7d699d339939738830f044e2ffa6831881f8ddc0"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/60": {
+      "targets": {
+        "http://pitchfork.com/reviews/albums/20181-vulnicura/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:00.963Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "6d8ff55ad45b23b757637ca6c18067f82395d90e4845ee297b58e3ebeda5d15d"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/61": {
+      "targets": {
+        "https://tools.ietf.org/html/rfc3987": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:01.905Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d2cf15f034377edd67a466875175c36e80c621765382b6d6a2d469f211a69c2f"
+        },
+        "https://tools.ietf.org/html/rfc4287": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:02.289Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d2cf15f034377edd67a466875175c36e80c621765382b6d6a2d469f211a69c2f"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/62": {
+      "targets": {
+        "http://femfreq.tumblr.com/post/109319269825/one-week-of-harassment-on-twitter": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:18:02.442Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "5e9406a5901121fe02707233bda303d65f73e36d10b38e9c13c40804bc25b894"
+        },
+        "https://en.wikipedia.org/wiki/Anita_Sarkeesian": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:03.369Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "5e9406a5901121fe02707233bda303d65f73e36d10b38e9c13c40804bc25b894"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/63": {
+      "targets": {
+        "http://pictogram.agency/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:03.886Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "960536c9ea492b4c13bcd698adca367bf4fe42a3b33270d79781b791a24144cd"
+        },
+        "http://pictogram.agency/pokemonbranding/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:04.560Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "960536c9ea492b4c13bcd698adca367bf4fe42a3b33270d79781b791a24144cd"
+        },
+        "https://dribbble.com/icco/likes": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:05.463Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "960536c9ea492b4c13bcd698adca367bf4fe42a3b33270d79781b791a24144cd"
+        },
+        "https://dribbble.com/shots/1894928-Beedrill-Pokemon-reimagined-as-company-logos": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:05.822Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "960536c9ea492b4c13bcd698adca367bf4fe42a3b33270d79781b791a24144cd"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/64": {
+      "targets": {
+        "http://predominant.ly/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:07.184Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "44c871c34c9b5ae78da18cd871321700ab4b3edfd5dbfeef36b0423f3336f506"
+        },
+        "https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html": {
+          "attempts": 1,
+          "error": "getaddrinfo ENOTFOUND affiliate.itunes.apple.com",
+          "lastAttempt": "2026-11-03T23:18:07.390Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "44c871c34c9b5ae78da18cd871321700ab4b3edfd5dbfeef36b0423f3336f506"
+        },
+        "https://xkcd.com/color/rgb/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:09.545Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "44c871c34c9b5ae78da18cd871321700ab4b3edfd5dbfeef36b0423f3336f506"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/66": {
+      "targets": {
+        "http://tinyletter.com/clairest": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:10.193Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "decd646a3420b21f68ec052b22caf7cfe3559f726bdd0e8b71ec4e98fd332836"
+        },
+        "http://tinyletter.com/intriguingthings": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:10.479Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "decd646a3420b21f68ec052b22caf7cfe3559f726bdd0e8b71ec4e98fd332836"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/67": {
+      "targets": {
+        "http://www.engadget.com/2015/02/06/the-witness-money/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:10.914Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "44f79b493226ff321bb31fe1fb75d384da7c1f0fa1abb83504de29ba9442b6dd"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/68": {
+      "targets": {
+        "http://www.slashfilm.com/watch-raid-director-gareth-evans-list-top-5-action-scenes/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:11.830Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "e60b54401e497ebc9dc085ae2897496be7b734a003d5f0d36b5d76a1bb1c1948"
+        },
+        "https://www.wired.com/2014/12/angry-nerd-underrated-movies-2014/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:13.036Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "e60b54401e497ebc9dc085ae2897496be7b734a003d5f0d36b5d76a1bb1c1948"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/69": {
+      "targets": {
+        "https://soundcloud.com/the_verge/deadmau5-glish": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:13.508Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "dedbfc0aea78432711b40c84de98613745ea9236fb4b860f869723ba1e89ff5a"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/7": {
+      "targets": {
+        "https://www.youtube.com/watch?v=vJwU8utM7iE": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:48.717Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "f68c0d614b854b92efac2b5a3117f5ca7794356629924c4fab8f408f0d0d660b"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/70": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/33%E2%85%93": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:13.893Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        },
+        "https://pitchfork.com/news/58379-kanye-west-performs-calls-out-nike-during-big-sean-show/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:14.629Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        },
+        "https://web.archive.org/web/20150315055731/http://uk.businessinsider.com:80/grammys-taylor-swift-and-kanye-west-2015-2?r=US": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:15.688Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        },
+        "https://web.archive.org/web/20250708073245/https://www.bloomsbury.com/us/kanye-wests-my-beautiful-dark-twisted-fantasy-9781623565428/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:17.049Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        },
+        "https://web.archive.org/web/20250824234214/https://yeezy.supply/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:17.982Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        },
+        "https://www.youtube.com/watch?v=iXOQrlx3EAM": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:19.831Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        },
+        "https://www.youtube.com/watch?v=R4SYIfhzMmU": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:19.309Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        },
+        "https://www.youtube.com/watch?v=TEYaLzRDyIA": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:19.557Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d0a675f23c3be721b5e16a5c4299e3e64c34b2f50a08351ae478b8f425a13f1"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/71": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/Because_the_Internet": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:20.137Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "f967c12aafb09a63739a2d7347b76e74d4d307d601594f4e4f212629fa1bb2a8"
+        },
+        "https://en.wikipedia.org/wiki/Bj%C3%B6rk": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:20.677Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "f967c12aafb09a63739a2d7347b76e74d4d307d601594f4e4f212629fa1bb2a8"
+        },
+        "https://en.wikipedia.org/wiki/If_You%27re_Reading_This_It%27s_Too_Late": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:20.904Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "f967c12aafb09a63739a2d7347b76e74d4d307d601594f4e4f212629fa1bb2a8"
+        },
+        "https://vimeo.com/119416353": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:21.118Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "f967c12aafb09a63739a2d7347b76e74d4d307d601594f4e4f212629fa1bb2a8"
+        },
+        "https://web.archive.org/web/20230206062101/https://genius.com/albums/Childish-gambino/Because-the-internet-screenplay": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:22.197Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "f967c12aafb09a63739a2d7347b76e74d4d307d601594f4e4f212629fa1bb2a8"
+        },
+        "https://www.youtube.com/watch?v=Jg5wkZ-dJXA": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:23.872Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "f967c12aafb09a63739a2d7347b76e74d4d307d601594f4e4f212629fa1bb2a8"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/72": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/Earl_Sweatshirt": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:24.200Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c747ce4b4becc053b0f79a28fe0de7f43a0cd4c4b6f4737ae0cf1bb59d1da4b5"
+        },
+        "https://soundcloud.com/important_man464/sweatshirt-budgie-samiyam-questpower": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:24.571Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c747ce4b4becc053b0f79a28fe0de7f43a0cd4c4b6f4737ae0cf1bb59d1da4b5"
+        },
+        "https://web.archive.org/web/20260312044842/https://pitchfork.com/artists/29180-earl-sweatshirt/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:28.848Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c747ce4b4becc053b0f79a28fe0de7f43a0cd4c4b6f4737ae0cf1bb59d1da4b5"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/73": {
+      "targets": {
+        "http://tmwhere.com/city_generation.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:29.210Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ccb0038a991df893e4ca42e2d17fd20ea98bfb97aa651730a0c216f1bf330e3d"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/74": {
+      "targets": {
+        "http://www.designntrend.com/articles/40640/20150219/kanye-west-has-fans-and-haters-in-new-york-ny-fashion-week-creators-disses-him.htm": {
+          "attempts": 1,
+          "error": "The operation was aborted due to timeout",
+          "lastAttempt": "2026-11-03T23:18:39.303Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799033189232640": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:39.535Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799064843685888": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:39.775Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799126965473281": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:39.999Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799151686750208": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:40.221Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799174637985792": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:40.438Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799196234387457": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:40.790Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799246226292737": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:41.011Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799361599082496": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:41.246Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        },
+        "https://twitter.com/kanyewest/status/568799391571513344": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:41.486Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "6b14a7ca9351d16ccd2e8b450a097c7ad3f1e4c5397b5d7fe096c5320c0be00e"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/75": {
+      "targets": {
+        "https://www.wired.com/2015/03/google-knew-dead-google-still-social-network/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:42.471Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "627b96e20bfc65a13e8734b8d1c269d8dec1210b10849fc581623dfb22430177"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/76": {
+      "targets": {
+        "http://grayarea.org/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:43.011Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c1192b5ab05ae38e8012a6114f512a1d4f3447a70fe554a1321fd7544dd5d667"
+        },
+        "http://tinyletter.com/realfuture/letters/rf-directress": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:43.355Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c1192b5ab05ae38e8012a6114f512a1d4f3447a70fe554a1321fd7544dd5d667"
+        },
+        "https://en.wikipedia.org/wiki/Parklet": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:43.557Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c1192b5ab05ae38e8012a6114f512a1d4f3447a70fe554a1321fd7544dd5d667"
+        },
+        "https://techcrunch.com/2014/05/30/gray-area/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:44.942Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c1192b5ab05ae38e8012a6114f512a1d4f3447a70fe554a1321fd7544dd5d667"
+        },
+        "https://web.archive.org/web/20150906073736/http://stamen.com/projects/gaffta": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:48.060Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c1192b5ab05ae38e8012a6114f512a1d4f3447a70fe554a1321fd7544dd5d667"
+        },
+        "https://web.archive.org/web/20191030022601/https://www.facebook.com/UrbanPrototyping": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:48.982Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c1192b5ab05ae38e8012a6114f512a1d4f3447a70fe554a1321fd7544dd5d667"
+        },
+        "https://www.youtube.com/watch?v=lX6JcybgDFo&feature=kp": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:50.083Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c1192b5ab05ae38e8012a6114f512a1d4f3447a70fe554a1321fd7544dd5d667"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/77": {
+      "targets": {
+        "https://kottke.org/15/03/the-algorithmic-sea": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:50.437Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "678091c5eb11592cc1af1d40b6133fe7e1d1cd3a03a6314bc9ef3344f7e4e595"
+        },
+        "https://web.archive.org/web/20251009033335/https://www.shadertoy.com/view/Ms2SD1": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:52.106Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "678091c5eb11592cc1af1d40b6133fe7e1d1cd3a03a6314bc9ef3344f7e4e595"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/78": {
+      "targets": {
+        "https://web.archive.org/web/20260404061024/https://www.newsweek.com/japans-robot-dogs-get-funerals-sony-looks-away-312192": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:54.321Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ac7ac6e4640b9c5336836083db4f532a92c91b92731a3f00bdaf88684d79de58"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/79": {
+      "targets": {
+        "http://store.apple.com/us/product/MJ1K2AM/A/usb-c-digital-av-multiport-adapter": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:57.619Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "afcfe540a0842f5ec79a4ae26e41844935879ab4bffd3c1cb13f0ffea4e8c32d"
+        },
+        "https://twitter.com/dmpatierno/status/575331596703637504": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:18:57.851Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "afcfe540a0842f5ec79a4ae26e41844935879ab4bffd3c1cb13f0ffea4e8c32d"
+        },
+        "https://twitter.com/isomer/status/575313769183723520": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:58.196Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "afcfe540a0842f5ec79a4ae26e41844935879ab4bffd3c1cb13f0ffea4e8c32d"
+        },
+        "https://www.apple.com/macbook/specs/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:58.519Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "afcfe540a0842f5ec79a4ae26e41844935879ab4bffd3c1cb13f0ffea4e8c32d"
+        },
+        "https://www.google.com/chrome/devices/google-chromebook-pixel/#pixel-specs": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:58.714Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "afcfe540a0842f5ec79a4ae26e41844935879ab4bffd3c1cb13f0ffea4e8c32d"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/80": {
+      "targets": {
+        "http://www.polygon.com/2015/3/16/8227391/mario-level-design-thoughts": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:59.180Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c7e01882c999ff3c2533e72c37949e09dd01ea977cc27396b3fa8ca08f60dfb2"
+        },
+        "https://en.wikipedia.org/wiki/Kish%C5%8Dtenketsu": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:18:59.486Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c7e01882c999ff3c2533e72c37949e09dd01ea977cc27396b3fa8ca08f60dfb2"
+        },
+        "https://www.youtube.com/watch?v=dBmIkEvEBtA&feature=youtube_gdata": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:00.386Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c7e01882c999ff3c2533e72c37949e09dd01ea977cc27396b3fa8ca08f60dfb2"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/82": {
+      "targets": {
+        "https://foursquare.com/v/ange-noir-cafe/4fa96c2be4b07cb43c3266a9": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:00.919Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "2d7dd378f0101c0f09011485616da8eb322757941004748d8cd06c5d24e5e40c"
+        },
+        "https://icco.github.io/karl/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:01.119Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "2d7dd378f0101c0f09011485616da8eb322757941004748d8cd06c5d24e5e40c"
+        },
+        "https://web.archive.org/web/20250512170309/https://medium.com/startup-tools/okrs-5afdc298bc28": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:02.901Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "2d7dd378f0101c0f09011485616da8eb322757941004748d8cd06c5d24e5e40c"
+        },
+        "https://www.flickr.com/photos/icco/16930220481/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:03.372Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "2d7dd378f0101c0f09011485616da8eb322757941004748d8cd06c5d24e5e40c"
+        },
+        "https://www.flickr.com/photos/icco/sets/72157649232639604/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:03.975Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "2d7dd378f0101c0f09011485616da8eb322757941004748d8cd06c5d24e5e40c"
+        },
+        "https://www.recurse.com/blog/77-hacker-school-is-now-the-recurse-center": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:04.181Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "2d7dd378f0101c0f09011485616da8eb322757941004748d8cd06c5d24e5e40c"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/83": {
+      "targets": {
+        "https://calendly.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:04.567Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c25e6779a7163e836af8bc4e114f2b7e9a5ab3858551e30f5f3637d6bf535330"
+        },
+        "https://claralabs.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:05.189Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c25e6779a7163e836af8bc4e114f2b7e9a5ab3858551e30f5f3637d6bf535330"
+        },
+        "https://web.archive.org/web/20260113132346/https://x.ai/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:07.715Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "c25e6779a7163e836af8bc4e114f2b7e9a5ab3858551e30f5f3637d6bf535330"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/84": {
+      "targets": {
+        "https://web.archive.org/web/20250903073617/https://www.nytimes.com/2014/07/27/magazine/why-do-americans-stink-at-math.html?_r=0": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:10.343Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d6c7b3a4625f2b39663a214a100825dacaced221ef47389f0747b746b278993"
+        },
+        "https://www.theguardian.com/uk-news/2015/mar/22/immigrants-role-in-recovery-ukip-beckons-uninformed?CMP=share_btn_tw": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:10.895Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "8d6c7b3a4625f2b39663a214a100825dacaced221ef47389f0747b746b278993"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/85": {
+      "targets": {
+        "https://web.archive.org/web/20221206034225/https://medium.com/@cjoh/parenting-with-the-amazon-echo-5fe46f60b865": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:11.854Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1ace8402ab39fd9d6f7d4184d75e9fad14c92256b0f99f0f2e75dc9b613ec523"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/86": {
+      "targets": {
+        "http://www.avclub.com/article/shadow-colossus-you-bond-giants-you-slay-them-216997": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:12.674Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0e3f48576931f6d6fb2b831f063f86d804364b057b72cb8e983fc0de699d03d2"
+        },
+        "https://web.archive.org/web/20250808172129/https://phildo.itch.io/monologue": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:13.195Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0e3f48576931f6d6fb2b831f063f86d804364b057b72cb8e983fc0de699d03d2"
+        },
+        "https://web.archive.org/web/20260109182815/https://boingboing.net/2015/03/20/fun-web-based-drum-machine.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:15.287Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0e3f48576931f6d6fb2b831f063f86d804364b057b72cb8e983fc0de699d03d2"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/87": {
+      "targets": {
+        "http://gitlet.maryrosecook.com/docs/gitlet.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:15.625Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "http://maryrosecook.com/blog/post/git-in-six-hundred-words/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:15.967Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://web.archive.org/web/20230609053213/https://www.goodreads.com/book/show/18652140-distributed-systems-for-fun-and-profit": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:16.902Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://web.archive.org/web/20240119220014/https://www.goodreads.com/book/show/66678.Exile": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:18.697Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://web.archive.org/web/20250528215549/https://www.nytimes.com/2015/03/27/nyregion/reports-of-explosion-in-east-village.html?_r=0": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:20.397Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.flickr.com/photos/icco/16320069893/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:20.715Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.goodreads.com/book/show/15748647-exploring-everyday-things-with-r-and-ruby": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:21.438Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.goodreads.com/book/show/16087610-interactive-data-visualization-for-the-web": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:22.096Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.goodreads.com/book/show/16144499-designing-games": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:22.173Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.goodreads.com/book/show/17351722-essential-algorithms": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:22.211Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.goodreads.com/book/show/18270942-why-we-fail": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:22.270Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.goodreads.com/book/show/376236.Time_Management_for_System_Administrators": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:22.346Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        },
+        "https://www.goodreads.com/book/show/7405941-beautiful-visualization": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:22.387Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7f05b65062ae099e0a1e9e2c4b7e94f9e6a7bd02ec50f9a193e5e9733f47e31d"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/88": {
+      "targets": {
+        "http://well.blogs.nytimes.com/2014/10/01/how-exercise-may-protect-against-depression/?smprod=nytcore-ipad&smid=nytcore-ipad-share": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:22.790Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "5f2418ecd1b2c37656149e15cf5d857f5ecb318d3978023fc5bf038fd50cb2dc"
+        },
+        "https://twitter.com/aaronbshaw": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:19:22.890Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "5f2418ecd1b2c37656149e15cf5d857f5ecb318d3978023fc5bf038fd50cb2dc"
+        },
+        "https://twitter.com/mehulkar": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:19:23.005Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "5f2418ecd1b2c37656149e15cf5d857f5ecb318d3978023fc5bf038fd50cb2dc"
+        },
+        "https://web.archive.org/web/20150811103126/http://jts3k.com:80/site2/content/every-day-same-dream": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:23.675Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "5f2418ecd1b2c37656149e15cf5d857f5ecb318d3978023fc5bf038fd50cb2dc"
+        },
+        "https://web.archive.org/web/20250528215548/https://www.nytimes.com/2014/10/26/opinion/sunday/the-problem-with-positive-thinking.html?smid=nytcore-ipad-share&smprod=nytcore-ipad": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:24.554Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "5f2418ecd1b2c37656149e15cf5d857f5ecb318d3978023fc5bf038fd50cb2dc"
+        },
+        "https://www.youtube.com/watch?v=xWY79JCfhjw&feature=youtube_gdata": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:25.384Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "5f2418ecd1b2c37656149e15cf5d857f5ecb318d3978023fc5bf038fd50cb2dc"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/89": {
+      "targets": {
+        "http://www.guggenheim.org/new-york/exhibitions/on-view/kandinsky-before-abstraction-1901-1911": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:19:27.020Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "http://www.guggenheim.org/new-york/exhibitions/on-view/monir-shahroudy-farmanfarmaian-infinite-possibility-mirror-works-and-drawings-1974-2014": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:19:28.136Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://en.wikipedia.org/wiki/On_Kawara": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:28.300Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://feltron.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:28.448Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://plus.google.com/110073832307791875229/posts": {
+          "attempts": 1,
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-03T23:19:28.860Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://web.archive.org/web/20150329002245/http://www.guggenheim.org/new-york/exhibitions/on-view/on-kawara-silence": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:31.836Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://web.archive.org/web/20150329002245/http://www.guggenheim.org/new-york/exhibitions/on-view/the-hugo-boss-prize-2014": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:33.419Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://web.archive.org/web/20250528215547/https://www.nytimes.com/2015/03/21/arts/design/monir-farmanfarmaian-iranian-and-nonagenarian-celebrates-a-new-york-museum-first.html?_r=0": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:34.597Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://www.guggenheim.org/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:36.289Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        },
+        "https://www.nethack.org/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:36.479Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "ea0324ff8da731924343ddff73fead3f8689cf4bb3d68ac072d25150db9d238e"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/9": {
+      "targets": {
+        "http://www.slate.com/articles/life/a_fine_whine/2013/07/ghosting_the_irish_goodbye_the_french_leave_stop_saying_goodbye_at_parties.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:16:49.966Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7c38047fd698cb09f18e24ced93d070d7345d7614b2b9c3f01f1e50930fc9c31"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/90": {
+      "targets": {
+        "https://bldgblog.blogspot.com/2015/03/the-los-angeles-county-department-of.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:37.141Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0eacaf8362dc7a99b876dfde892082b91128690c2733f085c88a0a7b52d2c9bf"
+        },
+        "https://en.wikipedia.org/wiki/HTTP_451": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:37.410Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0eacaf8362dc7a99b876dfde892082b91128690c2733f085c88a0a7b52d2c9bf"
+        },
+        "https://github.com/icco/natroku": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:37.884Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0eacaf8362dc7a99b876dfde892082b91128690c2733f085c88a0a7b52d2c9bf"
+        },
+        "https://web.archive.org/web/20230531023150/http://www.golangpatterns.info/web/long-poll-server": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:39.066Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0eacaf8362dc7a99b876dfde892082b91128690c2733f085c88a0a7b52d2c9bf"
+        },
+        "https://web.archive.org/web/20251207001633/https://dissentmagazine.org/article/seattles-left-coast-formula/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:39.917Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0eacaf8362dc7a99b876dfde892082b91128690c2733f085c88a0a7b52d2c9bf"
+        },
+        "https://web.archive.org/web/20260109182449/http://nil.csail.mit.edu/6.824/2015/labs/lab-3.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:40.674Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "0eacaf8362dc7a99b876dfde892082b91128690c2733f085c88a0a7b52d2c9bf"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/91": {
+      "targets": {
+        "http://bl.ocks.org/mbostock/11159599": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:41.477Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://bl.ocks.org/mbostock/11377353": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:41.925Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://bl.ocks.org/mbostock/1ef3b1fb9eb35ca8ffff": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:42.391Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://bl.ocks.org/mbostock/70a28267db0354261476": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:42.820Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://codekata.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:43.158Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://corte.si/posts/code/visualisingsorting/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:43.630Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://www.joelonsoftware.com/articles/fog0000000069.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:43.929Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://www.joshuadavis.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:44.777Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "http://www.uncommonsnyc.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:44.948Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://bost.ocks.org/mike/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:45.170Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://bost.ocks.org/mike/algorithms/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:45.325Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://codewords.recurse.com/issues/one": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:45.494Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://codewords.recurse.com/issues/two": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:45.616Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:45.952Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://en.wikipedia.org/wiki/Minimum_spanning_tree": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:46.152Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://en.wikipedia.org/wiki/Spanning_tree": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:46.285Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://github.com/stackgl/shader-school": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:46.751Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://readings.owlfolio.org/introduction/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:47.325Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://twitter.com/agustinbenassi": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:19:47.464Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://twitter.com/corydominguez": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:19:47.701Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://twitter.com/gnclmorais": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:19:47.824Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://twitter.com/icco/status/582578688329404417": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:48.149Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://twitter.com/ifosteve": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:19:48.322Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://twitter.com/nicholasbs": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:19:48.444Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://vimeo.com/89801609": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:48.702Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://vimeo.com/93623889": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:49.071Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://web.archive.org/web/20241012183110/https://twitter.com/zeigenvector": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:50.629Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://www.facebook.com/events/938685079509080/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:50.993Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://www.tbray.org/ongoing/When/201x/2015/03/29/Anniversaries": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:51.623Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://youtu.be/-iKkEpW0N5Q": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:52.127Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        },
+        "https://youtu.be/LJS4fBjdPM4": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:52.983Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d15a67fef8f209c96e879c00bf3ecbfb87a3e4e05270881906f197fbfeaf05dd"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/92": {
+      "targets": {
+        "http://angus.nyc/writing/paxos-by-example/": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:19:53.902Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "http://bl.ocks.org/mbostock/11159599": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:54.068Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "http://blog.acolyer.org/2015/03/01/cant-we-all-just-agree/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:19:54.312Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:01.496Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "http://research.microsoft.com/en-us/um/people/lamport/pubs/paxos-simple.pdf": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:06.093Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://en.wikipedia.org/wiki/List_of_mathematical_symbols": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:06.548Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://en.wikipedia.org/wiki/Prim%25!s%28MISSING": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:20:06.897Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://github.com/icco/natnatnat/commit/87c9caba355b16cc0e803f383d89db7becd78940": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:07.322Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://twitter.com/agustinbenassi": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:07.604Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://twitter.com/ataipale": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:07.741Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://twitter.com/gnclmorais": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:07.888Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://twitter.com/HeidiKasemir": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:07.454Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://twitter.com/horrorcheck": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:08.017Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://twitter.com/ken_pratt": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:08.147Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://twitter.com/mrdrozdov": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:08.289Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://web.archive.org/web/20260109182449/http://nil.csail.mit.edu/6.824/2015/labs/lab-3.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:08.595Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://web.archive.org/web/20260121043256/https://harry.me/blog/2014/12/27/neat-algorithms-paxos/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:09.856Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        },
+        "https://www.youtube.com/watch?v=gXmj2yJNUmQ&feature=youtube_gdata": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:10.585Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "cbf928546a4dd02440ec4d7de93348fbb01ff4e2a803dac07593fc4d54bf97b2"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/93": {
+      "targets": {
+        "http://blog.lazerwalker.com/blog/2013/12/24/one-post-a-week-running-an-iron-blogger-challenge/": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:20:10.894Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "http://gamecenter.nyu.edu/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:11.102Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "http://icco.github.io/karl": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:11.204Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://cdnjs.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:11.403Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://craftyjs.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:11.538Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://foursquare.com/v/lan-larb-soho/541c6624498e9ab32651d2ec": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:11.864Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://github.com/cdnjs/cdnjs/pull/4511": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:12.721Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://github.com/fog/fog-google": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:13.214Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://github.com/fog/fog/pull/3511": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:14.001Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://github.com/lazerwalker/iron-blogger": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:14.407Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://twitter.com/bglusman": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:14.533Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://walk-bot.herokuapp.com/": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:20:14.586Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://web.archive.org/web/20251209010235/https://www.2015.differentgames.org/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:16.693Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://web.archive.org/web/20260109182449/https://www.ssllabs.com/ssltest/analyze.html?d=writing.natwelch.com": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:17.382Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        },
+        "https://zulip.com/api/endpoints/": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:20:17.467Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "aa174f30e1d0e196ce832083625bad913e00a4ff53c138cdca74aa8ddedd58ed"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/94": {
+      "targets": {
+        "http://designobserver.com/feature/morley/38833/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:18.101Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "http://genius.com/2339642": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:18.132Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:18.292Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://github.com/icco/zulip-walkbot": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:18.749Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://github.com/icco/zulip-walkbot/pull/1": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:19.286Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://natwelch.com/": {
+          "acceptedVersion": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf",
+          "attempts": 1,
+          "endpoint": "https://webmention.io/writing.natwelch.com/webmention",
+          "httpStatus": 201,
+          "lastAttempt": "2026-11-03T23:20:19.694Z",
+          "operation": "present",
+          "status": "accepted",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://web.archive.org/web/20251113113821/https://github.com/kata-seeds": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:21.247Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://web.archive.org/web/20251228133536/https://genius.com/Kendrick-lamar-i-lyrics": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:22.446Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://www.flickr.com/photos/icco/16392049844/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:22.865Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://www.flickr.com/photos/icco/16392050104/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:23.183Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://www.flickr.com/photos/icco/16392844844/sizes/o/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:23.360Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://www.flickr.com/photos/icco/16807854087/sizes/o/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:23.486Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        },
+        "https://www.youtube.com/watch?v=sop2V_MREEI": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:24.353Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "1b69ed723b5d2cdf2c9736e7b95a6ff722db1b8310c118c80e09e693e915aecf"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/96": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/Brooklyn_Navy_Yard": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:25.259Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "6ecb6e6cc338820927e0e7068b33a1dee0684017db617c73d04fa5fafbe8c238"
+        },
+        "https://web.archive.org/web/20150205091110/http://magnet.nyu.edu/magnet/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:25.863Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "6ecb6e6cc338820927e0e7068b33a1dee0684017db617c73d04fa5fafbe8c238"
+        },
+        "https://web.archive.org/web/20251209010235/https://www.2015.differentgames.org/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:26.188Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "6ecb6e6cc338820927e0e7068b33a1dee0684017db617c73d04fa5fafbe8c238"
+        },
+        "https://www.flickr.com/photos/icco/17036453975/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:26.511Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "6ecb6e6cc338820927e0e7068b33a1dee0684017db617c73d04fa5fafbe8c238"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/97": {
+      "targets": {
+        "https://en.wikipedia.org/wiki/Mafia_%28party_game%29": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:26.836Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "136e99e7a5feaaa63968562b76c27c4e23fb975218e8aca6cc355f590ab68faa"
+        },
+        "https://www.flickr.com/photos/icco/16434817903": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:27.185Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "136e99e7a5feaaa63968562b76c27c4e23fb975218e8aca6cc355f590ab68faa"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/98": {
+      "targets": {
+        "http://canvasjs.com/": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:27.439Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "http://fabricjs.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:27.823Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "http://jams.gamejolt.io/adventurejam": {
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-03T23:20:28.066Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "http://ludumdare.com/compo/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:28.325Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "http://mashable.com/2014/10/19/dosa-man-food-cart-nyc/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:29.070Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "http://paperjs.org/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:29.653Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "http://threejs.org/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:30.040Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "http://www.createjs.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:30.157Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:30.227Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://en.wikipedia.org/wiki/Conway's_Game_of_Life": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:30.431Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://github.com/icco/life": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:31.053Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://github.com/nikkisquared/Text-Rearranger": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:31.539Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://paulbourke.net/dataformats/bitmaps/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:31.783Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://pchiusano.io/unison": {
+          "attempts": 1,
+          "error": "Discovery failed: 520",
+          "httpStatus": 520,
+          "lastAttempt": "2026-11-03T23:20:33.139Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://twitter.com/dy_dx_": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:33.253Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://twitter.com/horrorcheck": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:33.458Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://twitter.com/lunacodess": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:33.719Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://twitter.com/mno00": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-03T23:20:33.826Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://web.archive.org/web/20160309235206/http://fano.ics.uci.edu/ca/rules/b3s23/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:35.196Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://web.archive.org/web/20211205211859/http://animalnewyork.com/2015/theres-a-massive-illicit-bust-of-edward-snowden-stuck-to-a-war-monument-in-brooklyn/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:35.922Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://web.archive.org/web/20260109182449/http://dotat.at/cgi/cvsweb/things/life.c?rev=1.8": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:36.943Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://web.archive.org/web/20260426123127/https://dotat.at/prog/life/life.html": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:40.639Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://www.amazon.com/The-Web-Game-Developers-Cookbook/dp/0321898389/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:40.761Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://www.goodreads.com/book/show/16144499-designing-games": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:40.928Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        },
+        "https://www.theverge.com/2015/4/6/8353549/edward-snowden-sculpture-fort-greene-park-brooklyn-new-york": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:41.364Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "d6f743af794ca4597b12e39977e68279ed1393ca9c595d7c594f8ffafff6fcd4"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/99": {
+      "targets": {
+        "https://developer.mozilla.org/en-US/docs/Games/Anatomy": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-03T23:20:41.695Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "7af834d0a999b7140418b03902954f806a812b272f4ef03d16b67a8156c8c36e"
+        }
+      }
+    }
+  },
+  "version": 1
+}
