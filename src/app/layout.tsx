@@ -31,6 +31,8 @@ export const metadata: Metadata = {
   title: "Nat? Nat. Nat!",
   description: "The personal blog of Nat Welch",
   other: {
+    webmention: "https://webmention.io/writing.natwelch.com/webmention",
+    pingback: "https://webmention.io/writing.natwelch.com/xmlrpc",
     charset: "utf-8",
   },
 }
@@ -67,7 +69,7 @@ export default function RootLayout({
         <ThemeProvider>
           <a
             href="#main-content"
-            className="focus:bg-base-100 focus:text-base-content sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:px-4 focus:py-2"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-base-100 focus:px-4 focus:py-2 focus:text-base-content"
           >
             Skip to main content
           </a>
