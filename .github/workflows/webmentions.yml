@@ -33,7 +33,7 @@ jobs:
       - name: Run webmention sender
         run: pnpm run webmentions:send -- --send
       - name: Commit sent log if changed
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: update sent webmentions"
           file_pattern: "webmentions/sent.json"
