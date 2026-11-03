@@ -1,11 +1,33 @@
 import { JSDOM } from "jsdom"
 import parseLinkHeader from "parse-link-header"
-import { safeRequest } from "./network"
+import { safeRequest, type SafeResponse } from "./network"
+
+export class DiscoveryError extends Error {
+  httpStatus: number
+  retryAt?: string
+  constructor(response: SafeResponse) {
+    super(`Discovery failed: ${response.status}`)
+    this.httpStatus = response.status
+    this.retryAt = retryAtFor(response)
+  }
+}
+
+function retryAtFor(response: SafeResponse): string | undefined {
+  if (![429, 503].includes(response.status)) return undefined
+  const retry = response.headers.get("retry-after")
+  const next =
+    retry && /^\d+$/.test(retry)
+      ? Date.now() + Number(retry) * 1000
+      : Date.parse(retry || "")
+  if (!Number.isFinite(next)) return undefined
+  return new Date(
+    Math.min(Math.max(next, Date.now()), Date.now() + 7 * 86400000)
+  ).toISOString()
+}
 
 export async function discoverEndpoint(target: string): Promise<string | null> {
   const res = await safeRequest(target)
-  if (res.status < 200 || res.status >= 300)
-    throw new Error(`Discovery failed: ${res.status}`)
+  if (res.status < 200 || res.status >= 300) throw new DiscoveryError(res)
   const header = parseLinkHeader(res.headers.get("link"))
   if (header?.webmention) return new URL(header.webmention.url, res.url).href
   if (
@@ -47,28 +69,20 @@ export async function deliverWebmention(
     })
     if (response.status >= 200 && response.status < 300)
       return { status: "accepted", endpoint, httpStatus: response.status }
-    const retry = response.headers.get("retry-after")
-    const next =
-      retry && /^\d+$/.test(retry)
-        ? Date.now() + Number(retry) * 1000
-        : Date.parse(retry || "")
-    const retryAt =
-      [429, 503].includes(response.status) && Number.isFinite(next)
-        ? new Date(
-            Math.min(Math.max(next, Date.now()), Date.now() + 7 * 86400000)
-          ).toISOString()
-        : undefined
     return {
       status: "failed",
       endpoint,
       httpStatus: response.status,
-      retryAt,
+      retryAt: retryAtFor(response),
       error: `Receiver returned ${response.status}`,
     }
   } catch (error) {
     return {
       status: "failed",
       endpoint,
+      ...(error instanceof DiscoveryError
+        ? { httpStatus: error.httpStatus, retryAt: error.retryAt }
+        : {}),
       error: error instanceof Error ? error.message : String(error),
     }
   }

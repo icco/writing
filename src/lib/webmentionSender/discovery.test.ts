@@ -167,6 +167,24 @@ test.each(["3600", "Tue, 03 Nov 2026 14:00:00 GMT", "bad"])(
   }
 )
 
+test.each(["3600", "Tue, 03 Nov 2026 14:00:00 GMT", "bad"])(
+  "records discovery retry policy %s",
+  async (retry) => {
+    vi.spyOn(network, "safeRequest").mockResolvedValueOnce({
+      url: "https://example.com/",
+      status: 429,
+      headers: new Headers({ "retry-after": retry }),
+      body: "",
+    })
+    const result = await deliverWebmention(
+      "https://writing.natwelch.com/post/1",
+      "https://example.com/"
+    )
+    expect(result).toMatchObject({ status: "failed", httpStatus: 429 })
+    expect(Boolean(result.retryAt)).toBe(retry !== "bad")
+  }
+)
+
 test("successful page without endpoint is distinct from failures", async () => {
   vi.spyOn(network, "safeRequest").mockResolvedValue({
     url: "https://example.com/",
