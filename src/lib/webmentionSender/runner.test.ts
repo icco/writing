@@ -220,3 +220,29 @@ test("deadline reached mid-post keeps completed checkpoints", async () => {
     )
   ).toEqual(["https://example.com/a"])
 })
+
+test("no-endpoint rechecks do not consume the failure budget", async () => {
+  sourceMock()
+  const file = await statePath()
+  vi.spyOn(discovery, "deliverWebmention").mockResolvedValueOnce({
+    status: "no-endpoint",
+  })
+  await runSender({ send: true, limit: 1, statePath: file })
+  const state = JSON.parse(await readFile(file, "utf8"))
+  const record =
+    state.sources["https://writing.natwelch.com/post/1"].targets[
+      "https://example.com/a"
+    ]
+  Object.assign(record, { attempts: 3, lastAttempt: "2020-01-01T00:00:00Z" })
+  await writeFile(file, JSON.stringify(state))
+  vi.spyOn(discovery, "deliverWebmention").mockResolvedValue({
+    status: "failed",
+    error: "offline",
+  })
+  await runSender({ send: true, limit: 1, statePath: file })
+  expect(
+    JSON.parse(await readFile(file, "utf8")).sources[
+      "https://writing.natwelch.com/post/1"
+    ].targets["https://example.com/a"]
+  ).toMatchObject({ status: "failed", attempts: 1 })
+})

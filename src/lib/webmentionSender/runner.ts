@@ -98,7 +98,8 @@ export async function runSender(options: {
             ? operation.version
             : previous?.acceptedVersion,
         attempts:
-          previous?.version === operation.version &&
+          previous?.status === "failed" &&
+          previous.version === operation.version &&
           previous.operation === operation.operation
             ? previous.attempts + 1
             : 1,
