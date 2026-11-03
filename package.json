@@ -20,7 +20,8 @@
     "clean": "rm -rf node_modules .next .contentlayer",
     "tw": "tailwindcss -i src/app/globals.css",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "webmentions:send": "tsx scripts/send-webmentions.ts"
   },
   "dependencies": {
     "@google/genai": "^2.32.0",

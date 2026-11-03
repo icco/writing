@@ -1,0 +1,40 @@
+name: Send webmentions
+on:
+  schedule:
+    - cron: '15 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 12.16.1
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Configure git user
+        run: |
+          git config user.email "nat@natwelch.com"
+          git config user.name "Nat Welch"
+      - name: Run webmention sender
+        run: pnpm run webmentions:send -- --send
+      - name: Commit sent log if changed
+        run: |
+          git add webmentions/sent.json
+          git diff --quiet --staged || git commit -m "chore: update sent webmentions"
+          git pull --rebase origin main || true
+          git push origin HEAD:main
