@@ -4,19 +4,19 @@ Guidance for coding agents working on writing.natwelch.com.
 
 ## Project Overview
 
-Personal blog built with Next.js, TypeScript, Tailwind CSS, and Contentlayer.
+Personal blog built with Next.js, TypeScript, Tailwind CSS, and content-collections.
 - Application routes & styles: `src/app/`
 - Reusable UI components: `src/components/`
 - Domain helpers: `src/lib/`
 - Blog posts: MDX files in `posts/` (typically numeric e.g. `posts/779.md`)
-- Contentlayer config: `contentlayer.config.ts`
-- Static assets: `public/`. Do not manually edit `.next/` or `.contentlayer/`.
+- content-collections config: `content-collections.ts`
+- Static assets: `public/`. Do not manually edit `.next/` or `.content-collections/`.
 
 ## Commands
 
 Use pnpm (Node >= 26):
-- `pnpm dev` — Start dev server with Contentlayer on port 8080
-- `pnpm build` — Generate Contentlayer artifacts and production build
+- `pnpm dev` — Start dev server with content-collections on port 8080
+- `pnpm build` — Generate content-collections output and production build
 - `pnpm start` — Start production server (`PORT` environment variable)
 - `pnpm test` — Run Vitest suite once
 - `pnpm lint` — Run ESLint with auto-fix

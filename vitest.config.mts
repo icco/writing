@@ -8,10 +8,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
-      // Tests run without a Contentlayer build; use a small fixture set.
-      "contentlayer/generated": path.resolve(
+      // Tests run without a content-collections build; use a small fixture set.
+      "content-collections": path.resolve(
         import.meta.dirname,
-        "src/test/contentlayerFixture.ts"
+        "src/test/postFixture.ts"
       ),
     },
   },

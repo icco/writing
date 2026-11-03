@@ -1,6 +1,6 @@
 import { compareDesc, isFuture } from "date-fns"
 
-import { allPosts, Post } from "contentlayer/generated"
+import { allPosts, Post } from "content-collections"
 
 export default function publishedPosts() {
   const posts = allPosts

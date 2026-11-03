@@ -1,8 +1,8 @@
 /**
- * Minimal stand-in for `contentlayer/generated` used by Vitest. Only the
+ * Minimal stand-in for `content-collections` used by Vitest. Only the
  * fields the app reads are populated.
  */
-import type { Post as GeneratedPost } from "contentlayer/generated"
+import type { Post as GeneratedPost } from "content-collections"
 
 type FixturePost = {
   _id: string
@@ -31,7 +31,7 @@ type FixturePost = {
 }
 
 /**
- * Build a post fixture. The result is adapted to the generated Contentlayer
+ * Build a post fixture. The result is adapted to the generated content-collections
  * `Post` type so it can be passed anywhere the app expects a real post.
  */
 export function makePost(

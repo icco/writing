@@ -4,7 +4,7 @@ import { Metadata, Viewport } from "next"
 import { PostCard } from "@/components/PostCard"
 import { siteUrl } from "@/lib/siteUrl"
 
-import { allPosts, Post } from "contentlayer/generated"
+import { allPosts, Post } from "content-collections"
 
 const title = `Drafts!`
 export const metadata: Metadata = {

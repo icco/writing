@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { allPosts } from "contentlayer/generated"
+import { allPosts } from "content-collections"
 import { isFuture } from "date-fns"
 
 import { normalizeTag } from "@/lib/tagAliases"

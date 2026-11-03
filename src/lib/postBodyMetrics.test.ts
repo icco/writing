@@ -18,7 +18,7 @@ const POSTS_DIR = path.resolve(here, "../../posts")
 function readPostBody(id: number): string {
   const raw = readFileSync(path.join(POSTS_DIR, `${id}.md`), "utf8")
   // Strip the leading YAML front-matter block; metrics are computed against
-  // the MDX body in `contentlayer.config.ts`, not the front-matter.
+  // the MDX body in `content-collections.ts`, not the front-matter.
   if (!raw.startsWith("---")) return raw
   const end = raw.indexOf("\n---", 3)
   if (end === -1) return raw
@@ -198,13 +198,13 @@ Some prose between.
   test("regression: post 773 body has 10 PhotoGrid images", () => {
     // /post/773 reported 0 images before this fix; the body contains a single
     // <PhotoGrid /> with ten urls. The header_image (+1) is added by the
-    // contentlayer resolver, not by countBodyImages.
+    // content-collections transform, not by countBodyImages.
     expect(countBodyImages(readPostBody(773))).toBe(10)
   })
 
   test("regression: post 774 body has 0 images", () => {
     // /post/774's only image is the front-matter header_image, which is added
-    // by the contentlayer resolver. The body itself has no images.
+    // by the content-collections transform. The body itself has no images.
     expect(countBodyImages(readPostBody(774))).toBe(0)
   })
 })

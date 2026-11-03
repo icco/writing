@@ -1,7 +1,7 @@
 import { format, parseISO } from "date-fns"
 import Link from "next/link"
 
-import { Post } from "contentlayer/generated"
+import { Post } from "content-collections"
 
 import { Tag } from "./Tag"
 import { AuthorCard } from "./AuthorCard"

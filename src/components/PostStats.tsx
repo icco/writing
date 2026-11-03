@@ -1,4 +1,4 @@
-import type { Post } from "contentlayer/generated"
+import type { Post } from "content-collections"
 
 function StatCell({
   title,
