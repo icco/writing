@@ -213,3 +213,19 @@ test("HTML discovery honors the document base element", async () => {
     "https://example.com/api/wm"
   )
 })
+
+test.each([
+  "text/html ; charset=utf-8",
+  " TEXT/HTML",
+  "application/xhtml+xml;charset=utf-8",
+])("HTML discovery accepts content type %s", async (contentType) => {
+  vi.spyOn(network, "safeRequest").mockResolvedValue({
+    url: "https://example.com/",
+    status: 200,
+    headers: new Headers({ "content-type": contentType }),
+    body: '<link rel="webmention" href="/wm">',
+  })
+  expect(await discoverEndpoint("https://example.com/")).toBe(
+    "https://example.com/wm"
+  )
+})

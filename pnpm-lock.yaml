@@ -262,6 +262,9 @@ importers:
       unified:
         specifier: ^11.0.5
         version: 11.0.5
+      whatwg-mimetype:
+        specifier: ^5.0.0
+        version: 5.0.0
       write-file-atomic:
         specifier: ^8.0.0
         version: 8.0.0
@@ -302,6 +305,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.3.0
         version: 19.3.0(@types/react@19.3.0)
+      '@types/whatwg-mimetype':
+        specifier: ^5.0.0
+        version: 5.0.0
       '@types/write-file-atomic':
         specifier: ^4.0.3
         version: 4.0.3
@@ -1825,6 +1831,9 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
+
+  '@types/whatwg-mimetype@5.0.0':
+    resolution: {integrity: sha512-YYiBDCoqBgDIF2ByYn4qDb4RaXZ46cOQ6j2We1Ni3bikFNI7YFeL8jxSiYowWsriZrb1mw09CLZ+b+ZkIhsLVw==}
 
   '@types/write-file-atomic@4.0.3':
     resolution: {integrity: sha512-qdo+vZRchyJIHNeuI1nrpsLw+hnkgqP/8mlaN6Wle/NKhydHmUN9l4p3ZE8yP90AJNJW4uB8HQhedb4f1vNayQ==}
@@ -6044,6 +6053,8 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
+
+  '@types/whatwg-mimetype@5.0.0': {}
 
   '@types/write-file-atomic@4.0.3':
     dependencies:

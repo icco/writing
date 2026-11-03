@@ -1,5 +1,6 @@
 import { JSDOM } from "jsdom"
 import parseLinkHeader from "parse-link-header"
+import { MIMEType } from "whatwg-mimetype"
 import { safeRequest, type SafeResponse } from "./network"
 
 export class DiscoveryError extends Error {
@@ -30,11 +31,8 @@ export async function discoverEndpoint(target: string): Promise<string | null> {
   if (res.status < 200 || res.status >= 300) throw new DiscoveryError(res)
   const header = parseLinkHeader(res.headers.get("link"))
   if (header?.webmention) return new URL(header.webmention.url, res.url).href
-  if (
-    !/^(text\/html|application\/xhtml\+xml)(;|$)/i.test(
-      res.headers.get("content-type") || ""
-    )
-  )
+  const type = MIMEType.parse(res.headers.get("content-type") || "")
+  if (!type || !["text/html", "application/xhtml+xml"].includes(type.essence))
     return null
   const dom = new JSDOM(res.body, { url: res.url })
   try {
