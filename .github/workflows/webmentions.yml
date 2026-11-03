@@ -33,8 +33,10 @@ jobs:
       - name: Run webmention sender
         run: pnpm run webmentions:send -- --send
       - name: Commit sent log if changed
-        run: |
-          git add webmentions/sent.json
-          git diff --quiet --staged || git commit -m "chore: update sent webmentions"
-          git pull --rebase origin main || true
-          git push origin HEAD:main
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update sent webmentions"
+          file_pattern: "webmentions/sent.json"
+          commit_author: "GitHub Actions <actions@github.com>"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
