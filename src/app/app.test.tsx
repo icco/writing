@@ -4,6 +4,12 @@ import { beforeEach, describe, expect, test, vi } from "vitest"
 
 const draft = vi.hoisted(() => ({ isEnabled: false, enable: vi.fn() }))
 
+const mentions = vi.hoisted(() => ({ calls: [] as number[] }))
+vi.mock("@/lib/webmentions", async importOriginal => {
+  const actual = await importOriginal<typeof import("@/lib/webmentions")>()
+  return { ...actual, getWebmentions: async (id: number) => { mentions.calls.push(id); return actual.emptyReactions() } }
+})
+
 vi.mock("next/navigation", () => ({
   notFound: vi.fn(() => {
     throw new Error("NEXT_NOT_FOUND")

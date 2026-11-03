@@ -10,6 +10,8 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { AuthorCard } from "@/components/AuthorCard"
+import { Webmentions } from "@/components/Webmentions"
+import { emptyReactions, getWebmentions } from "@/lib/webmentions"
 import { canonicalPostUrl } from "@/lib/indieweb"
 import { MDXContent } from "@/components/MDXContent"
 import PostHeaderImage from "@/components/PostHeaderImage"
@@ -101,6 +103,9 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
     notFound()
   }
 
+  const reactions = !post.draft && new Date(post.datetime) <= new Date()
+    ? await getWebmentions(post.id, post.permalink)
+    : emptyReactions()
   const prev = previousPost(post.id)
   const next = nextPost(post.id)
 
@@ -180,6 +185,8 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
         <div className="e-content prose lg:prose-xl max-w-5xl">
           <MDXContent code={post.body.code} />
         </div>
+
+        <Webmentions reactions={reactions} target={canonicalPostUrl(post.permalink)} />
 
         <PostStats post={post} />
 

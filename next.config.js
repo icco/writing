@@ -20,9 +20,10 @@ const nextConfig = {
     loader: "custom",
     loaderFile: "./src/lib/imgixLoader.ts",
     remotePatterns: [
+      "https://avatars.webmention.io",
       {
         protocol: "https",
-        hostname: "images.natwelch.com",
+        hostname: "avatars.webmention.io",
         pathname: "/**",
       },
     ],
