@@ -10,9 +10,9 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Fix links
-        uses: tmcw/notfoundbot@feeb668347f9c0ef8abdc4a8c43778fce2ee85d9
+        uses: tmcw/notfoundbot@feeb668347f9c0ef8abdc4a8c43778fce2ee85d9 # v3.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXCEPTIONS: writing.natwelch.com
