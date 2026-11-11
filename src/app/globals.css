@@ -253,3 +253,16 @@ section[data-footnotes] h2 {
     margin-left: 0.5rem;
   }
 }
+
+.prose figure img {
+  border-radius: var(--radius-box);
+}
+
+.prose figcaption {
+  margin-top: 0.75em;
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: color-mix(in oklch, var(--color-base-content) 70%, transparent);
+}
