@@ -11,21 +11,19 @@ const render = async (md: string) =>
       .process(md)
   )
 
-test("captions a standalone titled image", async () => {
-  expect(await render('![Ada at work](/a.png "Ada Lovelace, 1843")')).toBe(
-    '<figure><img src="/a.png" alt="Ada at work"><figcaption>Ada Lovelace, 1843</figcaption></figure>\n'
+test("captions a standalone image with its alt text", async () => {
+  expect(await render("![Ada at work](/a.png)")).toBe(
+    '<figure><img src="/a.png" alt="Ada at work"><figcaption aria-hidden="true">Ada at work</figcaption></figure>\n'
   )
 })
 
-test("captions a titled image that links to itself", async () => {
-  expect(await render('[![Ada](/a.png "Ada Lovelace")](/a.png)')).toBe(
-    '<figure><a href="/a.png"><img src="/a.png" alt="Ada"></a><figcaption>Ada Lovelace</figcaption></figure>\n'
+test("captions an image that links to itself", async () => {
+  expect(await render("[![Ada](/a.png)](/a.png)")).toBe(
+    '<figure><a href="/a.png"><img src="/a.png" alt="Ada"></a><figcaption aria-hidden="true">Ada</figcaption></figure>\n'
   )
 })
 
-test("leaves untitled and inline images alone", async () => {
-  expect(await render("![Ada](/a.png)")).toBe(
-    '<p><img src="/a.png" alt="Ada"></p>\n'
-  )
-  expect(await render('see ![Ada](/a.png "t") here')).toContain("<p>see")
+test("leaves images without alt text and inline images alone", async () => {
+  expect(await render("![](/a.png)")).toBe('<p><img src="/a.png" alt=""></p>\n')
+  expect(await render("see ![Ada](/a.png) here")).toContain("<p>see")
 })
