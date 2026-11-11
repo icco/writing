@@ -237,7 +237,10 @@ export default async function generateFeed(posts: Post[]) {
   for (const p of posts) {
     try {
       const postUrl = `https://writing.natwelch.com/post/${p.id}`
-      const htmlContent = await markdownToHtml(stripAnnotations(p.body.raw), postUrl)
+      const htmlContent = await markdownToHtml(
+        stripAnnotations(p.body.raw),
+        postUrl
+      )
       feed.addItem(createFeedItem(p, htmlContent))
     } catch (err) {
       console.error(`Error processing post ${p.id}:`, err)
