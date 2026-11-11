@@ -16,6 +16,7 @@ import {
   remarkStripAnnotations,
   stripAnnotations,
 } from "./src/lib/iaWriterAnnotations"
+import { remarkImageCaptions } from "./src/lib/imageCaptions"
 import { migrateImageUrls, remarkImageUrls } from "./src/lib/imageUrls"
 import {
   characterCount,
@@ -29,6 +30,7 @@ const mdx = createProcessor({
   remarkPlugins: [
     remarkStripAnnotations,
     remarkImageUrls,
+    remarkImageCaptions,
     remarkHashtags,
     remarkGfm,
   ],

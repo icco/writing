@@ -1,6 +1,7 @@
 import { format } from "date-fns"
 import { Feed } from "feed"
 import { stripAnnotations } from "./iaWriterAnnotations"
+import { remarkImageCaptions } from "./imageCaptions"
 import { migrateImageUrls } from "./imageUrls"
 import { remark } from "remark"
 import remarkGfm from "remark-gfm"
@@ -161,6 +162,7 @@ async function markdownToHtml(
   const expanded = expandMdxComponents(migrateImageUrls(markdown))
   const result = await remark()
     .use(remarkGfm)
+    .use(remarkImageCaptions)
     // Note: sanitize is disabled because:
     // 1. All content is version-controlled and written by the blog owner
     // 2. Posts contain intentional HTML (links, images, embeds)
