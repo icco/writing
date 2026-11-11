@@ -1,12 +1,12 @@
 interface Node {
   type: string
   value?: string
-  title?: string | null
+  alt?: string | null
   children?: Node[]
   data?: Record<string, unknown>
 }
 
-/** Turns a paragraph holding only `![alt](src "title")`, optionally wrapped in a link, into a figure with the title as a visible caption. */
+/** Turns a paragraph holding only `![alt](src)`, optionally wrapped in a link, into a figure with the alt text as a visible caption. */
 export function remarkImageCaptions() {
   return (tree: Node) => {
     const visit = (node: Node) => {
@@ -21,16 +21,15 @@ export function remarkImageCaptions() {
         block.type === "link" && block.children?.length === 1
           ? block.children[0]
           : block
-      if (image.type !== "image" || !image.title) return
-      const caption = image.title
-      // The caption replaces the title so screen readers do not announce it twice.
-      image.title = null
+      const caption = image.type === "image" ? image.alt?.trim() : undefined
+      if (!caption) return
       node.data = { ...node.data, hName: "figure" }
       node.children = [
         block,
         {
           type: "emphasis",
-          data: { hName: "figcaption" },
+          // The img alt already carries this text for screen readers.
+          data: { hName: "figcaption", hProperties: { ariaHidden: "true" } },
           children: [{ type: "text", value: caption }],
         },
       ]
