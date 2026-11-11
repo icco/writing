@@ -17,6 +17,12 @@ test("captions a standalone titled image", async () => {
   )
 })
 
+test("captions a titled image that links to itself", async () => {
+  expect(await render('[![Ada](/a.png "Ada Lovelace")](/a.png)')).toBe(
+    '<figure><a href="/a.png"><img src="/a.png" alt="Ada"></a><figcaption>Ada Lovelace</figcaption></figure>\n'
+  )
+})
+
 test("leaves untitled and inline images alone", async () => {
   expect(await render("![Ada](/a.png)")).toBe(
     '<p><img src="/a.png" alt="Ada"></p>\n'
