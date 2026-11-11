@@ -5,7 +5,6 @@ import { Post } from "content-collections"
 
 import { Tag } from "./Tag"
 import { AuthorCard } from "./AuthorCard"
-import { canonicalPostUrl } from "@/lib/indieweb"
 
 export function PostCard(post: Post) {
   return (
@@ -23,7 +22,7 @@ export function PostCard(post: Post) {
       <h2 className="hover:text-link mb-1 text-3xl">
         <Link
           className="p-name u-url"
-          href={post.draft ? post.url : canonicalPostUrl(post.permalink)}
+          href={post.draft ? post.url : post.permalink}
         >
           {post.title}
         </Link>

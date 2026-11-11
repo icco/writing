@@ -156,7 +156,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
             <span className="mx-1 inline-block">
               <Link
                 className={post.draft ? undefined : "u-url u-uid"}
-                href={post.draft ? post.url : canonicalPostUrl(post.permalink)}
+                href={post.draft ? post.url : post.permalink}
               >
                 #{post.id}
               </Link>
