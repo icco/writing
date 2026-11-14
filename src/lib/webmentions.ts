@@ -94,6 +94,14 @@ function normalize(value: unknown): Reaction | undefined {
   }
 }
 
+function describeError(error: unknown): string {
+  if (!(error instanceof Error)) return String(error).replace(/\s+/g, " ")
+  const message = error.message.replace(/\s+/g, " ")
+  return error.cause instanceof Error
+    ? `${message} (${describeError(error.cause)})`
+    : message
+}
+
 export async function getWebmentions(
   id: number,
   permalink: string
@@ -135,7 +143,7 @@ export async function getWebmentions(
       )
     return groups
   } catch (error) {
-    console.warn("Unable to load webmentions", error)
+    console.warn(`Unable to load webmentions: ${describeError(error)}`)
     return emptyReactions()
   }
 }
