@@ -388,7 +388,7 @@ function tryExtractLeadingImage(text: string): ExtractResult | null {
 
   // [![alt](inner "title")](outer): the image is inner; outer is often a Flickr page.
   let m = text.match(
-    /^\s*\[!\[([^\]]*)\]\(\s*(\S+?)(?:\s+"[^"]*")?\s*\)\]\(([^)]+)\)(?:[ \t]*(?:\n|$)|\n*\n)/
+    /^\s*\[!\[([^\]]*)\]\(\s*([^\s)]+?)(?:\s+"[^"]*")?\s*\)\]\(([^)]+)\)(?:[ \t]*(?:\n|$)|\n*\n)/
   )
   if (m) {
     const url = normalizeImageUrl(m[2]!.trim())
