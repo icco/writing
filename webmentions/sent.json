@@ -39653,10 +39653,10 @@
           "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/icco.me/blob/main/mist/docker-compose.yml": {
-          "attempts": 1,
+          "attempts": 2,
           "error": "Discovery failed: 404",
           "httpStatus": 404,
-          "lastAttempt": "2026-11-14T00:37:06.507Z",
+          "lastAttempt": "2026-11-14T06:24:20.255Z",
           "operation": "present",
           "status": "failed",
           "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
@@ -39848,19 +39848,19 @@
           "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
         },
         "https://www.raspberrypi.com/products/touch-display-2/": {
-          "attempts": 1,
+          "attempts": 2,
           "error": "Discovery failed: 403",
           "httpStatus": 403,
-          "lastAttempt": "2026-11-14T00:37:28.584Z",
+          "lastAttempt": "2026-11-14T06:24:20.498Z",
           "operation": "present",
           "status": "failed",
           "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
         },
         "https://www.raspberrypi.com/software/": {
-          "attempts": 1,
+          "attempts": 2,
           "error": "Discovery failed: 403",
           "httpStatus": 403,
-          "lastAttempt": "2026-11-14T00:37:28.653Z",
+          "lastAttempt": "2026-11-14T06:24:20.551Z",
           "operation": "present",
           "status": "failed",
           "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
