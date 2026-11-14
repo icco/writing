@@ -386,12 +386,12 @@ function isLikelyImageUrl(s: string): boolean {
 function tryExtractLeadingImage(text: string): ExtractResult | null {
   if (!text.trim() || /^\s*```/.test(text)) return null
 
-  // [![alt](inner)](outer) — e.g. linked hero card
+  // [![alt](inner "title")](outer): the image is inner; outer is often a Flickr page.
   let m = text.match(
-    /^\s*\[!\[([^\]]*)\]\(([^)]+)\)\]\(([^)]+)\)(?:[ \t]*(?:\n|$)|\n*\n)/
+    /^\s*\[!\[([^\]]*)\]\(\s*(\S+?)(?:\s+"[^"]*")?\s*\)\]\(([^)]+)\)(?:[ \t]*(?:\n|$)|\n*\n)/
   )
   if (m) {
-    const url = normalizeImageUrl(m[3]!.trim())
+    const url = normalizeImageUrl(m[2]!.trim())
     if (!isLikelyImageUrl(url)) return null
     return {
       url,
@@ -685,6 +685,7 @@ function writeMatterFile(
 
 function needWork(
   data: {
+    draft?: boolean
     summary?: string
     header_image?: string
     header_image_alt_text?: string
@@ -692,13 +693,16 @@ function needWork(
   content: string
 ): {
   needSummary: boolean
+  needSummaryRemoval: boolean
   needHeader: boolean
   needHeaderAltOnly: boolean
   needBodyRewrite: boolean
 } {
   const hasImage = String(data.header_image || "").trim()
+  const hasSummary = "summary" in data
   return {
-    needSummary: !String(data.summary || "").trim(),
+    needSummary: !data.draft && !String(data.summary || "").trim(),
+    needSummaryRemoval: Boolean(data.draft) && hasSummary,
     needHeader: !hasImage,
     needHeaderAltOnly: Boolean(hasImage && !String(data.header_image_alt_text || "").trim()),
     needBodyRewrite: bodyHasNonImgixImage(content),
@@ -740,10 +744,21 @@ async function main() {
     const postId = path.basename(postFile, path.extname(postFile))
     const { parsed: initial } = readMatter(postFile)
     const initialContent = String(initial.content ?? "")
-    const { needSummary, needHeader, needHeaderAltOnly, needBodyRewrite } =
-      needWork(initial.data, initialContent)
+    const {
+      needSummary,
+      needSummaryRemoval,
+      needHeader,
+      needHeaderAltOnly,
+      needBodyRewrite,
+    } = needWork(initial.data, initialContent)
 
-    if (!needSummary && !needHeader && !needHeaderAltOnly && !needBodyRewrite) {
+    if (
+      !needSummary &&
+      !needSummaryRemoval &&
+      !needHeader &&
+      !needHeaderAltOnly &&
+      !needBodyRewrite
+    ) {
       continue
     }
 
@@ -839,6 +854,9 @@ async function main() {
       } else {
         console.log(`  Failed to generate summary`)
       }
+    } else if (needSummaryRemoval) {
+      delete data.summary
+      console.log(`  → Removed summary from draft`)
     } else {
       console.log(`  (Summary already present, skipped)`)
     }
@@ -848,7 +866,13 @@ async function main() {
       Boolean(String(data.summary || "").trim()) &&
       !String(initial.data.summary || "").trim()
 
-    if (didHeader || didHeaderAlt || didBodyRewrite || summaryAdded) {
+    if (
+      didHeader ||
+      didHeaderAlt ||
+      didBodyRewrite ||
+      summaryAdded ||
+      needSummaryRemoval
+    ) {
       writeMatterFile(postFile, data, content)
       const parts: string[] = []
       if (didHeader) {
@@ -862,6 +886,9 @@ async function main() {
       }
       if (summaryAdded) {
         parts.push("summary")
+      }
+      if (needSummaryRemoval) {
+        parts.push("drop draft summary")
       }
       const label = parts.length ? parts.join(" + ") : "post"
       gitCommit(
