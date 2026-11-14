@@ -137,3 +137,15 @@ test("network errors do not break pages", async () => {
   vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("offline")))
   expect(await getWebmentions(1, "/post/1")).toEqual(emptyReactions())
 })
+
+test("fetch failures log one line with the cause", async () => {
+  const warn = vi.spyOn(console, "warn").mockImplementation(() => {})
+  const error = new TypeError("fetch failed", {
+    cause: new Error("read ECONNRESET"),
+  })
+  vi.stubGlobal("fetch", vi.fn().mockRejectedValue(error))
+  await getWebmentions(1, "/post/1")
+  expect(warn).toHaveBeenCalledWith(
+    "Unable to load webmentions: fetch failed (read ECONNRESET)"
+  )
+})
