@@ -39507,320 +39507,363 @@
       "targets": {
         "https://24shells.net/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:14.613Z",
+          "lastAttempt": "2026-11-14T00:36:51.609Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/anomalyco/opencode": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:17.518Z",
+          "lastAttempt": "2026-11-14T00:36:54.237Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/BerriAI/litellm": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:15.372Z",
+          "lastAttempt": "2026-11-14T00:36:52.461Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/borgbackup/borg": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:18.149Z",
+          "lastAttempt": "2026-11-14T00:36:54.807Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/dmarcguardhq/parse-dmarc": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:19.011Z",
+          "lastAttempt": "2026-11-14T00:36:55.467Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/docker-mailserver/docker-mailserver": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:19.608Z",
+          "lastAttempt": "2026-11-14T00:36:56.094Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/fail2ban/fail2ban": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:20.171Z",
+          "lastAttempt": "2026-11-14T00:36:56.628Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/FlareSolverr/FlareSolverr": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:16.080Z",
+          "lastAttempt": "2026-11-14T00:36:53.078Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/GAM-team/got-your-back": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:16.777Z",
+          "lastAttempt": "2026-11-14T00:36:53.662Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/grafana/alloy": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:20.818Z",
+          "lastAttempt": "2026-11-14T00:36:57.243Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/grafana/grafana": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:21.547Z",
+          "lastAttempt": "2026-11-14T00:36:57.905Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/grafana/loki": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:22.154Z",
+          "lastAttempt": "2026-11-14T00:36:58.501Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/acntng": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:23.272Z",
+          "lastAttempt": "2026-11-14T00:36:59.269Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/art": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:24.194Z",
+          "lastAttempt": "2026-11-14T00:37:00.025Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/artgrabber": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:24.972Z",
+          "lastAttempt": "2026-11-14T00:37:00.820Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/cambridge": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:25.961Z",
+          "lastAttempt": "2026-11-14T00:37:02.237Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/code.natwelch.com": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:26.773Z",
+          "lastAttempt": "2026-11-14T00:37:03.035Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/etu-backend": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:27.611Z",
+          "lastAttempt": "2026-11-14T00:37:03.850Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/etu-web": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:28.570Z",
+          "lastAttempt": "2026-11-14T00:37:04.762Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/gotak": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:29.230Z",
+          "lastAttempt": "2026-11-14T00:37:05.466Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/harvestarr": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:30.297Z",
+          "lastAttempt": "2026-11-14T00:37:06.179Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/icco.me/blob/main/mist/docker-compose.yml": {
           "attempts": 1,
           "error": "Discovery failed: 404",
           "httpStatus": 404,
-          "lastAttempt": "2026-11-13T18:19:30.697Z",
+          "lastAttempt": "2026-11-14T00:37:06.507Z",
           "operation": "present",
           "status": "failed",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/images": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:31.490Z",
+          "lastAttempt": "2026-11-14T00:37:07.342Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/letterboxd-list-radarr": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:32.380Z",
+          "lastAttempt": "2026-11-14T00:37:08.175Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/lilguys.love": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:33.364Z",
+          "lastAttempt": "2026-11-14T00:37:09.053Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/linkbot": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:34.181Z",
+          "lastAttempt": "2026-11-14T00:37:09.858Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/opencode-server": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:35.104Z",
+          "lastAttempt": "2026-11-14T00:37:10.746Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/robot.villas": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:35.997Z",
+          "lastAttempt": "2026-11-14T00:37:11.514Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/roderick": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:36.935Z",
+          "lastAttempt": "2026-11-14T00:37:12.335Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/icco/videos": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:37.833Z",
+          "lastAttempt": "2026-11-14T00:37:13.224Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/jjdenhertog/spotify-to-plex": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:38.475Z",
+          "lastAttempt": "2026-11-14T00:37:13.901Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/ollama/ollama": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:39.167Z",
+          "lastAttempt": "2026-11-14T00:37:14.464Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/openchamber/openchamber": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:39.802Z",
+          "lastAttempt": "2026-11-14T00:37:15.059Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/postgres/postgres": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:40.390Z",
+          "lastAttempt": "2026-11-14T00:37:15.610Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/prometheus/alertmanager": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:41.039Z",
+          "lastAttempt": "2026-11-14T00:37:16.262Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/prometheus/prometheus": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:41.607Z",
+          "lastAttempt": "2026-11-14T00:37:16.794Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/redis/redis": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:42.319Z",
+          "lastAttempt": "2026-11-14T00:37:17.408Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/rommapp/romm": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:42.973Z",
+          "lastAttempt": "2026-11-14T00:37:18.062Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/samschott/maestral": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:43.759Z",
+          "lastAttempt": "2026-11-14T00:37:18.631Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/slskd/slskd": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:44.396Z",
+          "lastAttempt": "2026-11-14T00:37:19.216Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/tailscale/tailscale": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:45.053Z",
+          "lastAttempt": "2026-11-14T00:37:19.903Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://github.com/utkuozdemir/nvidia_gpu_exporter": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:45.724Z",
+          "lastAttempt": "2026-11-14T00:37:25.498Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://images.natwelch.com/photos/2026/0S6T29AX83KE9.jpg": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:46.249Z",
+          "lastAttempt": "2026-11-14T00:37:25.995Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://images.natwelch.com/photos/2026/0S6T29CEW3KDA.jpg": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:46.720Z",
+          "lastAttempt": "2026-11-14T00:37:26.414Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
         },
         "https://uptimerobot.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-13T18:19:47.706Z",
+          "lastAttempt": "2026-11-14T00:37:27.341Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5479aff9d733cbb5144d5cc6f5573b908679b921d428b5577c9ba121c7ba91b4"
+          "version": "28c0f7ff3d0c2578a91b48300de40e691b7f13f5f958f3dacb45f4c53196a452"
+        }
+      }
+    },
+    "https://writing.natwelch.com/post/783": {
+      "targets": {
+        "https://cambridge.natwelch.com/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-14T00:37:27.816Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
+        },
+        "https://images.natwelch.com/photos/2026/0S7HJWHAGHNAE.jpg": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-14T00:37:28.228Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
+        },
+        "https://labwc.github.io/": {
+          "attempts": 1,
+          "lastAttempt": "2026-11-14T00:37:28.389Z",
+          "operation": "present",
+          "status": "no-endpoint",
+          "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
+        },
+        "https://www.raspberrypi.com/products/touch-display-2/": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-14T00:37:28.584Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
+        },
+        "https://www.raspberrypi.com/software/": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-14T00:37:28.653Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "aaf89f58069185c9d73d5c15c7c945f377eb4e4470f2dbe1e015d575c7730ada"
         }
       }
     },
