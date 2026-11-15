@@ -13,12 +13,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-}
-
 export default function Drafts() {
   const posts = allPosts
     .sort((a: Post, b: Post) =>
