@@ -1,4 +1,4 @@
-import { Metadata, Viewport } from "next"
+import { Metadata } from "next"
 
 import { PostCard } from "@/components/PostCard"
 import { AuthorCard } from "@/components/AuthorCard"
@@ -45,12 +45,6 @@ export const metadata: Metadata = {
       "application/atom+xml": "https://writing.natwelch.com/feed.atom",
     },
   },
-}
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
 }
 
 export default function Home() {

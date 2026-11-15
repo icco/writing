@@ -4,7 +4,6 @@ import {
   PencilIcon,
 } from "@heroicons/react/24/outline"
 import { format, parseISO } from "date-fns"
-import type { Viewport } from "next"
 import { PHASE_PRODUCTION_BUILD } from "next/constants"
 import { draftMode } from "next/headers"
 import Link from "next/link"
@@ -85,12 +84,6 @@ export const generateMetadata = async (props: {
       },
     },
   }
-}
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
 }
 
 const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
