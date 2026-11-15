@@ -24,7 +24,7 @@
     "webmentions:send": "tsx scripts/send-webmentions.ts"
   },
   "dependencies": {
-    "@google/genai": "^2.32.0",
+    "@google/genai": "^3.0.0",
     "@heroicons/react": "^2.2.0",
     "@icco/react-common": "^2026.11104.1",
     "@mdx-js/mdx": "^3.1.1",
