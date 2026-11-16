@@ -1,5 +1,5 @@
 {
-  "cursor": 178,
+  "cursor": 526,
   "sources": {
     "https://writing.natwelch.com/post/10": {
       "targets": {
@@ -2435,7 +2435,6 @@
         "https://web.archive.org/web/20150525172338/https://www.linkedin.com/in/heidihhamelin": {
           "attempts": 2,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:39:46.182Z",
           "operation": "present",
           "status": "failed",
@@ -2469,7 +2468,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:39:49.020Z",
           "operation": "present",
           "status": "failed",
@@ -2496,7 +2494,6 @@
         "http://t.co/pngTLUlx8v": {
           "attempts": 1,
           "error": "Discovery failed: 520",
-          "httpStatus": 520,
           "lastAttempt": "2026-11-16T06:39:49.820Z",
           "operation": "present",
           "status": "failed",
@@ -2533,7 +2530,6 @@
         "https://twitter.com/jdherg": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:39:51.749Z",
           "operation": "present",
           "status": "failed",
@@ -2542,7 +2538,6 @@
         "https://twitter.com/MsMinotaur/status/603584660266995712": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:39:51.502Z",
           "operation": "present",
           "status": "failed",
@@ -2606,7 +2601,6 @@
         "http://www.dailypage.co/": {
           "attempts": 1,
           "error": "Discovery failed: 530",
-          "httpStatus": 530,
           "lastAttempt": "2026-11-16T06:40:06.371Z",
           "operation": "present",
           "status": "failed",
@@ -2650,7 +2644,6 @@
         "https://www.producthunt.com/e/tools-for-writers": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:12.926Z",
           "operation": "present",
           "status": "failed",
@@ -2695,7 +2688,6 @@
         "https://twitter.com/kenzan100": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:15.773Z",
           "operation": "present",
           "status": "failed",
@@ -2722,7 +2714,6 @@
         "http://www.amnh.org/our-research/hayden-planetarium/resources/manhattanhenge": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:17.432Z",
           "operation": "present",
           "status": "failed",
@@ -2731,7 +2722,6 @@
         "http://www.diaart.org/sites/main/earthroom": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:17.535Z",
           "operation": "present",
           "status": "failed",
@@ -2747,7 +2737,6 @@
         "https://twitter.com/aaronbshaw": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:18.109Z",
           "operation": "present",
           "status": "failed",
@@ -2756,7 +2745,6 @@
         "https://twitter.com/DaveyPocket": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:17.941Z",
           "operation": "present",
           "status": "failed",
@@ -2765,7 +2753,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:18.294Z",
           "operation": "present",
           "status": "failed",
@@ -2774,7 +2761,6 @@
         "https://twitter.com/ken_pratt": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:40:18.488Z",
           "operation": "present",
           "status": "failed",
@@ -3206,7 +3192,6 @@
         "https://news.ycombinator.com/item?id=9639387": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:46.341Z",
           "operation": "present",
           "status": "failed",
@@ -3215,7 +3200,6 @@
         "https://news.ycombinator.com/item?id=9639404": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:46.480Z",
           "operation": "present",
           "status": "failed",
@@ -3224,7 +3208,6 @@
         "https://news.ycombinator.com/item?id=9639583": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:46.621Z",
           "operation": "present",
           "status": "failed",
@@ -3233,7 +3216,6 @@
         "https://news.ycombinator.com/item?id=9639621": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:46.773Z",
           "operation": "present",
           "status": "failed",
@@ -3242,7 +3224,6 @@
         "https://news.ycombinator.com/item?id=9639654": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:46.960Z",
           "operation": "present",
           "status": "failed",
@@ -3251,7 +3232,6 @@
         "https://news.ycombinator.com/item?id=9639656": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:47.103Z",
           "operation": "present",
           "status": "failed",
@@ -3260,7 +3240,6 @@
         "https://news.ycombinator.com/item?id=9639719": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:47.244Z",
           "operation": "present",
           "status": "failed",
@@ -3269,7 +3248,6 @@
         "https://news.ycombinator.com/item?id=9639725": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:47.380Z",
           "operation": "present",
           "status": "failed",
@@ -3278,7 +3256,6 @@
         "https://news.ycombinator.com/item?id=9639750": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:47.515Z",
           "operation": "present",
           "status": "failed",
@@ -3294,7 +3271,6 @@
         "https://news.ycombinator.com/item?id=9639759": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:47.848Z",
           "operation": "present",
           "status": "failed",
@@ -3303,7 +3279,6 @@
         "https://news.ycombinator.com/item?id=9639912": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:48.062Z",
           "operation": "present",
           "status": "failed",
@@ -3312,7 +3287,6 @@
         "https://news.ycombinator.com/item?id=9639913": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:48.203Z",
           "operation": "present",
           "status": "failed",
@@ -3321,7 +3295,6 @@
         "https://news.ycombinator.com/item?id=9640098": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:48.345Z",
           "operation": "present",
           "status": "failed",
@@ -3330,7 +3303,6 @@
         "https://news.ycombinator.com/item?id=9640180": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:48.486Z",
           "operation": "present",
           "status": "failed",
@@ -3339,7 +3311,6 @@
         "https://news.ycombinator.com/item?id=9640449": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:48.626Z",
           "operation": "present",
           "status": "failed",
@@ -3348,7 +3319,6 @@
         "https://news.ycombinator.com/item?id=9640480": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:48.768Z",
           "operation": "present",
           "status": "failed",
@@ -3357,7 +3327,6 @@
         "https://news.ycombinator.com/item?id=9640651": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:48.914Z",
           "operation": "present",
           "status": "failed",
@@ -3366,7 +3335,6 @@
         "https://news.ycombinator.com/item?id=9640664": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:49.055Z",
           "operation": "present",
           "status": "failed",
@@ -3375,7 +3343,6 @@
         "https://news.ycombinator.com/item?id=9640829": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:49.243Z",
           "operation": "present",
           "status": "failed",
@@ -3384,7 +3351,6 @@
         "https://news.ycombinator.com/item?id=9641115": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:49.380Z",
           "operation": "present",
           "status": "failed",
@@ -3393,7 +3359,6 @@
         "https://news.ycombinator.com/item?id=9641136": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:49.521Z",
           "operation": "present",
           "status": "failed",
@@ -3409,7 +3374,6 @@
         "https://news.ycombinator.com/item?id=9641261": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:49.809Z",
           "operation": "present",
           "status": "failed",
@@ -3418,7 +3382,6 @@
         "https://news.ycombinator.com/item?id=9641352": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:49.980Z",
           "operation": "present",
           "status": "failed",
@@ -3427,7 +3390,6 @@
         "https://news.ycombinator.com/item?id=9641410": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:50.120Z",
           "operation": "present",
           "status": "failed",
@@ -3436,7 +3398,6 @@
         "https://news.ycombinator.com/item?id=9641654": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:50.292Z",
           "operation": "present",
           "status": "failed",
@@ -3445,7 +3406,6 @@
         "https://news.ycombinator.com/item?id=9641670": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:50.440Z",
           "operation": "present",
           "status": "failed",
@@ -3454,7 +3414,6 @@
         "https://news.ycombinator.com/item?id=9641760": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:50.581Z",
           "operation": "present",
           "status": "failed",
@@ -3463,7 +3422,6 @@
         "https://news.ycombinator.com/item?id=9641852": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:50.716Z",
           "operation": "present",
           "status": "failed",
@@ -3472,7 +3430,6 @@
         "https://news.ycombinator.com/item?id=9642322": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:50.853Z",
           "operation": "present",
           "status": "failed",
@@ -3481,7 +3438,6 @@
         "https://news.ycombinator.com/item?id=9642330": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:50.996Z",
           "operation": "present",
           "status": "failed",
@@ -3490,7 +3446,6 @@
         "https://news.ycombinator.com/item?id=9642422": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:51.183Z",
           "operation": "present",
           "status": "failed",
@@ -3499,7 +3454,6 @@
         "https://news.ycombinator.com/item?id=9642531": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:51.358Z",
           "operation": "present",
           "status": "failed",
@@ -3508,7 +3462,6 @@
         "https://news.ycombinator.com/item?id=9642639": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:51.500Z",
           "operation": "present",
           "status": "failed",
@@ -3524,7 +3477,6 @@
         "https://news.ycombinator.com/item?id=9642686": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:51.780Z",
           "operation": "present",
           "status": "failed",
@@ -3533,7 +3485,6 @@
         "https://news.ycombinator.com/item?id=9642822": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:51.919Z",
           "operation": "present",
           "status": "failed",
@@ -3542,7 +3493,6 @@
         "https://news.ycombinator.com/item?id=9642914": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:52.053Z",
           "operation": "present",
           "status": "failed",
@@ -3551,7 +3501,6 @@
         "https://news.ycombinator.com/item?id=9643154": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:52.204Z",
           "operation": "present",
           "status": "failed",
@@ -3560,7 +3509,6 @@
         "https://news.ycombinator.com/item?id=9643206": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:52.342Z",
           "operation": "present",
           "status": "failed",
@@ -3569,7 +3517,6 @@
         "https://news.ycombinator.com/item?id=9643251": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:52.498Z",
           "operation": "present",
           "status": "failed",
@@ -3578,7 +3525,6 @@
         "https://news.ycombinator.com/item?id=9643429": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:52.638Z",
           "operation": "present",
           "status": "failed",
@@ -3587,7 +3533,6 @@
         "https://news.ycombinator.com/item?id=9643849": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:52.780Z",
           "operation": "present",
           "status": "failed",
@@ -3596,7 +3541,6 @@
         "https://news.ycombinator.com/item?id=9643863": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:52.920Z",
           "operation": "present",
           "status": "failed",
@@ -3605,7 +3549,6 @@
         "https://news.ycombinator.com/item?id=9644391": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T06:40:53.054Z",
           "operation": "present",
           "status": "failed",
@@ -3614,7 +3557,6 @@
         "https://twitter.com/jf/status/605849738198413312": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:40:53.472Z",
           "operation": "present",
           "status": "failed",
@@ -4227,7 +4169,6 @@
         "https://en.wikipedia.org/wiki/Entourage_%28film": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:42:01.945Z",
           "operation": "present",
           "status": "failed",
@@ -4250,7 +4191,6 @@
         "https://en.wikipedia.org/wiki/Sleep_No_More_%282011_play": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:42:02.571Z",
           "operation": "present",
           "status": "failed",
@@ -4315,7 +4255,6 @@
         "https://twitter.com/_jak": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:06.378Z",
           "operation": "present",
           "status": "failed",
@@ -4345,7 +4284,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:07.533Z",
           "operation": "present",
           "status": "failed",
@@ -4354,7 +4292,6 @@
         "https://twitter.com/kamalmarhubi": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:08.520Z",
           "operation": "present",
           "status": "failed",
@@ -4363,7 +4300,6 @@
         "https://twitter.com/maxtaco": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:08.659Z",
           "operation": "present",
           "status": "failed",
@@ -4372,7 +4308,6 @@
         "https://twitter.com/muditameta": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:08.814Z",
           "operation": "present",
           "status": "failed",
@@ -4381,7 +4316,6 @@
         "https://unsplash.com/": {
           "attempts": 1,
           "error": "Discovery failed: 401",
-          "httpStatus": 401,
           "lastAttempt": "2026-11-16T06:42:09.375Z",
           "operation": "present",
           "status": "failed",
@@ -4397,7 +4331,6 @@
         "https://www.linkedin.com/pub/tracy-gius/11/b7/766": {
           "attempts": 1,
           "error": "Discovery failed: 999",
-          "httpStatus": 999,
           "lastAttempt": "2026-11-16T06:42:10.539Z",
           "operation": "present",
           "status": "failed",
@@ -4474,7 +4407,6 @@
         "http://www.juddfoundation.org/new_york": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:42:16.648Z",
           "operation": "present",
           "status": "failed",
@@ -4504,7 +4436,6 @@
         "https://twitter.com/heavypennies": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:18.292Z",
           "operation": "present",
           "status": "failed",
@@ -4527,7 +4458,6 @@
         "https://www.linkedin.com/pub/jenny-lawton/10/784/92": {
           "attempts": 1,
           "error": "Discovery failed: 999",
-          "httpStatus": 999,
           "lastAttempt": "2026-11-16T06:42:19.748Z",
           "operation": "present",
           "status": "failed",
@@ -4540,7 +4470,6 @@
         "http://www.dinosaurbarbque.com/bbq-brooklyn": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:42:21.655Z",
           "operation": "present",
           "status": "failed",
@@ -4556,7 +4485,6 @@
         "https://www.fettesaubbq.com/": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:42:22.067Z",
           "operation": "present",
           "status": "failed",
@@ -4767,7 +4695,6 @@
         "https://twitter.com/anyharder": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:37.222Z",
           "operation": "present",
           "status": "failed",
@@ -4776,7 +4703,6 @@
         "https://twitter.com/ashokafinley": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:37.370Z",
           "operation": "present",
           "status": "failed",
@@ -4824,7 +4750,6 @@
         "https://twitter.com/KarenPunkPunk": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T06:42:40.843Z",
           "operation": "present",
           "status": "failed",
@@ -4934,7 +4859,6 @@
         "http://cl.ly/boge": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:42:57.065Z",
           "operation": "present",
           "status": "failed",
@@ -4943,7 +4867,6 @@
         "http://cl.ly/bohH": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T06:42:57.461Z",
           "operation": "present",
           "status": "failed",
@@ -5075,17 +4998,17 @@
         },
         "https://web.archive.org/web/20240522150946/https://sadnat.com:443/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:40:26.869Z",
+          "lastAttempt": "2026-11-16T12:32:24.757Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "121c44849e4eaa0758948281f74c46e1d89ea4535696bed045c39a03b19ac85d"
+          "version": "f88878bc6028a7c918bfabb9a303bff682fb443c7387cce822a7d47a70e183fb"
         },
         "https://web.archive.org/web/20241115164618/https://github.com/kenpratt/jvm-assembler": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:40:27.747Z",
+          "lastAttempt": "2026-11-16T12:32:26.227Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "121c44849e4eaa0758948281f74c46e1d89ea4535696bed045c39a03b19ac85d"
+          "version": "f88878bc6028a7c918bfabb9a303bff682fb443c7387cce822a7d47a70e183fb"
         }
       }
     },
@@ -5971,54 +5894,56 @@
       "targets": {
         "http://googlecloudplatform.blogspot.co.uk/2013/12/google-compute-engine-is-now-generally-available.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-05T19:56:37.964Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T12:32:29.435Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "98973edbee419a5eeacf841d00f64bdbcee104e31ba5c27f9dfefb58ac2f47e3"
+          "status": "failed",
+          "version": "621e570ff8d32632c2120796b8fa6602b8f9325f767be638ba2c4e0a5317d962"
         },
         "https://developers.google.com/compute/docs/release-notes#december032013": {
           "attempts": 1,
-          "lastAttempt": "2026-11-05T19:56:39.872Z",
+          "lastAttempt": "2026-11-16T12:32:30.495Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "98973edbee419a5eeacf841d00f64bdbcee104e31ba5c27f9dfefb58ac2f47e3"
+          "version": "621e570ff8d32632c2120796b8fa6602b8f9325f767be638ba2c4e0a5317d962"
         },
         "https://techcrunch.com/2013/12/02/googles-compute-engine-hits-general-availability-drops-instance-prices-10-adds-new-16-core-instance-types-and-docker-support/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-05T19:56:40.902Z",
+          "lastAttempt": "2026-11-16T12:32:30.700Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "98973edbee419a5eeacf841d00f64bdbcee104e31ba5c27f9dfefb58ac2f47e3"
+          "version": "621e570ff8d32632c2120796b8fa6602b8f9325f767be638ba2c4e0a5317d962"
         },
         "https://twitter.com/googlecloud/status/407876173222264833": {
           "attempts": 1,
-          "lastAttempt": "2026-11-05T19:56:41.345Z",
+          "lastAttempt": "2026-11-16T12:32:31.148Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "98973edbee419a5eeacf841d00f64bdbcee104e31ba5c27f9dfefb58ac2f47e3"
+          "version": "621e570ff8d32632c2120796b8fa6602b8f9325f767be638ba2c4e0a5317d962"
         },
         "https://web.archive.org/web/20140201101240/http://news.cnet.com/8301-1023_3-57614304-93/google-compute-engine-now-ready-for-prime-time/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-05T19:56:42.499Z",
+          "lastAttempt": "2026-11-16T12:32:32.302Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "98973edbee419a5eeacf841d00f64bdbcee104e31ba5c27f9dfefb58ac2f47e3"
+          "version": "621e570ff8d32632c2120796b8fa6602b8f9325f767be638ba2c4e0a5317d962"
         },
         "https://www.forbes.com/sites/benkepes/2013/12/03/google-compute-engine-goes-into-general-availability/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T00:38:11.216Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:32:32.349Z",
           "operation": "present",
           "status": "failed",
-          "version": "98973edbee419a5eeacf841d00f64bdbcee104e31ba5c27f9dfefb58ac2f47e3"
+          "version": "621e570ff8d32632c2120796b8fa6602b8f9325f767be638ba2c4e0a5317d962"
         },
         "https://www.nytimes.com/2013/12/03/technology/google-joins-a-heavyweight-competition-in-cloud-computing.html?_r=0&pagewanted=all": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T00:38:11.339Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T12:32:33.032Z",
           "operation": "present",
-          "status": "failed",
-          "version": "98973edbee419a5eeacf841d00f64bdbcee104e31ba5c27f9dfefb58ac2f47e3"
+          "status": "no-endpoint",
+          "version": "621e570ff8d32632c2120796b8fa6602b8f9325f767be638ba2c4e0a5317d962"
         }
       }
     },
@@ -6860,12 +6785,13 @@
     "https://writing.natwelch.com/post/232": {
       "targets": {
         "https://www.theatlantic.com/health/archive/2013/08/how-to-make-perfect-coffee/278944/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T00:38:25.845Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:32:39.565Z",
           "operation": "present",
           "status": "failed",
-          "version": "cab346bd2722a39c5c9def373b195e43766903ec5fc55a94b62d2519fcaa94ed"
+          "version": "f2f6c516bc986942a062945c24a284f2147f444f938c5fc833d5b305aeb7c97b"
         }
       }
     },
@@ -7020,10 +6946,10 @@
       "targets": {
         "https://vimeo.com/69161321": {
           "attempts": 1,
-          "lastAttempt": "2026-11-05T19:58:15.355Z",
+          "lastAttempt": "2026-11-16T12:32:40.311Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "eae83fa753829f9a6e26019582d85b98dfa233e54e5da31e1ed67964d1de4c4b"
+          "version": "e73f67aa56d58f32425ba7ecace8df7e39154aa72102cc476e7af8d31c706025"
         }
       }
     },
@@ -8112,17 +8038,17 @@
       "targets": {
         "https://kottke.org/13/06/about-an-hour-of-christian-marclays-the-clock": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:11.701Z",
+          "lastAttempt": "2026-11-16T12:32:43.064Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "660a00ad4908d85970f1209b5b7debe6930c44e43ccdd4fc9014f673e9c2d04e"
+          "version": "6682693fb2f25e6fbd584cc4387bced5cfbb55652d19af9ceec57dfdca7f3c4a"
         },
         "https://vimeo.com/67995158": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:11.975Z",
+          "lastAttempt": "2026-11-16T12:32:43.329Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "660a00ad4908d85970f1209b5b7debe6930c44e43ccdd4fc9014f673e9c2d04e"
+          "version": "6682693fb2f25e6fbd584cc4387bced5cfbb55652d19af9ceec57dfdca7f3c4a"
         }
       }
     },
@@ -8476,17 +8402,17 @@
       "targets": {
         "https://www.youtube.com/watch?v=_mGNvrEqdfQ": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:34.090Z",
+          "lastAttempt": "2026-11-16T12:32:44.936Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0e6f5c013672895c319603f60d7f5c2dac690d551b5a419de7a23a5be1d8f717"
+          "version": "0612d8f24da6f6a550635cbfb6837bc729a08f294166cb747aa10f2098525e96"
         },
         "https://www.youtube.com/watch?v=WwphxegBpLY": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:33.740Z",
+          "lastAttempt": "2026-11-16T12:32:44.721Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0e6f5c013672895c319603f60d7f5c2dac690d551b5a419de7a23a5be1d8f717"
+          "version": "0612d8f24da6f6a550635cbfb6837bc729a08f294166cb747aa10f2098525e96"
         }
       }
     },
@@ -8663,31 +8589,31 @@
       "targets": {
         "https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:44.632Z",
+          "lastAttempt": "2026-11-16T12:32:45.852Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "dbbbb82c06858ac3fb925c1bd7154d7044494390017631fed6cb82496dd671c4"
+          "version": "f3ab9db17c9958e7cad32878634f59aedf7c90734e4f419cf36e22267fc62cef"
         },
         "https://web.archive.org/web/20220815230153/http://www.yacoset.com/Home/signs-that-you-re-a-bad-programmer?buffer_share=5b757": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:45.410Z",
+          "lastAttempt": "2026-11-16T12:32:47.731Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "dbbbb82c06858ac3fb925c1bd7154d7044494390017631fed6cb82496dd671c4"
+          "version": "f3ab9db17c9958e7cad32878634f59aedf7c90734e4f419cf36e22267fc62cef"
         },
         "https://web.archive.org/web/20230405060440/http://www.yacoset.com/Home/signs-that-you-re-a-good-programmer": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:46.610Z",
+          "lastAttempt": "2026-11-16T12:32:48.678Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "dbbbb82c06858ac3fb925c1bd7154d7044494390017631fed6cb82496dd671c4"
+          "version": "f3ab9db17c9958e7cad32878634f59aedf7c90734e4f419cf36e22267fc62cef"
         },
         "https://www.evanmiller.org/why-i-develop-for-the-mac.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:46.847Z",
+          "lastAttempt": "2026-11-16T12:32:48.927Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "dbbbb82c06858ac3fb925c1bd7154d7044494390017631fed6cb82496dd671c4"
+          "version": "f3ab9db17c9958e7cad32878634f59aedf7c90734e4f419cf36e22267fc62cef"
         }
       }
     },
@@ -8695,24 +8621,24 @@
       "targets": {
         "http://www.rickey.org/google-chrome-family-guy-commercial-is-epic/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:48.256Z",
+          "lastAttempt": "2026-11-16T12:32:49.729Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "65319d2b6ea4175df48e898ea263c9e8a384ada81e6b51a08c9a4c55561c9886"
+          "version": "1f07185b632f2d9ffad93671f8a894c0d07362ad22f4a49d4e8bf1bd76182485"
         },
         "https://comedycentral.tumblr.com/post/49529555646/this-was-magical-if-you-ever-needed-a-reason-to?xrs=synd_facebook": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:48.510Z",
+          "lastAttempt": "2026-11-16T12:32:50.113Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "65319d2b6ea4175df48e898ea263c9e8a384ada81e6b51a08c9a4c55561c9886"
+          "version": "1f07185b632f2d9ffad93671f8a894c0d07362ad22f4a49d4e8bf1bd76182485"
         },
         "https://megatokyo.com/strip/1361": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:48.782Z",
+          "lastAttempt": "2026-11-16T12:32:50.445Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "65319d2b6ea4175df48e898ea263c9e8a384ada81e6b51a08c9a4c55561c9886"
+          "version": "1f07185b632f2d9ffad93671f8a894c0d07362ad22f4a49d4e8bf1bd76182485"
         }
       }
     },
@@ -8758,17 +8684,17 @@
       "targets": {
         "http://laughingsquid.com/johnny-marr-sings-the-smiths-how-soon-is-now-on-jimmy-fallon/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:54.489Z",
+          "lastAttempt": "2026-11-16T12:32:51.118Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4855ea1c6d274de5079616aae1d6f575114a76f742d7d0e51f33abbdcd4b9438"
+          "version": "ca902a7cc3701d7ee5ab91a78a9e48f128efcfa6596224dfbedae2d9f5fd33c6"
         },
         "https://pitchfork.com/news/50603-this-is-what-sigur-ros-look-like-on-the-simpsons/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:39:55.365Z",
+          "lastAttempt": "2026-11-16T12:32:52.243Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4855ea1c6d274de5079616aae1d6f575114a76f742d7d0e51f33abbdcd4b9438"
+          "version": "ca902a7cc3701d7ee5ab91a78a9e48f128efcfa6596224dfbedae2d9f5fd33c6"
         }
       }
     },
@@ -9555,17 +9481,17 @@
       "targets": {
         "https://github.com/ivansafrin/Polycode": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:41:06.345Z",
+          "lastAttempt": "2026-11-16T12:32:55.103Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a4ae336b1ddc428438fea8877497fea3c43afbd0cbfcd101909739414d6fb61b"
+          "version": "5d33d92b5d6e87357d912014d569892cf9e820d4f4792563965dbe2cfbd6c12e"
         },
         "https://web.archive.org/web/20221224174957/http://www.polycode.org/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T00:41:07.985Z",
+          "lastAttempt": "2026-11-16T12:32:56.267Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a4ae336b1ddc428438fea8877497fea3c43afbd0cbfcd101909739414d6fb61b"
+          "version": "5d33d92b5d6e87357d912014d569892cf9e820d4f4792563965dbe2cfbd6c12e"
         }
       }
     },
@@ -10871,25 +10797,26 @@
       "targets": {
         "http://defcad.org/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:28:40.910Z",
+          "lastAttempt": "2026-11-16T12:33:01.282Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4496405bdc82e03550a35eb4f491d4631d0f0b5b4a8c75c0a8f1707323b6e32d"
+          "version": "7c004ea824a72483e7720ed80f29febdea4c34a3794ad40add77d0158986c43e"
         },
         "http://defensedistributed.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:28:41.509Z",
+          "lastAttempt": "2026-11-16T12:33:01.973Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4496405bdc82e03550a35eb4f491d4631d0f0b5b4a8c75c0a8f1707323b6e32d"
+          "version": "7c004ea824a72483e7720ed80f29febdea4c34a3794ad40add77d0158986c43e"
         },
         "http://www.wired.com/dangerroom/2013/02/printed-magazine/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T00:40:11.643Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:33:02.310Z",
           "operation": "present",
           "status": "failed",
-          "version": "4496405bdc82e03550a35eb4f491d4631d0f0b5b4a8c75c0a8f1707323b6e32d"
+          "version": "7c004ea824a72483e7720ed80f29febdea4c34a3794ad40add77d0158986c43e"
         }
       }
     },
@@ -11100,62 +11027,63 @@
       "targets": {
         "http://www.julianaspizza.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:41:31.430Z",
+          "lastAttempt": "2026-11-16T12:33:03.266Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         },
         "https://github.com/icco/tumble": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:41:32.103Z",
+          "lastAttempt": "2026-11-16T12:33:04.009Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         },
         "https://itunes.apple.com/us/playlist/q3y15-summer-time/idpl.ec290fda8528440783dc918fd0d730ea": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-12T18:24:56.650Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:33:04.219Z",
           "operation": "present",
           "status": "failed",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         },
         "https://rsd.herokuapp.com/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-12T18:24:56.920Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:33:04.265Z",
           "operation": "present",
           "status": "failed",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         },
         "https://twitter.com/icco/status/616805178822496256": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:41:32.917Z",
+          "lastAttempt": "2026-11-16T12:33:04.572Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         },
         "https://twitter.com/recursecenter": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-12T18:24:57.055Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T12:33:05.107Z",
           "operation": "present",
-          "status": "failed",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "status": "no-endpoint",
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         },
         "https://web.archive.org/web/20161129114735/http://genius.com:80/Smashing-pumpkins-tonight-tonight-lyrics": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:41:33.565Z",
+          "lastAttempt": "2026-11-16T12:33:06.214Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         },
         "https://www.flickr.com/photos/icco/19360483235": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:41:33.965Z",
+          "lastAttempt": "2026-11-16T12:33:06.575Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f0b97a1a2289d48dd5d043bbfae10c09f0cfb545c85b787f0b97a28dd0b830c7"
+          "version": "7a03d92d0981f32aa96c14ddaa99e8899d17c9f50a2f42fc63c4d767fa93c182"
         }
       }
     },
@@ -11392,52 +11320,52 @@
       "targets": {
         "http://www.npr.org/event/music/417459405/oddisee-tiny-desk-concert?autoplay=true": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:15.109Z",
+          "lastAttempt": "2026-11-16T12:33:07.672Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b58c97d5d08b96aa1484653527d42b51ef5f15eef99be4987598858613ad720"
+          "version": "1559fe9e975786a13827bd1bd6702dea3edd02093b6be3bc8c97bb02d8917210"
         },
         "https://en.wikipedia.org/wiki/Oddisee": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:15.202Z",
+          "lastAttempt": "2026-11-16T12:33:07.799Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b58c97d5d08b96aa1484653527d42b51ef5f15eef99be4987598858613ad720"
+          "version": "1559fe9e975786a13827bd1bd6702dea3edd02093b6be3bc8c97bb02d8917210"
         },
         "https://oddisee.bandcamp.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:15.698Z",
+          "lastAttempt": "2026-11-16T12:33:08.124Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b58c97d5d08b96aa1484653527d42b51ef5f15eef99be4987598858613ad720"
+          "version": "1559fe9e975786a13827bd1bd6702dea3edd02093b6be3bc8c97bb02d8917210"
         },
         "https://oddiseemmg.bandcamp.com/album/people-hear-what-they-see": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:16.430Z",
+          "lastAttempt": "2026-11-16T12:33:08.682Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b58c97d5d08b96aa1484653527d42b51ef5f15eef99be4987598858613ad720"
+          "version": "1559fe9e975786a13827bd1bd6702dea3edd02093b6be3bc8c97bb02d8917210"
         },
         "https://oddiseemmg.bandcamp.com/album/the-beauty-in-all": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:17.376Z",
+          "lastAttempt": "2026-11-16T12:33:09.347Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b58c97d5d08b96aa1484653527d42b51ef5f15eef99be4987598858613ad720"
+          "version": "1559fe9e975786a13827bd1bd6702dea3edd02093b6be3bc8c97bb02d8917210"
         },
         "https://oddiseemmg.bandcamp.com/album/the-good-fight": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:17.749Z",
+          "lastAttempt": "2026-11-16T12:33:09.965Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b58c97d5d08b96aa1484653527d42b51ef5f15eef99be4987598858613ad720"
+          "version": "1559fe9e975786a13827bd1bd6702dea3edd02093b6be3bc8c97bb02d8917210"
         },
         "https://soundcloud.com/oddiseemusic": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:18.140Z",
+          "lastAttempt": "2026-11-16T12:33:10.483Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b58c97d5d08b96aa1484653527d42b51ef5f15eef99be4987598858613ad720"
+          "version": "1559fe9e975786a13827bd1bd6702dea3edd02093b6be3bc8c97bb02d8917210"
         }
       }
     },
@@ -11594,73 +11522,73 @@
       "targets": {
         "https://en.wikipedia.org/wiki/Ableton": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:38.579Z",
+          "lastAttempt": "2026-11-16T12:33:10.694Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://en.wikipedia.org/wiki/Battles_(band)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:38.722Z",
+          "lastAttempt": "2026-11-16T12:33:10.835Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://en.wikipedia.org/wiki/Ian_Williams_(musician)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:38.904Z",
+          "lastAttempt": "2026-11-16T12:33:10.961Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://songexploder.net/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:39.331Z",
+          "lastAttempt": "2026-11-16T12:33:11.449Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://songexploder.net/anamanaguchi": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:39.854Z",
+          "lastAttempt": "2026-11-16T12:33:12.071Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://songexploder.net/baths": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:40.229Z",
+          "lastAttempt": "2026-11-16T12:33:12.598Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://songexploder.net/the-album-leaf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:40.844Z",
+          "lastAttempt": "2026-11-16T12:33:12.991Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://songexploder.net/tycho": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:41.390Z",
+          "lastAttempt": "2026-11-16T12:33:13.559Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://www.ableton.com/en/blog/battles-art-of-repetition/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:42.024Z",
+          "lastAttempt": "2026-11-16T12:33:14.215Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         },
         "https://youtu.be/jS5ltxihivA": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:30:42.788Z",
+          "lastAttempt": "2026-11-16T12:33:15.500Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3e53b83b48f54413874b00a47c6a3f07278531a9378840def933a346484e1623"
+          "version": "a019b0a7712e3fc4f300763d17d15972a53122ef0b948fd435bff737bfbf08d4"
         }
       }
     },
@@ -12095,24 +12023,24 @@
       "targets": {
         "http://pseudoweb.net/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:31:15.425Z",
+          "lastAttempt": "2026-11-16T12:33:16.228Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "05b08888f889903b58561238b6ce9928921c8bceaec7e7fd62e3f4b28771383e"
+          "version": "04bc636689c096d8f89e67b039bd1662b0070d650e346dfc4a968f49701beeda"
         },
         "https://mood.natwelch.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:31:15.486Z",
+          "lastAttempt": "2026-11-16T12:33:16.309Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "05b08888f889903b58561238b6ce9928921c8bceaec7e7fd62e3f4b28771383e"
+          "version": "04bc636689c096d8f89e67b039bd1662b0070d650e346dfc4a968f49701beeda"
         },
         "https://verygoods.co/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:31:15.580Z",
+          "lastAttempt": "2026-11-16T12:33:16.426Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "05b08888f889903b58561238b6ce9928921c8bceaec7e7fd62e3f4b28771383e"
+          "version": "04bc636689c096d8f89e67b039bd1662b0070d650e346dfc4a968f49701beeda"
         }
       }
     },
@@ -12120,10 +12048,10 @@
       "targets": {
         "https://blog.samaltman.com/projects-and-companies": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T06:31:17.534Z",
+          "lastAttempt": "2026-11-16T12:33:16.801Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3ccebe7f6c2b967a7c79cf94d51e92a20220cea4ac128772ec75ec0518c2ce76"
+          "version": "416612d0b178e3acb2dcc7f6ef5a52c1c2f1d71d766a0b5775f95463de2dec21"
         }
       }
     },
@@ -15468,73 +15396,73 @@
       "targets": {
         "http://last.fm/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:51.475Z",
+          "lastAttempt": "2026-11-16T12:33:21.463Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "http://www.flickr.com/photos/icco/5029867565/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:51.855Z",
+          "lastAttempt": "2026-11-16T12:33:21.877Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://github.com/icco/Agent355": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:52.862Z",
+          "lastAttempt": "2026-11-16T12:33:23.031Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://github.com/icco/coffee_shop": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:54.181Z",
+          "lastAttempt": "2026-11-16T12:33:24.986Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://github.com/icco/Project-Megan": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:53.483Z",
+          "lastAttempt": "2026-11-16T12:33:23.631Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://github.com/icco/Resume": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:53.570Z",
+          "lastAttempt": "2026-11-16T12:33:24.318Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://github.com/icco/thestack": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:54.820Z",
+          "lastAttempt": "2026-11-16T12:33:25.601Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://github.com/icco/tracstats": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:55.479Z",
+          "lastAttempt": "2026-11-16T12:33:26.303Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://github.com/iFixit/Javascript_Embed": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:52.410Z",
+          "lastAttempt": "2026-11-16T12:33:22.477Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         },
         "https://images.natwelch.com/photos/2026/0Q74H9WDRSDEG.png": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:55.536Z",
+          "lastAttempt": "2026-11-16T12:33:26.403Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f6e3dcce031664732f41afbc67db3400f2ca79db0a0703de3972b955a1fce4c7"
+          "version": "2311e1bd7535e43070454d2c98c6ddc45e312b69595ad86cdb4940ce049b11b1"
         }
       }
     },
@@ -15591,17 +15519,17 @@
       "targets": {
         "http://www.flickr.com/photos/icco/5473954479/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:57.180Z",
+          "lastAttempt": "2026-11-16T12:33:26.864Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "13bd701ce6db41ba136cf2d4d9c46ab1cb41895d62e103011ad5c66e84027daf"
+          "version": "07bce7cbf6769f7ccae2cf2bd16eaa06a042177ea8ec7aa1980e02a2f5756be1"
         },
         "http://www.flickr.com/photos/icco/5474720594/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:57.538Z",
+          "lastAttempt": "2026-11-16T12:33:27.167Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "13bd701ce6db41ba136cf2d4d9c46ab1cb41895d62e103011ad5c66e84027daf"
+          "version": "07bce7cbf6769f7ccae2cf2bd16eaa06a042177ea8ec7aa1980e02a2f5756be1"
         }
       }
     },
@@ -15609,17 +15537,17 @@
       "targets": {
         "http://www.flickr.com/photos/dlnwelch/5826629101/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:58.046Z",
+          "lastAttempt": "2026-11-16T12:33:27.516Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "fcfc543b478f69e6eeca2b2aa1da3c8e9909ae49f6a78a063e9435df121c8343"
+          "version": "cb7cc1fe83bc728150a2bf0fb450571fa947068cca1ead973e053b1950389f29"
         },
         "https://www.flickr.com/photos/tags/cpgrad2011/show/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:58.112Z",
+          "lastAttempt": "2026-11-16T12:33:27.585Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "fcfc543b478f69e6eeca2b2aa1da3c8e9909ae49f6a78a063e9435df121c8343"
+          "version": "cb7cc1fe83bc728150a2bf0fb450571fa947068cca1ead973e053b1950389f29"
         }
       }
     },
@@ -15627,17 +15555,17 @@
       "targets": {
         "http://www.flickr.com/photos/icco/5904666111/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:58.818Z",
+          "lastAttempt": "2026-11-16T12:33:28.069Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0e4845cfaf1756c4ae083cea9413377a2066f4f2d654c2be65ca961b3be3fd13"
+          "version": "86abac8a4a7f1f95a904d56e67837f73badaaa6bb2bb50e11384a630fc23040b"
         },
         "https://www.flickr.com/photos/icco/sets/72157626961341287/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:21:59.725Z",
+          "lastAttempt": "2026-11-16T12:33:28.401Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0e4845cfaf1756c4ae083cea9413377a2066f4f2d654c2be65ca961b3be3fd13"
+          "version": "86abac8a4a7f1f95a904d56e67837f73badaaa6bb2bb50e11384a630fc23040b"
         }
       }
     },
@@ -15645,71 +15573,71 @@
       "targets": {
         "https://www.youtube.com/watch?v=_Vb4nXMJn6c": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:00.355Z",
+          "lastAttempt": "2026-11-16T12:33:29.003Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d760505a6a2d1f4468b8504fd4b9a14b3ff6749887f1cad25a4bf3b55de634e6"
+          "version": "5fc78c6ed4d2207da1482d1c513b4a7a850deb0f785946d0224121c8c09f1d0a"
         },
         "https://www.youtube.com/watch?v=KT16DcHcjRA": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:00.097Z",
+          "lastAttempt": "2026-11-16T12:33:28.702Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d760505a6a2d1f4468b8504fd4b9a14b3ff6749887f1cad25a4bf3b55de634e6"
+          "version": "5fc78c6ed4d2207da1482d1c513b4a7a850deb0f785946d0224121c8c09f1d0a"
         },
         "https://www.youtube.com/watch?v=va1t6a0zCkQ": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:00.535Z",
+          "lastAttempt": "2026-11-16T12:33:29.183Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d760505a6a2d1f4468b8504fd4b9a14b3ff6749887f1cad25a4bf3b55de634e6"
+          "version": "5fc78c6ed4d2207da1482d1c513b4a7a850deb0f785946d0224121c8c09f1d0a"
         }
       }
     },
     "https://writing.natwelch.com/post/505": {
       "targets": {
         "http://codeconf.com/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Hostname/IP does not match certificate's altnames: Host: codeconf.com. is not in the cert's altnames: DNS:*.github.com, DNS:github.com",
-          "lastAttempt": "2026-11-11T00:43:01.928Z",
+          "lastAttempt": "2026-11-16T12:33:29.413Z",
           "operation": "present",
           "status": "failed",
-          "version": "8be5bc2f71106f884363dac108a730ffbe327784453b50d9ec48385b21438dbb"
+          "version": "fffa6546aff87d118319c3b563d25b352f34470ed3fb702e4a45732ed27ac860"
         },
         "http://ifixit.com/Answers/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:01.234Z",
+          "lastAttempt": "2026-11-16T12:33:30.061Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8be5bc2f71106f884363dac108a730ffbe327784453b50d9ec48385b21438dbb"
+          "version": "fffa6546aff87d118319c3b563d25b352f34470ed3fb702e4a45732ed27ac860"
         },
         "http://ifixit.com/blog/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:01.860Z",
+          "lastAttempt": "2026-11-16T12:33:30.421Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8be5bc2f71106f884363dac108a730ffbe327784453b50d9ec48385b21438dbb"
+          "version": "fffa6546aff87d118319c3b563d25b352f34470ed3fb702e4a45732ed27ac860"
         },
         "http://www.ifixit.com/User/13051/mayer": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:01.986Z",
+          "lastAttempt": "2026-11-16T12:33:30.621Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8be5bc2f71106f884363dac108a730ffbe327784453b50d9ec48385b21438dbb"
+          "version": "fffa6546aff87d118319c3b563d25b352f34470ed3fb702e4a45732ed27ac860"
         },
         "http://www.sterlinghirsh.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:02.259Z",
+          "lastAttempt": "2026-11-16T12:33:30.903Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8be5bc2f71106f884363dac108a730ffbe327784453b50d9ec48385b21438dbb"
+          "version": "fffa6546aff87d118319c3b563d25b352f34470ed3fb702e4a45732ed27ac860"
         },
         "https://twitter.com/#!/coda": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:02.540Z",
+          "lastAttempt": "2026-11-16T12:33:31.131Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8be5bc2f71106f884363dac108a730ffbe327784453b50d9ec48385b21438dbb"
+          "version": "fffa6546aff87d118319c3b563d25b352f34470ed3fb702e4a45732ed27ac860"
         }
       }
     },
@@ -15717,53 +15645,53 @@
       "targets": {
         "http://niketdesai.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:03.125Z",
+          "lastAttempt": "2026-11-16T12:33:31.678Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d503c3181dc29295a86fdb3b7249a8070428f34c2dab30fcfc166c678fa68c5c"
+          "version": "fc05e1331e64e2237226e538da0033ed48b7a4254b39e0aa0ebff6bfb0de714c"
         },
         "http://trunkclub.com/?c=refkma": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "The operation was aborted due to timeout",
-          "lastAttempt": "2026-11-11T00:43:12.071Z",
+          "lastAttempt": "2026-11-16T12:33:41.700Z",
           "operation": "present",
           "status": "failed",
-          "version": "d503c3181dc29295a86fdb3b7249a8070428f34c2dab30fcfc166c678fa68c5c"
+          "version": "fc05e1331e64e2237226e538da0033ed48b7a4254b39e0aa0ebff6bfb0de714c"
         },
         "http://www.flickr.com/photos/icco/6340610325/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:13.419Z",
+          "lastAttempt": "2026-11-16T12:33:42.049Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d503c3181dc29295a86fdb3b7249a8070428f34c2dab30fcfc166c678fa68c5c"
+          "version": "fc05e1331e64e2237226e538da0033ed48b7a4254b39e0aa0ebff6bfb0de714c"
         },
         "http://www.flickr.com/photos/icco/6340612645/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:13.742Z",
+          "lastAttempt": "2026-11-16T12:33:42.381Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d503c3181dc29295a86fdb3b7249a8070428f34c2dab30fcfc166c678fa68c5c"
+          "version": "fc05e1331e64e2237226e538da0033ed48b7a4254b39e0aa0ebff6bfb0de714c"
         },
         "http://www.flickr.com/photos/icco/6341352824/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:14.042Z",
+          "lastAttempt": "2026-11-16T12:33:42.717Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d503c3181dc29295a86fdb3b7249a8070428f34c2dab30fcfc166c678fa68c5c"
+          "version": "fc05e1331e64e2237226e538da0033ed48b7a4254b39e0aa0ebff6bfb0de714c"
         },
         "http://www.flickr.com/photos/icco/6341356004/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:14.330Z",
+          "lastAttempt": "2026-11-16T12:33:43.052Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d503c3181dc29295a86fdb3b7249a8070428f34c2dab30fcfc166c678fa68c5c"
+          "version": "fc05e1331e64e2237226e538da0033ed48b7a4254b39e0aa0ebff6bfb0de714c"
         },
         "http://www.flickr.com/photos/icco/6341357772/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:14.616Z",
+          "lastAttempt": "2026-11-16T12:33:43.324Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d503c3181dc29295a86fdb3b7249a8070428f34c2dab30fcfc166c678fa68c5c"
+          "version": "fc05e1331e64e2237226e538da0033ed48b7a4254b39e0aa0ebff6bfb0de714c"
         }
       }
     },
@@ -15771,192 +15699,192 @@
       "targets": {
         "http://getpunchd.com/google": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:14.848Z",
+          "lastAttempt": "2026-11-16T12:33:43.621Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://google.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:14.973Z",
+          "lastAttempt": "2026-11-16T12:33:43.733Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://ifixit.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:15.107Z",
+          "lastAttempt": "2026-11-16T12:33:43.906Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://markgius.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:15.274Z",
+          "lastAttempt": "2026-11-16T12:33:44.023Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/dlnwelch/6494262343/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:15.607Z",
+          "lastAttempt": "2026-11-16T12:33:44.320Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/dlnwelch/sets/72157626948243548/with/5826629101/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:16.235Z",
+          "lastAttempt": "2026-11-16T12:33:44.988Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/icco/5971070357/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:16.554Z",
+          "lastAttempt": "2026-11-16T12:33:45.313Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/icco/6022320198/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:16.902Z",
+          "lastAttempt": "2026-11-16T12:33:45.608Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/icco/6271097107/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:17.222Z",
+          "lastAttempt": "2026-11-16T12:33:45.935Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/icco/6271104101/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:17.555Z",
+          "lastAttempt": "2026-11-16T12:33:46.230Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/icco/6271104727/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:17.888Z",
+          "lastAttempt": "2026-11-16T12:33:46.579Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/icco/6271106081/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:18.173Z",
+          "lastAttempt": "2026-11-16T12:33:46.896Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.flickr.com/photos/icco/6271628778/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:18.470Z",
+          "lastAttempt": "2026-11-16T12:33:47.178Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.linkedin.com/in/kareemnassar": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:19.487Z",
+          "lastAttempt": "2026-11-16T12:33:48.383Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "http://www.nytimes.com/interactive/2011/12/22/magazine/the-lives-they-lived.html?hp#view=dennis_ritchie": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:19.754Z",
+          "lastAttempt": "2026-11-16T12:33:48.603Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://about.me/davidhorn": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:19.958Z",
+          "lastAttempt": "2026-11-16T12:33:48.792Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://en.wikipedia.org/wiki/Parkside,_San_Francisco": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:20.212Z",
+          "lastAttempt": "2026-11-16T12:33:49.018Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://en.wikipedia.org/wiki/Steve_Jobs": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:20.699Z",
+          "lastAttempt": "2026-11-16T12:33:49.347Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://getpunchd.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:20.766Z",
+          "lastAttempt": "2026-11-16T12:33:49.443Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://thestrangeloop.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:21.018Z",
+          "lastAttempt": "2026-11-16T12:33:49.934Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://twitter.com/#!/icco/statuses/106776910616473602": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:21.219Z",
+          "lastAttempt": "2026-11-16T12:33:50.116Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://www.flickr.com/photos/icco/6040584796/in/set-72157627831483421": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:21.534Z",
+          "lastAttempt": "2026-11-16T12:33:50.383Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://www.flickr.com/photos/icco/6310037274/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:21.849Z",
+          "lastAttempt": "2026-11-16T12:33:50.652Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://www.flickr.com/photos/icco/6420876153": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:22.143Z",
+          "lastAttempt": "2026-11-16T12:33:50.978Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://www.flickr.com/photos/icco/6473327073": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:22.433Z",
+          "lastAttempt": "2026-11-16T12:33:51.259Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://www.flickr.com/photos/icco/sets/72157627956138728/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:22.861Z",
+          "lastAttempt": "2026-11-16T12:33:51.945Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         },
         "https://www.last.fm/user/icco": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:22.917Z",
+          "lastAttempt": "2026-11-16T12:33:52.225Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2efab0c968faa4adb2bdb8bdb27aaa7640dc3cfb3d24592781885c4c7fe79d7c"
+          "version": "f0d3458646070cc7cd9597ca3c57decc7ba31298535fb05004408602038a49dd"
         }
       }
     },
@@ -15964,17 +15892,17 @@
       "targets": {
         "http://en.wikipedia.org/wiki/Dental_floss#Benefits": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:23.109Z",
+          "lastAttempt": "2026-11-16T12:33:52.411Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "e8b48dc8af07b0fb55ce638b7b75e85a6cf79a7fc940062413c75048e2f31fc7"
+          "version": "b0f3bc1a26d0b3f82f01bec0a7466adff31776d0d500eb2be7bf0c8e277e33e4"
         },
         "http://en.wikipedia.org/wiki/Roth_IRA": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:23.219Z",
+          "lastAttempt": "2026-11-16T12:33:52.502Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "e8b48dc8af07b0fb55ce638b7b75e85a6cf79a7fc940062413c75048e2f31fc7"
+          "version": "b0f3bc1a26d0b3f82f01bec0a7466adff31776d0d500eb2be7bf0c8e277e33e4"
         }
       }
     },
@@ -15993,18 +15921,19 @@
       "targets": {
         "http://www.allaccess.com/net-news/archive/story/105995/kfog-announces-new-morning-show": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:24.281Z",
+          "lastAttempt": "2026-11-16T12:33:53.586Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "e1ef528a7e5abd5d3554a67bfc152b074a6990b4595e2f83e0d29e741e966f95"
+          "version": "66e9e9847106627135c5fd5633366485304d6ed26260172fdb6af8ca9cd4f02c"
         },
         "http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2012/06/10/PKIF1OPLI0.DTL&ao=all": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 410",
-          "lastAttempt": "2026-11-11T00:43:12.767Z",
+          "httpStatus": 410,
+          "lastAttempt": "2026-11-16T12:33:53.662Z",
           "operation": "present",
           "status": "failed",
-          "version": "e1ef528a7e5abd5d3554a67bfc152b074a6990b4595e2f83e0d29e741e966f95"
+          "version": "66e9e9847106627135c5fd5633366485304d6ed26260172fdb6af8ca9cd4f02c"
         }
       }
     },
@@ -16012,17 +15941,17 @@
       "targets": {
         "https://github.com/icco/nattape": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:25.048Z",
+          "lastAttempt": "2026-11-16T12:33:54.380Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a40a8be10a7ed170c8cd2298f8cc14de88650a21ac172b9f1575da2ac68945a1"
+          "version": "9e368397e9fcd850edae3bb936aecd94bdc141ea1602e19eb0d2e4e28ee9f438"
         },
         "https://web.archive.org/web/20190520025507/http://opensourcebridge.org/sessions/916": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:26.002Z",
+          "lastAttempt": "2026-11-16T12:33:55.081Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a40a8be10a7ed170c8cd2298f8cc14de88650a21ac172b9f1575da2ac68945a1"
+          "version": "9e368397e9fcd850edae3bb936aecd94bdc141ea1602e19eb0d2e4e28ee9f438"
         }
       }
     },
@@ -16030,53 +15959,54 @@
       "targets": {
         "http://flic.kr/s/aHsjC8pFi7": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:27.767Z",
+          "lastAttempt": "2026-11-16T12:33:56.332Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2c0b81ba6617b810b489177c4419e02832d8e4e52619b6c4c92dce3cda319133"
+          "version": "2a33d0d6b4c20a516e21c6dc1f943923c71d4c01cb8cd48440fbf743c0836cbe"
         },
         "http://goo.gl/maps/AfX9t": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:28.778Z",
+          "lastAttempt": "2026-11-16T12:33:57.016Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2c0b81ba6617b810b489177c4419e02832d8e4e52619b6c4c92dce3cda319133"
+          "version": "2a33d0d6b4c20a516e21c6dc1f943923c71d4c01cb8cd48440fbf743c0836cbe"
         },
         "http://reedmorse.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:29.278Z",
+          "lastAttempt": "2026-11-16T12:33:57.446Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2c0b81ba6617b810b489177c4419e02832d8e4e52619b6c4c92dce3cda319133"
+          "version": "2a33d0d6b4c20a516e21c6dc1f943923c71d4c01cb8cd48440fbf743c0836cbe"
         },
         "http://www.burningman.com/whatisburningman/about_burningman/principles.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:30.363Z",
+          "lastAttempt": "2026-11-16T12:33:58.894Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2c0b81ba6617b810b489177c4419e02832d8e4e52619b6c4c92dce3cda319133"
+          "version": "2a33d0d6b4c20a516e21c6dc1f943923c71d4c01cb8cd48440fbf743c0836cbe"
         },
         "http://www.damer.com/pictures/events/burningman2002/blowout/alphaguide.html": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T00:43:13.425Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:33:59.439Z",
           "operation": "present",
           "status": "failed",
-          "version": "2c0b81ba6617b810b489177c4419e02832d8e4e52619b6c4c92dce3cda319133"
+          "version": "2a33d0d6b4c20a516e21c6dc1f943923c71d4c01cb8cd48440fbf743c0836cbe"
         },
         "http://www.flickr.com/photos/icco/7990100953/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:31.163Z",
+          "lastAttempt": "2026-11-16T12:33:59.702Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2c0b81ba6617b810b489177c4419e02832d8e4e52619b6c4c92dce3cda319133"
+          "version": "2a33d0d6b4c20a516e21c6dc1f943923c71d4c01cb8cd48440fbf743c0836cbe"
         },
         "http://www.flickr.com/photos/icco/7990110105/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:31.581Z",
+          "lastAttempt": "2026-11-16T12:34:00.071Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "2c0b81ba6617b810b489177c4419e02832d8e4e52619b6c4c92dce3cda319133"
+          "version": "2a33d0d6b4c20a516e21c6dc1f943923c71d4c01cb8cd48440fbf743c0836cbe"
         }
       }
     },
@@ -16284,22 +16214,23 @@
       "targets": {
         "https://en.wikipedia.org/wiki/Carnegie_library": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:42.163Z",
+          "lastAttempt": "2026-11-16T12:34:00.373Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7652fac1a7b9648e3cf1ac581861505a1322588a18dc1e856739e0776fa148d3"
+          "version": "3334b0726575c6e7f40d855aaff7804514b742a1f5468891a1e239a26b256dfd"
         }
       }
     },
     "https://writing.natwelch.com/post/516": {
       "targets": {
         "https://twitter.com/Madrox": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T00:43:14.184Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:34:00.553Z",
           "operation": "present",
           "status": "failed",
-          "version": "bbcd2c0c89b4fc2b86079e4de5cfb2afa8bb36e5b838c04de9bde804faef44a6"
+          "version": "e51c9650fa640360091d43eda28ef762b51048c4387e44cc9d90031508afe88e"
         }
       }
     },
@@ -16307,73 +16238,76 @@
       "targets": {
         "http://tumble.io/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:42.454Z",
+          "lastAttempt": "2026-11-16T12:34:00.714Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         },
         "https://soundcloud.com/icco/2013-03-25": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:42.879Z",
+          "lastAttempt": "2026-11-16T12:34:01.081Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         },
         "https://twitter.com/icco": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T00:43:14.531Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:34:01.437Z",
           "operation": "present",
           "status": "failed",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         },
         "https://twitter.com/icco/status/315019021747630080": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:43.603Z",
+          "lastAttempt": "2026-11-16T12:34:01.706Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         },
         "https://twitter.com/Madrox/status/315021547033227264": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T00:43:14.448Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:34:01.268Z",
           "operation": "present",
           "status": "failed",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         },
         "https://twitter.com/smittyhalibut/status/315146717567782914": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:43.955Z",
+          "lastAttempt": "2026-11-16T12:34:02.071Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         },
         "https://web.archive.org/web/20160304010549/http://alexbaldwin.com:80/about/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:45.868Z",
+          "lastAttempt": "2026-11-16T12:34:02.762Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         },
         "https://web.archive.org/web/20220827050202/http://techno-weenie.net/about": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:22:46.505Z",
+          "lastAttempt": "2026-11-16T12:34:03.296Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3409b1d5b055bfea167aa5c8036da565f189cbe0f7a0649d913164ddee612a5d"
+          "version": "c4c8a56f8bde79ca591cff8b22ab243f257525e5bcfe6a381218d9cecfc89c6c"
         }
       }
     },
     "https://writing.natwelch.com/post/518": {
       "targets": {
         "http://gg-arts.deviantart.com/art/Section-C-383304926": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:24.312Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:34:03.523Z",
           "operation": "present",
           "status": "failed",
-          "version": "b63cc0010ef4f58b2592efcc781d2208407e69cbf7dd98e2285fa1127926c9af"
+          "version": "256ab256f1393834e637b9c1678cc97a8c763c0544f76cad75204081320ab1c3"
         }
       }
     },
@@ -16381,31 +16315,31 @@
       "targets": {
         "http://www.flickr.com/photos/icco/10483962395/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:33.188Z",
+          "lastAttempt": "2026-11-16T12:34:03.861Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1904102a33d3a13845e1c4de98d0744edba7c478c3ede8d43b2659538c5a6805"
+          "version": "23cb22b70d43c9010d70297286a2fbfc644e9bd0797cb29f389b354dd30d6a8a"
         },
         "http://www.flickr.com/photos/icco/10483966295/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:33.615Z",
+          "lastAttempt": "2026-11-16T12:34:04.138Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1904102a33d3a13845e1c4de98d0744edba7c478c3ede8d43b2659538c5a6805"
+          "version": "23cb22b70d43c9010d70297286a2fbfc644e9bd0797cb29f389b354dd30d6a8a"
         },
         "http://www.flickr.com/photos/icco/10483969616/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:34.086Z",
+          "lastAttempt": "2026-11-16T12:34:04.442Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1904102a33d3a13845e1c4de98d0744edba7c478c3ede8d43b2659538c5a6805"
+          "version": "23cb22b70d43c9010d70297286a2fbfc644e9bd0797cb29f389b354dd30d6a8a"
         },
         "https://www.flickr.com/photos/icco/10288264523/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:34.487Z",
+          "lastAttempt": "2026-11-16T12:34:04.733Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1904102a33d3a13845e1c4de98d0744edba7c478c3ede8d43b2659538c5a6805"
+          "version": "23cb22b70d43c9010d70297286a2fbfc644e9bd0797cb29f389b354dd30d6a8a"
         }
       }
     },
@@ -16437,33 +16371,36 @@
     "https://writing.natwelch.com/post/520": {
       "targets": {
         "https://plus.google.com/+NatWelch/posts": {
-          "attempts": 2,
-          "lastAttempt": "2026-11-12T12:28:58.059Z",
-          "operation": "present",
-          "status": "no-endpoint",
-          "version": "404557cbe79933c9873dca0325c163f005c6bf5e95acbc0807a7d8d0f8abd581"
-        },
-        "https://twitter.com/icco": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-12T18:25:41.789Z",
+          "attempts": 1,
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T12:34:05.359Z",
           "operation": "present",
           "status": "failed",
-          "version": "404557cbe79933c9873dca0325c163f005c6bf5e95acbc0807a7d8d0f8abd581"
+          "version": "4a86e65c65e1e0fe65487b8bd963472ff07e729a50cf8b2d3373f9d1ab7494d8"
+        },
+        "https://twitter.com/icco": {
+          "attempts": 1,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:34:05.455Z",
+          "operation": "present",
+          "status": "failed",
+          "version": "4a86e65c65e1e0fe65487b8bd963472ff07e729a50cf8b2d3373f9d1ab7494d8"
         },
         "https://www.facebook.com/natwelch": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:36.209Z",
+          "lastAttempt": "2026-11-16T12:34:05.926Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "404557cbe79933c9873dca0325c163f005c6bf5e95acbc0807a7d8d0f8abd581"
+          "version": "4a86e65c65e1e0fe65487b8bd963472ff07e729a50cf8b2d3373f9d1ab7494d8"
         },
         "https://www.facebook.com/natwelch/posts/10201266199151373": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:36.644Z",
+          "lastAttempt": "2026-11-16T12:34:06.141Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "404557cbe79933c9873dca0325c163f005c6bf5e95acbc0807a7d8d0f8abd581"
+          "version": "4a86e65c65e1e0fe65487b8bd963472ff07e729a50cf8b2d3373f9d1ab7494d8"
         }
       }
     },
@@ -16889,723 +16826,728 @@
       "targets": {
         "https://web.archive.org/web/20140220080800/https://foursquare.com/icco/list/favorite-food--bars-in-sf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:12.440Z",
+          "lastAttempt": "2026-11-16T12:34:09.937Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c403710254ec6a5e16b6748821ded6ec0ea1678611dad505a70a4f6ec8acf6b7"
+          "version": "4cf28626f5aa4178e5ffdc985ac7a2c642d690d6c4f21a25ca5429a81907daf8"
         }
       }
     },
     "https://writing.natwelch.com/post/523": {
       "targets": {
         "https://www.goodreads.com/book/show/45244.Judas_Unchained": {
-          "attempts": 2,
-          "lastAttempt": "2026-11-10T06:29:52.929Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T12:34:10.943Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d7a710792ad45200b00ef23dbe2e42f86bdaf570f41cab0a5b9514f3306824b2"
+          "version": "e041d0fb6287c5f741f515385be9b98b9f73b2771dd9acc88fd4777d8622d3a9"
         }
       }
     },
     "https://writing.natwelch.com/post/524": {
       "targets": {
         "http://cem.re/year-in-review/ebeeeb2687bccb89e05a58238c904e271e0fced9.html": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 500",
-          "lastAttempt": "2026-11-10T06:29:53.296Z",
+          "httpStatus": 500,
+          "lastAttempt": "2026-11-16T12:34:11.143Z",
           "operation": "present",
           "status": "failed",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "http://natwelch.com/2014/holiday": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-10T06:29:53.593Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:34:11.371Z",
           "operation": "present",
           "status": "failed",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "http://prime.paxsite.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:13.710Z",
+          "lastAttempt": "2026-11-16T12:34:11.878Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "http://youtu.be/X4bg4Q63kJQ": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:14.029Z",
+          "lastAttempt": "2026-11-16T12:34:12.258Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://alexbaldwin.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:14.296Z",
+          "lastAttempt": "2026-11-16T12:34:12.686Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://en.wikipedia.org/wiki/Pattern_Recognition": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:14.560Z",
+          "lastAttempt": "2026-11-16T12:34:12.995Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://en.wikipedia.org/wiki/William_Gibson": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:14.909Z",
+          "lastAttempt": "2026-11-16T12:34:13.239Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://images.natwelch.com/photos/2026/0Q74H9Z30SFCE.png": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:15.005Z",
+          "lastAttempt": "2026-11-16T12:34:13.350Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://twitter.com/calbach": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-10T06:29:53.782Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:34:13.467Z",
           "operation": "present",
           "status": "failed",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://twitter.com/kyleflick": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-10T06:29:53.975Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:34:13.570Z",
           "operation": "present",
           "status": "failed",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://twitter.com/madrox": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-10T06:29:54.176Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:34:13.659Z",
           "operation": "present",
           "status": "failed",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://web.archive.org/web/20150102222500/https://fog.io/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:18.339Z",
+          "lastAttempt": "2026-11-16T12:34:14.738Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://web.archive.org/web/20150811012644/http://playground.last.fm/demo/listeningtrends": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:19.329Z",
+          "lastAttempt": "2026-11-16T12:34:15.908Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://web.archive.org/web/20240625190740/https://code.natwelch.com:443/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:19.644Z",
+          "lastAttempt": "2026-11-16T12:34:16.447Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/dlnwelch/14148528279": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:20.207Z",
+          "lastAttempt": "2026-11-16T12:34:16.842Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/dlnwelch/14148705627": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:20.521Z",
+          "lastAttempt": "2026-11-16T12:34:17.110Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/11970709463": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:20.956Z",
+          "lastAttempt": "2026-11-16T12:34:17.398Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/12195352184": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:21.283Z",
+          "lastAttempt": "2026-11-16T12:34:17.717Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/12222720954": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:21.640Z",
+          "lastAttempt": "2026-11-16T12:34:18.007Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/12250243444": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:21.981Z",
+          "lastAttempt": "2026-11-16T12:34:18.318Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/12276159405": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:22.316Z",
+          "lastAttempt": "2026-11-16T12:34:18.599Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/12361233294": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:22.624Z",
+          "lastAttempt": "2026-11-16T12:34:18.898Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/12565002543": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:22.931Z",
+          "lastAttempt": "2026-11-16T12:34:19.174Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/12860103543": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:23.227Z",
+          "lastAttempt": "2026-11-16T12:34:19.460Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13032318423": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:23.582Z",
+          "lastAttempt": "2026-11-16T12:34:19.798Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13348280325": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:23.929Z",
+          "lastAttempt": "2026-11-16T12:34:20.099Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13348626994": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:24.313Z",
+          "lastAttempt": "2026-11-16T12:34:20.402Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13489582895": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:24.636Z",
+          "lastAttempt": "2026-11-16T12:34:20.677Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13678743433": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:24.978Z",
+          "lastAttempt": "2026-11-16T12:34:20.946Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13971892357": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:25.329Z",
+          "lastAttempt": "2026-11-16T12:34:21.232Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13972862369": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:25.678Z",
+          "lastAttempt": "2026-11-16T12:34:21.509Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13988426009": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:26.001Z",
+          "lastAttempt": "2026-11-16T12:34:26.780Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/13990517057": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:26.335Z",
+          "lastAttempt": "2026-11-16T12:34:27.100Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14022477328": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:26.714Z",
+          "lastAttempt": "2026-11-16T12:34:27.378Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14039339823": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:27.065Z",
+          "lastAttempt": "2026-11-16T12:34:27.696Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14209972398": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:27.484Z",
+          "lastAttempt": "2026-11-16T12:34:28.131Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14248615284": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:27.818Z",
+          "lastAttempt": "2026-11-16T12:34:28.388Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14258984119": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:28.194Z",
+          "lastAttempt": "2026-11-16T12:34:28.661Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14259259330": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:28.551Z",
+          "lastAttempt": "2026-11-16T12:34:29.001Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14290651556": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:28.911Z",
+          "lastAttempt": "2026-11-16T12:34:29.259Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14313763395": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:29.192Z",
+          "lastAttempt": "2026-11-16T12:34:29.538Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14393573281": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:29.579Z",
+          "lastAttempt": "2026-11-16T12:34:29.879Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14394112174": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:29.995Z",
+          "lastAttempt": "2026-11-16T12:34:30.205Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14395800444": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:30.341Z",
+          "lastAttempt": "2026-11-16T12:34:30.662Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14395858804": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:30.698Z",
+          "lastAttempt": "2026-11-16T12:34:30.968Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14515724607": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:31.050Z",
+          "lastAttempt": "2026-11-16T12:34:31.234Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14526161325": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:31.402Z",
+          "lastAttempt": "2026-11-16T12:34:31.572Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14574492705": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:31.749Z",
+          "lastAttempt": "2026-11-16T12:34:31.902Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14642291342": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:32.105Z",
+          "lastAttempt": "2026-11-16T12:34:32.213Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14732967977": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:32.465Z",
+          "lastAttempt": "2026-11-16T12:34:32.492Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14747716585": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:32.824Z",
+          "lastAttempt": "2026-11-16T12:34:32.778Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14779246327": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:33.165Z",
+          "lastAttempt": "2026-11-16T12:34:33.089Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14807337137": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:33.460Z",
+          "lastAttempt": "2026-11-16T12:34:33.349Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14841527658": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:33.763Z",
+          "lastAttempt": "2026-11-16T12:34:33.747Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14846105035": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:34.089Z",
+          "lastAttempt": "2026-11-16T12:34:34.038Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14891679768": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:34.379Z",
+          "lastAttempt": "2026-11-16T12:34:34.328Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14892980488": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:34.684Z",
+          "lastAttempt": "2026-11-16T12:34:34.604Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14916454311": {
           "attempts": 1,
-          "lastAttempt": "2026-11-06T18:23:35.011Z",
+          "lastAttempt": "2026-11-16T12:34:34.878Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14950406962": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:07.427Z",
+          "lastAttempt": "2026-11-16T12:34:35.214Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14960624904": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:07.946Z",
+          "lastAttempt": "2026-11-16T12:34:35.552Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/14971023170": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:08.406Z",
+          "lastAttempt": "2026-11-16T12:34:35.847Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15046877818": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:08.912Z",
+          "lastAttempt": "2026-11-16T12:34:36.355Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15079171436": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:09.318Z",
+          "lastAttempt": "2026-11-16T12:34:36.670Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15104164959": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:09.808Z",
+          "lastAttempt": "2026-11-16T12:34:36.926Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15172258453": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:10.243Z",
+          "lastAttempt": "2026-11-16T12:34:37.232Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15180601244": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:10.728Z",
+          "lastAttempt": "2026-11-16T12:34:37.487Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15180614424": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:11.205Z",
+          "lastAttempt": "2026-11-16T12:34:37.816Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15195511670": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:11.640Z",
+          "lastAttempt": "2026-11-16T12:34:38.165Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15218150156": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:12.109Z",
+          "lastAttempt": "2026-11-16T12:34:38.469Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15264443633": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:12.583Z",
+          "lastAttempt": "2026-11-16T12:34:38.784Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15326626547": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:13.026Z",
+          "lastAttempt": "2026-11-16T12:34:39.093Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15331319987": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:13.661Z",
+          "lastAttempt": "2026-11-16T12:34:39.425Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15369937674": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:14.114Z",
+          "lastAttempt": "2026-11-16T12:34:39.720Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15379431206": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:14.598Z",
+          "lastAttempt": "2026-11-16T12:34:39.998Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15395208156": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:15.039Z",
+          "lastAttempt": "2026-11-16T12:34:40.268Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15417910482": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:15.515Z",
+          "lastAttempt": "2026-11-16T12:34:45.604Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15423470324": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:15.954Z",
+          "lastAttempt": "2026-11-16T12:34:45.912Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15445239989": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:16.474Z",
+          "lastAttempt": "2026-11-16T12:34:46.229Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15481475033": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:16.907Z",
+          "lastAttempt": "2026-11-16T12:34:46.478Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15512817442": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:17.339Z",
+          "lastAttempt": "2026-11-16T12:34:46.792Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15557838316": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:17.762Z",
+          "lastAttempt": "2026-11-16T12:34:47.047Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15581419035": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:18.187Z",
+          "lastAttempt": "2026-11-16T12:34:47.384Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15581475655": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:18.598Z",
+          "lastAttempt": "2026-11-16T12:34:47.642Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15582202302": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:19.038Z",
+          "lastAttempt": "2026-11-16T12:34:47.916Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15614744799": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:19.481Z",
+          "lastAttempt": "2026-11-16T12:34:48.180Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15656978889": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:19.920Z",
+          "lastAttempt": "2026-11-16T12:34:48.488Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15698303067": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:20.440Z",
+          "lastAttempt": "2026-11-16T12:34:48.805Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15762390235": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:20.860Z",
+          "lastAttempt": "2026-11-16T12:34:49.097Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15776892946": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:21.285Z",
+          "lastAttempt": "2026-11-16T12:34:49.393Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15790342176": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:21.755Z",
+          "lastAttempt": "2026-11-16T12:34:49.738Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15840426467": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:22.189Z",
+          "lastAttempt": "2026-11-16T12:34:50.024Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/15886930380": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:22.634Z",
+          "lastAttempt": "2026-11-16T12:34:50.309Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/16040815966": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:23.085Z",
+          "lastAttempt": "2026-11-16T12:34:50.579Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/16156881451": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:23.508Z",
+          "lastAttempt": "2026-11-16T12:34:50.860Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/sets/72157639471288384/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:24.121Z",
+          "lastAttempt": "2026-11-16T12:34:51.290Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/sets/72157645083974781": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:25.228Z",
+          "lastAttempt": "2026-11-16T12:34:52.021Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/sets/72157646547050593": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:26.534Z",
+          "lastAttempt": "2026-11-16T12:34:53.182Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.flickr.com/photos/icco/sets/72157646962633136": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:27.151Z",
+          "lastAttempt": "2026-11-16T12:34:53.622Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         },
         "https://www.goodreads.com/user_challenges/1196204": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:28.166Z",
+          "lastAttempt": "2026-11-16T12:34:54.308Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "084edd3a0b9643d8b4a945ae411d32ee17f73cad07ba1745a56a9274b4d8dd96"
+          "version": "4ef8880134f20c8062bf3445da23c1ba9739611bb5cc46ce5dc86da15cddc149"
         }
       }
     },
@@ -17613,52 +17555,52 @@
       "targets": {
         "http://hackerschool.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:29.480Z",
+          "lastAttempt": "2026-11-16T12:34:54.672Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "93eae6d2818a780abe955fe2a093e073053e5dd327f4a95be56dedca91e1dfee"
+          "version": "e780cddd8249841c594bb46cd15322d10a4948e065fc5233f31c49fed43a4417"
         },
         "http://markgius.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:29.653Z",
+          "lastAttempt": "2026-11-16T12:34:54.734Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "93eae6d2818a780abe955fe2a093e073053e5dd327f4a95be56dedca91e1dfee"
+          "version": "e780cddd8249841c594bb46cd15322d10a4948e065fc5233f31c49fed43a4417"
         },
         "http://niket.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:30.166Z",
+          "lastAttempt": "2026-11-16T12:34:54.849Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "93eae6d2818a780abe955fe2a093e073053e5dd327f4a95be56dedca91e1dfee"
+          "version": "e780cddd8249841c594bb46cd15322d10a4948e065fc5233f31c49fed43a4417"
         },
         "https://en.wikipedia.org/wiki/Google_Offers": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:31.548Z",
+          "lastAttempt": "2026-11-16T12:34:54.996Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "93eae6d2818a780abe955fe2a093e073053e5dd327f4a95be56dedca91e1dfee"
+          "version": "e780cddd8249841c594bb46cd15322d10a4948e065fc5233f31c49fed43a4417"
         },
         "https://getpunchd.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:31.790Z",
+          "lastAttempt": "2026-11-16T12:34:55.057Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "93eae6d2818a780abe955fe2a093e073053e5dd327f4a95be56dedca91e1dfee"
+          "version": "e780cddd8249841c594bb46cd15322d10a4948e065fc5233f31c49fed43a4417"
         },
         "https://github.com/icco": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:32.437Z",
+          "lastAttempt": "2026-11-16T12:34:55.557Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "93eae6d2818a780abe955fe2a093e073053e5dd327f4a95be56dedca91e1dfee"
+          "version": "e780cddd8249841c594bb46cd15322d10a4948e065fc5233f31c49fed43a4417"
         },
         "https://techcrunch.com/2012/06/28/google-compute-engine/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:33.933Z",
+          "lastAttempt": "2026-11-16T12:34:55.677Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "93eae6d2818a780abe955fe2a093e073053e5dd327f4a95be56dedca91e1dfee"
+          "version": "e780cddd8249841c594bb46cd15322d10a4948e065fc5233f31c49fed43a4417"
         }
       }
     },
@@ -17666,314 +17608,323 @@
       "targets": {
         "http://departmentofcoffee.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:35.138Z",
+          "lastAttempt": "2026-11-16T12:34:56.299Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://fleetriverbakery.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:37.526Z",
+          "lastAttempt": "2026-11-16T12:34:58.650Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://jandacafe.com/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 521",
-          "lastAttempt": "2026-11-11T06:26:28.448Z",
+          "httpStatus": 521,
+          "lastAttempt": "2026-11-16T12:34:58.954Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://skygarden.london/sky-pod-bar": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:39.701Z",
+          "lastAttempt": "2026-11-16T12:35:00.849Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://thecraftbeerco.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:40.274Z",
+          "lastAttempt": "2026-11-16T12:35:01.120Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://uk.allpressespresso.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:40.762Z",
+          "lastAttempt": "2026-11-16T12:35:01.442Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.bonedaddies.com/peter-st-soho/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:44.046Z",
+          "lastAttempt": "2026-11-16T12:35:04.641Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.cityoflondon.gov.uk/things-to-do/green-spaces/hampstead-heath/Pages/default.aspx": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:26:29.223Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:35:05.283Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.columbiaroad.info/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:50.308Z",
+          "lastAttempt": "2026-11-16T12:35:11.316Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.fix-coffee.co.uk/#about": {
-          "attempts": 2,
-          "lastAttempt": "2026-11-10T06:29:56.739Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T12:35:12.066Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.flatwhitesoho.co.uk/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:51.856Z",
+          "lastAttempt": "2026-11-16T12:35:12.714Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.goshlondon.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:52.904Z",
+          "lastAttempt": "2026-11-16T12:35:13.532Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.lantanacafe.co.uk/index.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:53.611Z",
+          "lastAttempt": "2026-11-16T12:35:13.894Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.lookmumnohands.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:53.961Z",
+          "lastAttempt": "2026-11-16T12:35:14.147Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.ozonecoffee.co.uk/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:55.039Z",
+          "lastAttempt": "2026-11-16T12:35:14.738Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.paperandcup.co.uk/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:30.873Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:35:16.462Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.phamsushi.co.uk/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:58.397Z",
+          "lastAttempt": "2026-11-16T12:35:16.887Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.prufrockcoffee.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:36:59.093Z",
+          "lastAttempt": "2026-11-16T12:35:17.171Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.rbkc.gov.uk/leisureandlibraries/parksandgardens/yourlocalpark/hollandpark.aspx": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:00.229Z",
+          "lastAttempt": "2026-11-16T12:35:17.607Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.shoreditchgrind.com/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:26:31.454Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:35:17.751Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.taylor-st.com/": {
-          "attempts": 3,
-          "error": "getaddrinfo ENOTFOUND www.taylor-st.com",
-          "lastAttempt": "2026-11-11T06:26:31.524Z",
+          "attempts": 1,
+          "error": "Discovery failed: 503",
+          "httpStatus": 503,
+          "lastAttempt": "2026-11-16T12:35:18.112Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.thebreakfastclubcafes.com/locations/hoxton/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:26:32.068Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:35:18.359Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "http://www.workshopcoffee.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:02.350Z",
+          "lastAttempt": "2026-11-16T12:35:19.337Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://boroughmarket.org.uk/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:04.047Z",
+          "lastAttempt": "2026-11-16T12:35:20.754Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://caytre.co.uk/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:05.199Z",
+          "lastAttempt": "2026-11-16T12:35:22.213Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://foursquare.com/v/montparnasse-cafe/4baf60fff964a52080fb3be3": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:05.896Z",
+          "lastAttempt": "2026-11-16T12:35:22.412Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://foursquare.com/v/whitecross-street-market/4ac518eef964a52021ad20e3": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:06.476Z",
+          "lastAttempt": "2026-11-16T12:35:22.522Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://timberyardlondon.com/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "The operation was aborted due to timeout",
-          "lastAttempt": "2026-11-11T06:26:42.081Z",
+          "lastAttempt": "2026-11-16T12:35:32.546Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://web.archive.org/web/20170502083024/http://meatmission.com:80/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:17.726Z",
+          "lastAttempt": "2026-11-16T12:35:34.269Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://web.archive.org/web/20201027161137/http://byronhamburgers.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:19.088Z",
+          "lastAttempt": "2026-11-16T12:35:34.906Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://web.archive.org/web/20210829095419/http://foxcroftandginger.co.uk/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:20.192Z",
+          "lastAttempt": "2026-11-16T12:35:35.743Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://web.archive.org/web/20240129014724/https://www.eatdirtyburger.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:21.036Z",
+          "lastAttempt": "2026-11-16T12:35:36.339Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.brewdog.com/bars": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:26:44.068Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T12:35:37.315Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.busaba.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:24.124Z",
+          "lastAttempt": "2026-11-16T12:35:37.787Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.caskpubandkitchen.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:24.995Z",
+          "lastAttempt": "2026-11-16T12:35:38.491Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.dishoom.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:26.420Z",
+          "lastAttempt": "2026-11-16T12:35:39.310Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.homeslicepizza.co.uk/home": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:27.125Z",
+          "lastAttempt": "2026-11-16T12:35:41.296Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.pizzaeast.com/shoreditch": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:27.926Z",
+          "lastAttempt": "2026-11-16T12:35:41.892Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.royalparks.org.uk/parks/the-regents-park/things-to-see-and-do/primrose-hill": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:29.544Z",
+          "lastAttempt": "2026-11-16T12:35:43.045Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.tozirestaurant.co.uk/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:30.192Z",
+          "lastAttempt": "2026-11-16T12:35:43.481Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.wagamama.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:32.297Z",
+          "lastAttempt": "2026-11-16T12:35:45.011Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.yelp.com/biz/montparnasse-cafe-london-2": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:44.196Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:35:45.133Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         },
         "https://www.yelp.com/biz/whitecross-market-london": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:44.313Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T12:35:45.174Z",
           "operation": "present",
           "status": "failed",
-          "version": "671aaf8cbdb899010ddd17d84d38cd065354711cb6a0fa45786bfaae2ef20a27"
+          "version": "14cd582e680f08e783b4bfcd841037a5aaa26df74de3ad67a880a66c3c1e8547"
         }
       }
     },
