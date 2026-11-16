@@ -1,5 +1,5 @@
 {
-  "cursor": 526,
+  "cursor": 563,
   "sources": {
     "https://writing.natwelch.com/post/10": {
       "targets": {
@@ -5895,7 +5895,6 @@
         "http://googlecloudplatform.blogspot.co.uk/2013/12/google-compute-engine-is-now-generally-available.html": {
           "attempts": 1,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-16T12:32:29.435Z",
           "operation": "present",
           "status": "failed",
@@ -5932,7 +5931,6 @@
         "https://www.forbes.com/sites/benkepes/2013/12/03/google-compute-engine-goes-into-general-availability/": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:32:32.349Z",
           "operation": "present",
           "status": "failed",
@@ -6787,7 +6785,6 @@
         "https://www.theatlantic.com/health/archive/2013/08/how-to-make-perfect-coffee/278944/": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:32:39.565Z",
           "operation": "present",
           "status": "failed",
@@ -10812,7 +10809,6 @@
         "http://www.wired.com/dangerroom/2013/02/printed-magazine/": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:33:02.310Z",
           "operation": "present",
           "status": "failed",
@@ -11042,7 +11038,6 @@
         "https://itunes.apple.com/us/playlist/q3y15-summer-time/idpl.ec290fda8528440783dc918fd0d730ea": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:33:04.219Z",
           "operation": "present",
           "status": "failed",
@@ -11051,7 +11046,6 @@
         "https://rsd.herokuapp.com/": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:33:04.265Z",
           "operation": "present",
           "status": "failed",
@@ -15929,7 +15923,6 @@
         "http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2012/06/10/PKIF1OPLI0.DTL&ao=all": {
           "attempts": 1,
           "error": "Discovery failed: 410",
-          "httpStatus": 410,
           "lastAttempt": "2026-11-16T12:33:53.662Z",
           "operation": "present",
           "status": "failed",
@@ -15988,7 +15981,6 @@
         "http://www.damer.com/pictures/events/burningman2002/blowout/alphaguide.html": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:33:59.439Z",
           "operation": "present",
           "status": "failed",
@@ -16226,7 +16218,6 @@
         "https://twitter.com/Madrox": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:34:00.553Z",
           "operation": "present",
           "status": "failed",
@@ -16253,7 +16244,6 @@
         "https://twitter.com/icco": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:34:01.437Z",
           "operation": "present",
           "status": "failed",
@@ -16269,7 +16259,6 @@
         "https://twitter.com/Madrox/status/315021547033227264": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:34:01.268Z",
           "operation": "present",
           "status": "failed",
@@ -16303,7 +16292,6 @@
         "http://gg-arts.deviantart.com/art/Section-C-383304926": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:34:03.523Z",
           "operation": "present",
           "status": "failed",
@@ -16373,7 +16361,6 @@
         "https://plus.google.com/+NatWelch/posts": {
           "attempts": 1,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-16T12:34:05.359Z",
           "operation": "present",
           "status": "failed",
@@ -16382,7 +16369,6 @@
         "https://twitter.com/icco": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:34:05.455Z",
           "operation": "present",
           "status": "failed",
@@ -16849,7 +16835,6 @@
         "http://cem.re/year-in-review/ebeeeb2687bccb89e05a58238c904e271e0fced9.html": {
           "attempts": 1,
           "error": "Discovery failed: 500",
-          "httpStatus": 500,
           "lastAttempt": "2026-11-16T12:34:11.143Z",
           "operation": "present",
           "status": "failed",
@@ -16858,7 +16843,6 @@
         "http://natwelch.com/2014/holiday": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:34:11.371Z",
           "operation": "present",
           "status": "failed",
@@ -16909,7 +16893,6 @@
         "https://twitter.com/calbach": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:34:13.467Z",
           "operation": "present",
           "status": "failed",
@@ -16918,7 +16901,6 @@
         "https://twitter.com/kyleflick": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:34:13.570Z",
           "operation": "present",
           "status": "failed",
@@ -16927,7 +16909,6 @@
         "https://twitter.com/madrox": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:34:13.659Z",
           "operation": "present",
           "status": "failed",
@@ -17623,7 +17604,6 @@
         "http://jandacafe.com/": {
           "attempts": 1,
           "error": "Discovery failed: 521",
-          "httpStatus": 521,
           "lastAttempt": "2026-11-16T12:34:58.954Z",
           "operation": "present",
           "status": "failed",
@@ -17660,7 +17640,6 @@
         "http://www.cityoflondon.gov.uk/things-to-do/green-spaces/hampstead-heath/Pages/default.aspx": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:35:05.283Z",
           "operation": "present",
           "status": "failed",
@@ -17718,7 +17697,6 @@
         "http://www.paperandcup.co.uk/": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:35:16.462Z",
           "operation": "present",
           "status": "failed",
@@ -17748,7 +17726,6 @@
         "http://www.shoreditchgrind.com/": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:35:17.751Z",
           "operation": "present",
           "status": "failed",
@@ -17757,7 +17734,6 @@
         "http://www.taylor-st.com/": {
           "attempts": 1,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-16T12:35:18.112Z",
           "operation": "present",
           "status": "failed",
@@ -17766,7 +17742,6 @@
         "http://www.thebreakfastclubcafes.com/locations/hoxton/": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:35:18.359Z",
           "operation": "present",
           "status": "failed",
@@ -17846,7 +17821,6 @@
         "https://www.brewdog.com/bars": {
           "attempts": 1,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-16T12:35:37.315Z",
           "operation": "present",
           "status": "failed",
@@ -17911,7 +17885,6 @@
         "https://www.yelp.com/biz/montparnasse-cafe-london-2": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:35:45.133Z",
           "operation": "present",
           "status": "failed",
@@ -17920,7 +17893,6 @@
         "https://www.yelp.com/biz/whitecross-market-london": {
           "attempts": 1,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-16T12:35:45.174Z",
           "operation": "present",
           "status": "failed",
@@ -17932,136 +17904,146 @@
       "targets": {
         "https://blog.golang.org/6years": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:39.177Z",
+          "lastAttempt": "2026-11-16T18:21:26.063Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://blog.shodan.io/its-still-the-data-stupid/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:39.609Z",
+          "lastAttempt": "2026-11-16T18:21:26.572Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://en.wikipedia.org/wiki/Missionary_Church_of_Kopimism": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:39.739Z",
+          "lastAttempt": "2026-11-16T18:21:26.939Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://en.wikipedia.org/wiki/Nujabes": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:39.901Z",
+          "lastAttempt": "2026-11-16T18:21:27.354Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://en.wikipedia.org/wiki/Terre_Thaemlitz": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:40.000Z",
+          "lastAttempt": "2026-11-16T18:21:27.519Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://github.com/icco?tab=activity": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:41.267Z",
+          "lastAttempt": "2026-11-16T18:21:29.028Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://github.com/iSECPartners/Scout2": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:40.760Z",
+          "lastAttempt": "2026-11-16T18:21:28.438Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://pinboard.in/t:bestof": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:41.474Z",
+          "lastAttempt": "2026-11-16T18:21:29.207Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://pitchfork.com/news/62515-chance-the-rapper-performs-somewhere-in-paradise-with-jeremih-on-saturday-night-live/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:42.558Z",
+          "lastAttempt": "2026-11-16T18:21:30.145Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://tip.golang.org/doc/go1.6": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:42.751Z",
+          "lastAttempt": "2026-11-16T18:21:30.361Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://torrentfreak.com/pirate-bay-founder-builds-the-ultimate-piracy-machine-151219/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:43.110Z",
+          "lastAttempt": "2026-11-16T18:21:30.644Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://web.archive.org/web/20190422181543/https://vimeo.com/149396475": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:45.206Z",
+          "lastAttempt": "2026-11-16T18:21:31.307Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://web.archive.org/web/20230407062106/http://www.10x2015.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:46.603Z",
+          "lastAttempt": "2026-11-16T18:21:31.851Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://www.justonecookbook.com/tamagoyaki-japanese-rolled-omelette/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:47.021Z",
+          "lastAttempt": "2026-11-16T18:21:32.105Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://www.youtube.com/watch?v=yh7-wAy_8ss&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:49.305Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:21:33.780Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "status": "failed",
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://www.youtube.com/watch?v=ZI8QZ2WN-Xo&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:47.796Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:21:32.747Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "status": "failed",
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://www.youtube.com/watch?v=ZTLAx3VDX7g&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:48.626Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:21:33.360Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "status": "failed",
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://youtu.be/Auh74d_OG8Y": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:50.199Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:21:34.512Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "status": "failed",
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         },
         "https://youtu.be/ffVbnPjl86A": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T00:42:51.043Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:21:35.119Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "1b971ce31a6f7e9c48e8e063a5da22118e48fed8b7707522737081229df766cf"
+          "status": "failed",
+          "version": "bd2e2d8c6f2b6023465d0418dd285be1ca5ac0c39a8bfc1195a843a8acdefec2"
         }
       }
     },
@@ -18069,73 +18051,73 @@
       "targets": {
         "http://dinopoloclub.com/minimetro/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:49.996Z",
+          "lastAttempt": "2026-11-16T18:21:36.126Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://en.wikipedia.org/wiki/Ant-Man_(film)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:50.671Z",
+          "lastAttempt": "2026-11-16T18:21:36.515Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://en.wikipedia.org/wiki/Rage_of_Bahamut:_Genesis": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:53.112Z",
+          "lastAttempt": "2026-11-16T18:21:36.946Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://gimletmedia.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:53.560Z",
+          "lastAttempt": "2026-11-16T18:21:37.393Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://imgur.com/q9Xjv4p": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:53.793Z",
+          "lastAttempt": "2026-11-16T18:21:37.631Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://longform.org/podcast": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:54.341Z",
+          "lastAttempt": "2026-11-16T18:21:38.413Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://longform.org/posts/longform-podcast-124-alex-blumberg": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:54.702Z",
+          "lastAttempt": "2026-11-16T18:21:38.856Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://longform.org/posts/longform-podcast-173-doug-mcgray": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:55.062Z",
+          "lastAttempt": "2026-11-16T18:21:39.303Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://longform.org/posts/longform-podcast-5-paul-ford": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:55.436Z",
+          "lastAttempt": "2026-11-16T18:21:39.741Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         },
         "https://www.flickr.com/photos/icco/23886084112/in/datetaken-ff/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:37:55.985Z",
+          "lastAttempt": "2026-11-16T18:21:40.113Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "6f676ed6c0fba6d62dfaea2b4ddd734cbfc1fe209a1d0d17c90ce041e535cd81"
+          "version": "952ca0a0157af1b0bd716dde215934266434b08c6cf88bf2d0645245e1bf7d58"
         }
       }
     },
@@ -19355,110 +19337,111 @@
       "targets": {
         "http://comediansincarsgettingcoffee.com/president-barack-obama-just-tell-him-you-re-the-president": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:39:14.192Z",
+          "lastAttempt": "2026-11-16T18:21:40.873Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://blog.rootshell.be/2015/12/30/the-truth-is-in-your-logs/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:39:15.770Z",
+          "lastAttempt": "2026-11-16T18:21:42.661Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://events.ccc.de/congress/2015/wiki/Main_Page": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:39:17.216Z",
+          "lastAttempt": "2026-11-16T18:21:43.865Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://longform.org/posts/the-matthew-power-literary-reporting-award": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:39:17.603Z",
+          "lastAttempt": "2026-11-16T18:21:44.373Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://randsinrepose.com/archives/shields-down/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T00:39:18.147Z",
+          "lastAttempt": "2026-11-16T18:21:44.873Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://tantek.com/2015/345/t2/packed-days-mozlando-fits-boblbee": {
-          "acceptedVersion": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461",
+          "acceptedVersion": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec",
           "attempts": 1,
           "endpoint": "https://webmention.io/tantek.com/webmention",
-          "lastAttempt": "2026-11-07T06:23:02.090Z",
+          "httpStatus": 201,
+          "lastAttempt": "2026-11-16T18:21:45.308Z",
           "operation": "present",
           "status": "accepted",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://twitter.com/botherder/status/682130392527302656": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:02.518Z",
+          "lastAttempt": "2026-11-16T18:21:45.549Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://web.archive.org/web/20150919065400/http://www.goodreads.com:80/quotes_of_the_day/1746": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:03.494Z",
+          "lastAttempt": "2026-11-16T18:21:46.043Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://web.archive.org/web/20210828142357/http://outlier.cc/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:04.340Z",
+          "lastAttempt": "2026-11-16T18:21:46.913Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://web.archive.org/web/20240320222019/https://grrm.livejournal.com/465247.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:05.992Z",
+          "lastAttempt": "2026-11-16T18:21:48.003Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://www.goodreads.com/blog/show/600-10-quotes-readers-fell-in-love-with-this-year": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:06.746Z",
+          "lastAttempt": "2026-11-16T18:21:48.794Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://www.gq.com/story/urban-explorers-gq-march-2013?mbid=social_fb_fanpage&printable=true": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:08.071Z",
+          "lastAttempt": "2026-11-16T18:21:49.253Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://www.illposed.com/outlier/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:08.497Z",
+          "lastAttempt": "2026-11-16T18:21:49.374Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://www.npr.org/2015/05/20/407981536/terry-gross-to-marc-maron-life-is-harder-than-radio": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:10.042Z",
+          "lastAttempt": "2026-11-16T18:21:50.503Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         },
         "https://www.npr.org/2015/12/21/460030344/video-and-transcript-nprs-interview-with-president-obama": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:10.799Z",
+          "lastAttempt": "2026-11-16T18:21:51.667Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c085ccd2673f1242b843fae389d50e12f7b89d7d904c1b344464accace5bb461"
+          "version": "ca8b55f8e003e56c685e2dac1db4071f940063feb774e1d4c80d02c0af683cec"
         }
       }
     },
@@ -19534,63 +19517,66 @@
     "https://writing.natwelch.com/post/535": {
       "targets": {
         "http://gimletmedia.com/episode/the-anxiety-box/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 400",
-          "lastAttempt": "2026-11-11T06:26:48.334Z",
+          "httpStatus": 400,
+          "lastAttempt": "2026-11-16T18:21:52.484Z",
           "operation": "present",
           "status": "failed",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         },
         "http://www.nytimes.com/2013/08/11/sunday-review/i-flirt-and-tweet-follow-me-at-socialbot.html": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:48.472Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T18:21:53.134Z",
           "operation": "present",
-          "status": "failed",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "status": "no-endpoint",
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         },
         "http://www.youtube.com/watch?v=dD36IajCz6A": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:19.100Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:21:53.465Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "status": "failed",
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         },
         "https://blog.fogus.me/2015/11/04/the-100101-method-my-approach-to-open-source/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:20.111Z",
+          "lastAttempt": "2026-11-16T18:21:54.028Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         },
         "https://github.com/icco/betteridges": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:21.540Z",
+          "lastAttempt": "2026-11-16T18:21:55.359Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         },
         "https://github.com/JacobEvelyn/friends": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:20.834Z",
+          "lastAttempt": "2026-11-16T18:21:54.702Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         },
         "https://medium.com/@derekarnold/remote-viewing-5cb161cdef4a": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:48.564Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T18:21:55.414Z",
           "operation": "present",
           "status": "failed",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         },
         "https://stats.wikimedia.org/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:21.790Z",
+          "lastAttempt": "2026-11-16T18:21:55.732Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "f9f5f0fcd9405d5bbdf8f3f2d1ef2c633c6d49c0b8d89a2f9b4600d38fcd782f"
+          "version": "74b61b8f6c6eb4f47065cdaab1fc8f324d2bc5ea67dde59ce267df201e101ebf"
         }
       }
     },
@@ -19598,110 +19584,114 @@
       "targets": {
         "http://onuniverse.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:23.074Z",
+          "lastAttempt": "2026-11-16T18:21:56.852Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "http://onuniverse.com/cards/2819": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:23.710Z",
+          "lastAttempt": "2026-11-16T18:21:57.151Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "http://www.citylab.com/commute/2016/01/japan-keeps-this-defunct-train-station-running-for-just-one-passenger/423273/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:49.614Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T18:21:57.795Z",
           "operation": "present",
           "status": "failed",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "http://www.telegraph.co.uk/news/celebritynews/12092542/Bowies-last-album-was-parting-gift-for-fans-in-carefully-planned-finale.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:25.428Z",
+          "error": "Discovery failed: 401",
+          "httpStatus": 401,
+          "lastAttempt": "2026-11-16T18:21:59.033Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "status": "failed",
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://15.wikipedia.org/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:25.613Z",
+          "lastAttempt": "2026-11-16T18:21:59.199Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://en.wikipedia.org/wiki/Rick_and_Morty": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:25.955Z",
+          "lastAttempt": "2026-11-16T18:21:59.504Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://t.co/jFCDqfr9Li": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:26.748Z",
+          "lastAttempt": "2026-11-16T18:22:00.001Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:27.035Z",
+          "lastAttempt": "2026-11-16T18:22:00.304Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://twitter.com/hashtag/punintended?src=hash": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:27.431Z",
+          "lastAttempt": "2026-11-16T18:22:00.595Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://twitter.com/hashtag/welch?src=hash": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:27.864Z",
+          "lastAttempt": "2026-11-16T18:22:00.924Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://twitter.com/icco": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:26:49.817Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T18:22:01.189Z",
           "operation": "present",
-          "status": "failed",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "status": "no-endpoint",
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://twitter.com/mr2incredible/status/688076700551217152": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:28.596Z",
+          "lastAttempt": "2026-11-16T18:22:01.416Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://www.buzzfeed.com/eleanorbate/daniel-radcliffe-tribute-to-alan-rickman#.veldOzWMB": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:29.102Z",
+          "lastAttempt": "2026-11-16T18:22:01.671Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://www.macrumors.com/2016/01/13/pocket-mortys-game-app-store/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:29.315Z",
+          "lastAttempt": "2026-11-16T18:22:01.824Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         },
         "https://www.youtube.com/watch?v=Nck6BZga7TQ&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:29.575Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:22:02.460Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "cee7f75ff1e953b2a9b9422196c8be4299749aa8d62a26613e41765a77c24655"
+          "status": "failed",
+          "version": "93454c09380f2c13bd781bccf2e7102e54238bb8b679a5f75298ab4fa8321747"
         }
       }
     },
@@ -19709,10 +19699,10 @@
       "targets": {
         "https://www.flickr.com/photos/icco/23931480374/in/datetaken-ff/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:30.289Z",
+          "lastAttempt": "2026-11-16T18:22:03.205Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8d50e3ce5dcdcdb094a9b127739074c92d2e1975268463d42c6698af644ba340"
+          "version": "87c2fec673af801811c01a0e3f693459efbe1305e476d8112c55116531e93966"
         }
       }
     },
@@ -19720,74 +19710,75 @@
       "targets": {
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:31.227Z",
+          "lastAttempt": "2026-11-16T18:22:04.164Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:32.019Z",
+          "lastAttempt": "2026-11-16T18:22:04.974Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:32.851Z",
+          "lastAttempt": "2026-11-16T18:22:05.840Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:33.613Z",
+          "lastAttempt": "2026-11-16T18:22:07.164Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:34.370Z",
+          "lastAttempt": "2026-11-16T18:22:07.763Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:35.099Z",
+          "lastAttempt": "2026-11-16T18:22:08.434Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:35.815Z",
+          "lastAttempt": "2026-11-16T18:22:09.341Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:36.527Z",
+          "lastAttempt": "2026-11-16T18:22:10.107Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://github.com/icco/today": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:26:50.406Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:22:10.485Z",
           "operation": "present",
           "status": "failed",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         },
         "https://web.archive.org/web/20160125033533/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:38.733Z",
+          "lastAttempt": "2026-11-16T18:22:11.606Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "a8ad601522f766972cb594c4e005fa9bd7f292038dcfe7710e03d653b7044610"
+          "version": "d330453566b35d370ab10f0a6db963eeb8562faf1517d35605619b0a796a0aba"
         }
       }
     },
@@ -19869,90 +19860,96 @@
     "https://writing.natwelch.com/post/541": {
       "targets": {
         "http://julieannhorvath.com/portfolio/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:27:03.293Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:22:12.892Z",
           "operation": "present",
           "status": "failed",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "http://www.wsj.com/articles/former-defense-secretary-marches-into-new-territory-videogames-1453483137?mod=e2tw": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 401",
-          "lastAttempt": "2026-11-11T06:27:03.487Z",
+          "httpStatus": 401,
+          "lastAttempt": "2026-11-16T18:22:13.000Z",
           "operation": "present",
           "status": "failed",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://bysusanlin.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:54.289Z",
+          "lastAttempt": "2026-11-16T18:22:13.500Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://designingforperformance.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:54.491Z",
+          "lastAttempt": "2026-11-16T18:22:13.734Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://fivethirtyeight.com/features/what-happens-if-bernie-sanders-wins-iowa/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:55.321Z",
+          "lastAttempt": "2026-11-16T18:22:14.203Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://larahogan.me/donuts/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:55.502Z",
+          "lastAttempt": "2026-11-16T18:22:14.405Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://newrepublic.com/article/128239/nominating-bernie-sanders-worthwhile-gamble": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:55.660Z",
+          "lastAttempt": "2026-11-16T18:22:14.804Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://web.archive.org/web/20230604174351/https://www.reddit.com/r/IAmA/comments/42ppqu/iama_male_model_ny_paris_from_the_period_of_the/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:57.040Z",
+          "lastAttempt": "2026-11-16T18:22:18.615Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://wheretheressmoke.libsyn.com/you-say-you-want-a-resolution-willpower": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:57.520Z",
+          "lastAttempt": "2026-11-16T18:22:18.990Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://www.npr.org/podcasts/510310/npr-politics-podcast": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:58.035Z",
+          "lastAttempt": "2026-11-16T18:22:19.596Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://www.youtube.com/watch?v=dlX29ynA0Fc&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:58.806Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:22:20.089Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "status": "failed",
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         },
         "https://www.youtube.com/watch?v=qRv7G7WpOoU&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:23:59.586Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:22:20.736Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "bd44c489901c91d507b6d68da59c3cc49bb0bfa31301bfd639113cd146d5c8ff"
+          "status": "failed",
+          "version": "bcf40ed15d0064dcdfc3b2098f19814c501058dbe9aa3994f0c57a9b84d9e1f7"
         }
       }
     },
@@ -19960,80 +19957,80 @@
       "targets": {
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:00.065Z",
+          "lastAttempt": "2026-11-16T18:22:21.121Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:00.288Z",
+          "lastAttempt": "2026-11-16T18:22:21.239Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:00.509Z",
+          "lastAttempt": "2026-11-16T18:22:21.351Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:00.727Z",
+          "lastAttempt": "2026-11-16T18:22:21.473Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:00.939Z",
+          "lastAttempt": "2026-11-16T18:22:21.585Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:01.156Z",
+          "lastAttempt": "2026-11-16T18:22:21.700Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:01.382Z",
+          "lastAttempt": "2026-11-16T18:22:21.810Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:01.602Z",
+          "lastAttempt": "2026-11-16T18:22:21.930Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://keen.io/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:01.817Z",
+          "lastAttempt": "2026-11-16T18:22:22.007Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://web.archive.org/web/20160130153945/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:02.548Z",
+          "lastAttempt": "2026-11-16T18:22:22.782Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:03.361Z",
+          "lastAttempt": "2026-11-16T18:22:23.442Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "1850c0709dc21b2b2f994a741f5ac5fd69345ab0226c8c5f984e426da3b3a7b4"
+          "version": "2e30d10aef41f71f72923a3e504cb0f7df6a52e37370ea0d87280deee99accdc"
         }
       }
     },
@@ -20041,138 +20038,138 @@
       "targets": {
         "http://drum-machine.maryrosecook.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:03.980Z",
+          "lastAttempt": "2026-11-16T18:22:24.062Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "http://io9.gizmodo.com/how-the-expanse-pulled-off-two-miracles-at-the-same-tim-1757165102": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:27:03.909Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T18:22:29.038Z",
           "operation": "present",
-          "status": "failed",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "status": "no-endpoint",
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "http://uk.reuters.com/article/uk-ecuador-sweden-assange-idUKKCN0VD0BJ": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 401",
-          "lastAttempt": "2026-11-11T06:27:04.436Z",
+          "httpStatus": 401,
+          "lastAttempt": "2026-11-16T18:22:29.260Z",
           "operation": "present",
           "status": "failed",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "http://www.avclub.com/article/louis-ck-releases-surprise-web-series-steve-buscem-231520": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:05.788Z",
+          "lastAttempt": "2026-11-16T18:22:30.000Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "http://www.radiolab.org/story/i-dont-have-answer/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:06.610Z",
+          "lastAttempt": "2026-11-16T18:22:31.269Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "http://www.wired.com/2016/01/clinton-camp-gives-the-iowa-caucus-a-silicon-valley-upgrade": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:08.025Z",
+          "lastAttempt": "2026-11-16T18:22:32.533Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://digitalcollections.nypl.org/collections/changing-new-york#/?tab=about&scroll=20": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:09.185Z",
+          "lastAttempt": "2026-11-16T18:22:32.613Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/Battlestar_Galactica_(2004_TV_series)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:09.424Z",
+          "lastAttempt": "2026-11-16T18:22:32.859Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/Billions_(TV_series)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:09.637Z",
+          "lastAttempt": "2026-11-16T18:22:33.073Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/Burnt_(film)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:09.765Z",
+          "lastAttempt": "2026-11-16T18:22:33.230Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/Chef_(film)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:09.893Z",
+          "lastAttempt": "2026-11-16T18:22:33.542Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/Damian_Lewis": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:10.097Z",
+          "lastAttempt": "2026-11-16T18:22:33.755Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/Paul_Giamatti": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:10.352Z",
+          "lastAttempt": "2026-11-16T18:22:34.004Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/Syfy": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:10.517Z",
+          "lastAttempt": "2026-11-16T18:22:34.211Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/The_Expanse_(TV_series)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:10.814Z",
+          "lastAttempt": "2026-11-16T18:22:34.497Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://en.wikipedia.org/wiki/The_Magicians_(U.S._TV_series)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:11.142Z",
+          "lastAttempt": "2026-11-16T18:22:34.911Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://maryrosecook.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:11.391Z",
+          "lastAttempt": "2026-11-16T18:22:35.252Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://web.archive.org/web/20180122200147/https://gimletmedia.com/episode/53-in-the-desert/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:19.813Z",
+          "lastAttempt": "2026-11-16T18:22:35.996Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         },
         "https://web.archive.org/web/20240717020136/https://www.goodreads.com/book/show/6101718-the-magicians": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:21.375Z",
+          "lastAttempt": "2026-11-16T18:22:36.756Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "ca5698a0c1dbb1402d7d2d472bb546ef420c05e030069259ad850530fdf65e0b"
+          "version": "1b15c573bebd1134ca6c3bd389cb7f4fb1b83e023b28433b222783f33f088c8b"
         }
       }
     },
@@ -20180,80 +20177,80 @@
       "targets": {
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:10.215Z",
+          "lastAttempt": "2026-11-16T18:22:37.151Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:11.143Z",
+          "lastAttempt": "2026-11-16T18:22:37.272Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:11.804Z",
+          "lastAttempt": "2026-11-16T18:22:37.395Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:12.392Z",
+          "lastAttempt": "2026-11-16T18:22:37.512Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:12.968Z",
+          "lastAttempt": "2026-11-16T18:22:37.631Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/gandalf/blob/a6a62c1050e5e5fe1f676cbf91e6ef0bbe4ecf4f/story.md": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:13.544Z",
+          "lastAttempt": "2026-11-16T18:22:38.170Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:14.166Z",
+          "lastAttempt": "2026-11-16T18:22:38.289Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:14.743Z",
+          "lastAttempt": "2026-11-16T18:22:38.402Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:15.464Z",
+          "lastAttempt": "2026-11-16T18:22:38.518Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://web.archive.org/web/20160206164056/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:18.513Z",
+          "lastAttempt": "2026-11-16T18:22:39.191Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:19.440Z",
+          "lastAttempt": "2026-11-16T18:22:39.343Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4c7107b121362a9071439ae3431dc14836b62ddaf77ea1d1b8fc3cd84b8a6d8b"
+          "version": "16bbaa35b9b0207e9dc1bd4374de2ebbc58f9febbd5590231ffca2db6a495042"
         }
       }
     },
@@ -20261,46 +20258,47 @@
       "targets": {
         "http://influenceexplorer.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:28.782Z",
+          "lastAttempt": "2026-11-16T18:22:40.252Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5ceeab49ceb05a5c9059ad1555bbfce06bbe910b73837be27956b93fe4f9dde2"
+          "version": "bf73bcad395c55a2628da76307174944a5e9f51608c7328c39dca3164e61f0a2"
         },
         "https://beta.fec.gov/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:29.442Z",
+          "lastAttempt": "2026-11-16T18:22:40.494Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5ceeab49ceb05a5c9059ad1555bbfce06bbe910b73837be27956b93fe4f9dde2"
+          "version": "bf73bcad395c55a2628da76307174944a5e9f51608c7328c39dca3164e61f0a2"
         },
         "https://beta.fec.gov/data/receipts/?is_individual=true&contributor_employer=Google&min_date=01-01-2015&max_date=12-31-2016": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:30.204Z",
+          "lastAttempt": "2026-11-16T18:22:40.650Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5ceeab49ceb05a5c9059ad1555bbfce06bbe910b73837be27956b93fe4f9dde2"
+          "version": "bf73bcad395c55a2628da76307174944a5e9f51608c7328c39dca3164e61f0a2"
         },
         "https://github.com/icco/influence": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:30.891Z",
+          "lastAttempt": "2026-11-16T18:22:41.365Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5ceeab49ceb05a5c9059ad1555bbfce06bbe910b73837be27956b93fe4f9dde2"
+          "version": "bf73bcad395c55a2628da76307174944a5e9f51608c7328c39dca3164e61f0a2"
         },
         "https://raw.githubusercontent.com/icco/influence/master/data.json": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:27:04.954Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:22:41.556Z",
           "operation": "present",
           "status": "failed",
-          "version": "5ceeab49ceb05a5c9059ad1555bbfce06bbe910b73837be27956b93fe4f9dde2"
+          "version": "bf73bcad395c55a2628da76307174944a5e9f51608c7328c39dca3164e61f0a2"
         },
         "https://sunlightfoundation.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:31.374Z",
+          "lastAttempt": "2026-11-16T18:22:41.933Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "5ceeab49ceb05a5c9059ad1555bbfce06bbe910b73837be27956b93fe4f9dde2"
+          "version": "bf73bcad395c55a2628da76307174944a5e9f51608c7328c39dca3164e61f0a2"
         }
       }
     },
@@ -20308,158 +20306,164 @@
       "targets": {
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:31.822Z",
+          "lastAttempt": "2026-11-16T18:22:42.321Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:32.051Z",
+          "lastAttempt": "2026-11-16T18:22:42.434Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:32.279Z",
+          "lastAttempt": "2026-11-16T18:22:42.548Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:32.513Z",
+          "lastAttempt": "2026-11-16T18:22:42.664Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:32.729Z",
+          "lastAttempt": "2026-11-16T18:22:42.775Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:33.232Z",
+          "lastAttempt": "2026-11-16T18:22:42.900Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:33.691Z",
+          "lastAttempt": "2026-11-16T18:22:43.014Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:34.189Z",
+          "lastAttempt": "2026-11-16T18:22:43.131Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://web.archive.org/web/20160213042606/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:34.706Z",
+          "lastAttempt": "2026-11-16T18:22:43.603Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:34.943Z",
+          "lastAttempt": "2026-11-16T18:22:43.755Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "10aa6c37f2941c553c51b25dc6b075baf6eaabae1c56d2afc6c2fc047514952e"
+          "version": "56f0dbe129d7f7d5ab2fa91ac9b9440f41bc3fffc565b8434bdfa6842965e842"
         }
       }
     },
     "https://writing.natwelch.com/post/547": {
       "targets": {
         "http://kaylinwalker.com/text-mining-south-park/": {
-          "acceptedVersion": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c",
+          "acceptedVersion": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74",
           "attempts": 1,
           "endpoint": "https://www.kaylinpavlik.com/webmentions/receive/",
-          "lastAttempt": "2026-11-07T06:24:35.849Z",
+          "httpStatus": 202,
+          "lastAttempt": "2026-11-16T18:22:44.831Z",
           "operation": "present",
           "status": "accepted",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "http://www.grandcentraltech.com/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "The operation was aborted due to timeout",
-          "lastAttempt": "2026-11-11T06:27:15.394Z",
+          "lastAttempt": "2026-11-16T18:22:54.850Z",
           "operation": "present",
           "status": "failed",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://digg.com/video/house-of-cards-season-4-trailer-frank-claire": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 410",
-          "lastAttempt": "2026-11-11T06:27:15.549Z",
+          "httpStatus": 410,
+          "lastAttempt": "2026-11-16T18:22:54.953Z",
           "operation": "present",
           "status": "failed",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://en.wikipedia.org/wiki/Deadpool_(film)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:46.605Z",
+          "lastAttempt": "2026-11-16T18:22:55.546Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://peter.bourgon.org/blog/2016/02/07/logging-v-instrumentation.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:47.126Z",
+          "lastAttempt": "2026-11-16T18:22:55.996Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://web.archive.org/web/20160308075122/http://bigstory.ap.org:80/article/2db0fc93cf664a63909e26e708e91c67/cruz-app-data-collection-helps-campaign-read-minds-voters": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:47.671Z",
+          "lastAttempt": "2026-11-16T18:22:56.565Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://www.bbc.co.uk/news/resources/idt-2e3f0042-75f6-4bd1-b4fe-9056540c65f8": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:48.199Z",
+          "lastAttempt": "2026-11-16T18:22:56.719Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://www.polygon.com/2016/2/11/10970922/it-took-an-illegal-act-to-get-deadpool-made": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:48.686Z",
+          "lastAttempt": "2026-11-16T18:22:57.346Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://www.recurse.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:48.988Z",
+          "lastAttempt": "2026-11-16T18:22:57.854Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://www.youtube.com/watch?v=Cle_rKBpZ28&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:49.785Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:22:58.370Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "status": "failed",
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         },
         "https://youtu.be/g5K0lKrebqg": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:50.769Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:22:58.928Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "7554ee10e2db68690339a2f8dfb9bb9f45f17aa1eeedd2d53c8f57c9e49a621c"
+          "status": "failed",
+          "version": "ffea9ed368f90d3b6552f688845cec3b2dfac7bf9da7efb72fa5c5aac5408a74"
         }
       }
     },
@@ -20467,94 +20471,94 @@
       "targets": {
         "http://kamalmarhubi.com/blog/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:51.485Z",
+          "lastAttempt": "2026-11-16T18:22:59.549Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "http://redlua.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:51.743Z",
+          "lastAttempt": "2026-11-16T18:22:59.990Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:52.248Z",
+          "lastAttempt": "2026-11-16T18:23:00.109Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:52.742Z",
+          "lastAttempt": "2026-11-16T18:23:00.224Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:53.272Z",
+          "lastAttempt": "2026-11-16T18:23:00.342Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:53.829Z",
+          "lastAttempt": "2026-11-16T18:23:00.455Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:54.331Z",
+          "lastAttempt": "2026-11-16T18:23:00.563Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:54.552Z",
+          "lastAttempt": "2026-11-16T18:23:00.681Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:54.761Z",
+          "lastAttempt": "2026-11-16T18:23:00.860Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:54.977Z",
+          "lastAttempt": "2026-11-16T18:23:00.981Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://web.archive.org/web/20160220020709/http://gnclmorais.com/blog/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:57.726Z",
+          "lastAttempt": "2026-11-16T18:23:02.582Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://web.archive.org/web/20160220020709/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:58.247Z",
+          "lastAttempt": "2026-11-16T18:23:02.999Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:58.488Z",
+          "lastAttempt": "2026-11-16T18:23:03.185Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "8368faf74c4b8a6fcbcdf8fe39f907503c7088085c21921b04e4ff8f005ca3c3"
+          "version": "1e5a9f13618432fdb6c00e3efc2072c6bc642a16c6a1e7ddee5d15f2c61c2a01"
         }
       }
     },
@@ -20580,17 +20584,17 @@
       "targets": {
         "https://life.natwelch.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:59.017Z",
+          "lastAttempt": "2026-11-16T18:23:03.893Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7c72106242b662d90514c8d3afbf420c3319041f4cebd9b02a6ceee1ea662133"
+          "version": "088a04733958a439b19aa94a98a153e1dace041a4f340a32ac26d40a95732be8"
         },
         "https://www.flickr.com/photos/icco/23933300034/in/datetaken-ff/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:24:59.430Z",
+          "lastAttempt": "2026-11-16T18:23:04.318Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7c72106242b662d90514c8d3afbf420c3319041f4cebd9b02a6ceee1ea662133"
+          "version": "088a04733958a439b19aa94a98a153e1dace041a4f340a32ac26d40a95732be8"
         }
       }
     },
@@ -20598,93 +20602,96 @@
       "targets": {
         "http://whitney.org/Exhibitions/LauraPoitras": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:00.626Z",
+          "lastAttempt": "2026-11-16T18:23:05.586Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "http://www.automato.farm/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "getaddrinfo ENOTFOUND www.automato.farm",
-          "lastAttempt": "2026-11-11T06:27:16.321Z",
+          "lastAttempt": "2026-11-16T18:23:05.630Z",
           "operation": "present",
           "status": "failed",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4#.6f1iabhhz": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:27:16.408Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-16T18:23:05.681Z",
           "operation": "present",
           "status": "failed",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://sereinlabel.bandcamp.com/album/data-trails": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:27:16.590Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:23:05.919Z",
           "operation": "present",
           "status": "failed",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://t.co/g1po6Z3H55": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:27:17.209Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:23:06.488Z",
           "operation": "present",
           "status": "failed",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://twitter.com/kanyewest/status/699108088687755264": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:27:17.483Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:23:06.707Z",
           "operation": "present",
           "status": "failed",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://www.codacy.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:02.180Z",
+          "lastAttempt": "2026-11-16T18:23:06.873Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://www.flickr.com/photos/icco/25225983605/in/datetaken-ff/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:02.568Z",
+          "lastAttempt": "2026-11-16T18:23:07.217Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://www.nytimes.com/2016/02/12/science/ligo-gravitational-waves-black-holes-einstein.html": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:27:17.589Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T18:23:07.673Z",
           "operation": "present",
-          "status": "failed",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "status": "no-endpoint",
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://www.polygon.com/2016/2/16/11014866/rapper-lupe-fiasco-beat-the-worlds-best-street-fighter-pro": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:03.221Z",
+          "lastAttempt": "2026-11-16T18:23:08.363Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://www.slideshare.net/fiahless1/the-world-os": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:03.405Z",
+          "lastAttempt": "2026-11-16T18:23:08.428Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         },
         "https://www.wired.com/2016/02/nsfw-playboy-traded-nipples-for-good-design-and-it-works/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:04.290Z",
+          "lastAttempt": "2026-11-16T18:23:09.595Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7a0b42f9e6cc0e16169792ecc1147deef9cad4f2d410907d8a9e91bbf9ef02f8"
+          "version": "4a9e51d454e3f28f8182783528ee9f0c5d7f395402760a4f8bcdb229c60618fc"
         }
       }
     },
@@ -20692,109 +20699,109 @@
       "targets": {
         "http://code.natwelch.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:20.281Z",
+          "lastAttempt": "2026-11-16T18:23:10.253Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "http://drum-machine.maryrosecook.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:20.382Z",
+          "lastAttempt": "2026-11-16T18:23:10.455Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "http://hckrnews.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:20.642Z",
+          "lastAttempt": "2026-11-16T18:23:11.249Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:20.744Z",
+          "lastAttempt": "2026-11-16T18:23:11.367Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:20.849Z",
+          "lastAttempt": "2026-11-16T18:23:11.483Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:20.944Z",
+          "lastAttempt": "2026-11-16T18:23:11.599Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:21.045Z",
+          "lastAttempt": "2026-11-16T18:23:11.717Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:21.134Z",
+          "lastAttempt": "2026-11-16T18:23:11.826Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:21.229Z",
+          "lastAttempt": "2026-11-16T18:23:11.941Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:21.325Z",
+          "lastAttempt": "2026-11-16T18:23:12.052Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:21.420Z",
+          "lastAttempt": "2026-11-16T18:23:12.164Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://web.archive.org/web/20160229042928/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:22.532Z",
+          "lastAttempt": "2026-11-16T18:23:12.653Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:22.869Z",
+          "lastAttempt": "2026-11-16T18:23:12.817Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://www.flickr.com/photos/icco/albums/72157645083974781": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:23.467Z",
+          "lastAttempt": "2026-11-16T18:23:13.322Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         },
         "https://www.highly.co/": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "getaddrinfo ENOTFOUND www.highly.co",
-          "lastAttempt": "2026-11-12T18:25:50.569Z",
+          "lastAttempt": "2026-11-16T18:23:13.450Z",
           "operation": "present",
           "status": "failed",
-          "version": "d6326d99e8dbf3dca7610ef338e18b4401c52a5c1b49089c182fcda992e41156"
+          "version": "bd8d6d56ef881a96370a76b259dc1ca118c25e746533e7079426d3f8440a09d2"
         }
       }
     },
@@ -20802,91 +20809,91 @@
       "targets": {
         "http://bl.ocks.org/mbostock/1096355": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:12.130Z",
+          "lastAttempt": "2026-11-16T18:23:14.366Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "http://bl.ocks.org/mbostock/b89c89ec6b58435956a1": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:12.634Z",
+          "lastAttempt": "2026-11-16T18:23:14.868Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "http://bl.ocks.org/mbostock/c150b717e18d387e1b98": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:13.237Z",
+          "lastAttempt": "2026-11-16T18:23:15.404Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "http://mobile.nytimes.com/2016/02/24/opinion/imagining-a-rikers-island-with-no-jail.html": {
-          "attempts": 3,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-11T06:27:18.307Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T18:23:18.029Z",
           "operation": "present",
-          "status": "failed",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "status": "no-endpoint",
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://dribbble.com/stories/2016/02/17/overtime-with-laura-bohill": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:14.827Z",
+          "lastAttempt": "2026-11-16T18:23:18.594Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://en.wikipedia.org/wiki/Brandon_Sanderson": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:15.085Z",
+          "lastAttempt": "2026-11-16T18:23:18.837Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://en.wikipedia.org/wiki/The_Stormlight_Archive": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:15.258Z",
+          "lastAttempt": "2026-11-16T18:23:19.042Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://hyperallergic.com/274635/artists-covertly-scan-bust-of-nefertiti-and-release-the-data-for-free-online/": {
-          "acceptedVersion": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37",
+          "acceptedVersion": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e",
           "attempts": 1,
           "endpoint": "https://hyperallergic.com/webmentions/receive/",
-          "lastAttempt": "2026-11-07T06:25:15.929Z",
+          "httpStatus": 202,
+          "lastAttempt": "2026-11-16T18:23:20.058Z",
           "operation": "present",
           "status": "accepted",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://www.goodreads.com/book/show/20150777-words-of-radiance": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:17.254Z",
+          "lastAttempt": "2026-11-16T18:23:21.503Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://www.goodreads.com/book/show/9188338-the-way-of-kings": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:18.380Z",
+          "lastAttempt": "2026-11-16T18:23:24.525Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://www.racked.com/2016/2/25/11113148/prada-fall-2016-mfw": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "getaddrinfo ENOTFOUND www.racked.com",
-          "lastAttempt": "2026-11-11T06:27:18.412Z",
+          "lastAttempt": "2026-11-16T18:23:24.579Z",
           "operation": "present",
           "status": "failed",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         },
         "https://www.romanblack.com/binclk.htm": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:19.201Z",
+          "lastAttempt": "2026-11-16T18:23:25.328Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "3fca2bc56136834ddb5c3302498efa6a76325152e3339ccdcf24389caff54f37"
+          "version": "3134a5bc0be5af0aae036c5999975b7a95a6abfd826e0661fed53003b4944f6e"
         }
       }
     },
@@ -20894,95 +20901,96 @@
       "targets": {
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:19.645Z",
+          "lastAttempt": "2026-11-16T18:23:25.710Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:19.861Z",
+          "lastAttempt": "2026-11-16T18:23:25.842Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:20.068Z",
+          "lastAttempt": "2026-11-16T18:23:25.955Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:20.286Z",
+          "lastAttempt": "2026-11-16T18:23:26.068Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:20.508Z",
+          "lastAttempt": "2026-11-16T18:23:26.178Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:20.736Z",
+          "lastAttempt": "2026-11-16T18:23:26.293Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:20.955Z",
+          "lastAttempt": "2026-11-16T18:23:26.402Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:21.171Z",
+          "lastAttempt": "2026-11-16T18:23:26.519Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://github.com/icco/ringdirector": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:21.853Z",
+          "lastAttempt": "2026-11-16T18:23:27.247Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://simplecasual.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:22.136Z",
+          "lastAttempt": "2026-11-16T18:23:27.502Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://twitter.com/jongold/status/704517861063180288": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:27:18.903Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:23:27.690Z",
           "operation": "present",
           "status": "failed",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://web.archive.org/web/20160305153049/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:22.976Z",
+          "lastAttempt": "2026-11-16T18:23:28.116Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:23.204Z",
+          "lastAttempt": "2026-11-16T18:23:28.268Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "7826f1651f6725d6a57545a47f238873c00a9be91e7ea551fadbca66e2656791"
+          "version": "1b35fe500c852e7ff28399c046c9debef11e735ae5be96dbde67232f88e7636e"
         }
       }
     },
@@ -20990,87 +20998,91 @@
       "targets": {
         "http://www.hackedpodcast.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:24.509Z",
+          "lastAttempt": "2026-11-16T18:23:30.187Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://en.wikipedia.org/wiki/Mamoru_Hosoda": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:24.775Z",
+          "lastAttempt": "2026-11-16T18:23:30.373Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://en.wikipedia.org/wiki/Summer_Wars": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:25.013Z",
+          "lastAttempt": "2026-11-16T18:23:30.616Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://en.wikipedia.org/wiki/The_Boy_and_the_Beast": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:25.270Z",
+          "lastAttempt": "2026-11-16T18:23:30.780Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://en.wikipedia.org/wiki/The_Girl_Who_Leapt_Through_Time_(2006_film)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:25.537Z",
+          "lastAttempt": "2026-11-16T18:23:30.957Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://jvns.ca/blog/2016/03/04/whats-up-with-ruby-http-libraries/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:26.037Z",
+          "lastAttempt": "2026-11-16T18:23:31.259Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://www.goodreads.com/book/show/12988330-the-rook": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:26.149Z",
+          "lastAttempt": "2026-11-16T18:23:33.136Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://www.goodreads.com/book/show/25546167-descender-vol-1": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:26.266Z",
+          "lastAttempt": "2026-11-16T18:23:33.183Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://www.recurse.com/blog/102-nine-reflections-on-rc": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:26.556Z",
+          "lastAttempt": "2026-11-16T18:23:33.633Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://www.youtube.com/watch?v=dlL7c8sQjko": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:27.537Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:23:34.705Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "status": "failed",
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://www.youtube.com/watch?v=NRKZh-2j4PY&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:26.800Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:23:34.191Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "status": "failed",
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         },
         "https://zachholman.com/posts/deploying-software": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:27.984Z",
+          "lastAttempt": "2026-11-16T18:23:35.132Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "b872afe68b4a329ae604858cb32cc7ffa106d520eeac726556f1c58f3fbce713"
+          "version": "6a44b1cd56ee13c5621cd1c44dea4b870bf4e87d1318e6db5785780a42c9adcb"
         }
       }
     },
@@ -21078,33 +21090,34 @@
       "targets": {
         "https://melchua.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:28.876Z",
+          "lastAttempt": "2026-11-16T18:23:36.036Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4ac1be28aa795e77d3ca4741b15d5a533cf1037337969a28fc5cd3cd25cc1646"
+          "version": "7165d1338040ffb801d49b1f9da254614151df2c73579e0df8fd44ccd4870f90"
         },
         "https://natwelch.com/": {
-          "acceptedVersion": "4ac1be28aa795e77d3ca4741b15d5a533cf1037337969a28fc5cd3cd25cc1646",
+          "acceptedVersion": "7165d1338040ffb801d49b1f9da254614151df2c73579e0df8fd44ccd4870f90",
           "attempts": 1,
           "endpoint": "https://webmention.io/writing.natwelch.com/webmention",
-          "lastAttempt": "2026-11-07T06:25:29.395Z",
+          "httpStatus": 201,
+          "lastAttempt": "2026-11-16T18:23:36.487Z",
           "operation": "present",
           "status": "accepted",
-          "version": "4ac1be28aa795e77d3ca4741b15d5a533cf1037337969a28fc5cd3cd25cc1646"
+          "version": "7165d1338040ffb801d49b1f9da254614151df2c73579e0df8fd44ccd4870f90"
         },
         "https://resume.natwelch.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:29.604Z",
+          "lastAttempt": "2026-11-16T18:23:36.749Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4ac1be28aa795e77d3ca4741b15d5a533cf1037337969a28fc5cd3cd25cc1646"
+          "version": "7165d1338040ffb801d49b1f9da254614151df2c73579e0df8fd44ccd4870f90"
         },
         "https://web.archive.org/web/20190314004128/http://blog.melchua.com:80/mission/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:31.135Z",
+          "lastAttempt": "2026-11-16T18:23:37.515Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "4ac1be28aa795e77d3ca4741b15d5a533cf1037337969a28fc5cd3cd25cc1646"
+          "version": "7165d1338040ffb801d49b1f9da254614151df2c73579e0df8fd44ccd4870f90"
         }
       }
     },
@@ -21112,66 +21125,70 @@
       "targets": {
         "https://en.wikipedia.org/wiki/Firewatch_(video_game)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:31.698Z",
+          "lastAttempt": "2026-11-16T18:23:38.295Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://en.wikipedia.org/wiki/Magi:_The_Labyrinth_of_Magic": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:31.882Z",
+          "lastAttempt": "2026-11-16T18:23:38.730Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://web.archive.org/web/20151210085507/https://www.kickstarter.com/projects/chapambrose/make-time-clock-get-serious-about-side-projects/description": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:33.284Z",
+          "lastAttempt": "2026-11-16T18:23:39.618Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://web.archive.org/web/20160314032258/http://spec.fm/podcasts/design-details/14150": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:34.716Z",
+          "lastAttempt": "2026-11-16T18:23:43.930Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://web.archive.org/web/20160314032258/http://spec.fm/podcasts/design-details/16190": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:35.704Z",
+          "lastAttempt": "2026-11-16T18:23:45.007Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://web.archive.org/web/20160314032258/http://spec.fm/podcasts/design-details/19537": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:36.894Z",
+          "lastAttempt": "2026-11-16T18:23:45.970Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://web.archive.org/web/20160314032258/https://spec.fm/podcasts/design-details": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:38.772Z",
+          "lastAttempt": "2026-11-16T18:23:47.103Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://www.youtube.com/watch?v=6jQ_bOP0HfY&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:39.591Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:23:47.439Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "status": "failed",
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         },
         "https://www.youtube.com/watch?v=WAm-bozvvdI&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:40.321Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:23:47.979Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "0cf69202c12c23a401e056db00b539651c81f62f37cc71e79f26ce82da341d4a"
+          "status": "failed",
+          "version": "81e04624fbf3cb0d2e0f0b1a18e05a6ba393692e8e0f4cd72a0bf00645484bdf"
         }
       }
     },
@@ -21179,95 +21196,95 @@
       "targets": {
         "https://coffeecode.net/archives/270-A-Flask-of-full-text-search-in-PostgreSQL.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:24.504Z",
+          "lastAttempt": "2026-11-16T18:23:48.861Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:24.598Z",
+          "lastAttempt": "2026-11-16T18:23:48.999Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:24.695Z",
+          "lastAttempt": "2026-11-16T18:23:49.119Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:24.787Z",
+          "lastAttempt": "2026-11-16T18:23:49.246Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:24.881Z",
+          "lastAttempt": "2026-11-16T18:23:49.367Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:24.970Z",
+          "lastAttempt": "2026-11-16T18:23:49.484Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:25.071Z",
+          "lastAttempt": "2026-11-16T18:23:49.598Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:25.159Z",
+          "lastAttempt": "2026-11-16T18:23:49.715Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:25.296Z",
+          "lastAttempt": "2026-11-16T18:23:49.830Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://pinboard.in/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:25.659Z",
+          "lastAttempt": "2026-11-16T18:23:50.007Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://web.archive.org/web/20160312141437/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:26.573Z",
+          "lastAttempt": "2026-11-16T18:23:50.734Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:26.909Z",
+          "lastAttempt": "2026-11-16T18:23:50.878Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         },
         "https://www.raywenderlich.com/87002/getting-started-with-os-x-and-swift-tutorial-part-1": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Redirected 5 times. Aborting.",
-          "lastAttempt": "2026-11-12T18:25:54.494Z",
+          "lastAttempt": "2026-11-16T18:23:52.443Z",
           "operation": "present",
           "status": "failed",
-          "version": "df16fb2838ff2679e2b1cd91a5068b6e24be816f0c818f8f4c4c49769b67c902"
+          "version": "28e49710fe5364acab37981e23a922eabd3de27459dcfe3f01358a817dabbbb6"
         }
       }
     },
@@ -21287,114 +21304,116 @@
       "targets": {
         "https://www.facebook.com/jedilau/videos/10104676346026972/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-12T06:27:28.288Z",
+          "lastAttempt": "2026-11-16T18:23:53.374Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "62a1aad0ac79316256c492c3084e52b838255ae0d4c9aa98d84d2e6d14909cac"
+          "version": "86859a3a6a1b8b14e6fb36a24cc7d951d35befb5bb86cfb49d3e3dfb8f9a99d6"
         },
         "https://www.nytimes.com/elections/2016/national-results-map": {
-          "attempts": 2,
-          "lastAttempt": "2026-11-12T12:29:08.549Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T18:23:53.499Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "62a1aad0ac79316256c492c3084e52b838255ae0d4c9aa98d84d2e6d14909cac"
+          "version": "86859a3a6a1b8b14e6fb36a24cc7d951d35befb5bb86cfb49d3e3dfb8f9a99d6"
         }
       }
     },
     "https://writing.natwelch.com/post/562": {
       "targets": {
         "http://newsdiffs.org/": {
-          "attempts": 3,
-          "error": "The operation was aborted due to timeout",
-          "lastAttempt": "2026-11-11T06:27:31.412Z",
+          "attempts": 1,
+          "lastAttempt": "2026-11-16T18:23:54.014Z",
           "operation": "present",
-          "status": "failed",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "status": "no-endpoint",
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "http://whitney.org/Events/FreedomOfInformationAct": {
-          "attempts": 3,
+          "attempts": 1,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-11T06:27:32.285Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:23:54.531Z",
           "operation": "present",
           "status": "failed",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://en.wikipedia.org/wiki/Freedom_of_Information_Act_(United_States)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:47.656Z",
+          "lastAttempt": "2026-11-16T18:23:54.742Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://media.libreplanet.org/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:49.289Z",
+          "lastAttempt": "2026-11-16T18:23:56.478Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://t.co/jPN1IEZNv5": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:49.965Z",
+          "lastAttempt": "2026-11-16T18:23:57.061Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://twitter.com/hashtag/LibrePlanet?src=hash": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:50.311Z",
+          "lastAttempt": "2026-11-16T18:23:57.314Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://twitter.com/xor/status/711196584281837569": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:50.719Z",
+          "lastAttempt": "2026-11-16T18:23:57.594Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://twitter.com/xor/status/711202510497845252": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:51.088Z",
+          "lastAttempt": "2026-11-16T18:23:58.437Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://www.flickr.com/photos/icco/25292511263/in/datetaken-ff/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:51.478Z",
+          "lastAttempt": "2026-11-16T18:23:58.817Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://www.npr.org/2016/03/10/469966998/gaelynn-lea-tiny-desk-concert?autoplay=true": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:52.520Z",
+          "lastAttempt": "2026-11-16T18:23:59.247Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://www.polygon.com/2016/3/12/11212024/warcraft-3-patch-history-127": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:52.974Z",
+          "lastAttempt": "2026-11-16T18:23:59.860Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://www.youtube.com/watch?v=ohmajJTcpNk&feature=youtu.be": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:53.612Z",
+          "error": "Discovery failed: 429",
+          "httpStatus": 429,
+          "lastAttempt": "2026-11-16T18:24:00.465Z",
           "operation": "present",
-          "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "status": "failed",
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         },
         "https://xkcd.com/1656/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:53.889Z",
+          "lastAttempt": "2026-11-16T18:24:01.252Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "09b18aebf28c373a3ac85dd4ef11398a2d5551d053990e4d5917da754c4232ac"
+          "version": "0413b1e8cec907bff2bfe38171a10c628093ad7f195e6d221aae577b102e1a0e"
         }
       }
     },
@@ -21402,163 +21421,165 @@
       "targets": {
         "https://en.wikipedia.org/wiki/Alternate_reality_game": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:54.239Z",
+          "lastAttempt": "2026-11-16T18:24:01.815Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://en.wikipedia.org/wiki/MUD": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:54.328Z",
+          "lastAttempt": "2026-11-16T18:24:01.941Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/billowin": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:54.544Z",
+          "lastAttempt": "2026-11-16T18:24:02.055Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/creepermon": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:54.760Z",
+          "lastAttempt": "2026-11-16T18:24:02.171Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/enki.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:54.971Z",
+          "lastAttempt": "2026-11-16T18:24:02.284Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/forgetful": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:55.189Z",
+          "lastAttempt": "2026-11-16T18:24:02.403Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/gandalf": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:55.400Z",
+          "lastAttempt": "2026-11-16T18:24:02.518Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/longplay.club": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:55.615Z",
+          "lastAttempt": "2026-11-16T18:24:02.632Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/pca": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:55.831Z",
+          "lastAttempt": "2026-11-16T18:24:02.744Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/icco/ringclub": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:56.041Z",
+          "lastAttempt": "2026-11-16T18:24:02.858Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://github.com/olebedev/go-starter-kit": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:56.668Z",
+          "lastAttempt": "2026-11-16T18:24:03.564Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://web.archive.org/web/20160322132606/https://github.com/icco/locative.garden": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:57.217Z",
+          "lastAttempt": "2026-11-16T18:24:04.206Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         },
         "https://web.archive.org/web/20180611035045/https://github.com/icco/today": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:57.437Z",
+          "lastAttempt": "2026-11-16T18:24:04.359Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "63188faacae65b1057f4328472906d2dd5615703a23749ed768166625768cee2"
+          "version": "785cec05372d39597b5176bb2b740925bc55cb867ccff0d31fcc244e34820b04"
         }
       }
     },
     "https://writing.natwelch.com/post/564": {
       "targets": {
         "http://mrmrs.io/writing/2016/03/23/the-veil-of-ignorance/": {
-          "attempts": 3,
-          "error": "The operation was aborted due to timeout",
-          "lastAttempt": "2026-11-11T06:27:42.676Z",
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:24:05.419Z",
           "operation": "present",
           "status": "failed",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://designobserver.com/feature/brandon-stanton/39246/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:59.008Z",
+          "lastAttempt": "2026-11-16T18:24:06.033Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://designobserver.com/feature/kate-bolick/39249/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:59.725Z",
+          "lastAttempt": "2026-11-16T18:24:06.774Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://en.wikipedia.org/wiki/The_Revenant_(2015_film)": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:25:59.942Z",
+          "lastAttempt": "2026-11-16T18:24:07.021Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://keen.io/blog/37419311398/just-fucking-build-it": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:26:01.527Z",
+          "lastAttempt": "2026-11-16T18:24:07.802Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://mrmrs.io/writing/2016/03/24/scalable-css/": {
-          "attempts": 3,
-          "error": "The operation was aborted due to timeout",
-          "lastAttempt": "2026-11-11T06:27:52.716Z",
+          "attempts": 1,
+          "error": "Discovery failed: 404",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-16T18:24:08.538Z",
           "operation": "present",
           "status": "failed",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://thegreatestgameyouwilleverplay.com/": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:26:02.702Z",
+          "lastAttempt": "2026-11-16T18:24:08.785Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://web.archive.org/web/20160328031650/http://thecreatorsproject.vice.com/blog/cyberpunk-art-book-gonzales": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:26:04.922Z",
+          "lastAttempt": "2026-11-16T18:24:09.466Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://web.archive.org/web/20220517041705/https://boingboing.net/2016/03/26/what-you-think-about-millennia.html": {
           "attempts": 1,
-          "lastAttempt": "2026-11-07T06:26:06.554Z",
+          "lastAttempt": "2026-11-16T18:24:09.949Z",
           "operation": "present",
           "status": "no-endpoint",
-          "version": "c9d909427382a120239c6dd2b61eed805323517fa15bd19ee74eeefab0a3823b"
+          "version": "93dec2d2340d78200d6851d7bc49433270818faf74bb6410b61d5cc8ff852586"
         },
         "https://www.flickr.com/photos/icco/25917988936/in/datetaken-ff/": {
           "attempts": 1,
