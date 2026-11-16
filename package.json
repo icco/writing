@@ -24,9 +24,9 @@
     "webmentions:send": "tsx scripts/send-webmentions.ts"
   },
   "dependencies": {
-    "@google/genai": "^3.0.0",
+    "@google/genai": "^3.3.0",
     "@heroicons/react": "^2.2.0",
-    "@icco/react-common": "^2026.11104.1",
+    "@icco/react-common": "^2026.11115.1",
     "@mdx-js/mdx": "^3.1.1",
     "@opentelemetry/api": "~1.10.0",
     "@wooorm/starry-night": "^3.11.0",
@@ -36,7 +36,7 @@
     "gray-matter": "^4.0.3",
     "http-link-header": "^1.1.4",
     "ipaddr.js": "^2.5.0",
-    "jsdom": "^31.0.0",
+    "jsdom": "^31.0.1",
     "mdast-util-find-and-replace": "^3.0.4",
     "next": "^16.4.6",
     "next-secure-headers": "^2.2.0",
