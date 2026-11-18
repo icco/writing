@@ -282,7 +282,6 @@
         "https://twitter.com/ken_pratt": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:09.664Z",
           "operation": "present",
           "status": "failed",
@@ -291,7 +290,6 @@
         "https://twitter.com/maryrosecook": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:09.774Z",
           "operation": "present",
           "status": "failed",
@@ -478,7 +476,6 @@
         "https://twitter.com/jf/status/589142532744871937": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:11.419Z",
           "operation": "present",
           "status": "failed",
@@ -557,7 +554,6 @@
         "https://twitter.com/mjdominus": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:12.859Z",
           "operation": "present",
           "status": "failed",
@@ -566,7 +562,6 @@
         "https://twitter.com/pamasaur": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:12.979Z",
           "operation": "present",
           "status": "failed",
@@ -613,7 +608,6 @@
         "http://mrmrs.io/waves/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:14.259Z",
           "operation": "present",
           "status": "failed",
@@ -657,7 +651,6 @@
         "https://twitter.com/jollysonali": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:14.364Z",
           "operation": "present",
           "status": "failed",
@@ -819,7 +812,6 @@
         "http://steinhardt.nyu.edu/marl/research/citygram": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:28.053Z",
           "operation": "present",
           "status": "failed",
@@ -942,7 +934,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:29.042Z",
           "operation": "present",
           "status": "failed",
@@ -994,7 +985,6 @@
         "http://www.ew.com/article/2015/03/02/farewell-bro-how-matt-fractions-hawkeye-changed-marvel-comics": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:29.752Z",
           "operation": "present",
           "status": "failed",
@@ -1042,7 +1032,6 @@
         "https://github.com/pselle/shhparty/tree/socketio": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:30.519Z",
           "operation": "present",
           "status": "failed",
@@ -1058,7 +1047,6 @@
         "https://twitter.com/pamasaur": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:30.621Z",
           "operation": "present",
           "status": "failed",
@@ -1103,7 +1091,6 @@
         "https://hashtagsearch.herokuapp.com/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:31.424Z",
           "operation": "present",
           "status": "failed",
@@ -1412,7 +1399,6 @@
         "https://news.ycombinator.com/item?id=9473227": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.172Z",
           "operation": "present",
           "status": "failed",
@@ -1421,7 +1407,6 @@
         "https://news.ycombinator.com/item?id=9473336": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.256Z",
           "operation": "present",
           "status": "failed",
@@ -1437,7 +1422,6 @@
         "https://news.ycombinator.com/item?id=9473941": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.339Z",
           "operation": "present",
           "status": "failed",
@@ -1446,7 +1430,6 @@
         "https://news.ycombinator.com/item?id=9473952": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.422Z",
           "operation": "present",
           "status": "failed",
@@ -1455,7 +1438,6 @@
         "https://news.ycombinator.com/item?id=9474046": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.483Z",
           "operation": "present",
           "status": "failed",
@@ -1464,7 +1446,6 @@
         "https://news.ycombinator.com/item?id=9474253": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.542Z",
           "operation": "present",
           "status": "failed",
@@ -1473,7 +1454,6 @@
         "https://news.ycombinator.com/item?id=9474437": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.603Z",
           "operation": "present",
           "status": "failed",
@@ -1482,7 +1462,6 @@
         "https://news.ycombinator.com/item?id=9474575": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.686Z",
           "operation": "present",
           "status": "failed",
@@ -1491,7 +1470,6 @@
         "https://news.ycombinator.com/item?id=9474587": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.746Z",
           "operation": "present",
           "status": "failed",
@@ -1500,7 +1478,6 @@
         "https://news.ycombinator.com/item?id=9475065": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:24:42.806Z",
           "operation": "present",
           "status": "failed",
@@ -1705,7 +1682,6 @@
         "https://www.rand.org/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:42.927Z",
           "operation": "present",
           "status": "failed",
@@ -1889,7 +1865,6 @@
         "https://twitter.com/recursecenter": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:44.797Z",
           "operation": "present",
           "status": "failed",
@@ -1956,7 +1931,6 @@
         "http://jxnblk.com/Ashley/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:45.846Z",
           "operation": "present",
           "status": "failed",
@@ -1965,7 +1939,6 @@
         "http://jxnblk.com/blk/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:47.029Z",
           "operation": "present",
           "status": "failed",
@@ -1974,7 +1947,6 @@
         "http://jxnblk.com/colorable/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:47.296Z",
           "operation": "present",
           "status": "failed",
@@ -1983,7 +1955,6 @@
         "http://jxnblk.com/Heather/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:46.246Z",
           "operation": "present",
           "status": "failed",
@@ -1992,7 +1963,6 @@
         "http://jxnblk.com/Twipster/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:46.755Z",
           "operation": "present",
           "status": "failed",
@@ -2008,7 +1978,6 @@
         "http://mrmrs.io/-/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:48.124Z",
           "operation": "present",
           "status": "failed",
@@ -2017,7 +1986,6 @@
         "http://mrmrs.io/btns/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:48.907Z",
           "operation": "present",
           "status": "failed",
@@ -2026,7 +1994,6 @@
         "http://mrmrs.io/marquee/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:49.255Z",
           "operation": "present",
           "status": "failed",
@@ -2035,7 +2002,6 @@
         "http://mrmrs.io/package/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:49.607Z",
           "operation": "present",
           "status": "failed",
@@ -2074,7 +2040,6 @@
         "https://github.com/basscss/monobass": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:00.034Z",
           "operation": "present",
           "status": "failed",
@@ -2139,7 +2104,6 @@
         "https://www.npmjs.com/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:00.100Z",
           "operation": "present",
           "status": "failed",
@@ -2369,7 +2333,6 @@
         "http://t.co/4D6LPQ8oek": {
           "attempts": 3,
           "error": "Discovery failed: 520",
-          "httpStatus": 520,
           "lastAttempt": "2026-11-17T18:25:01.970Z",
           "operation": "present",
           "status": "failed",
@@ -2392,7 +2355,6 @@
         "https://twitter.com/pamasaur": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:02.080Z",
           "operation": "present",
           "status": "failed",
@@ -2401,7 +2363,6 @@
         "https://www.haganfuneralhome.com/memsol.cgi?user_id=1578115": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:02.448Z",
           "operation": "present",
           "status": "failed",
@@ -2421,7 +2382,6 @@
         "https://www.haganfuneralhome.com/memsol.cgi?page=profile&section=info&user_id=1578115": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:03.035Z",
           "operation": "present",
           "status": "failed",
@@ -2495,7 +2455,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:04.631Z",
           "operation": "present",
           "status": "failed",
@@ -2522,7 +2481,6 @@
         "http://t.co/pngTLUlx8v": {
           "attempts": 3,
           "error": "Discovery failed: 520",
-          "httpStatus": 520,
           "lastAttempt": "2026-11-17T18:25:05.026Z",
           "operation": "present",
           "status": "failed",
@@ -2559,7 +2517,6 @@
         "https://twitter.com/jdherg": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:05.338Z",
           "operation": "present",
           "status": "failed",
@@ -2568,7 +2525,6 @@
         "https://twitter.com/MsMinotaur/status/603584660266995712": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:05.234Z",
           "operation": "present",
           "status": "failed",
@@ -2632,7 +2588,6 @@
         "http://www.dailypage.co/": {
           "attempts": 3,
           "error": "Discovery failed: 530",
-          "httpStatus": 530,
           "lastAttempt": "2026-11-17T18:25:15.827Z",
           "operation": "present",
           "status": "failed",
@@ -2676,7 +2631,6 @@
         "https://www.producthunt.com/e/tools-for-writers": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:15.905Z",
           "operation": "present",
           "status": "failed",
@@ -2721,7 +2675,6 @@
         "https://twitter.com/kenzan100": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:16.605Z",
           "operation": "present",
           "status": "failed",
@@ -2748,7 +2701,6 @@
         "http://www.amnh.org/our-research/hayden-planetarium/resources/manhattanhenge": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:16.987Z",
           "operation": "present",
           "status": "failed",
@@ -2757,7 +2709,6 @@
         "http://www.diaart.org/sites/main/earthroom": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:17.059Z",
           "operation": "present",
           "status": "failed",
@@ -2773,7 +2724,6 @@
         "https://twitter.com/aaronbshaw": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:17.264Z",
           "operation": "present",
           "status": "failed",
@@ -2782,7 +2732,6 @@
         "https://twitter.com/DaveyPocket": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:17.164Z",
           "operation": "present",
           "status": "failed",
@@ -2791,7 +2740,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:17.367Z",
           "operation": "present",
           "status": "failed",
@@ -2800,7 +2748,6 @@
         "https://twitter.com/ken_pratt": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:17.473Z",
           "operation": "present",
           "status": "failed",
@@ -3449,7 +3396,6 @@
         "https://news.ycombinator.com/item?id=9642330": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:19.621Z",
           "operation": "present",
           "status": "failed",
@@ -3458,7 +3404,6 @@
         "https://news.ycombinator.com/item?id=9642422": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:19.699Z",
           "operation": "present",
           "status": "failed",
@@ -3467,7 +3412,6 @@
         "https://news.ycombinator.com/item?id=9642531": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:19.844Z",
           "operation": "present",
           "status": "failed",
@@ -3476,7 +3420,6 @@
         "https://news.ycombinator.com/item?id=9642639": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:19.921Z",
           "operation": "present",
           "status": "failed",
@@ -3492,7 +3435,6 @@
         "https://news.ycombinator.com/item?id=9642686": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.002Z",
           "operation": "present",
           "status": "failed",
@@ -3501,7 +3443,6 @@
         "https://news.ycombinator.com/item?id=9642822": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.087Z",
           "operation": "present",
           "status": "failed",
@@ -3510,7 +3451,6 @@
         "https://news.ycombinator.com/item?id=9642914": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.146Z",
           "operation": "present",
           "status": "failed",
@@ -3519,7 +3459,6 @@
         "https://news.ycombinator.com/item?id=9643154": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.204Z",
           "operation": "present",
           "status": "failed",
@@ -3528,7 +3467,6 @@
         "https://news.ycombinator.com/item?id=9643206": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.265Z",
           "operation": "present",
           "status": "failed",
@@ -3537,7 +3475,6 @@
         "https://news.ycombinator.com/item?id=9643251": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.322Z",
           "operation": "present",
           "status": "failed",
@@ -3546,7 +3483,6 @@
         "https://news.ycombinator.com/item?id=9643429": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.402Z",
           "operation": "present",
           "status": "failed",
@@ -3555,7 +3491,6 @@
         "https://news.ycombinator.com/item?id=9643849": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.462Z",
           "operation": "present",
           "status": "failed",
@@ -3564,7 +3499,6 @@
         "https://news.ycombinator.com/item?id=9643863": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.521Z",
           "operation": "present",
           "status": "failed",
@@ -3573,7 +3507,6 @@
         "https://news.ycombinator.com/item?id=9644391": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:25:20.599Z",
           "operation": "present",
           "status": "failed",
@@ -3582,7 +3515,6 @@
         "https://twitter.com/jf/status/605849738198413312": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:20.803Z",
           "operation": "present",
           "status": "failed",
@@ -4195,7 +4127,6 @@
         "https://en.wikipedia.org/wiki/Entourage_%28film": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:33.865Z",
           "operation": "present",
           "status": "failed",
@@ -4218,7 +4149,6 @@
         "https://en.wikipedia.org/wiki/Sleep_No_More_%282011_play": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:34.235Z",
           "operation": "present",
           "status": "failed",
@@ -4283,7 +4213,6 @@
         "https://twitter.com/_jak": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:34.340Z",
           "operation": "present",
           "status": "failed",
@@ -4313,7 +4242,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:34.456Z",
           "operation": "present",
           "status": "failed",
@@ -4322,7 +4250,6 @@
         "https://twitter.com/kamalmarhubi": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:34.577Z",
           "operation": "present",
           "status": "failed",
@@ -4331,7 +4258,6 @@
         "https://twitter.com/maxtaco": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:34.688Z",
           "operation": "present",
           "status": "failed",
@@ -4340,7 +4266,6 @@
         "https://twitter.com/muditameta": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:34.790Z",
           "operation": "present",
           "status": "failed",
@@ -4349,7 +4274,6 @@
         "https://unsplash.com/": {
           "attempts": 3,
           "error": "Discovery failed: 401",
-          "httpStatus": 401,
           "lastAttempt": "2026-11-17T18:25:35.542Z",
           "operation": "present",
           "status": "failed",
@@ -4365,7 +4289,6 @@
         "https://www.linkedin.com/pub/tracy-gius/11/b7/766": {
           "attempts": 3,
           "error": "Discovery failed: 999",
-          "httpStatus": 999,
           "lastAttempt": "2026-11-17T18:25:35.715Z",
           "operation": "present",
           "status": "failed",
@@ -4442,7 +4365,6 @@
         "http://www.juddfoundation.org/new_york": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:39.621Z",
           "operation": "present",
           "status": "failed",
@@ -4472,7 +4394,6 @@
         "https://twitter.com/heavypennies": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:39.766Z",
           "operation": "present",
           "status": "failed",
@@ -4495,7 +4416,6 @@
         "https://www.linkedin.com/pub/jenny-lawton/10/784/92": {
           "attempts": 3,
           "error": "Discovery failed: 999",
-          "httpStatus": 999,
           "lastAttempt": "2026-11-17T18:25:39.953Z",
           "operation": "present",
           "status": "failed",
@@ -4508,7 +4428,6 @@
         "http://www.dinosaurbarbque.com/bbq-brooklyn": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:42.316Z",
           "operation": "present",
           "status": "failed",
@@ -4524,7 +4443,6 @@
         "https://www.fettesaubbq.com/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:42.525Z",
           "operation": "present",
           "status": "failed",
@@ -4735,7 +4653,6 @@
         "https://twitter.com/anyharder": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:44.159Z",
           "operation": "present",
           "status": "failed",
@@ -4744,7 +4661,6 @@
         "https://twitter.com/ashokafinley": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:44.272Z",
           "operation": "present",
           "status": "failed",
@@ -4792,7 +4708,6 @@
         "https://twitter.com/KarenPunkPunk": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:44.663Z",
           "operation": "present",
           "status": "failed",
@@ -4901,7 +4816,6 @@
         "http://cl.ly/boge": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:46.276Z",
           "operation": "present",
           "status": "failed",
@@ -4910,7 +4824,6 @@
         "http://cl.ly/bohH": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:25:47.114Z",
           "operation": "present",
           "status": "failed",
@@ -5939,7 +5852,6 @@
         "http://googlecloudplatform.blogspot.co.uk/2013/12/google-compute-engine-is-now-generally-available.html": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:25:55.862Z",
           "operation": "present",
           "status": "failed",
@@ -5976,7 +5888,6 @@
         "https://www.forbes.com/sites/benkepes/2013/12/03/google-compute-engine-goes-into-general-availability/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:25:55.903Z",
           "operation": "present",
           "status": "failed",
@@ -6831,7 +6742,6 @@
         "https://www.theatlantic.com/health/archive/2013/08/how-to-make-perfect-coffee/278944/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:26:03.788Z",
           "operation": "present",
           "status": "failed",
@@ -10856,7 +10766,6 @@
         "http://www.wired.com/dangerroom/2013/02/printed-magazine/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:26:47.498Z",
           "operation": "present",
           "status": "failed",
@@ -11086,7 +10995,6 @@
         "https://itunes.apple.com/us/playlist/q3y15-summer-time/idpl.ec290fda8528440783dc918fd0d730ea": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:26:50.818Z",
           "operation": "present",
           "status": "failed",
@@ -11095,7 +11003,6 @@
         "https://rsd.herokuapp.com/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:26:51.031Z",
           "operation": "present",
           "status": "failed",
@@ -15973,7 +15880,6 @@
         "http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2012/06/10/PKIF1OPLI0.DTL&ao=all": {
           "attempts": 3,
           "error": "Discovery failed: 410",
-          "httpStatus": 410,
           "lastAttempt": "2026-11-17T18:27:28.503Z",
           "operation": "present",
           "status": "failed",
@@ -16032,7 +15938,6 @@
         "http://www.damer.com/pictures/events/burningman2002/blowout/alphaguide.html": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:29.920Z",
           "operation": "present",
           "status": "failed",
@@ -16270,7 +16175,6 @@
         "https://twitter.com/Madrox": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:31.167Z",
           "operation": "present",
           "status": "failed",
@@ -16297,7 +16201,6 @@
         "https://twitter.com/icco": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:31.743Z",
           "operation": "present",
           "status": "failed",
@@ -16313,7 +16216,6 @@
         "https://twitter.com/Madrox/status/315021547033227264": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:31.638Z",
           "operation": "present",
           "status": "failed",
@@ -16347,7 +16249,6 @@
         "http://gg-arts.deviantart.com/art/Section-C-383304926": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:32.125Z",
           "operation": "present",
           "status": "failed",
@@ -16417,7 +16318,6 @@
         "https://plus.google.com/+NatWelch/posts": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:27:33.324Z",
           "operation": "present",
           "status": "failed",
@@ -16426,7 +16326,6 @@
         "https://twitter.com/icco": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:33.427Z",
           "operation": "present",
           "status": "failed",
@@ -16893,7 +16792,6 @@
         "http://cem.re/year-in-review/ebeeeb2687bccb89e05a58238c904e271e0fced9.html": {
           "attempts": 3,
           "error": "Discovery failed: 500",
-          "httpStatus": 500,
           "lastAttempt": "2026-11-17T18:27:34.977Z",
           "operation": "present",
           "status": "failed",
@@ -16902,7 +16800,6 @@
         "http://natwelch.com/2014/holiday": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:35.398Z",
           "operation": "present",
           "status": "failed",
@@ -16953,7 +16850,6 @@
         "https://twitter.com/calbach": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:35.508Z",
           "operation": "present",
           "status": "failed",
@@ -16962,7 +16858,6 @@
         "https://twitter.com/kyleflick": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:35.613Z",
           "operation": "present",
           "status": "failed",
@@ -16971,7 +16866,6 @@
         "https://twitter.com/madrox": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:35.715Z",
           "operation": "present",
           "status": "failed",
@@ -17667,7 +17561,6 @@
         "http://jandacafe.com/": {
           "attempts": 3,
           "error": "Discovery failed: 521",
-          "httpStatus": 521,
           "lastAttempt": "2026-11-17T18:27:36.574Z",
           "operation": "present",
           "status": "failed",
@@ -17704,7 +17597,6 @@
         "http://www.cityoflondon.gov.uk/things-to-do/green-spaces/hampstead-heath/Pages/default.aspx": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:37.593Z",
           "operation": "present",
           "status": "failed",
@@ -17762,7 +17654,6 @@
         "http://www.paperandcup.co.uk/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:40.277Z",
           "operation": "present",
           "status": "failed",
@@ -17792,7 +17683,6 @@
         "http://www.shoreditchgrind.com/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:40.853Z",
           "operation": "present",
           "status": "failed",
@@ -17801,7 +17691,6 @@
         "http://www.taylor-st.com/": {
           "attempts": 3,
           "error": "Discovery failed: 503",
-          "httpStatus": 503,
           "lastAttempt": "2026-11-17T18:27:41.249Z",
           "operation": "present",
           "status": "failed",
@@ -17810,7 +17699,6 @@
         "http://www.thebreakfastclubcafes.com/locations/hoxton/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:41.856Z",
           "operation": "present",
           "status": "failed",
@@ -17890,7 +17778,6 @@
         "https://www.brewdog.com/bars": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:52.761Z",
           "operation": "present",
           "status": "failed",
@@ -17955,7 +17842,6 @@
         "https://www.yelp.com/biz/montparnasse-cafe-london-2": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:52.852Z",
           "operation": "present",
           "status": "failed",
@@ -17964,7 +17850,6 @@
         "https://www.yelp.com/biz/whitecross-market-london": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:52.893Z",
           "operation": "present",
           "status": "failed",
@@ -19580,7 +19465,6 @@
         "http://gimletmedia.com/episode/the-anxiety-box/": {
           "attempts": 3,
           "error": "Discovery failed: 400",
-          "httpStatus": 400,
           "lastAttempt": "2026-11-17T18:27:55.402Z",
           "operation": "present",
           "status": "failed",
@@ -19624,7 +19508,6 @@
         "https://medium.com/@derekarnold/remote-viewing-5cb161cdef4a": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:55.450Z",
           "operation": "present",
           "status": "failed",
@@ -19658,7 +19541,6 @@
         "http://www.citylab.com/commute/2016/01/japan-keeps-this-defunct-train-station-running-for-just-one-passenger/423273/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:27:56.528Z",
           "operation": "present",
           "status": "failed",
@@ -19822,7 +19704,6 @@
         "https://github.com/icco/today": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:57.997Z",
           "operation": "present",
           "status": "failed",
@@ -19917,7 +19798,6 @@
         "http://julieannhorvath.com/portfolio/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:27:59.356Z",
           "operation": "present",
           "status": "failed",
@@ -19926,7 +19806,6 @@
         "http://www.wsj.com/articles/former-defense-secretary-marches-into-new-territory-videogames-1453483137?mod=e2tw": {
           "attempts": 3,
           "error": "Discovery failed: 401",
-          "httpStatus": 401,
           "lastAttempt": "2026-11-17T18:27:59.436Z",
           "operation": "present",
           "status": "failed",
@@ -20104,7 +19983,6 @@
         "http://uk.reuters.com/article/uk-ecuador-sweden-assange-idUKKCN0VD0BJ": {
           "attempts": 3,
           "error": "Discovery failed: 401",
-          "httpStatus": 401,
           "lastAttempt": "2026-11-17T18:28:00.255Z",
           "operation": "present",
           "status": "failed",
@@ -20338,7 +20216,6 @@
         "https://raw.githubusercontent.com/icco/influence/master/data.json": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:28:01.061Z",
           "operation": "present",
           "status": "failed",
@@ -20449,7 +20326,6 @@
         "https://digg.com/video/house-of-cards-season-4-trailer-frank-claire": {
           "attempts": 3,
           "error": "Discovery failed: 410",
-          "httpStatus": 410,
           "lastAttempt": "2026-11-17T18:28:11.846Z",
           "operation": "present",
           "status": "failed",
@@ -20664,7 +20540,6 @@
         "https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4#.6f1iabhhz": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:28:12.924Z",
           "operation": "present",
           "status": "failed",
@@ -20673,7 +20548,6 @@
         "https://sereinlabel.bandcamp.com/album/data-trails": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:28:13.167Z",
           "operation": "present",
           "status": "failed",
@@ -20682,7 +20556,6 @@
         "https://t.co/g1po6Z3H55": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:28:13.701Z",
           "operation": "present",
           "status": "failed",
@@ -20691,7 +20564,6 @@
         "https://twitter.com/kanyewest/status/699108088687755264": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:28:13.935Z",
           "operation": "present",
           "status": "failed",
@@ -21017,7 +20889,6 @@
         "https://twitter.com/jongold/status/704517861063180288": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:28:15.168Z",
           "operation": "present",
           "status": "failed",
@@ -21366,7 +21237,6 @@
         "http://whitney.org/Events/FreedomOfInformationAct": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:28:20.027Z",
           "operation": "present",
           "status": "failed",
@@ -21730,7 +21600,6 @@
         "http://io9.gizmodo.com/amazing-cyberpunk-beer-commercial-by-the-makers-of-ghos-1554510274": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:28:21.390Z",
           "operation": "present",
           "status": "failed",
@@ -21739,7 +21608,6 @@
         "http://shop.oreilly.com/product/0636920041528.do": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:28:21.633Z",
           "operation": "present",
           "status": "failed",
@@ -21996,7 +21864,6 @@
         "https://www.ottoproject.io/": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:28:32.072Z",
           "operation": "present",
           "status": "failed",
@@ -22023,7 +21890,6 @@
         "http://www.nytimes.com/well/guides/how-to-start-running": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:28:33.157Z",
           "operation": "present",
           "status": "failed",
@@ -22041,9 +21907,10 @@
           "version": "e590c0be5a474a1ab4e1582a97b5255e679fd32653d54ac27adacd797a9a7525"
         },
         "https://www.theatlantic.com/international/archive/2016/04/what-are-the-panama-papers/476658/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:43.694Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:03.856Z",
           "operation": "present",
           "status": "failed",
           "version": "e590c0be5a474a1ab4e1582a97b5255e679fd32653d54ac27adacd797a9a7525"
@@ -22081,9 +21948,10 @@
           "version": "727c64b1c246b7e410d8ebeb2a7b2f5db1c3e2e023a7088cb5c7f07177006888"
         },
         "https://twitter.com/geniusdevs": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:44.181Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:04.326Z",
           "operation": "present",
           "status": "failed",
           "version": "727c64b1c246b7e410d8ebeb2a7b2f5db1c3e2e023a7088cb5c7f07177006888"
@@ -22251,9 +22119,10 @@
           "version": "fdba3e1a578672ec0db2a33c18e74a4eaa185184aff69ef50af4ac44a759f133"
         },
         "https://designobserver.com/feature/amanda-palmer-new/39261/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:44.933Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:05.011Z",
           "operation": "present",
           "status": "failed",
           "version": "fdba3e1a578672ec0db2a33c18e74a4eaa185184aff69ef50af4ac44a759f133"
@@ -22308,9 +22177,10 @@
           "version": "fdba3e1a578672ec0db2a33c18e74a4eaa185184aff69ef50af4ac44a759f133"
         },
         "https://medium.com/@sandimac/nyc-tech-catching-up-to-silicon-valley-while-seattle-flails-here-s-why-97ba7147b5f6#.vcurd77e4": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:45.017Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:05.106Z",
           "operation": "present",
           "status": "failed",
           "version": "fdba3e1a578672ec0db2a33c18e74a4eaa185184aff69ef50af4ac44a759f133"
@@ -22355,9 +22225,10 @@
           "version": "d90ed82ce890562c00dd26f1433992eabcce14176fdb33aa0df80225d0d5613f"
         },
         "http://www.gorillatoolkit.org/pkg/rpc/protorpc": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:45.638Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:05.697Z",
           "operation": "present",
           "status": "failed",
           "version": "d90ed82ce890562c00dd26f1433992eabcce14176fdb33aa0df80225d0d5613f"
@@ -22537,9 +22408,10 @@
     "https://writing.natwelch.com/post/581": {
       "targets": {
         "https://twitter.com/icco": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:46.464Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:06.481Z",
           "operation": "present",
           "status": "failed",
           "version": "92050a6f04602fbd1c98558d1e9e6a72fa5174d0bedf48ab01f24bd90f76ad06"
@@ -22644,17 +22516,19 @@
     "https://writing.natwelch.com/post/584": {
       "targets": {
         "http://longplay.herokuapp.com/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:47.305Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:07.019Z",
           "operation": "present",
           "status": "failed",
           "version": "559c7b493e319d6a006f47f502aff95e1b7e17275bcc4cb2adfaaff8bcce5592"
         },
         "https://developers.google.com/beacons/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:47.548Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:07.251Z",
           "operation": "present",
           "status": "failed",
           "version": "559c7b493e319d6a006f47f502aff95e1b7e17275bcc4cb2adfaaff8bcce5592"
@@ -22748,17 +22622,19 @@
     "https://writing.natwelch.com/post/585": {
       "targets": {
         "http://behindinfinity.deviantart.com/art/Death-Note-This-Is-Heaven-52682456": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:48.049Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:07.655Z",
           "operation": "present",
           "status": "failed",
           "version": "c786ff9079f19453c5d0f0ff2187b0fb4256b99130bca4f7daa24ba0d142a425"
         },
         "http://developer.dribbble.com/v1/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:48.851Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:08.441Z",
           "operation": "present",
           "status": "failed",
           "version": "c786ff9079f19453c5d0f0ff2187b0fb4256b99130bca4f7daa24ba0d142a425"
@@ -22820,9 +22696,10 @@
           "version": "c786ff9079f19453c5d0f0ff2187b0fb4256b99130bca4f7daa24ba0d142a425"
         },
         "https://www.deviantart.com/developers/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:48.986Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:08.754Z",
           "operation": "present",
           "status": "failed",
           "version": "c786ff9079f19453c5d0f0ff2187b0fb4256b99130bca4f7daa24ba0d142a425"
@@ -22846,9 +22723,10 @@
     "https://writing.natwelch.com/post/586": {
       "targets": {
         "https://medium.com/git-out-the-vote/chatops-198f0b62c601": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:49.354Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:09.133Z",
           "operation": "present",
           "status": "failed",
           "version": "1aef7f3a72989b84d3ea6b1e85f942592ea99105293462eb43765673c58208a0"
@@ -22947,9 +22825,10 @@
           "version": "5d822a08b5efe83493cec14e27851f0628747765afb6d99cd61c653d91cba746"
         },
         "https://medium.com/git-out-the-vote/chatops-198f0b62c601": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:49.871Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:09.642Z",
           "operation": "present",
           "status": "failed",
           "version": "5d822a08b5efe83493cec14e27851f0628747765afb6d99cd61c653d91cba746"
@@ -23058,25 +22937,28 @@
           "version": "8f5a142cfd5e5b682ee6ca206dd08fe862f2e51616d0d7fddcdb73427da3d887"
         },
         "https://www.hillaryclinton.com/mobileapp/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:50.932Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:10.485Z",
           "operation": "present",
           "status": "failed",
           "version": "8f5a142cfd5e5b682ee6ca206dd08fe862f2e51616d0d7fddcdb73427da3d887"
         },
         "https://www.hillaryclinton.com/trumpyourself/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:51.318Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:10.866Z",
           "operation": "present",
           "status": "failed",
           "version": "8f5a142cfd5e5b682ee6ca206dd08fe862f2e51616d0d7fddcdb73427da3d887"
         },
         "https://www.hillaryclinton.com/vote/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:51.818Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:11.315Z",
           "operation": "present",
           "status": "failed",
           "version": "8f5a142cfd5e5b682ee6ca206dd08fe862f2e51616d0d7fddcdb73427da3d887"
@@ -23219,9 +23101,10 @@
           "version": "12e92c3fd7ff92a6667b85e071add2182dde12300ef259aa63e6a0b9d3773e9e"
         },
         "https://www.flickr.com/photos/docmollo/2574467956/in/photolist-4VuPu3-4VuPFW-4VqBdR-4VuPnS-4VuPCy-4VqB1t-4VqBvZ-4VqByi-4VqBjn-4VqBpp-4VuQ9d-4VuPSm-4VuPqf-4VqBhi-4VuPyN-4VuPYQ-4VqB3v-4VuPsY-5bqoSU-4VuQ7d": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:52.805Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:11.817Z",
           "operation": "present",
           "status": "failed",
           "version": "12e92c3fd7ff92a6667b85e071add2182dde12300ef259aa63e6a0b9d3773e9e"
@@ -23316,17 +23199,19 @@
     "https://writing.natwelch.com/post/594": {
       "targets": {
         "http://www.politico.com/magazine/story/2016/08/2016-elections-russia-hack-how-to-hack-an-election-in-seven-minutes-214144": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:27:53.757Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:12.530Z",
           "operation": "present",
           "status": "failed",
           "version": "e35660c505c60522021d1fd09b2e07c2e61ff62f4a1164f6d061cc0f77ec05cf"
         },
         "http://www.thedailybeast.com/articles/2016/08/06/how-russia-dominates-your-twitter-feed-to-promote-lies-and-trump-too.html": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:54.072Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:13.000Z",
           "operation": "present",
           "status": "failed",
           "version": "e35660c505c60522021d1fd09b2e07c2e61ff62f4a1164f6d061cc0f77ec05cf"
@@ -23587,9 +23472,10 @@
     "https://writing.natwelch.com/post/598": {
       "targets": {
         "http://www.nytimes.com/aponline/2016/08/08/world/europe/ap-eu-delta-outage-.html": {
-          "attempts": 2,
-          "error": "Discovery failed: 410",
-          "lastAttempt": "2026-11-17T12:27:55.428Z",
+          "attempts": 3,
+          "error": "Discovery failed: 403",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:14.207Z",
           "operation": "present",
           "status": "failed",
           "version": "fd32b600128a3275a2d7f1da379c046d53463064ba03cd5988cfbb77a2c160ee"
@@ -24492,9 +24378,10 @@
           "version": "1ab737d84620329f183f65abdf445c01b98c48469426072f3f912423375ad532"
         },
         "http://www.debbiemillman.com/designmatters/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:27:59.724Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:17.811Z",
           "operation": "present",
           "status": "failed",
           "version": "1ab737d84620329f183f65abdf445c01b98c48469426072f3f912423375ad532"
@@ -31298,9 +31185,10 @@
     "https://writing.natwelch.com/post/668": {
       "targets": {
         "http://blog.annharter.com/2017/09/16/What-I-Learned-at-RC.html": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 503",
-          "lastAttempt": "2026-11-17T12:29:17.489Z",
+          "httpStatus": 503,
+          "lastAttempt": "2026-11-18T00:39:27.121Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
@@ -31320,17 +31208,18 @@
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://blog.jetstack.io/blog/kube-lego/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "certificate has expired",
-          "lastAttempt": "2026-11-17T12:29:18.036Z",
+          "lastAttempt": "2026-11-18T00:39:27.506Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://boingboing.net/2017/09/08/impaired-judgment-phones.html": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:29:18.129Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:27.620Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
@@ -31357,9 +31246,10 @@
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://gimletmedia.com/reply-all/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 404",
-          "lastAttempt": "2026-11-17T12:29:18.392Z",
+          "httpStatus": 404,
+          "lastAttempt": "2026-11-18T00:39:27.993Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
@@ -31379,9 +31269,10 @@
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://jezebel.com/the-handbook-for-mortals-bestseller-list-scandal-is-the-1798428267": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:29:18.687Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:28.209Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
@@ -31459,9 +31350,9 @@
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://quotes.natwelch.com/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "getaddrinfo ENOTFOUND quotes.natwelch.com",
-          "lastAttempt": "2026-11-17T12:29:18.751Z",
+          "lastAttempt": "2026-11-18T00:39:28.254Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
@@ -31474,9 +31365,9 @@
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://startupsventurecapital.com/why-shanghai-china-might-be-the-next-silicon-valley-and-why-we-should-care-811672cb12dd": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "The operation was aborted due to timeout",
-          "lastAttempt": "2026-11-17T12:29:28.769Z",
+          "lastAttempt": "2026-11-18T00:39:38.264Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
@@ -31489,19 +31380,19 @@
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://www.aei.org/publication/warren-buffett-wins-1m-bet-made-a-decade-ago-that-the-sp-500-stock-index-would-outperform-hedge-funds/": {
-          "attempts": 2,
+          "attempts": 3,
           "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:29:29.055Z",
+          "httpStatus": 403,
+          "lastAttempt": "2026-11-18T00:39:38.393Z",
           "operation": "present",
           "status": "failed",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://www.bloomberg.com/news/articles/2017-09-13/my-three-years-in-identity-theft-hell": {
-          "attempts": 2,
-          "error": "Discovery failed: 403",
-          "lastAttempt": "2026-11-17T12:29:29.190Z",
+          "attempts": 3,
+          "lastAttempt": "2026-11-18T00:39:38.976Z",
           "operation": "present",
-          "status": "failed",
+          "status": "no-endpoint",
           "version": "45a01dbab6bdf61aea7ed04c4744a3c192f41b98bf63d4b158f09c12b613b410"
         },
         "https://www.mcsweeneys.net/articles/im-diana-from-anne-of-green-gables-and-i-am-fucking-drunk": {
@@ -32904,7 +32795,6 @@
         "https://medium.com/@davejosephsen/backcountry-wifi-part-2-86e16b8d46ce": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:10.131Z",
           "operation": "present",
           "status": "failed",
@@ -32913,7 +32803,6 @@
         "https://medium.com/@mikeyd/unregulated-popoff-on-net-neutrality-cb01917b499e": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:10.208Z",
           "operation": "present",
           "status": "failed",
@@ -32978,7 +32867,6 @@
         "https://t.co/ROatm9cl6v": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:10.642Z",
           "operation": "present",
           "status": "failed",
@@ -32994,7 +32882,6 @@
         "https://twitter.com/morgan_murphy/status/942279171362865152?ref_src=twsrc%Etfw": {
           "attempts": 3,
           "error": "Discovery failed: 500",
-          "httpStatus": 500,
           "lastAttempt": "2026-11-17T18:21:10.808Z",
           "operation": "present",
           "status": "failed",
@@ -33003,7 +32890,6 @@
         "https://twitter.com/ProgressBar2017/status/942327513094807552?ref_src=twsrc%Etfw": {
           "attempts": 3,
           "error": "Discovery failed: 500",
-          "httpStatus": 500,
           "lastAttempt": "2026-11-17T18:21:10.731Z",
           "operation": "present",
           "status": "failed",
@@ -33012,7 +32898,6 @@
         "https://twitter.com/thedogist/status/942222044862799872?ref_src=twsrc%!Etfw": {
           "attempts": 3,
           "error": "Discovery failed: 500",
-          "httpStatus": 500,
           "lastAttempt": "2026-11-17T18:21:10.882Z",
           "operation": "present",
           "status": "failed",
@@ -33021,7 +32906,6 @@
         "https://twitter.com/waffynugget?ref_src=twsrc%Etfw": {
           "attempts": 3,
           "error": "Discovery failed: 500",
-          "httpStatus": 500,
           "lastAttempt": "2026-11-17T18:21:11.060Z",
           "operation": "present",
           "status": "failed",
@@ -33037,7 +32921,6 @@
         "https://webmasters.googleblog.com/2017/12/a-revamped-seo-starter-guide_12.html": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:21:11.432Z",
           "operation": "present",
           "status": "failed",
@@ -33053,7 +32936,6 @@
         "https://www.coindesk.com/ethereum-ripple-and-litecoin-have-arrived-on-bloomberg-terminals/amp/": {
           "attempts": 3,
           "error": "Discovery failed: 429",
-          "httpStatus": 429,
           "lastAttempt": "2026-11-17T18:21:11.501Z",
           "operation": "present",
           "status": "failed",
@@ -33069,7 +32951,6 @@
         "https://www.metafilter.com/171125/Lets-be-Wizards": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:11.603Z",
           "operation": "present",
           "status": "failed",
@@ -33085,7 +32966,6 @@
         "https://www.nylas.com/blog/why-consistency-matters-when-building-reliable-systems": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:12.479Z",
           "operation": "present",
           "status": "failed",
@@ -33108,7 +32988,6 @@
         "https://www.sec.gov/news/public-statement/statement-clayton-2017-12-11": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:12.529Z",
           "operation": "present",
           "status": "failed",
@@ -33117,7 +32996,6 @@
         "https://www.shopify.com/partners/blog/conference-talks": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:12.935Z",
           "operation": "present",
           "status": "failed",
@@ -33126,7 +33004,6 @@
         "https://www.theatlantic.com/photo/2017/12/2017-the-year-in-volcanic-activity/548273/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:13.060Z",
           "operation": "present",
           "status": "failed",
@@ -33196,7 +33073,6 @@
         "https://medium.com/@Scaleworks/keen-io-is-joining-the-scaleworks-family-64869390dea0?source=ifttt--------------1": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:23.488Z",
           "operation": "present",
           "status": "failed",
@@ -33212,7 +33088,6 @@
         "https://support.coinbase.com/customer/en/portal/articles/1496488-taxes-faq": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:23.663Z",
           "operation": "present",
           "status": "failed",
@@ -33270,7 +33145,6 @@
         "https://www.fastcompany.com/40506019/maria-bamford-is-here-to-help-you-through-the-christmas-blues": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:23.777Z",
           "operation": "present",
           "status": "failed",
@@ -33300,7 +33174,6 @@
         "https://www.topic.com/you-are-good-at-things": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:27.197Z",
           "operation": "present",
           "status": "failed",
@@ -33363,7 +33236,6 @@
         "https://io9.gizmodo.com/all-of-io9s-2017-year-in-review-lists-in-one-convenient-1821627784?rev=1514569534979": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:27.657Z",
           "operation": "present",
           "status": "failed",
@@ -33379,7 +33251,6 @@
         "https://medium.com/@skamille/i-do-a-yearly-review-here-are-some-of-the-questions-cd23e19795e1?source=ifttt--------------1": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:27.716Z",
           "operation": "present",
           "status": "failed",
@@ -33388,7 +33259,6 @@
         "https://medium.com/habit-of-introspection/60-days-of-yoga-2088496b415f?source=ifttt--------------1": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:27.762Z",
           "operation": "present",
           "status": "failed",
@@ -33432,7 +33302,6 @@
         "https://www.ft.com/content/7020a6e4-e4e3-11e7-8b99-0191e45377ec": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:27.838Z",
           "operation": "present",
           "status": "failed",
@@ -34147,7 +34016,6 @@
         "https://firstlook.media/careers": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:29.651Z",
           "operation": "present",
           "status": "failed",
@@ -34253,7 +34121,6 @@
         "https://web.archive.org/web/20190101031100/https://www.yelp.com/biz/juku-new-york": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:35.266Z",
           "operation": "present",
           "status": "failed",
@@ -34294,7 +34161,6 @@
         "https://facebook.github.io/graphql/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:35.807Z",
           "operation": "present",
           "status": "failed",
@@ -34401,7 +34267,6 @@
         "https://www.topic.com/fear-itself": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:36.345Z",
           "operation": "present",
           "status": "failed",
@@ -34522,7 +34387,6 @@
         "https://medium.com/@janchip/2018-end-of-year-report-19d36c54b3dc?source=ifttt--------------1": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:37.849Z",
           "operation": "present",
           "status": "failed",
@@ -34713,7 +34577,6 @@
         "https://gimletmedia.com/shows/reply-all/5whgo2/139-the-reply-all-hotline": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:57.900Z",
           "operation": "present",
           "status": "failed",
@@ -34722,7 +34585,6 @@
         "https://gimletmedia.com/shows/reply-all/brh8jm/140-the-roman-mars-mazda-virus": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:21:58.247Z",
           "operation": "present",
           "status": "failed",
@@ -34738,7 +34600,6 @@
         "https://ritholtz.com/2019/04/buy-yourself-a-fking-latte/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:21:58.399Z",
           "operation": "present",
           "status": "failed",
@@ -34775,7 +34636,6 @@
         "https://www.tamrat.co/ar-subway-card-map/": {
           "attempts": 3,
           "error": "Discovery failed: 402",
-          "httpStatus": 402,
           "lastAttempt": "2026-11-17T18:21:58.783Z",
           "operation": "present",
           "status": "failed",
@@ -35558,7 +35418,6 @@
         "http://kck.st/3Ft2AHf": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:22:05.167Z",
           "operation": "present",
           "status": "failed",
@@ -35574,7 +35433,6 @@
         "https://locative.garden/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:22:05.708Z",
           "operation": "present",
           "status": "failed",
@@ -36937,7 +36795,6 @@
         "https://twitter.com/kanyewest/status/568799033189232640": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:50.477Z",
           "operation": "present",
           "status": "failed",
@@ -36946,7 +36803,6 @@
         "https://twitter.com/kanyewest/status/568799064843685888": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:50.723Z",
           "operation": "present",
           "status": "failed",
@@ -36955,7 +36811,6 @@
         "https://twitter.com/kanyewest/status/568799126965473281": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:50.956Z",
           "operation": "present",
           "status": "failed",
@@ -36964,7 +36819,6 @@
         "https://twitter.com/kanyewest/status/568799151686750208": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:51.218Z",
           "operation": "present",
           "status": "failed",
@@ -36973,7 +36827,6 @@
         "https://twitter.com/kanyewest/status/568799174637985792": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:51.440Z",
           "operation": "present",
           "status": "failed",
@@ -36982,7 +36835,6 @@
         "https://twitter.com/kanyewest/status/568799196234387457": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:51.638Z",
           "operation": "present",
           "status": "failed",
@@ -36991,7 +36843,6 @@
         "https://twitter.com/kanyewest/status/568799246226292737": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:51.845Z",
           "operation": "present",
           "status": "failed",
@@ -37000,7 +36851,6 @@
         "https://twitter.com/kanyewest/status/568799361599082496": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:52.062Z",
           "operation": "present",
           "status": "failed",
@@ -37009,7 +36859,6 @@
         "https://twitter.com/kanyewest/status/568799391571513344": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:52.239Z",
           "operation": "present",
           "status": "failed",
@@ -38150,7 +37999,6 @@
         "https://images.natwelch.com/photos/2026/0P1T3WD65PRG4.gif": {
           "attempts": 3,
           "error": "Discovery failed: 422",
-          "httpStatus": 422,
           "lastAttempt": "2026-11-17T18:22:27.796Z",
           "operation": "present",
           "status": "failed",
@@ -38186,7 +38034,6 @@
         "https://open.substack.com/pub/amandalitman/p/a-gratitude-list": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:22:28.136Z",
           "operation": "present",
           "status": "failed",
@@ -38373,7 +38220,6 @@
         "https://llllllll.co/t/goals-2026/73619": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:22:29.089Z",
           "operation": "present",
           "status": "failed",
@@ -38465,7 +38311,6 @@
         "https://images.natwelch.com/photos/2026/0P1TGKW9XPTAK.gif": {
           "attempts": 3,
           "error": "Discovery failed: 422",
-          "httpStatus": 422,
           "lastAttempt": "2026-11-17T18:22:29.831Z",
           "operation": "present",
           "status": "failed",
@@ -39516,7 +39361,6 @@
         "https://www.reddit.com/r/WellsFargoBank/comments/1nvf5vh/automatically_add_all_my_wells_fargo_deals_to/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:22:33.843Z",
           "operation": "present",
           "status": "failed",
@@ -39550,7 +39394,6 @@
         "https://www.nycfoodpolicy.org/": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:22:34.499Z",
           "operation": "present",
           "status": "failed",
@@ -39737,10 +39580,10 @@
           "version": "ddb457611de1ec1b3b09f3135dfe228a1f304ccd82ad8f607b194725f140095f"
         },
         "https://github.com/icco/icco.me/blob/main/mist/docker-compose.yml": {
-          "attempts": 1,
+          "attempts": 2,
           "error": "Discovery failed: 404",
           "httpStatus": 404,
-          "lastAttempt": "2026-11-17T18:22:52.563Z",
+          "lastAttempt": "2026-11-18T00:39:54.585Z",
           "operation": "present",
           "status": "failed",
           "version": "ddb457611de1ec1b3b09f3135dfe228a1f304ccd82ad8f607b194725f140095f"
@@ -39961,7 +39804,6 @@
         "https://twitter.com/dmpatierno/status/575331596703637504": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:54.179Z",
           "operation": "present",
           "status": "failed",
@@ -40247,7 +40089,6 @@
         "https://twitter.com/aaronbshaw": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:23:57.059Z",
           "operation": "present",
           "status": "failed",
@@ -40256,7 +40097,6 @@
         "https://twitter.com/mehulkar": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:23:57.173Z",
           "operation": "present",
           "status": "failed",
@@ -40549,7 +40389,6 @@
         "https://twitter.com/agustinbenassi": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:23:58.294Z",
           "operation": "present",
           "status": "failed",
@@ -40558,7 +40397,6 @@
         "https://twitter.com/corydominguez": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:23:58.395Z",
           "operation": "present",
           "status": "failed",
@@ -40567,7 +40405,6 @@
         "https://twitter.com/gnclmorais": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:23:58.551Z",
           "operation": "present",
           "status": "failed",
@@ -40583,7 +40420,6 @@
         "https://twitter.com/ifosteve": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:23:58.665Z",
           "operation": "present",
           "status": "failed",
@@ -40592,7 +40428,6 @@
         "https://twitter.com/nicholasbs": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:23:58.786Z",
           "operation": "present",
           "status": "failed",
@@ -40654,7 +40489,6 @@
         "http://angus.nyc/writing/paxos-by-example/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:59.517Z",
           "operation": "present",
           "status": "failed",
@@ -40698,7 +40532,6 @@
         "https://en.wikipedia.org/wiki/Prim%25!s%28MISSING": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:23:59.900Z",
           "operation": "present",
           "status": "failed",
@@ -40714,7 +40547,6 @@
         "https://twitter.com/agustinbenassi": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:00.109Z",
           "operation": "present",
           "status": "failed",
@@ -40723,7 +40555,6 @@
         "https://twitter.com/ataipale": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:00.251Z",
           "operation": "present",
           "status": "failed",
@@ -40732,7 +40563,6 @@
         "https://twitter.com/gnclmorais": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:00.367Z",
           "operation": "present",
           "status": "failed",
@@ -40741,7 +40571,6 @@
         "https://twitter.com/HeidiKasemir": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:00.010Z",
           "operation": "present",
           "status": "failed",
@@ -40750,7 +40579,6 @@
         "https://twitter.com/horrorcheck": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:00.490Z",
           "operation": "present",
           "status": "failed",
@@ -40759,7 +40587,6 @@
         "https://twitter.com/ken_pratt": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:00.586Z",
           "operation": "present",
           "status": "failed",
@@ -40768,7 +40595,6 @@
         "https://twitter.com/mrdrozdov": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:00.689Z",
           "operation": "present",
           "status": "failed",
@@ -40802,7 +40628,6 @@
         "http://blog.lazerwalker.com/blog/2013/12/24/one-post-a-week-running-an-iron-blogger-challenge/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:01.393Z",
           "operation": "present",
           "status": "failed",
@@ -40874,7 +40699,6 @@
         "https://twitter.com/bglusman": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:01.520Z",
           "operation": "present",
           "status": "failed",
@@ -40883,7 +40707,6 @@
         "https://walk-bot.herokuapp.com/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:01.741Z",
           "operation": "present",
           "status": "failed",
@@ -40906,7 +40729,6 @@
         "https://zulip.com/api/endpoints/": {
           "attempts": 3,
           "error": "Discovery failed: 404",
-          "httpStatus": 404,
           "lastAttempt": "2026-11-17T18:24:02.044Z",
           "operation": "present",
           "status": "failed",
@@ -40926,7 +40748,6 @@
         "http://genius.com/2339642": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:02.467Z",
           "operation": "present",
           "status": "failed",
@@ -41185,7 +41006,6 @@
         "https://twitter.com/lunacodess": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:03.853Z",
           "operation": "present",
           "status": "failed",
@@ -41194,7 +41014,6 @@
         "https://twitter.com/mno00": {
           "attempts": 3,
           "error": "Discovery failed: 403",
-          "httpStatus": 403,
           "lastAttempt": "2026-11-17T18:24:03.978Z",
           "operation": "present",
           "status": "failed",
