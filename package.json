@@ -24,7 +24,7 @@
     "webmentions:send": "tsx scripts/send-webmentions.ts"
   },
   "dependencies": {
-    "@google/genai": "^3.3.0",
+    "@google/genai": "^3.4.0",
     "@heroicons/react": "^2.2.0",
     "@icco/react-common": "^2026.11115.1",
     "@mdx-js/mdx": "^3.1.1",
@@ -75,7 +75,7 @@
     "@types/react-dom": "^19.3.0",
     "@types/whatwg-mimetype": "^5.0.0",
     "@types/write-file-atomic": "^4.0.3",
-    "@typescript-eslint/parser": "^8.72.2",
+    "@typescript-eslint/parser": "^8.73.0",
     "@vitejs/plugin-react": "^6.3.0",
     "@vitest/coverage-v8": "^5.1.0",
     "daisyui": "^5.8.1",
