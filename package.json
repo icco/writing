@@ -24,7 +24,7 @@
     "webmentions:send": "tsx scripts/send-webmentions.ts"
   },
   "dependencies": {
-    "@google/genai": "^3.4.0",
+    "@google/genai": "^3.6.1",
     "@heroicons/react": "^2.2.0",
     "@icco/react-common": "^2026.11115.1",
     "@mdx-js/mdx": "^3.1.1",
@@ -77,7 +77,7 @@
     "@types/write-file-atomic": "^4.0.3",
     "@typescript-eslint/parser": "^8.73.0",
     "@vitejs/plugin-react": "^6.3.0",
-    "@vitest/coverage-v8": "^5.1.0",
+    "@vitest/coverage-v8": "^5.1.1",
     "daisyui": "^5.8.1",
     "eslint": "^10.15.0",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -89,7 +89,7 @@
     "tailwindcss": "^4.3.5",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
-    "vitest": "^5.1.0"
+    "vitest": "^5.1.1"
   },
   "prettier": {
     "trailingComma": "es5",
