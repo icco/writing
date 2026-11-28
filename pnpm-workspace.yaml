@@ -6,7 +6,6 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - '@icco/react-common'
   - '@icco/*'
 overrides:
   uuid: ^11.0.0
