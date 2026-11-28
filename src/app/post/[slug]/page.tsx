@@ -1,8 +1,4 @@
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  PencilIcon,
-} from "@heroicons/react/24/outline"
+import { ChevronLeft, ChevronRight, Pencil } from "lucide-react"
 import { format, parseISO } from "date-fns"
 import { PHASE_PRODUCTION_BUILD } from "next/constants"
 import { draftMode } from "next/headers"
@@ -200,7 +196,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
                 title={prev.title}
                 className="btn btn-secondary"
               >
-                <ChevronLeftIcon className="inline-block h-6 w-6" /> #{prev.id}
+                <ChevronLeft className="inline-block h-6 w-6" /> #{prev.id}
               </Link>
             )}
           </div>
@@ -212,7 +208,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
                 title="Edit this post on Github"
                 className="btn btn-ghost"
               >
-                <PencilIcon className="inline-block h-4 w-4" />
+                <Pencil className="inline-block h-4 w-4" />
               </Link>
             </div>
             <div className="grow"></div>
@@ -224,7 +220,7 @@ const PostLayout = async (props: { params: Promise<{ slug: string }> }) => {
                 title={next.title}
                 className="btn btn-secondary"
               >
-                #{next.id} <ChevronRightIcon className="inline-block h-6 w-6" />
+                #{next.id} <ChevronRight className="inline-block h-6 w-6" />
               </Link>
             )}
           </div>

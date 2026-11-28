@@ -1,8 +1,4 @@
-import {
-  ArrowPathRoundedSquareIcon,
-  BookmarkIcon,
-  HeartIcon,
-} from "@heroicons/react/16/solid"
+import { Bookmark, Heart, Repeat } from "lucide-react"
 import { format, parseISO } from "date-fns"
 import type { Reaction, ReactionGroups } from "@/lib/webmentions"
 
@@ -10,21 +6,21 @@ const rel = "nofollow ugc"
 const piles = [
   {
     kind: "likes",
-    Icon: HeartIcon,
+    Icon: Heart,
     label: ["like", "likes"],
     relation: "u-like-of",
     property: "p-like",
   },
   {
     kind: "reposts",
-    Icon: ArrowPathRoundedSquareIcon,
+    Icon: Repeat,
     label: ["repost", "reposts"],
     relation: "u-repost-of",
     property: "p-repost",
   },
   {
     kind: "bookmarks",
-    Icon: BookmarkIcon,
+    Icon: Bookmark,
     label: ["bookmark", "bookmarks"],
     relation: "u-bookmark-of",
     property: "",
